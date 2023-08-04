@@ -1,40 +1,34 @@
-local showCoordinates = false
+-- Script pour afficher les coordonnées du joueur en temps réel et en continu
+-- Framework RedEM:RP
 
--- Fonction pour afficher les coordonnées
-function ShowCoordinates()
-    local playerCoords = GetEntityCoords(PlayerPedId())
-    local x, y, z = table.unpack(playerCoords)
+local displayingCoordinates = false
 
-    local roundedX = string.format("%.2f", x)
-    local roundedY = string.format("%.2f", y)
-    local roundedZ = string.format("%.2f", z)
+RegisterCommand("pos", function()
+    displayingCoordinates = not displayingCoordinates
 
-    local coordsText = "X: " .. roundedX .. " Y: " .. roundedY .. " Z: " .. roundedZ
+    if displayingCoordinates then
+        DisplayCoordinates()
+    else
+        TriggerEvent('chatMessage', 'COORDINATES', {255, 0, 0}, "Arrêt de l'affichage des coordonnées.")
+    end
+end, false)
 
-    SetTextFont(4)
-    SetTextScale(0.5, 0.5)
-    SetTextColour(255, 255, 255, 255)
-    SetTextEntry("STRING")
-    AddTextComponentString(coordsText)
-    DrawText(0.01, 0.95)
+function DisplayCoordinates()
+    Citizen.CreateThread(function()
+        while displayingCoordinates do
+            Citizen.Wait(1000) -- Vous pouvez ajuster le délai (en millisecondes) entre chaque actualisation ici. Actuellement défini à 1 seconde (1000 ms).
+
+            local playerPed = PlayerId()
+            local x, y, z = table.unpack(GetEntityCoords(GetPlayerPed(playerPed), true))
+
+            TriggerEvent('chatMessage', 'COORDINATES', {255, 0, 0}, string.format("X: %.2f, Y: %.2f, Z: %.2f", x, y, z))
+        end
+    end)
 end
 
--- Commande pour activer/désactiver l'affichage des coordonnées
-RegisterCommand("pos", function()
-    showCoordinates = not showCoordinates
-    if showCoordinates then
-        TriggerEvent("chatMessage", "^1Coordonnées activées.")
-    else
-        TriggerEvent("chatMessage", "^1Coordonnées désactivées.")
-    end
-end)
-
--- Événement pour afficher les coordonnées lorsque la variable showCoordinates est vraie
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-        if showCoordinates then
-            ShowCoordinates()
-        end
+AddEventHandler('playerSpawned', function()
+    local player = source
+    if displayingCoordinates then
+        DisplayCoordinates()
     end
 end)
