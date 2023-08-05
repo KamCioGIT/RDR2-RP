@@ -1054,13 +1054,16 @@ RequestImap(-1229109520) -- Green Plants
 ------------------------------------- #### END OF GREY ESTATES ####
 
 ------------------------------------- Blackwater Town Hall
-RequestImap(-2082201137)  --Blackwater Ground Town Hall
-RequestImap(1343343014)  --Blackwater Town Hall Addons Construction
+--RequestImap(-2082201137)  --Blackwater Ground Town Hall
+-- RequestImap(1343343014)  --Blackwater Town Hall Addons Construction + lanterne sur la bank
 -- RequestImap(739412171)  -- Two Boards in front of city hall (Goes with Town Hall Construction)
-RequestImap(-5339556)  --Bank Under Construction (bug les textures derrire si enlevee)
--- RequestImap(1173561253) -- Tents Beside City Hall Near Trech
--- RequestImap(1470738186) -- Adds Pre-Construcion Ground (Ground does not mesh well with contrustion IPLs)
--- RequestImap(-1632348233) -- Adds Trees and Grass (DO NOT USE WITH CONSTRUCTION IPL, WILL MERGE VISUALS)
+-- RequestImap(-5339556)  --Bank Under Construction (bug les textures derrire si enlevee)
+-- RequestImap (1771740581) -- Texture de loin des constructions
+--RequestImap(1258244391) -- Bank Under Construction, de paire avec l'autre
+RequestImap(1173561253) -- Tents Beside City Hall Near Trech----------------
+RequestImap(1359061265) -- Tente de paire avec au dessus-----------------
+RequestImap(1470738186) -- Adds Pre-Construcion Ground (Ground does not mesh well with contrustion IPLs)-----------
+RequestImap(-1632348233) -- Adds Trees and Grass (DO NOT USE WITH CONSTRUCTION IPL, WILL MERGE VISUALS) --------------
 ------------------------------------- #### END OF BLACKWATER TOWN HALL ####
 
 ------------------------------------- First Camp - Winter Area -1346 2407 311
@@ -1333,6 +1336,9 @@ RequestImap(-1377975054) -- ground trail to house
 -- RequestImap(-1327148782) -- grass over hole
 -- RequestImap(-1965378386) -- grass over hole
 ------------------------------------- #### END Hole/cabin east of emerald station --####
+
+---- Emerald Ranch -----
+RequestImap(1709230785) -- Interieur saloon
 
 --------------------- Valentine extras
 RequestImap(886997475) -- bounty board
@@ -1914,8 +1920,8 @@ RequestImap(382484708)
 RequestImap(-411006854)
 RequestImap(1133453602)
 RequestImap(350637317)
-RequestImap(1968676233)
-RequestImap(2112594812)
+-- RequestImap(1968676233) emerald Ranch sang 2
+-- RequestImap(2112594812) EmeralRanch sang
 RequestImap(1750312025)
 RequestImap(-1111286486)
 RequestImap(-1625703283)
@@ -1924,15 +1930,23 @@ RequestImap(1628851253)
 RequestImap(746475990)
 RequestImap(-753844687)
 RequestImap(-1045062790)
-RequestImap(-1272426249)
-RequestImap(334535013)
+
+
 RequestImap(582879672) --was commented
 RequestImap(1713454259)
 RequestImap(-1417469821)
 RequestImap(1798244378)
 RequestImap(-1665620584)
-RequestImap(-537740003)
-RequestImap(-1584316325) -- was commented
+
+-- ANNESBURG -- 
+-- RequestImap(-537740003) --  wagon
+-- RequestImap(-1584316325) -- Wagon
+RemoveImap(82327632) -- wagon
+RemoveImap(-208302420) -- wagon
+-- RequestImap(334535013) -- wagon sortie mine
+-- RequestImap(-1272426249) -- bloque sortie de la mine
+
+
 RequestImap(-1085363933)
 RequestImap(1517736440)
 RequestImap(-1509154451)
@@ -2054,7 +2068,7 @@ RequestImap(870580095)
 RequestImap(504746979)
 RequestImap(138913863)
 RequestImap(-90108678)
-RequestImap(1258244391)
+
 RequestImap(-501793326)
 RequestImap(1490756544)
 RequestImap(-753454183)
@@ -2638,7 +2652,7 @@ RequestImap(942470447)
 RequestImap(-1170563128)
 RequestImap(1394163483)
 RequestImap(-483649675)
-RequestImap(-782601262)
+-- RequestImap(-782601262) -- St Denis usine broken
 RequestImap(212587871)
 RequestImap(-436566493)
 RequestImap(-677790400)
