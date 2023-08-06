@@ -1,15 +1,21 @@
+RedEM = exports["redem_roleplay"]:RedEM()
+
 local isMining = false
 local isMiner = true
 local isDeposit = false
 local started = false
 
-RegisterCommand('startMiner', function()
-    startMission()
+
+--- Définir si le joueur est mineur 
+Citizen.CreateThread(function()
+    Wait(0)
+    TriggerServerEvent('mineur:checkjob')
 end)
 
 
--- VA MINER 
-function startMission()
+-- VA MINER   
+RegisterNetEvent("startMission")
+AddEventHandler("startMission",function()
     if Config.ShowBlips then
         for k, v in ipairs(Config.RessourcesPoints) do
             Citizen.InvokeNative(0x554d9d53f696d002, Config.PointSprite, v.x, v.y, v.z)
@@ -32,7 +38,7 @@ function startMission()
             end
         end
     end)
-end
+end)
 
 -- ACTION DE MINER
 function StartMining()

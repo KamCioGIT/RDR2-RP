@@ -1,6 +1,17 @@
+RedEM = exports["redem_roleplay"]:RedEM()
+
 data = {}
 TriggerEvent("redemrp_inventory:getData",function(call)
     data = call
+end)
+
+RegisterServerEvent('mineur:checkjob')
+AddEventHandler('mineur:checkjob',function()
+    local user = RedEM.GetPlayer(source)
+    local job = user.job
+    if job == "Mineur" then
+        TriggerClientEvent("startMission", source)
+    end
 end)
 
 RegisterServerEvent('mineur:addferbrut')
