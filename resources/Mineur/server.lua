@@ -9,7 +9,7 @@ RegisterServerEvent('mineur:checkjob')
 AddEventHandler('mineur:checkjob',function()
     local user = RedEM.GetPlayer(source)
     local job = user.job
-    if job == "Mineur" then
+    if job == "mineur" then
         TriggerClientEvent("startMission", source)
     end
 end)

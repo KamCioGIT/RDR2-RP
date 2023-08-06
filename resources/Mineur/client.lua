@@ -1,15 +1,21 @@
 RedEM = exports["redem_roleplay"]:RedEM()
-
+local PlayerJob = nil
+local PlayerJobgrade = nil
 local isMining = false
-local isMiner = true
 local isDeposit = false
-local started = false
 
 
 --- Définir si le joueur est mineur 
 Citizen.CreateThread(function()
-    Wait(0)
-    TriggerServerEvent('mineur:checkjob')
+    while RedEM.GetPlayerData().isLoggedIn ~= true do 
+        Wait(250)
+        if RedEM.GetPlayerData().isLoggedIn then 
+            TriggerServerEvent('mineur:checkjob') 
+        end
+    end
+    if RedEM.GetPlayerData().isLoggedIn then 
+        TriggerServerEvent('mineur:checkjob') 
+    end
 end)
 
 
