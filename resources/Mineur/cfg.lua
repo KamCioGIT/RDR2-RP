@@ -1,9 +1,9 @@
 Config = {}
 
-Config.MinerJobCoalPos = {x = 2796.158, y = 1344.449, z = 71.454} -- Pos du charbon
+Config.MinerJobCoalPos = { vector3(2797.434, 1395.36, 70.32012)} -- Pos du charbon
 Config.MinerJobRubblePos = {x = 2791.935, y = 1337.352, z = 71.329} -- Pos des gravats
-Config.MinerJobDepositPos = { x = 2879.16, y = 1402.14, z = 68.70} -- 
-Config.MinerJobWithdrawalPos = { x = 2955.443, y = 1372.362, z = 56.254}
+Config.MinerJobDepositPos = { vector3(2880.175, 1401.344, 68.70103)} -- 
+Config.MinerJobWithdrawalPos = { vector3(2954.671, 1374.939, 51.32298)}
 Config.DistanceToInteract = 2.2
 
 Config.PointSprite = 2033377404
@@ -17,12 +17,14 @@ Config.JobRanks =
     [3] = Patron
 } 
 
-Config.StartWorking = "Press Del to start mining !" -- Start Working Message
-Config.StartJobInteract = "Press Drop to deposit!" -- Start Gathering Message
+Config.MsgGathering = "Appuie sur Del" -- Message de récolte
+Config.MsgDeposit = "Appuie sur Entrer pour déposer" -- Message de dépot
+Config.MsgRetrieve = "Appuie sur Entrer" -- Message de traitement
 
 Config.MiningAnim = 'WORLD_HUMAN_PICKAXE_WALL'
 
 Config.WorkingTime = 10000
+Config.WorkingTimeCoal = 5000
 Config.TimerMsg = " Currently working for :"
 
 Config.ShowBlips = true

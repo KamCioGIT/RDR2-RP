@@ -516,6 +516,60 @@ Config.Items = {
         imgsrc = "items/WEAPON_KIT_BINOCULARS.png",
         type = "item_weapon"
     },
+
+
+    -- Custom
+
+    ["pioche"] = {
+        label = "Pioche",
+        description = "Indispensable pour miner",
+        weight = 2,
+        canBeDropped = true,
+        canBeUsed = true,
+        limit = 200,
+        imgsrc = "items/pickaxe.png",
+        type = "item_standard"
+    },
+    ["ferbrut"] = {
+        label = "Fer brut",
+        description = "Minerai de Fer ",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 1000,
+        imgsrc = "items/ironore.png",
+        type = "item_standard"
+    },
+    ["plombbrut"] = {
+        label = "Plomb brut",
+        description = "Minerai de Plomb ",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 1000,
+        imgsrc = "items/metal_ore.png",
+        type = "item_standard"
+    },
+    ["cuivrebrut"] = {
+        label = "Cuivre brut",
+        description = "Minerai de Cuivre",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 1000,
+        imgsrc = "items/copper_ore.png",
+        type = "item_standard"
+    },
+    ["charbon"] = {
+        label = "Charbon",
+        description = "La base de toute industrie",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/rock.png",
+        type = "item_standard"
+    }
 }
 exports("GetItemsList", function()
     return Config.Items

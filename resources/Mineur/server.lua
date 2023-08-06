@@ -35,3 +35,10 @@ AddEventHandler('mineur:addcuivrebrut', function()
 	local ItemData = data.getItem(_source, 'cuivrebrut')
 	ItemData.AddItem(1)
 end)
+
+RegisterServerEvent('mineur:addcharbon')
+AddEventHandler('mineur:addcharbon', function() 
+	local _source = source
+	local ItemData = data.getItem(_source, 'charbon')
+	ItemData.AddItem(1)
+end)
