@@ -5,21 +5,28 @@ local ressourcePointIndexForMining = nil
 
 --- Définir si le joueur est mineur 
 Citizen.CreateThread(function()
+    local PlayerData = RedEM.GetPlayerData()
     while RedEM.GetPlayerData().isLoggedIn ~= true do 
         Wait(750)
-        if RedEM.GetPlayerData().isLoggedIn then 
-            TriggerServerEvent('mineur:checkjob') 
+        if PlayerData.job == "mineur" then 
+            startMission()
+            if PlayerData.jobgrade > "1" then
+                contremaitre()
+            end
         end
     end
     if RedEM.GetPlayerData().isLoggedIn then 
-        TriggerServerEvent('mineur:checkjob') 
+        if PlayerData.job == "mineur" then 
+            startMission()
+            if PlayerData.jobgrade > "1" then
+                contremaitre()
+            end
+        end
     end
 end)
 
-
 -- VA MINER   
-RegisterNetEvent("startMission")
-AddEventHandler("startMission",function()
+function startMission()
     GetRandomRessourcePoint()
     Citizen.CreateThread(function() --- MINERAI
         while true do
@@ -64,16 +71,15 @@ AddEventHandler("startMission",function()
                 if #(playerPos - v) < Config.DistanceToInteract then
                     DrawTxt(Config.MsgDeposit, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
                     if IsControlJustPressed(2, 0x4AF4D473) then 
-                        Print ("Dépot")
+                        TriggerServerEvent('mineur:server:mineur:depStash')
                     end
                 else end
             end
         end
     end)
-end)
+end
 
-RegisterNetEvent("mineur:contremaitre")
-AddEventHandler("mineur:contremaitre", function() --- RETRAIT
+function contremaitre() --- RETRAIT
     while true do    
         Wait(0)
         local playerPos = GetEntityCoords(PlayerPedId())
@@ -84,12 +90,14 @@ AddEventHandler("mineur:contremaitre", function() --- RETRAIT
             if #(playerPos - v) < Config.DistanceToInteract then
                 DrawTxt(Config.MsgRetrieve, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
                 if IsControlJustPressed(2, 0x4AF4D473) then 
-                    Print ("Retrait")
+                    TriggerServerEvent('mineur:server:mineur:retStash')
                 end
             else end
         end
     end
-end)
+end
+
+
 
 local blip
 function GetRandomRessourcePoint()
