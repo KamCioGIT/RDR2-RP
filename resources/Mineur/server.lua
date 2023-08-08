@@ -50,7 +50,7 @@ RegisterServerEvent("mineur:server:mineur:depStash", function()
     local user = RedEM.GetPlayer(_source)
     local job = RedEM.GetPlayer(source).job
 	if RedEM.GetPlayer(source).job == "mineur" then
-            TriggerClientEvent("redemrp_inventory:OpenStash", _source, "dep_"..job, 3000.0)
+        TriggerClientEvent("redemrp_inventory:OpenStash", _source, "dep_"..job, 3000.0)
     end
 end)
 
@@ -58,12 +58,11 @@ end)
 RegisterServerEvent("mineur:server:mineur:retStash", function()
     local _source = source
     local user = RedEM.GetPlayer(_source)
-    local job = RedEM.GetPlayer(source).job
-	if RedEM.GetPlayer(source).jobgrade > "1" then
-            TriggerClientEvent("redemrp_inventory:OpenStash", _source, "ret_"..job, 3000.0)
+    local job = RedEM.GetPlayer(_source).job
+	if RedEM.GetPlayer(source).jobgrade > 1 then
+        TriggerClientEvent("redemrp_inventory:OpenStash", _source, "ret_"..job, 3000.0)
     end
 end)
-
 
 -- RegisterServerEvent("mineur:server:mineur:traitement", function()
 -- 	for k,v in pairs(Config.Items) do
@@ -73,3 +72,18 @@ end)
 -- 	addItemStash(_source, "pepitefer", 1, data.meta, "dep_"..job)
 -- 	removeItemStash(_source, "ferbrut", 2, data.meta, "ret_"..job)
 -- end)
+
+
+RegisterServerEvent("CheckStash", function()
+	local depstashW = exports.redemrp_inventory.GetStashWeight(source, "dep_mineur")
+	local retstashW = exports.redemrp_inventory.GetStashWeight(source, "ret_mineur")
+	print("Stash weight: " .. tonumber(depstashW))
+	print("Stash weight: " .. tonumber(retstashW))
+end)
+
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(5000)
+		TriggerEvent("redemrp_inventory:server:removeitemstash", "ferbrut", 2, {}, "dep_mineur","water", 1, {}, "ret_mineur")
+	end
+end)

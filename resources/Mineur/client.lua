@@ -8,21 +8,32 @@ Citizen.CreateThread(function()
     local PlayerData = RedEM.GetPlayerData()
     while RedEM.GetPlayerData().isLoggedIn ~= true do 
         Wait(750)
-        if PlayerData.job == "mineur" then 
+        if RedEM.GetPlayerData().job == "mineur" then 
             startMission()
-            if PlayerData.jobgrade > "1" then
+            if RedEM.GetPlayerData().jobgrade > 1 then
                 contremaitre()
             end
         end
     end
     if RedEM.GetPlayerData().isLoggedIn then 
-        if PlayerData.job == "mineur" then 
+        if RedEM.GetPlayerData().job == "mineur" then
             startMission()
-            if PlayerData.jobgrade > "1" then
+            if RedEM.GetPlayerData().jobgrade > 1 then
                 contremaitre()
             end
         end
     end
+end)
+
+
+
+RegisterCommand("sayhi", function(source, args)
+    local PlayerData = RedEM.GetPlayerData()
+    print (""..PlayerData.jobgrade.." et "..PlayerData.job.."")
+end)
+
+RegisterCommand("sw", function(source, args)
+    TriggerServerEvent("CheckStash")
 end)
 
 -- VA MINER   

@@ -1082,6 +1082,7 @@ function addItemStash(source, name, amount, meta, stashId)
     return output
 end
 
+                        -- _     str   int     meta  str 
 function removeItemStash(source, name, amount, meta, stashId)
     local _source = source
     local Player = RedEM.GetPlayer(_source)
@@ -1089,6 +1090,7 @@ function removeItemStash(source, name, amount, meta, stashId)
     local _amount = tonumber(amount)
     local _meta = meta or {}
     local output = false
+    print (source, name, amount, meta, stashId)
     if _amount >= 0 then
         local itemData = Config.Items[_name]
         local stash = Stash[stashId]
@@ -1119,6 +1121,140 @@ function removeItemStash(source, name, amount, meta, stashId)
     return output
 end
 
+RegisterServerEvent("redemrp_inventory:server:removeitemstash")
+AddEventHandler("redemrp_inventory:server:removeitemstash", function(name, amount, meta, stashId, name2, amount2, meta2, stashId2)
+    local _name = name
+    local _amount = tonumber(amount)
+    local _meta = meta or {}
+    local output = false
+    if _amount >= 0 then
+        local itemData = Config.Items[_name]
+        local stash = Stash[stashId]
+        local item, id = getInventoryItemFromName(_name, stash, getMetaOutput(meta))
+        local weight = GetStashWeight(stashId)
+
+        if item then
+            --print(item.getAmount(), _amount)
+            if itemData.type == "item_standard" then
+                if _amount > 0 then
+                    if item.getAmount() >= _amount then
+                        if item.removeAmount(_amount) then
+                            table.remove(stash, id)
+                        end
+                        output = true
+                    end
+                end
+            elseif itemData.type == "item_weapon" or itemData.type == "item_letter" then
+                table.remove(stash, id)
+                output = true
+            end
+        end
+    end
+    if output then
+        local _name2 = name2
+        local _amount2 = tonumber(amount2)
+        local _meta2 = meta2 or {}
+        if _amount2 >= 0 then
+            local itemData2 = Config.Items[_name2]
+            local stash2 = Stash[stashId2]
+            local item2, id2 = getInventoryItemFromName(_name2, stash2, getMetaOutput(meta2))
+            local weight2 = GetStashWeight(stashId2)
+            local weightLimit2 = StashMaxWeights[_source2] or 60.0
+            if itemData2.type == "item_weapon" or itemData2.type == "item_letter" then
+                -- --("Boss stash weight: ".. weight .." vs ".. weightLimit)
+                -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
+                -- --(weight + (itemData.weight * amount))
+                if weight2 + (itemData2.weight) > weightLimit2 then
+                    return output
+                end
+            else
+                -- --("Boss stash weight: ".. weight .." vs ".. weightLimit)
+                -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight * amount)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
+                -- --(weight + (itemData.weight * amount))
+                if weight2 + (itemData2.weight * amount2) > weightLimit2 then
+                    return output
+                end
+            end
+            
+            if not item2 then
+                if itemData2.type == "item_standard" then
+                    if _amount2 > 0 then
+                        table.insert(stash2, CreateItem(_name2, _amount2, _meta2))
+                        output = true
+                    end
+                    table.insert(stash2, CreateItem(_name2, _amount2, _meta2))
+                    output = true
+                end
+            else
+                if _amount2 > 0 then
+                    if itemData2.type == "item_standard" then
+                        item2.addAmount(_amount2)
+                        output = true
+                    end
+                end
+            end
+        end
+        return output
+    end
+end)
+
+RegisterServerEvent("redemrp_inventory:server:additemstash")
+AddEventHandler("redemrp_inventory:server:additemstash",function(name, amount, meta, stashId)
+    local _name = name
+    local _amount = tonumber(amount)
+    local output = false
+    local _meta = meta or {}
+    if _amount >= 0 then
+        local itemData = Config.Items[_name]
+        local stash = Stash[stashId]
+        local item, id = getInventoryItemFromName(_name, stash, getMetaOutput(meta))
+        local weight = GetStashWeight(stashId)
+
+        local weightLimit = StashMaxWeights[_source] or 60.0
+        if itemData.type == "item_weapon" or itemData.type == "item_letter" then
+            -- --("Boss stash weight: ".. weight .." vs ".. weightLimit)
+            -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
+            -- --(weight + (itemData.weight * amount))
+            if weight + (itemData.weight) > weightLimit then
+                return output
+            end
+        else
+            -- --("Boss stash weight: ".. weight .." vs ".. weightLimit)
+            -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight * amount)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
+            -- --(weight + (itemData.weight * amount))
+            if weight + (itemData.weight * amount) > weightLimit then
+                return output
+            end
+        end
+        
+        if not item then
+            if itemData.type == "item_standard" then
+                if _amount > 0 then
+                    table.insert(stash, CreateItem(_name, _amount, _meta))
+                    output = true
+                end
+            elseif itemData.type == "item_weapon" or itemData.type == "item_letter" then
+                if not _meta.uid and itemData.type == "item_weapon" then
+                    local numBase0 = math.random(100, 999)
+                    local numBase1 = math.random(0, 9999)
+                    local generetedUid = string.format("%03d%04d", numBase0, numBase1)
+                    _meta.uid = generetedUid
+                end
+                table.insert(stash, CreateItem(_name, _amount, _meta))
+                output = true
+            end
+        else
+            if _amount > 0 then
+                if itemData.type == "item_standard" then
+                    item.addAmount(_amount)
+                    output = true
+                end
+            end
+        end
+    end
+    return output
+end)
+
 Citizen.CreateThread(function ()
     MySQL.query(
         "SELECT * FROM stashes;",
@@ -1134,11 +1270,11 @@ Citizen.CreateThread(function ()
     )
 end)
 
-exports('GetStashWeight', GetStashWeight)
-GetStashWeight = function(stashId)
+function GetStashWeight(stashId)
     local weight = 0
-    if Stash[stashId] ~= nil then
-        for i, j in pairs(Stash[stashId]) do
+    local stash = Stash[stashId]
+    if stash ~= nil then
+        for i, j in pairs(stash) do
             if j.getData().type == "item_weapon" then
                 weight = weight + j.getData().weight
             else
@@ -1148,6 +1284,21 @@ GetStashWeight = function(stashId)
     end
     return weight
 end
+
+exports('GetStashWeight', GetStashWeight)
+-- GetStashWeight = function(stashId)
+--     local weight = 0
+--     if Stash[stashId] ~= nil then
+--         for i, j in pairs(Stash[stashId]) do
+--             if j.getData().type == "item_weapon" then
+--                 weight = weight + j.getData().weight
+--             else
+--                 weight = weight + (j.getData().weight * j.getAmount())
+--             end
+--         end
+--     end
+--     return weight
+-- end
 
 
 stashesSaved = 0
@@ -1881,3 +2032,7 @@ function CheckForSingleBlueprintMultipleCollisions(inputSlots)
 
     return IterateThroughBlueprints(inputSlots, nextc)
 end
+
+exports("removeItemStash", removeItemStash)
+
+exports ("addItemStash", addItemStash)
