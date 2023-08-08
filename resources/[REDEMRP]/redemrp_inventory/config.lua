@@ -569,7 +569,38 @@ Config.Items = {
         limit = 2000,
         imgsrc = "items/rock.png",
         type = "item_standard"
+    },
+    ["cuivrepepite"] = {
+        label = "Pépite de cuivre",
+        description = "La base de toute industrie",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/pepitecuivre.png",
+        type = "item_standard"
+    },
+    ["plombpepite"] = {
+        label = "Pépite de plomb",
+        description = "La base de toute industrie",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/silverore.png",
+        type = "item_standard"
+    },
+    ["ferpepite"] = {
+        label = "Pépite de fer",
+        description = "La base de toute industrie",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/cannabis.png",
+        type = "item_standard"
     }
+
 }
 exports("GetItemsList", function()
     return Config.Items

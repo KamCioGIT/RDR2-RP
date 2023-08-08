@@ -1144,12 +1144,10 @@ AddEventHandler("redemrp_inventory:server:removeitemstash", function(name, amoun
                         output = true
                     end
                 end
-            elseif itemData.type == "item_weapon" or itemData.type == "item_letter" then
-                table.remove(stash, id)
-                output = true
             end
         end
     end
+    Citizen.Wait(1000)
     if output then
         local _name2 = name2
         local _amount2 = tonumber(amount2)
@@ -1160,36 +1158,23 @@ AddEventHandler("redemrp_inventory:server:removeitemstash", function(name, amoun
             local item2, id2 = getInventoryItemFromName(_name2, stash2, getMetaOutput(meta2))
             local weight2 = GetStashWeight(stashId2)
             local weightLimit2 = StashMaxWeights[_source2] or 60.0
-            if itemData2.type == "item_weapon" or itemData2.type == "item_letter" then
-                -- --("Boss stash weight: ".. weight .." vs ".. weightLimit)
-                -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
-                -- --(weight + (itemData.weight * amount))
-                if weight2 + (itemData2.weight) > weightLimit2 then
-                    return output
-                end
-            else
                 -- --("Boss stash weight: ".. weight .." vs ".. weightLimit)
                 -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight * amount)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
                 -- --(weight + (itemData.weight * amount))
-                if weight2 + (itemData2.weight * amount2) > weightLimit2 then
-                    return output
-                end
+            if weight2 + (itemData2.weight * amount2) > weightLimit2 then
+                return output
             end
             
             if not item2 then
                 if itemData2.type == "item_standard" then
                     if _amount2 > 0 then
                         table.insert(stash2, CreateItem(_name2, _amount2, _meta2))
-                        output = true
                     end
-                    table.insert(stash2, CreateItem(_name2, _amount2, _meta2))
-                    output = true
                 end
             else
                 if _amount2 > 0 then
                     if itemData2.type == "item_standard" then
                         item2.addAmount(_amount2)
-                        output = true
                     end
                 end
             end
