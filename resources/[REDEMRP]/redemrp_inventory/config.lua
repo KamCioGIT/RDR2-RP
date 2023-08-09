@@ -530,6 +530,8 @@ Config.Items = {
         imgsrc = "items/pickaxe.png",
         type = "item_standard"
     },
+
+    -- MINE --
     ["ferbrut"] = {
         label = "Fer brut",
         description = "Minerai de Fer ",
@@ -600,7 +602,57 @@ Config.Items = {
         imgsrc = "items/cannabis.png",
         type = "item_standard"
     }
-
+    -- CHASSE
+    ["grossteak"] = {
+        label = "Pépite de plomb",
+        description = "La base de toute industrie",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/silverore.png",
+        type = "item_standard"
+    },
+    ["volaille"] = {
+        label = "Pépite de plomb",
+        description = "La base de toute industrie",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/silverore.png",
+        type = "item_standard"
+    },
+    ["petitsteak"] = {
+        label = "Pépite de plomb",
+        description = "La base de toute industrie",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/silverore.png",
+        type = "item_standard"
+    },
+    ["steakreptile"] = {
+        label = "Pépite de plomb",
+        description = "La base de toute industrie",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/silverore.png",
+        type = "item_standard"
+    },
+    ["fish"] = {
+        label = "Pépite de plomb",
+        description = "La base de toute industrie",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/silverore.png",
+        type = "item_standard"
+    }
 }
 exports("GetItemsList", function()
     return Config.Items
