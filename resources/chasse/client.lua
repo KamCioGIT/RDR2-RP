@@ -1,34 +1,62 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
+local ressourcePointIndexForMining = nil
+
 data = {}
 TriggerEvent("redemrp_inventory:getData",function(call)
     data = call
 end)
 
-if Config.Blips == true then
-    Citizen.CreateThread(function()
-        for _, info in pairs(Config.Boucher) do
-            local number = #blip + 1
-            blip[number] = N_0x554d9d53f696d002(1664425300, info.coords.x, info.coords.y, info.coords.z)
-            SetBlipSprite(blip[number], -1665418949, 1)
-            SetBlipScale(blip[number], 0.2)
-            Citizen.InvokeNative(0x9CB1A1623062F402, blip[number], 'Boucher')
-        end  
-    end)
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(1)
+        local playerPos = GetEntityCoords(PlayerPedId())
+        for k, v in ipairs(Config.Boucher) do
+            if #(playerPos - v) < 6.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 2.2, 2.2, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
+                if #(playerPos - v) < 2.2 then
+                    DrawTxt(Config.MsgInteract, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
+                    if IsControlJustPressed(2, 0xC7B5340A) then 
+                        print "OKAY"
+                        depviande()
+                    else end
+                end
+            end  
+        end       
+    end
+end)
+
+function depviande()
+    local quality = false
+    local playerPed = PlayerPedId()
+    local holding = Citizen.InvokeNative(0xD806CD2A4F2C2996, PlayerPedId())
+    local hold = GetPedType(holding)
+    local quality = Citizen.InvokeNative(0x88EFFED5FE8B0B4A, holding) -- Native pour l'état de la carcasse
+    local model = GetEntityModel(holding)
+    print (quality)
+    if holding ~= false then
+        for i, row in pairs(Config.Animal) do
+            if hold == 28 then
+                if model == Config.Animal[i]["model"] then
+                    if quality == false then
+                        local deleted = DeleteThis(holding)
+                        if deleted then
+                            TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["item"], 1)
+                        end
+                    elseif quality == 2 then
+                        local deleted = DeleteThis(holding)   
+                        if deleted then
+                            TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["item"], 2)
+                        end
+                    end
+                end
+            end
+        end
+    else
+    end
 end
 
-Citizen.CreateThread(function()
-    while RedEM.GetPlayerData().isLoggedIn ~= true do
-        Wait(750)
-        boucherie()
-    end
-    if RedEM.GetPlayerData().isLoggedIn then
-        Wait(750)
-        boucherie()
-    end
-)
-
-function DeleteThis(holding)
+function DeleteThis(holding) -- Delete carcasse
     NetworkRequestControlOfEntity(holding)
     SetEntityAsMissionEntity(holding, true, true)
     Wait(100)
@@ -43,54 +71,25 @@ function DeleteThis(holding)
     end
 end
 
-function boucherie()
-    local playerPed = PlayerPedId()
-    local coords = GetEntityCoords(playerPed)
-    for k = 1, #Config.Boucher do 
-        local distance = #(Config.Boucher[k]["coords"] - coords)
-        if distance < 2.2 then
-            DrawTxt(Config.MsgInteract, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
-            local holding = Citizen.InvokeNative(0xD806CD2A4F2C2996, ped)
-            local quality = Citizen.InvokeNative(0x31FEF6A20F00B963, holding)
-            local model = GetEntityModel(holding)
-            local hold = GetPedType(holding)
-            if holding ~= false then
-                if IsControlJustPressed(2, 0x4AF4D473) then
-                    for i, row in pairs(Config.Animal) do
-                        if hold == 28 then
-                            if model == Config.Animal[i]["model"] then
-                                local deleted = DeleteThis(holding)
-                                if deleted then
-                                    TriggerServerEvent("cryptos_butcher:giveitem", Config.Animal[i]["item"], 1)
-                                end
-                            end
-                        end
-                        if quality ~= false then
-                            if quality == Config.Animal[i]["poor"] then
-                                local deleted = DeleteThis(holding)
-                
-                                if deleted then
-                                    TriggerServerEvent("cryptos_butcher:giveitem", Config.Animal[i]["item"], 1) 
-                                end
+-- DRAW TEXT ON SCREEEN w/ BACKGROUND
+function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
+    local str = CreateVarString(10, "LITERAL_STRING", str)
+    SetTextScale(w, h)
+    SetTextColor(math.floor(col1), math.floor(col2), math.floor(col3), math.floor(a))
+	SetTextCentre(centre)
+    if enableShadow then SetTextDropshadow(1, 0, 0, 0, 255) end
+	Citizen.InvokeNative(0xADA9255D, 1); -- Font
+    DisplayText(str, x, y)
 
-                            elseif quality == Config.Animal[i]["good"] then
-                                local deleted = DeleteThis(holding)
-                                if deleted then
-                                    TriggerServerEvent("cryptos_butcher:giveitem", Config.Animal[i]["item"], 2)
-                                end
+    local lineLength = string.len(str) / 100 * 0.70
+    DrawTexture("boot_flow", "selection_box_bg_1d", x, y + 0.018, lineLength, 0.07, 0, 0, 0, 0, 200)
+end
 
-                            elseif quality == Config.Animal[i]["perfect"] then
-                                local deleted = DeleteThis(holding)
-                
-                                if deleted then
-                                    TriggerServerEvent("cryptos_butcher:giveitem", Config.Animal[i]["item"], 3)
-                                
-                                else
-                            end
-                        end
-                    end
-                end
-            end
-        end
+
+function DrawTexture(textureStreamed,textureName,x, y, width, height,rotation,r, g, b, a, p11)
+    if not HasStreamedTextureDictLoaded(textureStreamed) then
+       RequestStreamedTextureDict(textureStreamed, false);
+    else
+        DrawSprite(textureStreamed, textureName, x, y, width, height, rotation, r, g, b, a, p11);
     end
 end

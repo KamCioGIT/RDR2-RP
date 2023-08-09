@@ -2,15 +2,17 @@ Config = {}
 Config.Blips = true
 
 Config.MsgInteract = "Appuie sur Entrer"
+Config.DistanceToInteract = 2.2
 
-Config.Boucher ={
-    {["name"] = "Blackwater",["coords"] = vector3(-751.1182, -1285.012, 43.27395)},
-    {["name"] = "Strawberry",["coords"] = vector3(-1752.77, -394.7479, 156.1887)},
-    {["name"] = "Armadillo",["coords"] = vector3(-3691.475, -2621.087, -13.73207)},
-    {["name"] = "Tumbleweed",["coords"] = vector3(-5508.164, -2947.579, -1.87025)},
-    {["name"] = "Manzanita",["coords"] = vector3(-1985.348, -1646.334, 117.1001)},
-    {["name"] = "Rhodes",["coords"] = vector3(1296.543, -1279.365, 75.84337)},
-    {["name"] = "Emerald",["coords"] = vector3(1420.489, 379.5677, 90.32045)}
+Config.Boucher = 
+{    
+    vector3(-751.1182, -1285.012, 43.27395),
+    vector3(-1752.77, -394.7479, 156.1887),
+    vector3(-3691.475, -2621.087, -13.73207),
+    vector3(-5508.164, -2947.579, -1.87025),
+    vector3(-1985.348, -1646.334, 117.1001),
+    vector3(1296.543, -1279.365, 75.84337),
+    vector3(1420.489, 379.5677, 90.32045)
 }
 
 Config.Craftcuir = vector3(-1970.758, -1641.776, 117.1183)
@@ -92,5 +94,8 @@ Config.Animal = {
     [69] = {["name"] = "Lake Sturgeon",            ["model"] = -300867788,   ["item"] = "fish",     ["poor"] = nil,         ["good"] = nil,         ["perfect"] = nil},
     [70] = {["name"] = "Channel Catfish",          ["model"] = 1538187374,   ["item"] = "fish",     ["poor"] = nil,         ["good"] = nil,         ["perfect"] = nil},
     [71] = {["name"] = "Northern Pike",            ["model"] = 697075200,    ["item"] = "fish",     ["poor"] = nil,         ["good"] = nil,         ["perfect"] = nil},
+
+    -- AJOUT
+    [72] = {["name"] = "Silver Fox",         ["model"] = 252669332,    ["item"] = "petitsteak",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
 }
 
