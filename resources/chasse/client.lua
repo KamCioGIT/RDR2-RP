@@ -17,23 +17,20 @@ Citizen.CreateThread(function()
                 if #(playerPos - v) < 2.2 then
                     DrawTxt(Config.MsgInteract, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
                     if IsControlJustPressed(2, 0xC7B5340A) then 
-                        print "OKAY"
                         depviande()
-                    else end
+                    end
                 end
             end  
         end       
     end
 end)
 
-function depviande()
-    local quality = false
+function depviande() -- Carcasse into viande
     local playerPed = PlayerPedId()
     local holding = Citizen.InvokeNative(0xD806CD2A4F2C2996, PlayerPedId())
     local hold = GetPedType(holding)
     local quality = Citizen.InvokeNative(0x88EFFED5FE8B0B4A, holding) -- Native pour l'état de la carcasse
     local model = GetEntityModel(holding)
-    print (quality)
     if holding ~= false then
         for i, row in pairs(Config.Animal) do
             if hold == 28 then
@@ -41,13 +38,62 @@ function depviande()
                     if quality == false then
                         local deleted = DeleteThis(holding)
                         if deleted then
-                            TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["item"], 1)
+                            TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["viande"], 1)
                         end
                     elseif quality == 2 then
                         local deleted = DeleteThis(holding)   
                         if deleted then
-                            TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["item"], 2)
+                            TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["viande"], 2)
                         end
+                    end
+                end
+            end
+        end
+    else
+    end
+end
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(1)
+        local playerPos = GetEntityCoords(PlayerPedId())
+        for k, v in ipairs(Config.Craftcuir) do
+            if #(playerPos - v) < 6.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 2.2, 2.2, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
+                if #(playerPos - v) < 2.2 then
+                    DrawTxt(Config.MsgInteract, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
+                    if IsControlJustPressed(2, 0xC7B5340A) then 
+                        deppeau()
+                    end
+                end
+            end  
+        end       
+    end
+end)
+
+function deppeau() -- Peau into cuir
+    local playerPed = PlayerPedId()
+    local holding = Citizen.InvokeNative(0xD806CD2A4F2C2996, PlayerPedId())
+    local quality = Citizen.InvokeNative(0x31FEF6A20F00B963, holding) -- Native pour l'état de la peau
+    local model = GetEntityModel(holding)
+    local hold = GetPedType(holding)
+    if holding ~= false then
+        for i, row in pairs(Config.Animal) do
+            if quality ~= false then
+                if quality == Config.Animal[i]["poor"] then
+                    local deleted = DeleteThis(holding)
+                    if deleted then
+                        TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["peau"], 1)
+                    end
+                elseif quality == Config.Animal[i]["good"] then
+                    local deleted = DeleteThis(holding)   
+                    if deleted then
+                        TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["peau"], 2)
+                    end
+                elseif quality == Config.Animal[i]["perfect"] then
+                    local deleted = DeleteThis(holding)   
+                    if deleted then
+                        TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["peau"], 3)
                     end
                 end
             end
