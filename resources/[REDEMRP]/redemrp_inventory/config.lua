@@ -604,53 +604,63 @@ Config.Items = {
     }
     -- CHASSE
     ["grossteak"] = {
-        label = "Pépite de plomb",
-        description = "La base de toute industrie",
-        weight = 0.2,
+        label = "Gros Steak",
+        description = "Un énorme bout de viande",
+        weight = 1,
         canBeDropped = true,
         canBeUsed = false,
         limit = 2000,
-        imgsrc = "items/silverore.png",
+        imgsrc = "items/consumable_meat_big_game_cooked.png",
         type = "item_standard"
     },
     ["volaille"] = {
-        label = "Pépite de plomb",
-        description = "La base de toute industrie",
-        weight = 0.2,
+        label = "Volaille",
+        description = "Prête à être cuisinée",
+        weight = 0.4,
         canBeDropped = true,
         canBeUsed = false,
         limit = 2000,
-        imgsrc = "items/silverore.png",
+        imgsrc = "items/consumable_meat_plump_bird_cooked.png",
         type = "item_standard"
     },
     ["petitsteak"] = {
-        label = "Pépite de plomb",
-        description = "La base de toute industrie",
+        label = "Petit Steak",
+        description = "Un petit bout de viande",
         weight = 0.2,
         canBeDropped = true,
         canBeUsed = false,
         limit = 2000,
-        imgsrc = "items/silverore.png",
+        imgsrc = "items/consumable_meat_exotic_bird_cooked.png",
         type = "item_standard"
     },
     ["steakreptile"] = {
-        label = "Pépite de plomb",
-        description = "La base de toute industrie",
+        label = "Steak de Reptile",
+        description = "Pour les plus courageux",
         weight = 0.2,
         canBeDropped = true,
         canBeUsed = false,
         limit = 2000,
-        imgsrc = "items/silverore.png",
+        imgsrc = "items/consumable_meat_stringy_cooked.png",
         type = "item_standard"
     },
-    ["fish"] = {
-        label = "Pépite de plomb",
-        description = "La base de toute industrie",
-        weight = 0.2,
+    ["steak"] = {
+        label = "Steak",
+        description = "Un bout de viande",
+        weight = 0.5,
         canBeDropped = true,
         canBeUsed = false,
         limit = 2000,
-        imgsrc = "items/silverore.png",
+        imgsrc = "items/consumable_meat_prime_beef_cooked.png",
+        type = "item_standard"
+    }
+    ["fish"] = {
+        label = "Poisson",
+        description = "Poisson frais",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/cooked_fish.png",
         type = "item_standard"
     }
 }
