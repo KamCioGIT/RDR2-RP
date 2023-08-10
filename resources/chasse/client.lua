@@ -31,6 +31,8 @@ function depviande() -- Carcasse into viande
     local hold = GetPedType(holding)
     local quality = Citizen.InvokeNative(0x88EFFED5FE8B0B4A, holding) -- Native pour l'état de la carcasse
     local model = GetEntityModel(holding)
+    print (model)
+    print (quality)
     if holding ~= false then
         for i, row in pairs(Config.Animal) do
             if hold == 28 then
@@ -40,10 +42,10 @@ function depviande() -- Carcasse into viande
                         if deleted then
                             TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["viande"], 1)
                         end
-                    elseif quality == 2 then
-                        local deleted = DeleteThis(holding)   
+                    elseif quality ~= false then                   
+                        local deleted = DeleteThis(holding)
                         if deleted then
-                            TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["viande"], 2)
+                            TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["viande"], (quality + 1))
                         end
                     end
                 end
@@ -138,4 +140,30 @@ function DrawTexture(textureStreamed,textureName,x, y, width, height,rotation,r,
     else
         DrawSprite(textureStreamed, textureName, x, y, width, height, rotation, r, g, b, a, p11);
     end
+end
+
+
+RegisterCommand('cart', function()
+    huntcart()
+end)
+
+function huntcart()
+    local modelHash = -1698498246
+    print (modelHash)
+    local playerPed = PlayerPedId() -- get the local player ped
+    local pos = GetEntityCoords(playerPed) -- get the position of the local player ped
+
+    if not HasModelLoaded(modelHash) then
+        RequestModel(modelHash)
+        while not HasModelLoaded(modelHash) do
+            Citizen.Wait(10)
+        end
+    end
+    wagon = CreateVehicle(modelHash, pos.x, pos.y, pos.z, GetEntityHeading(playerPed), true, false)
+    if not Citizen.InvokeNative(0x48A88FC684C55FDC, GetHashKey("pg_mp005_huntingWagonTarp01")) then
+        Citizen.InvokeNative(0xF3DE57A46D5585E9, GetHashKey("pg_mp005_huntingWagonTarp01"))
+    end
+    Citizen.InvokeNative(0x75F90E4051CC084C, wagon, GetHashKey("pg_mp005_huntingWagonTarp01"))
+    Citizen.InvokeNative(0x31F343383F19C987, wagon, tonumber(0.0), 1) -- Gère la hauteur du drap 
+    SetIgnoreVehicleOwnershipForStowing(1) -- Donne l'accès à l'arrière à tout les joueurs
 end

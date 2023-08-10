@@ -6,13 +6,13 @@ Config.DistanceToInteract = 2.2
 
 Config.Boucher = 
 {    
-    vector3(-751.1182, -1285.012, 43.27395),
-    vector3(-1752.77, -394.7479, 156.1887),
-    vector3(-3691.475, -2621.087, -13.73207),
-    vector3(-5508.164, -2947.579, -1.87025),
-    vector3(-1985.348, -1646.334, 117.1001),
-    vector3(1296.543, -1279.365, 75.84337),
-    vector3(1420.489, 379.5677, 90.32045)
+    vector3(-751.1182, -1285.012, 43.27395), -- Blackwater
+    vector3(-1752.77, -394.7479, 156.1887), -- Strawberry
+    vector3(-3691.475, -2621.087, -13.73207), -- Armadillo
+    vector3(-5508.164, -2947.579, -1.87025), -- Tumbleweed
+    vector3(-1985.348, -1646.334, 117.1001), -- Manzanita
+    vector3(1296.543, -1279.365, 75.84337), -- Rhodes
+    vector3(1420.489, 379.5677, 90.32045) -- Emerald
 }
 
 Config.Craftcuir = {vector3(-1970.758, -1641.776, 117.1183)}
@@ -96,5 +96,8 @@ Config.Animal = {
     [71] = {["name"] = "Northern Pike",            ["model"] = 697075200,    ["peau"] = "fish",     ["poor"] = nil,         ["good"] = nil,         ["perfect"] = nil},
     -- AJOUT
     [72] = {["name"] = "Silver Fox",         ["model"] = 252669332,    ["viande"] = "petitsteak",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
-}
+    [73] = {["name"] = "Lievre de Californie",         ["model"] = -541762431,    ["viande"] = "petitsteak",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
+    [73] = {["name"] = "Mouflon sierra",         ["model"] = -1568716381,    ["viande"] = "grossteak",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
+    [73] = {["name"] = "Blaireau Américain",         ["model"] = -1170118274,    ["viande"] = "grossteak",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil}
+}   
 
