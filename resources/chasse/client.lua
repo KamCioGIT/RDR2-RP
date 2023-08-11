@@ -147,23 +147,39 @@ RegisterCommand('cart', function()
     huntcart()
 end)
 
+local huntingwagonstash = {
+    [1] = nil,
+    [2] = nil,
+    [3] = nil,
+    [4] = nil,
+    [5] = nil,
+    [6] = nil,
+    [7] = nil,
+    [8] = nil,
+    [9] = nil,
+    [10] = nil
+}
+
 function huntcart()
-    local modelHash = -1698498246
-    print (modelHash)
     local playerPed = PlayerPedId() -- get the local player ped
     local pos = GetEntityCoords(playerPed) -- get the position of the local player ped
-
-    if not HasModelLoaded(modelHash) then
-        RequestModel(modelHash)
-        while not HasModelLoaded(modelHash) do
+    
+    if not HasModelLoaded(-1698498246) then
+        RequestModel(-1698498246)
+        while not HasModelLoaded(-1698498246) do
             Citizen.Wait(10)
         end
     end
-    wagon = CreateVehicle(modelHash, pos.x, pos.y, pos.z, GetEntityHeading(playerPed), true, false)
+    wagon = CreateVehicle(-1698498246, pos.x, pos.y, pos.z, GetEntityHeading(playerPed), true, false)
     if not Citizen.InvokeNative(0x48A88FC684C55FDC, GetHashKey("pg_mp005_huntingWagonTarp01")) then
         Citizen.InvokeNative(0xF3DE57A46D5585E9, GetHashKey("pg_mp005_huntingWagonTarp01"))
     end
+    SetIgnoreVehicleOwnershipForStowing(0) -- Donne l'accès à l'arrière à tout les joueurs
     Citizen.InvokeNative(0x75F90E4051CC084C, wagon, GetHashKey("pg_mp005_huntingWagonTarp01"))
-    Citizen.InvokeNative(0x31F343383F19C987, wagon, tonumber(0.0), 1) -- Gère la hauteur du drap 
-    SetIgnoreVehicleOwnershipForStowing(1) -- Donne l'accès à l'arrière à tout les joueurs
+    Citizen.Wait(500)
+    Citizen.InvokeNative(0x31F343383F19C987, wagon, tonumber(0.0), true)-- Gère la hauteur du drap
+    Citizen.Wait(2000)
+    Citizen.InvokeNative(0x31F343383F19C987, wagon, tonumber(0.5), true)
+    Citizen.Wait(2000)
+    Citizen.InvokeNative(0x31F343383F19C987, wagon, tonumber(1.0), true)
 end
