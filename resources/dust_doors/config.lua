@@ -12,7 +12,7 @@ Config.DoorList = {
 	--
 
 	{
-		authorizedJobs = { 'police' },
+		authorizedJobs = { 'sheriff' },
 		doorid = 1988748538,
 		objCoords  = vector3(-276.04, 802.73, 118.41),
 		textCoords  = vector3(-275.02, 802.84, 119.43),
@@ -21,7 +21,7 @@ Config.DoorList = {
 		distance = 3.0
 	},
 	{
-		authorizedJobs = { 'police' },
+		authorizedJobs = { 'sheriff' },
 		doorid = 395506985,
 		objCoords  = vector3(-275.85, 812.02, 118.41),
 		textCoords  = vector3(-277.06, 811.83, 119.38),
@@ -30,7 +30,7 @@ Config.DoorList = {
 		distance = 3.0
 	},
 	{
-		authorizedJobs = { 'police' },
+		authorizedJobs = { 'sheriff' },
 		doorid = 1508776842,
 		objCoords  = vector3(-270.77, 810.02, 118.39),
 		textCoords  = vector3(-270.77, 810.02, 118.39),
@@ -41,7 +41,7 @@ Config.DoorList = {
 
 	--cell area
 	{
-		authorizedJobs = { 'police' },
+		authorizedJobs = { 'sheriff' },
 		doorid = 535323366,
 		objCoords  = vector3(-275.03, 809.27, 118.36),
 		textCoords  = vector3(-274.89, 808.03, 119.39),
@@ -51,7 +51,7 @@ Config.DoorList = {
 	},
 	--cells
 	{
-		authorizedJobs = { 'police' },
+		authorizedJobs = { 'sheriff' },
 		doorid = 295355979,
 		objCoords  = vector3(-273.47, 809.96, 118.36),
 		textCoords  = vector3(-272.23, 810.1, 119.39),
@@ -60,7 +60,7 @@ Config.DoorList = {
 		distance = 1.5
 	},
 	{
-		authorizedJobs = { 'police' },
+		authorizedJobs = { 'sheriff' },
 		doorid = 193903155,
 		objCoords  = vector3(-272.06, 808.25, 118.36),
 		textCoords  = vector3(-273.3, 808.12, 119.39),
