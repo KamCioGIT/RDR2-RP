@@ -1121,8 +1121,8 @@ function removeItemStash(source, name, amount, meta, stashId)
     return output
 end
 
-RegisterServerEvent("redemrp_inventory:server:removeitemstash")
-AddEventHandler("redemrp_inventory:server:removeitemstash", function(name, amount, meta, stashId, name2, amount2, meta2, stashId2)
+RegisterServerEvent("redemrp_inventory:server:removeitemstashMineur")
+AddEventHandler("redemrp_inventory:server:removeitemstashMineur", function(name, amount, meta, stashId, name2, amount2, meta2, stashId2)
     local _name = name
     local _amount = tonumber(amount)
     local _meta = meta or {}

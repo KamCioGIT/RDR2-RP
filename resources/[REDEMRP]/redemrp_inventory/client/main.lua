@@ -407,17 +407,6 @@ Citizen.CreateThread(function()
     end
 end)
 
---[[
-Citizen.CreateThread(function()
-    while true do
-        Wait(5000)
-        if next(UsedWeapons) ~= nil then
-            TriggerServerEvent('weapons:server:ApplyDamage', UsedWeapons)
-            --print("Saving weapon damage with server")
-        end
-    end
-end)]]
-
 RegisterNetEvent("weapons:CleanAndRepairWeapon", function()
     TriggerEvent("redemrp_inventory:closeinv")
     local ped = PlayerPedId()

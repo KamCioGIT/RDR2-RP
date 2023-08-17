@@ -8,7 +8,7 @@ Config.Crafting = {
             "empty","empty","empty",
             "cotton,3","purealcohol","empty",
             "empty","empty","empty"
-        },
+        } ,
         requireJob = { "doctor" },
     },
 
@@ -22,12 +22,10 @@ Config.Crafting = {
         requireJob = { "doctor" },
     },
 
-
     -------- cooking
     --
     --
 
-    
     ["bread"] = {
         items = {
             "empty","flour","empty",
@@ -530,8 +528,6 @@ Config.Items = {
         imgsrc = "items/pickaxe.png",
         type = "item_standard"
     },
-
-    -- MINE --
     ["ferbrut"] = {
         label = "Fer brut",
         description = "Minerai de Fer ",
@@ -601,7 +597,60 @@ Config.Items = {
         limit = 2000,
         imgsrc = "items/cannabis.png",
         type = "item_standard"
-    }
+    },
+    ["souffre"] = {
+        label = "Souffre",
+        description = "Utile pour fabriquer de la poudre à canon",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/Souffre.png",
+        type = "item_standard"
+    },
+    ["lingotfer"] = {
+        label = "Lingot de fer",
+        description = "La base de toute industrie",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "",
+        type = "item_standard"
+    },
+    ["douille"] = {
+        label = "Douille",
+        description = "La base de toute industrie",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "",
+        type = "item_standard"
+    },
+    ["gunpowder"] = {
+        label = "Poudre à canon",
+        description = "La base de toute industrie",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "",
+        type = "item_standard"
+    },
+    ["piecearme"] = {
+        label = "Pièce d'arme",
+        description = "La base de toute industrie",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "",
+        type = "item_standard"
+    },
+
+
+    
     -- CHASSE
     ["grossteak"] = {
         label = "Gros Steak",
@@ -652,7 +701,7 @@ Config.Items = {
         limit = 2000,
         imgsrc = "items/consumable_meat_prime_beef_cooked.png",
         type = "item_standard"
-    }
+    },
     ["fish"] = {
         label = "Poisson",
         description = "Poisson frais",
@@ -661,6 +710,28 @@ Config.Items = {
         canBeUsed = false,
         limit = 2000,
         imgsrc = "items/cooked_fish.png",
+        type = "item_standard"
+    },
+    ["cuir"] = {
+        label = "Cuir",
+        description = "L'animal a trop souffert",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/provision_armadillo_skin.png",
+        type = "item_standard"
+    },
+
+    ---- ORPAILLAGE
+    ["pepiteor"] = {
+        label = "Pépite d'or",
+        description = "Une petite pépite grandement convoitée",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/golden_nugget.png",
         type = "item_standard"
     }
 }
