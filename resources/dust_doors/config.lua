@@ -1,6 +1,6 @@
 Config = {}
 
-Config.UsePrompt = false
+Config.UsePrompt = true
 
 Config.KeyPress = 0xD8F73058
 
@@ -12,7 +12,7 @@ Config.DoorList = {
 	--
 
 	{
-		authorizedJobs = { 'sheriff' },
+		authorizedJobs = { 'usine' },
 		doorid = 1988748538,
 		objCoords  = vector3(-276.04, 802.73, 118.41),
 		textCoords  = vector3(-275.02, 802.84, 119.43),
@@ -21,7 +21,7 @@ Config.DoorList = {
 		distance = 3.0
 	},
 	{
-		authorizedJobs = { 'sheriff' },
+		authorizedJobs = { 'usine' },
 		doorid = 395506985,
 		objCoords  = vector3(-275.85, 812.02, 118.41),
 		textCoords  = vector3(-277.06, 811.83, 119.38),
@@ -30,7 +30,7 @@ Config.DoorList = {
 		distance = 3.0
 	},
 	{
-		authorizedJobs = { 'sheriff' },
+		authorizedJobs = { 'usine' },
 		doorid = 1508776842,
 		objCoords  = vector3(-270.77, 810.02, 118.39),
 		textCoords  = vector3(-270.77, 810.02, 118.39),
@@ -41,7 +41,7 @@ Config.DoorList = {
 
 	--cell area
 	{
-		authorizedJobs = { 'sheriff' },
+		authorizedJobs = { 'police' },
 		doorid = 535323366,
 		objCoords  = vector3(-275.03, 809.27, 118.36),
 		textCoords  = vector3(-274.89, 808.03, 119.39),
@@ -51,7 +51,7 @@ Config.DoorList = {
 	},
 	--cells
 	{
-		authorizedJobs = { 'sheriff' },
+		authorizedJobs = { 'police' },
 		doorid = 295355979,
 		objCoords  = vector3(-273.47, 809.96, 118.36),
 		textCoords  = vector3(-272.23, 810.1, 119.39),
@@ -60,7 +60,7 @@ Config.DoorList = {
 		distance = 1.5
 	},
 	{
-		authorizedJobs = { 'sheriff' },
+		authorizedJobs = { 'police' },
 		doorid = 193903155,
 		objCoords  = vector3(-272.06, 808.25, 118.36),
 		textCoords  = vector3(-273.3, 808.12, 119.39),
@@ -93,36 +93,36 @@ Config.DoorList = {
 
 	--main doors
 	{
-		authorizedJobs = { 'police' },
+		authorizedJobs = { 'usine' },
 		doorid = 2343746133,
 		objCoords  = vector3(-301.94, 771.75, 117.72),
 		textCoords  = vector3(-303.02, 771.60, 118.47),
 		objYaw = -170.0,
-		locked = true,
+		locked = false,
 		distance = 3.0
 	},
 	{
-		authorizedJobs = { 'police' },
+		authorizedJobs = { 'usine' },
 		doorid = 1340831050,
 		objCoords  = vector3(-311.75, 774.67, 117.72),
 		textCoords  = vector3(-310.48, 774.92, 118.70),
 		objYaw = 10.05,
-		locked = true,
+		locked = false,
 		distance = 3.0
 	},
 
 	{
-		authorizedJobs = { 'police' },
+		authorizedJobs = { 'usine' },
 		doorid = 3718620420,
 		objCoords  = vector3(-311.06, 770.12, 117.7),
 		textCoords  = vector3(-309.97, 770.20, 118.70),
 		objYaw = 10.36,
-		locked = true,
+		locked = false,
 		distance = 3.0
 	},
 
 	{
-		authorizedJobs = { 'police' },
+		authorizedJobs = { 'usine' },
 		doorid = 334467483,
 		objCoords  = vector3(-302.93, 767.6, 117.69),
 		textCoords  = vector3(-302.97, 768.61, 118.70),
@@ -144,7 +144,7 @@ Config.DoorList = {
 	},
 	-- --back door
 	{
-		authorizedJobs = { 'police' },
+		authorizedJobs = { 'usine' },
 		doorid = 2307914732,
 		objCoords  = vector3(-301.51, 762.98, 117.73),
 		textCoords  = vector3(-300.59, 763.20, 118.70),

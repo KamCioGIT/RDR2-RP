@@ -49,60 +49,60 @@ Citizen.CreateThread(function()
 		local playerCoords, letSleep = GetEntityCoords(PlayerPedId()), true
 
 		for k,doorID in ipairs(Config.DoorList) do
-			local distance
-            if doorID.doors then
-                distance = #(playerCoords - doorID.doors[1].objCoords)
-            else
-                distance = #(playerCoords - doorID.textCoords)
-            end
-            local maxDistance, displayText = 1.25, 'open'
-            if doorID.distance then
-                maxDistance = doorID.distance
-            end
-            if distance < 10 then
-                letSleep = false
-                if doorID.locked then
-                    if DoorSystemGetOpenRatio(doorID.object) ~= 0.0 then
-                        DoorSystemSetOpenRatio(doorID.object, 0.0, true)
-                        local object = Citizen.InvokeNative(0xF7424890E4A094C0, doorID.object, 0)
-                        SetEntityRotation(object, 0.0, 0.0, doorID.objYaw, 2, true)
-                        if doorID.object2 ~= nil then
-                            DoorSystemSetOpenRatio(doorID.object2, 0.0, true)
-                            object = Citizen.InvokeNative(0xF7424890E4A094C0, doorID.object2, 0)
-                            SetEntityRotation(object, 0.0, 0.0, doorID.objYaw2, 2, true)
-                        end
-                    end
-                    if DoorSystemGetDoorState(doorID.object) ~= 1 then
-                        Citizen.CreateThread(function()
-                            Citizen.InvokeNative(0xD99229FE93B46286,doorID.object,1,1,0,0,0,0)
-                        end)
-                        local object = Citizen.InvokeNative(0xF7424890E4A094C0, doorID.object, 0)
-                        Citizen.InvokeNative(0x6BAB9442830C7F53,doorID.object,doorID.locked)
-                        SetEntityRotation(object, 0.0, 0.0, doorID.objYaw, 2, true)
-                        if doorID.object2 ~= nil then
-                            Citizen.CreateThread(function()
-                                Citizen.InvokeNative(0xD99229FE93B46286,doorID.object2,1,1,0,0,0,0)
-                            end)
-                            object = Citizen.InvokeNative(0xF7424890E4A094C0, doorID.object2, 0)
-                            Citizen.InvokeNative(0x6BAB9442830C7F53,doorID.object2,doorID.locked)
-                            SetEntityRotation(object, 0.0, 0.0, doorID.objYaw2, 2, true)
-                        end
-                    end
-                else
-                    if DoorSystemGetDoorState(doorID.object) ~= 0 then
-                        Citizen.CreateThread(function()
-                            Citizen.InvokeNative(0xD99229FE93B46286,doorID.object,1,1,0,0,0,0)
-                        end)
-                        Citizen.InvokeNative(0x6BAB9442830C7F53,doorID.object,doorID.locked)
-                        if doorID.object2 ~= nil then
-                            Citizen.CreateThread(function()
-                                Citizen.InvokeNative(0xD99229FE93B46286,doorID.object2,1,1,0,0,0,0)
-                            end)
-                            Citizen.InvokeNative(0x6BAB9442830C7F53,doorID.object2,doorID.locked)
-                        end
-                    end
-                end
-            end
+			local distance = #(playerCoords - doorID.textCoords)
+
+			local maxDistance, displayText = 1.25, 'unlocked'
+
+			if doorID.distance then
+				maxDistance = doorID.distance
+			end
+
+			if distance < 50 then
+				letSleep = false
+
+				if doorID.doors then
+					if doorID.locked then
+						for _,v in ipairs(doorID.doors) do
+							if Citizen.InvokeNative(0x160AA1B32F6139B8, v.doorid) ~= 3 then
+								Citizen.InvokeNative(0xD99229FE93B46286, v.doorid,1,1,0,0,0,0)
+								Citizen.InvokeNative(0x6BAB9442830C7F53, v.doorid, 3) 
+							end
+							local current = GetEntityRotation(v.object).z - v.objYaw
+							if v.objYaw and current > 0.5 or current < -0.5 then
+								SetEntityRotation(v.object, 0.0, 0.0, v.objYaw, 2, true)
+							end
+							FreezeEntityPosition(v.object,true)
+						end
+					else
+						for _,v in ipairs(doorID.doors) do
+							if Citizen.InvokeNative(0x160AA1B32F6139B8, v.doorid) ~= false then
+								Citizen.InvokeNative(0xD99229FE93B46286, v.doorid,1,1,0,0,0,0)
+								Citizen.InvokeNative(0x6BAB9442830C7F53, v.doorid, 0) 
+							end
+						end
+						FreezeEntityPosition(doorID.object,false)
+					end
+
+				else
+					if doorID.locked then
+						if Citizen.InvokeNative(0x160AA1B32F6139B8, doorID.doorid) ~= 3 then
+							Citizen.InvokeNative(0xD99229FE93B46286, doorID.doorid,1,1,0,0,0,0)
+							Citizen.InvokeNative(0x6BAB9442830C7F53, doorID.doorid, 3) 
+						end
+						local current = GetEntityRotation(doorID.object).z - doorID.objYaw
+						if doorID.objYaw and current > 0.5 or current < -0.5 then
+							SetEntityRotation(doorID.object, 0.0, 0.0, doorID.objYaw, 2, true)
+						end
+						FreezeEntityPosition(doorID.object,true)
+					else
+						if Citizen.InvokeNative(0x160AA1B32F6139B8, doorID.doorid) ~= false then
+							Citizen.InvokeNative(0xD99229FE93B46286, doorID.doorid,1,1,0,0,0,0)
+							Citizen.InvokeNative(0x6BAB9442830C7F53, doorID.doorid, 0) 
+						end
+						FreezeEntityPosition(doorID.object,false)
+					end
+				end
+			end
 
 			if distance < maxDistance then
 				if distance < 1.75 then
@@ -113,7 +113,7 @@ Citizen.CreateThread(function()
 							if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 then
 								CoolDown = 1000
 								local state = not doorID.locked
-								TriggerServerEvent("redemrp_doorlocks:updatedoorsv", GetPlayerServerId(), k, state)
+								TriggerServerEvent("redemrp_doorlocks:updatedoorsv", k, state)
 							end
 
 						else
@@ -122,14 +122,14 @@ Citizen.CreateThread(function()
 							if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 then
 								CoolDown = 1000
 								local state = not doorID.locked
-								TriggerServerEvent("redemrp_doorlocks:updatedoorsv", GetPlayerServerId(), k, state)
+								TriggerServerEvent("redemrp_doorlocks:updatedoorsv", k, state)
 							end
 						end
 					else
 						if IsControlJustPressed(0,Config.KeyPress) and CoolDown < 1 then
 							CoolDown = 1000
 							local state = not doorID.locked
-							TriggerServerEvent("redemrp_doorlocks:updatedoorsv", GetPlayerServerId(), k, state)
+							TriggerServerEvent("redemrp_doorlocks:updatedoorsv", k, state)
 						end
 					end
 				end

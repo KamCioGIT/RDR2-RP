@@ -1,22 +1,25 @@
+RedEM = exports["redem_roleplay"]:RedEM()
+
+
 local DoorInfo	= {}
 
 RegisterServerEvent('redemrp_doorlocks:updatedoorsv')
-AddEventHandler('redemrp_doorlocks:updatedoorsv', function(source, doorID, state, cb)
-    local _source = source
-    TriggerEvent('redemrp:getPlayerFromId', _source, function(user)        
+AddEventHandler('redemrp_doorlocks:updatedoorsv', function(doorID, state, cb)
+	local _source = source
+    local user = RedEM.GetPlayer(_source)     
         if not IsAuthorized(user.getJob(), Config.DoorList[doorID]) then
 			TriggerClientEvent('chatMessage', source, "", {0, 0, 200}, "^1You do not have a key!^0")
             return
         else 
             TriggerClientEvent('redemrp_doorlocks:changedoor', _source, doorID, state)
         end
-	end)
 end)
+
 
 RegisterServerEvent('redemrp_doorlocks:updateState')
 AddEventHandler('redemrp_doorlocks:updateState', function(doorID, state, cb)
     local _source = source
-    TriggerEvent('redemrp:getPlayerFromId', _source, function(user)
+    local user = RedEM.GetPlayer(_source)    
 		if type(doorID) ~= 'number' then
 			return
 		end
@@ -25,7 +28,6 @@ AddEventHandler('redemrp_doorlocks:updateState', function(doorID, state, cb)
 		end
 		DoorInfo[doorID] = {}
 		TriggerClientEvent('redemrp_doorlocks:setState', -1, doorID, state)
-    end)
 end)
 
 function IsAuthorized(jobName, doorID)
