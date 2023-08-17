@@ -6,16 +6,6 @@ TriggerEvent("redemrp_inventory:getData",function(call)
     data = call
 end)
 
--- RegisterServerEvent('mineur:checkjob')
--- AddEventHandler('mineur:checkjob',function()
---     if RedEM.GetPlayer(source).job == "mineur" then
---         TriggerClientEvent("startMission", source)
--- 		if Player.jobgrade > 1 then
--- 			TriggerClientEvent("mineur:contremaitre", source)
--- 		end
---     end
--- end)
-
 RegisterServerEvent('mineur:addferbrut')
 AddEventHandler('mineur:addferbrut', function() 
 	local _source = source
@@ -84,10 +74,10 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(2000)
-		TriggerEvent("redemrp_inventory:server:removeitemstash", "ferbrut", 2, {}, "dep_mineur","ferpepite", 1, {}, "ret_mineur")
+		TriggerEvent("redemrp_inventory:server:removeitemstashMineur", "ferbrut", 2, {}, "dep_mineur","ferpepite", 1, {}, "ret_mineur")
 		Citizen.Wait(2000)
-		TriggerEvent("redemrp_inventory:server:removeitemstash", "plombbrut", 2, {}, "dep_mineur","plombpepite", 1, {}, "ret_mineur")
+		TriggerEvent("redemrp_inventory:server:removeitemstashMineur", "plombbrut", 2, {}, "dep_mineur","plombpepite", 1, {}, "ret_mineur")
 		Citizen.Wait(2000)
-		TriggerEvent("redemrp_inventory:server:removeitemstash", "cuivrebrut", 2, {}, "dep_mineur","cuivrepepite", 1, {}, "ret_mineur")
+		TriggerEvent("redemrp_inventory:server:removeitemstashMineur", "cuivrebrut", 2, {}, "dep_mineur","cuivrepepite", 1, {}, "ret_mineur")
 	end
 end)

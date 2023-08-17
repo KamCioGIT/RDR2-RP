@@ -26,12 +26,6 @@ Citizen.CreateThread(function()
 end)
 
 
-
-RegisterCommand("sayhi", function(source, args)
-    local PlayerData = RedEM.GetPlayerData()
-    print (""..PlayerData.jobgrade.." et "..PlayerData.job.."")
-end)
-
 RegisterCommand("sw", function(source, args)
     TriggerServerEvent("CheckStash")
 end)

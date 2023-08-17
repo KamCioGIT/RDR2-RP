@@ -29,14 +29,6 @@ Config.TimerMsg = " Currently working for :"
 
 Config.ShowBlips = true
 
---[[
-Config.p1 = vector3(2754.291, 1358.377, 68.368)
-Config.p2 = vector3(2753.534, 1367.671, 67.804)
-Config.p3 = vector3(2758.344, 1371.043, 68.042)
-Config.p4 = vector3(2767.227, 1371.093, 67.987)
-Config.p5 = vector3(2767.958, 1382.240, 67.929)
---]]
-
 Config.RessourcesPoints = 
 {
     vector3(2754.291, 1358.377, 68.368),
