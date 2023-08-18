@@ -19,7 +19,8 @@ AddEventHandler('redem_roleplay:NotifyLeft', function(firsttext, secondtext, dic
         LoadTexture(_dict)
         _icon = "tick"
     end
-    exports.redem_roleplay:ShowAdvancedNotification(tostring(firsttext), tostring(secondtext), tostring(_dict), tostring(_icon), tonumber(duration))
+    -- exports.redem_roleplay:ShowAdvancedNotification(tostring(firsttext), tostring(secondtext), tostring(_dict), tostring(_icon), tonumber(duration))
+    ShowAdvancedNotification(tostring(firsttext), tostring(secondtext), tostring(_dict), tostring(_icon), tonumber(duration))
 end)
 
 RegisterNetEvent('redem_roleplay:Tip')
