@@ -2021,3 +2021,36 @@ end
 exports("removeItemStash", removeItemStash)
 
 exports ("addItemStash", addItemStash)
+
+RegisterServerEvent("redemrp_inventory:contratsigne", function(name, job)
+    print "inventor"
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local identifier = user.GetIdentifier()
+    local charid = user.GetActiveCharacter()
+    local itemData = SharedInventoryFunctions.getItem(_source, "contratsigne")
+    local _meta = meta or {}
+    local itemData = Config.Items["contratsigne"]
+    if not _meta.name then
+        local generetename = name
+        _meta.name = generetename
+    end
+    if not _meta.job then
+        local generetejob = job
+        _meta.job = job
+    end
+    print (_meta.job, _meta.name)
+    local item, id = getInventoryItemFromName("contratsigne", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("contratsigne", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)

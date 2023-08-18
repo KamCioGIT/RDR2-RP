@@ -733,7 +733,49 @@ Config.Items = {
         limit = 2000,
         imgsrc = "items/golden_nugget.png",
         type = "item_standard"
-    }
+    },
+
+    --- Contrat
+    ["contratvierge"] = {
+        label = "Contrat Vierge",
+        description = "Le patron signe en premier",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = true,
+        limit = 2000,
+        imgsrc = "items/assaultplans.png",
+        type = "item_standard"
+    },
+    ["contratsigne"] = {
+        label = "Contrat Signe",
+        description = "Un justificatif de travail",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 1,
+        imgsrc = "items/assaultplans.png",
+        type = "item_standard"
+    },
+    ["contratusine"] = {
+        label = "Contrat Usine",
+        description = "Signez en bas pour commencer à travailler",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = true,
+        limit = 2000,
+        imgsrc = "items/assaultplans.png",
+        type = "item_standard"
+    },
+    ["contratmineur"] = {
+        label = "Contrat Mineur",
+        description = "Signez en bas pour commencer à travailler",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = true,
+        limit = 2000,
+        imgsrc = "items/assaultplans.png",
+        type = "item_standard"
+    },
 }
 exports("GetItemsList", function()
     return Config.Items

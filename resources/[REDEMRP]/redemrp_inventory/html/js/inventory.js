@@ -205,6 +205,8 @@ function createObjectBox(object) {
         }
     } else if(object.name == "newspaper") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `A newspaper (edition " + object.meta.edition + ")`)    ");
+    } else if(object.name == "contratsigne") {
+        boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Contrat de travail de " + object.meta.job + " de " + object.meta.name + "`)    ");
     } else if(object.name == "wateringcan") {
         if(object.meta.water != undefined && object.meta.water != null) {
             var waterdisp = object.meta.water * 10;

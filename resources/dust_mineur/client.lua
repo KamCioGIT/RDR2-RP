@@ -2,32 +2,41 @@ RedEM = exports["redem_roleplay"]:RedEM()
 local isMining = false
 local isDeposit = false
 local ressourcePointIndexForMining = nil
+local isInBossMenu = false
 
 --- Définir si le joueur est mineur 
 Citizen.CreateThread(function()
     local PlayerData = RedEM.GetPlayerData()
+
     while RedEM.GetPlayerData().isLoggedIn ~= true do 
         Wait(750)
-        if RedEM.GetPlayerData().job == "mineur" then 
+        if RedEM.GetPlayerData().job == "mineur" then
             startMission()
-            if RedEM.GetPlayerData().jobgrade > 1 then
-                contremaitre()
+            if RedEM.GetPlayerData().jobgrade == 2 then
+                contremaitre()      
             end
         end
     end
-    if RedEM.GetPlayerData().isLoggedIn then 
+    if RedEM.GetPlayerData().isLoggedIn 
+    then 
         if RedEM.GetPlayerData().job == "mineur" then
-            startMission()
-            if RedEM.GetPlayerData().jobgrade > 1 then
-                contremaitre()
+            startMission()            
+            if RedEM.GetPlayerData().jobgrade == 2 then
+                contremaitre()      
             end
         end
     end
 end)
 
-
-RegisterCommand("sw", function(source, args)
-    TriggerServerEvent("CheckStash")
+Citizen.CreateThread (function()
+    if RedEM.GetPlayerData().isLoggedIn 
+    then 
+        if RedEM.GetPlayerData().job == "mineur" then
+            if RedEM.GetPlayerData().jobgrade == 3 then 
+                patronUpdate() 
+            end
+        end
+    end
 end)
 
 -- VA MINER   
@@ -103,6 +112,24 @@ function contremaitre() --- RETRAIT
 end
 
 
+function patronUpdate()
+    while true do
+        Wait(0)
+        local playerPos = GetEntityCoords(PlayerPedId())    
+        for k, v in ipairs(Config.GetVirginContractPos) do
+            if #(playerPos - v) < 6.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if #(playerPos - v) < Config.DistanceToInteract and not isInBossMenu then
+                DrawTxt("Press suppr to acces Bossmenu", 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
+                if IsControlJustPressed(2, 0x4AF4D473) then 
+                    TriggerServerEvent('mineur:RequestBossMenu')
+                    isInBossMenu = true
+                end
+            else end
+        end
+    end
+end
 
 local blip
 function GetRandomRessourcePoint()
@@ -195,3 +222,53 @@ function DrawTexture(textureStreamed,textureName,x, y, width, height,rotation,r,
         DrawSprite(textureStreamed, textureName, x, y, width, height, rotation, r, g, b, a, p11);
     end
 end
+
+RegisterNetEvent("mineur:OpenBossMenu", function()
+    local Position = GetEntityCoords(PlayerPedId())
+    print("mineur:OpenBossMenu triggered")
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(250)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInBossMenu = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local jobgrade = RedEM.GetPlayerData().jobgrade
+
+        local elements = {}
+
+        if jobgrade > 2 then
+            table.insert(elements, {label = "Contrat pour mineur", value = 'virginMineurContrat', desc = "Retirer un contrat vierge de mineur"})
+        else
+            return RedEM.Functions.NotifyRight("You don't have any options here.", 3000)
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Mineur Bossmenu",
+            subtext = "Job Interaction for Mineur",
+            align = 'top-left',
+            elements = elements,
+        },
+
+        function(data, menu)
+            MenuData.CloseAll()
+            -- Fonction pour retirer un contrat
+            print('Call fonction pour contrat vierge')
+            TriggerServerEvent('dust_contract:AddVirginContrat')
+        end,
+
+        function(data, menu)
+            menu.close()
+        end)
+    end)
+end)

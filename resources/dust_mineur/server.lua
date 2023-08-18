@@ -81,3 +81,16 @@ Citizen.CreateThread(function()
 		TriggerEvent("redemrp_inventory:server:removeitemstashMineur", "cuivrebrut", 2, {}, "dep_mineur","cuivrepepite", 1, {}, "ret_mineur")
 	end
 end)
+
+
+RegisterServerEvent("mineur:RequestBossMenu", function()
+	print('RequestBossMenu')
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+
+	if user.job == "mineur" and user.jobgrade > 2 then
+		TriggerClientEvent("mineur:OpenBossMenu", _source)	
+	else
+		RedEM.Functions.NotifyRight( _source, "Your job rank is too low!", 3000)
+	end
+end)
