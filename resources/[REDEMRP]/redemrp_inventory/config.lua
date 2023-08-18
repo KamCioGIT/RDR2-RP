@@ -776,7 +776,22 @@ Config.Items = {
         imgsrc = "items/assaultplans.png",
         type = "item_standard"
     },
+
+
+    --- CAMP
+    ["spit"] = {
+      label = "Spit",
+      description = "for cooking",
+      weight = 5.0,
+      canBeDropped = true,
+      canBeUsed = true,
+      requireLvl = 0,
+      limit = 1,
+      imgsrc = "items/spit.png",
+      type = "item_standard",
+    }
 }
+
 exports("GetItemsList", function()
     return Config.Items
 end)
