@@ -68,7 +68,33 @@ function CraftCamp()
                         end
                         Citizen.Wait(3000)
                         TriggerServerEvent("camp:RequestCampMenu",'fire')
-                    end 
+                    end
+                    if PromptHasHoldModeCompleted(CancelPrompt) and not isInteracting then
+                        local playerPed = PlayerPedId()
+                        RequestAnimDict(Config.MenuDict)
+                        while not HasAnimDictLoaded(Config.MenuDict) do
+                            Citizen.Wait(50)
+                        end
+                        for k,v in pairs(Config.MenuAnim) do
+                            TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+                        end
+                        Citizen.Wait(3000)
+                        RequestAnimDict(Config.CloseMenuDict)
+                        while not HasAnimDictLoaded(Config.CloseMenuDict) do
+                            Citizen.Wait(50)
+                        end
+                        for k,v in pairs(Config.CloseMenuAnim) do
+                            TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
+                            Citizen.Wait(1000)
+                        end
+                        SetEntityAsMissionEntity(campfire)
+                        DeleteObject(campfire)
+                        SetEntityAsMissionEntity(cookspit)
+                        DeleteObject(cookspit)
+                        campfire = 0
+                        cookspit = 0
+                        spawncamp = false
+                    end
                 end
             elseif cookgrill ~= 0 then
                 local objectPos = GetEntityCoords(cookgrill)
@@ -88,6 +114,32 @@ function CraftCamp()
                         Citizen.Wait(3000)
                         TriggerServerEvent("camp:RequestCampMenu",'grill')
                     end
+                    if PromptHasHoldModeCompleted(CancelPrompt) and not isInteracting then
+                        local playerPed = PlayerPedId()
+                        RequestAnimDict(Config.MenuDict)
+                        while not HasAnimDictLoaded(Config.MenuDict) do
+                            Citizen.Wait(50)
+                        end
+                        for k,v in pairs(Config.MenuAnim) do
+                            TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+                        end
+                        Citizen.Wait(3000)
+                        RequestAnimDict(Config.CloseMenuDict)
+                        while not HasAnimDictLoaded(Config.CloseMenuDict) do
+                            Citizen.Wait(50)
+                        end
+                        for k,v in pairs(Config.CloseMenuAnim) do
+                            TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
+                            Citizen.Wait(1000)
+                        end
+                        SetEntityAsMissionEntity(campfire)
+                        DeleteObject(campfire)
+                        SetEntityAsMissionEntity(cookgrill)
+                        DeleteObject(cookgrill)
+                        campfire = 0
+                        cookgrill = 0
+                        spawncamp = false
+                    end
                 end
             elseif cauldron ~= 0 then
                 local objectPos = GetEntityCoords(cauldron)
@@ -106,7 +158,30 @@ function CraftCamp()
                         end
                         Citizen.Wait(3000)
                         TriggerServerEvent("camp:RequestCampMenu",'cauldron')
-                    end 
+                    end
+                    if PromptHasHoldModeCompleted(CancelPrompt) and not isInteracting then
+                        local playerPed = PlayerPedId()
+                        RequestAnimDict(Config.MenuDict)
+                        while not HasAnimDictLoaded(Config.MenuDict) do
+                            Citizen.Wait(50)
+                        end
+                        for k,v in pairs(Config.MenuAnim) do
+                            TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+                        end
+                        Citizen.Wait(3000)
+                        RequestAnimDict(Config.CloseMenuDict)
+                        while not HasAnimDictLoaded(Config.CloseMenuDict) do
+                            Citizen.Wait(50)
+                        end
+                        for k,v in pairs(Config.CloseMenuAnim) do
+                            TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
+                            Citizen.Wait(1000)
+                        end
+                        SetEntityAsMissionEntity(cauldron)
+                        DeleteObject(cauldron)
+                        cauldron = 0
+                        spawncamp = false
+                    end
                 end
             end
         end
