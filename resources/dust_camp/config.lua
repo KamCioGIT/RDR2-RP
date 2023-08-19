@@ -34,10 +34,10 @@ Config.Props = {
 
 }
 
--- Config.Campfire = GetHashKey('p_campfire05x')
--- Config.CampStick = GetHashKey("p_campfirecook01x")
--- Config.CampGrill = GetHashKey('p_cookgrate01x')
--- Config.CampChaudron = GetHashKey('p_campfirecombined03x')
+Config.Campfire = GetHashKey('p_campfire05x')
+Config.CampStick = GetHashKey("p_campfirecook01x")
+Config.CampGrill = GetHashKey('p_cookgrate01x')
+Config.CampChaudron = GetHashKey('p_campfirecombined03x')
 
 Config.CraftingsReceipe = {
     ['douille'] = {
