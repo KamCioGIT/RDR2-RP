@@ -11,18 +11,39 @@ RegisterServerEvent("dust-or:server:récolte", function(riverdrop, riverdrop2)
         local roll = math.random(1, 100)
         if roll <= riverdrop then
             local roll2 = math.random(1,100)
-            local amount = 1
+            local amount = 2
             if roll2 <= riverdrop2 then                
-                amount = 2
+                amount = 4
             end
 
-            local ItemData = data.getItem(source, 'pepiteor')
+            local ItemData = data.getItem(source, 'cailloux')
 	        ItemData.AddItem(amount)
         end
     end
 end)
 
+RegisterServerEvent('dust-or:server:ramp')
+AddEventHandler('dust-or:server:ramp', function(source)
+	local _source = tonumber(source)
+	TriggerEvent("redemrp_inventory:getData", function(Inventory)
+	local ItemData = Inventory.getItem(_source, "cailloux")
+	while ItemData.RemoveItem(2) do
+		Citizen.CreateThread( function()
+			TriggerClientEvent("dust-or:server:rampanim")
+			Citizen.Wait(Config.WorkingTime)
+			local ItemDatagive = data.getItem(_source, "pepiteor")
+			ItemDatagive.AddItem(1)
+		end)
+	end
+	end)
+end)
+
 RegisterServerEvent("RegisterUsableItem:goldramp")
 AddEventHandler("RegisterUsableItem:goldramp", function(source)
-    TriggerClientEvent("cookfirecauldron", source)    
+    TriggerClientEvent("goldramp", source)    
+end)
+
+RegisterServerEvent("RegisterUsableItem:batée")
+AddEventHandler("RegisterUsableItem:batée", function(source)
+    TriggerClientEvent("EnablePanningMode", source)    
 end)

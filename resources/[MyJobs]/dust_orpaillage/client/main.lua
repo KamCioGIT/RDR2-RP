@@ -4,12 +4,14 @@ local PanPrompt
 local GoldPanning = false
 local SearchingForGold = false
 local Prop = nil
+local spawnramp = false
+local isInteracting = false
 
 local GoldPanPromptGroup = GetRandomIntInRange(0, 0xffffff)
-local GoldPanningPromptName = CreateVarString(10, "LITERAL_STRING", "Gold Panning")
+local GoldPanningPromptName = CreateVarString(10, "LITERAL_STRING", "Bâtée")
 
 Citizen.CreateThread(function()
-    local str = 'Pan'
+    local str = 'Prospecter'
     PanPrompt = PromptRegisterBegin()
     PromptSetControlAction(PanPrompt, 0x5181713D)
     str = CreateVarString(10, 'LITERAL_STRING', str)
@@ -20,7 +22,7 @@ Citizen.CreateThread(function()
     PromptSetGroup(PanPrompt, GoldPanPromptGroup)
     PromptRegisterEnd(PanPrompt)
 
-    str = 'Cancel'
+    str = 'Ranger'
     CancelPrompt = PromptRegisterBegin()
     PromptSetControlAction(CancelPrompt, 0x8E90C7BB)
     str = CreateVarString(10, 'LITERAL_STRING', str)
@@ -32,12 +34,66 @@ Citizen.CreateThread(function()
     PromptRegisterEnd(CancelPrompt)
 end)
 
-RegisterCommand("pangold", function()
-    EnablePanningMode()
+local RampPromptGroup = GetRandomIntInRange(0, 0xffffff)
+local RampPromptName = CreateVarString(10, "LITERAL_STRING", "Rampe de lavage")
+local LeavePrompt
+local RampPrompt
+Citizen.CreateThread(function()
+    local str = 'Laver'
+    RampPrompt = PromptRegisterBegin()
+    PromptSetControlAction(RampPrompt, 0x5181713D)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(RampPrompt, str)
+    PromptSetEnabled(RampPrompt, true)
+    PromptSetVisible(RampPrompt, true)
+    PromptSetHoldMode(RampPrompt, false)
+    PromptSetGroup(RampPrompt, RampPromptGroup)
+    PromptRegisterEnd(RampPrompt)
+
+    str = 'Démonter'
+    LeavePrompt = PromptRegisterBegin()
+    PromptSetControlAction(LeavePrompt, 0x8E90C7BB)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(LeavePrompt, str)
+    PromptSetEnabled(LeavePrompt, true)
+    PromptSetVisible(LeavePrompt, true)
+    PromptSetHoldMode(LeavePrompt, true)
+    PromptSetGroup(LeavePrompt, RampPromptGroup)
+    PromptRegisterEnd(LeavePrompt)
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        local playerPed = PlayerPedId()
+        local pos = GetEntityCoords(playerPed), true
+        local goldramp = GetClosestObjectOfType(pos, 2.0, Config.GoldRamp, false, false, false)
+        if goldramp ~= 0 then
+            local objectPos = GetEntityCoords(goldramp)
+            if #(pos - objectPos) < 2.5 and not isInteracting then
+                PromptSetActiveGroupThisFrame(RampPromptGroup, RampPromptName)
+            end
+            if IsControlJustReleased(0, 0x5181713D) then
+                isInteracting = true
+                local playerPed = PlayerPedId()
+                FreezeEntityPosition(playerPed, true)
+                TriggerServerEvent('dust-or:server:ramp', source)
+            end
+            if PromptHasHoldModeCompleted(CancelPrompt) and not isInteracting then
+                local playerPed = PlayerPedId()
+                SetEntityAsMissionEntity(goldramp)
+                DeleteObject(goldramp)
+                goldramp = 0
+                spawnramp = false
+            end
+        end
+    end
 end)
 
 
-function EnablePanningMode()
+
+
+RegisterNetEvent("EnablePanningMode", function()
     GoldPanning = true
     SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
     if not Prop then
@@ -56,8 +112,7 @@ function EnablePanningMode()
             AttachEntityToEntity(Prop, playerPed, 387, 0.150, -0.03, 0.010, 90.0, -60.0, -30.0, true, true, false, true, 1, true)
         end
     end
-end
-exports('EnablePanningMode', EnablePanningMode)
+end)
 
 function StartGoldpan()
     SearchingForGold = true
@@ -121,9 +176,76 @@ Citizen.CreateThread(function()
     end
 end)
 
+---------------- RAMP ------------------
+RegisterNetEvent('goldramp')
+AddEventHandler('goldramp', function() 
+    if spawnramp == false then
+        if goldramp ~= 0 then
+            SetEntityAsMissionEntity(goldramp)
+            DeleteObject(goldramp)
+            goldramp = 0
+        end
+        local playerPed = PlayerPedId()
+        RequestAnimDict(Config.RampInDict)
+        while not HasAnimDictLoaded(Config.RampInDict) do
+            Citizen.Wait(50)
+        end
+        for k,v in pairs(Config.RampInnim) do
+            TaskPlayAnim(playerPed, Config.RampInDict, v, 8.0, -8.0, -1, 2, 0, true)
+        end
+        Citizen.Wait(3000)
+        RequestAnimDict(Config.RampOutDict)
+        while not HasAnimDictLoaded(Config.RampOutDict) do
+            Citizen.Wait(50)
+        end
+        for k,v in pairs(Config.RampOutAnim) do
+            TaskPlayAnim(playerPed, Config.RampOutDict, v, 8.0, -8.0, -1, 0, 0, true)
+            Citizen.Wait(1000)
+        end
+        local playerPed = PlayerPedId()
+        local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
+        local ramp = CreateObject(Config.GoldRamp, x, y, z, true, false, true)
+        SetEntityHeading(ramp, GetEntityHeading(PlayerPedId()))
+        PlaceObjectOnGroundProperly(ramp)
+        goldramp = ramp
+        spawnramp = true
+    else return end
+end, false)
+
+RegisterNetEvent("dust-or:server:rampanim")
+AddEventHandler("dust-or:server:rampanim", function()
+    local playerPed = PlayerPedId()
+    local coords = GetEntityCoords(playerPed)
+    FreezeEntityPosition(playerPed, true)
+    isInteracting = true
+    RequestAnimDict(Config.AnimDict)
+    while not HasAnimDictLoaded(Config.AnimDict) do
+        Citizen.Wait(50)
+    end
+    for k,v in pairs(Config.CraftAnim) do
+        TaskPlayAnim(playerPed, Config.AnimDict, v, 8.0, -8.0, -1, 1, 0, true)
+            Citizen.Wait(3000)
+        end
+    local timer = GetGameTimer() + Config.WorkingTime
+    isInteracting = true
+
+    Citizen.CreateThread(function()
+        while GetGameTimer() < timer do 
+            Wait(0)
+        end
+        ClearPedTasksImmediately(PlayerPedId())
+        FreezeEntityPosition(playerPed, false)
+        isInteracting = false
+    end)    
+end)
+
+
+
 AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
     if Prop then if DoesEntityExist(Prop) then DeleteEntity(Prop) end end
     PromptDelete(PanPrompt)
     PromptDelete(CancelPrompt)
+    PromptDelete(RampPrompt)
+    PromptDelete(LeavePrompt)
 end)
