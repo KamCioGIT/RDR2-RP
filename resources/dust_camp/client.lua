@@ -51,7 +51,7 @@ Citizen.CreateThread(function()
     campfire = GetClosestObjectOfType(pos, 2.0, Config.Campfire, false, false, false)
     cookgrill = GetClosestObjectOfType(pos, 2.0, Config.CampGrill, false, false, false)
     cauldron = GetClosestObjectOfType(pos, 2.0, Config.CampChaudron, false, false, false)
-    Citizen.Wait(500)
+    Citizen.Wait(0)
     end
 end)
 
