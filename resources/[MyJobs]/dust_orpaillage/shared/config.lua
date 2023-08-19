@@ -15,6 +15,19 @@ Config.CraftAnim = {
     "base_trans_base",
 }
 
+Config.RampInDict = 'mech_dynamic@world_player_dynamic_kneel_ground@tend@male_a@stand_enter@tend1'
+Config.RampInAnim = {
+    "enter_back_rf",
+
+}
+
+Config.RampOutDict = 'mech_dynamic@world_player_dynamic_kneel_ground@tend@male_a@stand_exit@tend1'
+Config.RampOutAnim = {
+    "exit_front",
+
+}
+
+
 Config.RiverChances = {
     [-1308233316] = { -- Lower Montana River
         chanceToGet = 50,

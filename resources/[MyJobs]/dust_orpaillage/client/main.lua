@@ -185,6 +185,23 @@ AddEventHandler('goldramp', function()
             goldramp = 0
         end
         local playerPed = PlayerPedId()
+        RequestAnimDict(Config.RampInDict)
+        while not HasAnimDictLoaded(Config.RampInDict) do
+            Citizen.Wait(50)
+        end
+        for k,v in pairs(Config.RampInnim) do
+            TaskPlayAnim(playerPed, Config.RampInDict, v, 8.0, -8.0, -1, 2, 0, true)
+        end
+        Citizen.Wait(3000)
+        RequestAnimDict(Config.RampOutDict)
+        while not HasAnimDictLoaded(Config.RampOutDict) do
+            Citizen.Wait(50)
+        end
+        for k,v in pairs(Config.RampOutAnim) do
+            TaskPlayAnim(playerPed, Config.RampOutDict, v, 8.0, -8.0, -1, 0, 0, true)
+            Citizen.Wait(1000)
+        end
+        local playerPed = PlayerPedId()
         local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
         local ramp = CreateObject(Config.GoldRamp, x, y, z, true, false, true)
         SetEntityHeading(ramp, GetEntityHeading(PlayerPedId()))
@@ -228,4 +245,6 @@ AddEventHandler("onResourceStop", function(resourceName)
     if Prop then if DoesEntityExist(Prop) then DeleteEntity(Prop) end end
     PromptDelete(PanPrompt)
     PromptDelete(CancelPrompt)
+    PromptDelete(RampPrompt)
+    PromptDelete(LeavePrompt)
 end)
