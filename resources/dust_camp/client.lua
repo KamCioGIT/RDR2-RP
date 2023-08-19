@@ -60,7 +60,7 @@ function CraftCamp()
         while true do
             Citizen.Wait(0)
             local playerPed = PlayerPedId()
-            local pos = GetEntityCoords(), true
+            local pos = GetEntityCoords(playerPed), true
             if campfire ~= 0 then
                 local objectPos = GetEntityCoords(campfire)
                 if #(pos - objectPos) < 2.5 and not isInteracting then
