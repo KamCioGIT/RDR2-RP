@@ -63,7 +63,7 @@ function CraftCamp()
             local pos = GetEntityCoords(), true
             if campfire ~= 0 then
                 local objectPos = GetEntityCoords(campfire)
-                if #(pos - objectPos.coords) < 2.5 and not isInteracting then
+                if #(pos - objectPos) < 2.5 and not isInteracting then
                     PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
                     if IsControlJustReleased(0, 0x5181713D) then
                         isInteracting = true
@@ -108,7 +108,7 @@ function CraftCamp()
                 end
             elseif cookgrill ~= 0 then
                 local objectPos = GetEntityCoords(cookgrill)
-                if  #(pos - objectPos.coords) < 2.5 and not isInteracting then
+                if  #(pos - objectPos) < 2.5 and not isInteracting then
                     PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
                     if IsControlJustReleased(0, 0x5181713D) then
                         isInteracting = true
@@ -153,7 +153,7 @@ function CraftCamp()
                 end
             elseif cauldron ~= 0 then
                 local objectPos = GetEntityCoords(cauldron)
-                if #(pos - objectPos.coords) < 2.5 and not isInteracting then
+                if #(pos - objectPos) < 2.5 and not isInteracting then
                     PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
                     if IsControlJustReleased(0, 0x5181713D) then
                         isInteracting = true
