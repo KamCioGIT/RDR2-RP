@@ -49,6 +49,8 @@ function CraftCamp()
             Citizen.Wait(0)
             local pos = GetEntityCoords(PlayerPedId()), true
             local campfire = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_campfire05x"), false, false, false)
+            local cookgrill = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_cookgrate01x"), false, false, false)
+            local cauldron = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_campfirecombined03x"), false, false, false)
             if campfire ~= 0 then
                 local objectPos = GetEntityCoords(campfire)
                 if GetDistanceBetweenCoords(pos.x, pos.y, pos.z, objectPos.x, objectPos.y, objectPos.z, true) < 2.5 and not isInteracting then
@@ -68,10 +70,49 @@ function CraftCamp()
                         TriggerServerEvent("camp:RequestCampMenu",'fire')
                     end 
                 end
+            elseif cookgrill ~= 0 then
+                local objectPos = GetEntityCoords(cookgrill)
+                if GetDistanceBetweenCoords(pos.x, pos.y, pos.z, objectPos.x, objectPos.y, objectPos.z, true) < 2.5 and not isInteracting then
+                    PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
+                    if IsControlJustReleased(0, 0x5181713D) then
+                        isInteracting = true
+                        local playerPed = PlayerPedId()
+                        FreezeEntityPosition(playerPed, true)
+                        RequestAnimDict(Config.MenuDict)
+                        while not HasAnimDictLoaded(Config.MenuDict) do
+                            Citizen.Wait(50)
+                        end
+                        for k,v in pairs(Config.MenuAnim) do
+                            TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+                        end
+                        Citizen.Wait(3000)
+                        TriggerServerEvent("camp:RequestCampMenu",'grill')
+                    end
+                end
+            elseif cauldron ~= 0 then
+                local objectPos = GetEntityCoords(cauldron)
+                if GetDistanceBetweenCoords(pos.x, pos.y, pos.z, objectPos.x, objectPos.y, objectPos.z, true) < 2.5 and not isInteracting then
+                    PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
+                    if IsControlJustReleased(0, 0x5181713D) then
+                        isInteracting = true
+                        local playerPed = PlayerPedId()
+                        FreezeEntityPosition(playerPed, true)
+                        RequestAnimDict(Config.MenuDict)
+                        while not HasAnimDictLoaded(Config.MenuDict) do
+                            Citizen.Wait(50)
+                        end
+                        for k,v in pairs(Config.MenuAnim) do
+                            TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+                        end
+                        Citizen.Wait(3000)
+                        TriggerServerEvent("camp:RequestCampMenu",'cauldron')
+                    end 
+                end
             end
         end
     end)
 end
+
 
 RegisterNetEvent("camp:OpenCampMenu", function(menutype)
     local Position = GetEntityCoords(PlayerPedId())
@@ -105,9 +146,14 @@ RegisterNetEvent("camp:OpenCampMenu", function(menutype)
         local elements = {}
 
         if _menutype == 'fire' then 
-            table.insert(elements, {label = "Poudre à canon", value = 'gunpowder', desc = "Transformation > 5 Charbon + 10 Soufre = 10 Poudre à canon"})
-            table.insert(elements, {label = "Douille", value = 'douille', desc = "Transformation > 1 Cuivre + 1 Plomb"})
-            table.insert(elements, {label = "Pièce d'arme", value = 'piecearme', desc = "Transformation >  10 Fer + 1 Charbon"})
+            table.insert(elements, {label = "Steak cuit", value = 'gunpowder', desc = "Recette: 1 Steak"})
+        end
+        if _menutype == 'grill' then 
+            table.insert(elements, {label = "Steak Grillé", value = 'gunpowder', desc = "Recette: 1 Steak"})
+            table.insert(elements, {label = "Steak au Thym", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Thym"})
+        end
+        if _menutype == 'cauldron' then 
+            table.insert(elements, {label = "Ragout", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Carotte Sauvage"})
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'Camp', {
@@ -212,6 +258,82 @@ AddEventHandler('cookfirespit', function()
     else return end
 end, false)
 
+RegisterNetEvent('cookfiregrill')
+AddEventHandler('cookfiregrill', function() 
+    if spawncamp == false then
+        if campfire ~= 0 then
+            SetEntityAsMissionEntity(campfire)
+            DeleteObject(campfire)
+            SetEntityAsMissionEntity(cookgrill)
+            DeleteObject(cookgrill)
+            campfire = 0
+        end
+        local playerPed = PlayerPedId()
+        RequestAnimDict(Config.MenuDict)
+        while not HasAnimDictLoaded(Config.MenuDict) do
+            Citizen.Wait(50)
+        end
+        for k,v in pairs(Config.MenuAnim) do
+            TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+        end
+        Citizen.Wait(3000)
+        RequestAnimDict(Config.CloseMenuDict)
+        while not HasAnimDictLoaded(Config.CloseMenuDict) do
+            Citizen.Wait(50)
+        end
+        for k,v in pairs(Config.CloseMenuAnim) do
+            TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
+            Citizen.Wait(1000)
+        end
+        local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
+        local prop = CreateObject(GetHashKey("p_campfire05x"), x, y, z, true, false, true)
+        local prop2 = CreateObject(GetHashKey("p_cookgrate01x"), x, y, z, true, false, true)
+        SetEntityHeading(prop, GetEntityHeading(PlayerPedId()))
+        SetEntityHeading(prop2, GetEntityHeading(PlayerPedId()))
+        PlaceObjectOnGroundProperly(prop)
+        PlaceObjectOnGroundProperly(prop2)
+        campfire = prop
+        cookgrill = prop2
+        spawncamp = true
+    else return end
+end, false)
+
+local cauldron = 0
+RegisterNetEvent('cookfirecauldron')
+AddEventHandler('cookfirecauldron', function() 
+    if spawncamp == false then
+        if cauldron ~= 0 then
+            SetEntityAsMissionEntity(cauldron)
+            DeleteObject(cauldron)
+            cauldron = 0
+        end
+        local playerPed = PlayerPedId()
+        RequestAnimDict(Config.MenuDict)
+        while not HasAnimDictLoaded(Config.MenuDict) do
+            Citizen.Wait(50)
+        end
+        for k,v in pairs(Config.MenuAnim) do
+            TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+        end
+        Citizen.Wait(3000)
+        RequestAnimDict(Config.CloseMenuDict)
+        while not HasAnimDictLoaded(Config.CloseMenuDict) do
+            Citizen.Wait(50)
+        end
+        for k,v in pairs(Config.CloseMenuAnim) do
+            TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
+            Citizen.Wait(1000)
+        end
+        local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
+        local prop = CreateObject(GetHashKey("p_campfirecombined03x"), x, y, z, true, false, true)
+        SetEntityHeading(prop, GetEntityHeading(PlayerPedId()))
+        PlaceObjectOnGroundProperly(prop)
+        cauldron = prop
+        spawncamp = true
+    else return end
+end, false)
+
+
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
@@ -239,10 +361,12 @@ Citizen.CreateThread(function()
             DeleteObject(cookspit)
             SetEntityAsMissionEntity(cookgrill)
             DeleteObject(cookgrill)
-            local pos = GetEntityCoords(PlayerPedId()), true
-            local craftObject = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_campfire05x"), false, false, false)
-            local objectPos = GetEntityCoords(craftObject)
+            SetEntityAsMissionEntity(cauldron)
+            DeleteObject(cauldron)
             campfire = 0
+            cookspit = 0
+            cookgrill = 0
+            cauldron = 0
             spawncamp = false
         end
     end
