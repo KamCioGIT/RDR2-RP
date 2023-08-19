@@ -21,3 +21,8 @@ RegisterServerEvent("dust-or:server:récolte", function(riverdrop, riverdrop2)
         end
     end
 end)
+
+RegisterServerEvent("RegisterUsableItem:goldramp")
+AddEventHandler("RegisterUsableItem:goldramp", function(source)
+    TriggerClientEvent("cookfirecauldron", source)    
+end)
