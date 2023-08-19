@@ -242,20 +242,21 @@ end)
 
 local function MaxRessourcesAmount(dataType)
     local player = PlayerPedId()
-    local rItem1 = Inventory.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
-    local rItem2 = Inventory.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
+    TriggerEvent("redemrp_inventory:getData", function(Inventory)
+        local rItem1 = Inventory.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
+        local rItem2 = Inventory.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
 
-    local rItem1Amount = tonumber(rItem1.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
-    local rItem2Amount = tonumber(rItem2.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
+        local rItem1Amount = tonumber(rItem1.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
+        local rItem2Amount = tonumber(rItem2.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
 
-    local maxCraftingItemNbr = 0
+        local maxCraftingItemNbr = 0
 
-    for i = 0, rItem1Amount, 1 do 
-        if not rItem2Amount >= rItem1Amount then
-            maxCraftingItemNbr = i
+        for i = 0, rItem1Amount, 1 do 
+            if not rItem2Amount >= rItem1Amount then
+                maxCraftingItemNbr = i
+            end
         end
-    end
-
+    end)
     return maxCraftingItemNbr
 end
 
