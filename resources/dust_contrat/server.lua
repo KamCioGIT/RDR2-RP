@@ -29,13 +29,15 @@ end)
 RegisterServerEvent("RegisterUsableItem:contratmineur") -- Fonctionne pas
 AddEventHandler("RegisterUsableItem:contratmineur", function(source)
     local _source = source
+    local job = "Mineur"
+    local user = RedEM.GetPlayer(_source)
     if RedEM.GetPlayer(source).job == "unemployed" or RedEM.GetPlayer(source).job ~= "mineur" then
-        local user = RedEM.GetPlayer(_source)
-        local itemData = data.getItem(_source, "contratmineur")
+        TriggerClientEvent('contrat:signe', source, job)
+        local itemData = data.getItem(_source, "contratusine")
+        itemData.RemoveItem(1)
         user.SetJob("mineur")
         user.SetJobGrade(1)
         print('Le joueur '..source..' est maintenant mineur')
-        --itemData.RemoveItem(1)
     end
 end)
 
@@ -51,8 +53,6 @@ AddEventHandler("RegisterUsableItem:contratusine", function(source)
         user.SetJob("usine")
         user.SetJobGrade(1)
         print('Le joueur '..source..' est maintenant ouvrier')
-
-    
     end
 end)
 

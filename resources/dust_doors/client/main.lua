@@ -42,6 +42,7 @@ Citizen.CreateThread(function()
 	end
 end)
 
+
 Citizen.CreateThread(function()
 	SetupOpenPrompt()
 	while true do
