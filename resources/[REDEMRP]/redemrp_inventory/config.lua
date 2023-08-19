@@ -735,8 +735,8 @@ Config.Items = {
         type = "item_standard"
     },
     ["cailloux"] = {
-        label = "Amas de cailloux",
-        description = "Légérement doré",
+        label = "Dépôt riche en or",
+        description = "Peut donner de l'or à une rampe de lavage",
         weight = 0.2,
         canBeDropped = true,
         canBeUsed = false,

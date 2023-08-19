@@ -32,6 +32,7 @@ AddEventHandler('dust-or:server:ramp', function(source)
 			TriggerClientEvent("dust-or:server:rampanim")
 			Citizen.Wait(Config.WorkingTime)
 			local ItemDatagive = data.getItem(_source, "pepiteor")
+            local roll = math.random(0, 100)
 			ItemDatagive.AddItem(1)
 		end)
 	end
