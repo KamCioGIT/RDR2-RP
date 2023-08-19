@@ -4,10 +4,10 @@ RedEM = exports["redem_roleplay"]:RedEM()
 local isInteracting = false
 local spawncamp = false
 
-local propfire = GetHashKey(Config.Campfire)
-local propstick = GetHashKey(Config.CamoStick)
-local propgrill = GetHashKey(Config.CampGrill)
-local propchaudron = GetHashKey(Config.CampChaudron)
+local propfire = Config.Campfire
+local propstick = Config.CamoStick
+local propgrill = Config.CampGrill
+local propchaudron = Config.CampChaudron
  
 Citizen.CreateThread(function()
     local PlayerData = RedEM.GetPlayerData()
