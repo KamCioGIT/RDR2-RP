@@ -17,6 +17,7 @@ Citizen.CreateThread(function()
     end
     if RedEM.GetPlayerData().isLoggedIn then
         CraftCamp()
+        print (propfire)
     end
 end)
 
