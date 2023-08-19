@@ -3,6 +3,11 @@ RedEM = exports["redem_roleplay"]:RedEM()
 
 local isInteracting = false
 local spawncamp = false
+
+local propfire = GetHashKey(Config.Campfire)
+local propstick = GetHashKey(Config.CamoStick)
+local propgrill = GetHashKey(Config.CampGrill)
+local propchaudron = GetHashKey(Config.CampChaudron)
  
 Citizen.CreateThread(function()
     local PlayerData = RedEM.GetPlayerData()
@@ -47,9 +52,9 @@ Citizen.CreateThread(function()
     while true do
     local playerPed = PlayerPedId()
     local pos = GetEntityCoords(), true
-    campfire = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_campfire05x"), false, false, false)
-    cookgrill = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_cookgrate01x"), false, false, false)
-    cauldron = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_campfirecombined03x"), false, false, false)
+    campfire = GetClosestObjectOfType(pos, 2.0, propfire, false, false, false)
+    cookgrill = GetClosestObjectOfType(pos, 2.0, propgrill, false, false, false)
+    cauldron = GetClosestObjectOfType(pos, 2.0, propchaudron, false, false, false)
     Citizen.Wait(500)
     end
 end)
@@ -330,8 +335,8 @@ AddEventHandler('cookfirespit', function()
             Citizen.Wait(1000)
         end
         local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
-        local prop = CreateObject(GetHashKey("p_campfire05x"), x, y, z, true, false, true)
-        local prop2 = CreateObject(GetHashKey("p_campfirecook01x"), x, y, z, true, false, true)
+        local prop = CreateObject(propfire, x, y, z, true, false, true)
+        local prop2 = CreateObject(propstick, x, y, z, true, false, true)
         SetEntityHeading(prop, GetEntityHeading(PlayerPedId()))
         SetEntityHeading(prop2, GetEntityHeading(PlayerPedId()))
         PlaceObjectOnGroundProperly(prop)
@@ -370,8 +375,8 @@ AddEventHandler('cookfiregrill', function()
             Citizen.Wait(1000)
         end
         local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
-        local prop = CreateObject(GetHashKey("p_campfire05x"), x, y, z, true, false, true)
-        local prop2 = CreateObject(GetHashKey("p_cookgrate01x"), x, y, z, true, false, true)
+        local prop = CreateObject(propfire, x, y, z, true, false, true)
+        local prop2 = CreateObject(propgrill, x, y, z, true, false, true)
         SetEntityHeading(prop, GetEntityHeading(PlayerPedId()))
         SetEntityHeading(prop2, GetEntityHeading(PlayerPedId()))
         PlaceObjectOnGroundProperly(prop)
@@ -408,7 +413,7 @@ AddEventHandler('cookfirecauldron', function()
             Citizen.Wait(1000)
         end
         local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
-        local prop = CreateObject(GetHashKey("p_campfirecombined03x"), x, y, z, true, false, true)
+        local prop = CreateObject(propchaudron, x, y, z, true, false, true)
         SetEntityHeading(prop, GetEntityHeading(PlayerPedId()))
         PlaceObjectOnGroundProperly(prop)
         cauldron = prop
