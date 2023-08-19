@@ -27,7 +27,7 @@ Config.IdleAnim = {'idle_b'}
 Config.WorkingTime = 1000
 
 Config.Campfire = GetHashKey('p_campfire05x')
-Config.CamoStick = GetHashKey('p_campfirecook01x')
+Config.CampStick = GetHashKey('p_campfirecook01x')
 Config.CampGrill = GetHashKey('p_cookgrate01x')
 Config.CampChaudron = GetHashKey('p_campfirecombined03x')
 
