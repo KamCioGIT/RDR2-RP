@@ -264,6 +264,7 @@ RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
     local maxRessourcesAmount = MaxRessourcesAmount(dataType)
+    print(maxRessourcesAmount)
 
     if maxRessourcesAmount == 0 then
         RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
@@ -276,10 +277,10 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         desc = "Se mettre au travail",
         type = 'slider',
         min = 0,
-        max = maxRessourcesAmount},
-        {label = "+", value = 'add', desc = "Ajouter "..dataType},
-        {label = "-", value = 'sub', desc = "Soustraire "..dataType},
-        {label = "Max", value = 'max', desc = "Ajouter le nombre maximum"},
+        max = 100},
+        --{label = "+", value = 'add', desc = "Ajouter "..dataType},
+        --{label = "-", value = 'sub', desc = "Soustraire "..dataType},
+        --{label = "Max", value = 'max', desc = "Ajouter le nombre maximum"},
     }
 
     menuData.Open('default', GetCurrentResourceName(), 'craft', {
@@ -292,7 +293,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     function(data, menu)
         if data.current.label == "Crafting Amount" then
             print(data.current.value)
-            --TriggerServerEvent("usine:CraftItem", data.current.value, PlayerPedId(), menu)
+            --TriggerServerEvent("usine:CraftItem", data.current.value, PlayerPedId(), menu) 
         else
             RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
         end 
