@@ -7,6 +7,8 @@ Config.GoldPanAnimations = {
     "SEARCH04",
 }
 
+Config.Rampe = "p_goldcradle01x" -- Rampe de lavage
+
 Config.RiverChances = {
     [-1308233316] = { -- Lower Montana River
         chanceToGet = 50,
