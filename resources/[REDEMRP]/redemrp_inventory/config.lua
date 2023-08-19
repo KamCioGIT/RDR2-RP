@@ -789,7 +789,29 @@ Config.Items = {
       limit = 1,
       imgsrc = "items/spit.png",
       type = "item_standard",
-    }
+    },
+    ["grill"] = {
+      label = "Grill",
+      description = "for cooking",
+      weight = 5.0,
+      canBeDropped = true,
+      canBeUsed = true,
+      requireLvl = 0,
+      limit = 1,
+      imgsrc = "items/grill.png",
+      type = "item_standard",
+    },
+    ["cauldron"] = {
+      label = "Cauldron",
+      description = "for cooking",
+      weight = 5.0,
+      canBeDropped = true,
+      canBeUsed = true,
+      requireLvl = 0,
+      limit = 1,
+      imgsrc = "items/cauldron.png",
+      type = "item_standard",
+    },
 }
 
 exports("GetItemsList", function()
