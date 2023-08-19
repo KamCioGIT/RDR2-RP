@@ -1,5 +1,10 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
+data = {}
+TriggerEvent("redemrp_inventory:getData",function(call)
+    data = call
+end)
+
 local isInteracting = false
 
 local CraftMenuPrompt = nil
@@ -244,23 +249,22 @@ function MaxRessourcesAmount(dataType)
     print("oui")
     local player = PlayerPedId()
     local maxCraftingItemNbr = 0
-    TriggerServerEvent("redemrp_inventory:getData", function(Inventory)
-        local rItem1 = Inventory.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
-        local rItem2 = Inventory.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
+    
+    local rItem1 = data.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
+    local rItem2 = data.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
+    
+    local rItem1Amount = tonumber(rItem1.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
+    local rItem2Amount = tonumber(rItem2.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
+    print(rItem1Amount)
+    print(rItem2Amount)
 
-        local rItem1Amount = tonumber(rItem1.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
-        local rItem2Amount = tonumber(rItem2.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
-        print(rItem1Amount)
-        print(rItem2Amount)
-
-        for i = 0, rItem1Amount, 1 do 
-            if not rItem2Amount >= rItem1Amount then
-                print("stop count")
-                maxCraftingItemNbr = i
-            end
+    for i = 0, rItem1Amount, 1 do 
+        if not rItem2Amount >= rItem1Amount then
+            print("stop count")
+            maxCraftingItemNbr = i
         end
-    end)
-
+    end
+    
     return maxCraftingItemNbr
 end
 
