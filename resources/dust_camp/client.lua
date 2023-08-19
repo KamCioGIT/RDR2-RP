@@ -43,17 +43,26 @@ Citizen.CreateThread(function()
     PromptRegisterEnd(CancelPrompt)
 end)
 
+Citizen.CreateThread(function()
+    while true do
+    local playerPed = PlayerPedId()
+    local pos = GetEntityCoords(), true
+    campfire = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_campfire05x"), false, false, false)
+    cookgrill = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_cookgrate01x"), false, false, false)
+    cauldron = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_campfirecombined03x"), false, false, false)
+    Citizen.Wait(500)
+    end
+end)
+
 function CraftCamp()
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(0)
-            local pos = GetEntityCoords(PlayerPedId()), true
-            local campfire = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_campfire05x"), false, false, false)
-            local cookgrill = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_cookgrate01x"), false, false, false)
-            local cauldron = GetClosestObjectOfType(pos, 2.0, GetHashKey("p_campfirecombined03x"), false, false, false)
+            local playerPed = PlayerPedId()
+            local pos = GetEntityCoords(), true
             if campfire ~= 0 then
                 local objectPos = GetEntityCoords(campfire)
-                if GetDistanceBetweenCoords(pos.x, pos.y, pos.z, objectPos.x, objectPos.y, objectPos.z, true) < 2.5 and not isInteracting then
+                if #(pos - objectPos.coords) < 2.5 and not isInteracting then
                     PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
                     if IsControlJustReleased(0, 0x5181713D) then
                         isInteracting = true
@@ -98,7 +107,7 @@ function CraftCamp()
                 end
             elseif cookgrill ~= 0 then
                 local objectPos = GetEntityCoords(cookgrill)
-                if GetDistanceBetweenCoords(pos.x, pos.y, pos.z, objectPos.x, objectPos.y, objectPos.z, true) < 2.5 and not isInteracting then
+                if  #(pos - objectPos.coords) < 2.5 and not isInteracting then
                     PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
                     if IsControlJustReleased(0, 0x5181713D) then
                         isInteracting = true
@@ -143,7 +152,7 @@ function CraftCamp()
                 end
             elseif cauldron ~= 0 then
                 local objectPos = GetEntityCoords(cauldron)
-                if GetDistanceBetweenCoords(pos.x, pos.y, pos.z, objectPos.x, objectPos.y, objectPos.z, true) < 2.5 and not isInteracting then
+                if #(pos - objectPos.coords) < 2.5 and not isInteracting then
                     PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
                     if IsControlJustReleased(0, 0x5181713D) then
                         isInteracting = true
@@ -373,7 +382,6 @@ AddEventHandler('cookfiregrill', function()
     else return end
 end, false)
 
-local cauldron = 0
 RegisterNetEvent('cookfirecauldron')
 AddEventHandler('cookfirecauldron', function() 
     if spawncamp == false then
