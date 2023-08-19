@@ -731,9 +731,41 @@ Config.Items = {
         canBeDropped = true,
         canBeUsed = false,
         limit = 2000,
+        imgsrc = "items/goldnugget.png",
+        type = "item_standard"
+    },
+    ["cailloux"] = {
+        label = "Amas de cailloux",
+        description = "Légérement doré",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
         imgsrc = "items/golden_nugget.png",
         type = "item_standard"
     },
+    ["batée"] = {
+        label = "Bâtée",
+        description = "Outil nécessaire à l'orpaillage",
+        weight = 1,
+        canBeDropped = true,
+        canBeUsed = true,
+        limit = 2000,
+        imgsrc = "items/goldpan.png",
+        type = "item_standard"
+    },
+    ["goldramp"] = {
+        label = "Rampe de lavage",
+        description = "Utile pour séparer l'or des amas de cailloux",
+        weight = 5,
+        canBeDropped = true,
+        canBeUsed = true,
+        limit = 2000,
+        imgsrc = "items/goldpan.png",
+        type = "item_standard"
+    },
+
+
 
     --- Contrat
     ["contratvierge"] = {
@@ -786,7 +818,7 @@ Config.Items = {
       canBeDropped = true,
       canBeUsed = true,
       requireLvl = 0,
-      limit = 1,
+      limit = 2000,
       imgsrc = "items/kit_camp_simple.png",
       type = "item_standard",
     },
@@ -797,7 +829,7 @@ Config.Items = {
       canBeDropped = true,
       canBeUsed = true,
       requireLvl = 0,
-      limit = 1,
+      limit = 2000,
       imgsrc = "items/upgrade_upg_cooking_spit.png",
       type = "item_standard",
     },
@@ -808,7 +840,7 @@ Config.Items = {
       canBeDropped = true,
       canBeUsed = true,
       requireLvl = 0,
-      limit = 1,
+      limit = 2000,
       imgsrc = "items/kit_camp.png",
       type = "item_standard",
     },
