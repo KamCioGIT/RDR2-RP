@@ -79,7 +79,7 @@ Citizen.CreateThread(function()
                 FreezeEntityPosition(playerPed, true)
                 TriggerServerEvent('dust-or:server:ramp', source)
             end
-            if PromptHasHoldModeCompleted(CancelPrompt) and not isInteracting then
+            if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
                 local playerPed = PlayerPedId()
                 SetEntityAsMissionEntity(goldramp)
                 DeleteObject(goldramp)
