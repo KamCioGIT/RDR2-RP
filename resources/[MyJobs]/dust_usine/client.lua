@@ -78,7 +78,7 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
 
         function(data, menu)
             MenuData.CloseAll()
-            TriggerClientEvent("usine:SelectCraftingAmount", PlayerPedId(), data.current.value, data, menu)
+            TriggerEvent("usine:SelectCraftingAmount", data.current.value, MenuData, menu)
             --TriggerServerEvent("usine:CraftItem", data.current.value, PlayerPedId(), menu)
             CraftMenuPromptShown = false
         end,
