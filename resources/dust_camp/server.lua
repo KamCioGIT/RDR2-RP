@@ -46,3 +46,15 @@ RegisterServerEvent("RegisterUsableItem:tent")
 AddEventHandler("RegisterUsableItem:tent", function(source)
     TriggerClientEvent("lockertent", source)    
 end)
+
+RegisterServerEvent("RegisterUsableItem:petitbois")
+AddEventHandler("RegisterUsableItem:petitbois", function(source)
+	local _source = tonumber(source)
+	TriggerEvent("redemrp_inventory:getData", function(Inventory)
+		local ItemData = Inventory.getItem(_source, "petitbois")
+		if ItemData.RemoveItem(5) then
+			local ItemDatagive = data.getItem(_source, "spit")
+			ItemDatagive.AddItem(1)
+		end
+	end)
+end)
