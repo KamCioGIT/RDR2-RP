@@ -249,15 +249,18 @@ local function MaxRessourcesAmount(dataType)
 
         local rItem1Amount = tonumber(rItem1.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
         local rItem2Amount = tonumber(rItem2.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
+        print(rItem1Amount)
+        print(rItem2Amount)
 
         for i = 0, rItem1Amount, 1 do 
             if not rItem2Amount >= rItem1Amount then
                 print("stop count")
-                print(i)
-                return i
+                maxCraftingItemNbr = i
             end
         end
     end)
+
+    return maxCraftingItemNbr
 end
 
 RegisterNetEvent("usine:SelectCraftingAmount")
