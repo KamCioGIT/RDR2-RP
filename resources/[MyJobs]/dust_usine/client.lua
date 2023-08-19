@@ -240,7 +240,8 @@ AddEventHandler("onResourceStop", function(resourceName)
     PromptDelete(CraftMenuPrompt)
 end)
 
-local function MaxRessourcesAmount(dataType)
+function MaxRessourcesAmount(dataType)
+    print("oui")
     local player = PlayerPedId()
     local maxCraftingItemNbr = 0
     TriggerEvent("redemrp_inventory:getData", function(Inventory)
@@ -249,25 +250,23 @@ local function MaxRessourcesAmount(dataType)
 
         local rItem1Amount = tonumber(rItem1.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
         local rItem2Amount = tonumber(rItem2.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
+        print(rItem1Amount)
+        print(rItem2Amount)
 
         for i = 0, rItem1Amount, 1 do 
             if not rItem2Amount >= rItem1Amount then
                 print("stop count")
-                print(i)
-                return i
+                maxCraftingItemNbr = i
             end
         end
     end)
+
+    return maxCraftingItemNbr
 end
 
 RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
-    
-    if maxRessourcesAmount == 0 then
-        RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
-        menu.close()
-    end
 
     local elements = {
         { label = "Crafting Amount", 
