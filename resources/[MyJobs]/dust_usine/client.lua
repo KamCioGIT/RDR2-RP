@@ -242,6 +242,7 @@ end)
 
 local function MaxRessourcesAmount(dataType)
     local player = PlayerPedId()
+    local maxCraftingItemNbr = 0
     TriggerEvent("redemrp_inventory:getData", function(Inventory)
         local rItem1 = Inventory.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
         local rItem2 = Inventory.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
@@ -249,22 +250,21 @@ local function MaxRessourcesAmount(dataType)
         local rItem1Amount = tonumber(rItem1.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
         local rItem2Amount = tonumber(rItem2.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
 
-        local maxCraftingItemNbr = 0
-
         for i = 0, rItem1Amount, 1 do 
             if not rItem2Amount >= rItem1Amount then
-                maxCraftingItemNbr = i
+                print("stop count")
+                print(i)
+                return maxCraftingItemNbr = i
             end
         end
     end)
-    return maxCraftingItemNbr
 end
 
 RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
     local maxRessourcesAmount = MaxRessourcesAmount(dataType)
-    print(maxRessourcesAmount)
+    
 
     if maxRessourcesAmount == 0 then
         RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
