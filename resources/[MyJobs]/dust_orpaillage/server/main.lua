@@ -28,7 +28,7 @@ AddEventHandler('dust-or:server:ramp', function(source)
 	TriggerEvent("redemrp_inventory:getData", function(Inventory)
 	local ItemData = Inventory.getItem(_source, "cailloux")
 	while ItemData.RemoveItem(2) do
-		Citizen.CreateThread( function()
+		Citizen.CreateThread(function()
 			TriggerClientEvent("dust-or:server:rampanim")
 			Citizen.Wait(Config.WorkingTime)
 			local ItemDatagive = data.getItem(_source, "pepiteor")
