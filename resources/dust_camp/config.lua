@@ -26,10 +26,18 @@ Config.IdleAnim = {'idle_b'}
 
 Config.WorkingTime = 1000
 
-Config.Campfire = GetHashKey('p_campfire05x')
-Config.CampStick = GetHashKey("p_campfirecook01x")
-Config.CampGrill = GetHashKey('p_cookgrate01x')
-Config.CampChaudron = GetHashKey('p_campfirecombined03x')
+Config.Props = {
+    ["campfire"] = {GetHashKey('p_campfire05x')}
+    ["cookstick"] = {GetHashKey("p_campfirecook01x")}
+    ["cookgrill"] = {GetHashKey('p_cookgrate01x')}
+    ["cauldron"] = {GetHashKey('p_campfirecombined03x')}
+
+}
+
+-- Config.Campfire = GetHashKey('p_campfire05x')
+-- Config.CampStick = GetHashKey("p_campfirecook01x")
+-- Config.CampGrill = GetHashKey('p_cookgrate01x')
+-- Config.CampChaudron = GetHashKey('p_campfirecombined03x')
 
 Config.CraftingsReceipe = {
     ['douille'] = {

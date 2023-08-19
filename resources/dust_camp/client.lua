@@ -49,55 +49,58 @@ end)
 function CraftCamp()
     Citizen.CreateThread(function()
         while true do
-            Citizen.Wait(100)
-            local playerPed = PlayerPedId()
-            local pos = GetEntityCoords(playerPed), true
-            local campfire = GetClosestObjectOfType(pos, 2.0, Config.Campfire, false, false, false)
-            local cookgrill = GetClosestObjectOfType(pos, 2.0, Config.CampGrill, false, false, false)
-            local cauldron = GetClosestObjectOfType(pos, 2.0, Config.CampChaudron, false, false, false)
-            if campfire ~= 0 then
-                local objectPos = GetEntityCoords(campfire)
-                if #(pos - objectPos) < 2.5 and not isInteracting then
-                    PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
-                    if IsControlJustReleased(0, 0x5181713D) then
-                        isInteracting = true
-                        local playerPed = PlayerPedId()
-                        FreezeEntityPosition(playerPed, true)
-                        RequestAnimDict(Config.MenuDict)
-                        while not HasAnimDictLoaded(Config.MenuDict) do
-                            Citizen.Wait(50)
+            Citizen.Wait(0)
+            -- local campfire = GetClosestObjectOfType(pos, 2.0, Config.Campfire, false, false, false)
+            -- local cookgrill = GetClosestObjectOfType(pos, 2.0, Config.CampGrill, false, false, false)
+            -- local cauldron = GetClosestObjectOfType(pos, 2.0, Config.CampChaudron, false, false, false)
+            for name, props in ipairs(Config.Props) do
+                local playerPed = PlayerPedId()
+                local pos = GetEntityCoords(playerPed), true
+                local name = GetClosestObjectOfType(pos, 2.0, props, false, false, false)
+                if name == "campfire" then
+                    local objectPos = GetEntityCoords(name)
+                    if #(pos - objectPos) < 2.5 and not isInteracting then
+                        PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
+                        if IsControlJustReleased(0, 0x5181713D) then
+                            isInteracting = true
+                            local playerPed = PlayerPedId()
+                            FreezeEntityPosition(playerPed, true)
+                            RequestAnimDict(Config.MenuDict)
+                            while not HasAnimDictLoaded(Config.MenuDict) do
+                                Citizen.Wait(50)
+                            end
+                            for k,v in pairs(Config.MenuAnim) do
+                                TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+                            end
+                            Citizen.Wait(3000)
+                            TriggerServerEvent("camp:RequestCampMenu",'fire')
                         end
-                        for k,v in pairs(Config.MenuAnim) do
-                            TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+                        if PromptHasHoldModeCompleted(CancelPrompt) and not isInteracting then
+                            local playerPed = PlayerPedId()
+                            RequestAnimDict(Config.MenuDict)
+                            while not HasAnimDictLoaded(Config.MenuDict) do
+                                Citizen.Wait(50)
+                            end
+                            for k,v in pairs(Config.MenuAnim) do
+                                TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+                            end
+                            Citizen.Wait(3000)
+                            RequestAnimDict(Config.CloseMenuDict)
+                            while not HasAnimDictLoaded(Config.CloseMenuDict) do
+                                Citizen.Wait(50)
+                            end
+                            for k,v in pairs(Config.CloseMenuAnim) do
+                                TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
+                                Citizen.Wait(1000)
+                            end
+                            SetEntityAsMissionEntity(campfire)
+                            DeleteObject(campfire)
+                            SetEntityAsMissionEntity(cookspit)
+                            DeleteObject(cookspit)
+                            campfire = 0
+                            cookspit = 0
+                            spawncamp = false
                         end
-                        Citizen.Wait(3000)
-                        TriggerServerEvent("camp:RequestCampMenu",'fire')
-                    end
-                    if PromptHasHoldModeCompleted(CancelPrompt) and not isInteracting then
-                        local playerPed = PlayerPedId()
-                        RequestAnimDict(Config.MenuDict)
-                        while not HasAnimDictLoaded(Config.MenuDict) do
-                            Citizen.Wait(50)
-                        end
-                        for k,v in pairs(Config.MenuAnim) do
-                            TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
-                        end
-                        Citizen.Wait(3000)
-                        RequestAnimDict(Config.CloseMenuDict)
-                        while not HasAnimDictLoaded(Config.CloseMenuDict) do
-                            Citizen.Wait(50)
-                        end
-                        for k,v in pairs(Config.CloseMenuAnim) do
-                            TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
-                            Citizen.Wait(1000)
-                        end
-                        SetEntityAsMissionEntity(campfire)
-                        DeleteObject(campfire)
-                        SetEntityAsMissionEntity(cookspit)
-                        DeleteObject(cookspit)
-                        campfire = 0
-                        cookspit = 0
-                        spawncamp = false
                     end
                 end
             end
