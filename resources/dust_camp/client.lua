@@ -3,7 +3,9 @@ RedEM = exports["redem_roleplay"]:RedEM()
 
 local isInteracting = false
 local spawncamp = false
- 
+local spawngrill = false
+local spawncauldron= false
+
 Citizen.CreateThread(function()
     local PlayerData = RedEM.GetPlayerData()
     while RedEM.GetPlayerData().isLoggedIn ~= true do 
@@ -141,7 +143,7 @@ function CraftCamp()
                         DeleteObject(cookgrill)
                         campfire = 0
                         cookgrill = 0
-                        spawncamp = false
+                        spawngrill = false
                     end
                 end
             end
@@ -184,7 +186,7 @@ function CraftCamp()
                         SetEntityAsMissionEntity(cauldron)
                         DeleteObject(cauldron)
                         cauldron = 0
-                        spawncamp = false
+                        spawncauldron = false
                     end
                 end
             end
@@ -339,7 +341,7 @@ end, false)
 
 RegisterNetEvent('cookfiregrill')
 AddEventHandler('cookfiregrill', function() 
-    if spawncamp == false then
+    if spawngrill == false then
         if campfire ~= 0 then
             SetEntityAsMissionEntity(campfire)
             DeleteObject(campfire)
@@ -379,7 +381,7 @@ end, false)
 
 RegisterNetEvent('cookfirecauldron')
 AddEventHandler('cookfirecauldron', function() 
-    if spawncamp == false then
+    if spawncauldron == false then
         if cauldron ~= 0 then
             SetEntityAsMissionEntity(cauldron)
             DeleteObject(cauldron)
