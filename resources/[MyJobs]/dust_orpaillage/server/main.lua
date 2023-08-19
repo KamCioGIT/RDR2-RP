@@ -36,7 +36,6 @@ AddEventHandler('dust-or:server:ramp', function(source)
 			ItemDatagive.AddItem(1)
 		end)
 	end
-	end)
 end)
 
 RegisterServerEvent("RegisterUsableItem:goldramp")
