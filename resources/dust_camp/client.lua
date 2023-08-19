@@ -43,14 +43,6 @@ Citizen.CreateThread(function()
     PromptRegisterEnd(CancelPrompt)
 end)
 
--- Citizen.CreateThread(function()
---     while true do
---     campfire = GetClosestObjectOfType(pos, 2.0, Config.Campfire, false, false, false)
---     cookgrill = GetClosestObjectOfType(pos, 2.0, Config.CampGrill, false, false, false)
---     cauldron = GetClosestObjectOfType(pos, 2.0, Config.CampChaudron, false, false, false)
---     Citizen.Wait(0)
---     end
--- end)
 
 function CraftCamp()
     Citizen.CreateThread(function()
@@ -58,18 +50,9 @@ function CraftCamp()
             Citizen.Wait(0)
             local playerPed = PlayerPedId()
             local pos = GetEntityCoords(playerPed), true
-            -- local campfire = GetClosestObjectOfType(pos, 2.0, Config.Campfire, false, false, false)
-            -- local cookgrill = GetClosestObjectOfType(pos, 2.0, Config.CampGrill, false, false, false)
-            -- local cauldron = GetClosestObjectOfType(pos, 2.0, Config.CampChaudron, false, false, false)
-            Citizen.CreateThread(function()
-                while true do
-                campfire = GetClosestObjectOfType(pos, 2.0, Config.Campfire, false, false, false)
-                cookgrill = GetClosestObjectOfType(pos, 2.0, Config.CampGrill, false, false, false)
-                cauldron = GetClosestObjectOfType(pos, 2.0, Config.CampChaudron, false, false, false)
-                Citizen.Wait(0)
-                end
-            end)
-            
+            local campfire = GetClosestObjectOfType(pos, 2.0, Config.Campfire, false, false, false)
+            local cookgrill = GetClosestObjectOfType(pos, 2.0, Config.CampGrill, false, false, false)
+            local cauldron = GetClosestObjectOfType(pos, 2.0, Config.CampChaudron, false, false, false)
             if campfire ~= 0 then
                 local objectPos = GetEntityCoords(campfire)
                 if #(pos - objectPos) < 2.5 and not isInteracting then
