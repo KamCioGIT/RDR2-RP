@@ -285,7 +285,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
 
     menuData.Open('default', GetCurrentResourceName(), 'craft', {
         title = "Craft Usine Menu",
-        subtext = "Job Interaction for Usine",
+        subtext = "Select how much ".. dataType .. " craft",
         align = 'top-right',
         elements = elements,
     },
