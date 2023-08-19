@@ -190,7 +190,7 @@ AddEventHandler('goldramp', function()
         while not HasAnimDictLoaded(Config.RampInDict) do
             Citizen.Wait(50)
         end
-        for k,v in pairs(Config.RampInnim) do
+        for k,v in pairs(Config.RampInAnim) do
             TaskPlayAnim(playerPed, Config.RampInDict, v, 8.0, -8.0, -1, 2, 0, true)
         end
         Citizen.Wait(3000)
