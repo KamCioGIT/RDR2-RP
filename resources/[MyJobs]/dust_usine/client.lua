@@ -245,29 +245,6 @@ AddEventHandler("onResourceStop", function(resourceName)
     PromptDelete(CraftMenuPrompt)
 end)
 
-function MaxRessourcesAmount(dataType)
-    print("oui")
-    local player = PlayerPedId()
-    local maxCraftingItemNbr = 0
-    
-    local rItem1 = data.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
-    local rItem2 = data.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
-    
-    local rItem1Amount = tonumber(rItem1.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
-    local rItem2Amount = tonumber(rItem2.getAmount()) / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
-    print(rItem1Amount)
-    print(rItem2Amount)
-
-    for i = 0, rItem1Amount, 1 do 
-        if not rItem2Amount >= rItem1Amount then
-            print("stop count")
-            maxCraftingItemNbr = i
-        end
-    end
-    
-    return maxCraftingItemNbr
-end
-
 RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
@@ -278,7 +255,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         desc = "Se mettre au travail",
         type = 'slider',
         min = 0,
-        max = MaxRessourcesAmount(dataType)},
+        max = TriggerServerEvent("usine:maxRessourcesAmount", dataType)},
     }
 
     menuData.Open('default', GetCurrentResourceName(), 'craft', {
@@ -291,7 +268,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     function(data, menu)
         if data.current.label == "Crafting Amount" then
             print(data.current.value)
-            print(MaxRessourcesAmount(dataType))
+            print(TriggerServerEvent("usine:maxRessourcesAmount", dataType))
             --TriggerServerEvent("usine:CraftItem", data.current.value, PlayerPedId(), menu) 
         else
             RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
