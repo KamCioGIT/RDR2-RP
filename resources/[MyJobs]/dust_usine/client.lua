@@ -254,7 +254,7 @@ local function MaxRessourcesAmount(dataType)
             if not rItem2Amount >= rItem1Amount then
                 print("stop count")
                 print(i)
-                return maxCraftingItemNbr = i
+                return i
             end
         end
     end)
