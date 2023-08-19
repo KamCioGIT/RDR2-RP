@@ -244,7 +244,7 @@ function MaxRessourcesAmount(dataType)
     print("oui")
     local player = PlayerPedId()
     local maxCraftingItemNbr = 0
-    TriggerEvent("redemrp_inventory:getData", function(Inventory)
+    TriggerServerEvent("redemrp_inventory:getData", function(Inventory)
         local rItem1 = Inventory.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
         local rItem2 = Inventory.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
 
