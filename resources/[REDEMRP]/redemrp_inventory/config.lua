@@ -761,7 +761,7 @@ Config.Items = {
         canBeDropped = true,
         canBeUsed = true,
         limit = 2000,
-        imgsrc = "items/goldpan.png",
+        imgsrc = "items/workbench.png",
         type = "item_standard"
     },
 
