@@ -47,7 +47,7 @@ end)
 function CraftCamp()
     Citizen.CreateThread(function()
         while true do
-            Citizen.Wait(0)
+            Citizen.Wait(100)
             local playerPed = PlayerPedId()
             local pos = GetEntityCoords(playerPed), true
             local campfire = GetClosestObjectOfType(pos, 2.0, Config.Campfire, false, false, false)
