@@ -178,7 +178,8 @@ end)
 
 ---------------- RAMP ------------------
 RegisterNetEvent('goldramp')
-AddEventHandler('goldramp', function() 
+AddEventHandler('goldramp', function()
+    print (spawnramp)
     if spawnramp == false then
         if goldramp ~= 0 then
             SetEntityAsMissionEntity(goldramp)
