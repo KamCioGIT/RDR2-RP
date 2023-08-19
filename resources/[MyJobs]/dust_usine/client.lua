@@ -289,10 +289,10 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     },
 
     function(data, menu)
-        if data.current.label = "Crafting Amount" then
+        if data.current.label == "Crafting Amount" then
             print(data.current.value)
             --TriggerServerEvent("usine:CraftItem", data.current.value, PlayerPedId(), menu)
-        else
+        else then
             RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
         end 
     end,
