@@ -43,13 +43,13 @@ AddEventHandler('usine:maxRessourcesAmount', function(itemNameStr)
 	local maxCraftingItemNbr = 0
 
 	TriggerEvent("redemrp_inventory:getData", function(Inventory)
-		local rItem1 = Inventory.getItem(player, Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name)
-		local rItem2 = Inventory.getItem(player, Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name)
+		local rItem1 = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name)
+		local rItem2 = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name)
 		local rItem1Amount = tonumber(rItem1.getAmount()) / Config.CraftingsReceipe[itemNameStr].ItemReceipe1Amount
 		local rItem2Amount = tonumber(rItem2.getAmount()) / Config.CraftingsReceipe[itemNameStr].ItemReceipe2Amount
 
-		print(rItem1Amount)
-		print(rItem2Amount)
+		print(Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name.." "..rItem1Amount)
+		print(Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name.." "..rItem2Amount)
 
 		for i = 0, rItem1Amount, 1 do 
 			if not rItem2Amount >= rItem1Amount then
