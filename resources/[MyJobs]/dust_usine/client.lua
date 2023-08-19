@@ -78,7 +78,8 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
 
         function(data, menu)
             MenuData.CloseAll()
-            TriggerServerEvent("usine:CraftItem", data.current.value, PlayerPedId(), menu)
+            TriggerClientEvent("usine:SelectCraftingAmount", PlayerPedId(), data.current.value, data, menu)
+            --TriggerServerEvent("usine:CraftItem", data.current.value, PlayerPedId(), menu)
             CraftMenuPromptShown = false
         end,
 
@@ -261,19 +262,45 @@ end
 RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
-    local x = 0
     local maxRessourcesAmount = MaxRessourcesAmount(dataType)
+
     if maxRessourcesAmount == 0 then
         RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
         menu.close()
     end
 
     local elements = {
-        {label = "Craft "..x.." "..dataType , value = 'craftItems', desc = "Se mettre au travail"},
-        {label = "+", value = 'gunpowder', desc = "Ajouter "..dataType},
-        {label = "-", value = 'gunpowder', desc = "Soustraire "..dataType},
-        {label = "Max", value = 'gunpowder', desc = "Ajouter le nombre maximum"},
+        {  label = "Crafting Amount", 
+        value = 0, 
+        desc = "Se mettre au travail",
+        type = 'slider',
+        min = 0,
+        max = maxRessourcesAmount},
+        {label = "+", value = 'add', desc = "Ajouter "..dataType},
+        {label = "-", value = 'sub', desc = "Soustraire "..dataType},
+        {label = "Max", value = 'max', desc = "Ajouter le nombre maximum"},
     }
+
+    MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+        title = "Craft Usine Menu",
+        subtext = "Job Interaction for Usine",
+        align = 'top-right',
+        elements = elements,
+    },
+
+    function(data, menu)
+        if data.current.label = "Crafting Amount" then
+            print(data.current.value)
+            --TriggerServerEvent("usine:CraftItem", data.current.value, PlayerPedId(), menu)
+        else
+            RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
+        end 
+    end,
+
+    function(data, menu)
+        menu.close()
+        CraftMenuPromptShown = false
+    end)
     
 end)
 

@@ -462,11 +462,11 @@ function OpenBodyMenu()
         options = BodyWaistOptions
     }, {
         label = "Height",
-        value = CreatorCache["height"] or 100,
+        value = CreatorCache["height"] or 95,
         category = "height",
         desc = "Change height",
         type = "slider",
-        min = 80,
+        min = 95,
         max = 105,
     }}
 

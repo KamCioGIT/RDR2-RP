@@ -13,7 +13,7 @@ AddEventHandler('usine:CraftItem', function(itemNameStr, playerPedId, menu)
 	local ItemData2 = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name)
 	if ItemData.RemoveItem(Config.CraftingsReceipe[itemNameStr].ItemReceipe1Amount) and ItemData2.RemoveItem(Config.CraftingsReceipe[itemNameStr].ItemReceipe2Amount) then
 		Citizen.CreateThread( function()
-			TriggerClientEvent("usine:CraftAction", playerPedId)
+			TriggerClientEvent("usine:CraftingAction", playerPedId)
 			Citizen.Wait(Config.WorkingTime * 1000)
 			local ItemDatagive = data.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemToGive)
 			ItemDatagive.AddItem(Config.CraftingsReceipe[itemNameStr].Amount)
