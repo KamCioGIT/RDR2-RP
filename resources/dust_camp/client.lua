@@ -52,7 +52,7 @@ function CraftCamp()
             Citizen.Wait(0)
             local playerPed = PlayerPedId()
             local pos = GetEntityCoords(playerPed), true
-            local campfire = GetClosestObjectOfType(pos, 2.0, Config.Campfire, false, false, false)
+            local campfire = GetClosestObjectOfType(pos, 2.0, Config.CookStick, false, false, false)
             local cookgrill = GetClosestObjectOfType(pos, 2.0, Config.CampGrill, false, false, false)
             local cauldron = GetClosestObjectOfType(pos, 2.0, Config.CampChaudron, false, false, false)
             if campfire ~= 0 then
