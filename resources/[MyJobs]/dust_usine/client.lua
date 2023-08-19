@@ -282,7 +282,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         {label = "Max", value = 'max', desc = "Ajouter le nombre maximum"},
     }
 
-    MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+    menuData.Open('default', GetCurrentResourceName(), 'craft', {
         title = "Craft Usine Menu",
         subtext = "Job Interaction for Usine",
         align = 'top-right',
