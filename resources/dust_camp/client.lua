@@ -408,41 +408,50 @@ AddEventHandler('cookfirecauldron', function()
     else return end
 end, false)
 
-
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-        if PromptHasHoldModeCompleted(CancelPrompt) and not isInteracting then
-            local playerPed = PlayerPedId()
-        RequestAnimDict(Config.MenuDict)
-        while not HasAnimDictLoaded(Config.MenuDict) do
-            Citizen.Wait(50)
-        end
-        for k,v in pairs(Config.MenuAnim) do
-            TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
-        end
-        Citizen.Wait(3000)
-        RequestAnimDict(Config.CloseMenuDict)
-        while not HasAnimDictLoaded(Config.CloseMenuDict) do
-            Citizen.Wait(50)
-        end
-        for k,v in pairs(Config.CloseMenuAnim) do
-            TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
-            Citizen.Wait(1000)
-        end
-            SetEntityAsMissionEntity(campfire)
-            DeleteObject(campfire)
-            SetEntityAsMissionEntity(cookspit)
-            DeleteObject(cookspit)
-            SetEntityAsMissionEntity(cookgrill)
-            DeleteObject(cookgrill)
-            SetEntityAsMissionEntity(cauldron)
-            DeleteObject(cauldron)
-            campfire = 0
-            cookspit = 0
-            cookgrill = 0
-            cauldron = 0
-            spawncamp = false
-        end
-    end
+AddEventHandler("onResourceStop", function(resourceName)
+    if resourceName ~= GetCurrentResourceName() then return end
+    if campfire then if DoesEntityExist(campfire) then DeleteEntity(campfire) end end
+    if cookgrill then if DoesEntityExist(cookgrill) then DeleteEntity(cookgrill) end end
+    if cauldron then if DoesEntityExist(cauldron) then DeleteEntity(cauldron) end end
+    if cookspit then if DoesEntityExist(cookspit) then DeleteEntity(cookspit) end end
+    PromptDelete(CampPrompt)
+    PromptDelete(CancelPrompt)
 end)
+
+-- Citizen.CreateThread(function()
+--     while true do
+--         Citizen.Wait(0)
+--         if PromptHasHoldModeCompleted(CancelPrompt) and not isInteracting then
+--             local playerPed = PlayerPedId()
+--         RequestAnimDict(Config.MenuDict)
+--         while not HasAnimDictLoaded(Config.MenuDict) do
+--             Citizen.Wait(50)
+--         end
+--         for k,v in pairs(Config.MenuAnim) do
+--             TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+--         end
+--         Citizen.Wait(3000)
+--         RequestAnimDict(Config.CloseMenuDict)
+--         while not HasAnimDictLoaded(Config.CloseMenuDict) do
+--             Citizen.Wait(50)
+--         end
+--         for k,v in pairs(Config.CloseMenuAnim) do
+--             TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
+--             Citizen.Wait(1000)
+--         end
+--             SetEntityAsMissionEntity(campfire)
+--             DeleteObject(campfire)
+--             SetEntityAsMissionEntity(cookspit)
+--             DeleteObject(cookspit)
+--             SetEntityAsMissionEntity(cookgrill)
+--             DeleteObject(cookgrill)
+--             SetEntityAsMissionEntity(cauldron)
+--             DeleteObject(cauldron)
+--             campfire = 0
+--             cookspit = 0
+--             cookgrill = 0
+--             cauldron = 0
+--             spawncamp = false
+--         end
+--     end
+-- end)
