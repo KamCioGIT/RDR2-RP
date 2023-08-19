@@ -137,8 +137,8 @@ function CraftCamp()
                             TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
                             Citizen.Wait(1000)
                         end
-                        SetEntityAsMissionEntity(campfire)
-                        DeleteObject(campfire)
+                        SetEntityAsMissionEntity(campfire2)
+                        DeleteObject(campfire2)
                         SetEntityAsMissionEntity(cookgrill)
                         DeleteObject(cookgrill)
                         campfire = 0
@@ -238,8 +238,8 @@ RegisterNetEvent("camp:OpenCampMenu", function(menutype)
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'Camp', {
-            title = "Craft Camp Menu",
-            subtext = "Cuisine",
+            title = "Feu de Camp",
+            subtext = "Recettes",
             align = 'top-right',
             elements = elements,
         },
@@ -327,7 +327,7 @@ AddEventHandler('cookfirespit', function()
             Citizen.Wait(1000)
         end
         local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
-        local prop = CreateObject("p_campfire02x_script", x, y, z, true, false, true)
+        local prop = CreateObject(Config.Campfire, x, y, z, true, false, true)
         local prop2 = CreateObject(Config.CampStick, x, y, z, true, false, true)
         SetEntityHeading(prop, GetEntityHeading(PlayerPedId()))
         SetEntityHeading(prop2, GetEntityHeading(PlayerPedId()))
@@ -343,8 +343,8 @@ RegisterNetEvent('cookfiregrill')
 AddEventHandler('cookfiregrill', function() 
     if spawngrill == false then
         if campfire ~= 0 then
-            SetEntityAsMissionEntity(campfire)
-            DeleteObject(campfire)
+            SetEntityAsMissionEntity(campfire2)
+            DeleteObject(campfire2)
             SetEntityAsMissionEntity(cookgrill)
             DeleteObject(cookgrill)
             campfire = 0
@@ -367,15 +367,15 @@ AddEventHandler('cookfiregrill', function()
             Citizen.Wait(1000)
         end
         local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
-        local prop = CreateObject(Config.Campfire, x, y, z, true, false, true)
+        local prop = CreateObject("p_campfire05x_script", x, y, z, true, false, true)
         local prop2 = CreateObject(Config.CampGrill, x, y, z, true, false, true)
         SetEntityHeading(prop, GetEntityHeading(PlayerPedId()))
         SetEntityHeading(prop2, GetEntityHeading(PlayerPedId()))
         PlaceObjectOnGroundProperly(prop)
         PlaceObjectOnGroundProperly(prop2)
-        campfire = prop
+        campfire2 = prop
         cookgrill = prop2
-        spawncamp = true
+        spawngrill = true
     else return end
 end, false)
 
@@ -409,13 +409,14 @@ AddEventHandler('cookfirecauldron', function()
         SetEntityHeading(prop, GetEntityHeading(PlayerPedId()))
         PlaceObjectOnGroundProperly(prop)
         cauldron = prop
-        spawncamp = true
+        spawncauldron = true
     else return end
 end, false)
 
 AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
     if campfire then if DoesEntityExist(campfire) then DeleteEntity(campfire) end end
+    if campfire2 then if DoesEntityExist(campfire2) then DeleteEntity(campfire2) end end
     if cookgrill then if DoesEntityExist(cookgrill) then DeleteEntity(cookgrill) end end
     if cauldron then if DoesEntityExist(cauldron) then DeleteEntity(cauldron) end end
     if cookspit then if DoesEntityExist(cookspit) then DeleteEntity(cookspit) end end
