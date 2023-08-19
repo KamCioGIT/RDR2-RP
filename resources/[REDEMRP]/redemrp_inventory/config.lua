@@ -734,6 +734,16 @@ Config.Items = {
         imgsrc = "items/golden_nugget.png",
         type = "item_standard"
     },
+    ["cailloux"] = {
+        label = "Amas de cailloux",
+        description = "Légérement doré",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/golden_nugget.png",
+        type = "item_standard"
+    },
 
     --- Contrat
     ["contratvierge"] = {

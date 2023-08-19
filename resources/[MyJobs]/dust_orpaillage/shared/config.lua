@@ -7,7 +7,13 @@ Config.GoldPanAnimations = {
     "SEARCH04",
 }
 
-Config.Rampe = "p_goldcradle01x" -- Rampe de lavage
+Config.GoldRamp = GetHashKey("p_goldcradle01x") -- Rampe de lavage
+Config.WorkingTime = 2000
+
+Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
+Config.CraftAnim = {
+    "base_trans_base",
+}
 
 Config.RiverChances = {
     [-1308233316] = { -- Lower Montana River
