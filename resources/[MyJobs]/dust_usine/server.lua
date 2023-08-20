@@ -56,8 +56,10 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
 	end
 
 	if hAmount >= 1 and lAmount >= 1 then
+		print(lAmount)
 		return lAmount
 	else 
+		print("Not the necessary items")
 		return 0 
 	end
 end)
