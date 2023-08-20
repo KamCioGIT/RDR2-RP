@@ -211,8 +211,8 @@ AddEventHandler('goldramp', function()
 end, false)
 
 RegisterNetEvent("dust-or:server:rampanim")
-AddEventHandler("dust-or:server:rampanim", function()
-    local playerPed = PlayerPedId()
+AddEventHandler("dust-or:server:rampanim", function(playerPed)
+    -- local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
     FreezeEntityPosition(playerPed, true)
     isInteracting = true
