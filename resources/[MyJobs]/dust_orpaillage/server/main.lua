@@ -30,7 +30,7 @@ AddEventHandler('dust-or:server:ramp', function()
 	Citizen.CreateThread(function()
         while true do
             if ItemData.RemoveItem(2) then
-                TriggerNetEvent("dust-or:server:rampanim", source)
+                TriggerClientEvent("dust-or:server:rampanim", source)
                 Citizen.Wait(Config.WorkingTime)
                 local ItemDatagive = data.getItem(_source, "pepiteor")
                 local roll = math.random(0, 100)
