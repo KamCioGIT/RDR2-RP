@@ -33,7 +33,7 @@ AddEventHandler('dust-or:server:ramp', function(playerPed)
                 if ItemData.RemoveItem(2) then
                     local ItemDatagive = data.getItem(_source, "pepiteor")
                     ItemDatagive.AddItem(1)
-                end
+                else TriggerClientEvent("dust-or:server:isinteracting")
             else return end
         end
     end)
