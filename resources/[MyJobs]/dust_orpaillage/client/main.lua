@@ -188,19 +188,19 @@ AddEventHandler('goldramp', function()
         local playerPed = PlayerPedId()
         RequestAnimDict(Config.RampInDict)
         while not HasAnimDictLoaded(Config.RampInDict) do
-            Citizen.Wait(0)
+            Citizen.Wait(50)
         end
         for k,v in pairs(Config.RampInAnim) do
             TaskPlayAnim(playerPed, Config.RampInDict, v, 8.0, -8.0, -1, 2, 0, true)
         end
-        Citizen.Wait(Config.WorkingTime)
+        Citizen.Wait(3000)
         RequestAnimDict(Config.RampOutDict)
         while not HasAnimDictLoaded(Config.RampOutDict) do
-            Citizen.Wait(0)
+            Citizen.Wait(50)
         end
         for k,v in pairs(Config.RampOutAnim) do
             TaskPlayAnim(playerPed, Config.RampOutDict, v, 8.0, -8.0, -1, 0, 0, true)
-            Citizen.Wait(0)
+            Citizen.Wait(1000)
         end
         local playerPed = PlayerPedId()
         local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
@@ -220,11 +220,11 @@ AddEventHandler("dust-or:server:rampanim", function()
     isInteracting = true
     RequestAnimDict(Config.AnimDict)
     while not HasAnimDictLoaded(Config.AnimDict) do
-        Citizen.Wait(50)
+        Citizen.Wait(0)
     end
     for k,v in pairs(Config.CraftAnim) do
         TaskPlayAnim(playerPed, Config.AnimDict, v, 8.0, -8.0, -1, 1, 0, true)
-            Citizen.Wait(3000)
+            Citizen.Wait(Config.WorkingTime)
         end
     local timer = GetGameTimer() + Config.WorkingTime
     isInteracting = true
