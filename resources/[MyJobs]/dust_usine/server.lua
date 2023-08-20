@@ -40,6 +40,7 @@ end)
 RegisterServerEvent('usine:maxRessourcesAmount')
 AddEventHandler('usine:maxRessourcesAmount', function(itemNameStr)
 	local _source = tonumber(source)
+	TriggerEvent("redemrp_inventory:getData", function(Inventory)
 	local maxCraftingItemNbr = 0
 	local _meta = {}
 	local _meta2 = {}
@@ -67,4 +68,5 @@ AddEventHandler('usine:maxRessourcesAmount', function(itemNameStr)
 	end
 
 	return maxCraftingItemNbr
+	end)
 end)
