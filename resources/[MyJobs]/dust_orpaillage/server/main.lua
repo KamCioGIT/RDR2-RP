@@ -25,7 +25,6 @@ end)
 RegisterServerEvent('dust-or:server:ramp')
 AddEventHandler('dust-or:server:ramp', function()
 	local _source = source
-	-- TriggerEvent("redemrp_inventory:getData", function(Inventory)
 	local ItemData = data.getItem(source, "cailloux")
 	if ItemData.RemoveItem(2) then
         TriggerClientEvent("dust-or:server:rampanim", source)
