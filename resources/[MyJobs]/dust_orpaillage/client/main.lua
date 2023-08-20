@@ -72,6 +72,7 @@ Citizen.CreateThread(function()
             local objectPos = GetEntityCoords(goldramp)
             if #(pos - objectPos) < 2.5 and not isInteracting then
                 PromptSetActiveGroupThisFrame(RampPromptGroup, RampPromptName)
+                SetPedMaxMoveBlendRatio(playerPed, 3.0)
             end
             if IsControlJustReleased(0, 0x5181713D) and not isInteracting then
                 isInteracting = true
