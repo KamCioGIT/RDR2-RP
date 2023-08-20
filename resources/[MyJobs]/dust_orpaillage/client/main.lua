@@ -225,5 +225,12 @@ RegisterNetEvent("dust-or:server:notinteracting", function()
     local playerPed = PlayerPedId()
     ClearPedTasks(playerPed)
     IsInteracting = false 
-    print (IsInteracting)
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(1000)
+        print (IsInteracting)
+    end
+
 end)
