@@ -27,7 +27,7 @@ AddEventHandler('dust-or:server:ramp', function()
 	local _source = source
 	local ItemData = data.getItem(source, "cailloux")
 	if ItemData.RemoveItem(2) then
-        TriggerClientEvent("dust-or:server:rampanim", source)
+        -- TriggerClientEvent("dust-or:server:rampanim", source)
         Citizen.Wait(Config.WorkingTime)
         local ItemDatagive = data.getItem(_source, "pepiteor")
         local roll = math.random(0, 100)

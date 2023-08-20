@@ -77,6 +77,7 @@ Citizen.CreateThread(function()
                 isInteracting = true
                 local playerPed = PlayerPedId()
                 TriggerServerEvent('dust-or:server:ramp')
+                TriggerEvent("dust-or:server:rampanim")
             end
             if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
                 local playerPed = PlayerPedId()
