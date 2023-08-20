@@ -34,7 +34,7 @@ AddEventHandler('dust-or:server:ramp', function(playerPed)
                     local ItemDatagive = data.getItem(_source, "pepiteor")
                     ItemDatagive.AddItem(1)
                 end
-            end
+            else return end
         end
     end)
 end)
