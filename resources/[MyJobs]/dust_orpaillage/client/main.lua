@@ -129,8 +129,6 @@ function StartGoldpan()
 
     local current_river = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 3)
     local current_creek = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 7)
-    print (current_river)
-    print (current_creek)
     if current_river then
         if Config.RiverChances[current_river] then
             if not Config.RiverChances[current_river].chanceToGet then
