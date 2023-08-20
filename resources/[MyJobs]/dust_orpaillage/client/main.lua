@@ -76,7 +76,6 @@ Citizen.CreateThread(function()
             if IsControlJustReleased(0, 0x5181713D) then
                 isInteracting = true
                 local playerPed = PlayerPedId()
-                FreezeEntityPosition(playerPed, true)
                 TriggerServerEvent('dust-or:server:ramp')
             end
             if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
@@ -189,7 +188,7 @@ AddEventHandler('goldramp', function()
         local playerPed = PlayerPedId()
         RequestAnimDict(Config.RampInDict)
         while not HasAnimDictLoaded(Config.RampInDict) do
-            Citizen.Wait(50)
+            Citizen.Wait(0)
         end
         for k,v in pairs(Config.RampInAnim) do
             TaskPlayAnim(playerPed, Config.RampInDict, v, 8.0, -8.0, -1, 2, 0, true)
@@ -197,11 +196,11 @@ AddEventHandler('goldramp', function()
         Citizen.Wait(Config.WorkingTime)
         RequestAnimDict(Config.RampOutDict)
         while not HasAnimDictLoaded(Config.RampOutDict) do
-            Citizen.Wait(50)
+            Citizen.Wait(0)
         end
         for k,v in pairs(Config.RampOutAnim) do
             TaskPlayAnim(playerPed, Config.RampOutDict, v, 8.0, -8.0, -1, 0, 0, true)
-            Citizen.Wait(50)
+            Citizen.Wait(0)
         end
         local playerPed = PlayerPedId()
         local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
