@@ -35,38 +35,3 @@ RegisterServerEvent("usine:RequestBossMenu", function(menutype)
 		RedEM.Functions.NotifyRight( _source, "Your job rank is invalid, contact staff!", 3000)
 	end
 end)
-
-
-RegisterServerEvent('usine:maxRessourcesAmount')
-AddEventHandler('usine:maxRessourcesAmount', function(itemNameStr)
-	local _source = tonumber(source)
-	TriggerEvent("redemrp_inventory:getData", function(Inventory)
-	local maxCraftingItemNbr = 0
-	local _meta = {}
-	local _meta2 = {}
-
-	local rItem1 = data.getItem(source, Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name)
-	local rItem2 = data.getItem(source, Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name)
-
-	local identifier = RedEM.GetPlayer(source).GetIdentifier()
-    local charid = RedEM.GetPlayer(source).GetActiveCharacter()
-
-	local item, id = getInventoryItemFromName(Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name, Inventory[identifier .. "_" .. charid], {})
-	local item2, id2 = getInventoryItemFromName(Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name, Inventory[identifier .. "_" .. charid], {})
-
-	local rItem1Amount = (item.getAmount()) / Config.CraftingsReceipe[itemNameStr].ItemReceipe1Amount
-	local rItem2Amount = (item2.getAmount()) / Config.CraftingsReceipe[itemNameStr].ItemReceipe2Amount
-
-	print(Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name.." "..rItem1Amount)
-	print(Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name.." "..rItem2Amount)
-
-	for i = 0, rItem1Amount, 1 do 
-		if not rItem2Amount >= rItem1Amount then
-			print("stop count")
-			maxCraftingItemNbr = i
-		end
-	end
-
-	return maxCraftingItemNbr
-	end)
-end)

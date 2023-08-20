@@ -255,7 +255,11 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         desc = "Se mettre au travail",
         type = 'slider',
         min = 0,
-        max = TriggerServerEvent("usine:maxRessourcesAmount", dataType)},
+        max = TriggerServerEvent("redemrp_inventory:getItemMaxOccurences", 
+        Config.CraftingsReceipe[dataType].ItemReceipe1Name, 
+        Config.CraftingsReceipe[dataType].ItemReceipe2Name,
+        Config.CraftingsReceipe[dataType].ItemReceipe1Amount,
+        Config.CraftingsReceipe[dataType].ItemReceipe2Amount)},
     }
 
     menuData.Open('default', GetCurrentResourceName(), 'craft', {
@@ -268,7 +272,11 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     function(data, menu)
         if data.current.label == "Crafting Amount" then
             print(data.current.value)
-            print(TriggerServerEvent("usine:maxRessourcesAmount", dataType))
+            print(TriggerServerEvent("redemrp_inventory:getItemMaxOccurences", 
+            Config.CraftingsReceipe[dataType].ItemReceipe1Name, 
+            Config.CraftingsReceipe[dataType].ItemReceipe2Name,
+            Config.CraftingsReceipe[dataType].ItemReceipe1Amount,
+            Config.CraftingsReceipe[dataType].ItemReceipe2Amount))
             --TriggerServerEvent("usine:CraftItem", data.current.value, PlayerPedId(), menu) 
         else
             RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
