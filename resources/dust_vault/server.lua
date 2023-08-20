@@ -39,7 +39,7 @@ end)
 
 --- CREER LE VAULT DANS LA DB ---
 RegisterServerEvent("dust_vault:server:vaultDB")
-AddEventHandler("dust_vault:server:vaultDB", function(vault, x, y, z)
+AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos)
 	local _source = source
     local user = RedEM.GetPlayer(_source)
     local identifier = user.identifier
@@ -47,11 +47,7 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, x, y, z)
 	local numBase0 = math.random(100, 999)
     local numBase1 = math.random(0, 9999)
     local generetedUid = string.format("%03d%04d", numBase0, numBase1)
-	local vaultcoords = {
-		["x"] = {x},
-		["y"] = {y},
-		["z"] = {z},
-	}
+	local vaultcoords = json.encode(playerpos)
 	MySQL.update('INSERT INTO stashes (`stashid`) VALUES (@stashid);',
 	{
 		stashid = generetedUid
@@ -65,7 +61,7 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, x, y, z)
 			charid = charid,
 			stashid = generetedUid,
 			model = vault
-			coords = json.encode(vaultcoords) 
+			coords = vaultcoords
 		},
 		function(rowsChanged)
 	end)

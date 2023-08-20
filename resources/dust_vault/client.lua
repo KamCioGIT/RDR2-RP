@@ -43,5 +43,10 @@ AddEventHandler('smallvault', function()
         Citizen.Wait(1000)
     end
     local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.55))
-    TriggerServerEvent("dust_vault:server:vaultDB", vault, x, y, z) -- Créer le vault dans la db
+    local playerpos = {
+        ["x"] = {x},
+		["y"] = {y},
+		["z"] = {z},
+    }
+    TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos) -- Créer le vault dans la db
 end, false)
