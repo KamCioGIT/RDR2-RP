@@ -51,7 +51,7 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
     print(rItem2Amount)
 
     for i = 0, rItem1Amount, 1 do 
-        if not rItem2Amount >= rItem1Amount then
+        if rItem2Amount < rItem1Amount then
             print("stop count")
             maxCraftingItemNbr = i
         end
