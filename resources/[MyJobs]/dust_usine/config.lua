@@ -39,9 +39,9 @@ Config.CraftingsReceipe = {
     },
     ['gunpowder'] = {
         ItemReceipe1Name = 'souffre',
-        ItemReceipe1Amount = 5,
+        ItemReceipe1Amount = 2,
         ItemReceipe2Name = 'charbon',
-        ItemReceipe2Amount = 10,
+        ItemReceipe2Amount = 2,
         ItemToGive = 'gunpowder',
         Amount = 10,
         WorkingTime = 5,

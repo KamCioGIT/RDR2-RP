@@ -246,10 +246,10 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
 
     local elements = {
         { label = "Crafting Amount", 
-        value = 1, 
+        value = 0, 
         desc = "Se mettre au travail",
         type = 'slider',
-        min = 1,
+        min = 0,
         max = TriggerServerEvent("usine:MaxRessourcesAmount", dataType)
         },
     }
