@@ -39,7 +39,7 @@ end)
 
 --- CREER LE VAULT DANS LA DB ---
 RegisterServerEvent("dust_vault:server:vaultDB")
-AddEventHandler("dust_vault:server:vaultDB", function(vault, x,y,z)
+AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos)
 	local _source = source
     local user = RedEM.GetPlayer(_source)
     local identifier = user.identifier
@@ -62,7 +62,7 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, x,y,z)
 			charid = charid,
 			stashid = generetedUid,
 			model = vault
-			coords = {x,y,z}
+			acoords = [vaultcoords]
 		},
 		function(rowsChanged)
 		end
