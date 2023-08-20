@@ -47,16 +47,17 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, x, y, z)
 	local numBase0 = math.random(100, 999)
     local numBase1 = math.random(0, 9999)
     local generetedUid = string.format("%03d%04d", numBase0, numBase1)
-	MySQL.update('INSERT INTO stashes (`stashid`) VALUES (@stashid);',
-	{
-		stashid = generetedUid
-	}, function(rowsChanged)
-	end)
 	local vaultcoords = {
 		["x"] = {x},
 		["y"] = {y},
 		["z"] = {z}
 	}
+	MySQL.update('INSERT INTO stashes (`stashid`) VALUES (@stashid);',
+	{
+		stashid = generetedUid
+	}, function(rowsChanged)
+	end)
+	
 	MySQL.update('INSERT INTO vault (`identifier`, `charid`, `stashid`, `model`, `coords`) VALUES (@identifier, @charid, @stashid, @model, @coords);',
 	{
 		identifier = identifier,
