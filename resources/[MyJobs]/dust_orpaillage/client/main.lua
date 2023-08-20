@@ -77,6 +77,7 @@ Citizen.CreateThread(function()
                 isInteracting = true
                 local playerPed = PlayerPedId()
                 TriggerServerEvent('dust-or:server:ramp')
+                TriggerEvent("dust-or:server:rampanim")
             end
             if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
                 local playerPed = PlayerPedId()
@@ -129,8 +130,6 @@ function StartGoldpan()
 
     local current_river = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 3)
     local current_creek = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 7)
-    print (current_river)
-    print (current_creek)
     if current_river then
         if Config.RiverChances[current_river] then
             if not Config.RiverChances[current_river].chanceToGet then
@@ -218,10 +217,9 @@ AddEventHandler("dust-or:server:rampanim", function()
     local coords = GetEntityCoords(playerPed)
     FreezeEntityPosition(playerPed, true)
     isInteracting = true
-    TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE_MALE_A'), Config.WorkingTime, true, false, false, false)
+    TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE_MALE_A'), -1, true, false, false, false)
     local timer = GetGameTimer() + Config.WorkingTime
-    isInteracting = true
-
+    Citizen.Wait(Config.WorkingTime)
     Citizen.CreateThread(function()
         while GetGameTimer() < timer do 
             Wait(0)
