@@ -218,7 +218,7 @@ AddEventHandler("dust-or:server:rampanim", function()
     local coords = GetEntityCoords(playerPed)
     FreezeEntityPosition(playerPed, true)
     isInteracting = true
-    TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE_MALE_A'), Config.WorkingTime, true, false, false, false)
+    TaskStartScenarioInPlace(PlayerPedId(), GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), -1, true, false, false, false)
     local timer = GetGameTimer() + Config.WorkingTime
     isInteracting = true
 
