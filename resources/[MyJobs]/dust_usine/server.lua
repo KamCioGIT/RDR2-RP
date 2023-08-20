@@ -44,8 +44,8 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
     local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
     local ItemData2 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
     
-    local rItem1Amount = rItem1.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
-    local rItem2Amount = rItem2.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
+    local rItem1Amount = ItemData.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
+    local rItem2Amount = ItemData2.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
     
     print(rItem1Amount)
     print(rItem2Amount)
