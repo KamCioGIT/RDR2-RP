@@ -51,7 +51,9 @@ AddEventHandler('usine:maxRessourcesAmount', function(itemNameStr)
 		local identifier = RedEM.GetPlayer(source).GetIdentifier()
         local charid = RedEM.GetPlayer(source).GetActiveCharacter()
 
-		print(rItem1)
+
+		print("identifier "..identifier)
+		print("charid "..charid)
 		--print(Inventory[identifier .. "_" .. charid])
 
 		local item, id = getInventoryItemFromName(rItem1, Inventory[identifier .. "_" .. charid], {})
