@@ -24,9 +24,9 @@ end)
 
 RegisterServerEvent('dust-or:server:ramp')
 AddEventHandler('dust-or:server:ramp', function()
-	local _source = source
     Citizen.CreateThread(function()
         while true do
+            local _source = source
             local ItemData = data.getItem(_source, "cailloux")
             if ItemData then  
                 print (ItemData.ItemAmount)   
