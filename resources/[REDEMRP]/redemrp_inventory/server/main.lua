@@ -2059,17 +2059,21 @@ RegisterServerEvent("redemrp_inventory:getItemMaxOccurences", function(str, item
     local _source = tonumber(source)
 	local maxCraftingItemNbr = 0
 	
-	--local rItem1 = Inventory.getItem(source, itemN1)
-	--local rItem2 = Inventory.getItem(source, itemN2)
+	local rItem1 = SharedInventoryFunctions.getItem(_source, itemN1)
+	local rItem2 = SharedInventoryFunctions.getItem(_source, itemN2)
+    print(rItem1)
+    print(rItem2)
 
 	local identifier = RedEM.GetPlayer(source).GetIdentifier()
     local charid = RedEM.GetPlayer(source).GetActiveCharacter()
 
-	local item, id = getInventoryItemFromName(itemN1, Inventory[identifier .. "_" .. charid], {})
-	local item2, id2 = getInventoryItemFromName(itemN2, Inventory[identifier .. "_" .. charid], {})
+	local item, id = getInventoryItemFromName(rItem1, Inventory[identifier .. "_" .. charid], {})
+	local item2, id2 = getInventoryItemFromName(rItem2, Inventory[identifier .. "_" .. charid], {})
 
-	local rItem1Amount = (item.getAmount()) / itemA1
-	local rItem2Amount = (item2.getAmount()) / itemA2
+	local rItem1Amount = tonumber(rItem1.getAmount() / itemA1)
+	local rItem2Amount = tonumber(rItem2.getAmount() / itemA2)
+    print(rItem1Amount)
+    print(rItem2Amount)
 
 	for i = 0, rItem1Amount, 1 do 
 		if not rItem2Amount >= rItem1Amount then
