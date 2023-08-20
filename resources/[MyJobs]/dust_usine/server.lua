@@ -35,3 +35,28 @@ RegisterServerEvent("usine:RequestBossMenu", function(menutype)
 		RedEM.Functions.NotifyRight( _source, "Your job rank is invalid, contact staff!", 3000)
 	end
 end)
+
+RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
+    print("oui")
+    local player = PlayerPedId()
+    local maxCraftingItemNbr = 0
+    
+    local ItemData = data.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
+    local ItemData2 = data.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
+    
+    local rItem1Amount = rItem1.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
+    local rItem2Amount = rItem2.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
+    
+    print(rItem1Amount)
+    print(rItem2Amount)
+
+    for i = 0, rItem1Amount, 1 do 
+        if not rItem2Amount >= rItem1Amount then
+            print("stop count")
+            maxCraftingItemNbr = i
+        end
+    end
+    
+    return maxCraftingItemNbr
+end)
+
