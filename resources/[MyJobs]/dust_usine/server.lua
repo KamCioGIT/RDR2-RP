@@ -44,7 +44,7 @@ AddEventHandler('usine:maxRessourcesAmount', function(itemNameStr)
 	local _meta = {}
 	local _meta2 = {}
 
-	TriggerEvent("redemrp_inventory:getData", function(Inventory)
+	TriggerServerEvent("redemrp_inventory:getData", function(Inventory)
 		local rItem1 = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name)
 		local rItem2 = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name)
 
