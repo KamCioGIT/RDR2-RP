@@ -78,8 +78,6 @@ Citizen.CreateThread(function()
                 local playerPed = PlayerPedId()
                 TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), -1, true, false, false, false)
                 TriggerServerEvent('dust-or:server:ramp')
-                Citizen.Wait(Config.WorkingTime)
-                isInteracting = false
             end
             if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
                 local playerPed = PlayerPedId()
@@ -221,4 +219,10 @@ AddEventHandler("onResourceStop", function(resourceName)
     PromptDelete(CancelPrompt)
     PromptDelete(RampPrompt)
     PromptDelete(LeavePrompt)
+end)
+
+RegisterNetEvent("dust-or:server:notinteracting", function()
+    IsInteracting = false 
+    local playerPed = PlayerPedId()
+    ClearPedTasks(playerPed)
 end)
