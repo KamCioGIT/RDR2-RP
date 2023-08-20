@@ -23,8 +23,8 @@ RegisterServerEvent("dust-or:server:récolte", function(riverdrop, riverdrop2)
 end)
 
 RegisterServerEvent('dust-or:server:ramp')
-AddEventHandler('dust-or:server:ramp', function(source)
-	local _source = tonumber(source)
+AddEventHandler('dust-or:server:ramp', function()
+	local _source = source
 	-- TriggerEvent("redemrp_inventory:getData", function(Inventory)
 	local ItemData = data.getItem(_source, "cailloux")
 	while ItemData.RemoveItem(2) do

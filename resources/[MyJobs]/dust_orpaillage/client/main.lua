@@ -77,7 +77,7 @@ Citizen.CreateThread(function()
                 isInteracting = true
                 local playerPed = PlayerPedId()
                 FreezeEntityPosition(playerPed, true)
-                TriggerServerEvent('dust-or:server:ramp', source)
+                TriggerServerEvent('dust-or:server:ramp')
             end
             if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
                 local playerPed = PlayerPedId()
