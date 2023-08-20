@@ -26,8 +26,8 @@ RegisterServerEvent('dust-or:server:ramp')
 AddEventHandler('dust-or:server:ramp', function(playerPed)
 	local _source = source
 	local ItemData = data.getItem(_source, "cailloux")
-	Citizen.CreateThread(function()
-        while true do
+	-- Citizen.CreateThread(function()
+    --     while true do
             Citizen.Wait(Config.WorkingTime)
             if ItemData.ItemAmount >= 2 then
                 ItemData.RemoveItem(2)
@@ -35,8 +35,8 @@ AddEventHandler('dust-or:server:ramp', function(playerPed)
                 local ItemDatagive = data.getItem(_source, "pepiteor")
                 ItemDatagive.AddItem(1)
             else return end
-        end
-    end)
+        -- end
+    -- end)
 end)
 
 RegisterServerEvent("RegisterUsableItem:goldramp")
