@@ -73,7 +73,7 @@ Citizen.CreateThread(function()
             if #(pos - objectPos) < 2.5 and not isInteracting then
                 PromptSetActiveGroupThisFrame(RampPromptGroup, RampPromptName)
             end
-            if IsControlJustReleased(0, 0x5181713D) then
+            if IsControlJustReleased(0, 0x5181713D) and not isInteracting then
                 isInteracting = true
                 local playerPed = PlayerPedId()
                 TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), -1, true, false, false, false)
