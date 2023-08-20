@@ -78,6 +78,8 @@ Citizen.CreateThread(function()
                 local playerPed = PlayerPedId()
                 TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), -1, true, false, false, false)
                 TriggerServerEvent('dust-or:server:ramp')
+                Citizen.Wait(Config.WorkingTime)
+                is Interacting = false
             end
             if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
                 local playerPed = PlayerPedId()
@@ -210,26 +212,6 @@ AddEventHandler('goldramp', function()
         spawnramp = true
     else return end
 end, false)
-
-RegisterNetEvent("dust-or:server:rampanim")
-AddEventHandler("dust-or:server:rampanim", function(playerPed)
-    -- local playerPed = PlayerPedId()
-    local coords = GetEntityCoords(playerPed)
-    FreezeEntityPosition(playerPed, true)
-    isInteracting = true
-    TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), 10000, true, false, false, false)
-    local timer = GetGameTimer() + Config.WorkingTime
-    Citizen.Wait(Config.WorkingTime)
-    Citizen.CreateThread(function()
-        while GetGameTimer() < timer do 
-            Wait(0)
-        end
-        ClearPedTasksImmediately(PlayerPedId())
-        FreezeEntityPosition(playerPed, false)
-        isInteracting = false
-    end)    
-end)
-
 
 
 AddEventHandler("onResourceStop", function(resourceName)
