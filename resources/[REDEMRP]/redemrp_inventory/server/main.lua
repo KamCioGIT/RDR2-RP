@@ -2070,8 +2070,8 @@ RegisterServerEvent("redemrp_inventory:getItemMaxOccurences", function(str, item
 	local item, id = getInventoryItemFromName(rItem1, Inventory[identifier .. "_" .. charid], {})
 	local item2, id2 = getInventoryItemFromName(rItem2, Inventory[identifier .. "_" .. charid], {})
 
-	local rItem1Amount = tonumber(rItem1.getAmount() / itemA1)
-	local rItem2Amount = tonumber(rItem2.getAmount() / itemA2)
+	local rItem1Amount = tonumber(item.getAmount() / itemA1)
+	local rItem2Amount = tonumber(item2.getAmount() / itemA2)
     print(rItem1Amount)
     print(rItem2Amount)
 
