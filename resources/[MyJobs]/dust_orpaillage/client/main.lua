@@ -217,7 +217,7 @@ AddEventHandler("dust-or:server:rampanim", function()
     local coords = GetEntityCoords(playerPed)
     FreezeEntityPosition(playerPed, true)
     isInteracting = true
-    TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE_MALE_A'), -1, true, false, false, false)
+    TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), 10000, true, false, false, false)
     local timer = GetGameTimer() + Config.WorkingTime
     Citizen.Wait(Config.WorkingTime)
     Citizen.CreateThread(function()
