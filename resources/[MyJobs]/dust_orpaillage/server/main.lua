@@ -28,18 +28,23 @@ AddEventHandler('dust-or:server:ramp', function()
 	local ItemData = data.getItem(_source, "cailloux")
     Citizen.CreateThread(function()
         while true do
-            if ItemData then       
+            if ItemData then  
+                print (ItemData.ItemAmount)   
+                print (ItemData)
                 Citizen.Wait(Config.WorkingTime)
                 if ItemData.RemoveItem(2) then
                     local ItemDatagive = data.getItem(_source, "pepiteor")
                     ItemDatagive.AddItem(1)
+                else
+                    TriggerClientEvent("dust-or:server:notinteracting", _source)
+                    print 'stop'
+                    return
                 end
+            else
                 TriggerClientEvent("dust-or:server:notinteracting", _source)
+                print 'stop2'
                 return
-                print "1"
-            end 
-            print (ItemData.ItemAmount)
-            TriggerClientEvent("dust-or:server:notinteracting", _source)
+            end
         end
     end)
 end)
