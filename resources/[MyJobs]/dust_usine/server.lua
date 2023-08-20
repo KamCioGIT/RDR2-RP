@@ -47,8 +47,8 @@ AddEventHandler('usine:maxRessourcesAmount', function(itemNameStr)
 		local rItem1 = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name)
 		local rItem2 = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name)
 
-		local identifier = Red.GetPlayer(_source).GetIdentifier()
-        local charid = Red.GetPlayer(_source).GetActiveCharacter()
+		local identifier = RedEM.GetPlayer(_source).GetIdentifier()
+        local charid = RedEM.GetPlayer(_source).GetActiveCharacter()
 
 		local item, id = getInventoryItemFromName(rItem1, Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
 		local item2, id2 = getInventoryItemFromName(rItem1, Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
