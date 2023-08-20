@@ -46,7 +46,7 @@ AddEventHandler('smallvault', function()
     local playerpos = {
         ["x"] = {x},
 		["y"] = {y},
-		["z"] = {z},
+		["z"] = {z}
     }
     TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos) -- Créer le vault dans la db
 end, false)
