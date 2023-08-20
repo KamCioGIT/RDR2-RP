@@ -194,14 +194,14 @@ AddEventHandler('goldramp', function()
         for k,v in pairs(Config.RampInAnim) do
             TaskPlayAnim(playerPed, Config.RampInDict, v, 8.0, -8.0, -1, 2, 0, true)
         end
-        Citizen.Wait(3000)
+        Citizen.Wait(Config.WorkingTime)
         RequestAnimDict(Config.RampOutDict)
         while not HasAnimDictLoaded(Config.RampOutDict) do
             Citizen.Wait(50)
         end
         for k,v in pairs(Config.RampOutAnim) do
             TaskPlayAnim(playerPed, Config.RampOutDict, v, 8.0, -8.0, -1, 0, 0, true)
-            Citizen.Wait(1000)
+            Citizen.Wait(50)
         end
         local playerPed = PlayerPedId()
         local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
