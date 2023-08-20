@@ -48,23 +48,25 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos)
     local numBase1 = math.random(0, 9999)
     local generetedUid = string.format("%03d%04d", numBase0, numBase1)
 	local vaultcoords = json.encode(playerpos)
-	MySQL.update('INSERT INTO stashes (`stashid`) VALUES (@stashid);',
-	{
-		stashid = generetedUid
-	}, function(rowsChanged)
+	MySQL.update(
+		'INSERT INTO stashes (`stashid`) VALUES (@stashid);',
+		{
+			stashid = generetedUid
+		}, function(rowsChanged)
 	end)
 	
 	MySQL.update(
 		'INSERT INTO vault (`identifier`, `charid`, `stashid`, `model`, `coords`) VALUES (@identifier, @charid, @stashid, @model, @coords);',
 		{
-			["@identifier"] = identifier,
-			["@charid"] = charid,
-			["@stashid"] = generetedUid,
-			["@model"] = vault
-			["@coords"] = vaultcoords
+			identifier = identifier,
+			charid = charid,
+			stashid = generetedUid,
+			model = vault
+			coords = vaultcoords
 		},
 		function(rowsChanged)
-	end)
+		end
+	)
 end)
 
 --- SUPPRIMER LE VAULT DE LA DB QUAND ON LE REPREND, S'ASSURER QUE LE COFFRE EST VIDE ----
