@@ -30,7 +30,6 @@ AddEventHandler('dust-or:server:ramp', function(playerPed)
         while true do
             Citizen.Wait(Config.WorkingTime)
             if ItemData.RemoveItem(2) then
-                -- TriggerClientEvent("dust-or:server:rampanim", playerPed)
                 local ItemDatagive = data.getItem(_source, "pepiteor")
                 ItemDatagive.AddItem(1)
             else return end
