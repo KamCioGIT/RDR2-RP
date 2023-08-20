@@ -2059,8 +2059,8 @@ RegisterServerEvent("redemrp_inventory:getItemMaxOccurences", function(str, item
     local _source = tonumber(source)
 	local maxCraftingItemNbr = 0
 	
-	local rItem1 = Inventory.getItem(source, itemN1)
-	local rItem2 = Inventory.getItem(source, itemN2)
+	--local rItem1 = Inventory.getItem(source, itemN1)
+	--local rItem2 = Inventory.getItem(source, itemN2)
 
 	local identifier = RedEM.GetPlayer(source).GetIdentifier()
     local charid = RedEM.GetPlayer(source).GetActiveCharacter()
