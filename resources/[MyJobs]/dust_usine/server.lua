@@ -38,11 +38,11 @@ end)
 
 RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
     print("oui")
-    local player = PlayerPedId()
+    local _source = tonumber(source)
     local maxCraftingItemNbr = 0
     
-    local ItemData = data.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
-    local ItemData2 = data.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
+    local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
+    local ItemData2 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
     
     local rItem1Amount = rItem1.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
     local rItem2Amount = rItem2.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
