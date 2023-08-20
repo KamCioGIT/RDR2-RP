@@ -37,12 +37,10 @@ AddEventHandler('dust-or:server:ramp', function()
                     ItemDatagive.AddItem(1)
                 else
                     TriggerClientEvent("dust-or:server:notinteracting", _source)
-                    print 'stop'
                     return
                 end
             else
                 TriggerClientEvent("dust-or:server:notinteracting", _source)
-                print 'stop2'
                 return
             end
         end
