@@ -2054,33 +2054,3 @@ RegisterServerEvent("redemrp_inventory:contratsigne", function(name, job)
         )
     end
 end)
-
-RegisterServerEvent("redemrp_inventory:getItemMaxOccurences", function(str, itemN1, itemN2, itemA1, itemA2)
-    local _source = tonumber(source)
-	local maxCraftingItemNbr = 0
-	
-	local rItem1 = SharedInventoryFunctions.getItem(_source, itemN1)
-	local rItem2 = SharedInventoryFunctions.getItem(_source, itemN2)
-    print(rItem1)
-    print(rItem2)
-
-	local identifier = RedEM.GetPlayer(source).GetIdentifier()
-    local charid = RedEM.GetPlayer(source).GetActiveCharacter()
-
-	local item, id = getInventoryItemFromName(itemN1, Inventory[identifier .. "_" .. charid], {})
-	local item2, id2 = getInventoryItemFromName(itemN2, Inventory[identifier .. "_" .. charid], {})
-
-	local rItem1Amount = tonumber(item.getAmount() / itemA1)
-	local rItem2Amount = tonumber(item2.getAmount() / itemA2)
-    print(rItem1Amount)
-    print(rItem2Amount)
-
-	for i = 0, rItem1Amount, 1 do 
-		if not rItem2Amount >= rItem1Amount then
-			print("stop count")
-			maxCraftingItemNbr = i
-		end
-	end
-
-	return maxCraftingItemNbr
-end)
