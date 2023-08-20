@@ -218,14 +218,7 @@ AddEventHandler("dust-or:server:rampanim", function()
     local coords = GetEntityCoords(playerPed)
     FreezeEntityPosition(playerPed, true)
     isInteracting = true
-    RequestAnimDict(Config.AnimDict)
-    while not HasAnimDictLoaded(Config.AnimDict) do
-        Citizen.Wait(0)
-    end
-    for k,v in pairs(Config.CraftAnim) do
-        TaskPlayAnim(playerPed, Config.AnimDict, v, 8.0, -8.0, -1, 1, 0, true)
-            Citizen.Wait(Config.WorkingTime)
-        end
+    TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), 10000, true, false, false, false)
     local timer = GetGameTimer() + Config.WorkingTime
     isInteracting = true
 
