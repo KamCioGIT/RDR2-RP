@@ -41,17 +41,28 @@ RegisterServerEvent('usine:maxRessourcesAmount')
 AddEventHandler('usine:maxRessourcesAmount', function(itemNameStr)
 	local _source = tonumber(source)
 	local maxCraftingItemNbr = 0
-	local meta = {}
+	local _meta = {}
+	local _meta2 = {}
 
 	TriggerEvent("redemrp_inventory:getData", function(Inventory)
 		local rItem1 = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name)
 		local rItem2 = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name)
 
+		if not _meta.name then
+			local generetename = rItem1
+			_meta.name = generetename
+		end
+
+		if not _meta2.name then
+			local generetename = rItem2
+			_meta2.name = generetename
+		end
+
 		local identifier = RedEM.GetPlayer(_source).GetIdentifier()
         local charid = RedEM.GetPlayer(_source).GetActiveCharacter()
 
-		local item, id = getInventoryItemFromName(rItem1, Inventory[identifier .. "_" .. charid], getMetaOutput({}))
-		local item2, id2 = getInventoryItemFromName(rItem2, Inventory[identifier .. "_" .. charid], getMetaOutput({}))
+		local item, id = getInventoryItemFromName(tostring(rItem1), Inventory[identifier .. "_" .. charid], getMetaOutput(_meta))
+		local item2, id2 = getInventoryItemFromName(tostring(rItem2, Inventory[identifier .. "_" .. charid], getMetaOutput(_meta2))
 
 		local rItem1Amount = (item.getAmount()) / Config.CraftingsReceipe[itemNameStr].ItemReceipe1Amount
 		local rItem2Amount = (item2.getAmount()) / Config.CraftingsReceipe[itemNameStr].ItemReceipe2Amount
