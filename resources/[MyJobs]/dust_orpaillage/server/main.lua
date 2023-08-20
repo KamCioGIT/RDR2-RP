@@ -23,7 +23,7 @@ RegisterServerEvent("dust-or:server:récolte", function(riverdrop, riverdrop2)
 end)
 
 RegisterServerEvent('dust-or:server:ramp')
-AddEventHandler('dust-or:server:ramp', function()
+AddEventHandler('dust-or:server:ramp', function(source)
 	local _source = source
 	local ItemData = data.getItem(_source, "cailloux")
     Citizen.CreateThread(function()
@@ -34,11 +34,12 @@ AddEventHandler('dust-or:server:ramp', function()
                     local ItemDatagive = data.getItem(_source, "pepiteor")
                     ItemDatagive.AddItem(1)
                 end
-                TriggerClientEvent("dust-or:server:notinteracting", source)
+                TriggerClientEvent("dust-or:server:notinteracting", _source)
                 return
                 print "1"
             end 
-            TriggerClientEvent("dust-or:server:notinteracting", source)
+            print (ItemData.ItemAmount)
+            TriggerClientEvent("dust-or:server:notinteracting", _source)
         end
     end)
 end)
