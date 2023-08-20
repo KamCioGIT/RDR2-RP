@@ -20,6 +20,7 @@ Citizen.CreateThread(function()
     PromptSetVisible(PanPrompt, true)
     PromptSetHoldMode(PanPrompt, false)
     PromptSetGroup(PanPrompt, GoldPanPromptGroup)
+    PromptSetStandardMode(PanPrompt, true)
     PromptRegisterEnd(PanPrompt)
 
     str = 'Ranger'
@@ -31,6 +32,7 @@ Citizen.CreateThread(function()
     PromptSetVisible(CancelPrompt, true)
     PromptSetHoldMode(CancelPrompt, true)
     PromptSetGroup(CancelPrompt, GoldPanPromptGroup)
+    PromptSetStandardMode(CancelPrompt, true)
     PromptRegisterEnd(CancelPrompt)
 end)
 
