@@ -222,7 +222,7 @@ AddEventHandler("onResourceStop", function(resourceName)
 end)
 
 RegisterNetEvent("dust-or:server:notinteracting", function()
-    IsInteracting = false 
     local playerPed = PlayerPedId()
     ClearPedTasks(playerPed)
+    IsInteracting = false 
 end)
