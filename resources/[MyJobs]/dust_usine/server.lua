@@ -50,8 +50,8 @@ AddEventHandler('usine:maxRessourcesAmount', function(itemNameStr)
 		local identifier = RedEM.GetPlayer(_source).GetIdentifier()
         local charid = RedEM.GetPlayer(_source).GetActiveCharacter()
 
-		local item, id = getInventoryItemFromName(rItem1, Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
-		local item2, id2 = getInventoryItemFromName(rItem1, Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+		local item, id = getInventoryItemFromName(rItem1, Inventory[identifier .. "_" .. charid], getMetaOutput({}))
+		local item2, id2 = getInventoryItemFromName(rItem2, Inventory[identifier .. "_" .. charid], getMetaOutput({}))
 
 		local rItem1Amount = (item.getAmount()) / Config.CraftingsReceipe[itemNameStr].ItemReceipe1Amount
 		local rItem2Amount = (item2.getAmount()) / Config.CraftingsReceipe[itemNameStr].ItemReceipe2Amount
