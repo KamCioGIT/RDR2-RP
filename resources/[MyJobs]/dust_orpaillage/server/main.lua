@@ -34,7 +34,7 @@ AddEventHandler('dust-or:server:ramp', function(playerPed)
                 -- TriggerClientEvent("dust-or:server:rampanim", playerPed)
                 local ItemDatagive = data.getItem(_source, "pepiteor")
                 ItemDatagive.AddItem(1)
-            else return end
+            end
         -- end
     -- end)
 end)
