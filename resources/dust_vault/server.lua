@@ -52,13 +52,18 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, x, y, z)
 		stashid = generetedUid
 	}, function(rowsChanged)
 	end)
+	local vaultcoords = {
+		["x"] = {x},
+		["y"] = {y},
+		["z"] = {z}
+	}
 	MySQL.update('INSERT INTO vault (`identifier`, `charid`, `stashid`, `model`, `coords`) VALUES (@identifier, @charid, @stashid, @model, @coords);',
 	{
 		identifier = identifier,
 		charid = charid,
 		stashid = generetedUid,
 		model = vault
-		coords = {x, y, z}
+		coords = json.encode(vaultcoords)
 	}, function(rowsChanged)
 	end)
 end)
