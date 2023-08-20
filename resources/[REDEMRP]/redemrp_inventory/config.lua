@@ -854,8 +854,21 @@ Config.Items = {
         limit = 2000,
         imgsrc = "items/stick.png",
         type = "item_standard",
-      },
+    },
+    
 
+    --- VAULT
+    ["smallvault"] = {
+        label = "Petit Coffre Fort",
+        description = "De quoi protéger quelques biens",
+        weight = 5,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/crate.png",
+        type = "item_standard",
+    },
 }
 
 exports("GetItemsList", function()

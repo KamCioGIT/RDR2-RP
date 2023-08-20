@@ -1,13 +1,30 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
 
+----- REQUEST LES MODEL ----
 
+Citizen.CreateThread(function()
+    RequestModel(Config.SmallVault, true)
+    while not RequestModel(Config.SmallVault, true) do
+        Citizen.Wait(100)
+    end
+    Citizen.Wait(100)
+    RequestModel(Config.MediumVault, true)
+    while not RequestModel(Config.MediumVault, true) do
+        Citizen.Wait(100)
+    end
+    Citizen.Wait(100)
+    RequestModel(Config.LargeVault, true)
+    while not RequestModel(Config.LargeVault, true) do
+        Citizen.Wait(100)
+    end
+end)
 
 
 ----- SPAWN OBJET ----- 
 RegisterNetEvent('smallvault')
 AddEventHandler('smallvault', function() 
-    local vault = "smallvault"
+    local vault = Config.SmallVault
     local playerPed = PlayerPedId()
     RequestAnimDict(Config.MenuDict)
     while not HasAnimDictLoaded(Config.MenuDict) do
