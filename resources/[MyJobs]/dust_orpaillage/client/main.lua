@@ -202,7 +202,7 @@ AddEventHandler('goldramp', function()
             Citizen.Wait(1000)
         end
         local playerPed = PlayerPedId()
-        local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 0.75, -1.55))
+        local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.55))
         local ramp = CreateObject(Config.GoldRamp, x, y, z, true, false, true)
         SetEntityHeading(ramp, GetEntityHeading(PlayerPedId()))
         PlaceObjectOnGroundProperly(ramp)
