@@ -50,7 +50,7 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, x, y, z)
 	local vaultcoords = {
 		["x"] = {x},
 		["y"] = {y},
-		["z"] = {z}
+		["z"] = {z},
 	}
 	MySQL.update('INSERT INTO stashes (`stashid`) VALUES (@stashid);',
 	{
