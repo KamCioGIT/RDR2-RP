@@ -76,7 +76,8 @@ Citizen.CreateThread(function()
             if IsControlJustReleased(0, 0x5181713D) then
                 isInteracting = true
                 local playerPed = PlayerPedId()
-                TriggerServerEvent('dust-or:server:ramp', playerPed)
+                TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), Config.WorkingTime, true, false, false, false)
+                TriggerServerEvent('dust-or:server:ramp')
             end
             if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
                 local playerPed = PlayerPedId()

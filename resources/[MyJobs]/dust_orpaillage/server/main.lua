@@ -31,7 +31,7 @@ AddEventHandler('dust-or:server:ramp', function(playerPed)
             Citizen.Wait(Config.WorkingTime)
             if ItemData.ItemAmount >= 2 then
                 ItemData.RemoveItem(2)
-                TriggerClientEvent("dust-or:server:rampanim", playerPed)
+                -- TriggerClientEvent("dust-or:server:rampanim", playerPed)
                 local ItemDatagive = data.getItem(_source, "pepiteor")
                 ItemDatagive.AddItem(1)
             else return end
