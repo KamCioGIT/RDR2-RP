@@ -26,13 +26,17 @@ RegisterServerEvent('dust-or:server:ramp')
 AddEventHandler('dust-or:server:ramp', function(playerPed)
 	local _source = source
 	local ItemData = data.getItem(_source, "cailloux")
-    if ItemData then       
-        Citizen.Wait(Config.WorkingTime)
-        if ItemData.RemoveItem(2) then
-            local ItemDatagive = data.getItem(_source, "pepiteor")
-            ItemDatagive.AddItem(1)
+    Citizen.CreateThread(function()
+        while true do
+            if ItemData then       
+                Citizen.Wait(Config.WorkingTime)
+                if ItemData.RemoveItem(2) then
+                    local ItemDatagive = data.getItem(_source, "pepiteor")
+                    ItemDatagive.AddItem(1)
+                end
+            end
         end
-    end
+    end)
 end)
 
 RegisterServerEvent("RegisterUsableItem:goldramp")
