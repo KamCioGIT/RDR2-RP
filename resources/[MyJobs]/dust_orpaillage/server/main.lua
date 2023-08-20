@@ -23,12 +23,12 @@ RegisterServerEvent("dust-or:server:récolte", function(riverdrop, riverdrop2)
 end)
 
 RegisterServerEvent('dust-or:server:ramp')
-AddEventHandler('dust-or:server:ramp', function()
+AddEventHandler('dust-or:server:ramp', function(source)
 	local _source = source
 	-- TriggerEvent("redemrp_inventory:getData", function(Inventory)
 	local ItemData = data.getItem(_source, "cailloux")
 	while ItemData.RemoveItem(2) do
-        TriggerNetEvent("dust-or:server:rampanim", _source)
+        TriggerNetEvent("dust-or:server:rampanim", source)
         Citizen.Wait(Config.WorkingTime)
         local ItemDatagive = data.getItem(_source, "pepiteor")
         local roll = math.random(0, 100)
