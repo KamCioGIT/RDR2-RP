@@ -25,12 +25,12 @@ end)
 RegisterServerEvent('dust-or:server:ramp')
 AddEventHandler('dust-or:server:ramp', function()
 	local _source = source
-	local ItemData = data.getItem(source, "cailloux")
+	local ItemData = data.getItem(_source, "cailloux")
 	while ItemData.ItemAmount >= 2 do
         Citizen.Wait(Config.WorkingTime)
         if ItemData.ItemAmount >= 2 then
             ItemData.RemoveItem(2)
-            TriggerClientEvent("dust-or:server:rampanim", source)
+            TriggerClientEvent("dust-or:server:rampanim")
             local ItemDatagive = data.getItem(_source, "pepiteor")
             ItemDatagive.AddItem(1)
         end
