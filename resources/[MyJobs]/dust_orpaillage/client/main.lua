@@ -225,4 +225,5 @@ RegisterNetEvent("dust-or:server:notinteracting", function()
     local playerPed = PlayerPedId()
     ClearPedTasks(playerPed)
     IsInteracting = false 
+    print (IsInteracting)
 end)
