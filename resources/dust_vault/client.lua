@@ -42,11 +42,7 @@ AddEventHandler('smallvault', function()
         TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
         Citizen.Wait(1000)
     end
-    local x,y,z = table.unpack(GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.55))
-    local playerpos = {
-        ["x"] = {x},
-		["y"] = {y},
-		["z"] = {z}
-    }
+    local coords = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.55))
+    local playerpos = { "x" = coords.x, "y" = coords.y, "z" = coords.z }
     TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos) -- Créer le vault dans la db
 end, false)
