@@ -63,7 +63,7 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, x, y, z)
 		charid = charid,
 		stashid = generetedUid,
 		model = vault
-		coords = json.encode(vaultcoords)
+		coords = json.encode(vaultcoords) 
 	}, function(rowsChanged)
 	end)
 end)
