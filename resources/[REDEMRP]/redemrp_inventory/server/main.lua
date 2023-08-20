@@ -2067,8 +2067,8 @@ RegisterServerEvent("redemrp_inventory:getItemMaxOccurences", function(str, item
 	local identifier = RedEM.GetPlayer(source).GetIdentifier()
     local charid = RedEM.GetPlayer(source).GetActiveCharacter()
 
-	local item, id = getInventoryItemFromName(rItem1, Inventory[identifier .. "_" .. charid], {})
-	local item2, id2 = getInventoryItemFromName(rItem2, Inventory[identifier .. "_" .. charid], {})
+	local item, id = getInventoryItemFromName(itemN1, Inventory[identifier .. "_" .. charid], {})
+	local item2, id2 = getInventoryItemFromName(itemN2, Inventory[identifier .. "_" .. charid], {})
 
 	local rItem1Amount = tonumber(item.getAmount() / itemA1)
 	local rItem2Amount = tonumber(item2.getAmount() / itemA2)
