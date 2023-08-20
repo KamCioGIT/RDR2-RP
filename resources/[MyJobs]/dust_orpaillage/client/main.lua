@@ -76,7 +76,7 @@ Citizen.CreateThread(function()
             if IsControlJustReleased(0, 0x5181713D) then
                 isInteracting = true
                 local playerPed = PlayerPedId()
-                TriggerServerEvent('dust-or:server:ramp')
+                TriggerServerEvent('dust-or:server:ramp', playerPed)
             end
             if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
                 local playerPed = PlayerPedId()
