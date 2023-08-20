@@ -48,3 +48,5 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, x, y, z)
 	}, function(rowsChanged)
 	end)
 end)
+
+--- SUPPRIMER LE VAULT DE LA DB QUAND ON LE REPREND, S'ASSURER QUE LE COFFRE EST VIDE ----
