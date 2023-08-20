@@ -27,14 +27,12 @@ AddEventHandler('dust-or:server:ramp', function()
 	local _source = source
 	-- TriggerEvent("redemrp_inventory:getData", function(Inventory)
 	local ItemData = data.getItem(_source, "cailloux")
-	while ItemData.RemoveItem(2) do
-		Citizen.CreateThread(function()
+	if ItemData.RemoveItem(2) then
 			TriggerNetEvent("dust-or:server:rampanim", _source)
 			Citizen.Wait(Config.WorkingTime)
 			local ItemDatagive = data.getItem(_source, "pepiteor")
             local roll = math.random(0, 100)
 			ItemDatagive.AddItem(1)
-		end)
 	end
 end)
 
