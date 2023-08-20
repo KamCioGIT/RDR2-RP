@@ -79,7 +79,7 @@ Citizen.CreateThread(function()
                 TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), -1, true, false, false, false)
                 TriggerServerEvent('dust-or:server:ramp')
                 Citizen.Wait(Config.WorkingTime)
-                is Interacting = false
+                isInteracting = false
             end
             if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
                 local playerPed = PlayerPedId()
