@@ -25,12 +25,26 @@ CreateObject()
 
 --- CREER LE VAULT DANS LA DB ---
 RegisterServerEvent("dust_vault:server:vaultDB")
-AddEventHandler("dust_vault:server:vaultDB", function(x, y, z)
-	MySQL.update('INSERT INTO horses (`identifier`, `charid`, `name`, `model`) VALUES (@identifier, @charid, @name, @model);',
+AddEventHandler("dust_vault:server:vaultDB", function(vault, x, y, z)
+	local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local identifier = user.identifier
+    local charid = user.charid
+	local numBase0 = math.random(100, 999)
+    local numBase1 = math.random(0, 9999)
+    local generetedUid = string.format("%03d%04d", numBase0, numBase1)
+	MySQL.update('INSERT INTO stashes (`stashid`) VALUES (@stashid);',
+	{
+		stashid = generetedUid
+	}, function(rowsChanged)
+	end)
+	MySQL.update('INSERT INTO vault (`identifier`, `charid`, `stashid`, `model`, `coords`) VALUES (@identifier, @charid, @stashid, @model, @coords);',
 	{
 		identifier = identifier,
 		charid = charid,
-		name = tostring(name),
-		model = data.ModelH
+		stashid = generetedUid,
+		model = vault
+		coords = {x, y, z}
 	}, function(rowsChanged)
+	end)
 end)

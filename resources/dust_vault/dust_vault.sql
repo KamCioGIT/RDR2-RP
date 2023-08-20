@@ -2,7 +2,9 @@ CREATE TABLE `vault` (
   `id` int(11) NOT NULL,
   `identifier` varchar(50) COLLATE utf8mb4_bin DEFAULT NULL,
   `charid` int(11) DEFAULT 0,
-  `coords` varchar(200) COLLATE utf8mb4_bin DEFAULT '{}',
+  `stashid` text NOT NULL,
+  `model` text NOT NULL,
+  `coords` varchar(200) COLLATE utf8mb4_bin DEFAULT '{}'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 ALTER TABLE `vault`
