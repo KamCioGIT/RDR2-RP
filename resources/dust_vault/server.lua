@@ -26,5 +26,11 @@ CreateObject()
 --- CREER LE VAULT DANS LA DB ---
 RegisterServerEvent("dust_vault:server:vaultDB")
 AddEventHandler("dust_vault:server:vaultDB", function(x, y, z)
-
+	MySQL.update('INSERT INTO horses (`identifier`, `charid`, `name`, `model`) VALUES (@identifier, @charid, @name, @model);',
+	{
+		identifier = identifier,
+		charid = charid,
+		name = tostring(name),
+		model = data.ModelH
+	}, function(rowsChanged)
 end)
