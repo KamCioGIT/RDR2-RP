@@ -8,7 +8,7 @@ Config.GoldPanAnimations = {
 }
 
 Config.GoldRamp = GetHashKey("p_goldcradlestand01x") -- Rampe de lavage
-Config.WorkingTime = 2000
+Config.WorkingTime = 1000
 
 Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
 Config.CraftAnim = {
