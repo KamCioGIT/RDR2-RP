@@ -47,17 +47,20 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
     local rItem1Amount = tonumber(ItemData.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount)
     local rItem2Amount = tonumber(ItemData2.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe2Amount)
     
-    print(rItem1Amount)
-    print(rItem2Amount)
+	if rItem1Amount >= rItem2Amount then
+		hAmount = rItem1Amount
+		lAmount = rItem2Amount
+	else
+		lAmount = rItem1Amount
+		hAmount = rItem2Amount
+	end
 
-    for i = 0, rItem1Amount, 1 do 
-        if rItem2Amount < rItem1Amount then
-            print("stop count")
-            maxCraftingItemNbr = i
-        end
+    for i = hAmount, lAmount, -1 do 
+		if lAmount == 0 then 
+			print("stop count")
+            maxCraftingItemNbr = i - 1 
+			return maxCraftingItemNbr
+		end
     end
-    
-	print(maxCraftingItemNbr)
-    return maxCraftingItemNbr
 end)
 
