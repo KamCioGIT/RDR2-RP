@@ -44,28 +44,18 @@ AddEventHandler('usine:maxRessourcesAmount', function(itemNameStr)
 	local _meta = {}
 	local _meta2 = {}
 
-	--TriggerEvent("redemrp_inventory:getData", function(Inventory)
-		local rItem1 = data.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name)
-		local rItem2 = data.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name)
+	TriggerEvent("redemrp_inventory:getData", function(Inventory)
+		local rItem1 = Inventory.getItem(source, Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name)
+		local rItem2 = Inventory.getItem(source, Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name)
 
-		if not _meta.name then
-			local generetename = rItem1
-			_meta.name = generetename
-		end
-
-		if not _meta2.name then
-			local generetename = rItem2
-			_meta2.name = generetename
-		end
-
-		local identifier = RedEM.GetPlayer(_source).GetIdentifier()
-        local charid = RedEM.GetPlayer(_source).GetActiveCharacter()
+		local identifier = RedEM.GetPlayer(source).GetIdentifier()
+        local charid = RedEM.GetPlayer(source).GetActiveCharacter()
 
 		print(rItem1)
-		print(data[identifier .. "_" .. charid])
+		print(Inventory[identifier .. "_" .. charid])
 
-		local item, id = getInventoryItemFromName(rItem1, data[identifier .. "_" .. charid], {})
-		local item2, id2 = getInventoryItemFromName(rItem2, data[identifier .. "_" .. charid], {})
+		local item, id = getInventoryItemFromName(rItem1, Inventory[identifier .. "_" .. charid], {})
+		local item2, id2 = getInventoryItemFromName(rItem2, Inventory[identifier .. "_" .. charid], {})
 
 		local rItem1Amount = (item.getAmount()) / Config.CraftingsReceipe[itemNameStr].ItemReceipe1Amount
 		local rItem2Amount = (item2.getAmount()) / Config.CraftingsReceipe[itemNameStr].ItemReceipe2Amount
@@ -79,7 +69,7 @@ AddEventHandler('usine:maxRessourcesAmount', function(itemNameStr)
 				maxCraftingItemNbr = i
 			end
 		end
-	--end)
+	end)
 
 	return maxCraftingItemNbr
 end)
