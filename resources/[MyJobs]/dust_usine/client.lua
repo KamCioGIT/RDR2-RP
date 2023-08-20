@@ -1,10 +1,5 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
-data = {}
-TriggerEvent("redemrp_inventory:getData",function(call)
-    data = call
-end)
-
 local isInteracting = false
 
 local CraftMenuPrompt = nil
@@ -245,31 +240,6 @@ AddEventHandler("onResourceStop", function(resourceName)
     PromptDelete(CraftMenuPrompt)
 end)
 
-
-function MaxRessourcesAmount(dataType)
-    print("oui")
-    local player = PlayerPedId()
-    local maxCraftingItemNbr = 0
-    
-    local rItem1 = data.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
-    local rItem2 = data.getItem(player, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
-    
-    local rItem1Amount = rItem1.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount
-    local rItem2Amount = rItem2.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe2Amount
-    
-    print(rItem1Amount)
-    print(rItem2Amount)
-
-    for i = 0, rItem1Amount, 1 do 
-        if not rItem2Amount >= rItem1Amount then
-            print("stop count")
-            maxCraftingItemNbr = i
-        end
-    end
-    
-    return maxCraftingItemNbr
-end
-
 RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
@@ -280,7 +250,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         desc = "Se mettre au travail",
         type = 'slider',
         min = 0,
-        max = MaxRessourcesAmount(dataType)
+        max = TriggerServerEvent("usine:MaxRessourcesAmount", dataType)
         },
     }
 
