@@ -215,6 +215,7 @@ end, false)
 AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
     if Prop then if DoesEntityExist(Prop) then DeleteEntity(Prop) end end
+    if goldramp then if DoesEntityExist(goldramp) then DeleteEntity(goldramp) end end
     PromptDelete(PanPrompt)
     PromptDelete(CancelPrompt)
     PromptDelete(RampPrompt)
