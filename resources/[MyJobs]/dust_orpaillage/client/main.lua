@@ -11,16 +11,16 @@ local GoldPanPromptGroup = GetRandomIntInRange(0, 0xffffff)
 local GoldPanningPromptName = CreateVarString(10, "LITERAL_STRING", "Bâtée")
 
 Citizen.CreateThread(function()
-    -- local str = 'Prospecter'
-    -- PanPrompt = PromptRegisterBegin()
-    -- PromptSetControlAction(PanPrompt, 0x5181713D)
-    -- str = CreateVarString(10, 'LITERAL_STRING', str)
-    -- PromptSetText(PanPrompt, str)
-    -- PromptSetEnabled(PanPrompt, true)
-    -- PromptSetVisible(PanPrompt, true)
-    -- PromptSetHoldMode(PanPrompt, false)
-    -- PromptSetGroup(PanPrompt, GoldPanPromptGroup)
-    -- PromptRegisterEnd(PanPrompt)
+    local str = 'Prospecter'
+    PanPrompt = PromptRegisterBegin()
+    PromptSetControlAction(PanPrompt, 0x5181713D)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(PanPrompt, str)
+    PromptSetEnabled(PanPrompt, true)
+    PromptSetVisible(PanPrompt, true)
+    PromptSetHoldMode(PanPrompt, false)
+    PromptSetGroup(PanPrompt, GoldPanPromptGroup)
+    PromptRegisterEnd(PanPrompt)
 
     str = 'Ranger'
     CancelPrompt = PromptRegisterBegin()
@@ -67,10 +67,10 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
         local playerPed = PlayerPedId()
         local pos = GetEntityCoords(playerPed), true
-        local goldramp = GetClosestObjectOfType(pos, 2.0, Config.GoldRamp, false, false, false)
+        local goldramp = GetClosestObjectOfType(pos, 1.5, Config.GoldRamp, false, false, false)
         if goldramp ~= 0 then
             local objectPos = GetEntityCoords(goldramp)
-            if #(pos - objectPos) < 2.5 and not isInteracting then
+            if #(pos - objectPos) < 1.5 and not isInteracting then
                 PromptSetActiveGroupThisFrame(RampPromptGroup, RampPromptName)
             end
             if IsControlJustReleased(0, 0x5181713D) and not isInteracting then
