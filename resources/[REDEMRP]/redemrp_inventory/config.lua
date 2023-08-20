@@ -852,7 +852,7 @@ Config.Items = {
         canBeUsed = true,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/consumable_celery.png",
+        imgsrc = "items/stick.png",
         type = "item_standard",
       },
 
