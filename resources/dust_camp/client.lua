@@ -45,7 +45,7 @@ Citizen.CreateThread(function()
         local cauldron = GetClosestObjectOfType(pos, 2.0, Config.CampChaudron, false, false, false)
         if campfire ~= 0 then
             local objectPos = GetEntityCoords(campfire)
-            if #(pos - objectPos) < 2.5 and not isInteracting then
+            if #(pos - objectPos) < 1.5 and not isInteracting then
                 PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
                 if IsControlJustReleased(0, 0x5181713D) then
                     isInteracting = true
@@ -91,7 +91,7 @@ Citizen.CreateThread(function()
         end
         if cookgrill ~= 0 then
             local objectPos = GetEntityCoords(cookgrill)
-            if  #(pos - objectPos) < 2.5 and not isInteracting then
+            if  #(pos - objectPos) < 1.5 and not isInteracting then
                 PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
                 if IsControlJustReleased(0, 0x5181713D) then
                     isInteracting = true
@@ -137,7 +137,7 @@ Citizen.CreateThread(function()
         end
         if cauldron ~= 0 then
             local objectPos = GetEntityCoords(cauldron)
-            if #(pos - objectPos) < 2.5 and not isInteracting then
+            if #(pos - objectPos) < 1.5 and not isInteracting then
                 PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
                 if IsControlJustReleased(0, 0x5181713D) then
                     isInteracting = true
@@ -196,7 +196,7 @@ RegisterNetEvent("camp:OpenCampMenu", function(menutype)
     Citizen.CreateThread(function()
         while true do
             Wait(100)
-            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+            if #(Position - GetEntityCoords(PlayerPedId())) > 1.5 then
                 TriggerEvent("redemrp_menu_base:getData", function(call)
                     call.CloseAll()
                 end)
