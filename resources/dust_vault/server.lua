@@ -28,15 +28,16 @@ CreateObject()
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(500)
-		local model = "smallvault"
-		MySQL.query('SELECT `coords` FROM `vault` WHERE `model`=@model;',{model}, function(vault)
-			if #vault ~= 0 then
-				for i = 1, #vault do
-					local coords = json.decode(vault[i].coords)
-					CreateObject(vault[i].model, coords.x, coords.y, coords.z, false, true, true)
-				end                    
+		local response = MySQL.query.await('SELECT `coords`, `model` FROM `vault` WHERE `identifier` = ?', {
+			identifier
+		})
+		 
+		if response then
+			for i = 1, #response do
+				local row = response[i]
+				print(row.coords, row.model)
 			end
-		end)
+		end
 	end
 end)
 
