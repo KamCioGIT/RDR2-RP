@@ -24,6 +24,7 @@ RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPed = PlayerPedId()
     local playerpos = GetEntityCoords(playerPed)
+    print (coords)
     print ("getcoords")
     for k,v in ipairs(coords) do
         if #(playerpos - v) > 200 then
@@ -66,5 +67,5 @@ AddEventHandler('smallvault', function()
 		["z"] = {z}
     }
     local heading = GetEntityHeading(PlayerPedId())
-    TriggerServerEvent("dust_vault:server:vaultDB", vault, x, y, z, heading) -- Créer le vault dans la db
+    TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos, heading) -- Créer le vault dans la db
 end, false)
