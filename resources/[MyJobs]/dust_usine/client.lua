@@ -7,6 +7,7 @@ local CraftMenuPromptShown = false
 local promptGroup
 
 local varString = CreateVarString(10, "LITERAL_STRING", "Craft Menu")
+local maxCraftAmountUsine = 0
 
 Citizen.CreateThread(function()
     Wait(10)
@@ -243,9 +244,7 @@ end)
 RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
-
-    local maxCraft = TriggerServerEvent("usine:MaxRessourcesAmount", dataType)
-    print(maxCraft)
+    TriggerServerEvent("usine:MaxRessourcesAmount", dataType)
 
     local elements = {
         { label = "Crafting Amount", 
@@ -253,7 +252,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         desc = "Se mettre au travail",
         type = 'slider',
         min = 0,
-        max = maxCraft
+        max = maxCraftAmountUsine
         },
     }
 
@@ -277,5 +276,10 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         menu.close()
         CraftMenuPromptShown = false
     end)
+end)
+
+RegisterNetEvent("usine:client:SetMaxAmount", function(value)
+    print(value)
+    maxCraftAmountUsine = value
 end)
 
