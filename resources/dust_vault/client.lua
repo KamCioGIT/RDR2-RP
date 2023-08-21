@@ -45,7 +45,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(1000)
-            local alreadyspawn = IsEntityAtCoord(model, coords.x, coords.y, coords.z, 0.5, 0.5, 0.5)
+            local alreadyspawn = IsEntityAtCoord(model, coords.x, coords.y, coords.z, 1.0, 1.0, 1.0, 0, 1, 0)
             print (alreadyspawn)
             if alreadyspawn == false then
                 if #(playerPos - vaultpos) < 10.0 then
