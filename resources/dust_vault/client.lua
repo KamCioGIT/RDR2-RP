@@ -40,10 +40,12 @@ RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    local prop = CreateObject(model, coords.x, coords.y, coords.z, true, false, true)
+    local prop = CreateObject(Config.SmallVault, coords.x, coords.y, coords.z, true, false, true)
     SetEntityHeading(prop, heading)
     PlaceObjectOnGroundProperly(prop)
 end)
+
+
 
 ----- CREER OBJET ----- 
 RegisterNetEvent('smallvault')
