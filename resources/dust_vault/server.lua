@@ -36,7 +36,7 @@ end)
 -- 	end)
 -- end)
 
-RegisterServerEvent("dust_vault:server:Askcoords")
+RegisterServerEvent("dust_vault:server:AskVault")
 AddEventHandler("dust_vault:server:Askcoords", function()
 	local _source = source
 	MySQL.query('SELECT * FROM `vault`;',{}, function(result)
@@ -49,7 +49,7 @@ AddEventHandler("dust_vault:server:Askcoords", function()
 				print (coords, heading, model)
 				if prop then
 					print "yes"
-					SetEntityHeading(prop, heading)
+					-- SetEntityHeading(prop, heading)
 				end
 			end                    
 		end
