@@ -46,14 +46,13 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
         while true do
             Citizen.Wait(1000)
             for k, v in pairs(spawnedvault) do
-                    if #(playerPos - vaultpos) < 10.0 and id ~= v then
-                        print 'spawn'
-                        local prop = CreateObject(model, coords.x, coords.y, coords.z, true, false, true)
-                        SetEntityHeading(prop, heading)
-                        PlaceObjectOnGroundProperly(prop)
-                        table.insert(spawnedvault, id)
-                    else return end
-                end
+                if #(playerPos - vaultpos) < 10.0 and id ~= v then
+                    print 'spawn'
+                    local prop = CreateObject(model, coords.x, coords.y, coords.z, true, false, true)
+                    SetEntityHeading(prop, heading)
+                    PlaceObjectOnGroundProperly(prop)
+                    table.insert(spawnedvault, id)
+                else return end
             end
         end
     end)
