@@ -6,7 +6,7 @@ TriggerEvent("redemrp_inventory:getData",function(call)
 end)
 
 RegisterServerEvent('usine:CraftItem')
-AddEventHandler('usine:CraftItem', function(itemNameStr, playerPedId, menu, amount)
+AddEventHandler('usine:CraftItem', function(itemNameStr, menu, amount)
 	local _source = tonumber(source)
 	TriggerEvent("redemrp_inventory:getData", function(Inventory)
 	local ItemData = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name)
@@ -15,8 +15,9 @@ AddEventHandler('usine:CraftItem', function(itemNameStr, playerPedId, menu, amou
 	for i = 1, amount, 1
 	do
 		if ItemData.RemoveItem(Config.CraftingsReceipe[itemNameStr].ItemReceipe1Amount) and ItemData2.RemoveItem(Config.CraftingsReceipe[itemNameStr].ItemReceipe2Amount) then
+			print("Item removed")
 			Citizen.CreateThread(function()
-				TriggerClientEvent("usine:CraftingAction", playerPedId)
+				TriggerClientEvent("usine:CraftingAction", _source, menu)
 				Citizen.Wait(Config.WorkingTime * 1000)
 				local ItemDatagive = data.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemToGive)
 				ItemDatagive.AddItem(Config.CraftingsReceipe[itemNameStr].Amount)
