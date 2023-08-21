@@ -20,37 +20,22 @@ AddEventHandler("RegisterUsableItem:largevault", function(source)
     TriggerClientEvent("largevault", source)  
 end)
 
+spawnvault = {}
 
-
----- RECUP LES POS ET LE PROP---
--- RegisterServerEvent("dust_vault:server:Askcoords")
--- AddEventHandler("dust_vault:server:Askcoords", function()
--- 	local _source = source
--- 	MySQL.query('SELECT `coords` FROM `vault`;',{}, function(result)
--- 		if #result ~= 0 then
--- 			for i = 1, #result do
--- 				local coords = json.decode(result[i].coords)
--- 				TriggerClientEvent("dust_vault:server:getcoords", _source, coords)
--- 			end                    
--- 		end
--- 	end)
--- end)
-
-RegisterServerEvent("dust_vault:server:AskVault")
+-- RECUP LES POS ---
+RegisterServerEvent("dust_vault:server:Askcoords")
 AddEventHandler("dust_vault:server:Askcoords", function()
 	local _source = source
-	MySQL.query('SELECT * FROM `vault`;',{}, function(result)
+	MySQL.query('SELECT `coords` FROM `vault`;',{}, function(result)
 		if #result ~= 0 then
 			for i = 1, #result do
 				local coords = json.decode(result[i].coords)
-				local heading = result[i].heading
-				local model = result[i].model
-				local prop = Citizen.InvokeNative(0x2F7AA05C, model, coords.x, coords.y, coords.z, true, true, true)
-				print (coords, heading, model)
+				TriggerClientEvent("dust_vault:server:getcoords", _source, coords)
 			end                    
 		end
 	end)
 end)
+
 
 RegisterServerEvent("dust_vault:server:AskModel")
 AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
@@ -64,7 +49,7 @@ AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
 				local heading = result[i].heading
 				local coords = json.decode(coords)
 				-- TriggerClientEvent("dust_vault:server:getmodel", _source, model, heading, coords, id)
-				local prop = CreateObject(model, vaultcoords.x, vaultcoords.y, vaultcoords.z, true, true, true)
+				local prop = CreateObject(model, vaultcoords.x, vaultcoords.y, vaultcoords.z, true, false, true)
 				SetEntityHeading(prop,heading)
 			end                    
 		end
