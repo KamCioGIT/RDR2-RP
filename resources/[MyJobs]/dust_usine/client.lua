@@ -79,7 +79,9 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
 
         function(data, menu)
             MenuData.CloseAll()
-            TriggerServerEvent("usine:MaxRessourcesAmount", data.current.value, MenuData, menu)
+            TriggerServerEvent("usine:MaxRessourcesAmount", data.current.value)
+            Wait(150)
+            TriggerEvent("usine:SelectCraftingAmount", data.current.value, MenuData, menu)
             CraftMenuPromptShown = false
         end,
 
