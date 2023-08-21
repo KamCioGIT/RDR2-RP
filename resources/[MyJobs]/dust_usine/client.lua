@@ -240,6 +240,7 @@ RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
 
+    print("B")
     local elements = {
         { label = "Crafting Amount", 
         value = 0, 
@@ -250,6 +251,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         },
     }
 
+    print("C")
     menuData.Open('default', GetCurrentResourceName(), 'craft', {
         title = "Craft Usine Menu",
         subtext = "Select how much ".. dataType .. " craft",
@@ -272,7 +274,6 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
 end)
 
 RegisterNetEvent("usine:client:SetMaxAmount", function(value)
-    print(value)
-    maxCraftAmountUsine = value
+    maxCraftAmountUsine = tonumber(value)
 end)
 
