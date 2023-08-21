@@ -34,7 +34,8 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
     print (coords)
     print ("getcoords")
     for k,v in pairs(coords) do
-        if #(playerpos - v) < 200.0 then
+        print (v)
+        if #(v - GetEntityCoords(PlayerPedId())) > 50.0 then
             print ("ninho")
             TriggerServerEvent("dust_vault:server:AskModel", v)
         end
