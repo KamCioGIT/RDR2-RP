@@ -26,7 +26,7 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(1000)
-		MySQL.query('SELECT `coords`, `model`, `heading` FROM `vault`;',{}, function(result)
+		MySQL.query('SELECT `coords` FROM `vault`;',{}, function(result)
 			if #result ~= 0 then
 				for i = 1, #result do
 					local coords = json.decode(result[i].coords)
