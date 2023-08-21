@@ -23,14 +23,32 @@ end)
 
 
 ---- RECUP LES POS ET LE PROP---
+-- RegisterServerEvent("dust_vault:server:Askcoords")
+-- AddEventHandler("dust_vault:server:Askcoords", function()
+-- 	local _source = source
+-- 	MySQL.query('SELECT `coords` FROM `vault`;',{}, function(result)
+-- 		if #result ~= 0 then
+-- 			for i = 1, #result do
+-- 				local coords = json.decode(result[i].coords)
+-- 				TriggerClientEvent("dust_vault:server:getcoords", _source, coords)
+-- 			end                    
+-- 		end
+-- 	end)
+-- end)
+
 RegisterServerEvent("dust_vault:server:Askcoords")
 AddEventHandler("dust_vault:server:Askcoords", function()
 	local _source = source
-	MySQL.query('SELECT `coords` FROM `vault`;',{}, function(result)
+	MySQL.query('SELECT * FROM `vault`;',{}, function(result)
 		if #result ~= 0 then
 			for i = 1, #result do
 				local coords = json.decode(result[i].coords)
-				TriggerClientEvent("dust_vault:server:getcoords", _source, coords)
+				local heading = result[i].heading
+				local model = result[i].model
+				if prop = CreateObject(model, coords.x, coords.y, coords.z, true, true, true) then
+					print "yes"
+					SetEntityHeading(prop, heading)
+				end
 			end                    
 		end
 	end)
@@ -48,7 +66,7 @@ AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
 				local heading = result[i].heading
 				local coords = json.decode(coords)
 				-- TriggerClientEvent("dust_vault:server:getmodel", _source, model, heading, coords, id)
-				local prop = CreateObject(Config.SmallVault, vaultcoords.x, vaultcoords.y, vaultcoords.z, true, true, true)
+				local prop = CreateObject(model, vaultcoords.x, vaultcoords.y, vaultcoords.z, true, true, true)
 				SetEntityHeading(prop,heading)
 			end                    
 		end
