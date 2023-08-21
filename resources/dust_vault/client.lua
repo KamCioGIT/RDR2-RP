@@ -43,7 +43,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
     local limit = 0
     print 'spawn'
     print (model, heading, coords.x, coords.y, coords.z, id)
-    local prop = CreateObject(tostring(model), coords.x, coords.y, coords.z, true, false, true)
+    local prop = CreateObject(Config.SmallVault, coords.x, coords.y, coords.z, true, false, true)
     SetEntityHeading(prop, heading)
     PlaceObjectOnGroundProperly(prop)
 end)
