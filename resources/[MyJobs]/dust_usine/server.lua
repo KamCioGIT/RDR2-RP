@@ -60,6 +60,6 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType, MenuData, me
 		print("Not the necessary items")
 	end
 
-	TriggerClientEvent("usine:SelectCraftingAmount", _source, data.current.value, MenuData, menu)
+	TriggerClientEvent("usine:SelectCraftingAmount", _source, dataType, MenuData, menu)
 end)
 
