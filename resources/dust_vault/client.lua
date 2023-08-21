@@ -30,6 +30,7 @@ end)
 RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPos = GetEntityCoords(PlayerPedId())
+    print (coords)
     for k,v in pairs(coords) do
         print (v)
         if #(playerPos - v) < 50.0 then
