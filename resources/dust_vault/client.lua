@@ -29,12 +29,10 @@ end)
 
 RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
-    local playerPed = PlayerPedId()
-    local playerpos = GetEntityCoords(playerPed)
-    for k,v in ipairs(coords) do
-        local vaultpos = {v.x, v.y, v.z}
-        if #(playerpos - vaultpos) < 200 then
-            print (k, v)
+    for k,v in pairs(coords) do
+        local vaultpos = (v.x, v.y, v.z)
+        if #(GetEntityCoords(PlayerPedId()) - vaultpos) < 100.0 then
+            print ("ninho")
             TriggerServerEvent("dust_vault:server:AskModel", v)
         end
     end
@@ -66,12 +64,7 @@ AddEventHandler('smallvault', function()
         TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
         Citizen.Wait(1000)
     end
-    local x,y,z = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.0)
-    local playerpos = {
-        ["x"] = {x},
-		["y"] = {y},
-		["z"] = {z}
-    }
+    local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.0)
     local heading = GetEntityHeading(PlayerPedId())
     TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos, heading) -- Créer le vault dans la db
 end, false)
