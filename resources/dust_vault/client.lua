@@ -39,27 +39,22 @@ end)
 
 RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, id)
-    local spawnedvault = {}
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     print "request"
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(1000)
-            for k, v in pairs(spawnedvault) do
-                if v == id then
-                    print 'pas spawn'
-                    return
-                else
-                    if #(playerPos - vaultpos) < 10.0 then
-                        print 'spawn'
-                        local prop = CreateObject(model, coords.x, coords.y, coords.z, true, false, true)
-                        SetEntityHeading(prop, heading)
-                        PlaceObjectOnGroundProperly(prop)
-                        table.insert(spawnedvault, id)
-                    else return end
-                end
-            end
+            local alreadyspawn = IsEntityAtCoord(model, coords.x, coords.y, coords.z, 0.5, 0.5, 0.5)
+            if alreadyspawn == false then
+                if #(playerPos - vaultpos) < 10.0 then
+                    print 'spawn'
+                    local prop = CreateObject(model, coords.x, coords.y, coords.z, true, false, true)
+                    SetEntityHeading(prop, heading)
+                    PlaceObjectOnGroundProperly(prop)
+                    table.insert(spawnedvault, id)
+                else return end
+            else return end
         end
     end)
 end)
