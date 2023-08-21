@@ -29,10 +29,10 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(500)
 		MySQL.query('SELECT `coords`, `model` FROM `vault`;',{}, function(result)
-			print (result)
 			if #result ~= 0 then
 				for i = 1, #result do
 					local coords = json.decode(result[i].coords)
+					print (coords)
 					local model = result[i].model
 					CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
 				end                    
