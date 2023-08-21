@@ -32,7 +32,6 @@ Citizen.CreateThread(function()
 			if #result ~= 0 then
 				for i = 1, #result do
 					local coords = json.decode(result[i].coords)
-					print (coords.x, coords.y, coords.z)
 					local model = result[i].model
 					CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
 				end                    
