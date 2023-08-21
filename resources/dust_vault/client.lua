@@ -64,5 +64,6 @@ AddEventHandler('smallvault', function()
 		["z"] = {z}
     }
     local heading = GetEntityHeading(PlayerPedId())
+    print (heading)
     TriggerServerEvent("dust_vault:server:vaultDB", vault, x, y, z, heading) -- Créer le vault dans la db
 end, false)
