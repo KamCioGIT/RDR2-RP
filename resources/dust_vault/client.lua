@@ -26,6 +26,7 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerpos = GetEntityCoords(playerPed)
     for k,v in ipairs(coords) do
         if #(playerpos - v) > 200 then
+            print (v)
             TriggerServerEvent("dust_vault:server:AskModel", v)
         end
     end
