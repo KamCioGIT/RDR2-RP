@@ -36,7 +36,7 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
     end
 end)
 
-spawnedvault = {}
+spawnedvault = {0}
 RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, id)
     local playerPos = GetEntityCoords(PlayerPedId())
@@ -45,7 +45,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(1000)
-            for k, v in ipairs(spawnedvault) do
+            for k, v in pairs(spawnedvault) do
                 print (v)
                 print (id)
                 if not id == v then
