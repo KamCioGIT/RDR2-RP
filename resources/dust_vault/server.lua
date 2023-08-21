@@ -38,7 +38,7 @@ end)
 
 RegisterServerEvent("dust_vault:server:AskModel")
 AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
-	print (vaultcoords)
+	local coords = vaultcoords
 	MySQL.query('SELECT `model`,`heading` FROM `vault` WHERE `coords`=@coords ;',{coords = coords}, function(result)
 		if #result ~= 0 then
 			for i = 1, #result do
