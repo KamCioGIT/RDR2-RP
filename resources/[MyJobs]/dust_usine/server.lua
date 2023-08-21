@@ -12,7 +12,8 @@ AddEventHandler('usine:CraftItem', function(itemNameStr, playerPedId, menu, amou
 	local ItemData = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name)
 	local ItemData2 = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name)
 	
-	for i = 0, amount, 1 do
+	for i = 1, amount, 1
+	do
 		if ItemData.RemoveItem(Config.CraftingsReceipe[itemNameStr].ItemReceipe1Amount) and ItemData2.RemoveItem(Config.CraftingsReceipe[itemNameStr].ItemReceipe2Amount) then
 			Citizen.CreateThread(function()
 				TriggerClientEvent("usine:CraftingAction", playerPedId)
@@ -60,6 +61,7 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
 		TriggerClientEvent("usine:client:SetMaxAmount", _source, math.floor(lAmount))
 	else 
 		print("Not the necessary items")
+		TriggerClientEvent("usine:client:SetMaxAmount", _source, 0)
 	end
 end)
 
