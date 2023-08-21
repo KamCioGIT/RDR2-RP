@@ -38,6 +38,7 @@ end)
 
 RegisterServerEvent("dust_vault:server:AskModel")
 AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
+	local _source = source
 	local coords = json.encode(vaultcoords)
 	print (coords)
 	MySQL.query('SELECT `model`,`heading` FROM `vault` WHERE `coords`=@coords ;',{coords = coords}, function(result)
@@ -46,7 +47,7 @@ AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
 			for i = 1, #result do
 				local model = result[i].model
 				local heading = result[i].heading
-				TriggerClientEvent("dust_vault:server:getmodel", model, heading)
+				TriggerClientEvent("dust_vault:server:getmodel", _source, model, heading)
 			end                    
 		end
 	end)
