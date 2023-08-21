@@ -23,18 +23,18 @@ SetEntityDistanceCullingRadius()
 CreateObject()
 
 ---- RECUP LES POS ET LE PROP---
-Citizen.CreateThread(function()
-	while true do
-		Citizen.Wait(500)
-		MySQL.query('SELECT * FROM vault;',{}, function(vault)
-			if #vault ~= 0 then
-				for i = 1, #vault do
-					CreateObject(vault[i].model, vault[i].coords.x, vault[i].coords.y, vault[i].coords.z, false, true, true)
-				end                    
-			end
-		end)
-	end
-end)
+-- Citizen.CreateThread(function()
+-- 	while true do
+-- 		Citizen.Wait(500)
+-- 		MySQL.query('SELECT * FROM vault;',{}, function(vault)
+-- 			if #vault ~= 0 then
+-- 				for i = 1, #vault do
+-- 					CreateObject(vault[i].model, vault[i].coords.x, vault[i].coords.y, vault[i].coords.z, false, true, true)
+-- 				end                    
+-- 			end
+-- 		end)
+-- 	end
+-- end)
 
 
 --- CREER LE VAULT DANS LA DB ---
