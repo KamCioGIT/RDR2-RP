@@ -28,7 +28,7 @@ CreateObject()
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(500)
-		MySQL.query('SELECT * FROM vault;',{}, function(vault)
+		MySQL.query('SELECT coords, model FROM vault;',{}, function(vault)
 			if #vault ~= 0 then
 				for i = 1, #vault do
 					local coords = vault[i].coords
