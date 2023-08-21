@@ -30,9 +30,12 @@ end)
 RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPos = GetEntityCoords(PlayerPedId())
-    if #(GetEntityCoords(PlayerPedId()) - coords) < 50.0 then
-        print ("ninho")
-        TriggerServerEvent("dust_vault:server:AskModel", coords)
+    for k,v in pairs(coords) do
+        print (k, v)
+        if #(playerPos - v.x, v.y, v.z) < 50.0 then
+            print ("ninho")
+            TriggerServerEvent("dust_vault:server:AskModel", v)
+        end
     end
 end)
 
