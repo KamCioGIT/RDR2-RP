@@ -20,8 +20,23 @@ Citizen.CreateThread(function()
     end
 end)
 
+RegisterClientEvent("dust_vault:server:getcoords")
+AddEventHandler("dust_vault:server:getcoords", function (coords)
+    local playerPed = PlayerPedId()
+    local playerpos = GetEntityCoords(playerPed)
+    for k,v in ipairs(coords) do
+        if #(playerpos - v) > 200 then
+            TriggerServerEvent("dust_vault:server:AskModel", v)
+        end
+    end
+end)
 
------ SPAWN OBJET ----- 
+RegisterClientEvent("dust_vault:server:getmodel")
+AddEventHandler("dust_vault:server:getmodel", function (model, heading)
+    print (model, heading)
+end)
+
+----- CREER OBJET ----- 
 RegisterNetEvent('smallvault')
 AddEventHandler('smallvault', function() 
     local vault = Config.SmallVault
@@ -48,5 +63,6 @@ AddEventHandler('smallvault', function()
 		["y"] = {y},
 		["z"] = {z}
     }
-    TriggerServerEvent("dust_vault:server:vaultDB", vault, x, y, z) -- Créer le vault dans la db
+    local heading = GetEntityHeading(PlayerPedId())
+    TriggerServerEvent("dust_vault:server:vaultDB", vault, x, y, z, heading) -- Créer le vault dans la db
 end, false)
