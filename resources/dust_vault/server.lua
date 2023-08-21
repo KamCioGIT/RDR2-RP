@@ -28,8 +28,8 @@ CreateObject()
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(500)
-		local response = MySQL.query.await('SELECT `coords`, `model` FROM `vault` WHERE `identifier` = ?', {
-			identifier
+		local response = MySQL.query.await('SELECT `coords`, `model` FROM `vault` WHERE `id` = ?', {
+			id
 		})
 		 
 		if response then
