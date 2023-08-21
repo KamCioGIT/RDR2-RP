@@ -40,7 +40,6 @@ RegisterServerEvent("dust_vault:server:AskModel")
 AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
 	local _source = source
 	local coords = json.encode(vaultcoords)
-	print (coords)
 	MySQL.query('SELECT `id`,`model`,`heading` FROM `vault` WHERE `coords`=@coords ;',{coords = coords}, function(result)
 		if #result ~= 0 then
 			for i = 1, #result do
@@ -49,7 +48,7 @@ AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
 				local heading = result[i].heading
 				local coords = json.decode(coords)
 				-- TriggerClientEvent("dust_vault:server:getmodel", _source, model, heading, coords, id)
-				local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
+				local prop = CreateObject(model, vaultcoords.x, vaultcoords.y, vaultcoords.z, false, true, true)
 				SetEntityHeading(prop,heading)
 			end                    
 		end
