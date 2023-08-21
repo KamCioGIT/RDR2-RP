@@ -45,7 +45,6 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
     local prop = CreateObject(model, coords.x, coords.y, coords.z, true, false, true)
     SetEntityHeading(prop, heading)
     PlaceObjectOnGroundProperly(prop)
-    table.insert(spawned, id, prop)
 end)
 
 
