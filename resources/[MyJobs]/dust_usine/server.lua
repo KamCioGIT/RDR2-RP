@@ -55,8 +55,7 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
 	end
 
 	if hAmount >= 1 and lAmount >= 1 then
-		math.floor(lAmount)
-		TriggerClientEvent("usine:client:SetMaxAmount", _source, lAmount)
+		TriggerClientEvent("usine:client:SetMaxAmount", _source, math.floor(lAmount))
 		return
 	else 
 		print("Not the necessary items")
