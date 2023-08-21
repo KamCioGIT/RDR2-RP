@@ -44,12 +44,11 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
         while true do
             Citizen.Wait(1000)
             if #(playerPos - vaultpos) < 10.0 then
-                local prop = CreateObject(Config.SmallVault, coords.x, coords.y, coords.z, true, false, true)
-                SetEntityHeading(prop, heading)
-                PlaceObjectOnGroundProperly(prop)
-            elseif #(playerPos - vaultpos) > 10.0 then
-                SetEntityAsMissionEntity(prop)
-                DeleteObject(prop)
+                if not prop then
+                    local prop = CreateObject(Config.SmallVault, coords.x, coords.y, coords.z, true, false, true)
+                    SetEntityHeading(prop, heading)
+                    PlaceObjectOnGroundProperly(prop)
+                end
             end
         end
     end)
