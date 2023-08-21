@@ -7,6 +7,7 @@ local CraftMenuPromptShown = false
 local promptGroup
 
 local varString = CreateVarString(10, "LITERAL_STRING", "Craft Menu")
+maxCraftAmountUsine = 0
 
 Citizen.CreateThread(function()
     Wait(10)
@@ -78,8 +79,9 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
 
         function(data, menu)
             MenuData.CloseAll()
+            TriggerServerEvent("usine:MaxRessourcesAmount", data.current.value)
             TriggerEvent("usine:SelectCraftingAmount", data.current.value, MenuData, menu)
-            --TriggerServerEvent("usine:CraftItem", data.current.value, PlayerPedId(), menu)
+
             CraftMenuPromptShown = false
         end,
 
@@ -205,12 +207,8 @@ function SouffreRecolt()
         ClearPedTasksImmediately(playerPed)
 		FreezeEntityPosition(playerPed, false)
         isInteracting = false
-        GiveSouffre()
+        TriggerServerEvent('usine:AddItem', 'Souffre', 1)
     end)
-end
-
-function GiveSouffre()
-    TriggerServerEvent('usine:AddItem', 'Souffre', 1)
 end
 
 -- DRAW TEXT ON SCREEEN w/ BACKGROUND
@@ -250,7 +248,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         desc = "Se mettre au travail",
         type = 'slider',
         min = 0,
-        max = TriggerServerEvent("usine:MaxRessourcesAmount", dataType)
+        max = maxCraftAmountUsine 
         },
     }
 
@@ -274,5 +272,10 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         menu.close()
         CraftMenuPromptShown = false
     end)
+end)
+
+RegisterNetEvent("usine:client:SetMaxAmount", function(value)
+    print(value)
+    maxCraftAmountUsine = value
 end)
 

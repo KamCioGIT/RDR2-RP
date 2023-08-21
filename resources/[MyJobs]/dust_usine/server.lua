@@ -37,7 +37,6 @@ RegisterServerEvent("usine:RequestBossMenu", function(menutype)
 end)
 
 RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
-    print("oui")
     local _source = tonumber(source)
     local maxCraftingItemNbr = 0
     
@@ -56,11 +55,11 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
 	end
 
 	if hAmount >= 1 and lAmount >= 1 then
-		print(lAmount)
-		return lAmount
+		TriggerClientEvent("usine:client:SetMaxAmount", _source, math.floor(lAmount))
+		return
 	else 
 		print("Not the necessary items")
-		return 0 
+		return 0
 	end
 end)
 
