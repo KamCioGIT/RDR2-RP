@@ -56,10 +56,8 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType, MenuData, me
 
 	if hAmount >= 1 and lAmount >= 1 then
 		TriggerClientEvent("usine:client:SetMaxAmount", _source, math.floor(lAmount))
-		return
 	else 
 		print("Not the necessary items")
-		return 0
 	end
 
 	TriggerClientEvent("usine:SelectCraftingAmount", _source, data.current.value, MenuData, menu)
