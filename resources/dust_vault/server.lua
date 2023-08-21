@@ -28,7 +28,8 @@ CreateObject()
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(500)
-		MySQL.query('SELECT `coords`, `model` FROM `vault` WHERE `id`=?;',{id}, function(vault)
+		local model = "smallvault"
+		MySQL.query('SELECT `coords` FROM `vault` WHERE `model`=@model;',{model}, function(vault)
 			if #vault ~= 0 then
 				for i = 1, #vault do
 					local coords = json.decode(vault[i].coords)
