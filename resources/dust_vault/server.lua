@@ -47,7 +47,7 @@ AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
 			for i = 1, #result do
 				local model = result[i].model
 				local heading = result[i].heading
-				local coords = json.decode(result[i].coords)
+				local coords = json.decode(coords)
 				TriggerClientEvent("dust_vault:server:getmodel", _source, model, heading, coords)
 			end                    
 		end
