@@ -41,7 +41,7 @@ AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
 	local _source = source
 	local coords = json.encode(vaultcoords)
 	print (coords)
-	MySQL.query('SELECT `stashid`,`model`,`heading` FROM `vault` WHERE `coords`=@coords ;',{coords = coords}, function(result)
+	MySQL.query('SELECT `id`,`model`,`heading` FROM `vault` WHERE `coords`=@coords ;',{coords = coords}, function(result)
 		if #result ~= 0 then
 			for i = 1, #result do
 				local id = result[i].id
