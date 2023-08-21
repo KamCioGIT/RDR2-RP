@@ -25,7 +25,7 @@ end)
 ---- RECUP LES POS ET LE PROP---
 Citizen.CreateThread(function()
 	while true do
-		Citizen.Wait(0)
+		Citizen.Wait(50)
 		MySQL.query('SELECT `coords`, `model` FROM `vault`;',{}, function(result)
 			if #result ~= 0 then
 				for i = 1, #result do
