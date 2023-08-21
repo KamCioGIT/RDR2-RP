@@ -31,7 +31,7 @@ RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    if #(playerPos - vaultpos) < 50.0 then
+    if #(playerPos - vaultpos) < 10.0 then
         TriggerServerEvent("dust_vault:server:AskModel", vaultpos)
     end
 end)
@@ -40,9 +40,18 @@ RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    local prop = CreateObject(Config.SmallVault, coords.x, coords.y, coords.z, true, false, true)
-    SetEntityHeading(prop, heading)
-    PlaceObjectOnGroundProperly(prop)
+    Citizen.CreateThread(function()
+        while true do
+            if #(playerPos - vaultpos) < 10.0 then
+                local prop = CreateObject(Config.SmallVault, coords.x, coords.y, coords.z, true, false, true)
+                SetEntityHeading(prop, heading)
+                PlaceObjectOnGroundProperly(prop)
+            else
+                SetEntityAsMissionEntity(prop)
+                DeleteObject(prop)
+            end
+        end
+    end)
 end)
 
 
