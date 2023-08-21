@@ -241,7 +241,7 @@ end)
 RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
-
+    print(maxCraftAmountUsine)
     local elements = {
         { label = "Crafting Amount", 
         value = 0, 
@@ -249,7 +249,6 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         type = 'slider',
         min = 0,
         max = maxCraftAmountUsine 
-        print(max)
         },
     }
 
