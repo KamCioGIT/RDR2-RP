@@ -20,14 +20,20 @@ Citizen.CreateThread(function()
     end
 end)
 
+Citizen.CreateThread(function()
+    while true do
+        Wait(1000)
+        TriggerServerEvent("dust_vault:server:Askcoords")
+    end
+end)
+
 RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPed = PlayerPedId()
     local playerpos = GetEntityCoords(playerPed)
-    print (coords)
-    print ("getcoords")
     for k,v in ipairs(coords) do
-        if #(playerpos - v) > 200 then
+        local vaultpos = {v.x, v.y, v.z}
+        if #(playerpos - vaultpos) < 200 then
             print (k, v)
             TriggerServerEvent("dust_vault:server:AskModel", v)
         end
