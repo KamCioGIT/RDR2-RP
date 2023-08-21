@@ -42,6 +42,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     Citizen.CreateThread(function()
         while true do
+            Citien.Wait(0)
             if #(playerPos - vaultpos) < 10.0 then
                 local prop = CreateObject(Config.SmallVault, coords.x, coords.y, coords.z, true, false, true)
                 SetEntityHeading(prop, heading)
