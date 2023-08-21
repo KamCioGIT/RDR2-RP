@@ -78,7 +78,7 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos, heading)
 			charid = charid,
 			stashid = generetedUid,
 			model = vault,
-			coords = vaultcoords
+			coords = vaultcoords,
 			heading = heading
 		},
 		function(rowsChanged)
