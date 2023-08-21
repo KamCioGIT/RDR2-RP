@@ -64,6 +64,7 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos, heading)
     local numBase1 = math.random(0, 9999)
     local generetedUid = string.format("%03d%04d", numBase0, numBase1)
 	local vaultcoords = json.encode(playerpos)
+	print (heading)
 	MySQL.update(
 		'INSERT INTO stashes (`stashid`) VALUES (@stashid);',
 		{
