@@ -36,7 +36,7 @@ RegisterServerEvent("usine:RequestBossMenu", function(menutype)
 	end
 end)
 
-RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType, MenuData, menu)
+RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
     local _source = tonumber(source)
     local maxCraftingItemNbr = 0
     
@@ -59,8 +59,5 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType, MenuData, me
 	else 
 		print("Not the necessary items")
 	end
-
-	TriggerClientEvent("usine:SelectCraftingAmount", _source, dataType, MenuData, menu)
-	print("A")
 end)
 
