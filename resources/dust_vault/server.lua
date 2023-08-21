@@ -29,7 +29,7 @@ AddEventHandler("dust_vault:server:Askcoords", function()
 	MySQL.query('SELECT `coords` FROM `vault`;',{}, function(result)
 		if #result ~= 0 then
 			for i = 1, #result do
-				local coords = result[i].coords
+				local coords = json.decode(result[i].coords)
 				TriggerClientEvent("dust_vault:server:getcoords", _source, coords)
 			end                    
 		end
