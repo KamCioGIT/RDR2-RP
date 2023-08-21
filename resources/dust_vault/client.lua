@@ -20,7 +20,7 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterClientEvent("dust_vault:server:getcoords")
+RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPed = PlayerPedId()
     local playerpos = GetEntityCoords(playerPed)
@@ -31,7 +31,7 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
     end
 end)
 
-RegisterClientEvent("dust_vault:server:getmodel")
+RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading)
     print (model, heading)
 end)
