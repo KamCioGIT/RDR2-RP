@@ -24,6 +24,7 @@ RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPed = PlayerPedId()
     local playerpos = GetEntityCoords(playerPed)
+    print (coords)
     print ("getcoords")
     for k,v in ipairs(coords) do
         if #(playerpos - v) > 200 then

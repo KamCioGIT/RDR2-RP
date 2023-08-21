@@ -24,13 +24,14 @@ end)
 
 ---- RECUP LES POS ET LE PROP---
 Citizen.CreateThread(function()
+	local _source = source
 	while true do
 		Citizen.Wait(1000)
 		MySQL.query('SELECT `coords` FROM `vault`;',{}, function(result)
 			if #result ~= 0 then
 				for i = 1, #result do
 					local coords = json.decode(result[i].coords)
-					TriggerClientEvent("dust_vault:server:getcoords", coords)
+					TriggerClientEvent("dust_vault:server:getcoords", _source, coords)
 				end                    
 			end
 		end)
