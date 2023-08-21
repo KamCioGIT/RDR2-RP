@@ -48,7 +48,6 @@ AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
 				local model = result[i].model
 				local heading = result[i].heading
 				local coords = json.decode(coords)
-				print (id)
 				TriggerClientEvent("dust_vault:server:getmodel", _source, model, heading, coords, id)
 			end                    
 		end
