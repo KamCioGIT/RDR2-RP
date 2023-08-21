@@ -244,13 +244,16 @@ RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
 
+    local maxCraft = TriggerServerEvent("usine:MaxRessourcesAmount", dataType)
+    print(maxCraft)
+
     local elements = {
         { label = "Crafting Amount", 
         value = 0, 
         desc = "Se mettre au travail",
         type = 'slider',
         min = 0,
-        max = TriggerServerEvent("usine:MaxRessourcesAmount", dataType)
+        max = maxCraft
         },
     }
 
