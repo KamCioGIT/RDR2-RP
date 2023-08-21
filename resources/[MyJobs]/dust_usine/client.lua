@@ -242,6 +242,7 @@ RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
     print(maxCraftAmountUsine)
+    
     local elements = {
         { label = "Crafting Amount", 
         value = 0, 
@@ -275,7 +276,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
 end)
 
 RegisterNetEvent("usine:client:SetMaxAmount", function(value)
-    print(value)
+    --print(value)
     maxCraftAmountUsine = value
 end)
 
