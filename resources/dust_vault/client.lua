@@ -32,7 +32,7 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     if #(playerPos - vaultpos) < 50.0 then
-        TriggerServerEvent("dust_vault:server:AskModel", coords)
+        TriggerServerEvent("dust_vault:server:AskModel", vaultpos)
     end
 end)
 
