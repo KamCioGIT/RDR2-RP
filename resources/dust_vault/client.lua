@@ -30,7 +30,7 @@ end)
 RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     for k,v in pairs(coords) do
-        if #(v - GetEntityCoords(PlayerPedId())) > 50.0 then
+        if #(v - GetEntityCoords(PlayerPedId())) < 100.0 then
             TriggerServerEvent("dust_vault:server:AskModel", v)
         end
     end
