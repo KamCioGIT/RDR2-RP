@@ -45,7 +45,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
         while true do
             Citizen.Wait(1000)
             for k, v in ipairs(spawnedvault) do
-                if id ~= v then
+                if not id == v then
                     if #(playerPos - vaultpos) < 10.0 then
                         if not prop then
                             print 'spawn'
