@@ -82,7 +82,7 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
             TriggerServerEvent("usine:MaxRessourcesAmount", data.current.value)
             Wait(150)
             TriggerEvent("usine:SelectCraftingAmount", data.current.value, MenuData, menu)
-            CraftMenuPromptShown = false
+            --
         end,
 
         function(data, menu)
@@ -241,7 +241,6 @@ end)
 RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
-    print("B")
 
     local elements = {
         { label = "Crafting Amount", 
@@ -263,7 +262,9 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
 
     function(data, menu)
         if data.current.label == "Crafting Amount" then
-            --TriggerServerEvent("usine:CraftItem", data.current.value, PlayerPedId(), menu) 
+            TriggerServerEvent("usine:CraftItem", dataType, PlayerPedId(), menu, data.current.value)
+            menu.close()
+            CraftMenuPromptShown = false
         else
             RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
         end 
