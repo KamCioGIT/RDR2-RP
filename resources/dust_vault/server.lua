@@ -31,7 +31,7 @@ Citizen.CreateThread(function()
 				for i = 1, #result do
 					local coords = json.decode(result[i].coords)
 					local model = result[i].model
-					CreateObject(Config.SmallVault, coords.x, coords.y, coords.z, false, true, true)
+					CreateObject(Config.SmallVault, coords.x, coords.y, coords.z, true, true, true)
 				end                    
 			end
 		end)
