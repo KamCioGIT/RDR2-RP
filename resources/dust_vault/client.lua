@@ -37,8 +37,11 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
 end)
 
 RegisterNetEvent("dust_vault:server:getmodel")
-AddEventHandler("dust_vault:server:getmodel", function (model, heading)
-    print (model, heading)
+AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
+    local playerPos = GetEntityCoords(PlayerPedId())
+    local prop = CreateObject(model, coords.x, coords.y, coords.z, true, false, true)
+    SetEntityHeading(prop, heading)
+    PlaceObjectOnGroundProperly(prop)
 end)
 
 ----- CREER OBJET ----- 
