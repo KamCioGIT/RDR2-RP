@@ -61,6 +61,5 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType, MenuData, me
 	end
 
 	TriggerClientEvent("usine:SelectCraftingAmount", _source, dataType, MenuData, menu)
-	print("A")
 end)
 
