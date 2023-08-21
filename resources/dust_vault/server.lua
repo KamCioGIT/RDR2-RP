@@ -21,8 +21,6 @@ AddEventHandler("RegisterUsableItem:largevault", function(source)
 end)
 
 
-SetEntityDistanceCullingRadius()
-CreateObject()
 
 ---- RECUP LES POS ET LE PROP---
 Citizen.CreateThread(function()
@@ -33,7 +31,7 @@ Citizen.CreateThread(function()
 				for i = 1, #result do
 					local coords = json.decode(result[i].coords)
 					local model = result[i].model
-					CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
+					CreateObject(Config.SmallVault, coords.x, coords.y, coords.z, false, true, true)
 				end                    
 			end
 		end)
