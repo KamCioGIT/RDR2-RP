@@ -36,9 +36,10 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
     end
 end)
 
-local spawnedvault = {0}
+
 RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, id)
+    local spawnedvault = {}
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     print "request"
