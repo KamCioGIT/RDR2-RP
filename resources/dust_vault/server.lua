@@ -57,11 +57,13 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos)
 	
 	MySQL.update(
 		'INSERT INTO vault (`identifier`, `charid`, `stashid`, `model`, `coords`) VALUES (@identifier, @charid, @stashid, @model, @coords);',
-		{identifier = identifier,
+		{
+			identifier = identifier,
 			charid = charid,
 			stashid = generetedUid,
-			model = vault
-			coords = vaultcoords},}
+			model = vault,
+			coords = vaultcoords
+		},
 		function(rowsChanged)
 		end
 	)
