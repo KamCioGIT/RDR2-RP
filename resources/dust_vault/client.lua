@@ -31,9 +31,10 @@ RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPed = PlayerPedId()
     local playerpos = GetEntityCoords(playerPed)
+    print (coords)
+    print ("getcoords")
     for k,v in ipairs(coords) do
-        local vaultpos = {v.x, v.y, v.z}
-        if #(playerpos - vaultpos) < 200 then
+        if #(playerpos - v) < 200 then
             print (k, v)
             TriggerServerEvent("dust_vault:server:AskModel", v)
         end
@@ -67,11 +68,7 @@ AddEventHandler('smallvault', function()
         Citizen.Wait(1000)
     end
     local x,y,z = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.0)
-    local playerpos = {
-        ["x"] = {x},
-		["y"] = {y},
-		["z"] = {z}
-    }
     local heading = GetEntityHeading(PlayerPedId())
+    local playerpos = vector3(x, y ,z)
     TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos, heading) -- Créer le vault dans la db
 end, false)
