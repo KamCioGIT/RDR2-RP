@@ -42,7 +42,7 @@ AddEventHandler('smallvault', function()
         TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
         Citizen.Wait(1000)
     end
-    local x,y,z = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.55)
+    local x,y,z = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
     local playerpos = {
         ["x"] = {x},
 		["y"] = {y},
