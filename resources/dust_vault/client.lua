@@ -49,7 +49,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
             SetEntityHeading(prop, heading)
             PlaceObjectOnGroundProperly(prop)
             table.insert(spawned, id)
-            print (spawned)
+            print (v)
         end
     end
 end)
