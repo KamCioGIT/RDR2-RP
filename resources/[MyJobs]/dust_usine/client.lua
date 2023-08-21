@@ -262,6 +262,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
 
     function(data, menu)
         if data.current.label == "Crafting Amount" then
+            print("Start crafting" .. dataType .. " " .. data.current.value .. " times")
             TriggerServerEvent("usine:CraftItem", dataType, PlayerPedId(), menu, data.current.value)
             menu.close()
             CraftMenuPromptShown = false
