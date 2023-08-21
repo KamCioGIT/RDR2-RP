@@ -46,6 +46,7 @@ AddEventHandler("dust_vault:server:Askcoords", function()
 				local heading = result[i].heading
 				local model = result[i].model
 				local prop = CreateObject(model, coords.x, coords.y, coords.z, true, true, true)
+				print (coords, heading, model)
 				if prop then
 					print "yes"
 					SetEntityHeading(prop, heading)
