@@ -26,17 +26,14 @@ end)
 RegisterServerEvent("dust_vault:server:Askcoords")
 AddEventHandler("dust_vault:server:Askcoords", function()
 	local _source = source
-	while true do
-		Citizen.Wait(1000)
-		MySQL.query('SELECT `coords` FROM `vault`;',{}, function(result)
-			if #result ~= 0 then
-				for i = 1, #result do
-					local coords = json.decode(result[i].coords)
-					TriggerClientEvent("dust_vault:server:getcoords", _source, coords)
-				end                    
-			end
-		end)
-	end
+	MySQL.query('SELECT `coords` FROM `vault`;',{}, function(result)
+		if #result ~= 0 then
+			for i = 1, #result do
+				local coords = json.decode(result[i].coords)
+				TriggerClientEvent("dust_vault:server:getcoords", _source, coords)
+			end                    
+		end
+	end)
 end)
 
 RegisterServerEvent("dust_vault:server:AskModel")

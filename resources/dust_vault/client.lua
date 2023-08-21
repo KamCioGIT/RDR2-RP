@@ -20,6 +20,13 @@ Citizen.CreateThread(function()
     end
 end)
 
+Citizen.CreateThread(function()
+    while true do
+        Wait(1000)
+        TriggerServerEvent("dust_vault:server:Askcoords")
+    end
+end)
+
 RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPed = PlayerPedId()
