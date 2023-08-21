@@ -31,9 +31,9 @@ Citizen.CreateThread(function()
 				for i = 1, #result do
 					local coords = json.decode(result[i].coords)
 					local model = result[i].model
-					local prop = CreateObject(Config.SmallVault, coords.x, coords.y, coords.z, true, true, true)
+					local prop = CreateObject(model, coords.x, coords.y, coords.z, true, true, true)
 					-- SetEntityRotation(prop, 0.0, 0.0, -90.0, 0, true)
-					GetEntityRotation(prop)
+					-- GetEntityRotation(prop)
 				end                    
 			end
 		end)
