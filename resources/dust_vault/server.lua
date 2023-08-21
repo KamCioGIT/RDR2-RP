@@ -48,9 +48,7 @@ AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
 				local model = result[i].model
 				local heading = result[i].heading
 				local coords = json.decode(coords)
-				-- TriggerClientEvent("dust_vault:server:getmodel", _source, model, heading, coords, id)
-				local prop = CreateObject(model, vaultcoords.x, vaultcoords.y, vaultcoords.z, true, false, true)
-				SetEntityHeading(prop,heading)
+				TriggerClientEvent("dust_vault:server:getmodel", _source, model, heading, coords, id)
 			end                    
 		end
 	end)
