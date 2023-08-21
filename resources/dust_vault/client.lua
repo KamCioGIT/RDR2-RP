@@ -42,7 +42,8 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     local limit = 0
     print 'spawn'
-    local prop = CreateObject(model, coords.x, coords.y, coords.z, true, false, true)
+    print ((model, heading, coords, id))
+    local prop = CreateObject(tostring(model), coords.x, coords.y, coords.z, true, false, true)
     SetEntityHeading(prop, heading)
     PlaceObjectOnGroundProperly(prop)
 end)
