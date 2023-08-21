@@ -45,7 +45,7 @@ AddEventHandler("dust_vault:server:Askcoords", function()
 				local coords = json.decode(result[i].coords)
 				local heading = result[i].heading
 				local model = result[i].model
-				local prop = CreateObject(model, coords.x, coords.y, coords.z, true, true, true)
+				local prop = Citizen.InvokeNative(0x2F7AA05C, model, coords.x, coords.y, coords.z, true, true, true)
 				print (coords, heading, model)
 				if prop then
 					print "yes"
