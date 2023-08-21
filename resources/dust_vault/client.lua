@@ -34,7 +34,7 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
     print (coords)
     print ("getcoords")
     for k,v in ipairs(coords) do
-        if #(playerpos - v) > 200 then
+        if #(playerpos - v) < 200 then
             print (k, v)
             TriggerServerEvent("dust_vault:server:AskModel", v)
         end
