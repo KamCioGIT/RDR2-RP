@@ -31,7 +31,7 @@ Citizen.CreateThread(function()
 		MySQL.query('SELECT `coords`, `model` FROM `vault` WHERE `id`=?;',{id}, function(vault)
 			if #vault ~= 0 then
 				for i = 1, #vault do
-					local coords = vault[i].coords
+					local coords = json.decode(vault[i].coords)
 					CreateObject(vault[i].model, coords.x, coords.y, coords.z, false, true, true)
 				end                    
 			end
