@@ -46,12 +46,13 @@ ensure [REDEMRP]
 ensure dust_coords
 ensure dust_ipl
 ensure dust_doors
-ensure dust_usine
 ensure dust_chasse
-ensure dust_mineur
 ensure dust_orpaillage
 ensure dust_contrat
 ensure dust_camp
+ensure dust_vault
+ensure dust_usine
+ensure dust_mineur
 
 #MAPPING
 ensure [MAPPING]
