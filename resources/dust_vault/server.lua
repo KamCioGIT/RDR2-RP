@@ -55,10 +55,40 @@ AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
 end)
 
 
+---- REQUEST STASHES
+
+RegisterServerEvent("dust_vault:server:AskStashes")
+AddEventHandler("dust_vault:server:AskStashes", function()
+	local _source = source
+	MySQL.query('SELECT `coords`, `stashid`, `code`, `model` FROM `vault`;',{}, function(result)
+		if #result ~= 0 then
+			for i = 1, #result do
+				local coords = json.decode(result[i].coords)
+				local stashid = result[i].stashid
+				local code = result[i].code
+				local model = result[i].model
+				TriggerClientEvent("dust_vault:server:getStashes", _source, coords, stashid, code, model)
+			end                    
+		end
+	end)
+end)
+
+RegisterServerEvent("dust_vault:server:ChangeCode")
+AddEventHandler("dust_vault:server:ChangeCode", function(code, vaultcoords)
+	MySQL.update(
+		'UPDATE vault SET `code`=@code WHERE `coords`=@coords;',
+		{
+			code = code
+			coords = json.encode(vaultcoords)
+		}, function(rowsChanged)
+	end)
+end)
+
+
 
 --- CREER LE VAULT DANS LA DB ---
 RegisterServerEvent("dust_vault:server:vaultDB")
-AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos, heading)
+AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos, heading, code)
 	local _source = source
     local user = RedEM.GetPlayer(_source)
     local identifier = user.identifier
@@ -76,18 +106,46 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos, heading)
 	end)
 	
 	MySQL.update(
-		'INSERT INTO vault (`identifier`, `charid`, `stashid`, `model`, `coords`, `heading`) VALUES (@identifier, @charid, @stashid, @model, @coords, @heading);',
+		'INSERT INTO vault (`identifier`, `charid`, `stashid`, `model`, `coords`, `heading`, `code`) VALUES (@identifier, @charid, @stashid, @model, @coords, @heading, @code);',
 		{
 			identifier = identifier,
 			charid = charid,
 			stashid = generetedUid,
 			model = vault,
 			coords = vaultcoords,
-			heading = heading
+			heading = heading,
+			code = code
 		},
 		function(rowsChanged)
 		end
 	)
+	if model = Config.SmallVault then
+		local itemData = data.getItem(_source, "smallvault")
+	elseif model = Config.MediumVault then
+		local itemData = data.getItem(_source, "mediumvault")
+	else if model = Config.LargeVault then
+		local itemData = data.getItem(_source, "largevault")
+	end
+	ItemData.RemoveItem(1)
 end)
 
 --- SUPPRIMER LE VAULT DE LA DB QUAND ON LE REPREND, S'ASSURER QUE LE COFFRE EST VIDE ----
+
+RegisterServerEvent("dust_vault:server:removestash")
+AddEventHandler("dust_vault:server:removestash", function(stashid, model)
+	local stashW = exports.redemrp_inventory.GetStashWeight(source, stashid)
+	if stashW == 0 then
+		MySQL.update('DELETE FROM vault WHERE `stashid`=@stashid', {stashid = stashid })
+		Citizen.Wait(100)
+		MySQL.update('DELETE FROM stashes WHERE `stashid`=@stashid', {stashid = stashid })
+		if model = Config.SmallVault then
+			local itemData = data.getItem(_source, "smallvault")
+		elseif model = Config.MediumVault then
+			local itemData = data.getItem(_source, "mediumvault")
+		else if model = Config.LargeVault then
+			local itemData = data.getItem(_source, "largevault")
+		end
+		ItemData.AddItem(1)
+	end
+
+end)

@@ -869,6 +869,28 @@ Config.Items = {
         imgsrc = "items/crate.png",
         type = "item_standard",
     },
+    ["mediumvault"] = {
+        label = "Coffre Fort",
+        description = "De quoi protéger quelques biens",
+        weight = 10,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/crate.png",
+        type = "item_standard",
+    },
+    ["largevault"] = {
+        label = "Grand Coffre Fort",
+        description = "De quoi protéger quelques biens",
+        weight = 20,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/crate.png",
+        type = "item_standard",
+    },
 }
 
 exports("GetItemsList", function()
