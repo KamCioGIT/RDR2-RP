@@ -99,12 +99,13 @@ end)
 function posecoffre(model)
     local vault = model
     local playerPed = PlayerPedId()
+    PoseCoffrePromptShown = false
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(0)
-            PoseCoffrePromptShown = true
-            while PoseCoffrePromptShown do
+            if PoseCoffrePromptShown == false then
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
+                PoseCoffrePromptShown = true
             end
             ---- Lancer anim porter une caisse
             local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
