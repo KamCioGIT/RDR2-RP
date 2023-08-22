@@ -276,7 +276,6 @@ function posecoffre(model)
             ---- Lancer anim porter une caisse
             local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
             Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
-        end
             if PromptHasHoldModeCompleted(LeavePrompt) then
                 ---- cancel anim
                 PoseCoffrePromptShown = false
@@ -338,6 +337,7 @@ function posecoffre(model)
                 ---- cancel anim
                 return
             end
+        end
     end)
 end
 
