@@ -265,7 +265,7 @@ function posecoffre(model)
     PoseCoffrePromptShown = false
     Citizen.CreateThread(function()
         while true do
-            Citizen.Wait(0)
+            Citizen.Wait(10)
             if PoseCoffrePromptShown == false then
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
             end
