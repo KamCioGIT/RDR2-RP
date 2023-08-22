@@ -67,7 +67,6 @@ end)
 
 RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, id)
-    print "spawn"
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     local limit = 0
@@ -100,12 +99,12 @@ end)
 function posecoffre(model)
     local vault = model
     local playerPed = PlayerPedId()
+    PoseCoffrePromptShown = true
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(0)
-            if PoseCoffrePromptShown == false then
+            if PoseCoffrePromptShown == true then
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
-                PoseCoffrePromptShown = true
             end
             ---- Lancer anim porter une caisse
             local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
