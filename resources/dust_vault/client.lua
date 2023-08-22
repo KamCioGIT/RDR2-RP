@@ -45,37 +45,39 @@ Citizen.CreateThread(function()
     while not HasModelLoaded(Config.LargeVault, true) do
         Citizen.Wait(100)
     end
+    Citizen.Wait(100)
+    TriggerServerEvent("dust_vault:server:Askcoords")
 end)
 
-Citizen.CreateThread(function()
-    while true do
-        Wait(1000)
-        TriggerServerEvent("dust_vault:server:Askcoords")
-    end
-end)
+-- Citizen.CreateThread(function()
+--     while true do
+--         Wait(1000)
+--         TriggerServerEvent("dust_vault:server:Askcoords")
+--     end
+-- end)
 
 
-local spawned = {}
+-- local spawned = {}
 RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    if #(playerPos - vaultpos) < Config.DistanceAffichage then
-        table.insert(spawned, {
-            vaultpos = vaultpos,
-            isSpawned = "false"
-        })
-        for k, v in ipairs(spawned) do
-            if vaultpos == v.vaultpos then
-                if v.isSpawned == "false" then
+    -- if #(playerPos - vaultpos) < Config.DistanceAffichage then
+        -- table.insert(spawned, {
+        --     vaultpos = vaultpos,
+        --     isSpawned = "false"
+        -- })
+        -- for k, v in ipairs(spawned) do
+        --     if vaultpos == v.vaultpos then
+        --         if v.isSpawned == "false" then
                     TriggerServerEvent("dust_vault:server:AskModel", vaultpos)
-                    spawned[k].isSpawned = "true"
-                else
-                    print "cancel"
-                end
-            end
-        end
-    end
+                    -- spawned[k].isSpawned = "true"
+    --             else
+    --                 print "cancel"
+    --             end
+    --         end
+    --     end
+    -- end
 end)
 
 
@@ -84,26 +86,9 @@ RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, id)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    -- table.insert(spawned, {
-    --     id = id,
-    --     isSpawned = "false"
-    -- }) 
-    -- for k, v in ipairs(spawned) do
-    --     if id == v.id then
-    --         if v.isSpawned == "false" then
-                print "spawned"
-                local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
-                SetEntityHeading(prop, tonumber(heading))
-                PlaceObjectOnGroundProperly(prop)
-                -- table.insert(spawned, {
-                --     id = id,
-                --     isSpawned = "true"
-                -- }) 
-    --         else
-    --         print "cancel"
-    --         end
-    --     end
-    -- end
+    local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
+    SetEntityHeading(prop, tonumber(heading))
+    PlaceObjectOnGroundProperly(prop)
 end)
 
 
@@ -163,6 +148,9 @@ function posecoffre(model)
                 local heading = GetEntityHeading(PlayerPedId())
                 local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.55)
                 TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos, heading) -- Créer le vault dans la db
+                local prop = CreateObject(model, playerpos.x, playerpos.y, playerpos.z, false, true, true)
+                SetEntityHeading(prop, tonumber(heading))
+                PlaceObjectOnGroundProperly(prop)
                 return
             end
             if IsControlJustReleased(0, 0x8E90C7BB) then
