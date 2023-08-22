@@ -207,7 +207,6 @@ Citizen.CreateThread(function()
     while not HasModelLoaded(Config.LargeVault, true) do
         Citizen.Wait(100)
     end
-    Citizen.Wait(100)
     TriggerServerEvent("dust_vault:server:Askcoords")
 end)
 
@@ -292,7 +291,6 @@ function posecoffre(model)
                     end
                                 
                     if #(code) >= 1 then
-                        print(name)
                         -- Appeler methods
                         RequestAnimDict(Config.MenuDict)
                         while not HasAnimDictLoaded(Config.MenuDict) do
