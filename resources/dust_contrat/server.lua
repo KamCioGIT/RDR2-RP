@@ -63,3 +63,10 @@ AddEventHandler("dust_contract:AddJobContrat", function(job, name)
     itemData.AddItem(1)
 end)
 
+
+RegisterNetEvent("global:CheckPlayerJob")
+
+AddEventHandler("redemrp:playerLoaded", function(source, user)
+    TriggerClientEvent("redemrp_bossmenu:client:ReceiveJob", source, user.getJob(), user.getJobgrade())
+end)
+

@@ -5,39 +5,36 @@ local ressourcePointIndexForMining = nil
 local isInBossMenu = false
 
 --- Définir si le joueur est mineur 
-Citizen.CreateThread(function()
-    local PlayerData = RedEM.GetPlayerData()
-
-    while RedEM.GetPlayerData().isLoggedIn ~= true do 
-        Wait(750)
-        if RedEM.GetPlayerData().job == "mineur" then
-            startMission()
-            if RedEM.GetPlayerData().jobgrade == 2 then
-                contremaitre()      
+AddEventHandler("global:CheckPlayerJob", function(job, jobgrade)
+    Citizen.CreateThread(function()
+        local PlayerData = RedEM.GetPlayerData()
+        while RedEM.GetPlayerData().isLoggedIn ~= true do 
+            Wait(1000)
+            if job == "mineur" then
+                startMission()
+                if jobgrade == 2 then
+                    if jobgrade == 3 then
+                        patronUpdate() 
+                        print("SetPatronUpdate")    
+                    end 
+                end
             end
         end
-    end
-    if RedEM.GetPlayerData().isLoggedIn 
-    then 
-        if RedEM.GetPlayerData().job == "mineur" then
-            startMission()            
-            if RedEM.GetPlayerData().jobgrade == 2 then
-                contremaitre()      
+        if RedEM.GetPlayerData().isLoggedIn 
+        then 
+            if job == "mineur" then
+                startMission()            
+                if jobgrade == 2 then
+                    if jobgrade == 3 then
+                        patronUpdate()     
+                        print("SetPatronUpdate") 
+                    end
+                end
             end
         end
-    end
+    end)
 end)
 
-Citizen.CreateThread (function()
-    if RedEM.GetPlayerData().isLoggedIn 
-    then 
-        if RedEM.GetPlayerData().job == "mineur" then
-            if RedEM.GetPlayerData().jobgrade == 3 then 
-                patronUpdate() 
-            end
-        end
-    end
-end)
 
 -- VA MINER   
 function startMission()
