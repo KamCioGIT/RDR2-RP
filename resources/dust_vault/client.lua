@@ -34,17 +34,15 @@ end)
 
 Citizen.CreateThread(function()
     RequestModel(Config.SmallVault, true)
-    while not RequestModel(Config.SmallVault, true) do
+    while not HasModelLoaded(Config.SmallVault) do
         Citizen.Wait(100)
     end
-    Citizen.Wait(100)
     RequestModel(Config.MediumVault, true)
-    while not RequestModel(Config.MediumVault, true) do
+    while not HasModelLoaded(Config.MediumVault, true) do
         Citizen.Wait(100)
     end
-    Citizen.Wait(100)
     RequestModel(Config.LargeVault, true)
-    while not RequestModel(Config.LargeVault, true) do
+    while not HasModelLoaded(Config.LargeVault, true) do
         Citizen.Wait(100)
     end
 end)
