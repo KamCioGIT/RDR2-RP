@@ -78,7 +78,7 @@ AddEventHandler("dust_vault:server:ChangeCode", function(code, vaultcoords)
 	MySQL.update(
 		'UPDATE vault SET `code`=@code WHERE `coords`=@coords;',
 		{
-			code = code
+			code = code,
 			coords = json.encode(vaultcoords)
 		}, function(rowsChanged)
 	end)
