@@ -80,7 +80,24 @@ end)
 ----- CREER OBJET ----- 
 RegisterNetEvent('smallvault')
 AddEventHandler('smallvault', function() 
-    local vault = Config.SmallVault
+    posecoffre(Config.SmallVault)
+end)
+
+RegisterNetEvent('mediumvault')
+AddEventHandler('mediumvault', function() 
+    posecoffre(Config.MediumVault)
+end)
+
+RegisterNetEvent('largevault')
+AddEventHandler('largevault', function() 
+    posecoffre(Config.LargeVault)
+end)
+
+
+
+
+function posecoffre(model)
+    local vault = model
     local playerPed = PlayerPedId()
     Citizen.CreateThread(function()
         while true do
@@ -89,9 +106,12 @@ AddEventHandler('smallvault', function()
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
                 PoseCoffrePromptShown = true
             end
+            ---- Lancer anim porter une caisse
             local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
             Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
             if PromptHasHoldModeCompleted(CoffrePrompt) then
+                ---- cancel anim
+                ----- définir code et l'envoyer en db
                 PoseCoffrePromptShown = false
                 RequestAnimDict(Config.MenuDict)
                 while not HasAnimDictLoaded(Config.MenuDict) do
@@ -116,8 +136,8 @@ AddEventHandler('smallvault', function()
             end
             if IsControlJustReleased(0, 0x8E90C7BB) then
                 PoseCoffrePromptShown = false
+                ---- cancel anim
                 return
             end
         end
     end)
-end)
