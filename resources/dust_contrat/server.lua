@@ -38,6 +38,7 @@ AddEventHandler("RegisterUsableItem:contratmineur", function(source)
         user.SetJob("mineur")
         user.SetJobGrade(1)
         print('Le joueur '..source..' est maintenant mineur')
+        TriggerClientEvent("global:CheckPlayerJob", source, user.getJob(), user.getJobgrade()) -- Checkjob pour assigner le nv travail
     end
 end)
 
@@ -53,6 +54,7 @@ AddEventHandler("RegisterUsableItem:contratusine", function(source)
         user.SetJob("usine")
         user.SetJobGrade(1)
         print('Le joueur '..source..' est maintenant ouvrier')
+        TriggerClientEvent("global:CheckPlayerJob", source, user.getJob(), user.getJobgrade()) -- Checkjob pour assigner le nv travail
     end
 end)
 
