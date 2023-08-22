@@ -26,7 +26,7 @@ AddEventHandler("RegisterUsableItem:contratvierge", function(source)
     end
 end)
 
-RegisterServerEvent("RegisterUsableItem:contratmineur") -- Fonctionne pas
+RegisterServerEvent("RegisterUsableItem:contratmineur")
 AddEventHandler("RegisterUsableItem:contratmineur", function(source)
     local _source = source
     local job = "Mineur"
@@ -42,7 +42,7 @@ AddEventHandler("RegisterUsableItem:contratmineur", function(source)
     end
 end)
 
-RegisterServerEvent("RegisterUsableItem:contratusine") -- Fonctionne pas
+RegisterServerEvent("RegisterUsableItem:contratusine")
 AddEventHandler("RegisterUsableItem:contratusine", function(source)
     local _source = source
     local job = "Ouvrier"
