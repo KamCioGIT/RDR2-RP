@@ -103,7 +103,7 @@ function posecoffre(model)
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(0)
-            if PoseCoffrePromptShown == true then
+            if PoseCoffrePromptShown  then
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
             end
             ---- Lancer anim porter une caisse
