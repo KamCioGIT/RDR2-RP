@@ -70,16 +70,20 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     print "okay"
+    table.insert(spawned, id, nil)
     for k, v in ipairs(spawned) do
         if id == k then
-            print "cancel"
-            return
-        else
-            print "spawned"
-            local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
-            SetEntityHeading(prop, tonumber(heading))
-            PlaceObjectOnGroundProperly(prop)
-            spawned[id] = prop
+            if v == nil then
+                print "spawned"
+                local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
+                SetEntityHeading(prop, tonumber(heading))
+                PlaceObjectOnGroundProperly(prop)
+                table.remove(spawned, id, nill)
+                Citizen.Wait(10)
+                table.insert(spawned, id, prop)
+            else
+                print "cancel"
+            end
         end 
     end
 end)
