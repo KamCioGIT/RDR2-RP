@@ -866,7 +866,7 @@ Config.Items = {
         canBeUsed = true,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/crate.png",
+        imgsrc = "items/smallvault.png",
         type = "item_standard",
     },
     ["mediumvault"] = {
@@ -877,7 +877,7 @@ Config.Items = {
         canBeUsed = true,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/crate.png",
+        imgsrc = "items/mediumvault.png",
         type = "item_standard",
     },
     ["largevault"] = {
@@ -888,7 +888,7 @@ Config.Items = {
         canBeUsed = true,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/crate.png",
+        imgsrc = "items/largevault.png",
         type = "item_standard",
     },
 }
