@@ -80,7 +80,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait (0)
+        Citizen.Wait (10)
         TriggerServerEvent("dust_vault:server:AskStashes")
     end
 end)
