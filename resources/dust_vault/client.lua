@@ -80,7 +80,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait (1000)
+        Citizen.Wait (0)
         TriggerServerEvent("dust_vault:server:AskStashes")
     end
 end)
@@ -215,7 +215,6 @@ end)
 ---- SPAWN DES COFFRES EN DB ----
 RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
-    local vaultpos = vector3(coords.x, coords.y, coords.z)
     TriggerServerEvent("dust_vault:server:AskModel", vaultpos)
 end)
 
@@ -225,9 +224,16 @@ RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, id)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
-    SetEntityHeading(prop, tonumber(heading))
-    PlaceObjectOnGroundProperly(prop)
+    Citizen.CreateThread(function()
+        while true do
+            Citizen.Wait(5000)
+            if #(playerPos - vaultpos) < 200.0 then
+                local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
+                SetEntityHeading(prop, tonumber(heading))
+                PlaceObjectOnGroundProperly(prop)
+            end
+        end
+    end)
 end)
 
 
