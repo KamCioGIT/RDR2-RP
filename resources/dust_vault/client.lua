@@ -19,15 +19,15 @@ Citizen.CreateThread(function()
     PromptRegisterEnd(CoffrePrompt)
 
     str = 'Poser'
-    LeavePrompt = PromptRegisterBegin()
-    PromptSetControlAction(LeavePrompt, 0x5181713D)
+    PoserPrompt = PromptRegisterBegin()
+    PromptSetControlAction(PoserPrompt, 0x5181713D)
     str = CreateVarString(10, 'LITERAL_STRING', str)
-    PromptSetText(LeavePrompt, str)
-    PromptSetEnabled(LeavePrompt, true)
-    PromptSetVisible(LeavePrompt, true)
-    PromptSetHoldMode(LeavePrompt, true)
-    PromptSetGroup(LeavePrompt, PoseCoffrePromptGroup)
-    PromptRegisterEnd(LeavePrompt)
+    PromptSetText(PoserPrompt, str)
+    PromptSetEnabled(PoserPrompt, true)
+    PromptSetVisible(PoserPrompt, true)
+    PromptSetHoldMode(PoserPrompt, true)
+    PromptSetGroup(PoserPrompt, PoseCoffrePromptGroup)
+    PromptRegisterEnd(PoserPrompt)
 end)
 
 ----- REQUEST LES MODEL ----
@@ -99,12 +99,13 @@ end)
 function posecoffre(model)
     local vault = model
     local playerPed = PlayerPedId()
+    PoseCoffrePromptShown = false
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(0)
-            PoseCoffrePromptShown = true
-            while PoseCoffrePromptShown do
+            if PoseCoffrePromptShown == false then
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
+                PoseCoffrePromptShown = true
             end
             ---- Lancer anim porter une caisse
             local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
