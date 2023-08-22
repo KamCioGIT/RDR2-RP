@@ -119,11 +119,11 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos, heading,
 		function(rowsChanged)
 		end
 	)
-	if model = Config.SmallVault then
+	if model == Config.SmallVault then
 		local itemData = data.getItem(_source, "smallvault")
-	elseif model = Config.MediumVault then
+	elseif model == Config.MediumVault then
 		local itemData = data.getItem(_source, "mediumvault")
-	else if model = Config.LargeVault then
+	else if model == Config.LargeVault then
 		local itemData = data.getItem(_source, "largevault")
 	end
 	ItemData.RemoveItem(1)
@@ -138,11 +138,11 @@ AddEventHandler("dust_vault:server:removestash", function(stashid, model)
 		MySQL.update('DELETE FROM vault WHERE `stashid`=@stashid', {stashid = stashid })
 		Citizen.Wait(100)
 		MySQL.update('DELETE FROM stashes WHERE `stashid`=@stashid', {stashid = stashid })
-		if model = Config.SmallVault then
+		if model == Config.SmallVault then
 			local itemData = data.getItem(_source, "smallvault")
-		elseif model = Config.MediumVault then
+		elseif model == Config.MediumVault then
 			local itemData = data.getItem(_source, "mediumvault")
-		else if model = Config.LargeVault then
+		else if model == Config.LargeVault then
 			local itemData = data.getItem(_source, "largevault")
 		end
 		ItemData.AddItem(1)

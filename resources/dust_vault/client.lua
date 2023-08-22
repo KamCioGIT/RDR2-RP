@@ -99,11 +99,11 @@ AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code,
             PromptSetEnabled(OpenPrompt, true)
             PromptSetVisible(OpenPrompt, true)
             if IsControlJustReleased(0, 0x8E90C7BB) then
-                if model = Config.SmallVault then
+                if model == Config.SmallVault then
                     weight = Config.SmallWeight
-                elseif model = Config.MediumVault then
+                elseif model == Config.MediumVault then
                     weight = Config.MediumWeight
-                else if model = Config.LargeVault then
+                else if model == Config.LargeVault then
                     weight = Config.LargeWeight
                 end
                 OpenCoffrePromptShown = true
