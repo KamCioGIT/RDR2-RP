@@ -80,7 +80,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
                 PlaceObjectOnGroundProperly(prop)
                 table.remove(spawned, id)
                 Citizen.Wait(10)
-                table.insert(spawned, [id], prop)
+                table.insert(spawned, id, prop)
             else
                 print "cancel"
             end
