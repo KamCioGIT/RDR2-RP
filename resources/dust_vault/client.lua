@@ -16,7 +16,7 @@ Citizen.CreateThread(function()
     PromptSetVisible(CoffrePrompt, true)
     PromptSetHoldMode(CoffrePrompt, false)
     PromptSetGroup(CoffrePrompt, PoseCoffrePromptGroup)
-    PromptRegisterEnd(CoffreePrompt)
+    PromptRegisterEnd(CoffrePrompt)
 
     str = 'Poser'
     LeavePrompt = PromptRegisterBegin()
