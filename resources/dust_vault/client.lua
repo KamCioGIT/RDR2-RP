@@ -78,118 +78,118 @@ end)
 
 ----- ZONE STASHES -----
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait (10)
-        TriggerServerEvent("dust_vault:server:AskStashes")
-    end
-end)
+-- Citizen.CreateThread(function()
+--     while true do
+--         Citizen.Wait (10)
+--         TriggerServerEvent("dust_vault:server:AskStashes")
+--     end
+-- end)
 
-RegisterNetEvent("dust_vault:server:getStashes")
-AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code, model)
-    local vaultpos = vector3(coords.x, coords.y, coords.z)
-    local playerPos = GetEntityCoords(PlayerPedId())
-    if #(playerPos - vaultpos) < 6.0 then
-        Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, coords.x, coords.y, coords.z - 1.0, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
-        if #(playerPos - vaultpos) < 1.5 then
-            PromptSetEnabled(DemontPrompt, true)
-            PromptSetVisible(DemontPrompt, true)
-            PromptSetEnabled(ChangeCodePrompt, true)
-            PromptSetVisible(ChangeCodePrompt, true)
-            PromptSetEnabled(OpenPrompt, true)
-            PromptSetVisible(OpenPrompt, true)
-            if IsControlJustReleased(0, 0x8E90C7BB) then
-                if model == Config.SmallVault then
-                    weight = Config.SmallWeight
-                elseif model == Config.MediumVault then
-                    weight = Config.MediumWeight
-                elseif model == Config.LargeVault then
-                    weight = Config.LargeWeight
-                end
-                OpenCoffrePromptShown = true
-                TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                    MenuData.CloseAll()
-                    AddTextEntry("FMMC_MPM_TYP86", "Code")
-                    DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+-- RegisterNetEvent("dust_vault:server:getStashes")
+-- AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code, model)
+--     local vaultpos = vector3(coords.x, coords.y, coords.z)
+--     local playerPos = GetEntityCoords(PlayerPedId())
+--     if #(playerPos - vaultpos) < 6.0 then
+--         Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, coords.x, coords.y, coords.z - 1.0, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
+--         if #(playerPos - vaultpos) < 1.5 then
+--             PromptSetEnabled(DemontPrompt, true)
+--             PromptSetVisible(DemontPrompt, true)
+--             PromptSetEnabled(ChangeCodePrompt, true)
+--             PromptSetVisible(ChangeCodePrompt, true)
+--             PromptSetEnabled(OpenPrompt, true)
+--             PromptSetVisible(OpenPrompt, true)
+--             if IsControlJustReleased(0, 0x8E90C7BB) then
+--                 if model == Config.SmallVault then
+--                     weight = Config.SmallWeight
+--                 elseif model == Config.MediumVault then
+--                     weight = Config.MediumWeight
+--                 elseif model == Config.LargeVault then
+--                     weight = Config.LargeWeight
+--                 end
+--                 OpenCoffrePromptShown = true
+--                 TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+--                     MenuData.CloseAll()
+--                     AddTextEntry("FMMC_MPM_TYP86", "Code")
+--                     DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
                 
-                    while (UpdateOnscreenKeyboard() == 0) do
-                        DisableAllControlActions(0)
-                        Citizen.Wait(0)
-                    end
-                    if (GetOnscreenKeyboardResult()) then
-                        inputcode = GetOnscreenKeyboardResult()
-                    else
-                        menu.close()
-                    return
-                    end
+--                     while (UpdateOnscreenKeyboard() == 0) do
+--                         DisableAllControlActions(0)
+--                         Citizen.Wait(0)
+--                     end
+--                     if (GetOnscreenKeyboardResult()) then
+--                         inputcode = GetOnscreenKeyboardResult()
+--                     else
+--                         menu.close()
+--                     return
+--                     end
                                 
-                    if inputcode == code then
-                        TriggerEvent("redemrp_inventory:OpenStash", stashid, weight)
-                    return
-                    end
-                end)
-            end
-            if PromptHasHoldModeCompleted(ChangeCodePrompt) then
-                PromptSetEnabled(DemontPrompt, false)
-                PromptSetVisible(DemontPrompt, false)
-                PromptSetEnabled(ChangeCodePrompt, false)
-                PromptSetVisible(ChangeCodePrompt, false)
-                PromptSetEnabled(OpenPrompt, false)
-                PromptSetVisible(OpenPrompt, false)
-                TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                    MenuData.CloseAll()
-                    AddTextEntry("FMMC_MPM_TYP86", "Code Actuel")
-                    DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+--                     if inputcode == code then
+--                         TriggerEvent("redemrp_inventory:OpenStash", stashid, weight)
+--                     return
+--                     end
+--                 end)
+--             end
+--             if PromptHasHoldModeCompleted(ChangeCodePrompt) then
+--                 PromptSetEnabled(DemontPrompt, false)
+--                 PromptSetVisible(DemontPrompt, false)
+--                 PromptSetEnabled(ChangeCodePrompt, false)
+--                 PromptSetVisible(ChangeCodePrompt, false)
+--                 PromptSetEnabled(OpenPrompt, false)
+--                 PromptSetVisible(OpenPrompt, false)
+--                 TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+--                     MenuData.CloseAll()
+--                     AddTextEntry("FMMC_MPM_TYP86", "Code Actuel")
+--                     DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
                 
-                    while (UpdateOnscreenKeyboard() == 0) do
-                        DisableAllControlActions(0)
-                        Citizen.Wait(0)
-                    end
-                    if (GetOnscreenKeyboardResult()) then
-                        inputcode = GetOnscreenKeyboardResult()
-                    else
-                        menu.close()
-                    return
-                    end
+--                     while (UpdateOnscreenKeyboard() == 0) do
+--                         DisableAllControlActions(0)
+--                         Citizen.Wait(0)
+--                     end
+--                     if (GetOnscreenKeyboardResult()) then
+--                         inputcode = GetOnscreenKeyboardResult()
+--                     else
+--                         menu.close()
+--                     return
+--                     end
                                 
-                    if inputcode == code then
-                        TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                            MenuData.CloseAll()
-                            AddTextEntry("FMMC_MPM_TYP86", "Nouveau Code")
-                            DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+--                     if inputcode == code then
+--                         TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+--                             MenuData.CloseAll()
+--                             AddTextEntry("FMMC_MPM_TYP86", "Nouveau Code")
+--                             DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
                         
-                            while (UpdateOnscreenKeyboard() == 0) do
-                                DisableAllControlActions(0)
-                                Citizen.Wait(0)
-                            end
-                            if (GetOnscreenKeyboardResult()) then
-                                newcode = GetOnscreenKeyboardResult()
-                            else
-                                menu.close()
-                            return
-                            end
+--                             while (UpdateOnscreenKeyboard() == 0) do
+--                                 DisableAllControlActions(0)
+--                                 Citizen.Wait(0)
+--                             end
+--                             if (GetOnscreenKeyboardResult()) then
+--                                 newcode = GetOnscreenKeyboardResult()
+--                             else
+--                                 menu.close()
+--                             return
+--                             end
                                         
-                            if #(newcode) >= 1 then
-                                TriggerServerEvent("dust_vault:server:ChangeCode")
-                                TriggerEvent("redemrp_inventory:OpenStash", stashid, weight)
-                            return
-                            end
-                        end)
-                    end
-                end)
-            end
-            if PromptHasHoldModeCompleted(DemontPrompt) then
-                PromptSetEnabled(DemontPrompt, false)
-                PromptSetVisible(DemontPrompt, false)
-                PromptSetEnabled(ChangeCodePrompt, false)
-                PromptSetVisible(ChangeCodePrompt, false)
-                PromptSetEnabled(OpenPrompt, false)
-                PromptSetVisible(OpenPrompt, false)
-                TriggerServerEvent("dust_vault:server:removestash", stashid, model)
-            end      
-        end
-    end
-end)
+--                             if #(newcode) >= 1 then
+--                                 TriggerServerEvent("dust_vault:server:ChangeCode")
+--                                 TriggerEvent("redemrp_inventory:OpenStash", stashid, weight)
+--                             return
+--                             end
+--                         end)
+--                     end
+--                 end)
+--             end
+--             if PromptHasHoldModeCompleted(DemontPrompt) then
+--                 PromptSetEnabled(DemontPrompt, false)
+--                 PromptSetVisible(DemontPrompt, false)
+--                 PromptSetEnabled(ChangeCodePrompt, false)
+--                 PromptSetVisible(ChangeCodePrompt, false)
+--                 PromptSetEnabled(OpenPrompt, false)
+--                 PromptSetVisible(OpenPrompt, false)
+--                 TriggerServerEvent("dust_vault:server:removestash", stashid, model)
+--             end      
+--         end
+--     end
+-- end)
 
 
 ----- REQUEST LES MODEL ----
@@ -311,7 +311,7 @@ function posecoffre(model)
                             Citizen.Wait(1000)
                         end
                         local heading = GetEntityHeading(PlayerPedId())
-                        local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1)
+                        local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.0)
                         TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos, heading, code) -- Créer le vault dans la db
                         local prop = CreateObject(model, playerpos.x, playerpos.y, playerpos.z, true, true, true)
                         SetEntityHeading(prop, tonumber(heading))
