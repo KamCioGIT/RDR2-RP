@@ -222,7 +222,7 @@ end)
 
 
 RegisterNetEvent("dust_vault:server:getmodel")
-AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, id)
+AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     Citizen.CreateThread(function()
