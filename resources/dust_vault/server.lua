@@ -25,7 +25,6 @@ spawnvault = {}
 -- RECUP LES POS ---
 RegisterServerEvent("dust_vault:server:Askcoords")
 AddEventHandler("dust_vault:server:Askcoords", function()
-	print "ask"
 	local _source = source
 	MySQL.query('SELECT `coords` FROM `vault`;',{}, function(result)
 		if #result ~= 0 then
@@ -36,6 +35,25 @@ AddEventHandler("dust_vault:server:Askcoords", function()
 		end
 	end)
 end)
+
+
+RegisterServerEvent("dust_vault:server:AskModel")
+AddEventHandler("dust_vault:server:AskModel", function (vaultcoords)
+	local _source = source
+	local coords = json.encode(vaultcoords)
+	MySQL.query('SELECT `id`,`model`,`heading` FROM `vault` WHERE `coords`=@coords ;',{coords = coords}, function(result)
+		if #result ~= 0 then
+			for i = 1, #result do
+				local id = result[i].id
+				local model = result[i].model
+				local heading = result[i].heading
+				local coords = json.decode(coords)
+				TriggerClientEvent("dust_vault:server:getmodel", _source, model, heading, coords, id)
+			end                    
+		end
+	end)
+end)
+
 
 
 --- CREER LE VAULT DANS LA DB ---
