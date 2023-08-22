@@ -105,7 +105,6 @@ function posecoffre(model)
             Citizen.Wait(0)
             if PoseCoffrePromptShown == false then
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
-                PoseCoffrePromptShown = true
             end
             ---- Lancer anim porter une caisse
             local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
@@ -113,7 +112,7 @@ function posecoffre(model)
             if PromptHasHoldModeCompleted(LeavePrompt) then
                 ---- cancel anim
                 ----- définir code et l'envoyer en db
-                PoseCoffrePromptShown = false
+                PoseCoffrePromptShown = true
                 RequestAnimDict(Config.MenuDict)
                 while not HasAnimDictLoaded(Config.MenuDict) do
                     Citizen.Wait(50)
@@ -136,7 +135,7 @@ function posecoffre(model)
                 return
             end
             if IsControlJustReleased(0, 0x8E90C7BB) then
-                PoseCoffrePromptShown = false
+                PoseCoffrePromptShown = true
                 ---- cancel anim
                 return
             end
