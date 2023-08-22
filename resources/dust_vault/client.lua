@@ -103,7 +103,7 @@ AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code,
                     weight = Config.SmallWeight
                 elseif model == Config.MediumVault then
                     weight = Config.MediumWeight
-                else if model == Config.LargeVault then
+                elseif model == Config.LargeVault then
                     weight = Config.LargeWeight
                 end
                 OpenCoffrePromptShown = true
