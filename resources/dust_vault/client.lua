@@ -26,7 +26,7 @@ Citizen.CreateThread(function()
     PromptSetEnabled(LeavePrompt, true)
     PromptSetVisible(LeavePrompt, true)
     PromptSetHoldMode(LeavePrompt, true)
-    PromptSetGroup(LeavePrompt, RampPromptGroup)
+    PromptSetGroup(LeavePrompt, PoseCoffrePromptGroup)
     PromptRegisterEnd(LeavePrompt)
 end)
 
