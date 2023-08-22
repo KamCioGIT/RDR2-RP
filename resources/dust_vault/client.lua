@@ -1,24 +1,33 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
-local CraftMenuPrompt = nil
-local CraftMenuPromptShown = false
-local promptGroup
-
-local varString = CreateVarString(10, "LITERAL_STRING", "Poser le coffre")
+local PoseCoffrePromptGroup = GetRandomIntInRange(0, 0xffffff)
+local PoseCoffrePromptName = CreateVarString(10, "LITERAL_STRING", "Rampe de lavage")
+local LeavePrompt
+local CoffrePrompt
+local PoseCoffrePromptShown = true
 
 Citizen.CreateThread(function()
-    Wait(10)
-    CraftMenuPrompt = PromptRegisterBegin()
-    PromptSetActiveGroupThisFrame(promptGroup, varString)
-    PromptSetControlAction(CraftMenuPrompt, 0xE8342FF2) -- LEFT ALT
-    PromptSetText(CraftMenuPrompt, CreateVarString(10, "LITERAL_STRING", "Poser le coffre"))
-    PromptSetStandardMode(CraftMenuPrompt, true)
-    PromptSetEnabled(CraftMenuPrompt, false)
-    PromptSetVisible(CraftMenuPrompt, false)
-    Citizen.InvokeNative(0x94073D5CA3F16B7B, CraftMenuPrompt, 1000)
-    N_0x0c718001b77ca468(CraftMenuPrompt, 2.0)
-    PromptSetGroup(CraftMenuPrompt, promptGroup)
-    PromptRegisterEnd(CraftMenuPrompt)
+    local str = 'Annuler'
+    CooffrePrompt = PromptRegisterBegin()
+    PromptSetControlAction(CoffrePrompt, 0x8E90C7BB)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(CoffrePrompt, str)
+    PromptSetEnabled(CoffrePrompt, true)
+    PromptSetVisible(CoffrePrompt, true)
+    PromptSetHoldMode(CooffrePrompt, false)
+    PromptSetGroup(CoffrePrompt, PoseCoffrePromptGroup)
+    PromptRegisterEnd(CoffreePrompt)
+
+    str = 'Poser'
+    LeavePrompt = PromptRegisterBegin()
+    PromptSetControlAction(LeavePrompt, 0x5181713D)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(LeavePrompt, str)
+    PromptSetEnabled(LeavePrompt, true)
+    PromptSetVisible(LeavePrompt, true)
+    PromptSetHoldMode(LeavePrompt, true)
+    PromptSetGroup(LeavePrompt, RampPromptGroup)
+    PromptRegisterEnd(LeavePrompt)
 end)
 
 ----- REQUEST LES MODEL ----
@@ -75,19 +84,22 @@ RegisterNetEvent('smallvault')
 AddEventHandler('smallvault', function() 
     local vault = Config.SmallVault
     local playerPed = PlayerPedId()
-    if CraftMenuPromptShown == false then
+    if PoseCoffrePromptShown == false then
         PromptSetEnabled(CraftMenuPrompt, true)
         PromptSetVisible(CraftMenuPrompt, true)
-        CraftMenuPromptShown = true
+        PoseCoffrePromptShown = true
     end
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(0)
+            if PoseCoffrePromptShown == false then
+                PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
+                PoseCoffrePromptShown = true
+            end
             local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
             Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
-            if PromptHasHoldModeCompleted(CraftMenuPrompt) then
-                PromptSetEnabled(CraftMenuPrompt, false)
-                PromptSetVisible(CraftMenuPrompt, false)
+            if PromptHasHoldModeCompleted(CoffrePrompt) then
+                PoseCoffrePromptShown = false
                 RequestAnimDict(Config.MenuDict)
                 while not HasAnimDictLoaded(Config.MenuDict) do
                     Citizen.Wait(50)
@@ -107,6 +119,10 @@ AddEventHandler('smallvault', function()
                 local heading = GetEntityHeading(PlayerPedId())
                 local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.55)
                 TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos, heading) -- Créer le vault dans la db
+                return
+            end
+            if IsControlJustReleased(0, 0x8E90C7BB) then
+                PoseCoffrePromptShown = false
                 return
             end
         end
