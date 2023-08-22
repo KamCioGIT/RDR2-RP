@@ -74,7 +74,6 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
         isSpawned = "false"
     }) 
     for k, v in ipairs(spawned) do
-        print (spawned[id])
         if id == v.id then
             if v.isSpawned == "false" then
                 print "spawned"
