@@ -38,7 +38,7 @@ RegisterCommand("quitjob", function(source, args)
 end)
 
 AddEventHandler("redemrp:playerLoaded", function(source, user)
-    TriggerClientEvent("global:CheckPlayerJob", source, user.getJob(), user.getJobgrade())
+    TriggerClientEvent("redemrp_bossmenu:client:ReceiveJob", source, user.getJob(), user.getJobgrade())
 end)
 
 function DoPay()

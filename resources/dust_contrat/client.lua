@@ -1,7 +1,5 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
-RegisterNetEvent("global:CheckPlayerJob")
-
 RegisterNetEvent('contrat:use')
 AddEventHandler('contrat:use', function(job)
     TriggerEvent('redemrp_inventory:close_inventory')
