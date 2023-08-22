@@ -69,6 +69,7 @@ RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, id)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
+    print "okay"
     for k, v in ipairs(spawned) do
         if id == k then
             print "cancel"
