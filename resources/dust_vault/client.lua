@@ -60,7 +60,7 @@ RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    if #(playerPos - vaultpos) < 10.0 then
+    if #(playerPos - vaultpos) < Config.DistanceAffichage then
         table.insert(spawned, {
             vaultpos = vaultpos,
             isSpawned = "false"
