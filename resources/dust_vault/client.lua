@@ -34,17 +34,15 @@ end)
 
 Citizen.CreateThread(function()
     RequestModel(Config.SmallVault, true)
-    while not RequestModel(Config.SmallVault, true) do
+    while not HasModelLoaded(Config.SmallVault) do
         Citizen.Wait(100)
     end
-    Citizen.Wait(100)
     RequestModel(Config.MediumVault, true)
-    while not RequestModel(Config.MediumVault, true) do
+    while not HasModelLoaded(Config.MediumVault, true) do
         Citizen.Wait(100)
     end
-    Citizen.Wait(100)
     RequestModel(Config.LargeVault, true)
-    while not RequestModel(Config.LargeVault, true) do
+    while not HasModelLoaded(Config.LargeVault, true) do
         Citizen.Wait(100)
     end
 end)
@@ -65,14 +63,25 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
     end
 end)
 
+
+local spawned = {}
 RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, id)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    local limit = 0
-    local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
-    SetEntityHeading(prop, tonumber(heading))
-    PlaceObjectOnGroundProperly(prop)
+    print "okay"
+    for k, v in ipairs(spawned) do
+        if id == k then
+            print "cancel"
+            return
+        else
+            print "spawned"
+            local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
+            SetEntityHeading(prop, tonumber(heading))
+            PlaceObjectOnGroundProperly(prop)
+            spawned[id] = prop
+        end 
+    end
 end)
 
 
