@@ -27,7 +27,7 @@ end)
 
 
 --- Définir si le joueur est ouvrier
-AddEventHandler("global:CheckPlayerJob", function(job, jobgrade)
+RegisterNetEvent("global:CheckPlayerJob", function(job, jobgrade)
     Citizen.CreateThread(function()
         local PlayerData = RedEM.GetPlayerData()
         while RedEM.GetPlayerData().isLoggedIn ~= true do 
