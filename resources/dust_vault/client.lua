@@ -215,6 +215,7 @@ end)
 ---- SPAWN DES COFFRES EN DB ----
 RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
+    local vaultpos = vector3(coords.x, coords.y, coords.z)
     TriggerServerEvent("dust_vault:server:AskModel", vaultpos)
 end)
 
@@ -226,11 +227,13 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     Citizen.CreateThread(function()
         while true do
-            Citizen.Wait(5000)
+            Citizen.Wait(1000)
             if #(playerPos - vaultpos) < 200.0 then
+                print 'spawn'
                 local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
                 SetEntityHeading(prop, tonumber(heading))
                 PlaceObjectOnGroundProperly(prop)
+                return
             end
         end
     end)
