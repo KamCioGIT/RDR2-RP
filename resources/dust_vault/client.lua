@@ -19,15 +19,15 @@ Citizen.CreateThread(function()
     PromptRegisterEnd(CoffrePrompt)
 
     str = 'Poser'
-    PoserPrompt = PromptRegisterBegin()
-    PromptSetControlAction(PoserPrompt, 0x5181713D)
+    LeavePrompt = PromptRegisterBegin()
+    PromptSetControlAction(LeavePrompt, 0x5181713D)
     str = CreateVarString(10, 'LITERAL_STRING', str)
-    PromptSetText(PoserPrompt, str)
-    PromptSetEnabled(PoserPrompt, true)
-    PromptSetVisible(PoserPrompt, true)
-    PromptSetHoldMode(PoserPrompt, true)
-    PromptSetGroup(PoserPrompt, PoseCoffrePromptGroup)
-    PromptRegisterEnd(PoserPrompt)
+    PromptSetText(LeavePrompt, str)
+    PromptSetEnabled(LeavePrompt, true)
+    PromptSetVisible(LeavePrompt, true)
+    PromptSetHoldMode(LeavePrompt, true)
+    PromptSetGroup(LeavePrompt, PoseCoffrePromptGroup)
+    PromptRegisterEnd(LeavePrompt)
 end)
 
 ----- REQUEST LES MODEL ----
@@ -110,7 +110,7 @@ function posecoffre(model)
             ---- Lancer anim porter une caisse
             local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
             Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
-            if PromptHasHoldModeCompleted(CoffrePrompt) then
+            if PromptHasHoldModeCompleted(LeavePrompt) then
                 ---- cancel anim
                 ----- définir code et l'envoyer en db
                 PoseCoffrePromptShown = false
