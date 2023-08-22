@@ -93,7 +93,7 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
 end)
 
 RegisterNetEvent("usine:CraftingAction")
-AddEventHandler("usine:CraftingAction", function(menu)
+AddEventHandler("usine:CraftingAction", function()
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
     FreezeEntityPosition(playerPed, true)
@@ -102,11 +102,11 @@ AddEventHandler("usine:CraftingAction", function(menu)
     while not HasAnimDictLoaded(Config.AnimDict) do
         Citizen.Wait(50)
     end
+
     for k,v in pairs(Config.CraftAnim) do
         TaskPlayAnim(playerPed, Config.AnimDict, v, 8.0, -8.0, -1, 1, 0, true)
-            Citizen.Wait(3000)
-        end
-    menu.close()
+    end
+
     local timer = GetGameTimer() + Config.WorkingTime
     isInteracting = true
 
@@ -252,7 +252,6 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         },
     }
 
-    print("C")
     menuData.Open('default', GetCurrentResourceName(), 'craft', {
         title = "Craft Usine Menu",
         subtext = "Select how much ".. dataType .. " craft",

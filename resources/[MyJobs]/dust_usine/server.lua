@@ -15,16 +15,17 @@ AddEventHandler('usine:CraftItem', function(itemNameStr, menu, amount)
 	for i = 1, amount, 1
 	do
 		if ItemData.RemoveItem(Config.CraftingsReceipe[itemNameStr].ItemReceipe1Amount) and ItemData2.RemoveItem(Config.CraftingsReceipe[itemNameStr].ItemReceipe2Amount) then
-			print("Item removed")
+			print("Item removed " .. i)
 			Citizen.CreateThread(function()
-				TriggerClientEvent("usine:CraftingAction", _source, menu)
-				Citizen.Wait(Config.WorkingTime * 1000)
+				TriggerClientEvent("usine:CraftingAction", _source)
 				local ItemDatagive = data.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemToGive)
 				ItemDatagive.AddItem(Config.CraftingsReceipe[itemNameStr].Amount)
 			end)
 		else 
 			RedEM.Functions.NotifyRight( _source, "Vous n'avez pas les ressources nécessaire pour fabriquer cet objet", 3000)
 		end
+
+		Citizen.Wait(Config.WorkingTime)
 	end
 	end)
 end)
