@@ -25,6 +25,7 @@ spawnvault = {}
 -- RECUP LES POS ---
 RegisterServerEvent("dust_vault:server:Askcoords")
 AddEventHandler("dust_vault:server:Askcoords", function()
+	print "ask"
 	local _source = source
 	MySQL.query('SELECT `coords` FROM `vault`;',{}, function(result)
 		if #result ~= 0 then
