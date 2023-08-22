@@ -14,10 +14,11 @@ Citizen.CreateThread(function()
     PromptSetControlAction(CoffrePrompt, 0x8E90C7BB)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(CoffrePrompt, str)
-    PromptSetEnabled(CoffrePrompt, true)
-    PromptSetVisible(CoffrePrompt, true)
+    PromptSetEnabled(CoffrePrompt, false)
+    PromptSetVisible(CoffrePrompt, false)
     PromptSetHoldMode(CoffrePrompt, false)
     PromptSetGroup(CoffrePrompt, PoseCoffrePromptGroup)
+    PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
     PromptRegisterEnd(CoffrePrompt)
 
     str = 'Poser'
@@ -25,10 +26,11 @@ Citizen.CreateThread(function()
     PromptSetControlAction(LeavePrompt, 0xD9D0E1C0)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(LeavePrompt, str)
-    PromptSetEnabled(LeavePrompt, true)
-    PromptSetVisible(LeavePrompt, true)
+    PromptSetEnabled(LeavePrompt, false)
+    PromptSetVisible(LeavePrompt, false)
     PromptSetHoldMode(LeavePrompt, true)
     PromptSetGroup(LeavePrompt, PoseCoffrePromptGroup)
+    PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
     PromptRegisterEnd(LeavePrompt)
 end)
 
@@ -266,14 +268,21 @@ function posecoffre(model)
     --     while true do
             Citizen.Wait(0)
             if PoseCoffrePromptShown == false then
-                PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
+                PromptSetEnabled(LeavePrompt, true)
+                PromptSetVisible(LeavePrompt, true)
+                PromptSetEnabled(CoffrePrompt, true)
+                PromptSetVisible(CoffrePrompt, true)
             end
             ---- Lancer anim porter une caisse
             local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
             Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
             if PromptHasHoldModeCompleted(LeavePrompt) then
                 ---- cancel anim
-                PoseCoffrePromptShown = true
+                PoseCoffrePromptShown = false
+                PromptSetEnabled(LeavePrompt, false)
+                PromptSetVisible(LeavePrompt, false)
+                PromptSetEnabled(CoffrePrompt, false)
+                PromptSetVisible(CoffrePrompt, false)
                 TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                     MenuData.CloseAll()
                     AddTextEntry("FMMC_MPM_TYP86", "Définir le code du coffre")
@@ -320,7 +329,11 @@ function posecoffre(model)
                 end)
             end
             if IsControlJustReleased(0, 0x8E90C7BB) then
-                PoseCoffrePromptShown = true
+                PoseCoffrePromptShown = false
+                PromptSetEnabled(LeavePrompt, false)
+                PromptSetVisible(LeavePrompt, false)
+                PromptSetEnabled(CoffrePrompt, false)
+                PromptSetVisible(CoffrePrompt, false)
                 ---- cancel anim
                 return
             end
