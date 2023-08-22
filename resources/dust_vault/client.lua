@@ -27,7 +27,7 @@ Citizen.CreateThread(function()
     PromptSetVisible(PoserPrompt, true)
     PromptSetHoldMode(PoserPrompt, true)
     PromptSetGroup(PoserPrompt, PoseCoffrePromptGroup)
-    PromptRegisterEnd(PosePrompt)
+    PromptRegisterEnd(PoserPrompt)
 end)
 
 ----- REQUEST LES MODEL ----
