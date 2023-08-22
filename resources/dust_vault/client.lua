@@ -141,3 +141,4 @@ function posecoffre(model)
             end
         end
     end)
+end
