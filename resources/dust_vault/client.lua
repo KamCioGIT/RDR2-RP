@@ -90,6 +90,7 @@ AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code,
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     local playerPos = GetEntityCoords(PlayerPedId())
     if #(playerPos - vaultpos) < 6.0 then
+        print "pos"
         Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, vaultpos.x, vaultpos.y, vaultpos.z - 1.0, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
         if #(playerPos - vaultpos) < 1.5 then
             PromptSetEnabled(DemontPrompt, true)
