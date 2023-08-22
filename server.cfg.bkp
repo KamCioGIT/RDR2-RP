@@ -41,7 +41,6 @@ ensure redemrp_clothes_store
 ensure redemrp_charselect
 ensure [REDEMRP]
 
-
 # Dust Resources
 ensure dust_coords
 ensure dust_ipl
