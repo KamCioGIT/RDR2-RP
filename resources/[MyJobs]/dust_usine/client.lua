@@ -24,6 +24,26 @@ Citizen.CreateThread(function()
     PromptRegisterEnd(CraftMenuPrompt)
 end)
 
+
+
+--- Définir si le joueur est ouvrier
+AddEventHandler("global:CheckPlayerJob", function(job, jobgrade)
+    Citizen.CreateThread(function()
+        local PlayerData = RedEM.GetPlayerData()
+        while RedEM.GetPlayerData().isLoggedIn ~= true do 
+            Wait(750)
+            if job == "usine" then 
+                StartMission()
+            end
+        end
+        if RedEM.GetPlayerData().isLoggedIn then
+            if job == "usine" then
+                StartMission()
+            end
+        end
+    end)
+end)
+
 RegisterNetEvent("usine:OpenBossMenu", function(menutype)
     local Position = GetEntityCoords(PlayerPedId())
     local _menutype = menutype
@@ -118,22 +138,6 @@ AddEventHandler("usine:CraftingAction", function()
         FreezeEntityPosition(playerPed, false)
         isInteracting = false
     end)    
-end)
-
---- Définir si le joueur est usinier 
-Citizen.CreateThread(function()
-    local PlayerData = RedEM.GetPlayerData()
-    while RedEM.GetPlayerData().isLoggedIn ~= true do 
-        Wait(750)
-        if RedEM.GetPlayerData().job == "usine" then 
-            StartMission()
-        end
-    end
-    if RedEM.GetPlayerData().isLoggedIn then
-        if RedEM.GetPlayerData().job == "usine" then
-            StartMission()
-        end
-    end
 end)
 
 
