@@ -4,7 +4,7 @@ local PoseCoffrePromptGroup = GetRandomIntInRange(0, 0xffffff)
 local PoseCoffrePromptName = CreateVarString(10, "LITERAL_STRING", "Rampe de lavage")
 local LeavePrompt
 local CoffrePrompt
-local PoseCoffrePromptShown = true
+local PoseCoffrePromptShown = false
 
 Citizen.CreateThread(function()
     local str = 'Annuler'
@@ -82,13 +82,13 @@ RegisterNetEvent('smallvault')
 AddEventHandler('smallvault', function() 
     local vault = Config.SmallVault
     local playerPed = PlayerPedId()
+    if PoseCoffrePromptShown == false then
+        PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
+        PoseCoffrePromptShown = true
+    end
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(0)
-            if PoseCoffrePromptShown == false then
-                PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
-                PoseCoffrePromptShown = true
-            end
             local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
             Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
             if PromptHasHoldModeCompleted(CoffrePrompt) then
