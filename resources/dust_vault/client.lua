@@ -70,8 +70,6 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, 
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     local limit = 0
-    print 'spawn'
-    print (model, heading, coords.x, coords.y, coords.z, id)
     local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
     SetEntityHeading(prop, tonumber(heading))
     PlaceObjectOnGroundProperly(prop)
@@ -84,11 +82,6 @@ RegisterNetEvent('smallvault')
 AddEventHandler('smallvault', function() 
     local vault = Config.SmallVault
     local playerPed = PlayerPedId()
-    if PoseCoffrePromptShown == false then
-        PromptSetEnabled(CraftMenuPrompt, true)
-        PromptSetVisible(CraftMenuPrompt, true)
-        PoseCoffrePromptShown = true
-    end
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(0)
