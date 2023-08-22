@@ -148,7 +148,7 @@ function posecoffre(model)
                 local heading = GetEntityHeading(PlayerPedId())
                 local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.55)
                 TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos, heading) -- Créer le vault dans la db
-                local prop = CreateObject(model, playerpos.x, playerpos.y, playerpos.z, false, true, true)
+                local prop = CreateObject(model, playerpos.x, playerpos.y, playerpos.z, true, true, true)
                 SetEntityHeading(prop, tonumber(heading))
                 PlaceObjectOnGroundProperly(prop)
                 return
