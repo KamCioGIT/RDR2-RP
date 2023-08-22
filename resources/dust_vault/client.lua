@@ -54,41 +54,56 @@ Citizen.CreateThread(function()
     end
 end)
 
+
+local spawned = {}
 RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     if #(playerPos - vaultpos) < 10.0 then
-        TriggerServerEvent("dust_vault:server:AskModel", vaultpos)
+        table.insert(spawned, {
+            vaultpos = vaultpos,
+            isSpawned = "false"
+        })
+        for k, v in ipairs(spawned) do
+            if vaultpos == v.vaultpos then
+                if v.isSpawned == "false" then
+                    TriggerServerEvent("dust_vault:server:AskModel", vaultpos)
+                    spawned[k].isSpawned = "true"
+                else
+                    print "cancel"
+                end
+            end
+        end
     end
 end)
 
 
-local spawned = {}
+
 RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, id)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    table.insert(spawned, {
-        id = id,
-        isSpawned = "false"
-    }) 
-    for k, v in ipairs(spawned) do
-        if id == v.id then
-            if v.isSpawned == "false" then
+    -- table.insert(spawned, {
+    --     id = id,
+    --     isSpawned = "false"
+    -- }) 
+    -- for k, v in ipairs(spawned) do
+    --     if id == v.id then
+    --         if v.isSpawned == "false" then
                 print "spawned"
                 local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
                 SetEntityHeading(prop, tonumber(heading))
                 PlaceObjectOnGroundProperly(prop)
-                table.insert(spawned, {
-                    id = id,
-                    isSpawned = "true"
-                }) 
-            else
-            print "cancel"
-            end
-        end
-    end
+                -- table.insert(spawned, {
+                --     id = id,
+                --     isSpawned = "true"
+                -- }) 
+    --         else
+    --         print "cancel"
+    --         end
+    --     end
+    -- end
 end)
 
 
