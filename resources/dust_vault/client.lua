@@ -99,10 +99,10 @@ end)
 function posecoffre(model)
     local vault = model
     local playerPed = PlayerPedId()
-    PoseCoffrePromptShown = true
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(0)
+            PoseCoffrePromptShown = true
             while PoseCoffrePromptShown do
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
             end
