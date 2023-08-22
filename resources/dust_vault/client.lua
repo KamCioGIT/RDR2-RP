@@ -8,13 +8,13 @@ local PoseCoffrePromptShown = false
 
 Citizen.CreateThread(function()
     local str = 'Annuler'
-    CooffrePrompt = PromptRegisterBegin()
+    CoffrePrompt = PromptRegisterBegin()
     PromptSetControlAction(CoffrePrompt, 0x8E90C7BB)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(CoffrePrompt, str)
     PromptSetEnabled(CoffrePrompt, true)
     PromptSetVisible(CoffrePrompt, true)
-    PromptSetHoldMode(CooffrePrompt, false)
+    PromptSetHoldMode(CoffrePrompt, false)
     PromptSetGroup(CoffrePrompt, PoseCoffrePromptGroup)
     PromptRegisterEnd(CoffreePrompt)
 
