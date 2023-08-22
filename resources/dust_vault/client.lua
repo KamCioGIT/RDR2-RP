@@ -83,7 +83,7 @@ AddEventHandler('smallvault', function()
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(50)
-            local x, y, z = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.55)
+            local x, y, z = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
             Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, x, y, z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
             if PromptHasHoldModeCompleted(CraftMenuPrompt) then
                 PromptSetEnabled(CraftMenuPrompt, false)
