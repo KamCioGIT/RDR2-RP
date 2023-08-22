@@ -303,11 +303,11 @@ function posecoffre(model)
                             Citizen.Wait(1000)
                         end
                         local heading = GetEntityHeading(PlayerPedId())
-                        local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.55)
+                        local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
                         TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos, heading, code) -- Créer le vault dans la db
                         local prop = CreateObject(model, playerpos.x, playerpos.y, playerpos.z, true, true, true)
                         SetEntityHeading(prop, tonumber(heading))
-                        PlaceObjectOnGroundProperly(prop)
+                        -- PlaceObjectOnGroundProperly(prop)
                         return
                     end
                 end)
