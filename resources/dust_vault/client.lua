@@ -262,8 +262,8 @@ function posecoffre(model)
     local vault = model
     local playerPed = PlayerPedId()
     PoseCoffrePromptShown = false
-    Citizen.CreateThread(function()
-        while true do
+    -- Citizen.CreateThread(function()
+    --     while true do
             Citizen.Wait(0)
             if PoseCoffrePromptShown == false then
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
@@ -324,7 +324,7 @@ function posecoffre(model)
                 ---- cancel anim
                 return
             end
-        end
-    end)
+    --     end
+    -- end)
 end
 
