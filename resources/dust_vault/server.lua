@@ -142,7 +142,7 @@ AddEventHandler("dust_vault:server:removestash", function(stashid, model)
 			local itemData = data.getItem(_source, "smallvault")
 		elseif model == Config.MediumVault then
 			local itemData = data.getItem(_source, "mediumvault")
-		else if model == Config.LargeVault then
+		elseif model == Config.LargeVault then
 			local itemData = data.getItem(_source, "largevault")
 		end
 		ItemData.AddItem(1)
