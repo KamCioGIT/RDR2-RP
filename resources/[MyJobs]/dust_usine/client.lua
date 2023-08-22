@@ -242,6 +242,20 @@ RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
 
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    CraftMenuPromptShown = false
+                end)
+                return
+            end
+        end
+    end)
+
+
     local elements = {
         { label = "Crafting Amount", 
         value = 0, 
