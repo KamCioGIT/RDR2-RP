@@ -65,14 +65,24 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
     end
 end)
 
+
+local spawned = {}
 RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, id)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    local limit = 0
-    local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
-    SetEntityHeading(prop, tonumber(heading))
-    PlaceObjectOnGroundProperly(prop)
+    for k, v in ipairs(spawned) do
+        if id == k then
+            print "cancel"
+            return
+        else
+            print "spawned"
+            local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
+            SetEntityHeading(prop, tonumber(heading))
+            PlaceObjectOnGroundProperly(prop)
+            spawned[id] = prop
+        end 
+    end
 end)
 
 
