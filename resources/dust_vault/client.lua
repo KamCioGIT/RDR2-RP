@@ -75,12 +75,19 @@ RegisterNetEvent('smallvault')
 AddEventHandler('smallvault', function() 
     local vault = Config.SmallVault
     local playerPed = PlayerPedId()
+    if CraftMenuPromptShown == false then
+        PromptSetEnabled(CraftMenuPrompt, true)
+        PromptSetVisible(CraftMenuPrompt, true)
+        CraftMenuPromptShown = true
+    end
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(50)
             local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.55)
             Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
             if PromptHasHoldModeCompleted(CraftMenuPrompt) then
+                PromptSetEnabled(CraftMenuPrompt, false)
+                PromptSetVisible(CraftMenuPrompt, false)
                 RequestAnimDict(Config.MenuDict)
                 while not HasAnimDictLoaded(Config.MenuDict) do
                     Citizen.Wait(50)
