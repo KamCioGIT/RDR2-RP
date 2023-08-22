@@ -69,8 +69,8 @@ RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords, id)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    print "okay"
-    table.insert(spawned, {id = "false"})
+    print (id)
+    table.insert(spawned, id, "false")
     for k, v in ipairs(spawned) do
         print (spawned[id])
         if id == k then
