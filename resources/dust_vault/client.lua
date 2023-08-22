@@ -90,7 +90,7 @@ AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code,
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     local playerPos = GetEntityCoords(PlayerPedId())
     if #(playerPos - vaultpos) < 6.0 then
-        Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, coords.x, coords.y, coords.z - 1.0, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
+        Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, coords.x, coords.y, coords.z + 1.0, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
         if #(playerPos - vaultpos) < 1.5 then
             PromptSetEnabled(DemontPrompt, true)
             PromptSetVisible(DemontPrompt, true)
@@ -303,7 +303,7 @@ function posecoffre(model)
                             Citizen.Wait(1000)
                         end
                         local heading = GetEntityHeading(PlayerPedId())
-                        local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
+                        local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1)
                         TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos, heading, code) -- Créer le vault dans la db
                         local prop = CreateObject(model, playerpos.x, playerpos.y, playerpos.z, true, true, true)
                         SetEntityHeading(prop, tonumber(heading))
