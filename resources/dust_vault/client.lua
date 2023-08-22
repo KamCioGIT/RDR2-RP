@@ -313,7 +313,7 @@ function posecoffre(model)
                         TriggerServerEvent("dust_vault:server:vaultDB", vault, playerpos, heading, code) -- Créer le vault dans la db
                         local prop = CreateObject(model, playerpos.x, playerpos.y, playerpos.z, true, true, true)
                         SetEntityHeading(prop, tonumber(heading))
-                        -- PlaceObjectOnGroundProperly(prop)
+                        PlaceObjectOnGroundProperly(prop)
                         return
                     end
                 end)
