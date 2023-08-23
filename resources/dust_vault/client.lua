@@ -242,26 +242,29 @@ end)
 local coordscache = {}
 RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
-    local vaultpos = vector3(coords.x, coords.y, coords.z)
-    table.insert(coordscache, vaultpos)
-end)
-
-Citizen.CreateThread(function()
     local playerPos = GetEntityCoords(PlayerPedId())
-    while true do
-        Citizen.Wait(1000)
-        for k, v in ipairs(coordscache) do
-            print(#coordscache)
-            if #(playerPos - v) < 10.0 then
-                local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
-                SetEntityHeading(prop, tonumber(heading))
-                PlaceObjectOnGroundProperly(prop)
-                table.remove(coordscache, k)
-                print "spawn"
+    local vaultpos = vector3(coords.x, coords.y, coords.z)
+    table.insert(coordscache, {pos = vaultpos, spawned = 'false'})
+    Citizen.CreateThread(function()
+        while true do
+            Citizen.Wait(1000)
+            for k, v in ipairs(coordscache) do
+                print(#coordscache)
+                if #(playerPos - v.pos) < 10.0 then
+                    if v.spawned == "false" then
+                        local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
+                        SetEntityHeading(prop, tonumber(heading))
+                        PlaceObjectOnGroundProperly(prop)
+                        v.spawned = "true"
+                        print "spawn"
+                    end
+                end
             end
         end
-    end
+    end)
 end)
+
+
 
 ----- CREER OBJET ----- 
 RegisterNetEvent('smallvault')
