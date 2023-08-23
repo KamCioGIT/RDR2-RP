@@ -90,11 +90,11 @@ Citizen.CreateThread(function ()
                     PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
                     if IsControlJustReleased(0, 0xD9D0E1C0) then
                         isInteracting = true
-                        if model == Config.SmallVault then
+                        if v.model == Config.SmallVault then
                             weight = Config.SmallWeight
-                        elseif model == Config.MediumVault then
+                        elseif v.model == Config.MediumVault then
                             weight = Config.MediumWeight
-                        elseif model == Config.LargeVault then
+                        elseif v.model == Config.LargeVault then
                             weight = Config.LargeWeight
                         end
                         TriggerEvent("redemrp_menu_base:getData", function(MenuData)
@@ -113,7 +113,7 @@ Citizen.CreateThread(function ()
                             return
                             end
                                         
-                            if inputcode == code then
+                            if inputcode == v.code then
                                 TriggerEvent("redemrp_inventory:OpenStash", v.stashid, weight)
                             return
                             end
