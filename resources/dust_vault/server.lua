@@ -119,13 +119,13 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos, heading,
 		function(rowsChanged)
 		end
 	)
-	if model == Config.SmallVault then
+	if vault == Config.SmallVault then
 		local itemData = data.getItem(_source, "smallvault")
 		ItemData.RemoveItem(1)
-	elseif model == Config.MediumVault then
+	elseif vault == Config.MediumVault then
 		local itemData = data.getItem(_source, "mediumvault")
 		ItemData.RemoveItem(1)
-	elseif model == Config.LargeVault then
+	elseif vault == Config.LargeVault then
 		local itemData = data.getItem(_source, "largevault")
 		ItemData.RemoveItem(1)
 	end
