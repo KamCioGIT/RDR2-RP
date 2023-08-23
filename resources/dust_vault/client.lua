@@ -293,16 +293,19 @@ end)
 RegisterNetEvent('smallvault')
 AddEventHandler('smallvault', function() 
     posecoffre(Config.SmallVault)
+    spawned = false
 end)
 
 RegisterNetEvent('mediumvault')
 AddEventHandler('mediumvault', function() 
     posecoffre(Config.MediumVault)
+    spawned = false
 end)
 
 RegisterNetEvent('largevault')
 AddEventHandler('largevault', function() 
     posecoffre(Config.LargeVault)
+    spawned = false
 end)
 
 
