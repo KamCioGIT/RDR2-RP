@@ -153,7 +153,7 @@ function ManageVault(stashid, model, weight, pos)
             {label = "Démonter", value = 'demonter', desc = "Récupérer le coffre si il est vide"}
         }
 
-        MenuData.Open('default', GetCurrentResourceName(), 'Coffre Fort', {
+        MenuData.Open('default', GetCurrentResourceName(), 'CoffreFort', {
             title = "Coffre Fort",
             subtext = "Gestion",
             align = 'top-right',
