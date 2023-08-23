@@ -124,7 +124,6 @@ Citizen.CreateThread(function ()
                     end)
                 end
                 if IsControlJustReleased(0, 0x156F7119) then
-                    print "demont"
                     isInteracting = true
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                         MenuData.CloseAll()
@@ -192,7 +191,8 @@ function Submenu(action, menu, stashid, model, weight, pos)
         end
         if action == "demonter" then
             TriggerServerEvent("dust_vault:server:removestash", stashid, model, pos)
-        elseif action == "changecode" then
+        end
+        if action == "changecode" then
             TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                 MenuData.CloseAll()
                 AddTextEntry("FMMC_MPM_TYP86", "Nouveau Code")
