@@ -197,7 +197,7 @@ function Submenu(action, menu, stashid, model, weight, pos)
             Wait(0)
         end
         if action == "demonter" then
-            for k, v in pairs(coordscache)
+            for k, v in pairs(coordscache) do
                 if v.pos == pos then
                     SetEntityAsMissionEntity(v.prop)
                     DeleteObject(v.prop)
