@@ -56,7 +56,7 @@ Citizen.CreateThread(function()
     PromptSetText(DemontPrompt, str)
     PromptSetEnabled(DemontPrompt, true)
     PromptSetVisible(DemontPrompt, true)
-    PromptSetHoldMode(DemontPrompt, true)
+    PromptSetHoldMode(DemontPrompt, false)
     PromptSetGroup(DemontPrompt, OpenCoffrePromptGroup)
     PromptRegisterEnd(DemontPrompt)
 end)
@@ -93,29 +93,6 @@ Citizen.CreateThread(function ()
                 elseif v.getmodel == Config.LargeVault then
                     weight = Config.LargeWeight
                 end
-                if PromptHasHoldModeCompleted(DemontPrompt) then
-                    print "demont"
-                    isInteracting = true
-                    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                        MenuData.CloseAll()
-                        AddTextEntry("FMMC_MPM_TYP86", "Code")
-                        DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
-                    
-                        while (UpdateOnscreenKeyboard() == 0) do
-                            DisableAllControlActions(0)
-                            Citizen.Wait(0)
-                        end
-                        if (GetOnscreenKeyboardResult()) then
-                            _inputcode = GetOnscreenKeyboardResult()
-                        else
-                        return
-                        end
-                                    
-                        if _inputcode == v.getcode then
-                            ManageVault(k, v.getmodel, weight, v.pos)
-                        end
-                    end)
-                end      
                 if IsControlJustReleased(0, 0xD9D0E1C0) then
                     isInteracting = true
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
@@ -139,6 +116,29 @@ Citizen.CreateThread(function ()
                         end
                     end)
                 end
+                if IsControlJustReleased(0, 0x156F7119) then
+                    print "demont"
+                    isInteracting = true
+                    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+                        MenuData.CloseAll()
+                        AddTextEntry("FMMC_MPM_TYP86", "Code")
+                        DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+                    
+                        while (UpdateOnscreenKeyboard() == 0) do
+                            DisableAllControlActions(0)
+                            Citizen.Wait(0)
+                        end
+                        if (GetOnscreenKeyboardResult()) then
+                            _inputcode = GetOnscreenKeyboardResult()
+                        else
+                        return
+                        end
+                                    
+                        if _inputcode == v.getcode then
+                            ManageVault(k, v.getmodel, weight, v.pos)
+                        end
+                    end)
+                end      
             end
         end
     end
