@@ -10,6 +10,9 @@ local PoseCoffrePromptShown = false
 
 local coordscache = {}
 
+print (Config.SmallVault)
+print (Config.MediumVault)
+print (Config.LargeVault)
 
 Citizen.CreateThread(function()
     local str = 'Annuler'
@@ -203,8 +206,8 @@ function Submenu(action, menu, stashid, model, weight, pos)
             for k, v in pairs(coordscache) do
                 if v.pos == pos then
                     print (pos)
-                    SetEntityAsMissionEntity(v.prop)
-                    DeleteObject(v.prop)
+                    SetEntityAsMissionEntity(v.object)
+                    DeleteObject(v.object)
                     TriggerServerEvent("dust_vault:server:removestash", stashid, model)
                 end
             end
@@ -281,7 +284,7 @@ Citizen.CreateThread(function()
                     PlaceObjectOnGroundProperly(prop)
                     print "spawn"
                     v.spawn = 'true'
-                    v.prop = prop
+                    v.object = prop
                 end
             end
         end
@@ -364,7 +367,7 @@ function posecoffre(model)
                             local prop = CreateObject(model, vaultpos.x, vaultpos.y, vaultpos.z, true, true, true)
                             SetEntityHeading(prop, tonumber(heading))
                             PlaceObjectOnGroundProperly(prop)
-                            table.insert(coordscache, {pos = vaultpos, spawn = 'true', head = heading, mod = model, prop = prop})
+                            table.insert(coordscache, {pos = vaultpos, spawn = 'true', head = heading, mod = model, object = prop})
                             return
                         end
                     end)
