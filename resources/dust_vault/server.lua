@@ -75,11 +75,12 @@ end)
 
 RegisterServerEvent("dust_vault:server:ChangeCode")
 AddEventHandler("dust_vault:server:ChangeCode", function(code, vaultcoords)
+	local coords = json.encode(vaultcoords)
 	MySQL.update(
 		'UPDATE vault SET `code`=@code WHERE `coords`=@coords;',
 		{
 			code = code,
-			coords = json.encode(vaultcoords)
+			coords = coords
 		}, function(rowsChanged)
 	end)
 end)
@@ -136,7 +137,8 @@ end)
 RegisterServerEvent("dust_vault:server:removestash")
 AddEventHandler("dust_vault:server:removestash", function(stashid, model)
 	local _source = source
-	local stashW = exports.redemrp_inventory.GetStashWeight(source, stashid)
+	local stashW = exports.redemrp_inventory.GetStashWeight(_source, stashid)
+	print (stashW)
 	if stashW == 0 then
 		MySQL.update('DELETE FROM vault WHERE `stashid`=@stashid', {stashid = stashid })
 		Citizen.Wait(100)
