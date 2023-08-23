@@ -10,9 +10,9 @@ local PoseCoffrePromptShown = false
 
 local coordscache = {}
 
-print (Config.SmallVault)
-print (Config.MediumVault)
-print (Config.LargeVault)
+print (tostring(Config.SmallVault))
+print (tostring(MediumVault))
+print (tostring(LargeVault))
 
 Citizen.CreateThread(function()
     local str = 'Annuler'
