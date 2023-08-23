@@ -130,50 +130,50 @@ end)
 
 
 ----- démonter
-TriggerServerEvent("dust_vault:server:removestash", stashid, model)
+-- TriggerServerEvent("dust_vault:server:removestash", stashid, model)
 
 ---- changer code
-TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-    MenuData.CloseAll()
-    AddTextEntry("FMMC_MPM_TYP86", "Code Actuel")
-    DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+-- TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+--     MenuData.CloseAll()
+--     AddTextEntry("FMMC_MPM_TYP86", "Code Actuel")
+--     DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
 
-    while (UpdateOnscreenKeyboard() == 0) do
-        DisableAllControlActions(0)
-        Citizen.Wait(0)
-    end
-    if (GetOnscreenKeyboardResult()) then
-        inputcode = GetOnscreenKeyboardResult()
-    else
-        menu.close()
-    return
-    end
+--     while (UpdateOnscreenKeyboard() == 0) do
+--         DisableAllControlActions(0)
+--         Citizen.Wait(0)
+--     end
+--     if (GetOnscreenKeyboardResult()) then
+--         inputcode = GetOnscreenKeyboardResult()
+--     else
+--         menu.close()
+--     return
+--     end
                 
-    if inputcode == code then
-        TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-            MenuData.CloseAll()
-            AddTextEntry("FMMC_MPM_TYP86", "Nouveau Code")
-            DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+--     if inputcode == code then
+--         TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+--             MenuData.CloseAll()
+--             AddTextEntry("FMMC_MPM_TYP86", "Nouveau Code")
+--             DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
         
-            while (UpdateOnscreenKeyboard() == 0) do
-                DisableAllControlActions(0)
-                Citizen.Wait(0)
-            end
-            if (GetOnscreenKeyboardResult()) then
-                newcode = GetOnscreenKeyboardResult()
-            else
-                menu.close()
-            return
-            end
+--             while (UpdateOnscreenKeyboard() == 0) do
+--                 DisableAllControlActions(0)
+--                 Citizen.Wait(0)
+--             end
+--             if (GetOnscreenKeyboardResult()) then
+--                 newcode = GetOnscreenKeyboardResult()
+--             else
+--                 menu.close()
+--             return
+--             end
                         
-            if #(newcode) >= 1 then
-                TriggerServerEvent("dust_vault:server:ChangeCode")
-                TriggerEvent("redemrp_inventory:OpenStash", stashid, weight)
-            return
-            end
-        end)
-    end
-end)
+--             if #(newcode) >= 1 then
+--                 TriggerServerEvent("dust_vault:server:ChangeCode")
+--                 TriggerEvent("redemrp_inventory:OpenStash", stashid, weight)
+--             return
+--             end
+--         end)
+--     end
+-- end)
 
 ----- REQUEST LES MODEL ----
 
