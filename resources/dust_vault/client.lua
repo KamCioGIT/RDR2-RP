@@ -150,7 +150,7 @@ function ManageVault(stashid, model, weight, pos)
 
         local elements = {
             {label = "Changer le code", value = 'changecode', desc = "Changer le code du coffre"},
-            {label = "Démonter", value = 'démonter', desc = "Récupérer le coffre si il est vide"}
+            {label = "Démonter", value = 'demonter', desc = "Récupérer le coffre si il est vide"}
         }
 
         MenuData.Open('default', GetCurrentResourceName(), 'Coffre Fort', {
@@ -198,7 +198,7 @@ function Submenu(action, menu, stashid, model, weight, pos)
         end
         if action == "change code" then
             TriggerServerEvent("dust_vault:server:removestash", stashid, model)
-        elseif action == "démonter" then
+        elseif action == "demonter" then
             TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                 MenuData.CloseAll()
                 AddTextEntry("FMMC_MPM_TYP86", "Nouveau Code")
