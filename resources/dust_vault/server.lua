@@ -121,12 +121,14 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos, heading,
 	)
 	if model == Config.SmallVault then
 		local itemData = data.getItem(_source, "smallvault")
+		ItemData.RemoveItem(1)
 	elseif model == Config.MediumVault then
 		local itemData = data.getItem(_source, "mediumvault")
+		ItemData.RemoveItem(1)
 	elseif model == Config.LargeVault then
 		local itemData = data.getItem(_source, "largevault")
+		ItemData.RemoveItem(1)
 	end
-	ItemData.RemoveItem(1)
 end)
 
 --- SUPPRIMER LE VAULT DE LA DB QUAND ON LE REPREND, S'ASSURER QUE LE COFFRE EST VIDE ----
@@ -140,12 +142,13 @@ AddEventHandler("dust_vault:server:removestash", function(stashid, model)
 		MySQL.update('DELETE FROM stashes WHERE `stashid`=@stashid', {stashid = stashid })
 		if model == Config.SmallVault then
 			local itemData = data.getItem(_source, "smallvault")
+			ItemData.AddItem(1)
 		elseif model == Config.MediumVault then
 			local itemData = data.getItem(_source, "mediumvault")
+			ItemData.AddItem(1)
 		elseif model == Config.LargeVault then
 			local itemData = data.getItem(_source, "largevault")
+			ItemData.AddItem(1)
 		end
-		ItemData.AddItem(1)
 	end
-
 end)
