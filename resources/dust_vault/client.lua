@@ -191,19 +191,7 @@ function Submenu(action, menu, stashid, model, weight, pos)
             Wait(0)
         end
         if action == "demonter" then
-            for k, v in pairs(coordscache) do
-                if v.pos == pos then
-                    print (pos)
-                    SetEntityAsMissionEntity(v.object)
-                    DeleteObject(v.object)
-                    TriggerServerEvent("dust_vault:server:removestash", stashid, model)
-                end
-                for k, v in pairs(stashcache) do
-                    if pos == v.pos then
-                        v.pos = vector3(0.0, 0.0, 0.0)
-                    end
-                end
-            end
+            TriggerServerEvent("dust_vault:server:removestash", stashid, model, pos)
         elseif action == "changecode" then
             TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                 MenuData.CloseAll()
@@ -230,6 +218,22 @@ function Submenu(action, menu, stashid, model, weight, pos)
         end
     end)
 end
+
+RegisterNetEvent("dust_vault:server:delvault")
+AddEventHandler("dust_vault:server:delvault", function (pos)
+    for k, v in pairs(coordscache) do
+        if v.pos == pos then
+            print (pos)
+            SetEntityAsMissionEntity(v.object)
+            DeleteObject(v.object)
+        end
+        for k, v in pairs(stashcache) do
+            if pos == v.pos then
+                v.pos = vector3(0.0, 0.0, 0.0)
+            end
+        end
+    end
+end)
 
 ----- REQUEST LES MODEL ----
 

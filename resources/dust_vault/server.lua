@@ -135,15 +135,16 @@ end)
 --- SUPPRIMER LE VAULT DE LA DB QUAND ON LE REPREND, S'ASSURER QUE LE COFFRE EST VIDE ----
 
 RegisterServerEvent("dust_vault:server:removestash")
-AddEventHandler("dust_vault:server:removestash", function(stashid, model)
+AddEventHandler("dust_vault:server:removestash", function(stashid, model, pos)
 	local _source = source
 	local stashW = exports.redemrp_inventory.GetStashWeight(source, tostring(stashid))
 	print (stashW)
-	if stashW == 0.0 then
+	if stashW == 0 then
 		print 'yayaya'
 		MySQL.update('DELETE FROM vault WHERE `stashid`=@stashid', {stashid = stashid })
 		Citizen.Wait(100)
 		MySQL.update('DELETE FROM stashes WHERE `stashid`=@stashid', {stashid = stashid })
+		TriggerClientEvent("dust_vault:server:delvault", _source, pos)
 		if model == Config.SmallVault then
 			local ItemData = data.getItem(_source, "smallvault")
 			ItemData.AddItem(1)
