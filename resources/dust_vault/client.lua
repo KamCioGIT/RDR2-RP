@@ -248,6 +248,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
 end)
 
 Citizen.CreateThread(function()
+    local playerPos = GetEntityCoords(PlayerPedId())
     while true do
         Citizen.Wait(1000)
         -- print(#coordscache)
