@@ -214,8 +214,7 @@ end)
 ---- SPAWN DES COFFRES EN DB ----
 RegisterNetEvent("dust_vault:server:getcoords")
 AddEventHandler("dust_vault:server:getcoords", function (coords)
-    local vaultpos = vector3(coords.x, coords.y, coords.z)
-    TriggerServerEvent("dust_vault:server:AskModel", vaultpos)
+    TriggerServerEvent("dust_vault:server:AskModel", coords)
 end)
 
 
