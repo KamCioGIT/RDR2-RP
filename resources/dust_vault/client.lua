@@ -200,7 +200,7 @@ function Submenu(action, menu, stashid, model, weight, pos)
                 end
                 for k, v in pairs(stashcache) do
                     if pos == v.pos then
-                        stashcache[k] = {pos = nil, getcode = code, getmodel = model}
+                        v.pos = nil
                     end
                 end
             end
