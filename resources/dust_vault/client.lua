@@ -253,7 +253,7 @@ Citizen.CreateThread(function()
         -- print(#coordscache)
         for k, v in pairs (coordscache) do 
             if #(playerPos - v.pos) < 10.0 then
-                if v.spawn == 'false'
+                if v.spawn == 'false' then
                     local prop = CreateObject(v.mod, v.pos.x, v.pos.y, v.pos.z, false, true, true)
                     SetEntityHeading(prop, tonumber(v.head))
                     PlaceObjectOnGroundProperly(prop)
