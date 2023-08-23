@@ -76,13 +76,12 @@ AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code,
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     if not stashcache[stashid] then
         stashcache[stashid] = {pos = vaultpos, getcode = code, getmodel = model}
-        print (#stashcache)
     end
 end)
 
 Citizen.CreateThread(function ()
     while true do
-        Citizen.Wait(0)
+        Citizen.Wait(2)
         local playerPos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(stashcache) do
             if #(playerPos - v.pos) < 1.5 and not IsInteracting then
