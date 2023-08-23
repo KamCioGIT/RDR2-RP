@@ -30,5 +30,5 @@ Config.SmallVault = GetHashKey('s_vault_sml_r_val01x')
 Config.MediumVault = GetHashKey("s_vault_med_r_val01x")
 Config.LargeVault = GetHashKey('s_vault_lrg_l_val01x')
 
-Config.DistanceAffichage = 200.0
+Config.DistanceAffichage = 100.0
 

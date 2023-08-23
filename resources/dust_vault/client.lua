@@ -232,7 +232,7 @@ Citizen.CreateThread(function()
         local playerPos = GetEntityCoords(PlayerPedId())
         -- print(#coordscache)
         for k, v in pairs (coordscache) do 
-            if #(playerPos - v.pos) < 10.0 then
+            if #(playerPos - v.pos) < Config.DistanceAffichage then
                 if v.spawn == 'false' then
                     local prop = CreateObject(v.mod, v.pos.x, v.pos.y, v.pos.z, false, true, true)
                     SetEntityHeading(prop, tonumber(v.head))
