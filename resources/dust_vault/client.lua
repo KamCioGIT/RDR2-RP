@@ -195,19 +195,40 @@ end)
 ----- REQUEST LES MODEL ----
 
 Citizen.CreateThread(function()
-    RequestModel(Config.SmallVault, true)
-    while not HasModelLoaded(Config.SmallVault) do
-        Citizen.Wait(0)
-    end
-    RequestModel(Config.MediumVault, true)
-    while not HasModelLoaded(Config.MediumVault, true) do
-        Citizen.Wait(0)
-    end
-    RequestModel(Config.LargeVault, true)
-    while not HasModelLoaded(Config.LargeVault, true) do
-        Citizen.Wait(0)
-    end
-    TriggerServerEvent("dust_vault:server:Askcoords")
+    Citizen.CreateThread(function()
+        local PlayerData = RedEM.GetPlayerData()
+        while RedEM.GetPlayerData().isLoggedIn ~= true do 
+                Wait(1000)
+                RequestModel(Config.SmallVault, true)
+            while not HasModelLoaded(Config.SmallVault) do
+                Citizen.Wait(0)
+            end
+            RequestModel(Config.MediumVault, true)
+            while not HasModelLoaded(Config.MediumVault, true) do
+                Citizen.Wait(0)
+            end
+            RequestModel(Config.LargeVault, true)
+            while not HasModelLoaded(Config.LargeVault, true) do
+                Citizen.Wait(0)
+            end
+            TriggerServerEvent("dust_vault:server:Askcoords")
+        end
+        if RedEM.GetPlayerData().isLoggedIn then 
+            RequestModel(Config.SmallVault, true)
+            while not HasModelLoaded(Config.SmallVault) do
+                Citizen.Wait(0)
+            end
+            RequestModel(Config.MediumVault, true)
+            while not HasModelLoaded(Config.MediumVault, true) do
+                Citizen.Wait(0)
+            end
+            RequestModel(Config.LargeVault, true)
+            while not HasModelLoaded(Config.LargeVault, true) do
+                Citizen.Wait(0)
+            end
+            TriggerServerEvent("dust_vault:server:Askcoords")
+        end
+    end)
 end)
 
 
