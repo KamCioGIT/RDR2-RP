@@ -138,9 +138,10 @@ Citizen.CreateThread(function ()
                             TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                                 MenuData.CloseAll()
                         
-                                local elements = {}
-                                    table.insert(elements, {label = "Changer le code", value = 'changecode', desc = "Changer le code du coffre"})
-                                    table.insert(elements, {label = "Démonter", value = 'démonter', desc = "Récupérer le coffre si il est vide"})
+                                local elements = {
+                                    {label = "Changer le code", value = 'changecode', desc = "Changer le code du coffre"},
+                                    {label = "Démonter", value = 'démonter', desc = "Récupérer le coffre si il est vide"}
+                                }
                         
                                 MenuData.Open('default', GetCurrentResourceName(), 'Coffre Fort', {
                                     title = "Coffre Fort",
