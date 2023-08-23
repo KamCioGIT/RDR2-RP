@@ -159,5 +159,5 @@ AddEventHandler("dust_vault:server:removestash", function(stashid, model)
 				end
 			end
 		end
-	end
+	end)
 end)
