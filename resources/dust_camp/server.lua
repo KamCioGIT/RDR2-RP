@@ -19,8 +19,6 @@ AddEventHandler('camp:CraftItem', function(itemNameStr, playerPedId)
 end)
 
 RegisterServerEvent("camp:RequestCampMenu", function(menutype)
-	print (menutype)
-	print('RequestCampMenu')
     local _source = source
 	TriggerClientEvent("camp:OpenCampMenu", _source, menutype)
 end)

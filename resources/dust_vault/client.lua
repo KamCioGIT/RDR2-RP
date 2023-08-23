@@ -111,7 +111,6 @@ Citizen.CreateThread(function ()
                         end
                                     
                         if inputcode == v.getcode then
-                            print "correct"
                             TriggerEvent("redemrp_inventory:OpenStash", k, weight)
                         return
                         end
@@ -131,7 +130,6 @@ Citizen.CreateThread(function ()
                         if (GetOnscreenKeyboardResult()) then
                             _inputcode = GetOnscreenKeyboardResult()
                         else
-                            menu.close()
                         return
                         end
                                     
