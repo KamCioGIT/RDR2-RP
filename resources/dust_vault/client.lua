@@ -199,6 +199,7 @@ function Submenu(action, menu, stashid, model, weight, pos)
         if action == "demonter" then
             for k, v in pairs(coordscache) do
                 if v.pos == pos then
+                    print (pos)
                     SetEntityAsMissionEntity(v.prop)
                     DeleteObject(v.prop)
                     TriggerServerEvent("dust_vault:server:removestash", stashid, model)
