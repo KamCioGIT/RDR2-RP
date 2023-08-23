@@ -143,7 +143,7 @@ AddEventHandler("dust_vault:server:removestash", function(stashid, model)
 			for i = 1, #result do
 				local items = json.decode(result[i].items)
 				print (items)
-				for k, v in pairs(items) then
+				for k, v in pairs(items) do
 					print 'yayaya'
 						MySQL.update('DELETE FROM vault WHERE `stashid`=@stashid', {stashid = stashid })
 						Citizen.Wait(100)
