@@ -74,8 +74,9 @@ local stashcache = {}
 RegisterNetEvent("dust_vault:server:getStashes")
 AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code, model)
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    if  not stashcache[stashid] then
+    if stashcache[stashid] == nil then
         stashcache[stashid] = {pos = vaultpos, getcode = code, getmodel = model}
+        print (#(stashcache))
     end
 end)
 
