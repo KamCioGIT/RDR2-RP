@@ -193,6 +193,7 @@ function Submenu(action, menu, stashid, model, weight, pos)
             TriggerServerEvent("dust_vault:server:removestash", stashid, model, pos)
         end
         if action == "changecode" then
+            Citizen.Wait(100)
             TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                 MenuData.CloseAll()
                 AddTextEntry("FMMC_MPM_TYP86", "Nouveau Code")
