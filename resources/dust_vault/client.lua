@@ -364,15 +364,14 @@ function posecoffre(model)
                             SetEntityHeading(prop, tonumber(heading))
                             PlaceObjectOnGroundProperly(prop)
                             table.insert(coordscache, {pos = vaultpos, spawn = 'true', head = heading, mod = model, object = prop})
-                            model = nil
-                            return
+                            return model
                         end
                     end)
                 end
                 if IsControlJustReleased(0, 0x8E90C7BB) then
                     PoseCoffrePromptShown = true
-                    model = nil
-                    return
+                    ---- cancel anim
+                    return model 
                 end
             end
             
