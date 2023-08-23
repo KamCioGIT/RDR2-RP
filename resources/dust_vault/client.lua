@@ -114,6 +114,7 @@ Citizen.CreateThread(function ()
                             end
                                         
                             if inputcode == v.getcode then
+                                print "correct"
                                 TriggerEvent("redemrp_inventory:OpenStash", v.stashid, weight)
                             return
                             end
