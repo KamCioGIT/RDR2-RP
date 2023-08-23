@@ -8,6 +8,9 @@ local LeavePrompt
 local CoffrePrompt
 local PoseCoffrePromptShown = false
 
+local coordscache = {}
+
+
 Citizen.CreateThread(function()
     local str = 'Annuler'
     CoffrePrompt = PromptRegisterBegin()
@@ -258,7 +261,6 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
     TriggerServerEvent("dust_vault:server:AskModel", vaultpos)
 end)
 
-local coordscache = {}
 RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
     local playerPos = GetEntityCoords(PlayerPedId())
