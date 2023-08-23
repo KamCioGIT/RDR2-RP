@@ -310,9 +310,8 @@ end)
 
 function posecoffre(model)
     PoseCoffrePromptShown = false
-    local vault = model
     Citizen.CreateThread(function()
-        while true do
+        while not spawned do
             Citizen.Wait(0)
             local playerPed = PlayerPedId()
             if PoseCoffrePromptShown == false then
@@ -360,17 +359,19 @@ function posecoffre(model)
                             end
                             local heading = GetEntityHeading(PlayerPedId())
                             local vaultpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.0)
-                            TriggerServerEvent("dust_vault:server:vaultDB", vault, vaultpos, heading, code) -- Créer le vault dans la db
-                            local prop = CreateObject(vault, vaultpos.x, vaultpos.y, vaultpos.z, true, true, true)
+                            TriggerServerEvent("dust_vault:server:vaultDB", model, vaultpos, heading, code) -- Créer le vault dans la db
+                            local prop = CreateObject(model, vaultpos.x, vaultpos.y, vaultpos.z, true, true, true)
                             SetEntityHeading(prop, tonumber(heading))
                             PlaceObjectOnGroundProperly(prop)
-                            table.insert(coordscache, {pos = vaultpos, spawn = 'true', head = heading, mod = vault, object = prop})
+                            table.insert(coordscache, {pos = vaultpos, spawn = 'true', head = heading, mod = model, object = prop})
+                            spawned = true
                             return
                         end
                     end)
                 end
                 if IsControlJustReleased(0, 0x8E90C7BB) then
                     PoseCoffrePromptShown = true
+                    spawned = true
                     ---- cancel anim
                     return
                 end
