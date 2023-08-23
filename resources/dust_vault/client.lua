@@ -65,7 +65,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait (1000)
+        Citizen.Wait (5000)
         TriggerServerEvent("dust_vault:server:AskStashes")
     end
 end)
@@ -80,92 +80,93 @@ AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code,
 end)
 
 Citizen.CreateThread(function ()
-    while true do
-        Citizen.Wait(0)
-        local playerPos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(stashcache) do
-            if #(playerPos - v.pos) < 1.5 and not IsInteracting then
-                print "azveba"
-                PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
-                if v.getmodel == Config.SmallVault then
-                    weight = Config.SmallWeight
-                elseif v.getmodel == Config.MediumVault then
-                    weight = Config.MediumWeight
-                elseif v.getmodel == Config.LargeVault then
-                    weight = Config.LargeWeight
-                end
-                if IsControlJustReleased(0, 0xD9D0E1C0) then
-                    isInteracting = true
-                    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                        MenuData.CloseAll()
-                        AddTextEntry("FMMC_MPM_TYP86", "Code")
-                        DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
-                    
-                        while (UpdateOnscreenKeyboard() == 0) do
-                            DisableAllControlActions(0)
-                            Citizen.Wait(0)
-                        end
-                        if (GetOnscreenKeyboardResult()) then
-                            inputcode = GetOnscreenKeyboardResult()
-                        else
-                        return
-                        end
-                                    
-                        if inputcode == v.getcode then
-                            TriggerEvent("redemrp_inventory:OpenStash", k, weight)
-                        return
-                        end
-                    end)
-                end
-                if PromptHasHoldModeCompleted(DemontPrompt) then
-                    isInteracting = true
-                    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                        MenuData.CloseAll()
-                        AddTextEntry("FMMC_MPM_TYP86", "Code")
-                        DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
-                    
-                        while (UpdateOnscreenKeyboard() == 0) do
-                            DisableAllControlActions(0)
-                            Citizen.Wait(0)
-                        end
-                        if (GetOnscreenKeyboardResult()) then
-                            _inputcode = GetOnscreenKeyboardResult()
-                        else
-                        return
-                        end
-                                    
-                        if _inputcode == v.getcode then
-                            TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                                MenuData.CloseAll()
+            while true do
+                Citizen.Wait(0)
+                local playerPos = GetEntityCoords(PlayerPedId())
+                if #(playerPos - v.pos) < 1.5 and not IsInteracting then
+                    PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
+                    if v.getmodel == Config.SmallVault then
+                        weight = Config.SmallWeight
+                    elseif v.getmodel == Config.MediumVault then
+                        weight = Config.MediumWeight
+                    elseif v.getmodel == Config.LargeVault then
+                        weight = Config.LargeWeight
+                    end
+                    if IsControlJustReleased(0, 0xD9D0E1C0) then
+                        print 'bite'
+                        isInteracting = true
+                        TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+                            MenuData.CloseAll()
+                            AddTextEntry("FMMC_MPM_TYP86", "Code")
+                            DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
                         
-                                local elements = {
-                                    {label = "Changer le code", value = 'changecode', desc = "Changer le code du coffre"},
-                                    {label = "Démonter", value = 'démonter', desc = "Récupérer le coffre si il est vide"}
-                                }
+                            while (UpdateOnscreenKeyboard() == 0) do
+                                DisableAllControlActions(0)
+                                Citizen.Wait(0)
+                            end
+                            if (GetOnscreenKeyboardResult()) then
+                                inputcode = GetOnscreenKeyboardResult()
+                            else
+                            return
+                            end
+                                        
+                            if inputcode == v.getcode then
+                                TriggerEvent("redemrp_inventory:OpenStash", k, weight)
+                            return
+                            end
+                        end)
+                    end
+                    if PromptHasHoldModeCompleted(DemontPrompt) then
+                        print 'cul'
+                        isInteracting = true
+                        TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+                            MenuData.CloseAll()
+                            AddTextEntry("FMMC_MPM_TYP86", "Code")
+                            DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
                         
-                                MenuData.Open('default', GetCurrentResourceName(), 'Coffre Fort', {
-                                    title = "Coffre Fort",
-                                    subtext = "Gestion",
-                                    align = 'top-right',
-                                    elements = elements,
-                                },
-                                
-                                function(data, menu)
+                            while (UpdateOnscreenKeyboard() == 0) do
+                                DisableAllControlActions(0)
+                                Citizen.Wait(0)
+                            end
+                            if (GetOnscreenKeyboardResult()) then
+                                _inputcode = GetOnscreenKeyboardResult()
+                            else
+                            return
+                            end
+                                        
+                            if _inputcode == v.getcode then
+                                TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                                     MenuData.CloseAll()
-                                    ManageVault(data.current.value, menu, k, v.getmodel, weight, v.pos)
-                                end,
-                        
-                                function(data, menu)
-                                    menu.close()
-                                    isInteracting = false
+                            
+                                    local elements = {
+                                        {label = "Changer le code", value = 'changecode', desc = "Changer le code du coffre"},
+                                        {label = "Démonter", value = 'démonter', desc = "Récupérer le coffre si il est vide"}
+                                    }
+                            
+                                    MenuData.Open('default', GetCurrentResourceName(), 'Coffre Fort', {
+                                        title = "Coffre Fort",
+                                        subtext = "Gestion",
+                                        align = 'top-right',
+                                        elements = elements,
+                                    },
+                                    
+                                    function(data, menu)
+                                        MenuData.CloseAll()
+                                        ManageVault(data.current.value, menu, k, v.getmodel, weight, v.pos)
+                                    end,
+                            
+                                    function(data, menu)
+                                        menu.close()
+                                        isInteracting = false
+                                    end)
                                 end)
-                            end)
-                        end
-                    end)
-                end      
+                            end
+                        end)
+                    end      
+                end
             end
         end
-    end
 end)
 
 function ManageVault(action, menu, stashid, model, weight, pos)
