@@ -250,7 +250,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
         while true do
             Citizen.Wait(1000)
             for k, v in ipairs(coordscache) do
-                table.getn(coordscache)
+                print(#coordscache)
                 if v == vaultpos then 
                     if #(playerPos - v) < 10.0 then
                         local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
