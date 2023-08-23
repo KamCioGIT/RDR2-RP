@@ -243,7 +243,6 @@ end)
 RegisterNetEvent('smallvault')
 AddEventHandler('smallvault', function() 
     posecoffre(Config.SmallVault)
-    print ("test")
 end)
 
 RegisterNetEvent('mediumvault')
@@ -263,6 +262,7 @@ function posecoffre(model)
     local vault = model
     local playerPed = PlayerPedId()
     PoseCoffrePromptShown = false
+    print("posecoffre")
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(0)
