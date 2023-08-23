@@ -75,7 +75,7 @@ RegisterNetEvent("dust_vault:server:getStashes")
 AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code, model)
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     if  not stashcache[stashid] then
-        stashcache[stashid] = {pos = vaultpos, code = code, model = model}
+        stashcache[stashid] = {pos = vaultpos, getcode = code, getmodel = model}
     end
 end)
 
@@ -90,11 +90,11 @@ Citizen.CreateThread(function ()
                     PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
                     if IsControlJustReleased(0, 0xD9D0E1C0) then
                         isInteracting = true
-                        if v.model == Config.SmallVault then
+                        if v.getmodel == Config.SmallVault then
                             weight = Config.SmallWeight
-                        elseif v.model == Config.MediumVault then
+                        elseif v.getmodel == Config.MediumVault then
                             weight = Config.MediumWeight
-                        elseif v.model == Config.LargeVault then
+                        elseif v.getmodel == Config.LargeVault then
                             weight = Config.LargeWeight
                         end
                         TriggerEvent("redemrp_menu_base:getData", function(MenuData)
@@ -113,7 +113,7 @@ Citizen.CreateThread(function ()
                             return
                             end
                                         
-                            if inputcode == v.code then
+                            if inputcode == v.getcode then
                                 TriggerEvent("redemrp_inventory:OpenStash", v.stashid, weight)
                             return
                             end
