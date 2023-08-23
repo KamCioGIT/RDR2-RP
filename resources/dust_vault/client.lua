@@ -215,7 +215,7 @@ function Submenu(action, menu, stashid, model, weight, pos)
                     TriggerEvent("redemrp_inventory:OpenStash", stashid, weight)
                     for k, v in pairs(stashcache) do
                         if pos == v.pos then
-                            v.getcode = tonumber(newcode)
+                            v.getcode = tostring(newcode)
                         end
                     end
                 return
