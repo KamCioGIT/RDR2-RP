@@ -82,10 +82,10 @@ end)
 Citizen.CreateThread(function ()
     while true do
         Citizen.Wait(0)
-        print "tzcav"
         local playerPos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(stashcache) do
             if #(playerPos - v.pos) < 1.5 and not IsInteracting then
+                print "azveba"
                 PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
                 if v.getmodel == Config.SmallVault then
                     weight = Config.SmallWeight
