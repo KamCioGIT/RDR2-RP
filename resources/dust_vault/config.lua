@@ -32,3 +32,6 @@ Config.LargeVault = GetHashKey('s_vault_lrg_l_val01x')
 
 Config.DistanceAffichage = 100.0
 
+Config.SmallWeight = 50.0
+Config.MediumWeight = 100.0
+Config.LargeWeight = 300.0

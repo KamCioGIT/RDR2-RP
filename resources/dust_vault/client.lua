@@ -36,7 +36,6 @@ local OpenCoffrePromptGroup = GetRandomIntInRange(0, 0xffffff)
 local OpenCoffrePromptName = CreateVarString(10, "LITERAL_STRING", "Coffre fort")
 local OpenPrompt
 local DemontPrompt
-local ChangeCodePrompt
 local OpenCoffrePromptShown = false
 Citizen.CreateThread(function()
     local str = 'Ouvrir'
@@ -50,18 +49,7 @@ Citizen.CreateThread(function()
     PromptSetGroup(OpenPrompt, OpenCoffrePromptGroup)
     PromptRegisterEnd(OpenPrompt)
 
-    str = 'Changer le code'
-    ChangeCodePrompt = PromptRegisterBegin()
-    PromptSetControlAction(ChangeCodePrompt, 0x4AF4D473)
-    str = CreateVarString(10, 'LITERAL_STRING', str)
-    PromptSetText(ChangeCodePrompt, str)
-    PromptSetEnabled(ChangeCodePrompt, true)
-    PromptSetVisible(ChangeCodePrompt, true)
-    PromptSetHoldMode(ChangeCodePrompt, true)
-    PromptSetGroup(ChangeCodePrompt, OpenCoffrePromptGroup)
-    PromptRegisterEnd(ChangeCodePrompt)
-
-    str = 'Démonter'
+    local str = 'Gérer'
     DemontPrompt = PromptRegisterBegin()
     PromptSetControlAction(DemontPrompt, 0x156F7119)
     str = CreateVarString(10, 'LITERAL_STRING', str)
@@ -109,7 +97,6 @@ Citizen.CreateThread(function ()
                         elseif model == Config.LargeVault then
                             weight = Config.LargeWeight
                         end
-                        OpenCoffrePromptShown = true
                         TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                             MenuData.CloseAll()
                             AddTextEntry("FMMC_MPM_TYP86", "Code")
@@ -132,63 +119,8 @@ Citizen.CreateThread(function ()
                             end
                         end)
                     end
-                    if PromptHasHoldModeCompleted(ChangeCodePrompt) then
-                        PromptSetEnabled(DemontPrompt, false)
-                        PromptSetVisible(DemontPrompt, false)
-                        PromptSetEnabled(ChangeCodePrompt, false)
-                        PromptSetVisible(ChangeCodePrompt, false)
-                        PromptSetEnabled(OpenPrompt, false)
-                        PromptSetVisible(OpenPrompt, false)
-                        TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                            MenuData.CloseAll()
-                            AddTextEntry("FMMC_MPM_TYP86", "Code Actuel")
-                            DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
-                        
-                            while (UpdateOnscreenKeyboard() == 0) do
-                                DisableAllControlActions(0)
-                                Citizen.Wait(0)
-                            end
-                            if (GetOnscreenKeyboardResult()) then
-                                inputcode = GetOnscreenKeyboardResult()
-                            else
-                                menu.close()
-                            return
-                            end
-                                        
-                            if inputcode == code then
-                                TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                                    MenuData.CloseAll()
-                                    AddTextEntry("FMMC_MPM_TYP86", "Nouveau Code")
-                                    DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
-                                
-                                    while (UpdateOnscreenKeyboard() == 0) do
-                                        DisableAllControlActions(0)
-                                        Citizen.Wait(0)
-                                    end
-                                    if (GetOnscreenKeyboardResult()) then
-                                        newcode = GetOnscreenKeyboardResult()
-                                    else
-                                        menu.close()
-                                    return
-                                    end
-                                                
-                                    if #(newcode) >= 1 then
-                                        TriggerServerEvent("dust_vault:server:ChangeCode")
-                                        TriggerEvent("redemrp_inventory:OpenStash", stashid, weight)
-                                    return
-                                    end
-                                end)
-                            end
-                        end)
-                    end
                     if PromptHasHoldModeCompleted(DemontPrompt) then
-                        PromptSetEnabled(DemontPrompt, false)
-                        PromptSetVisible(DemontPrompt, false)
-                        PromptSetEnabled(ChangeCodePrompt, false)
-                        PromptSetVisible(ChangeCodePrompt, false)
-                        PromptSetEnabled(OpenPrompt, false)
-                        PromptSetVisible(OpenPrompt, false)
-                        TriggerServerEvent("dust_vault:server:removestash", stashid, model)
+                        isInteracting = true
                     end      
                 end
             end
@@ -196,6 +128,52 @@ Citizen.CreateThread(function ()
     end
 end)
 
+
+----- démonter
+TriggerServerEvent("dust_vault:server:removestash", stashid, model)
+
+---- changer code
+TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+    MenuData.CloseAll()
+    AddTextEntry("FMMC_MPM_TYP86", "Code Actuel")
+    DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+
+    while (UpdateOnscreenKeyboard() == 0) do
+        DisableAllControlActions(0)
+        Citizen.Wait(0)
+    end
+    if (GetOnscreenKeyboardResult()) then
+        inputcode = GetOnscreenKeyboardResult()
+    else
+        menu.close()
+    return
+    end
+                
+    if inputcode == code then
+        TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+            MenuData.CloseAll()
+            AddTextEntry("FMMC_MPM_TYP86", "Nouveau Code")
+            DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+        
+            while (UpdateOnscreenKeyboard() == 0) do
+                DisableAllControlActions(0)
+                Citizen.Wait(0)
+            end
+            if (GetOnscreenKeyboardResult()) then
+                newcode = GetOnscreenKeyboardResult()
+            else
+                menu.close()
+            return
+            end
+                        
+            if #(newcode) >= 1 then
+                TriggerServerEvent("dust_vault:server:ChangeCode")
+                TriggerEvent("redemrp_inventory:OpenStash", stashid, weight)
+            return
+            end
+        end)
+    end
+end)
 
 ----- REQUEST LES MODEL ----
 
