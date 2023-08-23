@@ -248,17 +248,17 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(1000)
-            for k, v in ipairs(coordscache) do
-                print(#coordscache)
-                -- if v == vaultpos then 
-                    if #(playerPos - v) < 10.0 then
+            if #(playerPos - vaultpos) < 10.0 then
+                for k, v in ipairs(coordscache) do
+                    print(#coordscache)
+                    if v == vaultpos then 
                         local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
                         SetEntityHeading(prop, tonumber(heading))
                         PlaceObjectOnGroundProperly(prop)
                         table.remove(coordscache, k)
                         print "spawn"
                     end
-                -- end
+                end
             end
         end
     end)
