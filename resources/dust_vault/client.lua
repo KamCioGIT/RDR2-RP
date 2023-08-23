@@ -85,7 +85,7 @@ Citizen.CreateThread(function ()
         local playerPos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(stashcache) do
             if #(playerPos - v.pos) < 6.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.pos.x + 0.5, v.pos.y + 0.3, v.pos.z, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.pos.x, v.pos.y, v.pos.z, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
                 if #(playerPos - v.pos) < 1.5 and not IsInteracting then
                     PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
                     if IsControlJustReleased(0, 0xD9D0E1C0) then
