@@ -130,13 +130,14 @@ Citizen.CreateThread(function ()
                             Citizen.Wait(0)
                         end
                         if (GetOnscreenKeyboardResult()) then
-                            inputcode = GetOnscreenKeyboardResult()
+                            _inputcode = GetOnscreenKeyboardResult()
                         else
                             menu.close()
                         return
                         end
                                     
-                        if inputcode == v.getcode then
+                        if _inputcode == v.getcode then
+                            print 'yesss'
                             TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                                 MenuData.CloseAll()
                         
