@@ -239,15 +239,17 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
     TriggerServerEvent("dust_vault:server:AskModel", vaultpos)
 end)
 
-local coordscache = {}
+
 RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
+    local coordscache = {}
+    print (vaultpos)
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(1000)
-            print(#coordscache)
+            -- print(#coordscache)
             if not coordscache[vaultpos] then 
                 if #(playerPos - vaultpos) < 10.0 then
                     local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
