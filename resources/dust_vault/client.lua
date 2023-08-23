@@ -117,18 +117,8 @@ Citizen.CreateThread(function ()
                     end)
                 end
                 if PromptHasHoldModeCompleted(DemontPrompt) then
+                    print "test"
                     isInteracting = true
-                    Citizen.CreateThread(function()
-                        while true do
-                            Wait(100)
-                            if #(Position - GetEntityCoords(PlayerPedId())) > 1.5 then
-                                TriggerEvent("redemrp_menu_base:getData", function(call)
-                                    call.CloseAll()
-                                end)
-                                return
-                            end
-                        end
-                    end)
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                         MenuData.CloseAll()
                         AddTextEntry("FMMC_MPM_TYP86", "Code")
