@@ -181,20 +181,7 @@ end
 function Submenu(action, menu, stashid, model, weight, pos)
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
-    FreezeEntityPosition(playerPed, true)
     isInteracting = true
-    RequestAnimDict(Config.CookDict)
-    while not HasAnimDictLoaded(Config.CookDict) do
-        Citizen.Wait(50)
-    end
-    for k,v in pairs(Config.CookAnim) do
-        TaskPlayAnim(playerPed, Config.CookDict, v, 8.0, -8.0, -1, 2, 0, true)
-        Citizen.Wait(2000)
-    end
-    for k,v in pairs(Config.CookAnim2) do
-        TaskPlayAnim(playerPed, Config.CookDict, v, 8.0, -8.0, -1, 2, 0, true)
-        Citizen.Wait(1000)
-    end
     menu.close()
     local timer = GetGameTimer() + Config.WorkingTime
     isInteracting = true
