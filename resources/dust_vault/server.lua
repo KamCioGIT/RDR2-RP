@@ -140,7 +140,7 @@ AddEventHandler("dust_vault:server:removestash", function(stashid, model)
 	MySQL.query('SELECT `items` FROM `stashes` WHERE `stashid`=@stashid ;',{stashid = stashid}, function(result)
 		if #result ~= 0 then
 			for i = 1, #result do
-				local items = result[i].stashid
+				local items = json.decode(result[i].stashid)
 				print (items)
 				if not items then 
 					MySQL.update('DELETE FROM vault WHERE `stashid`=@stashid', {stashid = stashid })
