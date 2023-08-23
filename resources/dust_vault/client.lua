@@ -249,7 +249,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
         while true do
             Citizen.Wait(1000)
             -- print(#coordscache)
-            for k, v in pairs (coordscache)
+            for k, v in pairs (coordscache) do 
                 if #(playerPos - v.pos) < 10.0 then
                     local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
                     SetEntityHeading(prop, tonumber(heading))
