@@ -254,7 +254,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
                     local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
                     SetEntityHeading(prop, tonumber(heading))
                     PlaceObjectOnGroundProperly(prop)
-                    -- coordscache[vaultpos] = "true"
+                    coordscache[vaultpos] = "true"
                     print "spawn"
                 end
             end
