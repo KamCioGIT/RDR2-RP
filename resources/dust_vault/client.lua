@@ -243,6 +243,7 @@ end)
 RegisterNetEvent('smallvault')
 AddEventHandler('smallvault', function() 
     posecoffre(Config.SmallVault)
+    print ("test")
 end)
 
 RegisterNetEvent('mediumvault')
