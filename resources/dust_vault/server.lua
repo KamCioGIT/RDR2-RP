@@ -137,7 +137,7 @@ end)
 RegisterServerEvent("dust_vault:server:removestash")
 AddEventHandler("dust_vault:server:removestash", function(stashid, model)
 	local _source = source
-	local stashW = exports.redemrp_inventory.GetStashWeight(_source, stashid)
+	local stashW = exports.redemrp_inventory.GetStashWeight(stashid)
 	print (stashW)
 	if stashW == 0 then
 		MySQL.update('DELETE FROM vault WHERE `stashid`=@stashid', {stashid = stashid })
