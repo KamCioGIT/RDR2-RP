@@ -200,7 +200,7 @@ function Submenu(action, menu, stashid, model, weight, pos)
                 end
                 for k, v in pairs(stashcache) do
                     if pos == v.pos then
-                        v.pos = nil
+                        v.pos = vector3(0.0, 0.0, 0.0)
                     end
                 end
             end
