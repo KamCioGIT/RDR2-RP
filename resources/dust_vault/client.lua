@@ -9,6 +9,7 @@ local CoffrePrompt
 local PoseCoffrePromptShown = false
 
 local coordscache = {}
+local stashcache = {}
 
 print (GetHashKey('s_vault_sml_r_val01x'))
 print (GetHashKey("s_vault_med_r_val01x"))
@@ -76,7 +77,7 @@ Citizen.CreateThread(function()
     end
 end)
 
-local stashcache = {}
+
 RegisterNetEvent("dust_vault:server:getStashes")
 AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code, model)
     local vaultpos = vector3(coords.x, coords.y, coords.z)
@@ -196,6 +197,11 @@ function Submenu(action, menu, stashid, model, weight, pos)
                     SetEntityAsMissionEntity(v.object)
                     DeleteObject(v.object)
                     TriggerServerEvent("dust_vault:server:removestash", stashid, model)
+                end
+                for k, v in pairs(stashcache) do
+                    if pos == v.pos then
+                        stashcache[k] = {pos = nil, getcode = code, getmodel = model}
+                    end
                 end
             end
         elseif action == "changecode" then
