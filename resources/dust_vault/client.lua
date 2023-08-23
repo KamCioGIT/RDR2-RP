@@ -145,6 +145,7 @@ Citizen.CreateThread(function ()
 end)
 
 function ManageVault(stashid, model, weight, pos)
+    isInteracting = true
     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
         MenuData.CloseAll()
 
@@ -162,12 +163,11 @@ function ManageVault(stashid, model, weight, pos)
         
         function(data, menu)
             MenuData.CloseAll()
-            Submenu(data.curent.value, menu, stashid, model, weight, pos)
+            Submenu(data.current.value, menu, stashid, model, weight, pos)
         end,
 
         function(data, menu)
             menu.close()
-            isInteracting = false
         end)
     end)
 end
