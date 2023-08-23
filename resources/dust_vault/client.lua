@@ -196,9 +196,15 @@ function Submenu(action, menu, stashid, model, weight, pos)
         while GetGameTimer() < timer do 
             Wait(0)
         end
-        if action == "change code" then
-            TriggerServerEvent("dust_vault:server:removestash", stashid, model)
-        elseif action == "demonter" then
+        if action == "demonter" then
+            for k, v in pairs(coordscache)
+                if v.pos == pos then
+                    SetEntityAsMissionEntity(v.prop)
+                    DeleteObject(v.prop)
+                    TriggerServerEvent("dust_vault:server:removestash", stashid, model)
+                end
+            end
+        elseif action == "changecode" then
             TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                 MenuData.CloseAll()
                 AddTextEntry("FMMC_MPM_TYP86", "Nouveau Code")
@@ -256,7 +262,7 @@ RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    table.insert(coordscache, {pos = vaultpos, spawn = 'false', head = heading, mod = model})
+    table.insert(coordscache, {pos = vaultpos, spawn = 'false', head = heading, mod = model, prop = "nil"})
 end)
 
 Citizen.CreateThread(function()
@@ -272,6 +278,7 @@ Citizen.CreateThread(function()
                     PlaceObjectOnGroundProperly(prop)
                     print "spawn"
                     v.spawn = 'true'
+                    v.prop = prop
                 end
             end
         end
@@ -350,11 +357,11 @@ function posecoffre(model)
                             end
                             local heading = GetEntityHeading(PlayerPedId())
                             local vaultpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.0)
-                            print (vaultpos)
                             TriggerServerEvent("dust_vault:server:vaultDB", vault, vaultpos, heading, code) -- Créer le vault dans la db
                             local prop = CreateObject(model, vaultpos.x, vaultpos.y, vaultpos.z, true, true, true)
                             SetEntityHeading(prop, tonumber(heading))
                             PlaceObjectOnGroundProperly(prop)
+                            table.insert(coordscache, {pos = vaultpos, spawn = 'true', head = heading, mod = model, prop = prop})
                             return
                         end
                     end)
