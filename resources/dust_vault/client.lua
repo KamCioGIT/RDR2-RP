@@ -248,9 +248,9 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
 end)
 
 Citizen.CreateThread(function()
-    local playerPos = GetEntityCoords(PlayerPedId())
     while true do
         Citizen.Wait(1000)
+        local playerPos = GetEntityCoords(PlayerPedId())
         -- print(#coordscache)
         for k, v in pairs (coordscache) do 
             if #(playerPos - v.pos) < 10.0 then
