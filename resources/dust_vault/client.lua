@@ -291,6 +291,7 @@ function posecoffre(model)
                     end
                                 
                     if #(code) >= 1 then
+                        TriggerServerEvent("dust_vault:server:vaultDB", vault, vaultpos, heading, code) -- Créer le vault dans la db
                         -- Appeler methods
                         RequestAnimDict(Config.MenuDict)
                         while not HasAnimDictLoaded(Config.MenuDict) do
@@ -311,7 +312,6 @@ function posecoffre(model)
                         local heading = GetEntityHeading(PlayerPedId())
                         local vaultpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.0)
                         print (vaultpos)
-                        TriggerServerEvent("dust_vault:server:vaultDB", vault, vaultpos, heading, code) -- Créer le vault dans la db
                         local prop = CreateObject(model, vaultpos.x, vaultpos.y, vaultpos.z, true, true, true)
                         SetEntityHeading(prop, tonumber(heading))
                         PlaceObjectOnGroundProperly(prop)
