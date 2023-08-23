@@ -240,11 +240,11 @@ AddEventHandler("dust_vault:server:getcoords", function (coords)
 end)
 
 
-local coordscache = {}
 RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
+    local coordscache = {}
     coordscache[vaultpos] = "false"
     Citizen.CreateThread(function()
         while true do
@@ -254,7 +254,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
                     local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
                     SetEntityHeading(prop, tonumber(heading))
                     PlaceObjectOnGroundProperly(prop)
-                    coordscache[vaultpos] = "true"
+                    -- coordscache[vaultpos] = "true"
                     print "spawn"
                 end
             end
