@@ -114,7 +114,7 @@ Citizen.CreateThread(function ()
                             end
                                         
                             if inputcode == code then
-                                TriggerEvent("redemrp_inventory:OpenStash", stashid, weight)
+                                TriggerEvent("redemrp_inventory:OpenStash", v.stashid, weight)
                             return
                             end
                         end)
