@@ -134,6 +134,7 @@ Citizen.CreateThread(function ()
                         end
                                     
                         if _inputcode == v.getcode then
+                            print 'yeti gay'
                             TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                                 MenuData.CloseAll()
                         
