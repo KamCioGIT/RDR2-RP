@@ -94,7 +94,6 @@ Citizen.CreateThread(function ()
                     weight = Config.LargeWeight
                 end
                 if IsControlJustReleased(0, 0xD9D0E1C0) then
-                    print "open"
                     isInteracting = true
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                         MenuData.CloseAll()
@@ -118,6 +117,7 @@ Citizen.CreateThread(function ()
                     end)
                 end
                 if PromptHasHoldModeCompleted(DemontPrompt) then
+                    print "demont"
                     isInteracting = true
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                         MenuData.CloseAll()
