@@ -261,70 +261,70 @@ end)
 function posecoffre(model)
     local vault = model
     local playerPed = PlayerPedId()
-    PoseCoffrePromptShown = false
-    Citizen.CreateThread(function()
-        while true do
-            Citizen.Wait(10)
-            if PoseCoffrePromptShown == false then
-                PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
+    PoseCoffrePromptShown = true
+    ---- Lancer anim porter une caisse
+    local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
+    Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
+    if PromptHasHoldModeCompleted(LeavePrompt) then
+        ---- cancel anim
+        PoseCoffrePromptShown = false
+        TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+            MenuData.CloseAll()
+            AddTextEntry("FMMC_MPM_TYP86", "Définir le code du coffre")
+            DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+        
+            while (UpdateOnscreenKeyboard() == 0) do
+                DisableAllControlActions(0)
+                Citizen.Wait(0)
             end
-            ---- Lancer anim porter une caisse
-            local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
-            Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
-            if PromptHasHoldModeCompleted(LeavePrompt) then
-                ---- cancel anim
-                PoseCoffrePromptShown = true
-                TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                    MenuData.CloseAll()
-                    AddTextEntry("FMMC_MPM_TYP86", "Définir le code du coffre")
-                    DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
-                
-                    while (UpdateOnscreenKeyboard() == 0) do
-                        DisableAllControlActions(0)
-                        Citizen.Wait(0)
-                    end
-                    if (GetOnscreenKeyboardResult()) then
-                        code = GetOnscreenKeyboardResult()
-                    else
-                        menu.close()
-                    return
-                    end
-                                
-                    if #(code) >= 1 then
-                        -- Appeler methods
-                        RequestAnimDict(Config.MenuDict)
-                        while not HasAnimDictLoaded(Config.MenuDict) do
-                            Citizen.Wait(50)
-                        end
-                        for k,v in pairs(Config.MenuAnim) do
-                            TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
-                        end
-                        Citizen.Wait(3000)
-                        RequestAnimDict(Config.CloseMenuDict)
-                        while not HasAnimDictLoaded(Config.CloseMenuDict) do
-                            Citizen.Wait(50)
-                        end
-                        for k,v in pairs(Config.CloseMenuAnim) do
-                            TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
-                            Citizen.Wait(1000)
-                        end
-                        local heading = GetEntityHeading(PlayerPedId())
-                        local vaultpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.0)
-                        print (vaultpos)
-                        TriggerServerEvent("dust_vault:server:vaultDB", vault, vaultpos, heading, code) -- Créer le vault dans la db
-                        local prop = CreateObject(model, vaultpos.x, vaultpos.y, vaultpos.z, true, true, true)
-                        SetEntityHeading(prop, tonumber(heading))
-                        PlaceObjectOnGroundProperly(prop)
-                        return
-                    end
-                end)
+            if (GetOnscreenKeyboardResult()) then
+                code = GetOnscreenKeyboardResult()
+            else
+                menu.close()
+            return
             end
-            if IsControlJustReleased(0, 0x8E90C7BB) then
-                PoseCoffrePromptShown = true
-                ---- cancel anim
+                        
+            if #(code) >= 1 then
+                -- Appeler methods
+                RequestAnimDict(Config.MenuDict)
+                while not HasAnimDictLoaded(Config.MenuDict) do
+                    Citizen.Wait(50)
+                end
+                for k,v in pairs(Config.MenuAnim) do
+                    TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+                end
+                Citizen.Wait(3000)
+                RequestAnimDict(Config.CloseMenuDict)
+                while not HasAnimDictLoaded(Config.CloseMenuDict) do
+                    Citizen.Wait(50)
+                end
+                for k,v in pairs(Config.CloseMenuAnim) do
+                    TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
+                    Citizen.Wait(1000)
+                end
+                local heading = GetEntityHeading(PlayerPedId())
+                local vaultpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, -1.0)
+                print (vaultpos)
+                TriggerServerEvent("dust_vault:server:vaultDB", vault, vaultpos, heading, code) -- Créer le vault dans la db
+                local prop = CreateObject(model, vaultpos.x, vaultpos.y, vaultpos.z, true, true, true)
+                SetEntityHeading(prop, tonumber(heading))
+                PlaceObjectOnGroundProperly(prop)
                 return
             end
-        end
-    end)
+        end)
+    end
+    if IsControlJustReleased(0, 0x8E90C7BB) then
+        PoseCoffrePromptShown = false
+        ---- cancel anim
+        return
+    end
 end
 
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(10)
+        if PoseCoffrePromptShown == true then
+            PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
+        end
+    end
+end)
