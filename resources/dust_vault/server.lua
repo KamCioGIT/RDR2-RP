@@ -101,7 +101,7 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos, heading,
 	MySQL.update(
 		'INSERT INTO stashes (`stashid`) VALUES (@stashid);',
 		{
-			stashid = generetedUid
+			stashid = "vault_"..generetedUid
 		}, function(rowsChanged)
 	end)
 	
@@ -110,7 +110,7 @@ AddEventHandler("dust_vault:server:vaultDB", function(vault, playerpos, heading,
 		{
 			identifier = identifier,
 			charid = charid,
-			stashid = generetedUid,
+			stashid = "vault_"..generetedUid,
 			model = vault,
 			coords = vaultcoords,
 			heading = heading,

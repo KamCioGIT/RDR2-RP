@@ -248,7 +248,7 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(1000)
-            if #(playerPos - vaultpos) < 200.0 then
+            if #(playerPos - vaultpos) < 10.0 then
                 local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
                 SetEntityHeading(prop, tonumber(heading))
                 PlaceObjectOnGroundProperly(prop)
