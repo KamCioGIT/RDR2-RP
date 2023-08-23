@@ -245,10 +245,12 @@ AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     local coordscache = {}
+    coordscache[vaultpos] = "false"
     Citizen.CreateThread(function()
         while true do
             Citizen.Wait(1000)
-            if coordscache[vaultpos] == nil then 
+            if coordscache[vaultpos] == "false" then 
+                print (#vaultpos)
                 if #(playerPos - vaultpos) < 10.0 then
                     local prop = CreateObject(model, coords.x, coords.y, coords.z, false, true, true)
                     SetEntityHeading(prop, tonumber(heading))
