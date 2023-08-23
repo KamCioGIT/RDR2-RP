@@ -82,6 +82,7 @@ end)
 Citizen.CreateThread(function ()
     while true do
         Citizen.Wait(0)
+        print "tzcav"
         local playerPos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(stashcache) do
             if #(playerPos - v.pos) < 1.5 and not IsInteracting then
@@ -117,7 +118,6 @@ Citizen.CreateThread(function ()
                     end)
                 end
                 if PromptHasHoldModeCompleted(DemontPrompt) then
-                    print "test"
                     isInteracting = true
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                         MenuData.CloseAll()
@@ -135,9 +135,7 @@ Citizen.CreateThread(function ()
                         end
                                     
                         if _inputcode == v.getcode then
-                            print 'yeti gay'
                             TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                                print "tesssst"
                                 MenuData.CloseAll()
                         
                                 local elements = {
