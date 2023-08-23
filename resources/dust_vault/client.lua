@@ -169,6 +169,7 @@ function ManageVault(stashid, model, weight, pos)
             isInteracting = false
         end)
     end)
+end
 
 function Submenu(action, menu, stashid, model, weight, pos)
     local playerPed = PlayerPedId()
