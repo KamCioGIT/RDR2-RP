@@ -137,25 +137,27 @@ end)
 RegisterServerEvent("dust_vault:server:removestash")
 AddEventHandler("dust_vault:server:removestash", function(stashid, model)
 	local _source = source
+	print (stashid)
 	MySQL.query('SELECT `items` FROM `stashes` WHERE `stashid`=@stashid ;',{stashid = stashid}, function(result)
 		if #result ~= 0 then
 			for i = 1, #result do
 				local items = json.decode(result[i].items)
 				print (items)
-				if not items then 
-					MySQL.update('DELETE FROM vault WHERE `stashid`=@stashid', {stashid = stashid })
-					Citizen.Wait(100)
-					MySQL.update('DELETE FROM stashes WHERE `stashid`=@stashid', {stashid = stashid })
-					if model == Config.SmallVault then
-						local ItemData = data.getItem(_source, "smallvault")
-						ItemData.AddItem(1)
-					elseif model == Config.MediumVault then
-						local ItemData = data.getItem(_source, "mediumvault")
-						ItemData.AddItem(1)
-					elseif model == Config.LargeVault then
-						local ItemData = data.getItem(_source, "largevault")
-						ItemData.AddItem(1)
-					end
+				for k, v in pairs(items) then
+					print 'yayaya'
+						MySQL.update('DELETE FROM vault WHERE `stashid`=@stashid', {stashid = stashid })
+						Citizen.Wait(100)
+						MySQL.update('DELETE FROM stashes WHERE `stashid`=@stashid', {stashid = stashid })
+						if model == Config.SmallVault then
+							local ItemData = data.getItem(_source, "smallvault")
+							ItemData.AddItem(1)
+						elseif model == Config.MediumVault then
+							local ItemData = data.getItem(_source, "mediumvault")
+							ItemData.AddItem(1)
+						elseif model == Config.LargeVault then
+							local ItemData = data.getItem(_source, "largevault")
+							ItemData.AddItem(1)
+						end
 				end
 			end
 		end
