@@ -100,14 +100,17 @@ Citizen.CreateThread(function ()
         local playerPos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(stashcache) do
             if #(playerPos - v.pos) < 6.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.pos.x, v.pos.y + 0.5, v.pos.z, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.pos.x, v.pos.y + 0.3, v.pos.z, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
                 if #(playerPos - v.pos) < 1.5 then
-                    PromptSetEnabled(DemontPrompt, true)
-                    PromptSetVisible(DemontPrompt, true)
-                    PromptSetEnabled(ChangeCodePrompt, true)
-                    PromptSetVisible(ChangeCodePrompt, true)
-                    PromptSetEnabled(OpenPrompt, true)
-                    PromptSetVisible(OpenPrompt, true)
+                    if OpenCoffrePromptShown == false then 
+                        PromptSetEnabled(DemontPrompt, true)
+                        PromptSetVisible(DemontPrompt, true)
+                        PromptSetEnabled(ChangeCodePrompt, true)
+                        PromptSetVisible(ChangeCodePrompt, true)
+                        PromptSetEnabled(OpenPrompt, true)
+                        PromptSetVisible(OpenPrompt, true)
+                        OpenCoffrePromptShown = true
+                    end
                     if IsControlJustReleased(0, 0x8E90C7BB) then
                         if model == Config.SmallVault then
                             weight = Config.SmallWeight
