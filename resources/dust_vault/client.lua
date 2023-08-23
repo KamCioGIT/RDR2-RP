@@ -1,6 +1,6 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
-
+local isInteracting = false
 ---- PROMPT ----
 local PoseCoffrePromptGroup = GetRandomIntInRange(0, 0xffffff)
 local PoseCoffrePromptName = CreateVarString(10, "LITERAL_STRING", "Poser le coffre")
@@ -44,11 +44,10 @@ Citizen.CreateThread(function()
     PromptSetControlAction(OpenPrompt, 0xD9D0E1C0)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(OpenPrompt, str)
-    PromptSetEnabled(OpenPrompt, false)
-    PromptSetVisible(OpenPrompt, false)
+    PromptSetEnabled(OpenPrompt, true)
+    PromptSetVisible(OpenPrompt, true)
     PromptSetHoldMode(OpenPrompt, false)
     PromptSetGroup(OpenPrompt, OpenCoffrePromptGroup)
-    PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
     PromptRegisterEnd(OpenPrompt)
 
     str = 'Changer le code'
@@ -56,11 +55,10 @@ Citizen.CreateThread(function()
     PromptSetControlAction(ChangeCodePrompt, 0x4AF4D473)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(ChangeCodePrompt, str)
-    PromptSetEnabled(ChangeCodePrompt, false)
-    PromptSetVisible(ChangeCodePrompt, false)
+    PromptSetEnabled(ChangeCodePrompt, true)
+    PromptSetVisible(ChangeCodePrompt, true)
     PromptSetHoldMode(ChangeCodePrompt, true)
     PromptSetGroup(ChangeCodePrompt, OpenCoffrePromptGroup)
-    PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
     PromptRegisterEnd(ChangeCodePrompt)
 
     str = 'Démonter'
@@ -68,11 +66,10 @@ Citizen.CreateThread(function()
     PromptSetControlAction(DemontPrompt, 0x156F7119)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(DemontPrompt, str)
-    PromptSetEnabled(DemontPrompt, false)
-    PromptSetVisible(DemontPrompt, false)
+    PromptSetEnabled(DemontPrompt, true)
+    PromptSetVisible(DemontPrompt, true)
     PromptSetHoldMode(DemontPrompt, true)
     PromptSetGroup(DemontPrompt, OpenCoffrePromptGroup)
-    PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
     PromptRegisterEnd(DemontPrompt)
 end)
 
@@ -101,14 +98,10 @@ Citizen.CreateThread(function ()
         for k, v in pairs(stashcache) do
             if #(playerPos - v.pos) < 6.0 then
                 Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.pos.x, v.pos.y + 0.3, v.pos.z, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
-                if #(playerPos - v.pos) < 1.5 then
-                    print 'yes'
-                    PromptSetEnabled(DemontPrompt, true)
-                    PromptSetVisible(DemontPrompt, true)
-                    PromptSetEnabled(ChangeCodePrompt, true)
-                    PromptSetVisible(ChangeCodePrompt, true)
-                    PromptSetEnabled(OpenPrompt, true)
+                if #(playerPos - v.pos) < 1.5 and not IsInteracting then
+                    PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
                     if IsControlJustReleased(0, 0x8E90C7BB) then
+                        isInteracting = true
                         if model == Config.SmallVault then
                             weight = Config.SmallWeight
                         elseif model == Config.MediumVault then
