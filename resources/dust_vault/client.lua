@@ -212,6 +212,11 @@ function Submenu(action, menu, stashid, model, weight, pos)
                 if #(newcode) >= 1 then
                     TriggerServerEvent("dust_vault:server:ChangeCode", newcode, pos)
                     TriggerEvent("redemrp_inventory:OpenStash", stashid, weight)
+                    for k, v in pairs(stashcache) do
+                        if pos == v.pos then
+                            v.getcode = tonumber(newcode)
+                        end
+                    end
                 return
                 end
             end)
