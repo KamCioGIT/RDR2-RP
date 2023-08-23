@@ -197,17 +197,16 @@ end)
 Citizen.CreateThread(function()
     RequestModel(Config.SmallVault, true)
     while not HasModelLoaded(Config.SmallVault) do
-        Citizen.Wait(100)
+        Citizen.Wait(0)
     end
     RequestModel(Config.MediumVault, true)
     while not HasModelLoaded(Config.MediumVault, true) do
-        Citizen.Wait(100)
+        Citizen.Wait(0)
     end
     RequestModel(Config.LargeVault, true)
     while not HasModelLoaded(Config.LargeVault, true) do
-        Citizen.Wait(100)
+        Citizen.Wait(0)
     end
-    Citizen.Wait(100)
     TriggerServerEvent("dust_vault:server:Askcoords")
 end)
 
