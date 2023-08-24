@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Framework = "GUM"
+Config.Framework = "REDEMREBOOT"
 --GUM, VORP, REDEM, REDEMREBOOT, QBR, RSG,  CUSTOM
 
 -- If you use CUSTOM framework, open serverData/serverCompCustom.lua
