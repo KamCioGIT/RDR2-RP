@@ -9,21 +9,15 @@ Citizen.CreateThread(function()
         if size > 0 then
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
-                local model = GetEntityModel(entity)
 
-                if entity == PlayerPedId() then 
-                    print("Player : " .. Citizen.InvokeNative(0x9b90842304c938a7, GetNumComponentsInPed(entity), entity, 0, Citizen.ResultAsInteger()))
-                    GetNumComponentsInPed(entity)
-                else 
-                    print("Not Player : " .. Citizen.InvokeNative(0x9b90842304c938a7, GetNumComponentsInPed(entity), entity, 0, Citizen.ResultAsInteger()))
-                    GetNumComponentsInPed(entity)
+                local isEntityIsAPlayer, b = GetPlayerTargetEntity(entity)
+
+                if isEntityIsAPlayer == false then 
+                    local entityPos = GetEntityCoords(entity) 
+                    boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
+                    coords = entityPos + boneCoord
+                    DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
                 end
-                
-                local entityPos = GetEntityCoords(entity) 
-                boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
-                coords = entityPos + boneCoord
-                DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
-                
             end
         end
 
