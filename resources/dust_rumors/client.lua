@@ -11,12 +11,15 @@ Citizen.CreateThread(function()
 
         if size > 0 then
             for index = 0, size - 1 do
-                local entity = GetIndexedItemInItemset(index, itemSet)
-                local entityPos = GetEntityCoords(entity)
+                local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
+                local model = GetEntityModel(entity)
 
-                boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
-                coords = entityPos + boneCoord
-                DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
+                if IsModelAPed(model) then 
+                    local entityPos = GetEntityCoords(entity) 
+                    boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
+                    coords = entityPos + boneCoord
+                    DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
+                end
             end
         end
 
