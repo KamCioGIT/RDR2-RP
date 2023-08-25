@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `stable` (
   `job` varchar(50) NOT NULL,
   `jobgrade` int(11) NOT NULL,
   `gang` varchar(50) NOT NULL,
-  `gangrade` int(11) NOT NULL,
+  `ganggrade` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_horses_characters` (`charid`)
 );
