@@ -13,7 +13,13 @@ Citizen.CreateThread(function()
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet)
                 local entityPos = GetEntityCoords(entity)
-                
+
+                DrawText3D(coord, "MONSTRE")
+
+                -- if IsEntityAPed(entity) == true then 
+                   
+                -- end
+
                 -- if entityPos == GetEntityCoords(PlayerPedId()) then -- Si c'est le joueur
                 --     return 
                 -- end
