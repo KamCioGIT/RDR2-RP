@@ -13,7 +13,7 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
 
-                print(GetPedMaxHealth(GetPedIdRange(entity)))
+                print(GetPedMaxHealth(entity))
                 
                 local entityPos = GetEntityCoords(entity) 
                 boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
