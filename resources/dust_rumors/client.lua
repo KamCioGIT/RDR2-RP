@@ -11,6 +11,7 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
 
                 local isEntityIsAPlayer, b = GetPlayerTargetEntity(entity)
+                print(isEntityIsAPlayer)
 
                 if isEntityIsAPlayer == false then 
                     local entityPos = GetEntityCoords(entity) 
