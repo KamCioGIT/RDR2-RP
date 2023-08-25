@@ -14,9 +14,9 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet)
                 local entityPos = GetEntityCoords(entity)
 
-                boneCoord = GetWorldPositionOfEntityBone(entity, 98)
+                boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                 coords = entityPos + boneCoord
-                DrawText3D(boneCoord.x, boneCoord.y + 0.5, boneCoord.z, "MONSTRE")
+                DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
             end
         end
 
@@ -37,5 +37,5 @@ function DrawText3D(x, y, z, text)
     SetTextCentre(1)
     DisplayText(str, _x, _y)
     local factor = (string.len(text)) / 150
-    DrawSprite("generic_textures", "hud_menu_4a", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 100, 1, 1, 190, 0)
+    DrawSprite("generic_textures", "selection_box_bg_1d", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 100, 1, 1, 190, 0)
 end
