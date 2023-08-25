@@ -40,6 +40,7 @@ ensure redemrp_creator
 ensure redemrp_clothes_store
 ensure redemrp_charselect
 ensure [REDEMRP]
+ensure gumApi
 
 # Dust Resources
 ensure dust_coords
@@ -53,6 +54,7 @@ ensure dust_vault
 ensure dust_usine
 ensure dust_mineur
 ensure ts-trains
+ensure [GUM]
 
 #MAPPING
 ensure [MAPPING]
