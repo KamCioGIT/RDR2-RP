@@ -1,4 +1,4 @@
-local closestPed = nil
+isEntityIsAPedNonPlayer = true
 
 Citizen.CreateThread(function()
     while true do
@@ -9,11 +9,9 @@ Citizen.CreateThread(function()
         if size > 0 then
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
+                local model = GetEntityModel(entity)
 
-                local isEntityIsAPlayer, b = GetPlayerTargetEntity(entity)
-                print(isEntityIsAPlayer)
-
-                if isEntityIsAPlayer == false then 
+                if IsPedHuman(entity) then
                     local entityPos = GetEntityCoords(entity) 
                     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                     coords = entityPos + boneCoord
