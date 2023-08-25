@@ -263,8 +263,7 @@ function OpenStable(menutype)
                     end)
                 end)
             end 
-        end
-
+        end,
         function(data, menu)
             menu.close()
         end)
