@@ -2,15 +2,15 @@ Config = {}
 
 Config.Stables = {
 	Valentine = {	   
-		Pos = {x=-367.73, y=787.72, z=116.26},
+		pos = {x=-367.73, y=787.72, z=116.26},
 		Name = 'Valentine',
 	},
 	BlackWater = {
-		Pos = {x=-873.167, y=-1366.040, z=43.531},
+		pos = {x=-873.167, y=-1366.040, z=43.531},
 		Name = 'Blackwater',
     },
 	Saint_Denis = {
-		Pos = {x=2503.153, y=-1442.725, z=46.312},
+		pos = {x=2503.153, y=-1442.725, z=46.312},
 		Name = 'Saint-Denis',
     },
 }
