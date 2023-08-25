@@ -7,30 +7,28 @@ local OpenPrompt
 local ManagePrompt
 local StablePromptShown = false
 local IsInteracting = false
-Citizen.CreateThread(
-    function()
-        local str = 'Ouvrir'
-        OpenPrompt = PromptRegisterBegin()
-        PromptSetControlAction(OpenPrompt, 0x8E90C7BB)
-        str = CreateVarString(10, 'LITERAL_STRING', str)
-        PromptSetText(OpenPrompt, str)
-        PromptSetEnabled(OpenPrompt, true)
-        PromptSetVisible(OpenPrompt, true)
-        PromptSetHoldMode(OpenPrompt, false)
-        PromptSetGroup(OpenPrompt, StablePromptGroup)
-        PromptRegisterEnd(OpenPrompt)
+Citizen.CreateThread(function()
+    local str = 'Ouvrir'
+    OpenPrompt = PromptRegisterBegin()
+    PromptSetControlAction(OpenPrompt, 0x8E90C7BB)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(OpenPrompt, str)
+    PromptSetEnabled(OpenPrompt, true)
+    PromptSetVisible(OpenPrompt, true)
+    PromptSetHoldMode(OpenPrompt, false)
+    PromptSetGroup(OpenPrompt, StablePromptGroup)
+    PromptRegisterEnd(OpenPrompt)
 
-        str = 'Gérer'
-        ManagePrompt = PromptRegisterBegin()
-        PromptSetControlAction(ManagePrompt, 0xD9D0E1C0)
-        str = CreateVarString(10, 'LITERAL_STRING', str)
-        PromptSetText(ManagePrompt, str)
-        PromptSetEnabled(ManagePrompt, true)
-        PromptSetVisible(ManagePrompt, true)
-        PromptSetHoldMode(ManagePrompt, true)
-        PromptSetGroup(ManagePrompt, StablePromptGroup)
-        PromptRegisterEnd(ManagePrompt)
-        end
+    str = 'Gérer'
+    ManagePrompt = PromptRegisterBegin()
+    PromptSetControlAction(ManagePrompt, 0xD9D0E1C0)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(ManagePrompt, str)
+    PromptSetEnabled(ManagePrompt, true)
+    PromptSetVisible(ManagePrompt, true)
+    PromptSetHoldMode(ManagePrompt, true)
+    PromptSetGroup(ManagePrompt, StablePromptGroup)
+    PromptRegisterEnd(ManagePrompt)
     end
 end)
 
