@@ -36,22 +36,21 @@ Citizen.CreateThread(function()
     while true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
-            for k, v in pairs(Config.Stables) do
-                local coords = {v.pos.x, v.pos.y, v.pos.z}
-                if #(playerpos - coords ) < 7 then
-                    PromptSetActiveGroupThisFrame(StablePromptGroup, StablePromptName)
-                    if IsControlJustReleased(0, 0x8E90C7BB) then
-                        isInteracting = true
-                        local menutype = "Ouvrir"
-                        TriggerServerEvent("dust_stable:server:askhorse")
-                        OpenStable(menutype)
-                    end
-                    if PromptHasHoldModeCompleted(ManagePrompt) then
-                        isInteracting = true
-                        local menutype = "Chevaux"
-                        TriggerServerEvent("dust_stable:server:askhorse")
-                        OpenStable(menutype)
-                    end
+        for k, v in pairs(Config.Stables) do
+            local coords = {v.pos.x, v.pos.y, v.pos.z}
+            if #(playerpos - coords ) < 7 then
+                PromptSetActiveGroupThisFrame(StablePromptGroup, StablePromptName)
+                if IsControlJustReleased(0, 0x8E90C7BB) then
+                    isInteracting = true
+                    local menutype = "Ouvrir"
+                    TriggerServerEvent("dust_stable:server:askhorse")
+                    OpenStable(menutype)
+                end
+                if PromptHasHoldModeCompleted(ManagePrompt) then
+                    isInteracting = true
+                    local menutype = "Chevaux"
+                    TriggerServerEvent("dust_stable:server:askhorse")
+                    OpenStable(menutype)
                 end
             end
         end
