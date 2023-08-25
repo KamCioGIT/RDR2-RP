@@ -29,7 +29,6 @@ Citizen.CreateThread(function()
     PromptSetHoldMode(ManagePrompt, true)
     PromptSetGroup(ManagePrompt, StablePromptGroup)
     PromptRegisterEnd(ManagePrompt)
-    end
 end)
 
 ----- INTERACT WITH STABLE ----
