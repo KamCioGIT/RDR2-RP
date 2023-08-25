@@ -2,7 +2,7 @@ local closestPed = nil
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(0)
+        Citizen.Wait(1000)
         local itemSet = CreateItemset(true)
         local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 5.0, itemSet, 1, Citizen.ResultAsInteger())
       
