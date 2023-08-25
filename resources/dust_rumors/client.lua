@@ -14,9 +14,8 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet)
                 local entityPos = GetEntityCoords(entity)
 
-                --local id = GetPedIndexFromEntityIndex(entity)
-                --boneCoord = id.GetBoneCoord(Bone.SKEL_Head);
-                DrawText3D(entityPos.x, entityPos.y, entityPos.z + 1.5, "MONSTRE")
+                boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
+                DrawText3D(boneCoord.x, boneCoord.y, boneCoord.z + 0.5, "MONSTRE")
             end
         end
 
@@ -28,17 +27,14 @@ end)
 
 
 function DrawText3D(x, y, z, text)
-	local onScreen,_x,_y=GetScreenCoordFromWorldCoord(x, y, z)
-	local px,py,pz=table.unpack(GetGameplayCamCoord())  
-	local dist = GetDistanceBetweenCoords(px,py,pz, x,y,z, 1)
-	local str = CreateVarString(10, "LITERAL_STRING", text, Citizen.ResultAsLong())
-	if onScreen then
-		SetTextScale(0.30, 0.30)
-		SetTextFontForCurrentCommand(0)
-		SetTextColor(255, 255, 255, 255)
-		SetTextCentre(1)
-		SetTextDropshadow(1, 1, 0, 0, 200)
-		DisplayText(str,_x,_y)
-		local factor = (string.len(text)) / 225
-	end
+    local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z)
+    local px, py, pz = table.unpack(GetGameplayCamCoord())
+    SetTextScale(0.35, 0.35)
+    SetTextFontForCurrentCommand(1)
+    SetTextColor(255, 255, 255, 215)
+    local str = CreateVarString(10, "LITERAL_STRING", text, Citizen.ResultAsLong())
+    SetTextCentre(1)
+    DisplayText(str, _x, _y)
+    local factor = (string.len(text)) / 150
+    DrawSprite("generic_textures", "hud_menu_4a", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 100, 1, 1, 190, 0)
 end
