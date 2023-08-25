@@ -13,10 +13,10 @@ Citizen.CreateThread(function()
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet)
                 local entityPos = GetEntityCoords(entity)
-
-                if entityPos == GetEntityCoords(PlayerPedId()) then -- Si c'est le joueur
-                    return 
-                end
+                
+                -- if entityPos == GetEntityCoords(PlayerPedId()) then -- Si c'est le joueur
+                --     return 
+                -- end
             end
         end
 
