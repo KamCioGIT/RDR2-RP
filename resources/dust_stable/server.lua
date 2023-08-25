@@ -155,7 +155,7 @@ AddEventHandler(
 		end)
 end)
 
-RegisterNetEvent("dust_stable:server:create")
+RegisterNetEvent("dust_stable:server:createhorse")
 AddEventHandler(
     "dust_stable:server:create",
     function(name, horseid)
@@ -163,19 +163,34 @@ AddEventHandler(
 		local user = RedEM.GetPlayer(_source)
 		local identifier = user.identifier
 		local charid = user.charid
+		local numBase0 = math.random(100, 999)
+    	local numBase1 = math.random(0, 9999)
+    	local generetedhorseid = string.format("%03d%04d", numBase0, numBase1)
 		MySQL.update(
 		'INSERT INTO vault (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name);',
 		{
 			identifier = identifier,
 			charid = charid,
 			name = tostring(name),
-			horseid = horseid
+			horseid = generetdhorseid
 		}, function(rowsChanged)
 
 		end)
 end)
 
-
-
+------- ASK COMPONENTS -----
+RegisterServerEvent("dust_stable:server:askcomponents")
+AddEventHandler("dust_stable:server:askcomponents", function(horseid)
+	local _source = source
+	local user = RedEM.GetPlayer(_source)
+	local identifier = user.identifier
+	local charid = user.charid
+	MySQL.query('SELECT * FROM horses WHERE `horseid`=@horseid;', {horseid = horseid}, function(result)
+		if result[1] then
+			components = json.decode(result[1].components)
+		end
+	end)
+	TriggerClientEvent("dust_stable:server:getcomponents", _source, components)
+end)
 
 ----- OBJET CONTRAT CHEVAL -----
