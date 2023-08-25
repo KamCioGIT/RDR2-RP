@@ -11,7 +11,7 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
 
-                if IsPedHuman(entity) == true or IsPedAPlayer(entity) == false then
+                if IsPedHuman(entity) == true and IsPedAPlayer(entity) == false then
                     local entityPos = GetEntityCoords(entity) 
                     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                     coords = entityPos + boneCoord
