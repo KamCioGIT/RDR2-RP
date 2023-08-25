@@ -11,10 +11,6 @@ local PoseCoffrePromptShown = false
 local coordscache = {}
 local stashcache = {}
 
-print (GetHashKey('s_vault_sml_r_val01x'))
-print (GetHashKey("s_vault_med_r_val01x"))
-print (GetHashKey('s_vault_lrg_l_val01x'))
-
 Citizen.CreateThread(function()
     local str = 'Annuler'
     CoffrePrompt = PromptRegisterBegin()
