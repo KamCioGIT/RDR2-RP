@@ -6,15 +6,18 @@ Citizen.CreateThread(function()
         local itemSet = CreateItemset(true)
         local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 5.0, itemSet, 1, Citizen.ResultAsInteger())
       
-        print(size)
-
         if size > 0 then
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
 
-                print(entity)
-                print(PlayerPedId())
+                if entity == PlayerPedId() then 
+                    print("Player : " .. Citizen.InvokeNative(0x9b90842304c938a7, GetNumComponentsInPed(entity), entity, 0, Citizen.ResultAsInteger()))
+                    GetNumComponentsInPed(entity)
+                else 
+                    print("Not Player : " .. Citizen.InvokeNative(0x9b90842304c938a7, GetNumComponentsInPed(entity), entity, 0, Citizen.ResultAsInteger()))
+                    GetNumComponentsInPed(entity)
+                end
                 
                 local entityPos = GetEntityCoords(entity) 
                 boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
