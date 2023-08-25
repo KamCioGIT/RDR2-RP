@@ -14,9 +14,9 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet)
                 local entityPos = GetEntityCoords(entity)
 
-                local id = GetPedIndexFromEntityIndex(entity)
-                boneCoord = id.GetBoneCoord(Bone.SKEL_Head);
-                DrawText3D(boneCoord.x, boneCoord.y + 0.5, boneCoord.z, "MONSTRE")
+                --local id = GetPedIndexFromEntityIndex(entity)
+                --boneCoord = id.GetBoneCoord(Bone.SKEL_Head);
+                DrawText3D(entityPos.x, entityPos.y + 0.5, entityPos.z, "MONSTRE")
             end
         end
 
