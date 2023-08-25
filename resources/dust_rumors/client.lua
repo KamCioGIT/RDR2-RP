@@ -2,7 +2,7 @@ local closestPed = nil
 
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(3500)
+        Citizen.Wait(0)
         local itemSet = CreateItemset(true)
         local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 5.0, itemSet, 1, Citizen.ResultAsInteger())
         -- number xPos, number yPox, number zPos, float distance, int itemSet, int entityType
@@ -16,7 +16,7 @@ Citizen.CreateThread(function()
 
                 --local id = GetPedIndexFromEntityIndex(entity)
                 --boneCoord = id.GetBoneCoord(Bone.SKEL_Head);
-                DrawText3D(entityPos.x, entityPos.y + 0.5, entityPos.z, "MONSTRE")
+                DrawText3D(entityPos.x, entityPos.y + 1.5, entityPos.z, "MONSTRE")
             end
         end
 
