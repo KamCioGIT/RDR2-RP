@@ -37,7 +37,7 @@ Citizen.CreateThread(function()
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Stables) do
-            local coords = {v.pos.x, v.pos.y, v.pos.z}
+            local coords = vector3{v.pos.x, v.pos.y, v.pos.z}
             if #(playerpos - coords ) < 7 then
                 PromptSetActiveGroupThisFrame(StablePromptGroup, StablePromptName)
                 if IsControlJustReleased(0, 0x8E90C7BB) then
