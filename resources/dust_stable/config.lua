@@ -1,16 +1,8 @@
 Config = {}
 
 Config.Stables = {
-	Valentine = {	   
-		pos = {x=-367.73, y=787.72, z=116.26},
-		Name = 'Valentine',
-	},
-	BlackWater = {
-		pos = {x=-873.167, y=-1366.040, z=43.531},
-		Name = 'Blackwater',
-    },
 	Saint_Denis = {
-		pos = {x=2503.153, y=-1442.725, z=46.312},
+		pos = vector3(2512.26, -1431.108, 46.27571),
 		Name = 'Saint-Denis',
     },
 }
