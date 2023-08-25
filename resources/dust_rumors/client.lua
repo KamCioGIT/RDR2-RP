@@ -5,8 +5,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
         local itemSet = CreateItemset(true)
         local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 5.0, itemSet, 1, Citizen.ResultAsInteger())
-        -- number xPos, number yPox, number zPos, float distance, int itemSet, int entityType
-
+      
         print(size)
 
         if size > 0 then
@@ -14,12 +13,13 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
 
-                if IsModelAPed(model) then 
-                    local entityPos = GetEntityCoords(entity) 
-                    boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
-                    coords = entityPos + boneCoord
-                    DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
-                end
+                print(GetPedMaxHealth(GetPedIdRange(entity)))
+                
+                local entityPos = GetEntityCoords(entity) 
+                boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
+                coords = entityPos + boneCoord
+                DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
+                
             end
         end
 
