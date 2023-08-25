@@ -16,7 +16,7 @@ Citizen.CreateThread(function()
 
                 boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                 coords = entityPos + boneCoord
-                DrawText3D(coords.x, coords.y, coords.z + 0.5, "MONSTRE")
+                DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
             end
         end
 
