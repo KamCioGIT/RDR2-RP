@@ -21,7 +21,7 @@ AddEventHandler(
 		local jobgrade = user.jobrade
 		local gang = user.gang
 		local ganggrade = user.ganggrade
-		MySQL.query('SELECT * FROM stable WHERE (`identifier`=@identifier AND `charid`=@charid AND `stable`=@stable) OR (`job`=@job AND `jobgrade`=@jobgrade AND `stable`=@stable) OR (`gang`=@gang AND `ganggrade`=@ganggrade AND `stable`=@stable);',
+		MySQL.query('SELECT * FROM stable WHERE (`selected`=@selected AND `identifier`=@identifier AND `charid`=@charid AND `stable`=@stable) OR (`selected`=@selected AND `job`=@job AND `jobgrade`=@jobgrade AND `stable`=@stable) OR (`selected`=@selected AND `gang`=@gang AND `ganggrade`=@ganggrade AND `stable`=@stable);',
 		{
 			identifier = identifier,
 			charid = charid,
@@ -29,7 +29,8 @@ AddEventHandler(
 			job = job,
 			jobgrade = jobgrade,
 			gang = gang,
-			ganggrade = ganggrade
+			ganggrade = ganggrade,
+			selected = 0
 
 		}, function(result)
 			if #result ~= 0 then
@@ -193,6 +194,17 @@ AddEventHandler("dust_stable:server:askcomponents", function(horseid)
 		end
 	end)
 	TriggerClientEvent("dust_stable:server:getcomponents", _source, components)
+end)
+
+------ CHEVAL SORTI ----
+RegisterServerEvent("dust_stable:server:horseout")
+AddEventHandler("dust_stable:server:horseout", function (horseid),
+	MySQL.update('UPDATE stable SET `selected`=@selected  WHERE `horseid`=@horseid;',
+		{
+			horseid = horseid,
+			selected = 1
+		}, function(rowsChanged)
+	end)          
 end)
 
 ---- RANGER LE CHEVAL ----

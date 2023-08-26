@@ -363,6 +363,7 @@ function spawnhorse(model, name, horseid)
     for k, v in pairs(selectedcomp) do
         selectedcomp[k] = nil
     end
+    TriggerServerEvent("dust_stable:server:horsestocked", horseid)
     initializing = false
 end
 
