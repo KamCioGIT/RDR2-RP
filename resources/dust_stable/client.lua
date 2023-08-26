@@ -22,7 +22,7 @@ Citizen.CreateThread(function()
 
     str = 'Gérer'
     ManagePrompt = PromptRegisterBegin()
-    PromptSetControlAction(ManagePrompt, 0x156F7119)
+    PromptSetControlAction(ManagePrompt, 0xCEFD9220)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(ManagePrompt, str)
     PromptSetEnabled(ManagePrompt, true)
