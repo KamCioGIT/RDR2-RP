@@ -330,7 +330,7 @@ function spawnhorse(model, name, horseid)
     end
 
     initializing = true
-
+    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
     local entity = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped), true, true)
     SetModelAsNoLongerNeeded(modelHash)
     PlaceEntityOnGroundProperly(entity, 0)
