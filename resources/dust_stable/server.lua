@@ -187,7 +187,7 @@ end)
 
 ------ CHEVAL SORTI ----
 RegisterServerEvent("dust_stable:server:horseout")
-AddEventHandler("dust_stable:server:horseout", function (horseid),
+AddEventHandler("dust_stable:server:horseout", function (horseid)
 	MySQL.update('UPDATE stable SET `selected`=@selected  WHERE `horseid`=@horseid;',
 		{
 			horseid = horseid,
