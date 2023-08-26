@@ -89,7 +89,7 @@ end)
 local horselist = {}
 RegisterNetEvent("dust_stable:server:gethorse")
 AddEventHandler("dust_stable:server:gethorse", function(horseid, nom, model)
-    for k, v in pairs(horselist) do
+    for horselist[k] do
         horselist[k] = nil
     end
     Wait(50)
@@ -305,7 +305,11 @@ end
 
 local selectedcomp = {}
 RegisterNetEvent("dust_stable:server:getcomponents")
-AddEventHandler("dust_stable:server:getcomponents", function(components, model)
+AddEventHandler("dust_stable:server:getcomponents", function(horseid, components, model)
+    for selectedcomp[k] do
+        selectedcomp[k] = nil
+    end
+    Wait(50)
     table.insert(selectedcomp, components)
 end)
 
