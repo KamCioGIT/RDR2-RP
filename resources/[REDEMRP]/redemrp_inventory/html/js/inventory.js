@@ -210,7 +210,7 @@ function createObjectBox(object) {
     } else if(object.name == "transferhorse") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.name + "`, `Certificat du cheval " + object.meta.horseid + "`)");
     } else if(object.name == "createhorse") {
-        boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Certificat pour " + object.meta.model + "`)    ");
+        boxContent.setAttribute('onmouseover', "Over(`" + object.name + "`, `Certificat pour " + object.meta.model + "`)    ");
     } else if(object.name == "wateringcan") {
         if(object.meta.water != undefined && object.meta.water != null) {
             var waterdisp = object.meta.water * 10;
