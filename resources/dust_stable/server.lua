@@ -214,7 +214,7 @@ AddEventHandler("dust_stable:server:stockhorse", function(stable, horseid)
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
 	local charid = user.charid
-	MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier, `charid`=@charid, `horseid`=@horseid;',
+	MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid AND `horseid`=@horseid;',
 		{
 			identifier = identifier,
 			charid = charid,
@@ -264,24 +264,24 @@ AddEventHandler("dust_stable:server:sellhorse", function (horseid)
 	local identifier = user.identifier
 	local charid = user.charid
 	MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid AND `horseid`=@horseid;',
-		{
-			identifier = identifier,
-			charid = charid,
-			horseid = horseid
-		}, function(result)
-			if #result ~= 0 then
-				MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid, `job`=@job, `jobgrade`=@jobgrade,  `gang`=@gang, `ganggrade`=@ganggrade WHERE `horseid`=@horseid;',
-					{
-						identifier = identifier,
-						charid = charid,
-						job = "x",
-						jobgrade = 0,
-						gang = "x",
-						ganggrade = 0
-					}, function(rowsChanged)
-						local ItemData = data.getItem(_source, "transferhorse")
-						TriggerServerEvent("redemrp_inventory:transferhorse", horseid, model)
-				end)          
-			end
-		end) 
+	{
+		identifier = identifier,
+		charid = charid,
+		horseid = horseid
+	}, function(result)
+		if #result ~= 0 then
+			MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid, `job`=@job, `jobgrade`=@jobgrade,  `gang`=@gang, `ganggrade`=@ganggrade WHERE `horseid`=@horseid;',
+				{
+					identifier = identifier,
+					charid = charid,
+					job = "x",
+					jobgrade = 0,
+					gang = "x",
+					ganggrade = 0
+				}, function(rowsChanged)
+					local ItemData = data.getItem(_source, "transferhorse")
+					TriggerServerEvent("redemrp_inventory:transferhorse", horseid, model)
+			end)          
+		end
+	end) 
 end)
