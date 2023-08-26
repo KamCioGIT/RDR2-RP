@@ -426,6 +426,21 @@ Citizen.CreateThread(function()
     PromptRegisterEnd(AchatPrompt)
 end)
 
+Citizen.CreateThread(function()
+    while true do
+        Wait(0)
+        local playerpos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.BuyHorse) do
+            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) then
+                PromptSetActiveGroupThisFrame(AchatPromptGroup, AchatPromptName)
+                if IsControlJustReleased(0, 0xC7B5340A) then
+                    buyhorse()
+                end
+            end
+        end
+    end
+end)
+
 
 function buyhorse()
     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
@@ -433,7 +448,7 @@ function buyhorse()
 
         local elements = {}
 
-        for k, v in pairs(Config.WarHorses)
+        for k, v in pairs(Config.WarHorses) do
             table.insert(elements, {label = v.name, value = v.model, desc = v.desc})
         end
         MenuData.Open('default', GetCurrentResourceName(), 'buyhorse', {
