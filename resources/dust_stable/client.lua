@@ -62,15 +62,15 @@ Citizen.CreateThread(function()
                     isInteracting = true
                     local menutype = "Ouvrir"
                     TriggerServerEvent("dust_stable:server:askhorse")
+                    Wait(500)
                     OpenStable(menutype, v.name)
-                    return
                 end
                 if PromptHasHoldModeCompleted(ManagePrompt) then
                     isInteracting = true
                     local menutype = "Chevaux"
                     TriggerServerEvent("dust_stable:server:askhorse")
+                    Wait(500)
                     OpenStable(menutype, v.name)
-                    return
                 end
             end
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
