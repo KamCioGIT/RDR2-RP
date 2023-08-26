@@ -247,7 +247,7 @@ AddEventHandler("RegisterUsableItem:createhorse", function(source)
 	local identifier = user.identifier
 	local charid = user.charid
 	local _type = "create"
-	local item, id = getInventoryItemFromName("createhorse", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+	local item, id = data.getInventoryItemFromName("createhorse", Inventory[identifier .. "_" .. charid], data.getMetaOutput(meta))
 	print (item, meta)
 	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
 end)
