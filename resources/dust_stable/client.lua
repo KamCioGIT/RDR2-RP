@@ -62,14 +62,14 @@ Citizen.CreateThread(function()
                     isInteracting = true
                     local menutype = "Ouvrir"
                     TriggerServerEvent("dust_stable:server:askhorse")
-                    Wait(100)
+                    Wait(200)
                     OpenStable(menutype, v.name)
                 end
                 if PromptHasHoldModeCompleted(ManagePrompt) then
                     isInteracting = true
                     local menutype = "Chevaux"
                     TriggerServerEvent("dust_stable:server:askhorse")
-                    Wait(100)
+                    Wait(200)
                     OpenStable(menutype, v.name)
                 end
             end
