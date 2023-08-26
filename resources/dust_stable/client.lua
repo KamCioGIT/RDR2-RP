@@ -155,6 +155,7 @@ function OpenStable(menutype, stable)
                         end
                         Wait(100)
                         horselist[k] = nil
+                        isInteracting = false
                     end
                 end
             end
@@ -219,6 +220,7 @@ function OpenStable(menutype, stable)
                                         for k, v in pairs(horselist) do
                                             horselist[k] = nil
                                         end
+                                        isInteracting = false
                                     end
                                     if data.current.value == "boss" then
                                         local jobgrade = 2
@@ -226,6 +228,7 @@ function OpenStable(menutype, stable)
                                         for k, v in pairs(horselist) do
                                             horselist[k] = nil
                                         end
+                                        isInteracting = false
                                     end
                                     if data.current.value == "all" then
                                         local jobgrade = 1
@@ -233,9 +236,11 @@ function OpenStable(menutype, stable)
                                         for k, v in pairs(horselist) do
                                             horselist[k] = nil
                                         end
+                                        isInteracting = false
                                     end
                                 end)
                             end)
+                            isInteracting = false
                         end
                     end)
                 end)
@@ -277,6 +282,7 @@ function OpenStable(menutype, stable)
                                         for k, v in pairs(horselist) do
                                             horselist[k] = nil
                                         end
+                                        isInteracting = false
                                     end
                                     if data.current.value == "boss" then
                                         local ganggrade = 2
@@ -284,6 +290,7 @@ function OpenStable(menutype, stable)
                                         for k, v in pairs(horselist) do
                                             horselist[k] = nil
                                         end
+                                        isInteracting = false
                                     end
                                     if data.current.value == "all" then
                                         local ganggrade = 1
@@ -291,16 +298,19 @@ function OpenStable(menutype, stable)
                                         for k, v in pairs(horselist) do
                                             horselist[k] = nil
                                         end
+                                        isInteracting = false
                                     end
                                 end)
                             end)
                         end
+                        isInteracting = false
                     end)
                 end)
             end 
         end,
         function(data, menu)
             menu.close()
+            isInteracting = false
         end)
     end)
 end
@@ -443,10 +453,11 @@ Citizen.CreateThread(function()
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Buyhorse) do
-            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) then
+            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 PromptSetActiveGroupThisFrame(AchatPromptGroup, AchatPromptName)
                 if IsControlJustReleased(0, 0xC7B5340A) then
                     buyhorse()
+                    isInteracting = true
                 end
             end
         end
@@ -473,10 +484,12 @@ function buyhorse()
         function(data, menu)
             MenuData.CloseAll()
             TriggerServerEvent("redemrp_inventory:createhorse", data.current.value)
+            isInteracting = false
         end,
 
         function(data, menu)
             menu.close()
+            isInteracting = false
         end)
     end)
 end
