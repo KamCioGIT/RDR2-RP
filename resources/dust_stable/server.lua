@@ -151,18 +151,19 @@ end)
 RegisterNetEvent("dust_stable:server:createhorse")
 AddEventHandler(
     "dust_stable:server:createhorse",
-    function(name, horseid, model, stable)
+    function(alias, horseid, model, stable)
         local _source = source     
 		local user = RedEM.GetPlayer(_source)
 		local identifier = user.identifier
 		local charid = user.charid
+		local name = tostring(alias)
 		print (identifier, charid, name, horseid, model, stable)
 		MySQL.update(
 		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name);',
 		{
 			identifier = identifier,
 			charid = charid,
-			name = tostring(name),
+			name = name,
 			horseid = horseid,
 			model = model,
 			stable = stable
