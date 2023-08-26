@@ -89,7 +89,7 @@ end)
 local horselist = {}
 RegisterNetEvent("dust_stable:server:gethorse")
 AddEventHandler("dust_stable:server:gethorse", function(horseid, nom, model)
-    for horselist[k] do
+    for not horselist[k] do
         horselist[k] = nil
     end
     Wait(50)
