@@ -33,6 +33,7 @@ AddEventHandler(
 
 		}, function(result)
 			if #result ~= 0 then
+				print "result"
 				for i = 1, #result do
 					if result[i].selected == 0 then 
 						local horseid = result[i].horseid
