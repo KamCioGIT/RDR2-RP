@@ -57,19 +57,20 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) then
-                TriggerServerEvent("dust_stable:server:askhorse", v.name)
                 PromptSetActiveGroupThisFrame(StablePromptGroup, StablePromptName)
                 if IsControlJustReleased(0, 0xC7B5340A) then
                     isInteracting = true
                     local menutype = "Ouvrir"
-                    -- TriggerServerEvent("dust_stable:server:askhorse", v.name)
-                    OpenStable(menutype)
+                    TriggerServerEvent("dust_stable:server:askhorse")
+                    OpenStable(menutype, v.name)
+                    return
                 end
                 if PromptHasHoldModeCompleted(ManagePrompt) then
                     isInteracting = true
                     local menutype = "Chevaux"
-                    -- TriggerServerEvent("dust_stable:server:askhorse", v.name)
-                    OpenStable(menutype)
+                    TriggerServerEvent("dust_stable:server:askhorse")
+                    OpenStable(menutype, v.name)
+                    return
                 end
             end
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
@@ -88,17 +89,17 @@ end)
 
 local horselist = {}
 RegisterNetEvent("dust_stable:server:gethorse")
-AddEventHandler("dust_stable:server:gethorse", function(horseid, nom, model)
+AddEventHandler("dust_stable:server:gethorse", function(horseid, nom, model, pos)
     for k, v in pairs(horselist) do
         table.remove(horselist, k)
     end
     Wait(50)
-    table.insert(horselist, {id = horseid, name = nom, race = model})
+    table.insert(horselist, {id = horseid, name = nom, race = model, stable = pos})
 end)
 
 ---- Menu stable ----
 
-function OpenStable(menutype)
+function OpenStable(menutype, stable)
     local _menutype = menutype
     local playerPed = PlayerPedId()
     local Position = GetEntityCoords(playerPed)
@@ -119,7 +120,9 @@ function OpenStable(menutype)
 
         if _menutype == 'Ouvrir' then
             for k, v in pairs(horselist) do
-                table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
+                if v.stable == stable then
+                    table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
+                end
             end
         end
         if _menutype == 'Chevaux' then 

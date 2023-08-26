@@ -10,7 +10,7 @@ end)
 RegisterNetEvent("dust_stable:server:askhorse")
 AddEventHandler(
     "dust_stable:server:askhorse",
-    function(stable)
+    function()
         local _source = source     
 		local user = RedEM.GetPlayer(_source)
 		local identifier = user.identifier
@@ -19,7 +19,7 @@ AddEventHandler(
 		local jobgrade = user.jobrade
 		local gang = user.gang
 		local ganggrade = user.ganggrade
-		MySQL.query('SELECT * FROM stable WHERE (`selected`=@selected AND `identifier`=@identifier AND `charid`=@charid AND `stable`=@stable) OR (`selected`=@selected AND `job`=@job AND `jobgrade`=@jobgrade AND `stable`=@stable) OR (`selected`=@selected AND `gang`=@gang AND `ganggrade`=@ganggrade AND `stable`=@stable);',
+		MySQL.query('SELECT * FROM stable WHERE (`selected`=@selected AND `identifier`=@identifier AND `charid`=@charid) OR (`selected`=@selected AND `job`=@job AND `jobgrade`=@jobgrade) OR (`selected`=@selected AND `gang`=@gang AND `ganggrade`=@ganggrade);',
 		{
 			identifier = identifier,
 			charid = charid,
@@ -32,12 +32,14 @@ AddEventHandler(
 
 		}, function(result)
 			if #result ~= 0 then
+				print "result"
 				for i = 1, #result do
 					if result[i].selected == 0 then 
 						local horseid = result[i].horseid
 						local name = result[i].name
 						local model = result[i].model
-						TriggerClientEvent("dust_stable:server:gethorse", _source, horseid, name, model)
+						local stable = result[i].stable
+						TriggerClientEvent("dust_stable:server:gethorse", _source, horseid, name, model, stable)
 					end
 				end                    
 			end
