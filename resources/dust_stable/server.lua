@@ -150,7 +150,7 @@ end)
 
 RegisterNetEvent("dust_stable:server:createhorse")
 AddEventHandler(
-    "dust_stable:server:create",
+    "dust_stable:server:createhorse",
     function(name, horseid, model, stable)
         local _source = source     
 		local user = RedEM.GetPlayer(_source)
@@ -236,12 +236,6 @@ AddEventHandler("RegisterUsableItem:createhorse", function(source)
 	local _type = "create"
 	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
 end)
-
--- RegisterServerEvent("dust_stable:server:createhorse", function(horseid, model)
--- 	local _type = "create"
--- 	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
--- end)
-
 
 RegisterServerEvent("RegisterUsableItem:transferhorse")
 AddEventHandler("RegisterUsableItem:transferhorse", function(source)
