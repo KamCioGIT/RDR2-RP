@@ -335,11 +335,11 @@ function spawnhorse(model, name, horseid)
 
     initializing = true
     local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
-    local entity = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped), true, true)
+    local horse = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped), true, true)
     Citizen.InvokeNative(0x283978A15512B2FE, entity, true) -- set random outfit components
     SetModelAsNoLongerNeeded(modelHash)
     -- PlaceEntityOnGroundProperly(entity, 0)
-    SetPedPersonality(entity, GetHashKey("PLAYER_HORSE"))
+    -- SetPedPersonality(entity, GetHashKey("PLAYER_HORSE"))
 
     -- SetPedConfigFlag(entity, 324, true)
     -- SetPedConfigFlag(entity, 211, true)
@@ -355,22 +355,21 @@ function spawnhorse(model, name, horseid)
     -- SetPedConfigFlag(entity, 319, true)
     -- SetPedConfigFlag(entity, 6, true)
 
-    SetAnimalTuningBoolParam(entity, 25, false)
-    SetAnimalTuningBoolParam(entity, 24, false)
+    SetAnimalTuningBoolParam(horse, 25, false)
+    SetAnimalTuningBoolParam(horse, 24, false)
 
-    TaskAnimalUnalerted(entity, -1, false, 0, 0)
+    TaskAnimalUnalerted(horse, -1, false, 0, 0)
 
-    SpawnplayerHorse = entity
-
-    SetPedPromptName(entity, name)
-    Entity(entity).state.set('horseid', horseid)
+    SetPedPromptName(horse, name)
+    Entity(horse).state.set('horseid', horseid)
+    print (Entity(horse).state.horseid)
     if selectedcomp ~= nil and selectedcomp ~= "0" then
         for _, componentHash in pairs(selectedcomp) do
-            Citizen.InvokeNative(0xD3A7B003ED343FD9, entity, componentHash, true, true, true)
+            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash, true, true, true)
         end
     end
 
-    SetPedConfigFlag(entity, 297, true)
+    SetPedConfigFlag(horse, 297, true)
     
     for k, v in pairs(selectedcomp) do
         selectedcomp[k] = nil
