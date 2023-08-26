@@ -22,7 +22,7 @@ Citizen.CreateThread(function()
 
     str = 'Gérer'
     ManagePrompt = PromptRegisterBegin()
-    PromptSetControlAction(ManagePrompt, 0xCEFD9220)
+    PromptSetControlAction(ManagePrompt, 0xD9D0E1C0)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(ManagePrompt, str)
     PromptSetEnabled(ManagePrompt, true)
@@ -58,7 +58,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) then
                 PromptSetActiveGroupThisFrame(StablePromptGroup, StablePromptName)
-                if IsControlJustReleased(0, 0x8E90C7BB) then
+                if IsControlJustReleased(0, 0xC7B5340A) then
                     isInteracting = true
                     local menutype = "Ouvrir"
                     TriggerServerEvent("dust_stable:server:askhorse", v.name)
