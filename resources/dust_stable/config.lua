@@ -3,7 +3,7 @@ Config = {}
 Config.Stables = {
 	Saint_Denis = {
 		pos = vector3(2512.26, -1431.108, 46.27571),
-		Name = 'Saint-Denis',
+		name = 'Saint-Denis',
     },
 }
 

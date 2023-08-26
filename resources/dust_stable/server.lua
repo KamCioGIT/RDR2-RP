@@ -34,10 +34,12 @@ AddEventHandler(
 		}, function(result)
 			if #result ~= 0 then
 				for i = 1, #result do
-					local horseid = result[i].horseid
-					local name = result[i].name
-					local model = result[i].model
-					TriggerClientEvent("dust_stable:server:gethorse", horseid, name, model)
+					if result[i].selected == 0 then 
+						local horseid = result[i].horseid
+						local name = result[i].name
+						local model = result[i].model
+						TriggerClientEvent("dust_stable:server:gethorse", horseid, name, model)
+					end
 				end                    
 			end
 		end)
@@ -164,10 +166,10 @@ AddEventHandler(
 		local identifier = user.identifier
 		local charid = user.charid
 		local numBase0 = math.random(100, 999)
-    	local numBase1 = math.random(0, 9999)
+    	local numBase1 = math.random(0, 999)
     	local generetedhorseid = string.format("%03d%04d", numBase0, numBase1)
 		MySQL.update(
-		'INSERT INTO vault (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name);',
+		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name);',
 		{
 			identifier = identifier,
 			charid = charid,
@@ -185,12 +187,41 @@ AddEventHandler("dust_stable:server:askcomponents", function(horseid)
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
 	local charid = user.charid
-	MySQL.query('SELECT * FROM horses WHERE `horseid`=@horseid;', {horseid = horseid}, function(result)
+	MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;', {horseid = horseid}, function(result)
 		if result[1] then
 			components = json.decode(result[1].components)
 		end
 	end)
 	TriggerClientEvent("dust_stable:server:getcomponents", _source, components)
 end)
+
+---- RANGER LE CHEVAL ----
+
+RegisterServerEvent("dust_stable:server:stockhorse") 
+AddEventHandler("dust_stable:server:stockhorse", function(stable, horseid)
+	local _source = source
+	local user = RedEM.GetPlayer(_source)
+	local identifier = user.identifier
+	local charid = user.charid
+	MySQL.query('SELECT * IN stable WHERE `identifier`=@identifier, `charid`=@charid, `horseid`=@horseid;',
+		{
+			identifier = identifier,
+			charid = charid,
+			horseid = horseid
+		}, function(result)
+			if #result ~= 0 then
+				MySQL.update('UPDATE stable SET `stable`=@stable, `selected`=@selected  WHERE `horseid`=@horseid;',
+					{
+						stable = stable,
+						selected = 0,
+						horseid = horseid
+					}, function(rowsChanged)
+						TriggerClientEvent("dust_stable:server:horsestocked", _source)
+				end)          
+			end
+		end)
+end)
+
+
 
 ----- OBJET CONTRAT CHEVAL -----

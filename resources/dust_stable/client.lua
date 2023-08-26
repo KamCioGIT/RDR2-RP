@@ -1,6 +1,7 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
 
+---- PROMPT ----
 local StablePromptGroup = GetRandomIntInRange(0, 0xffffff)
 local StablePromptName = CreateVarString(10, "LITERAL_STRING", "Écurie")
 local OpenPrompt
@@ -10,7 +11,7 @@ local IsInteracting = false
 Citizen.CreateThread(function()
     local str = 'Ouvrir'
     OpenPrompt = PromptRegisterBegin()
-    PromptSetControlAction(OpenPrompt, 0x8E90C7BB)
+    PromptSetControlAction(OpenPrompt, 0xC7B5340A)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(OpenPrompt, str)
     PromptSetEnabled(OpenPrompt, true)
@@ -21,7 +22,7 @@ Citizen.CreateThread(function()
 
     str = 'Gérer'
     ManagePrompt = PromptRegisterBegin()
-    PromptSetControlAction(ManagePrompt, 0xD9D0E1C0)
+    PromptSetControlAction(ManagePrompt, 0x156F7119)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(ManagePrompt, str)
     PromptSetEnabled(ManagePrompt, true)
@@ -31,25 +32,51 @@ Citizen.CreateThread(function()
     PromptRegisterEnd(ManagePrompt)
 end)
 
+local GaragePromptGroup = GetRandomIntInRange(0, 0xffffff)
+local GaragePromptName = CreateVarString(10, "LITERAL_STRING", "Écurie")
+local RangerPrompt
+local GaragePromptShown = false
+local IsInteracting = false
+Citizen.CreateThread(function()
+    local str = "Mettre à l'écurie"
+    RangerPrompt = PromptRegisterBegin()
+    PromptSetControlAction(RangerPrompt, 0xC7B5340A)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(RangerPrompt, str)
+    PromptSetEnabled(RangerPrompt, true)
+    PromptSetVisible(RangerPrompt, true)
+    PromptSetHoldMode(RangerPrompt, false)
+    PromptSetGroup(RangerPrompt, GaragePromptGroup)
+    PromptRegisterEnd(RangerPrompt)
+end)
+
 ----- INTERACT WITH STABLE ----
 Citizen.CreateThread(function()
     while true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Stables) do
-            if #(playerpos - v.pos ) < 7 then
+            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) then
                 PromptSetActiveGroupThisFrame(StablePromptGroup, StablePromptName)
                 if IsControlJustReleased(0, 0x8E90C7BB) then
                     isInteracting = true
                     local menutype = "Ouvrir"
-                    TriggerServerEvent("dust_stable:server:askhorse")
+                    TriggerServerEvent("dust_stable:server:askhorse", v.name)
                     OpenStable(menutype)
                 end
                 if PromptHasHoldModeCompleted(ManagePrompt) then
                     isInteracting = true
                     local menutype = "Chevaux"
-                    TriggerServerEvent("dust_stable:server:askhorse")
+                    TriggerServerEvent("dust_stable:server:askhorse", v.name)
                     OpenStable(menutype)
+                end
+            end
+            if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
+                PromptSetActiveGroupThisFrame(StablePromptGroup, StablePromptName)
+                if IsControlJustReleased(0, 0xC7B5340A) then
+                    local horse = GetMount(PlayerPedId())
+                    local horseid = GetVehicleNumberPlateText(horse)
+                    TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid)
                 end
             end
         end
@@ -115,7 +142,7 @@ function OpenStable(menutype)
                     Wait(500)
                     for k, v in pairs(horselist) do
                         if v.id == data.current.value then
-                            spawnhorse(v.race, v.name)
+                            spawnhorse(v.race, v.name, v.id)
                         end
                         Wait(100)
                         horselist[k] = nil
@@ -278,7 +305,7 @@ AddEventHandler("dust_stable:server:getcomponents", function(components, model)
 end)
 
 local initializing = false
-function spawnhorse(model, name)
+function spawnhorse(model, name, horseid)
     if initializing then
         return
     end
@@ -324,6 +351,7 @@ function spawnhorse(model, name)
     SpawnplayerHorse = entity
 
     SetPedPromptName(entity, name)
+    SetVehicleNumberPlateText(entity, horseid)
     if selectedcomp ~= nil and selectedcomp ~= "0" then
         for _, componentHash in pairs(selectedcomp) do
             Citizen.InvokeNative(0xD3A7B003ED343FD9, entity, componentHash, true, true, true)
@@ -338,7 +366,14 @@ function spawnhorse(model, name)
     initializing = false
 end
 
-
+---- RANGER LE CHEVAL  ----
+RegisterNetEvent("dust_stable:server:horsestocked")
+AddEventHandler("dust_stable:server:horsestocked", function()
+    local horse = GetMount(PlayerPedId())
+    RemovePedFromMount(PlayerPedId())
+    Wait(1000)
+    DeleteEntity(horse)
+end)
 
 AddEventHandler(
     "onResourceStop",
