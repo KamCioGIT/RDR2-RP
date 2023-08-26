@@ -77,20 +77,12 @@ AddEventHandler(
 		local user = RedEM.GetPlayer(_source)
 		local identifier = user.identifier
 		local charid = user.charid
-		local job = nil
-		local jobgrade = nil
-		local gang = nil
-		local ganggrade = nil
-		MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid, `name`=@name, `job`=@job, `jobgrade`=@jobgrade, `gang`=@gang, `ganggrade`=@ganggrade WHERE `horseid`=@horseid;',
+		MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid, `name`=@name WHERE `horseid`=@horseid;',
 		{
 			identifier = identifier,
 			charid = charid,
 			name = tostring(name),
-			horseid = horseid,
-			job = job,
-			jobgrade = jobgrade,
-			gang = gang,
-			ganggrade = ganggrade
+			horseid = horseid
 		}, function(rowsChanged)
 
 		end)
@@ -159,21 +151,20 @@ end)
 RegisterNetEvent("dust_stable:server:createhorse")
 AddEventHandler(
     "dust_stable:server:create",
-    function(name, horseid)
+    function(name, horseid, model, stable)
         local _source = source     
 		local user = RedEM.GetPlayer(_source)
 		local identifier = user.identifier
 		local charid = user.charid
-		local numBase0 = math.random(100, 999)
-    	local numBase1 = math.random(0, 999)
-    	local generetedhorseid = string.format("%03d%04d", numBase0, numBase1)
 		MySQL.update(
 		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name);',
 		{
 			identifier = identifier,
 			charid = charid,
 			name = tostring(name),
-			horseid = generetdhorseid
+			horseid = horseid,
+			model = model,
+			stable = stable
 		}, function(rowsChanged)
 
 		end)
@@ -238,7 +229,12 @@ end)
 
 RegisterServerEvent("RegisterUsableItem:createhorse")
 AddEventHandler("RegisterUsableItem:createhorse", function()
-
+	local _source = source
+	local ItemData = data.getItem(_source, transferhorse)
+    local horseid = ItemData.ItemMeta.horseid
+	local model = ItemData.ItemMeta.model
+	local _type = "create"
+	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
 end)
 
 
@@ -246,6 +242,12 @@ end)
 
 RegisterServerEvent("RegisterUsableItem:transferhorse")
 AddEventHandler("RegisterUsableItem:transferhorse", function()
+	local _source = source
+	local ItemData = data.getItem(_source, transferhorse)
+    local horseid = ItemData.ItemMeta.horseid
+	local model = ItemData.ItemMeta.model
+	local _type = "transfer"
+	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
 end)
 
 RegisterServerEvent("dust_stable:server:sellhorse")
@@ -271,7 +273,7 @@ AddEventHandler("dust_stable:server:sellhorse", function (horseid)
 						ganggrade = 0
 					}, function(rowsChanged)
 						local ItemData = data.getItem(_source, "transferhorse")
-						TriggerServerEvent("redemrp_inventory:createtransferhorse", horseid)
+						TriggerServerEvent("redemrp_inventory:transferhorse", horseid, model)
 				end)          
 			end
 		end) 

@@ -376,3 +376,80 @@ AddEventHandler("dust_stable:server:horsestocked", function()
     DeleteEntity(horse)
 end)
 
+----- CHOISIR LE NOM -----
+RegisterNetEvent("dust_stable:server:choosename")
+AddEventHandler("dust_stable:server:choosename", function (horseid, model, _type)
+    TriggerEvent('redemrp_inventory:close_inventory')
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        AddTextEntry("FMMC_MPM_TYP86", "Nom du bien")
+        DisplayOnscreenKeyboard(4, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+        while (UpdateOnscreenKeyboard() == 0) do
+            DisableAllControlActions(0)
+            Citizen.Wait(0)
+        end
+        if (GetOnscreenKeyboardResult()) then
+            name = GetOnscreenKeyboardResult()
+            if _type == "transfer" then
+                TriggerServerEvent("dust_stable:server:add", name, horseid)
+            elseif _type == "create" then
+                local stable = "buyhorse"
+                TriggerServerEvent("dust_stable:server:createhorse", name, horseid, model, stable)
+            end
+        else
+            menu.close()
+        return
+        end
+        end)
+end)
+
+
+
+
+
+------ ACHAT CHEVAL ------ 
+
+local AchatPromptGroup = GetRandomIntInRange(0, 0xffffff)
+local AchatPromptName = CreateVarString(10, "LITERAL_STRING", "Écurie")
+local AchatPrompt
+local AchatPromptShown = false
+Citizen.CreateThread(function()
+    local str = "Acheter un cheval"
+    AchatPrompt = PromptRegisterBegin()
+    PromptSetControlAction(AchatPrompt, 0xC7B5340A)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(AchatPrompt, str)
+    PromptSetEnabled(AchatPrompt, true)
+    PromptSetVisible(AchatPrompt, true)
+    PromptSetHoldMode(AchatPrompt, false)
+    PromptSetGroup(AchatPrompt, AchatPromptGroup)
+    PromptRegisterEnd(AchatPrompt)
+end)
+
+
+function buyhorse()
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local elements = {}
+
+        for k, v in pairs(Config.WarHorses)
+            table.insert(elements, {label = v.name, value = v.model, desc = v.desc})
+        end
+        MenuData.Open('default', GetCurrentResourceName(), 'buyhorse', {
+            title = "Acheter un cheval",
+            subtext = "Chevaux",
+            align = 'top-right',
+            elements = elements,
+        },
+        
+        function(data, menu)
+            MenuData.CloseAll()
+            TriggerServerEvent("redemrp_inventory:createhorse", data.current.value)
+        end,
+
+        function(data, menu)
+            menu.close()
+        end)
+    end)
+end

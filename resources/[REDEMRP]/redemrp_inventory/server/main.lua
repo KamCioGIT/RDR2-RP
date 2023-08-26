@@ -2054,7 +2054,7 @@ RegisterServerEvent("redemrp_inventory:contratsigne", function(name, job)
     end
 end)
 
-RegisterServerEvent("redemrp_inventory:createtransferhorse", function(horseid)
+RegisterServerEvent("redemrp_inventory:transferhorse", function(horseid, model)
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local identifier = user.GetIdentifier()
@@ -2065,9 +2065,45 @@ RegisterServerEvent("redemrp_inventory:createtransferhorse", function(horseid)
     if not _meta.horseid then
         _meta.horseid = horseid
     end
+    if not _meta.model then
+        _meta.model = model
+    end
     local item, id = data.getInventoryItemFromName("transferhorse", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
     if not item then
         table.insert(Inventory[identifier .. "_" .. charid], data.CreateItem("transferhorse", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)
+
+RegisterServerEvent("redemrp_inventory:createhorse", function(model)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local identifier = user.GetIdentifier()
+    local charid = user.GetActiveCharacter()
+    local itemData = data.getItem(_source, "createhorse")
+    local _meta = meta or {}
+    local itemData = Config.Items["createhorse"]
+    local numBase0 = math.random(100, 999)
+    local numBase1 = math.random(0, 999)
+    local generetedhorseid = string.format("%03d%04d", numBase0, numBase1)
+	local horseid = generetedhorseid
+    if not _meta.horseid then
+        _meta.horseid = horseid
+    end
+    if not _meta.model then
+        _meta.model = model
+    end
+    local item, id = data.getInventoryItemFromName("createhorse", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], data.CreateItem("createhorse", 1, _meta))
         InventoryWeight[identifier .. "_" .. charid] =
         InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
         TriggerClientEvent(

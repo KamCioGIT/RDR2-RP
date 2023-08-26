@@ -32,7 +32,6 @@ end)
     
 RegisterNetEvent('contrat:signe')
 AddEventHandler('contrat:signe', function(job)
-    print "yessai"
     local signature = false
     TriggerEvent('redemrp_inventory:close_inventory')
     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
