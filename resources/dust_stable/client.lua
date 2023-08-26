@@ -430,7 +430,7 @@ Citizen.CreateThread(function()
     while true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
-        for k, v in pairs(Config.BuyHorse) do
+        for k, v in pairs(Config.Buyhorse) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) then
                 PromptSetActiveGroupThisFrame(AchatPromptGroup, AchatPromptName)
                 if IsControlJustReleased(0, 0xC7B5340A) then
