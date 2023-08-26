@@ -57,17 +57,19 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) then
+                TriggerServerEvent("dust_stable:server:askhorse", v.name)
+                Wait(500)
                 PromptSetActiveGroupThisFrame(StablePromptGroup, StablePromptName)
                 if IsControlJustReleased(0, 0xC7B5340A) then
                     isInteracting = true
                     local menutype = "Ouvrir"
-                    TriggerServerEvent("dust_stable:server:askhorse", v.name)
+                    -- TriggerServerEvent("dust_stable:server:askhorse", v.name)
                     OpenStable(menutype)
                 end
                 if PromptHasHoldModeCompleted(ManagePrompt) then
                     isInteracting = true
                     local menutype = "Chevaux"
-                    TriggerServerEvent("dust_stable:server:askhorse", v.name)
+                    -- TriggerServerEvent("dust_stable:server:askhorse", v.name)
                     OpenStable(menutype)
                 end
             end
@@ -88,6 +90,10 @@ end)
 local horselist = {}
 RegisterNetEvent("dust_stable:server:gethorse")
 AddEventHandler("dust_stable:server:gethorse", function(horseid, nom, model)
+    for k, v in pairs(horselist) do
+        horselist[k] = nil
+    end
+    Wait(50)
     table.insert(horselist, {id = horseid, name = nom, race = model})
 end)
 
