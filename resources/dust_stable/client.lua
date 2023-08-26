@@ -460,6 +460,7 @@ function buyhorse()
         
         function(data, menu)
             MenuData.CloseAll()
+            print (data.current.value)
             TriggerServerEvent("redemrp_inventory:createhorse", data.current.value)
         end,
 
