@@ -235,6 +235,19 @@ end)
 
 
 ----- OBJET CONTRAT CHEVAL -----
+
+RegisterServerEvent("RegisterUsableItem:createhorse")
+AddEventHandler("RegisterUsableItem:createhorse", function()
+
+end)
+
+
+
+
+RegisterServerEvent("RegisterUsableItem:transferhorse")
+AddEventHandler("RegisterUsableItem:transferhorse", function()
+end)
+
 RegisterServerEvent("dust_stable:server:sellhorse")
 AddEventHandler("dust_stable:server:sellhorse", function (horseid)
 	local _source = source
@@ -257,7 +270,8 @@ AddEventHandler("dust_stable:server:sellhorse", function (horseid)
 						gang = "x",
 						ganggrade = 0
 					}, function(rowsChanged)
-						TriggerClientEvent("dust_stable:server:horsestocked", _source)
+						local ItemData = data.getItem(_source, "transferhorse")
+						TriggerServerEvent("redemrp_inventory:createtransferhorse", horseid)
 				end)          
 			end
 		end) 

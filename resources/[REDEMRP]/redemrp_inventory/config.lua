@@ -901,7 +901,7 @@ Config.Items = {
         canBeUsed = true,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/provision_role_naturalist_sample_domesticated.png",
+        imgsrc = "items/generic_official_doc.png",
         type = "item_standard",
     },
     ["transferhorse"] = {
@@ -912,7 +912,7 @@ Config.Items = {
         canBeUsed = true,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/provision_role_naturalist_sample_domesticated.png",
+        imgsrc = "items/folder_notes.png",
         type = "item_standard",
     },
 }

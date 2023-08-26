@@ -2023,7 +2023,6 @@ exports("removeItemStash", removeItemStash)
 exports ("addItemStash", addItemStash)
 
 RegisterServerEvent("redemrp_inventory:contratsigne", function(name, job)
-    print "inventor"
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local identifier = user.GetIdentifier()
@@ -2043,6 +2042,32 @@ RegisterServerEvent("redemrp_inventory:contratsigne", function(name, job)
     local item, id = getInventoryItemFromName("contratsigne", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
     if not item then
         table.insert(Inventory[identifier .. "_" .. charid], CreateItem("contratsigne", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)
+
+RegisterServerEvent("redemrp_inventory:createtransferhorse", function(horseid)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local identifier = user.GetIdentifier()
+    local charid = user.GetActiveCharacter()
+    local itemData = data.getItem(_source, "transferhorse")
+    local _meta = meta or {}
+    local itemData = Config.Items["transferhorse"]
+    if not _meta.horseid then
+        _meta.horseid = horseid
+    end
+    local item, id = data.getInventoryItemFromName("transferhorse", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], data.CreateItem("transferhorse", 1, _meta))
         InventoryWeight[identifier .. "_" .. charid] =
         InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
         TriggerClientEvent(
