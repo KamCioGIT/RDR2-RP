@@ -27,7 +27,7 @@ Citizen.CreateThread(function()
     PromptSetText(ManagePrompt, str)
     PromptSetEnabled(ManagePrompt, true)
     PromptSetVisible(ManagePrompt, true)
-    PromptSetHoldMode(ManagePrompt, true)
+    PromptSetHoldMode(ManagePrompt, false)
     PromptSetGroup(ManagePrompt, StablePromptGroup)
     PromptRegisterEnd(ManagePrompt)
 end)
@@ -65,7 +65,7 @@ Citizen.CreateThread(function()
                     Wait(200)
                     OpenStable(menutype, v.name)
                 end
-                if PromptHasHoldModeCompleted(ManagePrompt) then
+                if IsControlJustReleased(0, 0xD9D0E1C0) then
                     isInteracting = true
                     local menutype = "Chevaux"
                     TriggerServerEvent("dust_stable:server:askhorse")
