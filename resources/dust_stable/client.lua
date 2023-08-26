@@ -332,7 +332,7 @@ function spawnhorse(model, name, horseid)
     initializing = true
     local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
     local entity = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped), true, true)
-    SetRandomOutfitVariation(entity, true)
+    Citizen.InvokeNative(0x283978A15512B2FE, entity, true) -- set random outfit components
     SetModelAsNoLongerNeeded(modelHash)
     -- PlaceEntityOnGroundProperly(entity, 0)
     SetPedWrithingDuration(entity, -1, -1, 0)
