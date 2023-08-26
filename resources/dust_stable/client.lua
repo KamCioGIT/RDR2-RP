@@ -58,7 +58,6 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) then
                 TriggerServerEvent("dust_stable:server:askhorse", v.name)
-                Wait(500)
                 PromptSetActiveGroupThisFrame(StablePromptGroup, StablePromptName)
                 if IsControlJustReleased(0, 0xC7B5340A) then
                     isInteracting = true
