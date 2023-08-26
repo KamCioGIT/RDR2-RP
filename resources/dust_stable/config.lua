@@ -6,7 +6,7 @@ Config.Stables = {
 		name = 'Saint-Denis',
     },
 	buyhorse = {
-		pos = vector4(2493.225, -1398.888, 45.93799),
+		pos = vector3(2493.225, -1398.888, 45.93799),
 		name = 'buyhorse',
     },
 
