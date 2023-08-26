@@ -176,6 +176,8 @@ AddEventHandler(
 		}, function(rowsChanged)
 
 		end)
+		local ItemData = data.getItem(_source, "createhorse")
+		ItemData.RemoveItem(1)
 end)
 
 ------- ASK COMPONENTS -----

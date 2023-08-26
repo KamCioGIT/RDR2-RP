@@ -208,7 +208,7 @@ function createObjectBox(object) {
     } else if(object.name == "contratsigne") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Contrat de travail de " + object.meta.job + " de " + object.meta.name + "`)    ");
     } else if(object.name == "transferhorse") {
-        boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Certificat du cheval " + object.meta.horseid + "`)    ");
+        boxContent.setAttribute('onmouseover', "Over(`" + object.name + "`, `Certificat du cheval " + object.meta.horseid + "`)");
     } else if(object.name == "createhorse") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Certificat pour " + object.meta.model + "`)    ");
     } else if(object.name == "wateringcan") {
