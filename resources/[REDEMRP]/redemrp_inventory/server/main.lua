@@ -2114,6 +2114,7 @@ RegisterServerEvent("redemrp_inventory:createhorse", function(model)
             InventoryWeight[identifier .. "_" .. charid]
         )
     end
+    local horseid = nil
 end)
 
 RegisterServerEvent("redemrp_inventory:createhorse:getmeta", function()
