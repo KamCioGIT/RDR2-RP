@@ -78,7 +78,6 @@ Citizen.CreateThread(function()
                 if IsControlJustReleased(0, 0x156F7119) then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
-                    print (horseid)
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid)
                 end
             end
@@ -139,7 +138,7 @@ function OpenStable(menutype, stable)
         MenuData.Open('default', GetCurrentResourceName(), 'écurie', {
             title = "Écurie",
             subtext = "Vos biens",
-            align = 'top-right',
+            align = 'top-left',
             elements = elements,
         },
         
