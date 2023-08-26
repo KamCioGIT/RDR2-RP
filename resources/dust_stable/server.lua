@@ -156,6 +156,7 @@ AddEventHandler(
 		local user = RedEM.GetPlayer(_source)
 		local identifier = user.identifier
 		local charid = user.charid
+		print "mama"
 		MySQL.update(
 		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name);',
 		{
