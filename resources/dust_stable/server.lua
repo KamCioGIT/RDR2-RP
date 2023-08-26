@@ -53,7 +53,7 @@ AddEventHandler(
 		local user = RedEM.GetPlayer(_source)
 		local identifier = user.identifier
 		local charid = user.charid
-		MySQL.query('SELECT * IN stable WHERE `identifier`=@identifier, `charid`=@charid, `horseid`=@horseid;',
+	MySQL.query('SELECT * IN stable WHERE `identifier`=@identifier AND `charid`=@charid AND `horseid`=@horseid;',
 		{
 			identifier = identifier,
 			charid = charid,
