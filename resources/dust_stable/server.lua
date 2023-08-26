@@ -157,6 +157,10 @@ AddEventHandler(
 		local identifier = user.identifier
 		local charid = user.charid
 		local name = tostring(alias)
+		local numBase0 = math.random(100, 999)
+    	local numBase1 = math.random(0, 999)
+    	local generetedhorseid = string.format("%03d%04d", numBase0, numBase1)
+		local horseid = generetedhorseid
 		print (identifier, charid, name, horseid, model, stable)
 		MySQL.update(
 		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name);',
@@ -233,7 +237,7 @@ RegisterServerEvent("RegisterUsableItem:createhorse")
 AddEventHandler("RegisterUsableItem:createhorse", function(source)
 	local _source = source
 	local ItemData = data.getItem(_source, "createhorse")
-	local horseid = ItemData.ItemMeta.horseid
+	local horseid = nil
 	local model = ItemData.ItemMeta.model
 	local _type = "create"
 	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)

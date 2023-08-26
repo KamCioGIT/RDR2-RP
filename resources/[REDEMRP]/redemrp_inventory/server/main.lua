@@ -2091,13 +2091,6 @@ RegisterServerEvent("redemrp_inventory:createhorse", function(model)
     local itemData = SharedInventoryFunctions.getItem(_source, "createhorse")
     local _meta = meta or {}
     local itemData = Config.Items["createhorse"]
-    local numBase0 = math.random(100, 999)
-    local numBase1 = math.random(0, 999)
-    local generetedhorseid = string.format("%03d%04d", numBase0, numBase1)
-	local horseid = generetedhorseid
-    if not _meta.horseid then
-        _meta.horseid = horseid
-    end
     if not _meta.model then
         _meta.model = model
     end
