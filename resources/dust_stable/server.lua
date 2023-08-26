@@ -228,7 +228,7 @@ end)
 ----- OBJET CONTRAT CHEVAL -----
 
 RegisterServerEvent("RegisterUsableItem:createhorse")
-AddEventHandler("RegisterUsableItem:createhorse", function()
+AddEventHandler("RegisterUsableItem:createhorse", function(source)
 	local _source = source
 	local ItemData = data.getItem(_source, "createhorse")
 	local horseid = ItemData.ItemMeta.horseid
@@ -244,7 +244,7 @@ end)
 
 
 RegisterServerEvent("RegisterUsableItem:transferhorse")
-AddEventHandler("RegisterUsableItem:transferhorse", function()
+AddEventHandler("RegisterUsableItem:transferhorse", function(source)
 	local _source = source
 	local ItemData = data.getItem(_source, "transferhorse")
     local horseid = ItemData.ItemMeta.horseid
