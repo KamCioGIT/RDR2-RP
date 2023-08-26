@@ -394,6 +394,7 @@ AddEventHandler("dust_stable:server:choosename", function (horseid, model, _type
                 TriggerServerEvent("dust_stable:server:add", name, horseid)
             elseif _type == "create" then
                 local stable = "buyhorse"
+                print "en avant"
                 TriggerServerEvent("dust_stable:server:createhorse", name, horseid, model, stable)
             end
         else
