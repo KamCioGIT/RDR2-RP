@@ -19,6 +19,7 @@ AddEventHandler(
 		local jobgrade = user.jobrade
 		local gang = user.gang
 		local ganggrade = user.ganggrade
+		print (stable)
 		MySQL.query('SELECT * FROM stable WHERE (`selected`=@selected AND `identifier`=@identifier AND `charid`=@charid AND `stable`=@stable) OR (`selected`=@selected AND `job`=@job AND `jobgrade`=@jobgrade AND `stable`=@stable) OR (`selected`=@selected AND `gang`=@gang AND `ganggrade`=@ganggrade AND `stable`=@stable);',
 		{
 			identifier = identifier,
