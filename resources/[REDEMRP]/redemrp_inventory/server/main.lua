@@ -2109,6 +2109,3 @@ RegisterServerEvent("redemrp_inventory:createhorse", function(model)
     end
 end)
 
-RegisterServerEvent("redemrp_inventory:createhorse:getmeta", function()
-
-end)

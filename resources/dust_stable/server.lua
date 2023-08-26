@@ -153,7 +153,7 @@ end)
 RegisterNetEvent("dust_stable:server:createhorse")
 AddEventHandler(
     "dust_stable:server:createhorse",
-    function(alias, horseid, model, stable)
+    function(alias, model, stable)
         local _source = source     
 		local user = RedEM.GetPlayer(_source)
 		local identifier = user.identifier
