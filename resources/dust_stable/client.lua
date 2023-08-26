@@ -11,7 +11,7 @@ local IsInteracting = false
 Citizen.CreateThread(function()
     local str = 'Ouvrir'
     OpenPrompt = PromptRegisterBegin()
-    PromptSetControlAction(OpenPrompt, 0xC7B5340A)
+    PromptSetControlAction(OpenPrompt, 0x6319DB71)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(OpenPrompt, str)
     PromptSetEnabled(OpenPrompt, true)
@@ -22,7 +22,7 @@ Citizen.CreateThread(function()
 
     str = 'Gérer'
     ManagePrompt = PromptRegisterBegin()
-    PromptSetControlAction(ManagePrompt, 0xD9D0E1C0)
+    PromptSetControlAction(ManagePrompt, 0x05CA7C52)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(ManagePrompt, str)
     PromptSetEnabled(ManagePrompt, true)
@@ -40,7 +40,7 @@ local IsInteracting = false
 Citizen.CreateThread(function()
     local str = "Mettre à l'écurie"
     RangerPrompt = PromptRegisterBegin()
-    PromptSetControlAction(RangerPrompt, 0xC7B5340A)
+    PromptSetControlAction(RangerPrompt, 0x6319DB71)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(RangerPrompt, str)
     PromptSetEnabled(RangerPrompt, true)
@@ -58,14 +58,14 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 PromptSetActiveGroupThisFrame(StablePromptGroup, StablePromptName)
-                if IsControlJustReleased(0, 0xC7B5340A) then
+                if IsControlJustReleased(0, 0x6319DB71) then
                     isInteracting = true
                     local menutype = "Ouvrir"
                     TriggerServerEvent("dust_stable:server:askhorse")
                     Wait(200)
                     OpenStable(menutype, v.name)
                 end
-                if IsControlJustReleased(0, 0xD9D0E1C0) then
+                if IsControlJustReleased(0, 0x05CA7C52) then
                     isInteracting = true
                     local menutype = "Chevaux"
                     TriggerServerEvent("dust_stable:server:askhorse")
@@ -75,7 +75,7 @@ Citizen.CreateThread(function()
             end
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
                 PromptSetActiveGroupThisFrame(GaragePromptGroup, GaragePromptName)
-                if IsControlJustReleased(0, 0xC7B5340A) then
+                if IsControlJustReleased(0, 0x6319DB71) then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
                     print (horseid)
