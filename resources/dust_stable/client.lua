@@ -375,14 +375,3 @@ AddEventHandler("dust_stable:server:horsestocked", function()
     DeleteEntity(horse)
 end)
 
-AddEventHandler(
-    "onResourceStop",
-    function(resourceName)
-        if resourceName == GetCurrentResourceName() then
-            for _, prompt in pairs(prompts) do
-                PromptDelete(prompt)
-                RemoveBlip(blip)
-            end
-        end
-    end
-)
