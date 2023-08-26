@@ -891,6 +891,30 @@ Config.Items = {
         imgsrc = "items/provision_role_naturalist_sample_domesticated.png",
         type = "item_standard",
     },
+
+    ------ STABLE ------
+    ["createhorse"] = {
+        label = "Certificat d'écurie",
+        description = "Enregistre le chaval à votre nom",
+        weight = 0.01,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/provision_role_naturalist_sample_domesticated.png",
+        type = "item_standard",
+    },
+    ["transferhorse"] = {
+        label = "Certificat",
+        description = "Transfert le cheval à celui qui le se signe",
+        weight = 0.01,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/provision_role_naturalist_sample_domesticated.png",
+        type = "item_standard",
+    },
 }
 
 exports("GetItemsList", function()

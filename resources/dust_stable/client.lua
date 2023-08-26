@@ -181,7 +181,7 @@ function OpenStable(menutype)
                         table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
                     end
                     MenuData.Open('default', GetCurrentResourceName(), 'job', {
-                        title = "Vendre",
+                        title = "Gérer l'accès",
                         subtext = "Vos biens",
                         align = 'top-right',
                         elements = elements,
@@ -239,7 +239,7 @@ function OpenStable(menutype)
                         table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
                     end
                     MenuData.Open('default', GetCurrentResourceName(), 'gang', {
-                        title = "Vendre",
+                        title = "Gérer l'accès",
                         subtext = "Vos biens",
                         align = 'top-right',
                         elements = elements,

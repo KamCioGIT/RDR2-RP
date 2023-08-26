@@ -5,8 +5,6 @@ TriggerEvent("redemrp_inventory:getData",function(call)
         data = call
 end)
 
------- Refresh DB stable ----
-
 ----- Get Horse -----
 
 RegisterNetEvent("dust_stable:server:askhorse")
@@ -237,3 +235,30 @@ end)
 
 
 ----- OBJET CONTRAT CHEVAL -----
+RegisterServerEvent("dust_stable:server:sellhorse")
+AddEventHandler("dust_stable:server:sellhorse", function (horseid)
+	local _source = source
+	local user = RedEM.GetPlayer(_source)
+	local identifier = user.identifier
+	local charid = user.charid
+	MySQL.query('SELECT * IN stable WHERE `identifier`=@identifier, `charid`=@charid, `horseid`=@horseid;',
+		{
+			identifier = identifier,
+			charid = charid,
+			horseid = horseid
+		}, function(result)
+			if #result ~= 0 then
+				MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid, `job`=@job, `jobgrade`=@jobgrade,  `gang`=@gang, `ganggrade`=@ganggrade WHERE `horseid`=@horseid;',
+					{
+						identifier = identifier,
+						charid = charid,
+						job = "x",
+						jobgrade = 0,
+						gang = "x",
+						ganggrade = 0
+					}, function(rowsChanged)
+						TriggerClientEvent("dust_stable:server:horsestocked", _source)
+				end)          
+			end
+		end) 
+end)
