@@ -74,10 +74,11 @@ Citizen.CreateThread(function()
                 end
             end
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
-                PromptSetActiveGroupThisFrame(StablePromptGroup, StablePromptName)
+                PromptSetActiveGroupThisFrame(GaragePromptGroup, GaragePromptName)
                 if IsControlJustReleased(0, 0xC7B5340A) then
                     local horse = GetMount(PlayerPedId())
-                    local horseid = GetVehicleNumberPlateText(horse)
+                    local horseid = Entity(horse).state.horseid
+                    print (horseid)
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid)
                 end
             end
@@ -338,22 +339,21 @@ function spawnhorse(model, name, horseid)
     Citizen.InvokeNative(0x283978A15512B2FE, entity, true) -- set random outfit components
     SetModelAsNoLongerNeeded(modelHash)
     -- PlaceEntityOnGroundProperly(entity, 0)
-    SetPedWrithingDuration(entity, -1, -1, 0)
     SetPedPersonality(entity, GetHashKey("PLAYER_HORSE"))
 
-    SetPedConfigFlag(entity, 324, true)
-    SetPedConfigFlag(entity, 211, true)
-    SetPedConfigFlag(entity, 208, true)
-    SetPedConfigFlag(entity, 209, true)
-    SetPedConfigFlag(entity, 400, true)
-    SetPedConfigFlag(entity, 297, true)
-    SetPedConfigFlag(entity, 136, false)
-    SetPedConfigFlag(entity, 312, false)
-    SetPedConfigFlag(entity, 113, false)
-    SetPedConfigFlag(entity, 301, false)
-    SetPedConfigFlag(entity, 277, true)
-    SetPedConfigFlag(entity, 319, true)
-    SetPedConfigFlag(entity, 6, true)
+    -- SetPedConfigFlag(entity, 324, true)
+    -- SetPedConfigFlag(entity, 211, true)
+    -- SetPedConfigFlag(entity, 208, true)
+    -- SetPedConfigFlag(entity, 209, true)
+    -- SetPedConfigFlag(entity, 400, true)
+    -- SetPedConfigFlag(entity, 297, true)
+    -- SetPedConfigFlag(entity, 136, false)
+    -- SetPedConfigFlag(entity, 312, false)
+    -- SetPedConfigFlag(entity, 113, false)
+    -- SetPedConfigFlag(entity, 301, false)
+    -- SetPedConfigFlag(entity, 277, true)
+    -- SetPedConfigFlag(entity, 319, true)
+    -- SetPedConfigFlag(entity, 6, true)
 
     SetAnimalTuningBoolParam(entity, 25, false)
     SetAnimalTuningBoolParam(entity, 24, false)
@@ -363,7 +363,7 @@ function spawnhorse(model, name, horseid)
     SpawnplayerHorse = entity
 
     SetPedPromptName(entity, name)
-    SetVehicleNumberPlateText(entity, horseid)
+    Entity(entity).state.set('horseid', horseid)
     if selectedcomp ~= nil and selectedcomp ~= "0" then
         for _, componentHash in pairs(selectedcomp) do
             Citizen.InvokeNative(0xD3A7B003ED343FD9, entity, componentHash, true, true, true)

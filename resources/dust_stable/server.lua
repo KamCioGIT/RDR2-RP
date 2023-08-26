@@ -242,13 +242,8 @@ AddEventHandler("RegisterUsableItem:createhorse", function(source)
 	local _source = source
 	local ItemData = data.getItem(_source, "createhorse")
 	local horseid = nil
-	local _meta = meta or {}
-	local user = RedEM.GetPlayer(_source)
-	local identifier = user.identifier
-	local charid = user.charid
+	local model = ItemData.ItemMeta.model
 	local _type = "create"
-	local item, id = data.getInventoryItemFromName("createhorse", Inventory[identifier .. "_" .. charid], data.getMetaOutput(meta))
-	print (item, meta)
 	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
 end)
 
