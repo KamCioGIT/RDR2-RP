@@ -209,6 +209,8 @@ function createObjectBox(object) {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Contrat de travail de " + object.meta.job + " de " + object.meta.name + "`)    ");
     } else if(object.name == "transferhorse") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Certificat du cheval " + object.meta.horseid + "`)    ");
+    } else if(object.name == "createrhorse") {
+        boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Certificat du cheval " + object.meta.horseid + "`)    ");
     } else if(object.name == "wateringcan") {
         if(object.meta.water != undefined && object.meta.water != null) {
             var waterdisp = object.meta.water * 10;
