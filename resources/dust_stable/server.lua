@@ -231,21 +231,26 @@ RegisterServerEvent("RegisterUsableItem:createhorse")
 AddEventHandler("RegisterUsableItem:createhorse", function()
 	local _source = source
 	local ItemData = data.getItem(_source, transferhorse)
-    local horseid = ItemData.ItemMeta.horseid
-	local model = ItemData.ItemMeta.model
+	local ItemMeta = ItemData.getMeta()
+	local model = ItemMeta.model
+	local horseid = ItemMeta.horseid
 	local _type = "create"
 	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
 end)
 
-
+-- RegisterServerEvent("dust_stable:server:createhorse", function(horseid, model)
+-- 	local _type = "create"
+-- 	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
+-- end)
 
 
 RegisterServerEvent("RegisterUsableItem:transferhorse")
 AddEventHandler("RegisterUsableItem:transferhorse", function()
 	local _source = source
 	local ItemData = data.getItem(_source, transferhorse)
-    local horseid = ItemData.ItemMeta.horseid
-	local model = ItemData.ItemMeta.model
+    local ItemMeta = ItemData.getMeta()
+	local model = ItemMeta.model
+	local horseid = ItemMeta.horseid
 	local _type = "transfer"
 	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
 end)
