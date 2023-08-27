@@ -15,6 +15,7 @@ Config.Buyhorse = {
 	Saint_Denis = {
 		pos = vector3(2503.784, -1403.029, 46.16075),
 		name = 'Achat',
+		stable= 'buyhorse',
 	},
 }
 

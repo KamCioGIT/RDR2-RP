@@ -455,7 +455,7 @@ Citizen.CreateThread(function()
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 PromptSetActiveGroupThisFrame(AchatPromptGroup, AchatPromptName)
                 if IsControlJustReleased(0, 0xC7B5340A) then
-                    buyhorse()
+                    buyhorse(v.stable)
                     isInteracting = true
                 end
             end
@@ -464,7 +464,7 @@ Citizen.CreateThread(function()
 end)
 
 
-function buyhorse()
+function buyhorse(stable)
     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
         MenuData.CloseAll()
 
@@ -482,7 +482,7 @@ function buyhorse()
         
         function(data, menu)
             MenuData.CloseAll()
-            TriggerServerEvent("redemrp_inventory:createhorse", data.current.value)
+            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable)
             isInteracting = false
         end,
 
