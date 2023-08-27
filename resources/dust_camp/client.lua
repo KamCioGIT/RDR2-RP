@@ -1,6 +1,5 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
-
 local isInteracting = false
 local spawncamp = false
 local spawngrill = false
