@@ -97,7 +97,7 @@ Config.Animal = {
     -- AJOUT
     [72] = {["name"] = "Silver Fox",         ["model"] = 252669332,    ["viande"] = "petitsteak",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
     [73] = {["name"] = "Lievre de Californie",         ["model"] = -541762431,    ["viande"] = "petitsteak",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
-    [73] = {["name"] = "Mouflon sierra",         ["model"] = -1568716381,    ["viande"] = "grossteak",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
-    [73] = {["name"] = "Blaireau Américain",         ["model"] = -1170118274,    ["viande"] = "grossteak",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil}
+    [74] = {["name"] = "Mouflon sierra",         ["model"] = -1568716381,    ["viande"] = "grossteak",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
+    [75] = {["name"] = "Blaireau Américain",         ["model"] = -1170118274,    ["viande"] = "grossteak",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil}
 }   
 

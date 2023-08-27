@@ -38,7 +38,7 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         local playerPed = PlayerPedId()
-        local pos = GetEntityCoords(playerPed), true
+        local pos = GetEntityCoords(playerPed)
         local campfire = GetClosestObjectOfType(pos, 2.0, Config.Campfire, false, false, false)
         local cookgrill = GetClosestObjectOfType(pos, 2.0, Config.CampGrill, false, false, false)
         local cauldron = GetClosestObjectOfType(pos, 2.0, Config.CampChaudron, false, false, false)

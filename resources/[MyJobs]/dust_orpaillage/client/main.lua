@@ -66,7 +66,7 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         local playerPed = PlayerPedId()
-        local pos = GetEntityCoords(playerPed), true
+        local pos = GetEntityCoords(playerPed)
         local goldramp = GetClosestObjectOfType(pos, 1.5, Config.GoldRamp, false, false, false)
         if goldramp ~= 0 then
             local objectPos = GetEntityCoords(goldramp)

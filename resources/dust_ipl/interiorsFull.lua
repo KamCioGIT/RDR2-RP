@@ -21,6 +21,7 @@ Citizen.CreateThread(function()
                     getKorrigan()
                     getBeechers()
                     getBraManor()
+                    getEmsaloon()
 	
                     getBronte()
                     interiorsActive = true
@@ -34,9 +35,11 @@ Citizen.CreateThread(function()
     end
 end)
 
-Citizen.CreateThread(function()
-    while not isLoaded do
-        Citizen.Wait(1)
+function getEmsaloon()
+    local interior = GetInteriorAtCoords()
+    local isValid = IsValidInterior(interior)
+    if isValid then
+        if IsInteriorReady(interior) then
     ActivateInteriorEntitySets(45314, "Emerald Ranch saloon", {
     "eme_saloon_intgroup_curtains",
     "eme_saloon_intgroup_furniture"
