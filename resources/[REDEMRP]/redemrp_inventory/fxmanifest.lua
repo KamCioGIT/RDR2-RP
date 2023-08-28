@@ -29,7 +29,8 @@ server_exports {
 	'GetStashWeight',
 	'GetItemsList',
 	'removeItemStash',
-	'addItemStash'
+	'addItemStash',
+	'removeItem'
 }
 
 ui_page "html/inventory.html"
