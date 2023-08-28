@@ -74,7 +74,7 @@ end)
 RegisterNetEvent("dust_stable:server:add")
 AddEventHandler(
     "dust_stable:server:add",
-    function(name, horseid)
+    function(name, horseid, _data)
         local _source = source     
 		local user = RedEM.GetPlayer(_source)
 		local identifier = user.identifier
@@ -86,8 +86,8 @@ AddEventHandler(
 			name = tostring(name),
 			horseid = horseid
 		}, function(rowsChanged)
-			local ItemData = data.getItem(_source, "transferhorse", horseid)
-			Itemdata.RemoveItem(1)
+			local item = data.getItem(_source, "transferhorse", _data)
+			item.RemoveItem(1)
 
 		end)
 end)
@@ -245,7 +245,7 @@ AddEventHandler("RegisterUsableItem:transferhorse", function(source, data)
 	-- local ItemData = data.getItem(_source, "transferhorse")
     local horseid = data.meta.horseid
 	local _type = "transfer"
-	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
+	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type, data)
 end)
 
 RegisterServerEvent("dust_stable:server:sellhorse")

@@ -400,7 +400,7 @@ end)
 
 ----- CHOISIR LE NOM -----
 RegisterNetEvent("dust_stable:server:choosename")
-AddEventHandler("dust_stable:server:choosename", function (horseid, model, _type)
+AddEventHandler("dust_stable:server:choosename", function (horseid, model, _type, data)
     TriggerEvent('redemrp_inventory:close_inventory')
     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
         MenuData.CloseAll()
@@ -413,7 +413,7 @@ AddEventHandler("dust_stable:server:choosename", function (horseid, model, _type
         if (GetOnscreenKeyboardResult()) then
             name = GetOnscreenKeyboardResult()
             if _type == "transfer" then
-                TriggerServerEvent("dust_stable:server:add", name, horseid)
+                TriggerServerEvent("dust_stable:server:add", name, horseid, data)
             -- elseif _type == "create" then
             --     local stable = "buyhorse"
             --     TriggerServerEvent("dust_stable:server:createhorse", name, model, stable)
