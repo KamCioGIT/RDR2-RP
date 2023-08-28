@@ -2057,6 +2057,7 @@ end)
 RegisterServerEvent("redemrp_inventory:transferhorse", function(horseid)
     local _source = source
     local user = RedEM.GetPlayer(_source)
+    print (user)
     local identifier = user.GetIdentifier()
     local charid = user.GetActiveCharacter()
     local itemData = SharedInventoryFunctions.getItem(_source, "transferhorse")
