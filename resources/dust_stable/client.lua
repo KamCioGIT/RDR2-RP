@@ -109,6 +109,7 @@ function OpenStable(menutype, stable)
             if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
                 TriggerEvent("redemrp_menu_base:getData", function(call)
                     call.CloseAll()
+                    isInteracting = false
                 end)
                 return
             end
