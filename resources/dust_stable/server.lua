@@ -4,6 +4,19 @@ data = {}
 TriggerEvent("redemrp_inventory:getData",function(call)
         data = call
 end)
+------ JOB ET GANG -----
+RegisterNetEvent("dust_stable:server:askjob")
+AddEventHandler(
+    "dust_stable:server:askjob",
+    function()
+	local _source = source     
+	local user = RedEM.GetPlayer(_source)
+	local job = user.job
+	local jobgrade = user.jobrade
+	local gang = user.gang
+	local ganggrade = user.ganggrade
+	TriggerClientEvent("dust_stable:server:getjob", _source, job, jobgrade, gang, ganggrade)
+end)
 
 ----- Get Horse -----
 

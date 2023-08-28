@@ -1,6 +1,24 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
 
+
+
+
+RegisterNetEvent("dust_stable:server:getjob", function (_job, _jobgrade, _gang, _ganggrade)
+    playerjob = _job
+    playerjobgrade = _jobgrade
+    playergang = _gang
+    playerganggrade = _ganggrade
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(5000)
+        TriggerServerEvent("dust_stable:server:askjob")
+    end
+end)
+
+
 ---- PROMPT ----
 local StablePromptGroup = GetRandomIntInRange(0, 0xffffff)
 local StablePromptName = CreateVarString(10, "LITERAL_STRING", "Écurie")
@@ -103,9 +121,6 @@ function OpenStable(menutype, stable)
     local _menutype = menutype
     local playerPed = PlayerPedId()
     local Position = GetEntityCoords(playerPed)
-    local user = RedEM.GetPlayer(source)
-    local playerjob = user.job
-    local playergang = user.gang
     Citizen.CreateThread(function()
         while true do
             Wait(100)
