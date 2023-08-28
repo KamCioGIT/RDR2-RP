@@ -89,7 +89,7 @@ AddEventHandler(
 
 		end)
 		local ItemData = data.getItem(_source, "transferhorse", _data)
-			Itemdata.RemoveItem(1)
+			ItemData.RemoveItem(1)
 end)
 
 RegisterNetEvent("dust_stable:server:addjob")
