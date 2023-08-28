@@ -989,6 +989,7 @@ function addItem(name, amount, meta, identifier, charid, lvl)
 end
 
 function removeItem(name, amount, meta, identifier, charid)
+    print (name, amount, meta, identifier, charid)
     local _name = name
     local _amount = tonumber(amount)
     local _meta = meta or {}
