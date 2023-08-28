@@ -241,6 +241,7 @@ RegisterServerEvent("RegisterUsableItem:transferhorse")
 AddEventHandler("RegisterUsableItem:transferhorse", function(source, data)
 	local _source = source
     local horseid = data.meta.horseid
+	print (horseid)
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
 	local charid = user.charid
