@@ -235,10 +235,12 @@ Citizen.CreateThread(function()
         local isValid = IsValidInterior(interior)
         if isValid then
             if IsInteriorReady(interior) then
-        ActivateInteriorEntitySets(45314, "Emerald Ranch saloon", {
-        "eme_saloon_intgroup_curtains",
-        "eme_saloon_intgroup_furniture"
-        })
+                ActivateInteriorEntitySets(45314, "Emerald Ranch saloon", {
+                "eme_saloon_intgroup_curtains",
+                "eme_saloon_intgroup_furniture"
+                })
+            end
+        end
         
         isLoaded = true
     end
