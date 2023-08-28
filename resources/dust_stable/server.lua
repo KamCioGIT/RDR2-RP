@@ -247,6 +247,13 @@ AddEventHandler("RegisterUsableItem:transferhorse", function(source, _data)
 	local charid = user.charid
 	print ("transferhorse", 1, _data.meta, identifier, charid)
 	exports.redemrp_inventory.removeItem(_source, "transferhorse", 1, _data.meta, identifier, charid)
+	TriggerClientEvent(
+		"redemrp_inventory:SendItems",
+		_source,
+		PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+		{},
+		InventoryWeight[identifier .. "_" .. charid]
+	)
 	
 	MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid WHERE `horseid`=@horseid;',
 	{
