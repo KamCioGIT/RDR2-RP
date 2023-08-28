@@ -12,8 +12,11 @@ RegisterNetEvent("dust_stable:server:getjob", function (_job, _jobgrade, _gang, 
 end)
 
 Citizen.CreateThread(function()
-    while true do
-        Wait(3000)
+    while RedEM.GetPlayerData().isLoggedIn do
+        Wait(1000)
+        TriggerServerEvent("dust_stable:server:askjob")
+    end
+    if RedEM.GetPlayerData().isLoggedIn then
         TriggerServerEvent("dust_stable:server:askjob")
     end
 end)
