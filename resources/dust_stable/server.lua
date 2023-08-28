@@ -245,15 +245,7 @@ AddEventHandler("RegisterUsableItem:transferhorse", function(source, _data)
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
 	local charid = user.charid
-	print ("transferhorse", 1, _data.meta, identifier, charid)
-	exports.redemrp_inventory.removeItem(_source, "transferhorse", 1, _data.meta, identifier, charid)
-	TriggerClientEvent(
-		"redemrp_inventory:SendItems",
-		_source,
-		PrepareToOutput(Inventory[identifier .. "_" .. charid]),
-		{},
-		InventoryWeight[identifier .. "_" .. charid]
-	)
+	TriggerEvent("redemrp_inventory:removeitemfrommeta", _source, "transferhorse", 1, _data.meta)
 	
 	MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid WHERE `horseid`=@horseid;',
 	{

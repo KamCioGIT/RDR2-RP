@@ -2112,3 +2112,21 @@ RegisterServerEvent("redemrp_inventory:createhorse", function(model)
     end
 end)
 
+RegisterServerEvent("redemrp_inventory:removeitemfrommeta", function (name, amount, meta)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local identifier = user.GetIdentifier()
+    local charid = user.GetActiveCharacter()
+    local _name = name
+    local _amount = amount
+    local _meta = meta 
+    if removeItem(_name, _amount, _meta, identifier, charid) then
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)
