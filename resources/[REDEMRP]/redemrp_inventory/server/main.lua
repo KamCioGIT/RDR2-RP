@@ -2065,9 +2065,9 @@ RegisterServerEvent("redemrp_inventory:transferhorse", function(horseid, model)
     if not _meta.horseid then
         _meta.horseid = horseid
     end
-    if not _meta.model then
-        _meta.model = model
-    end
+    -- if not _meta.model then
+    --     _meta.model = model
+    -- end
     local item, id = getInventoryItemFromName("transferhorse", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
     if not item then
         table.insert(Inventory[identifier .. "_" .. charid], CreateItem("transferhorse", 1, _meta))
