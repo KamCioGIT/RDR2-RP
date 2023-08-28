@@ -186,7 +186,9 @@ function OpenStable(menutype, stable)
                     MenuData.CloseAll()
                     local elements = {}
                     for k, v in pairs(horselist) do
-                        table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
+                        if v.stable == stable then
+                            table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
+                        end
                     end
                     MenuData.Open('default', GetCurrentResourceName(), 'sell', {
                         title = "Vendre",
@@ -211,7 +213,9 @@ function OpenStable(menutype, stable)
                     MenuData.CloseAll()
                     local elements = {}
                     for k, v in pairs(horselist) do
-                        table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
+                        if v.stable == stable then
+                            table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
+                        end
                     end
                     MenuData.Open('default', GetCurrentResourceName(), 'sell', {
                         title = "Vendre",
@@ -253,7 +257,9 @@ function OpenStable(menutype, stable)
                     MenuData.CloseAll()
                     local elements = {}
                     for k, v in pairs(horselist) do
-                        table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
+                        if v.stable == stable then
+                            table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
+                        end
                     end
                     MenuData.Open('default', GetCurrentResourceName(), 'job', {
                         title = "Gérer l'accès",
@@ -315,7 +321,9 @@ function OpenStable(menutype, stable)
                     MenuData.CloseAll()
                     local elements = {}
                     for k, v in pairs(horselist) do
-                        table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
+                        if v.stable == stable then
+                            table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
+                        end
                     end
                     MenuData.Open('default', GetCurrentResourceName(), 'gang', {
                         title = "Gérer l'accès",
