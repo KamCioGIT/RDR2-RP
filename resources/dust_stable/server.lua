@@ -245,7 +245,6 @@ AddEventHandler("RegisterUsableItem:transferhorse", function(source, _data)
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
 	local charid = user.charid
-	TriggerEvent("redemrp_inventory:removeitemfrommeta", _source, "transferhorse", 1, _data.meta)
 	
 	MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid WHERE `horseid`=@horseid;',
 	{
@@ -253,7 +252,7 @@ AddEventHandler("RegisterUsableItem:transferhorse", function(source, _data)
 		charid = charid,
 		horseid = horseid
 	}, function(rowsChanged)
-
+		TriggerEvent("redemrp_inventory:removeitemfrommeta", _source, "transferhorse", 1, _data.meta)
 	end)
 end)
 
