@@ -86,10 +86,10 @@ AddEventHandler(
 			name = tostring(name),
 			horseid = horseid
 		}, function(rowsChanged)
-			local item = data.getItem(_source, "transferhorse", _data)
-			item.RemoveItem(1)
 
 		end)
+		local ItemData = data.getItem(_source, "transferhorse", _data)
+			Itemdata.RemoveItem(1)
 end)
 
 RegisterNetEvent("dust_stable:server:addjob")
