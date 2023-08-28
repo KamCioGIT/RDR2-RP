@@ -84,18 +84,12 @@ AddEventHandler(
 end)
 
 ---- Add Horse -----
-RegisterNetEvent("dust_stable:server:add")
+RegisterServerEvent("dust_stable:server:rename")
 AddEventHandler(
-    "dust_stable:server:add",
-    function(name, horseid, _data)
-        local _source = source     
-		local user = RedEM.GetPlayer(_source)
-		local identifier = user.identifier
-		local charid = user.charid
-		MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid, `name`=@name WHERE `horseid`=@horseid;',
+    "dust_stable:server:rename",
+    function(name, horseid)
+		MySQL.update('UPDATE stable SET `name`=@name WHERE `horseid`=@horseid;',
 		{
-			identifier = identifier,
-			charid = charid,
 			name = tostring(name),
 			horseid = horseid
 		}, function(rowsChanged)

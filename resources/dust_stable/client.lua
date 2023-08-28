@@ -146,6 +146,7 @@ function OpenStable(menutype, stable)
         end
         if _menutype == 'Chevaux' then 
             table.insert(elements, {label = "Certificat de vente", value = 'sell', desc = "Utile pour donner son bien à une personne"})
+            table.insert(elements, {label = "Renommer", value = 'rename', desc = "Changer le nom de votre bien"})
             if playerjob ~= "unemployed"  then
                 table.insert(elements, {label = "Accès Entreprise", value = 'job', desc = "Gérer l'accès au bien pour votre entreprise"})
             end
@@ -200,6 +201,29 @@ function OpenStable(menutype, stable)
                             isInteracting = false
                         end
                     end)
+                end)
+            end
+            if data.current.value == "rename" then
+                TriggerEvent('redemrp_inventory:close_inventory')
+                TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+                    MenuData.CloseAll()
+                    AddTextEntry("FMMC_MPM_TYP86", "Nom du bien")
+                    DisplayOnscreenKeyboard(4, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+                    while (UpdateOnscreenKeyboard() == 0) do
+                        DisableAllControlActions(0)
+                        Citizen.Wait(0)
+                    end
+                    if (GetOnscreenKeyboardResult()) then
+                        name = GetOnscreenKeyboardResult()
+                        if name then
+                            TriggerServerEvent("dust_stable:server:rename", name, horseid)
+                        end
+                        isInteracting = false
+                    else
+                        menu.close()
+                        isInteracting = false
+                    return
+                    end
                 end)
             end
             if data.current.value == "job" then
@@ -419,7 +443,7 @@ end)
 
 ----- CHOISIR LE NOM -----
 RegisterNetEvent("dust_stable:server:choosename")
-AddEventHandler("dust_stable:server:choosename", function (horseid, model, _type, data)
+AddEventHandler("dust_stable:server:choosename", function (horseid)
     TriggerEvent('redemrp_inventory:close_inventory')
     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
         MenuData.CloseAll()
@@ -431,11 +455,8 @@ AddEventHandler("dust_stable:server:choosename", function (horseid, model, _type
         end
         if (GetOnscreenKeyboardResult()) then
             name = GetOnscreenKeyboardResult()
-            if _type == "transfer" then
-                TriggerServerEvent("dust_stable:server:add", name, horseid, data)
-            -- elseif _type == "create" then
-            --     local stable = "buyhorse"
-            --     TriggerServerEvent("dust_stable:server:createhorse", name, model, stable)
+            if name then
+                TriggerServerEvent("dust_stable:server:rename", name, horseid)
             end
         else
             menu.close()
