@@ -241,11 +241,8 @@ RegisterServerEvent("RegisterUsableItem:transferhorse")
 AddEventHandler("RegisterUsableItem:transferhorse", function(source, data)
 	local _source = source
 	-- local ItemData = data.getItem(_source, "transferhorse")
-	print (data.meta.horseid)
-    local horseid = data.horseid
-	local model = data.model
+    local horseid = data..meta.horseid
 	local _type = "transfer"
-	print (horseid, model)
 	-- TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
 end)
 

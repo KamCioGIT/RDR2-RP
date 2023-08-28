@@ -178,6 +178,7 @@ function OpenStable(menutype, stable)
                             for k, v in pairs(horselist) do
                                 horselist[k] = nil
                             end
+                            isInteracting = false
                         end
                     end)
                 end)
