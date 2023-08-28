@@ -9,7 +9,6 @@ RegisterNetEvent("dust_stable:server:askjob")
 AddEventHandler(
     "dust_stable:server:askjob",
     function()
-		print 'job'
 	local _source = source     
 	local user = RedEM.GetPlayer(_source)
 	local job = user.job
@@ -109,7 +108,7 @@ AddEventHandler(
     "dust_stable:server:addjob",
     function(job, jobgrade, horseid)
         local _source = source
-		MySQL.update('UPDATE stable SET `job`=@job, `jobgrade`=@jobgrade, `name`=@name  WHERE `horseid`=@horseid;',
+		MySQL.update('UPDATE stable SET `job`=@job, `jobgrade`=@jobgrade WHERE `horseid`=@horseid;',
 		{
 			job = job,
 			jobgrade = jobgrade,
@@ -124,7 +123,7 @@ AddEventHandler(
     "dust_stable:server:removejob",
     function(horseid)
         local _source = source
-		MySQL.update('UPDATE stable SET `job`=@job, `jobgrade`=@jobgrade, `name`=@name  WHERE `horseid`=@horseid;',
+		MySQL.update('UPDATE stable SET `job`=@job, `jobgrade`=@jobgrade  WHERE `horseid`=@horseid;',
 		{
 			job = "x",
 			jobgrade = 0,
@@ -139,7 +138,7 @@ AddEventHandler(
     "dust_stable:server:addgang",
     function(gang, ganggrade, horseid)
         local _source = source
-		MySQL.update('UPDATE stable SET `gang`=@gang, `ganggrade`=@ganggrade, `name`=@name  WHERE `horseid`=@horseid;',
+		MySQL.update('UPDATE stable SET `gang`=@gang, `ganggrade`=@ganggrade WHERE `horseid`=@horseid;',
 		{
 			gang = gang,
 			ganggrade = ganggrade,
@@ -154,7 +153,7 @@ AddEventHandler(
     "dust_stable:server:removegang",
     function(horseid)
         local _source = source
-		MySQL.update('UPDATE stable SET `gang`=@gang, `ganggrade`=@ganggrade, `name`=@name  WHERE `horseid`=@horseid;',
+		MySQL.update('UPDATE stable SET `gang`=@gang, `ganggrade`=@ganggrade WHERE `horseid`=@horseid;',
 		{
 			gang = "x",
 			ganggrade = 0,

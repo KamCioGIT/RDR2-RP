@@ -13,7 +13,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        Wait(5000)
+        Wait(3000)
         TriggerServerEvent("dust_stable:server:askjob")
     end
 end)
