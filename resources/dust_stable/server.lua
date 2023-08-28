@@ -241,7 +241,7 @@ RegisterServerEvent("RegisterUsableItem:transferhorse")
 AddEventHandler("RegisterUsableItem:transferhorse", function(source, data)
 	local _source = source
 	-- local ItemData = data.getItem(_source, "transferhorse")
-	print (data.meta)
+	print (data.meta.horseid)
     local horseid = data.horseid
 	local model = data.model
 	local _type = "transfer"
