@@ -207,26 +207,47 @@ function OpenStable(menutype, stable)
                 end)
             end
             if data.current.value == "rename" then
-                TriggerEvent('redemrp_inventory:close_inventory')
                 TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                     MenuData.CloseAll()
-                    AddTextEntry("FMMC_MPM_TYP86", "Nom du bien")
-                    DisplayOnscreenKeyboard(4, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
-                    while (UpdateOnscreenKeyboard() == 0) do
-                        DisableAllControlActions(0)
-                        Citizen.Wait(0)
+                    local elements = {}
+                    for k, v in pairs(horselist) do
+                        table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
                     end
-                    if (GetOnscreenKeyboardResult()) then
-                        name = GetOnscreenKeyboardResult()
-                        if name then
-                            TriggerServerEvent("dust_stable:server:rename", name, horseid)
+                    MenuData.Open('default', GetCurrentResourceName(), 'sell', {
+                        title = "Vendre",
+                        subtext = "Vos biens",
+                        align = 'top-right',
+                        elements = elements,
+                    },
+                    function(data, menu)
+                        MenuData.CloseAll()
+                        if data.current.value then
+                            TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+                                MenuData.CloseAll()
+                                AddTextEntry("FMMC_MPM_TYP86", "Nom du bien")
+                                DisplayOnscreenKeyboard(4, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+                                while (UpdateOnscreenKeyboard() == 0) do
+                                    DisableAllControlActions(0)
+                                    Citizen.Wait(0)
+                                end
+                                if (GetOnscreenKeyboardResult()) then
+                                    name = GetOnscreenKeyboardResult()
+                                    if name then
+                                        TriggerServerEvent("dust_stable:server:rename", name, horseid)
+                                    end
+                                    isInteracting = false
+                                else
+                                    menu.close()
+                                    isInteracting = false
+                                return
+                                end
+                            end)
+                            for k, v in pairs(horselist) do
+                                horselist[k] = nil
+                            end
+                            isInteracting = false
                         end
-                        isInteracting = false
-                    else
-                        menu.close()
-                        isInteracting = false
-                    return
-                    end
+                    end)
                 end)
             end
             if data.current.value == "job" then
