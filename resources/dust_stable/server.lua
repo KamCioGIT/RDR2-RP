@@ -86,6 +86,8 @@ AddEventHandler(
 			name = tostring(name),
 			horseid = horseid
 		}, function(rowsChanged)
+			local ItemData = data.getItem(_source, "transferhorse", horseid)
+			Itemdata.RemoveItem(1)
 
 		end)
 end)
@@ -243,7 +245,7 @@ AddEventHandler("RegisterUsableItem:transferhorse", function(source, data)
 	-- local ItemData = data.getItem(_source, "transferhorse")
     local horseid = data..meta.horseid
 	local _type = "transfer"
-	-- TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
+	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type)
 end)
 
 RegisterServerEvent("dust_stable:server:sellhorse")

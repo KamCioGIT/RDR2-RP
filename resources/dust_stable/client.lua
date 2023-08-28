@@ -414,9 +414,9 @@ AddEventHandler("dust_stable:server:choosename", function (horseid, model, _type
             name = GetOnscreenKeyboardResult()
             if _type == "transfer" then
                 TriggerServerEvent("dust_stable:server:add", name, horseid)
-            elseif _type == "create" then
-                local stable = "buyhorse"
-                TriggerServerEvent("dust_stable:server:createhorse", name, model, stable)
+            -- elseif _type == "create" then
+            --     local stable = "buyhorse"
+            --     TriggerServerEvent("dust_stable:server:createhorse", name, model, stable)
             end
         else
             menu.close()
