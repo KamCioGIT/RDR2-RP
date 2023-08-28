@@ -238,20 +238,19 @@ end)
 ----- OBJET CONTRAT CHEVAL -----
 
 RegisterServerEvent("RegisterUsableItem:transferhorse")
-AddEventHandler("RegisterUsableItem:transferhorse", function(source, data)
+AddEventHandler("RegisterUsableItem:transferhorse", function(source, _data)
 	local _source = source
-    local horseid = data.meta.horseid
+    local horseid = _data.meta.horseid
 	print (horseid)
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
 	local charid = user.charid
-	local ItemData = data.getItem(_source, "transferhorse", data.meta)
+	local ItemData = data.getItem(_source, "transferhorse", _data.meta)
 	ItemData.RemoveItem(1)
-	MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid, `name`=@name WHERE `horseid`=@horseid;',
+	MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid WHERE `horseid`=@horseid;',
 	{
 		identifier = identifier,
 		charid = charid,
-		name = tostring(name),
 		horseid = horseid
 	}, function(rowsChanged)
 
