@@ -234,11 +234,12 @@ Citizen.CreateThread(function()
         local interior = GetInteriorAtCoords(1448.22, 371.6758, 89.88766)
         local isValid = IsValidInterior(interior)
         if isValid then
-            if IsInteriorReady(interior) then
-                ActivateInteriorEntitySets(45314, "Emerald Ranch saloon", {
-                "eme_saloon_intgroup_curtains",
-                "eme_saloon_intgroup_furniture"
-                })
+            if IsInteriorEntitySetActive(interior, "eme_saloon_intgroup_curtains") and IsInteriorEntitySetActive(interior, "eme_saloon_intgroup_furniture") then
+                --("Interior Already Active")
+            else
+                ActivateInteriorEntitySet(interior, "eme_saloon_intgroup_curtains")
+                ActivateInteriorEntitySet(interior, "eme_saloon_intgroup_furniture")
+                --("Interior Activated")
             end
         end
         
