@@ -230,6 +230,15 @@ Citizen.CreateThread(function()
                 --("Interior Activated")
             end
         end
+
+        local interior = GetInteriorAtCoords(1448.22, 371.6758, 89.88766)
+        local isValid = IsValidInterior(interior)
+        if isValid then
+            if IsInteriorReady(interior) then
+        ActivateInteriorEntitySets(45314, "Emerald Ranch saloon", {
+        "eme_saloon_intgroup_curtains",
+        "eme_saloon_intgroup_furniture"
+        })
         
         isLoaded = true
     end
@@ -2236,7 +2245,7 @@ RemoveImap(1347068672)
 RemoveImap(-385790791)
 RemoveImap(943998860)
 RequestImap(1056170594) ---- KORRIGAN
-RequestImap(-873881483)
+RequestImap(-873881483) -- INT korrigan 2 
 RequestImap(881979872) ---- Int KORRIGAN
 RemoveImap(1157695860)
 RemoveImap(1859948183)
@@ -2334,7 +2343,7 @@ RemoveImap(3216389370)
 RemoveImap(2484301515)
 RequestImap(1679182807)
 RequestImap(-1512794226)
-RemoveImap(146172383)
+RequestImap(146172383) --- Korrigan ponton
 RemoveImap(291732199)
 RemoveImap(876228895)
 RemoveImap(1417687142)
@@ -2812,3 +2821,4 @@ RemoveImap(2662619063)
 
 
 RequestImap(-1632348233)
+RequestImap(-873881483) -- INT korrigan 2 
