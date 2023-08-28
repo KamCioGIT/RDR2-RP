@@ -88,8 +88,6 @@ AddEventHandler(
 		}, function(rowsChanged)
 
 		end)
-		local ItemData = data.getItem(_source, "transferhorse", _data)
-			ItemData.RemoveItem(1)
 end)
 
 RegisterNetEvent("dust_stable:server:addjob")
@@ -242,10 +240,21 @@ end)
 RegisterServerEvent("RegisterUsableItem:transferhorse")
 AddEventHandler("RegisterUsableItem:transferhorse", function(source, data)
 	local _source = source
-	-- local ItemData = data.getItem(_source, "transferhorse")
     local horseid = data.meta.horseid
-	local _type = "transfer"
-	TriggerClientEvent("dust_stable:server:choosename", _source, horseid, model, _type, data)
+	local user = RedEM.GetPlayer(_source)
+	local identifier = user.identifier
+	local charid = user.charid
+	local ItemData = data.getItem(_source, "transferhorse", data.meta)
+	ItemData.RemoveItem(1)
+	MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid, `name`=@name WHERE `horseid`=@horseid;',
+	{
+		identifier = identifier,
+		charid = charid,
+		name = tostring(name),
+		horseid = horseid
+	}, function(rowsChanged)
+
+	end)
 end)
 
 RegisterServerEvent("dust_stable:server:sellhorse")
