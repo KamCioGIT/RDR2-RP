@@ -271,7 +271,7 @@ AddEventHandler("dust_stable:server:sellhorse", function (horseid)
 					ganggrade = 0
 				}, function(rowsChanged)
 					local ItemData = data.getItem(_source, "transferhorse")
-					TriggerServerEvent("redemrp_inventory:transferhorse", horseid, model)
+					TriggerServerEvent("redemrp_inventory:transferhorse", horseid)
 			end)          
 		end
 	end) 
