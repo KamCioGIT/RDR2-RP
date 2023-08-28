@@ -37,7 +37,7 @@ AddEventHandler(
 		elseif ganggrade > 2 then
 			ganggrade = 2
 		end
-		MySQL.query('SELECT * FROM stable WHERE (`selected`=@selected AND `identifier`=@identifier AND `charid`=@charid) OR (`selected`=@selected AND `job`=@job AND `jobgrade`=@jobgrade) OR (`selected`=@selected AND `gang`=@gang AND `ganggrade`=@ganggrade);',
+		MySQL.query('SELECT * FROM stable WHERE (`selected`=@selected AND `identifier`=@identifier AND `charid`=@charid) OR (`selected`=@selected AND `job`=@job AND `jobgrade`=@jobgrade) OR (`selected`=@selected AND `gang`=@gang AND `ganggrade`=@ganggrade) OR (`selected`=@selected AND `gang`=@gang) OR (`selected`=@selected AND `job`=@job);',
 		{
 			identifier = identifier,
 			charid = charid,
