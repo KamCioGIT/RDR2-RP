@@ -29,9 +29,14 @@ AddEventHandler(
 		local identifier = user.identifier
 		local charid = user.charid
 		local job = user.job
-		local jobgrade = user.jobrade
+		local jobgrade = user.jobgrade
 		local gang = user.gang
 		local ganggrade = user.ganggrade
+		if jobgrade > 2 then
+			jobgrade = 2
+		elseif ganggrade > 2 then
+			ganggrade = 2
+		end
 		MySQL.query('SELECT * FROM stable WHERE (`selected`=@selected AND `identifier`=@identifier AND `charid`=@charid) OR (`selected`=@selected AND `job`=@job AND `jobgrade`=@jobgrade) OR (`selected`=@selected AND `gang`=@gang AND `ganggrade`=@ganggrade);',
 		{
 			identifier = identifier,
