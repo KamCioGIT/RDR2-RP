@@ -251,7 +251,7 @@ RequestImap(734740942)
 RequestImap(-661560211) -- Barrels Everywhere?
 RequestImap(-1933617196) -- Structure in front of gunsmith?
 RemoveImap(1202020135)  -- Blank Banners across mainstreet
-RequestImap(-892659042) -- Leatherworker on west side of encampment
+--RequestImap(-892659042) -- Leatherworker on west side of encampment
 RequestImap(-1588793465) -- Structure in front of motel?
 RequestImap(1186533019) -- Chair in front of Law Offices
 RequestImap(-156313117) -- Structure in front of Law Offices
@@ -276,9 +276,9 @@ RemoveImap(774477221) -- Valentine Sheriff's Office Crumbled Wall parts...
 RequestImap(1097534152) -- Valentine Sheriffs Office Outer wall
 RemoveImap(2095116685) -- supplies/boxes in mainstreet front of General Store, Saloon, Green building
 RemoveImap(192173299) -- Valentine -- Support Beams and signs -- Mainstreet Saloon BEAT UP
-RemoveImap(1081087978) -- Valentine -- Green Building and Restaurant mainstreet - Pre-paint, almost completed stage. (Help wanted sign) -- https://gyazo.com/b4d1f0b57d17c470e7db030f050db1c0     (Do Not Load Both(1/2))
-RequestImap(903666582) -- Valentine -- Green Building and Restaurant mainstreet - Painted, completed stage.  Keane's Rooms for Rent -- https://gyazo.com/b8f9f77bb52aeb37aac6dd21463a2133         (Do Not Load Both(2/2))
-RemoveImap(282485265) -- Valentine Green building boarded up
+RequestImap(1081087978) -- Valentine -- Green Building and Restaurant mainstreet - Pre-paint, almost completed stage. (Help wanted sign) -- https://gyazo.com/b4d1f0b57d17c470e7db030f050db1c0     (Do Not Load Both(1/2))
+-- RequestImap(903666582) -- Valentine -- Green Building and Restaurant mainstreet - Painted, completed stage.  Keane's Rooms for Rent -- https://gyazo.com/b8f9f77bb52aeb37aac6dd21463a2133         (Do Not Load Both(2/2))
+RequestImap(282485265) -- Valentine Green building boarded up
 RequestImap(637874199) -- Valentine -- Green Building Lamp
 RequestImap(-1521525254)  --Green House Valentine -- Exterior Trees and Flowers 1(Run 1 and 2 together)
 RequestImap(-761186147)  --Green House Valentine -- Exterior Trees and Flowers 2(Run 1 and 2 together)
@@ -293,26 +293,26 @@ RemoveImap(-560409108) -- Valentine -- Eastern Barricades -- https://gyazo.com/4
 RemoveImap(-518785376) -- Valentine -- Southern Barricades -- https://gyazo.com/2fa60fa4d76205783907e2eec98253ec
 
 --------------------------------                                   ############# -- Valentine Mainstreet Sheriffs Office -- ###############                                       ----------------------
-RemoveImap(-1301569116) -- Valentine -- Sheriffs Office boarded up
+RequestImap(-1301569116) -- Valentine -- Sheriffs Office boarded up
 --------------------------------                                   ############# -- Valentine Mainstreet Law Offices     -- ###############                                       ----------------------
-RemoveImap(-52140817)   -- Valentine -- Law Office Boarded Up
+RequestImap(-52140817)   -- Valentine -- Law Office Boarded Up
 RequestImap(924412185) -- Law offices (REMOVE FOR structural damage)
 --------------------------------                                   ############# -- Valentine Mainstreet Hotel           -- ###############                                       ----------------------
-RemoveImap(-780819048)  -- Valentine -- Hotel Boarded Up
+RequestImap(-780819048)  -- Valentine -- Hotel Boarded Up
 --------------------------------                                   ############# -- Valentine Mainstreet Bank            -- ###############                                       ----------------------
-RemoveImap(-1989899190) -- Valentine -- Bank Boarded Up
+RequestImap(-1989899190) -- Valentine -- Bank Boarded Up
 --------------------------------                                   ############# -- Valentine Mainstreet Doctors Office  -- ###############                                       ----------------------
-RemoveImap(-981203673)  -- Valentine -- Doctors Office boarded up
+RequestImap(-981203673)  -- Valentine -- Doctors Office boarded up
 --------------------------------                                   ############# -- Valentine Mainstreet Saloon          -- ###############                                       ----------------------
-RemoveImap(-776975047)  -- Valentine -- Main Street Saloon Front Doors locked
-RemoveImap(1385025009)  -- Valentine -- Closed sign on main street Saloon
-RemoveImap(199047531)   -- Valentine -- Mainstreet Saloon boarded windows
+RequestImap(-776975047)  -- Valentine -- Main Street Saloon Front Doors locked
+RequestImap(1385025009)  -- Valentine -- Closed sign on main street Saloon
+RequestImap(199047531)   -- Valentine -- Mainstreet Saloon boarded windows
 RequestImap(-1158072415) -- Valentine -- Main Street Saloon Sign in front -CLean Version
 --------------------------------                                   ############# -- Valentine Mainstreet General Store   -- ###############                                       ----------------------
-RemoveImap(406334892) -- Valentine -- General Store Closed Sign on door --
-RemoveImap(1228600352) -- Valentine General Store boarded up
-RequestImap(135886022) -- Valentine -- Sign in front of General Store
-RequestImap(766024860) -- missing blue posts hotel
+RequestImap(406334892) -- Valentine -- General Store Closed Sign on door --
+RequestImap(1228600352) -- Valentine General Store boarded up
+-- RequestImap(135886022) -- Valentine -- Sign in front of General Store
+-- RequestImap(766024860) -- missing blue posts hotel
 --------------------------------                                   ############# -- Valentine Cemetery                   -- ###############                                       ----------------------
 RemoveImap(-391187090) -- Grass on grave Valentine cemetery
 RemoveImap(-1902184438) -- dirt pile from grave dug Valentine cemetery
@@ -683,12 +683,12 @@ RequestImap(-1229109520) -- Green Plants
 ------------------------------------- #### END OF GREY ESTATES ####
 
 ------------------------------------- Blackwater Town Hall
-RequestImap(-2082201137)  --Blackwater Ground Town Hall
+RemoveImap(-2082201137)  --Blackwater Ground Town Hall
 RemoveImap(1343343014)  --Blackwater Town Hall Addons Construction
 RemoveImap(739412171)  -- Two Boards in front of city hall (Goes with Town Hall Construction)
 RemoveImap(-5339556)  --Bank Under Construction
 RemoveImap(1173561253) -- Tents Beside City Hall Near Trech
-RemoveImap(1470738186) -- Adds Pre-Construcion Ground (Ground does not mesh well with contrustion IPLs)
+RequestImap(1470738186) -- Adds Pre-Construcion Ground (Ground does not mesh well with contrustion IPLs)
 RequestImap(-1632348233) -- Adds Trees and Grass (DO NOT USE WITH CONSTRUCTION IPL, WILL MERGE VISUALS)
 ------------------------------------- #### END OF BLACKWATER TOWN HALL ####
 
@@ -1158,7 +1158,7 @@ RequestImap(807262958)
 RemoveImap(1717286956)
 RemoveImap(249811747)
 RequestImap(-599973510)
-RequestImap(306939642)
+-- RequestImap(306939642) --- Tente dans canyon 
 RequestImap(-1960392600)
 RequestImap(-1255088882)
 RequestImap(840395410)
