@@ -231,10 +231,8 @@ function OpenStable(menutype, stable)
                                     Citizen.Wait(0)
                                 end
                                 if (GetOnscreenKeyboardResult()) then
-                                    name = GetOnscreenKeyboardResult()
-                                    if name then
-                                        TriggerServerEvent("dust_stable:server:rename", name, horseid)
-                                    end
+                                    local name = GetOnscreenKeyboardResult()
+                                    TriggerServerEvent("dust_stable:server:rename", name, horseid)
                                     isInteracting = false
                                 else
                                     menu.close()

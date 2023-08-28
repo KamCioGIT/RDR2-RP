@@ -90,7 +90,7 @@ AddEventHandler(
     function(name, horseid)
 		MySQL.update('UPDATE stable SET `name`=@name WHERE `horseid`=@horseid;',
 		{
-			name = tostring(name),
+			name = name,
 			horseid = horseid
 		}, function(rowsChanged)
 
