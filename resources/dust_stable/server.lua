@@ -246,6 +246,7 @@ AddEventHandler("RegisterUsableItem:transferhorse", function(source, _data)
 	local identifier = user.identifier
 	local charid = user.charid
 	local ItemData = data.getItem(_source, "transferhorse")
+	print (ItemData.ItemMeta.horseid)
 	if ItemData.ItemMeta.horseid == horseid then
 		ItemData.RemoveItem(1)
 		print (ItemData.ItemMeta.horseid)
