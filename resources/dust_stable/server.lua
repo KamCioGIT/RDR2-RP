@@ -297,10 +297,18 @@ AddEventHandler("dust_stable:server:sellhorse", function (horseid)
 end)
 
 RegisterServerEvent('dust_stable:server:resethorse', function()
-	MySQL.update('UPDATE stable SET `selected`=@selected WHERE `selected`=@selected;',
+	MySQL.query('SELECT * FROM stable WHERE `selected`=@selected;',
 	{
-		selected = 0
-
-	}, function(rowsChanged)
-	end)          
+		selected = 1
+	}, function(result)
+		if #result ~= 0 then
+			local horseid = result[1].horseid
+			MySQL.update('UPDATE stable SET `selected`=@selected WHERE `horseid`=@horseid;',
+				{
+					seelcted = 0,
+					horseid = horseid
+				}, function(rowsChanged)
+			end)          
+		end
+	end)        
 end)
