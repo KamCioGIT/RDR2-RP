@@ -103,6 +103,9 @@ function OpenStable(menutype, stable)
     local _menutype = menutype
     local playerPed = PlayerPedId()
     local Position = GetEntityCoords(playerPed)
+    local user = RedEM.GetPlayer(source)
+    local playerjob = user.job
+    local playergang = user.gang
     Citizen.CreateThread(function()
         while true do
             Wait(100)
