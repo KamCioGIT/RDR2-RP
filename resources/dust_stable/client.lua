@@ -232,7 +232,7 @@ function OpenStable(menutype, stable)
                                 end
                                 if (GetOnscreenKeyboardResult()) then
                                     local name = GetOnscreenKeyboardResult()
-                                    TriggerServerEvent("dust_stable:server:rename", name, horseid)
+                                    TriggerServerEvent("dust_stable:server:rename", name, data.current.value)
                                     isInteracting = false
                                 else
                                     menu.close()
