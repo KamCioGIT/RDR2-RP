@@ -244,8 +244,7 @@ AddEventHandler("RegisterUsableItem:transferhorse", function(source, data)
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
 	local charid = user.charid
-	local ItemData = data.getItem(_source, "transferhorse", data.meta)
-	ItemData.RemoveItem(1)
+	data.RemoveItem(1)
 	MySQL.update('UPDATE stable SET `identifier`=@identifier, `charid`=@charid, `name`=@name WHERE `horseid`=@horseid;',
 	{
 		identifier = identifier,
