@@ -2019,6 +2019,7 @@ function CheckForSingleBlueprintMultipleCollisions(inputSlots)
 end
 
 exports("removeItemStash", removeItemStash)
+exports("removeItem", removeItem)
 
 exports ("addItemStash", addItemStash)
 
