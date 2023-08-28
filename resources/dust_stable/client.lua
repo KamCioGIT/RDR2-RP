@@ -163,7 +163,7 @@ function OpenStable(menutype, stable)
                     MenuData.CloseAll()
                     local elements = {}
                     for k, v in pairs(horselist) do
-                        table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
+                        table.insert(elements, {label = v.name, value = v.id, model = v.race, desc = "Race"..v.race.. "ID:" ..v.id})
                     end
                     MenuData.Open('default', GetCurrentResourceName(), 'sell', {
                         title = "Vendre",
@@ -174,7 +174,7 @@ function OpenStable(menutype, stable)
                     function(data, menu)
                         MenuData.CloseAll()
                         if data.current.value then
-                            TriggerServerEvent("dust_stable:server:sellhorse", data.current.value)
+                            TriggerServerEvent("dust_stable:server:sellhorse", data.current.value, data.current.model)
                             for k, v in pairs(horselist) do
                                 horselist[k] = nil
                             end

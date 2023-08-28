@@ -249,7 +249,7 @@ AddEventHandler("RegisterUsableItem:transferhorse", function(source, data)
 end)
 
 RegisterServerEvent("dust_stable:server:sellhorse")
-AddEventHandler("dust_stable:server:sellhorse", function (horseid)
+AddEventHandler("dust_stable:server:sellhorse", function (horseid, model)
 	local _source = source
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
