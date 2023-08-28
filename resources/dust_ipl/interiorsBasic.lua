@@ -2722,7 +2722,7 @@ RequestImap(1495728629)
 RemoveImap(967935536)
 RemoveImap(764325310)
 RequestImap(-773956478)
-RemoveImap(-875828222) -- Rhodes trees and gardens
+RequestImap(-875828222) -- Rhodes trees and gardens
 RemoveImap(-1615749463)
 RemoveImap(-429506139)
 RemoveImap(-200270658)
