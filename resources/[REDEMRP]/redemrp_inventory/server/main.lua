@@ -2056,10 +2056,10 @@ end)
 
 RegisterServerEvent("redemrp_inventory:transferhorse", function(horseid)
     local _source = source
-    local user = RedEM.GetPlayer(_source)
-    print (user)
-    local identifier = user.GetIdentifier()
-    local charid = user.GetActiveCharacter()
+    local Player = RedEM.GetPlayer(_source)
+    print (Player)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
     local itemData = SharedInventoryFunctions.getItem(_source, "transferhorse")
     local _meta = meta or {}
     local itemData = Config.Items["transferhorse"]
