@@ -2054,7 +2054,7 @@ RegisterServerEvent("redemrp_inventory:contratsigne", function(name, job)
     end
 end)
 
-RegisterServerEvent("redemrp_inventory:transferhorse", function(horseid, model)
+RegisterServerEvent("redemrp_inventory:transferhorse", function(horseid)
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local identifier = user.GetIdentifier()
