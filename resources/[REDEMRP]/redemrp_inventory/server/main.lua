@@ -2112,7 +2112,7 @@ RegisterServerEvent("redemrp_inventory:createhorse", function(model)
     end
 end)
 
-RegisterServerEvent("redemrp_inventory:removeitemfrommeta", function (name, amount, meta)
+RegisterServerEvent("redemrp_inventory:removeitemfrommeta", function (source, name, amount, meta)
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local identifier = user.GetIdentifier()
