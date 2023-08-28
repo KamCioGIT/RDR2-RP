@@ -9,6 +9,7 @@ RegisterNetEvent("dust_stable:server:askjob")
 AddEventHandler(
     "dust_stable:server:askjob",
     function()
+		print 'job'
 	local _source = source     
 	local user = RedEM.GetPlayer(_source)
 	local job = user.job
