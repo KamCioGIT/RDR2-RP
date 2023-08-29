@@ -391,6 +391,7 @@ end
 ---- Get Horse ----
 
 local selectedcomp = {}
+local spawnedhorses = {}
 RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(horseid, components, model)
     for k, v in pairs(selectedcomp) do
@@ -445,7 +446,6 @@ function spawnhorse(model, name, horseid)
 
     SetPedPromptName(horse, name)
     Entity(horse).state.horseid = horseid
-    print (Entity(horse).state.horseid)
     if selectedcomp ~= nil and selectedcomp ~= "0" then
         for _, componentHash in pairs(selectedcomp) do
             Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash, true, true, true)
@@ -459,6 +459,7 @@ function spawnhorse(model, name, horseid)
     end
     TriggerServerEvent("dust_stable:server:horseout", horseid)
     
+    table.insert(spawnedhorses, horse)
     initializing = false
 end
 
@@ -564,6 +565,31 @@ function buyhorse(stable)
     end)
 end
 
+
+---- SIFFLER LE CHEVAL ----
+Citizen.CreateThread(function()
+    while true do
+        Wait(0)
+        if IsControlJustPressed(0x24978A28) then
+            WhistleHorse()
+        end
+    end
+end)
+
+
+function WhistleHorse()
+    for k, v in pairs(spawnedhorses) do 
+            if GetScriptTaskStatus(v, 0x4924437D, 0) ~= 0 then
+                local pcoords = GetEntityCoords(PlayerPedId())
+                local hcoords = GetEntityCoords(v)
+                local caldist = Vdist(pcoords.x, pcoords.y, pcoords.z, v.x, v.y, v.z)
+                if caldist < 100 then
+                    TaskGoToEntity(v, PlayerPedId(), -1, 7.2, 2.0, 0, 0)
+                end
+            end  
+        end
+    end
+end
 
 AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
