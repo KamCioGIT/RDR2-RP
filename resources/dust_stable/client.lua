@@ -161,7 +161,7 @@ function OpenStable(menutype, stable)
         MenuData.Open('default', GetCurrentResourceName(), 'écurie', {
             title = "Écurie",
             subtext = "Vos biens",
-            align = 'top-left',
+            align = 'top-right',
             elements = elements,
         },
         
