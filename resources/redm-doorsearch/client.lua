@@ -2,15 +2,15 @@ local function AddDoorToSystemNew(doorHash, p1, p2, p3, threadId, p5, p6)
 	return N_0xd99229fe93b46286(doorHash, p1, p2, p3, threadId, p5, p6)
 end
 
-RegisterCommand("doorsearch", function(source, args, rawCommand)
+RegisterCommand("doorsearch", function()
  	search()
-end, true)
+end)
 
-RegisterCommand("door", function(source, args, rawCommand)
+RegisterCommand("door", function(args)
 	local door = tonumber(args[1])
 	local state = tonumber(args[2])
 	door(source, door, state)
-end, true)
+end)
 
 
 function door(door, state)
