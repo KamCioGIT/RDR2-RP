@@ -94,7 +94,6 @@ Citizen.CreateThread(function()
                 end
             end
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
-                print 'yes'
                 PromptSetActiveGroupThisFrame(GaragePromptGroup, GaragePromptName)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     local horse = GetMount(PlayerPedId())
