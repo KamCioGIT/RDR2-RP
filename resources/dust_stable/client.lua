@@ -571,6 +571,7 @@ Citizen.CreateThread(function()
     while true do
         Wait(0)
         if IsControlJustPressed(0x24978A28) then
+            print ("H")
             for k, v in pairs(spawnedhorses) do
                 print (v)
                 if GetScriptTaskStatus(v, 0x4924437D, 0) ~= 0 then
