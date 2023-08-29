@@ -418,8 +418,8 @@ function spawnhorse(model, name, horseid)
     end
 
     initializing = true
-    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
-    local horse = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped), true, true)
+    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 3.0, 0.0)
+    local horse = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped) - 90.0, true, true)
     Citizen.InvokeNative(0x283978A15512B2FE, horse, true) -- set random outfit components
     SetModelAsNoLongerNeeded(modelHash)
     -- PlaceEntityOnGroundProperly(entity, 0)
@@ -571,9 +571,7 @@ Citizen.CreateThread(function()
     while true do
         Wait(0)
         if IsControlJustReleased(0, 0x24978A28) then
-            print ("H")
             for k, v in pairs(spawnedhorses) do
-                print (v)
                 if GetScriptTaskStatus(v, 0x4924437D, 0) ~= 0 then
                     local pcoords = GetEntityCoords(PlayerPedId())
                     local hcoords = GetEntityCoords(v)
