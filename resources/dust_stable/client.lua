@@ -423,7 +423,7 @@ function spawnhorse(model, name, horseid)
     Citizen.InvokeNative(0x283978A15512B2FE, horse, true) -- set random outfit components
     SetModelAsNoLongerNeeded(modelHash)
     -- PlaceEntityOnGroundProperly(entity, 0)
-    -- SetPedPersonality(entity, GetHashKey("PLAYER_HORSE"))
+    SetPedPersonality(horse, GetHashKey("PLAYER_HORSE"))
 
     -- SetPedConfigFlag(entity, 324, true)
     -- SetPedConfigFlag(entity, 211, true)
@@ -571,24 +571,21 @@ Citizen.CreateThread(function()
     while true do
         Wait(0)
         if IsControlJustPressed(0x24978A28) then
-            WhistleHorse()
+            for k, v in pairs(spawnedhorses) do
+                print (v)
+                if GetScriptTaskStatus(v, 0x4924437D, 0) ~= 0 then
+                    local pcoords = GetEntityCoords(PlayerPedId())
+                    local hcoords = GetEntityCoords(v)
+                    local caldist = Vdist(pcoords.x, pcoords.y, pcoords.z, hcoords.x, hcoords.y, hcoords.z)
+                    if caldist < 100 then
+                        TaskGoToEntity(v, PlayerPedId(), -1, 7.2, 2.0, 0, 0)
+                    end
+                end
+            end
         end
     end
 end)
 
-
-function WhistleHorse()
-    for k, v in pairs(spawnedhorses) do
-        print (v)
-        if GetScriptTaskStatus(v, 0x4924437D, 0) ~= 0 then
-            local pcoords = GetEntityCoords(PlayerPedId())
-            local hcoords = GetEntityCoords(v)
-            local caldist = Vdist(pcoords.x, pcoords.y, pcoords.z, hcoords.x, hcoords.y, hcoords.z)
-            if caldist < 100 then
-                TaskGoToEntity(v, PlayerPedId(), -1, 7.2, 2.0, 0, 0)
-            end
-        end  
-    end
 end
 
 AddEventHandler("onResourceStop", function(resourceName)
