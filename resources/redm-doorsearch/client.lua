@@ -2,15 +2,26 @@ local function AddDoorToSystemNew(doorHash, p1, p2, p3, threadId, p5, p6)
 	return N_0xd99229fe93b46286(doorHash, p1, p2, p3, threadId, p5, p6)
 end
 
-RegisterNetEvent("doorsearch:setDoorState", function(door, state)
+RegisterCommand("doorsearch", function(source, args, raw)
+ 	search()
+end, true)
+
+RegisterCommand("door", function(source, args, raw)
+	local door = tonumber(args[1])
+	local state = tonumber(args[2])
+	door(source, door, state)
+end, true)
+
+
+function door(door, state)
 	if not IsDoorRegisteredWithSystem(door) then
 		AddDoorToSystemNew(door, 1, 1, 0, 0, 0, 0)
 	end
 
 	DoorSystemSetDoorState(door, state)
-end)
+end
 
-RegisterNetEvent("doorsearch:search", function()
+function search()
 	CreateThread(function()
 		local coords = GetEntityCoords(PlayerPedId())
 
@@ -32,4 +43,4 @@ RegisterNetEvent("doorsearch:search", function()
 
 		print("Done")
 	end)
-end)
+end
