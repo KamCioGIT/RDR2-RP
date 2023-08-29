@@ -24,6 +24,7 @@ ensure spawnmanager
 ensure mapmanager
 ensure basic-gamemode 
 ensure chat
+ensure ipl_tool
 
 # MySQL Driver
 ensure oxmysql
