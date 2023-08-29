@@ -66,4 +66,4 @@ ensure [MAPPING]
 ## Permissions ##
 add_ace group.admin command allow # allow all commands
 add_ace group.admin command.quit deny # but don't allow quit
-add_principal identifier.{{principalMasterIdentifier}} group.admin # add the admin to the group
+add_principal identifier.steam:11000010c04648e group.admin # add the admin to the group
