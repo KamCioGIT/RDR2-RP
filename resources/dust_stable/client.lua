@@ -509,7 +509,7 @@ local AchatPromptShown = false
 Citizen.CreateThread(function()
     local str = "Acheter un cheval"
     AchatPrompt = PromptRegisterBegin()
-    PromptSetControlAction(AchatPrompt, 0xC7B5340A)
+    PromptSetControlAction(AchatPrompt, 0x156F7119)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(AchatPrompt, str)
     PromptSetEnabled(AchatPrompt, true)
@@ -526,7 +526,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Buyhorse) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 PromptSetActiveGroupThisFrame(AchatPromptGroup, AchatPromptName)
-                if IsControlJustReleased(0, 0xC7B5340A) then
+                if IsControlJustReleased(0, 0x156F7119) then
                     buyhorse(v.stable)
                     isInteracting = true
                 end
