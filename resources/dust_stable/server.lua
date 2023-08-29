@@ -56,7 +56,8 @@ AddEventHandler(
 						local name = result[i].name
 						local model = result[i].model
 						local stable = result[i].stable
-						TriggerClientEvent("dust_stable:server:gethorse", _source, horseid, name, model, stable)
+						local race = result[i].race
+						TriggerClientEvent("dust_stable:server:gethorse", _source, horseid, name, model, stable, race)
 					end
 				end                    
 			end
@@ -190,7 +191,7 @@ end)
 RegisterNetEvent("dust_stable:server:createhorse")
 AddEventHandler(
     "dust_stable:server:createhorse",
-    function(alias, model, stable)
+    function(alias, model, stable, race)
         local _source = source     
 		local user = RedEM.GetPlayer(_source)
 		local identifier = user.identifier
@@ -202,14 +203,15 @@ AddEventHandler(
 		local horseid = generetedhorseid
 		print (identifier, charid, name, horseid, model, stable)
 		MySQL.update(
-		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name);',
+		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race);',
 		{
 			identifier = identifier,
 			charid = charid,
 			name = name,
 			horseid = horseid,
 			model = model,
-			stable = stable
+			stable = stable,
+			race = race
 		}, function(rowsChanged)
 
 		end)

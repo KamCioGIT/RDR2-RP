@@ -110,12 +110,12 @@ end)
 
 local horselist = {}
 RegisterNetEvent("dust_stable:server:gethorse")
-AddEventHandler("dust_stable:server:gethorse", function(horseid, nom, model, pos)
+AddEventHandler("dust_stable:server:gethorse", function(horseid, nom, model, pos, _race)
     for k, v in pairs(horselist) do
         table.remove(horselist, k)
     end
     Wait(50)
-    table.insert(horselist, {id = horseid, name = nom, race = model, stable = pos})
+    table.insert(horselist, {id = horseid, name = nom, race = model, stable = pos, lib = _race})
 end)
 
 ---- Menu stable ----
@@ -143,7 +143,7 @@ function OpenStable(menutype, stable)
         if _menutype == 'Ouvrir' then
             for k, v in pairs(horselist) do
                 if v.stable == stable then
-                    table.insert(elements, {label = v.name, value = v.id, desc = "Race"..v.race.. "ID:" ..v.id})
+                    table.insert(elements, {label = v.name, value = v.id, desc = "Race:_"..v.lib.."_ID:" ..v.id})
                 end
             end
         end
@@ -554,7 +554,7 @@ function buyhorse(stable)
         
         function(data, menu)
             MenuData.CloseAll()
-            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable)
+            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label)
             isInteracting = false
         end,
 

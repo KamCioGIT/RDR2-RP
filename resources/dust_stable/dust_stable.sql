@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `stable` (
   `selected` int(11) NOT NULL DEFAULT 0,
   `stable` varchar(50) NULL,
   `model` varchar(50) NULL,
+  `race` varchar(50) NULL,
   `name` varchar(50) NULL,
   `components`  varchar(5000) NOT NULL DEFAULT '{}',
   `job` varchar(50) NOT NULL DEFAULT 'x',
