@@ -467,7 +467,7 @@ end
 RegisterNetEvent("dust_stable:server:horsestocked")
 AddEventHandler("dust_stable:server:horsestocked", function()
     local horse = GetMount(PlayerPedId())
-    Citizen.InvokeNative(0x5337B721C51883A9, PlayerPedId(), true, true)
+    TaskDismountAnimal(PlayerPedId(), true, 0, 0 ,0, horse)
     Wait(1000)
     DeleteEntity(horse)
 end)
