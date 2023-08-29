@@ -423,7 +423,7 @@ function spawnhorse(model, name, horseid)
     Citizen.InvokeNative(0x283978A15512B2FE, horse, true) -- set random outfit components
     SetModelAsNoLongerNeeded(modelHash)
     -- PlaceEntityOnGroundProperly(entity, 0)
-    SetPedPersonality(horse, "PLAYER_HORSE")
+    -- SetPedPersonality(horse, GetHashKey("PLAYER_HORSE"))
 
     -- SetPedConfigFlag(entity, 324, true)
     -- SetPedConfigFlag(entity, 211, true)
@@ -570,7 +570,7 @@ end
 Citizen.CreateThread(function()
     while true do
         Wait(0)
-        if IsControlJustPressed(0x24978A28) then
+        if IsControlJustReleased(0x24978A28) then
             print ("H")
             for k, v in pairs(spawnedhorses) do
                 print (v)
