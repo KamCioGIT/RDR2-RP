@@ -57,7 +57,6 @@ local GaragePromptGroup = GetRandomIntInRange(0, 0xffffff)
 local GaragePromptName = CreateVarString(10, "LITERAL_STRING", "Écurie")
 local RangerPrompt
 local GaragePromptShown = false
-local IsInteracting = false
 Citizen.CreateThread(function()
     local str = "Mettre à l'écurie"
     RangerPrompt = PromptRegisterBegin()
