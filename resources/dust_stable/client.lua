@@ -79,14 +79,14 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 PromptSetActiveGroupThisFrame(StablePromptGroup, StablePromptName)
-                if PromptIsReleased(OpenPrompt) then
+                if PromptIsJustReleased(OpenPrompt) then
                     isInteracting = true
                     local menutype = "Ouvrir"
                     TriggerServerEvent("dust_stable:server:askhorse")
                     Wait(200)
                     OpenStable(menutype, v.name)
                 end
-                if PromptIsReleased(ManagePrompt) then
+                if PromptIsJustReleased(ManagePrompt) then
                     isInteracting = true
                     local menutype = "Chevaux"
                     TriggerServerEvent("dust_stable:server:askhorse")
@@ -96,7 +96,7 @@ Citizen.CreateThread(function()
             end
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
                 PromptSetActiveGroupThisFrame(GaragePromptGroup, GaragePromptName)
-                if  PromptIsReleased(RangerPrompt) then
+                if  PromptIsJustReleased(RangerPrompt) then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid)
