@@ -95,7 +95,7 @@ Citizen.CreateThread(function()
             end
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
                 PromptSetActiveGroupThisFrame(GaragePromptGroup, GaragePromptName)
-                if IsControlJustReleased(0, 0x760A9C6F) then
+                if IsControlJustReleased(0, 0x156F7119) then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid)
