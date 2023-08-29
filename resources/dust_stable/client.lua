@@ -418,7 +418,7 @@ function spawnhorse(model, name, horseid)
     end
 
     initializing = true
-    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 3.0, 0.0)
+    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
     local horse = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped) - 90.0, true, true)
     Citizen.InvokeNative(0x283978A15512B2FE, horse, true) -- set random outfit components
     SetModelAsNoLongerNeeded(modelHash)
