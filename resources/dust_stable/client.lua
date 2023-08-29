@@ -578,7 +578,8 @@ end)
 
 
 function WhistleHorse()
-    for k, v in pairs(spawnedhorses) do 
+    for k, v in pairs(spawnedhorses) do
+        print (v)
         if GetScriptTaskStatus(v, 0x4924437D, 0) ~= 0 then
             local pcoords = GetEntityCoords(PlayerPedId())
             local hcoords = GetEntityCoords(v)
