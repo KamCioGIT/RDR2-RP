@@ -586,8 +586,6 @@ Citizen.CreateThread(function()
     end
 end)
 
-end
-
 AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
     TriggerServerEvent('dust_stable:server:resethorse')
