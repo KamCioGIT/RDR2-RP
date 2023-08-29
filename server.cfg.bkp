@@ -25,7 +25,6 @@ ensure mapmanager
 ensure basic-gamemode 
 ensure chat
 ensure ipl_tool
-ensure redm-doorsearch
 
 # MySQL Driver
 ensure oxmysql
@@ -59,6 +58,7 @@ ensure dust_mineur
 ensure ts-trains
 ensure dust_rumors
 ensure [GUM]
+ensure redm-doorsearch
 
 #MAPPING
 ensure [MAPPING]
