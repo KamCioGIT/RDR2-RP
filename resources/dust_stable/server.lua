@@ -50,7 +50,6 @@ AddEventHandler(
 
 		}, function(result)
 			if #result ~= 0 then
-				print "result"
 				for i = 1, #result do
 					if result[i].selected == 0 then 
 						local horseid = result[i].horseid
@@ -303,7 +302,7 @@ RegisterServerEvent('dust_stable:server:resethorse', function()
 	}, function(result)
 		if #result ~= 0 then
 			for i = 1, #result do
-				local horseid = result[1].horseid
+				local horseid = result[i].horseid
 				MySQL.update('UPDATE stable SET `selected`=@selected WHERE `horseid`=@horseid;',
 					{
 						selected = 0,
