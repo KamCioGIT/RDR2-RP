@@ -305,7 +305,7 @@ RegisterServerEvent('dust_stable:server:resethorse', function()
 			local horseid = result[1].horseid
 			MySQL.update('UPDATE stable SET `selected`=@selected WHERE `horseid`=@horseid;',
 				{
-					seelcted = 0,
+					selected = 0,
 					horseid = horseid
 				}, function(rowsChanged)
 			end)          
