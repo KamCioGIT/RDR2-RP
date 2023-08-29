@@ -61,7 +61,7 @@ local IsInteracting = false
 Citizen.CreateThread(function()
     local str = "Mettre à l'écurie"
     RangerPrompt = PromptRegisterBegin()
-    PromptSetControlAction(RangerPrompt, 0x156F7119)
+    PromptSetControlAction(RangerPrompt, 0x760A9C6F)
     str = CreateVarString(10, 'LITERAL_STRING', str)
     PromptSetText(RangerPrompt, str)
     PromptSetEnabled(RangerPrompt, true)
@@ -96,7 +96,7 @@ Citizen.CreateThread(function()
             end
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
                 PromptSetActiveGroupThisFrame(GaragePromptGroup, GaragePromptName)
-                if IsControlJustReleased(0, 0x156F7119) then
+                if IsControlJustReleased(0, 0x760A9C6F) then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid)
