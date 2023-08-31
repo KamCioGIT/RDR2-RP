@@ -483,3 +483,6 @@ comp_list = {
           ['Hash'] = '20D4A0BF',
           ['category'] = "tapis"
         },
+      }
+    }
+}
