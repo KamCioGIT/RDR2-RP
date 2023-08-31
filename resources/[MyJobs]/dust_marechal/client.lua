@@ -164,47 +164,15 @@ function OpenCategory(menu_catagory)
 end
 
 function MenuUpdateComp(data, menu, horse)
-
+    print ( CompCache[data.current.category].model, CompCache[data.current.category].texture, data.current.value)
     if data.current.change_type == "model" then
         if CompCache[data.current.category].model ~= data.current.value then
             CompCache[data.current.category].texture = 1
             CompCache[data.current.category].model = data.current.value
-            -- if data.current.value > 0 then
-            --     local options = {}
-            --     -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
-            --     -- if GetMaxTexturesForModel(data.current.category, data.current.value) > 1 then
-            --     --     for i = 1, GetMaxTexturesForModel(data.current.category, data.current.value), 1 do
-            --     --         table.insert(options, i .. " Color")
-            --     --     end
-            --     -- else
-            --         table.insert(options, "None")
 
-            --     -- end
-            --     menu.setElement(data.current.id + 1, "options", options)
-            --     -- menu.setElement(data.current.id + 1, "max",
-            --     --     GetMaxTexturesForModel(data.current.category, data.current.value))
-            --     menu.setElement(data.current.id + 1, "min", 1)
-            --     menu.setElement(data.current.id + 1, "value", 1)
-            --     menu.refresh()
-
-            -- else
-            --     menu.setElement(data.current.id + 1, "max", 0)
-            --     menu.setElement(data.current.id + 1, "min", 0)
-            --     menu.setElement(data.current.id + 1, "value", 0)
-            --     menu.refresh()
-
-            -- end
             Change(data.current.value, data.current.category, data.current.change_type, horse)
         end
     end
-    -- if data.current.change_type == "texture" then
-    --     print(CompCache[data.current.category].texture)
-    --     if CompCache[data.current.category].texture ~= data.current.value then
-    --         CompCache[data.current.category].texture = data.current.value
-    --         Change(data.current.value, data.current.category, data.current.change_type, horse)
-    --     end
-    -- end
-
 end
 
 
@@ -237,68 +205,12 @@ function deepcopy(orig)
     return copy
 end
 
-function Change(id, category, change_type, horse)
-    if id < 1 then
-        Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash, true, true, true)
+function Change(id, category, horse)
+    if selectedcomp ~= nil and selectedcomp ~= "0" then
+        for _, componentHash in pairs(selectedcomp) do
+            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash, true, true, true)
+        end
     end
 end
 
-RegisterNetEvent('rdr_marechal:ApplyComp')
-AddEventHandler('rdr_marechal:ApplyComp', function(ClothesComponents, horse)
-    Citizen.CreateThread(function()
-        local _Target = Target
-        local LoadingCheck = false
-        if type(ClothesComponents) ~= "table" then
-            return
-        end
-        if next(ClothesComponents) == nil then
-            return
-        end
-        SetEntityAlpha(_Target, 0)
-        CompCache = ClothesComponents
-        for k, v in pairs(ClothesComponents) do
-            if v ~= nil then
-                local id = tonumber(v.model)
-                if comp_list[k] ~= nil then
-                    if comp_list[k][tonumber(v.model)] ~= nil then
-                        if comp_list[k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
-                            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, tonumber(
-                                comp_list[k][tonumber(v.model)][tonumber(v.texture)].hash), true,
-                                true, true)
-                        end
-                    end
-                end
-            end
-        end
-        SetEntityAlpha(_Target, 255)
-    end)
-end)
 
-
-
--- Citizen.CreateThread(function()
---     while true do
---         Wait(0)
---         local playerPed = PlayerPedId()
---         local coords = GetEntityCoords(playerPed)
---         for k, v in pairs(Config.Customzone) do
---             local dist = Vdist(coords, v)
---             if dist < 2 and IsPedOnMount(playerPed) then
---                 if dist < 20 then
---                     canwait = false
---                 end
---                 if not active then
---                     active = true
---                     target = k
---                 end
---                 if IsControlJustReleased(0, Config.OpenKey) then
---                     local horse = GetMount(PlayerPedId())
---                     local horseid = Entity(horse).state.horseid
---                     ---- freeze horse
---                     ---- demount
---                     TriggerServerEvent("rdr_marechal:loadcomp", 2, horseid, horse)
---                 end
---             end
---         end
---     end
--- end)
