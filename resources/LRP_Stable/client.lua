@@ -68,18 +68,11 @@ Citizen.CreateThread(
     end
 )
 
-RegisterCommand(
-    "stable",
-    function()
-        OpenStable()
-    end
-)
-
 function OpenStable()
     inCustomization = true
     horsesp = true
 
-    local playerHorse = MyHorse_entity
+    local playerHorse = GetMount(PlayerPedId())
 
     SetEntityHeading(playerHorse, 334)
     DeleteeEntity = true
@@ -128,7 +121,7 @@ Citizen.CreateThread(
             local coords = GetEntityCoords(PlayerPedId())
             for _, prompt in pairs(prompts) do
                 if PromptIsJustPressed(prompt) then
-                    for k, v in pairs(Config.Stables) do
+                    for k, v in pairs(Config.Stables) and IsPedOnMount(PlayerPedId()) do
                         if GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < 7 then
                             HeadingPoint = v.Heading
                             StablePoint = {v.Pos.x, v.Pos.y, v.Pos.z}
@@ -414,32 +407,32 @@ function setcloth(hash)
     Citizen.InvokeNative(0xD3A7B003ED343FD9, MyHorse_entity, tonumber(hash), true, true, true)
 end
 
-RegisterNUICallback(
-    "selectHorse",
-    function(data)
-        TriggerServerEvent("VP:STABLE:SelectHorseWithId", tonumber(data.horseID))
-    end
-)
+-- RegisterNUICallback(
+--     "selectHorse",
+--     function(data)
+--         TriggerServerEvent("VP:STABLE:SelectHorseWithId", tonumber(data.horseID))
+--     end
+-- )
 
-RegisterNUICallback(
-    "sellHorse",
-    function(data)
-        DeleteEntity(showroomHorse_entity)
-        TriggerServerEvent("VP:STABLE:SellHorseWithId", tonumber(data.horseID))
-        TriggerServerEvent("VP:STABLE:AskForMyHorses")
-        alreadySentShopData = false
-        Wait(300)
+-- RegisterNUICallback(
+--     "sellHorse",
+--     function(data)
+--         DeleteEntity(showroomHorse_entity)
+--         TriggerServerEvent("VP:STABLE:SellHorseWithId", tonumber(data.horseID))
+--         TriggerServerEvent("VP:STABLE:AskForMyHorses")
+--         alreadySentShopData = false
+--         Wait(300)
 
-        SendNUIMessage(
-            {
-                action = "show",
-                shopData = getShopData()
-            }
-        )
-        TriggerServerEvent("VP:STABLE:AskForMyHorses")
+--         SendNUIMessage(
+--             {
+--                 action = "show",
+--                 shopData = getShopData()
+--             }
+--         )
+--         TriggerServerEvent("VP:STABLE:AskForMyHorses")
 
-    end
-)
+--     end
+-- )
 
 
 
