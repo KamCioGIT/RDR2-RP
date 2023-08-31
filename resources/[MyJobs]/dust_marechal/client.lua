@@ -6,7 +6,48 @@ TriggerEvent("redemrp_menu_base:getData", function(call)
 end)
 
 
-function OpenCustomMenu(horse)
+------ PROMPT ------ 
+
+local CustomPromptGroup = GetRandomIntInRange(0, 0xffffff)
+local CustomPromptName = CreateVarString(10, "LITERAL_STRING", "Écurie")
+local CustomPrompt
+local CustomPromptShown = false
+local IsInteracting = false
+Citizen.CreateThread(function()
+    local str = "Mettre à l'écurie"
+    CustomPrompt = PromptRegisterBegin()
+    PromptSetControlAction(CustomPrompt, 0x156F7119)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(CustomPrompt, str)
+    PromptSetEnabled(CustomPrompt, true)
+    PromptSetVisible(CustomPrompt, true)
+    PromptSetHoldMode(CustomPrompt, false)
+    PromptSetGroup(CustomPrompt, CustomPromptGroup)
+    PromptRegisterEnd(CustomPrompt)
+end)
+
+----- Open Menu ----
+Citizen.CreateThread(function()
+    while true do
+        Wait(0)
+        local playerpos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.Stables) do
+            if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
+                PromptSetActiveGroupThisFrame(CustomPromptGroup, CustomPromptName)
+                if IsControlJustReleased(0, 0x156F7119) then
+                    isInteracting = true
+                    local horse = GetMount(PlayerPedId())
+                    local horseid = Entity(horse).state.horseid
+                    TriggerServerEvent("dust_stable:server:askhorse")
+                    Wait(200)
+                    OpenCustomMenu(horse, horseid)
+                end
+            end
+        end
+    end
+end)
+
+function OpenCustomMenu(horse, horseid)
     MenuData.CloseAll()
     local elements = {}
 
@@ -41,8 +82,7 @@ function OpenCustomMenu(horse)
             OpenCategory(data.current.value)
         else
             menu.close()
-            saveOutfit = true
-            TriggerServerEvent("rdr_clothes_store:Save", ClothesCache, output, CurrentPrice)
+            TriggerServerEvent("rdr_marechal:save", CompCache, horseid, CurrentPrice)
             OldCompCache = {}
 
         end
@@ -50,7 +90,7 @@ function OpenCustomMenu(horse)
     end, function(data, menu)
         menu.close()
         OldCompCache = {}
-        TriggerServerEvent("RedEM:server:LoadSkin")
+        ---- RESET SKIN D'ORIGINE DU CHEVAL 
     end)
 end
 
