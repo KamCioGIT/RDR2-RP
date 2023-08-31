@@ -169,41 +169,41 @@ function MenuUpdateComp(data, menu, horse)
         if CompCache[data.current.category].model ~= data.current.value then
             CompCache[data.current.category].texture = 1
             CompCache[data.current.category].model = data.current.value
-            if data.current.value > 0 then
-                local options = {}
-                -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
-                -- if GetMaxTexturesForModel(data.current.category, data.current.value) > 1 then
-                --     for i = 1, GetMaxTexturesForModel(data.current.category, data.current.value), 1 do
-                --         table.insert(options, i .. " Color")
-                --     end
-                -- else
-                    table.insert(options, "None")
+            -- if data.current.value > 0 then
+            --     local options = {}
+            --     -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
+            --     -- if GetMaxTexturesForModel(data.current.category, data.current.value) > 1 then
+            --     --     for i = 1, GetMaxTexturesForModel(data.current.category, data.current.value), 1 do
+            --     --         table.insert(options, i .. " Color")
+            --     --     end
+            --     -- else
+            --         table.insert(options, "None")
 
-                -- end
-                menu.setElement(data.current.id + 1, "options", options)
-                -- menu.setElement(data.current.id + 1, "max",
-                --     GetMaxTexturesForModel(data.current.category, data.current.value))
-                menu.setElement(data.current.id + 1, "min", 1)
-                menu.setElement(data.current.id + 1, "value", 1)
-                menu.refresh()
+            --     -- end
+            --     menu.setElement(data.current.id + 1, "options", options)
+            --     -- menu.setElement(data.current.id + 1, "max",
+            --     --     GetMaxTexturesForModel(data.current.category, data.current.value))
+            --     menu.setElement(data.current.id + 1, "min", 1)
+            --     menu.setElement(data.current.id + 1, "value", 1)
+            --     menu.refresh()
 
-            else
-                menu.setElement(data.current.id + 1, "max", 0)
-                menu.setElement(data.current.id + 1, "min", 0)
-                menu.setElement(data.current.id + 1, "value", 0)
-                menu.refresh()
+            -- else
+            --     menu.setElement(data.current.id + 1, "max", 0)
+            --     menu.setElement(data.current.id + 1, "min", 0)
+            --     menu.setElement(data.current.id + 1, "value", 0)
+            --     menu.refresh()
 
-            end
+            -- end
             Change(data.current.value, data.current.category, data.current.change_type, horse)
         end
     end
-    if data.current.change_type == "texture" then
-        print(CompCache[data.current.category].texture)
-        if CompCache[data.current.category].texture ~= data.current.value then
-            CompCache[data.current.category].texture = data.current.value
-            Change(data.current.value, data.current.category, data.current.change_type, horse)
-        end
-    end
+    -- if data.current.change_type == "texture" then
+    --     print(CompCache[data.current.category].texture)
+    --     if CompCache[data.current.category].texture ~= data.current.value then
+    --         CompCache[data.current.category].texture = data.current.value
+    --         Change(data.current.value, data.current.category, data.current.change_type, horse)
+    --     end
+    -- end
 
 end
 
