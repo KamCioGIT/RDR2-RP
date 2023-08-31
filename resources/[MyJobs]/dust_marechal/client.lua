@@ -180,8 +180,8 @@ function MenuUpdateComp(data, menu, horse)
 
                 -- end
                 menu.setElement(data.current.id + 1, "options", options)
-                menu.setElement(data.current.id + 1, "max",)
-                    -- GetMaxTexturesForModel(data.current.category, data.current.value))
+                -- menu.setElement(data.current.id + 1, "max",
+                --     GetMaxTexturesForModel(data.current.category, data.current.value))
                 menu.setElement(data.current.id + 1, "min", 1)
                 menu.setElement(data.current.id + 1, "value", 1)
                 menu.refresh()
