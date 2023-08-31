@@ -164,7 +164,7 @@ function OpenCategory(menu_catagory, horse)
 end
 
 function MenuUpdateComp(data, menu, horse)
-    print (data.current.value, CompCache[data.current.category].hash)
+    print (data.current.value,  clothes_list[category][data.current.value].hash)
     NativeSetPedComponentEnabled(horse, 0x106961A8)
     -- if data.current.change_type == "model" then
     --     if CompCache[data.current.category].model ~= data.current.value then
