@@ -89,9 +89,12 @@ function OpenCustomMenu(horse, horseid)
 
     end, function(data, menu)
         menu.close()
-        OldCompCache = {}
         isInteracting = false
         ---- RESET SKIN D'ORIGINE DU CHEVAL 
+        for _, componentHash in pairs(OldCompCache) do
+            NativeSetPedComponentEnabled(entity, tonumber(componentHash))
+        end
+        OldCompCache = {}
     end)
 end
 
