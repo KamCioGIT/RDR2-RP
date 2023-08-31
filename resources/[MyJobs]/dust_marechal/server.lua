@@ -9,19 +9,19 @@ RegisterServerEvent('rdr_marechal:save')
 AddEventHandler('rdr_marechal:save', function(comp, horseid)
     local _horseid= horseid
     print (comp)
-    local _comp = json.encode(comp)
+    local components = json.encode(comp)
     TriggerEvent("rdr_marechal:retrievecomp", _horseid, function(call)
         if call then
-            MySQL.update("UPDATE stable SET `components`=@_comp WHERE `horseid`=@_horseid", {
-                _comp = _comp,
+            MySQL.update("UPDATE stable SET `components`=@components WHERE `horseid`=@_horseid", {
+                components = components,
                 _horseid = _horseid
             }, function(done)
             end)
         else
             MySQL.update(
-                'INSERT INTO stable (`components`) VALUES (@_comp);',
+                'INSERT INTO stable (`components`) VALUES (@components);',
                 {
-                    _comp = _comp,
+                    components = components,
                     _horseid = _horseid
                 }, function(rowsChanged)
                 end)
