@@ -121,8 +121,11 @@ AddEventHandler("VP:STABLE:SelectHorseWithId", function(horseid)
     local identifier = user.identifier
     local charid = user.charid
 
-    MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid;', {identifier = identifier, charid = charid}, function(horse)          
-        TriggerClientEvent("VP:HORSE:SetHorseInfo", _source, horse[i].model, horse[i].name, horse[i].components)
+    MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid;', {identifier = identifier, charid = charid}, function(horse)
+        
+        for i = 1, #horse do       
+            TriggerClientEvent("VP:HORSE:SetHorseInfo", _source, horse[i].model, horse[i].name, horse[i].components)
+        end
     end)
 end)
 
