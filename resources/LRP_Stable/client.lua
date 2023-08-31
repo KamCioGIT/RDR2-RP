@@ -88,26 +88,20 @@ function OpenStable()
         createCamera(PlayerPedId())
     end
     --  SetEntityVisible(PlayerPedId(), false)
-    if not alreadySentShopData then
+    if playerHorse ~= nil then
         SendNUIMessage(
             {
-                action = "show",
-                shopData = getShopData()
+                EnableCustom = "true"
             }
         )
     else
         SendNUIMessage(
             {
-                action = "show"
+                EnableCustom = "false"
             }
         )
     end
     -- TriggerServerEvent("VP:STABLE:AskForMyHorses")
-    SendNUIMessage(
-        {
-            myHorsesData = horseid
-        }
-    )
 end
 
 local promptGroup
@@ -466,63 +460,50 @@ AcsLuggageUsing = nil
 
 --- /// ARRASTAR CAVALO
 
-local alreadySentShopData = false
+-- RegisterNUICallback(
+--     "loadHorse",
+--     function(data)
+--         local horseModel = data.horseModel
 
+--         if showroomHorse_model == horseModel then
+--             return
+--         end
 
+--         if MyHorse_entity ~= nil then
+--             DeleteEntity(MyHorse_entity)
+--             MyHorse_entity = nil
+--         end		
 
-function getShopData()
-    alreadySentShopData = true
+--         local modelHash = GetHashKey(horseModel)
 
-    local ret = Config.Horses
+--         if IsModelValid(modelHash) then
+--             if not HasModelLoaded(modelHash) then
+--                 RequestModel(modelHash)
+--                 while not HasModelLoaded(modelHash) do
+--                     Citizen.Wait(10)
+--                 end
+--             end
+--         end    
 
-    return ret
-end
+--         if showroomHorse_entity ~= nil then    
+--             DeleteEntity(showroomHorse_entity)
+--             showroomHorse_entity = nil
+--         end
 
+--         showroomHorse_model = horseModel
 
-RegisterNUICallback(
-    "loadHorse",
-    function(data)
-        local horseModel = data.horseModel
+--         showroomHorse_entity = CreatePed(modelHash, SpawnPoint.x, SpawnPoint.y, SpawnPoint.z - 0.98, SpawnPoint.h, false, 0)
+--         Citizen.InvokeNative(0x283978A15512B2FE, showroomHorse_entity, true)
+--         Citizen.InvokeNative(0x58A850EAEE20FAA3, showroomHorse_entity)
 
-        if showroomHorse_model == horseModel then
-            return
-        end
+--         NetworkSetEntityInvisibleToNetwork(showroomHorse_entity, true)
+--         SetVehicleHasBeenOwnedByPlayer(showroomHorse_entity, true)
 
-        if MyHorse_entity ~= nil then
-            DeleteEntity(MyHorse_entity)
-            MyHorse_entity = nil
-        end		
-
-        local modelHash = GetHashKey(horseModel)
-
-        if IsModelValid(modelHash) then
-            if not HasModelLoaded(modelHash) then
-                RequestModel(modelHash)
-                while not HasModelLoaded(modelHash) do
-                    Citizen.Wait(10)
-                end
-            end
-        end    
-
-        if showroomHorse_entity ~= nil then    
-            DeleteEntity(showroomHorse_entity)
-            showroomHorse_entity = nil
-        end
-
-        showroomHorse_model = horseModel
-
-        showroomHorse_entity = CreatePed(modelHash, SpawnPoint.x, SpawnPoint.y, SpawnPoint.z - 0.98, SpawnPoint.h, false, 0)
-        Citizen.InvokeNative(0x283978A15512B2FE, showroomHorse_entity, true)
-        Citizen.InvokeNative(0x58A850EAEE20FAA3, showroomHorse_entity)
-
-        NetworkSetEntityInvisibleToNetwork(showroomHorse_entity, true)
-        SetVehicleHasBeenOwnedByPlayer(showroomHorse_entity, true)
-
-        -- SetModelAsNoLongerNeeded(modelHash)
+--         -- SetModelAsNoLongerNeeded(modelHash)
 		
-        interpCamera("Horse", showroomHorse_entity)
-    end
-)
+--         interpCamera("Horse", showroomHorse_entity)
+--     end
+-- )
 
 
 RegisterNUICallback(
