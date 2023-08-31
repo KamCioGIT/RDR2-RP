@@ -123,9 +123,9 @@ function OpenCategory(menu_catagory)
         a = a + 1
         options = {}
 
-        for i = 1, GetMaxTexturesForModel(k, CompCache[k].model or 1), 1 do
-            table.insert(options, i.." Color")
-        end
+        -- for i = 1, GetMaxTexturesForModel(k, CompCache[k].model or 1), 1 do
+        --     table.insert(options, i.." Color")
+        -- end
         table.insert(elements, {
             label = Config.Label[k] .. " Color" or v,
             value = CompCache[k].texture or 1,
@@ -133,7 +133,7 @@ function OpenCategory(menu_catagory)
             desc = "Change the color",
             type = "slider",
             min = 1,
-            max = GetMaxTexturesForModel(k, CompCache[k].model or 1),
+            -- max = GetMaxTexturesForModel(k, CompCache[k].model or 1),
             change_type = "texture",
             id = a,
             options = options
@@ -171,17 +171,17 @@ function MenuUpdateComp(data, menu, horse)
             if data.current.value > 0 then
                 local options = {}
                 -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
-                if GetMaxTexturesForModel(data.current.category, data.current.value) > 1 then
-                    for i = 1, GetMaxTexturesForModel(data.current.category, data.current.value), 1 do
-                        table.insert(options, i .. " Color")
-                    end
-                else
+                -- if GetMaxTexturesForModel(data.current.category, data.current.value) > 1 then
+                --     for i = 1, GetMaxTexturesForModel(data.current.category, data.current.value), 1 do
+                --         table.insert(options, i .. " Color")
+                --     end
+                -- else
                     table.insert(options, "None")
 
-                end
+                -- end
                 menu.setElement(data.current.id + 1, "options", options)
-                menu.setElement(data.current.id + 1, "max",
-                    GetMaxTexturesForModel(data.current.category, data.current.value))
+                menu.setElement(data.current.id + 1, "max"),
+                    -- GetMaxTexturesForModel(data.current.category, data.current.value))
                 menu.setElement(data.current.id + 1, "min", 1)
                 menu.setElement(data.current.id + 1, "value", 1)
                 menu.refresh()
@@ -206,19 +206,11 @@ function MenuUpdateComp(data, menu, horse)
 
 end
 
-function GetMaxTexturesForModel(category, model)
-    -- print(model)
-    -- print(category)
-    if model == 0 then
-        model = 1
-    end
-    return #comp_list[category][model]
-end
 
 RegisterNetEvent('rdr_marechal:OpenCustomMenu')
 AddEventHandler('rdr_marechal:OpenCustomMenu', function(ClothesComponents, horse)
     CompCache = ClothesComponents
-    for k,v in pairs(comp_list) do
+    for k,v in pairs(Config.comp_list) do
         if CompCache[k] == nil then
             CompCache[k] = {}
             CompCache[k].model = 0
@@ -266,11 +258,11 @@ AddEventHandler('rdr_marechal:ApplyComp', function(ClothesComponents, horse)
         for k, v in pairs(ClothesComponents) do
             if v ~= nil then
                 local id = tonumber(v.model)
-                if comp_list[k] ~= nil then
-                    if comp_list[k][tonumber(v.model)] ~= nil then
-                        if comp_list[k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
+                if Config.comp_list[k] ~= nil then
+                    if Config.comp_list[k][tonumber(v.model)] ~= nil then
+                        if Config.comp_list[k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
                             Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, tonumber(
-                                comp_list[k][tonumber(v.model)][tonumber(v.texture)].hash), true,
+                                Config.comp_list[k][tonumber(v.model)][tonumber(v.texture)].hash), true,
                                 true, true)
                         end
                     end
