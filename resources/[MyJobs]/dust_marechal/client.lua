@@ -111,7 +111,7 @@ function OpenCategory(menu_catagory, horse)
         end
         table.insert(elements, {
             label = Config.Label[k] or v,
-            value = CompCache[k].model or 0,
+            value = CompCache[k].hash or 0,
             category = k,
             desc = "Change component",
             type = "slider",
@@ -164,7 +164,7 @@ function OpenCategory(menu_catagory, horse)
 end
 
 function MenuUpdateComp(data, menu, horse)
-    print (data.current.value, CompCache[data.current.category].model)
+    print (data.current.value, CompCache[data.current.category].hash)
     NativeSetPedComponentEnabled(horse, 0x106961A8)
     -- if data.current.change_type == "model" then
     --     if CompCache[data.current.category].model ~= data.current.value then
