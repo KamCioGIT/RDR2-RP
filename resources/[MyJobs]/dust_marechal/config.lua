@@ -4,19 +4,22 @@ Config.MenuElements = {
 	["équipement"] = {
 		label = "Scelle",
 		category = {
-			-- "pommeau",
-			-- "tapis",
 			"horse_saddles",
-			-- "sacs",
-			-- "étriers",
-			-- "couchage",
+			"horse_bedrolls",
+			"horse_blankets",
+			"horse_bridles",
+			"horse_manes",
+			"HORSE_SADDLEBAGS",
+			"saddle_horns",
+			"saddle_stirrups",
 		}
 	},
 	["cheval"] = {
 		label = "Cheval",
 		category = {
-			"crinière",
-			"queue",
+			"horse_mustache",
+			"HORSE_TAILS",
+			"horse_accessories",
 	}
 	}
 }
