@@ -6,13 +6,13 @@ TriggerEvent("redemrp_inventory:getData",function(call)
 end)
 
 RegisterServerEvent('rdr_marechal:save')
-AddEventHandler('rdr_marechal:save', function(comp, horseid)
-    local _horseid= horseid
+AddEventHandler('rdr_marechal:save', function(comp, id)
+    local horseid= id
     print (comp)
     local components = json.encode(comp)
-    MySQL.update("UPDATE stable SET `components`=@components WHERE `horseid`=@_horseid", {
+    MySQL.update("UPDATE stable SET `components`=@components WHERE `horseid`=@horseid", {
         components = components,
-        _horseid = _horseid
+        horseid = horseid
     }, function(done)
     end)
 end)
