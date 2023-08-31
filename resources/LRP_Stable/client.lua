@@ -135,11 +135,6 @@ Citizen.CreateThread(
                             CamPos = {v.SpawnPoint.CamPos.x, v.SpawnPoint.CamPos.y}
                             SpawnPoint = {x = v.SpawnPoint.Pos.x, y = v.SpawnPoint.Pos.y, z = v.SpawnPoint.Pos.z, h = v.SpawnPoint.Heading}
                             Wait(300)
-                            SendNUIMessage(
-                                {
-                                    EnableCustom = "true"
-                                }
-                            )
                         end
                     end
                     OpenStable()
