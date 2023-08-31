@@ -121,8 +121,8 @@ Citizen.CreateThread(
             local coords = GetEntityCoords(PlayerPedId())
             for _, prompt in pairs(prompts) do
                 if PromptIsJustPressed(prompt) then
-                    for k, v in pairs(Config.Stables) and IsPedOnMount(PlayerPedId()) do
-                        if GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < 7 then
+                    for k, v in pairs(Config.Stables) do
+                        if GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < 7  and IsPedOnMount(PlayerPedId()) then
                             HeadingPoint = v.Heading
                             StablePoint = {v.Pos.x, v.Pos.y, v.Pos.z}
                             CamPos = {v.SpawnPoint.CamPos.x, v.SpawnPoint.CamPos.y}
