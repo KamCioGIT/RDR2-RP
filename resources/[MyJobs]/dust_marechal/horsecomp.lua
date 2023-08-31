@@ -462,4 +462,32 @@ HorseComp = {
     [461]={["Name"]="4TH365",["Hash"]="D258EF10",["category"]="AcsLuggage"},
     [462]={["Name"]="4TH375",["Hash"]="D8258E14",["category"]="AcsLuggage"},
     [463]={["Name"]="4TH460",["Hash"]="FFB0391E",["category"]="AcsLuggage"}
+}
+
+
+["pommeau"] = "Pommeau",
+["tapis"] = "Tapis de Scelle",
+["selle"] = "Selle",
+["sacs"] = "Sacoches",
+["étriers"] = "Étriers",
+["couchage"] = "Couchage",
+["crinière"] = "Crinière",
+["queue"] = "Queue",
+
+comp_list = {
+  ['tapis'] = {
+    [1] = {
+      [1] = {
+        ['name'] = "4TH36",
+        ['hash'] = "127E0412",
+        ['category'] = 'tapis'
+      },
+      [2] = {
+        ['name'] = "4TH50",
+        ['hash'] = "19C5E80C",
+        ['category'] = 'tapis'
+      },
+    }
   }
+
+}
