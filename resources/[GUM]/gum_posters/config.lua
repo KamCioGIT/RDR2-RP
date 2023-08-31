@@ -27,64 +27,64 @@ Config.NotifyImage = ""
 -----------------------------
 Config.CleanerTime = 7--in days (every  7 days will be removed old pinned posters)
 Config.CityPoster = false--If you want filter posters by city
-Config.ICNamePoster = true--If you want see in game who post this poster
+Config.ICNamePoster = false --If you want see in game who post this poster
 
-Config.Name = "Poster"
-Config.UserName = "Name : "
-Config.TownName = "Town : "
+Config.Name = "Affiche"
+Config.UserName = "Nom : "
+Config.TownName = "Ville : "
 
 Config.Posters = {
     [1] = {
         blip=true,
-        name="Poster Board - Saint Denis", 
+        name="Panneau d'affichage - Saint Denis", 
         object="mp005_p_mp_bountyboard01x",
         coords={2516.90, -1305.57, 48.99, 90.0},
     },
     [2] = {
         blip=true,
-        name="Poster Board - Valentine", 
+        name="Panneau d'affichage - Valentine", 
         object="mp005_p_mp_bountyboard01x",
         coords={-270.05, 807.20, 119.42, 100.0},
     },
     [3] = {
         blip=true,
-        name="Poster Board - Rhodes", 
+        name="Panneau d'affichage - Rhodes", 
         object="mp005_p_mp_bountyboard01x",
         coords={1234.15, -1293.25, 76.91, -45.0},
     },
     [4] = {
         blip=true,
-        name="Poster Board - Van horn", 
+        name="Panneau d'affichage - Van horn", 
         object="mp005_p_mp_bountyboard02x",
         coords={2956.05 ,501.69 ,44.87, 95.0},
     },
     [5] = {
         blip=true,
-        name="Poster Board - Annesburg", 
+        name="Panneau d'affichage - Annesburg", 
         object="mp005_p_mp_bountyboard02x",
         coords={2927.45 ,1287.86, 43.46, 250.00},
     },
     [6] = {
         blip=true,
-        name="Poster Board - Strawberry", 
+        name="Panneau d'affichage - Strawberry", 
         object="mp005_p_mp_bountyboard01x",
         coords={-1765.30, -386.10, 157.80, 326.74},
     },
     [7] = {
         blip=true,
-        name="Poster Board - Blackwater", 
+        name="Panneau d'affichage - Blackwater", 
         object="mp005_p_mp_bountyboard02x",
         coords={-867.08, -1329.78, 42.20, 89.00},
     },
     [8] = {
         blip=true,
-        name="Poster Board - Armadillo", 
+        name="Panneau d'affichage - Armadillo", 
         object="mp005_p_mp_bountyboard02x",
         coords={-3722.10, -2603.63, -14.40, 87.97},
     },
     [9] = {
         blip=true,
-        name="Poster Board - Tumbleweed", 
+        name="Panneau d'affichage - Tumbleweed", 
         object="mp005_p_mp_bountyboard01x",
         coords={-5525.96, -2926.90, -1.90, 115.85},
     },
@@ -104,13 +104,13 @@ Config.JobDeleteTable = {
 
 --In HTML File you can translate placeholder
 Config.Language = {
-    [1] = "Poster",
-    [2] = "Open",
-    [3] = "Do you want to remove this poster?",
-    [4] = "Yes",
-    [5] = "No",
-    [6] = "This is not your poster",
-    [7] = "Close",
-    [8] = "Zoom poster",
-    [9] = "Remove poster",
+    [1] = "Affiche",
+    [2] = "Ouvrir",
+    [3] = "Voulez vous retirer cette affiche ?",
+    [4] = "Oui",
+    [5] = "Non",
+    [6] = "Ce n'est pas votre affiche",
+    [7] = "Fermer",
+    [8] = "Regarder l'affiche",
+    [9] = "Retirer l'affiche",
 }
