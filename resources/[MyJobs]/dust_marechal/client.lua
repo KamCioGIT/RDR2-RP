@@ -99,7 +99,7 @@ function OpenCategory(menu_catagory)
     local a = 1
     for v, k in pairs(Config.MenuElements[menu_catagory].category) do
         print (v, k)
-        local category = Config.comp_list[k]
+        local category = comp_list[k]
         if CompCache[k] == nil then
             CompCache[k] = {}
             CompCache[k].model = 0
@@ -127,18 +127,18 @@ function OpenCategory(menu_catagory)
         -- for i = 1, GetMaxTexturesForModel(k, CompCache[k].model or 1), 1 do
         --     table.insert(options, i.." Color")
         -- end
-        table.insert(elements, {
-            label = Config.Label[k] .. " Color" or v,
-            value = CompCache[k].texture or 1,
-            category = k,
-            desc = "Change the color",
-            type = "slider",
-            min = 1,
-            -- max = GetMaxTexturesForModel(k, CompCache[k].model or 1),
-            change_type = "texture",
-            id = a,
-            options = options
-        })
+        -- table.insert(elements, {
+        --     label = Config.Label[k] .. " Color" or v,
+        --     value = CompCache[k].texture or 1,
+        --     category = k,
+        --     desc = "Change the color",
+        --     type = "slider",
+        --     min = 1,
+        --     -- max = GetMaxTexturesForModel(k, CompCache[k].model or 1),
+        --     change_type = "texture",
+        --     id = a,
+        --     options = options
+        -- })
 
         options = {}
         a = a + 1
@@ -211,7 +211,7 @@ end
 RegisterNetEvent('rdr_marechal:OpenCustomMenu')
 AddEventHandler('rdr_marechal:OpenCustomMenu', function(ClothesComponents, horse)
     CompCache = ClothesComponents
-    for k,v in pairs(Config.comp_list) do
+    for k,v in pairs(comp_list) do
         if CompCache[k] == nil then
             CompCache[k] = {}
             CompCache[k].model = 0
@@ -259,11 +259,11 @@ AddEventHandler('rdr_marechal:ApplyComp', function(ClothesComponents, horse)
         for k, v in pairs(ClothesComponents) do
             if v ~= nil then
                 local id = tonumber(v.model)
-                if Config.comp_list[k] ~= nil then
-                    if Config.comp_list[k][tonumber(v.model)] ~= nil then
-                        if Config.comp_list[k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
+                if comp_list[k] ~= nil then
+                    if comp_list[k][tonumber(v.model)] ~= nil then
+                        if comp_list[k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
                             Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, tonumber(
-                                Config.comp_list[k][tonumber(v.model)][tonumber(v.texture)].hash), true,
+                                comp_list[k][tonumber(v.model)][tonumber(v.texture)].hash), true,
                                 true, true)
                         end
                     end
