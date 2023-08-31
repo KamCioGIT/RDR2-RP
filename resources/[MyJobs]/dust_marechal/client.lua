@@ -170,10 +170,16 @@ function MenuUpdateComp(data, menu, horse)
             CompCache[data.current.category].texture = 1
             CompCache[data.current.category].model = data.current.value
 
-            Change(data.current.value, data.current.category, data.current.change_type, horse)
+            Change(horse, CompCache[data.current.category].model)
         end
     end
 end
+
+function Change(horse, componentHash)
+    Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash, true, true, true)
+end
+
+
 
 
 RegisterNetEvent('rdr_marechal:OpenCustomMenu')
@@ -203,14 +209,6 @@ function deepcopy(orig)
         copy = orig
     end
     return copy
-end
-
-function Change(id, category, horse)
-    if selectedcomp ~= nil and selectedcomp ~= "0" then
-        for _, componentHash in pairs(selectedcomp) do
-            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash, true, true, true)
-        end
-    end
 end
 
 
