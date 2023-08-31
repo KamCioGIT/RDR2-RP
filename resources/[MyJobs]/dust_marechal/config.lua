@@ -25,6 +25,8 @@ Config.Customzone = {
 	vector3(2502.748, -1450.436, 46.31255) --- saint denis
 }
 
+Config.OpenKey = "0x156F7119"
+
 Config.Label = {
 	["pommeau"] = "Pommeau",
 	["tapis"] = "Tapis de Scelle",
