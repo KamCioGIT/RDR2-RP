@@ -31,7 +31,7 @@ Citizen.CreateThread(function()
     while true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
-        for k, v in pairs(Config.Stables) do
+        for k, v in pairs(Config.Customzone) do
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
                 PromptSetActiveGroupThisFrame(CustomPromptGroup, CustomPromptName)
                 if IsControlJustReleased(0, 0x156F7119) then
@@ -269,29 +269,29 @@ end)
 
 
 
-Citizen.CreateThread(function()
-    while true do
-        Wait(0)
-        local playerPed = PlayerPedId()
-        local coords = GetEntityCoords(playerPed)
-        for k, v in pairs(Config.Customzone) do
-            local dist = Vdist(coords, v)
-            if dist < 2 and IsPedOnMount(playerPed) then
-                if dist < 20 then
-                    canwait = false
-                end
-                if not active then
-                    active = true
-                    target = k
-                end
-                if IsControlJustReleased(0, Config.OpenKey) then
-                    local horse = GetMount(PlayerPedId())
-                    local horseid = Entity(horse).state.horseid
-                    ---- freeze horse
-                    ---- demount
-                    TriggerServerEvent("rdr_marechal:loadcomp", 2, horseid, horse)
-                end
-            end
-        end
-    end
-end)
+-- Citizen.CreateThread(function()
+--     while true do
+--         Wait(0)
+--         local playerPed = PlayerPedId()
+--         local coords = GetEntityCoords(playerPed)
+--         for k, v in pairs(Config.Customzone) do
+--             local dist = Vdist(coords, v)
+--             if dist < 2 and IsPedOnMount(playerPed) then
+--                 if dist < 20 then
+--                     canwait = false
+--                 end
+--                 if not active then
+--                     active = true
+--                     target = k
+--                 end
+--                 if IsControlJustReleased(0, Config.OpenKey) then
+--                     local horse = GetMount(PlayerPedId())
+--                     local horseid = Entity(horse).state.horseid
+--                     ---- freeze horse
+--                     ---- demount
+--                     TriggerServerEvent("rdr_marechal:loadcomp", 2, horseid, horse)
+--                 end
+--             end
+--         end
+--     end
+-- end)
