@@ -5,10 +5,12 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 server_script {
 	'@oxmysql/lib/MySQL.lua',
 	'server.lua',
-	'config.lua'
+	'config.lua',
+	"horsecomp.lua"
 }
  
 client_script {
 	'client.lua',
-	'config.lua'
+	'config.lua',
+	"horsecomp.lua"
 }
