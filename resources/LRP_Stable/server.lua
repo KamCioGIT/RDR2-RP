@@ -27,7 +27,7 @@ AddEventHandler("VP:STABLE:CheckSelectedHorse", function()
     local user = RedEM.GetPlayer(_source)
     local identifier = user.identifier
     local charid = user.charid
-    MySQL.querry('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid;', {identifier = identifier, charid = charid}, function(horses)
+    MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid;', {identifier = identifier, charid = charid}, function(horses)
         if #horses ~= 0 then
             for i = 1, #horses do
                 if horses[i].selected == 1 then
@@ -49,14 +49,14 @@ AddEventHandler("VP:STABLE:AskForMyHorses", function()
     local identifier = user.identifier
     local charid = user.charid
 
-    MySQL.querry('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid;', {identifier = identifier, charid = charid}, function(horses)
+    MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid;', {identifier = identifier, charid = charid}, function(horses)
         if horses[1]then
             horseId = horses[1].horseid
         else
             horseId = nil
         end
 
-        MySQL.querry('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid;', {identifier = identifier, charid = charid}, function(components)
+        MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid;', {identifier = identifier, charid = charid}, function(components)
             if components[1] then
                 components = components[1].components
             end
@@ -75,7 +75,7 @@ local Horses
 --     local user = RedEM.GetPlayer(_source)
 --     local identifier = user.identifier
 --     local charid = user.charid
---     MySQL.querry('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid;', {identifier = identifier, charid = charid}, function(horses)
+--     MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid;', {identifier = identifier, charid = charid}, function(horses)
 
 --         if #horses >= 3 then
 --             print('Stable limit')
