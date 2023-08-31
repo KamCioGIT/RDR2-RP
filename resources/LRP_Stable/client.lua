@@ -101,7 +101,12 @@ function OpenStable()
             }
         )
     end
-    TriggerServerEvent("VP:STABLE:AskForMyHorses")
+    -- TriggerServerEvent("VP:STABLE:AskForMyHorses")
+    SendNUIMessage(
+        {
+            myHorsesData = playerHorse
+        }
+    )
 end
 
 local promptGroup
