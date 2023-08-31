@@ -465,14 +465,14 @@ HorseComp = {
 }
 
 
-["pommeau"] = "Pommeau",
-["tapis"] = "Tapis de Scelle",
-["selle"] = "Selle",
-["sacs"] = "Sacoches",
-["étriers"] = "Étriers",
-["couchage"] = "Couchage",
-["crinière"] = "Crinière",
-["queue"] = "Queue",
+-- ["pommeau"] = "Pommeau",
+-- ["tapis"] = "Tapis de Scelle",
+-- ["selle"] = "Selle",
+-- ["sacs"] = "Sacoches",
+-- ["étriers"] = "Étriers",
+-- ["couchage"] = "Couchage",
+-- ["crinière"] = "Crinière",
+-- ["queue"] = "Queue",
 
 comp_list = {
   ['tapis'] = {
