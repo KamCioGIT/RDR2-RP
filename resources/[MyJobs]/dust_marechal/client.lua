@@ -51,7 +51,7 @@ function OpenCustomMenu(horse, horseid)
     MenuData.CloseAll()
     local elements = {}
 
-    for v, k in ipairs(Config.MenuElements) do
+    for v, k in pairs(Config.MenuElements) do
 
         table.insert(elements, {
             label = k.label or v,
