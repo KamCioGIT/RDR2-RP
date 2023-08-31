@@ -8,8 +8,8 @@ Config.EnableHook = true
 Config.WebhookLink = "https://discord.com/api/webhooks/1146934966828159110/i5-tnhMuFDwVUS6SzX3Yx1WrIlbQ9-mV83lmEpA6XhOH5Xxlc-tKY0u5Dif-HPbN3f03"
 Config.Icon = "https://i.imgur.com/i1ylkFj.png"
 Config.Avatar = "https://i.imgur.com/i1ylkFj.png"
-Config.ICNameDiscord = true--Name lastname on discord
-Config.DiscordSpamBlock = true--This block same link in 1 line spam on discord
+Config.ICNameDiscord = true --Name lastname on discord
+Config.DiscordSpamBlock = true --This block same link in 1 line spam on discord
 -----------------------------
 -----------------------------
 -----------------------------
