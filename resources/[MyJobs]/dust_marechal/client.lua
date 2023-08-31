@@ -225,7 +225,7 @@ AddEventHandler('rdr_marechal:OpenCustomMenu', function(ClothesComponents, horse
             CompCache[k].texture = 0
         end
     end
-    OldCompCache = deepcopy(CompCache)
+    OldCompCache = deepCopy(CompCache)
     OpenCustomMenu(horse)
 end)
 
