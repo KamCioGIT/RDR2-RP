@@ -1,20 +1,17 @@
 local SelectedHorseId = {}
 
 RegisterNetEvent("VP:STABLE:UpdateHorseComponents")
-AddEventHandler(
-    "VP:STABLE:UpdateHorseComponents",
-    function(components, idhorse, MyHorse_entity)
-        local _source = source
-        local encodedComponents = json.encode(components)  
+AddEventHandler("VP:STABLE:UpdateHorseComponents", function(components, idhorse, MyHorse_entity)
+    local _source = source
+    local encodedComponents = json.encode(components)  
 
-        local user = RedEM.GetPlayer(_source)
-        local identifier = user.identifier
-        local charid = user.charid
-        local horseid = idhorse
-        MySQL.Async.execute("UPDATE stable SET `components`='".. encodedComponents .."' WHERE `identifier`=@identifier AND `charid`=@charid AND `horseid`=@horseid", {identifier = identifier, charid = charid, horseid = horseid}, function(done)
-            TriggerClientEvent("VP:STABLE:UpdadeHorseComponents", _source, MyHorse_entity, components)
-        end) 
-    end
+    local user = RedEM.GetPlayer(_source)
+    local identifier = user.identifier
+    local charid = user.charid
+    local horseid = idhorse
+    MySQL.Async.execute("UPDATE stable SET `components`='".. encodedComponents .."' WHERE `identifier`=@identifier AND `charid`=@charid AND `horseid`=@horseid", {identifier = identifier, charid = charid, horseid = horseid}, function(done)
+        TriggerClientEvent("VP:STABLE:UpdadeHorseComponents", _source, MyHorse_entity, components)
+    end)
 end)
 
 
