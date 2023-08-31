@@ -53,6 +53,20 @@ Config.comp_list = {
 		  ['category'] = 'tapis'
 		},
 	  }
-	}
+	},
+	['pommeau'] = {
+		[1] = {
+		  [1] = {
+			['name'] = "4TH35",
+			['hash'] = "107D9598",
+			['category'] = 'pommeau'
+		  },
+		  [2] = {
+			['name'] = "4TH77",
+			['hash'] = "2A28C8BE",
+			['category'] = 'pommeau'
+		  },
+		}
+	  }
   
   }
