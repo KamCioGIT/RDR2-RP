@@ -6,7 +6,7 @@ TriggerEvent("redemrp_menu_base:getData", function(call)
 end)
 
 
-function OpenCustomMenu()
+function OpenCustomMenu(horse)
     MenuData.CloseAll()
     local elements = {}
 
@@ -38,35 +38,23 @@ function OpenCustomMenu()
 
     }, function(data, menu)
         if data.current.value ~= "save" then
-            OpenCateogry(data.current.value)
+            OpenCategory(data.current.value)
         else
-            destory()
             menu.close()
-            local output = nil
-            AddTextEntry('FMMC_MPM_NA', "Outfit Name:")
-            DisplayOnscreenKeyboard(1, "FMMC_MPM_NA", "", "Name", "", "", "", 30)
-            while (UpdateOnscreenKeyboard() == 0) do
-                DisableAllControlActions(0)
-                Citizen.Wait(0)
-            end
-            if (GetOnscreenKeyboardResult()) then
-                output = GetOnscreenKeyboardResult()
-            end
             saveOutfit = true
             TriggerServerEvent("rdr_clothes_store:Save", ClothesCache, output, CurrentPrice)
-            OldClothesCache = {}
+            OldCompCache = {}
 
         end
 
     end, function(data, menu)
         menu.close()
-        OldClothesCache = {}
-        destory()
+        OldCompCache = {}
         TriggerServerEvent("RedEM:server:LoadSkin")
     end)
 end
 
-function OpenCateogry(menu_catagory)
+function OpenCategory(menu_catagory)
     MenuData.CloseAll()
     local elements = {}
     local a = 1
@@ -82,8 +70,8 @@ function OpenCateogry(menu_catagory)
             table.insert(options, k .." Style")
         end
         table.insert(elements, {
-            label = Config.Label[k].. " ($" .. Config.Price[k]..")" or v,
-            value = CompsCache[k].model or 0,
+            label = Config.Label[k] or v,
+            value = CompCache[k].model or 0,
             category = k,
             desc = "Change component",
             type = "slider",
@@ -96,7 +84,7 @@ function OpenCateogry(menu_catagory)
         a = a + 1
         options = {}
 
-        for i = 1, GetMaxTexturesForModel(k, ClothesCache[k].model or 1), 1 do
+        for i = 1, GetMaxTexturesForModel(k, CompCache[k].model or 1), 1 do
             table.insert(options, i.." Color")
         end
         table.insert(elements, {
@@ -129,13 +117,13 @@ function OpenCateogry(menu_catagory)
 
     end, function(data, menu)
         menu.close()
-        OpenCustomMenu()
+        OpenCustomMenu(horse)
     end, function(data, menu)
-        MenuUpdateComp(data, menu)
+        MenuUpdateComp(data, menu, horse)
     end)
 end
 
-function MenuUpdateComp(data, menu)
+function MenuUpdateComp(data, menu, horse)
 
     if data.current.change_type == "model" then
         if CompCache[data.current.category].model ~= data.current.value then
@@ -166,21 +154,14 @@ function MenuUpdateComp(data, menu)
                 menu.refresh()
 
             end
-            if CurrentPrice ~= CalculatePrice() then
-                CurrentPrice = CalculatePrice()
-                local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING",
-                    tostring(CurrentPrice .. "$"), Citizen.ResultAsLong())
-                Citizen.InvokeNative(0xFA233F8FE190514C, str)
-                Citizen.InvokeNative(0xE9990552DEC71600)
-            end
-            Change(data.current.value, data.current.category, data.current.change_type)
+            Change(data.current.value, data.current.category, data.current.change_type, horse)
         end
     end
     if data.current.change_type == "texture" then
         print(CompCache[data.current.category].texture)
         if CompCache[data.current.category].texture ~= data.current.value then
             CompCache[data.current.category].texture = data.current.value
-            Change(data.current.value, data.current.category, data.current.change_type)
+            Change(data.current.value, data.current.category, data.current.change_type, horse)
         end
     end
 
@@ -196,7 +177,7 @@ function GetMaxTexturesForModel(category, model)
 end
 
 RegisterNetEvent('rdr_marechal:OpenCustomMenu')
-AddEventHandler('rdr_marechal:OpenCustomMenu', function(ClothesComponents)
+AddEventHandler('rdr_marechal:OpenCustomMenu', function(ClothesComponents, horse)
     CompCache = ClothesComponents
     for k,v in pairs(comp_list) do
         if CompCache[k] == nil then
@@ -206,36 +187,19 @@ AddEventHandler('rdr_marechal:OpenCustomMenu', function(ClothesComponents)
         end
     end
     OldCompCache = deepcopy(CompCache)
-    OpenCustomMenu()
+    OpenCustomMenu(horse)
 end)
 
--- function Change(id, category, change_type)
---     if id < 1 then
---         Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
---         NativeUpdatePedVariation(PlayerPedId())
---         if category == "pants" or category == "boots" then
---             NativeSetPedComponentEnabled(PlayerPedId(), exports.rdr_creator:GetBodyCurrentComponentHash("BODIES_LOWER"),
---                 false, true, true)
---         end
---         if category == "shirts_full" then
---             NativeSetPedComponentEnabled(PlayerPedId(), exports.rdr_creator:GetBodyCurrentComponentHash("BODIES_UPPER"),
---                 false, true, true)
---         end
---     else
---         if change_type == "model" then
---             NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"][category][id][1].hash, false, true,
---                 true)
---         else
---             NativeSetPedComponentEnabled(PlayerPedId(),
---                 clothes_list["male"][category][ClothesCache[category].model][id].hash, false, true, true)
---         end
---     end
--- end
+function Change(id, category, change_type, horse)
+    if id < 1 then
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash, true, true, true)
+    end
+end
 
 RegisterNetEvent('rdr_marechal:ApplyComp')
-AddEventHandler('rdr_marechal:ApplyComp', function(ClothesComponents, Target)
+AddEventHandler('rdr_marechal:ApplyComp', function(ClothesComponents, horse)
     Citizen.CreateThread(function()
-        local _Target = Target or PlayerPedId()
+        local _Target = Target
         local LoadingCheck = false
         if type(ClothesComponents) ~= "table" then
             return
@@ -244,31 +208,16 @@ AddEventHandler('rdr_marechal:ApplyComp', function(ClothesComponents, Target)
             return
         end
         SetEntityAlpha(_Target, 0)
-        ClothesCache = ClothesComponents
+        CompCache = ClothesComponents
         for k, v in pairs(ClothesComponents) do
             if v ~= nil then
                 local id = tonumber(v.model)
-                if id >= 1 then
-                    if IsPedMale(_Target) then
-                        if clothes_list["male"][k] ~= nil then
-                            if clothes_list["male"][k][tonumber(v.model)] ~= nil then
-                                if clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
-                                    NativeSetPedComponentEnabled(_Target, tonumber(
-                                        clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].hash), false,
-                                        true, true)
-                                end
-                            end
-                        end
-                    else
-                        if clothes_list["female"][k] ~= nil then
-                            if clothes_list["female"][k][tonumber(v.model)] ~= nil then
-                                if clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
-                                    NativeSetPedComponentEnabled(_Target, tonumber(
-                                        clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].hash), false,
-                                        true, true)
-                                end
-                            end
-
+                if comp_list[k] ~= nil then
+                    if comp_list[k][tonumber(v.model)] ~= nil then
+                        if comp_list[k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
+                            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, tonumber(
+                                comp_list[k][tonumber(v.model)][tonumber(v.texture)].hash), true,
+                                true, true)
                         end
                     end
                 end
@@ -279,17 +228,30 @@ AddEventHandler('rdr_marechal:ApplyComp', function(ClothesComponents, Target)
 end)
 
 
+
 Citizen.CreateThread(function()
-    for k, v in pairs(Config.Zones) do
-        local blip = N_0x554d9d53f696d002(1664425300, v)
-        SetBlipSprite(blip, Config.BlipSprite, 1)
-        SetBlipScale(blip, Config.BlipScale)
-        Citizen.InvokeNative(0x9CB1A1623062F402, blip, Config.BlipName)
-    end
-    for k, v in pairs(Config.Cloakroom) do
-        local blip = N_0x554d9d53f696d002(1664425300, v)
-        SetBlipSprite(blip, Config.BlipSpriteCloakRoom, 1)
-        SetBlipScale(blip, Config.BlipScale)
-        Citizen.InvokeNative(0x9CB1A1623062F402, blip, Config.BlipNameCloakRoom)
+    while true do
+        Wait(0)
+        local playerPed = PlayerPedId()
+        local coords = GetEntityCoords(playerPed)
+        for k, v in pairs(Config.Customzone) do
+            local dist = Vdist(coords, v)
+            if dist < 2 and IsPedOnMount(playerPed) then
+                if dist < 20 then
+                    canwait = false
+                end
+                if not active then
+                    active = true
+                    target = k
+                end
+                if IsControlJustReleased(0, Config.OpenKey) then
+                    local horse = GetMount(PlayerPedId())
+                    local horseid = Entity(horse).state.horseid
+                    ---- freeze horse
+                    ---- demount
+                    TriggerServerEvent("rdr_marechal:loadcomp", 2, horseid, horse)
+                end
+            end
+        end
     end
 end)

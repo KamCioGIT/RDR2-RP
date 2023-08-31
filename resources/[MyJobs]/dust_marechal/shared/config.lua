@@ -21,6 +21,8 @@ Config.MenuElements = {
 	}
 }
 
+Config.Customzone
+
 Config.Label = {
 	["pommeau"] = "Pommeau",
 	["tapis"] = "Tapis de Scelle",

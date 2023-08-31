@@ -464,3 +464,22 @@ HorseComp = {
     [463]={["Name"]="4TH460",["Hash"]="FFB0391E",["category"]="AcsLuggage"}
   }
   
+
+comp_list = {
+    ['tapis'] = {
+      [1] = {
+        [1] = {
+          ['Name'] = "4TH36",
+          ['Hash'] = '127E0412',
+          ['category'] = "tapis"
+        },
+        [2] = {
+          ['Name'] = "4TH50",
+          ['Hash'] = '19C5E80C',
+          ['category'] = "tapis"
+        },
+        [3] = {
+          ['Name'] = "4TH65",
+          ['Hash'] = '20D4A0BF',
+          ['category'] = "tapis"
+        },
