@@ -165,7 +165,15 @@ end
 
 function MenuUpdateComp(data, menu, horse)
     print ( CompCache[data.current.category].model, CompCache[data.current.category].texture, data.current.value)
-    Change(horse, CompCache[data.current.category].model)
+    Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, 0x77A4AEDC, true, true, true)
+    -- if data.current.change_type == "model" then
+    --     if CompCache[data.current.category].model ~= data.current.value then
+    --         CompCache[data.current.category].texture = 1
+    --         CompCache[data.current.category].model = data.current.value
+
+    --         Change(horse, CompCache[data.current.category].model)
+    --     end
+    -- end
 end
 
 function Change(horse, componentHash)
