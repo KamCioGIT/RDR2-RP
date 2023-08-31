@@ -83,6 +83,7 @@ function OpenCustomMenu(horse, horseid)
             menu.close()
             TriggerServerEvent("rdr_marechal:save", CompCache, horseid)
             OldCompCache = {}
+            isInteracting = false
 
         end
 
