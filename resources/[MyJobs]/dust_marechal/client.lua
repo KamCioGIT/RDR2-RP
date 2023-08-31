@@ -165,14 +165,7 @@ end
 
 function MenuUpdateComp(data, menu, horse)
     print ( CompCache[data.current.category].model, CompCache[data.current.category].texture, data.current.value)
-    if data.current.change_type == "model" then
-        if CompCache[data.current.category].model ~= data.current.value then
-            CompCache[data.current.category].texture = 1
-            CompCache[data.current.category].model = data.current.value
-
-            Change(horse, CompCache[data.current.category].model)
-        end
-    end
+    Change(horse, CompCache[data.current.category].model)
 end
 
 function Change(horse, componentHash)
