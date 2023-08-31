@@ -4,9 +4,9 @@ Config.MenuElements = {
 	["équipement"] = {
 		label = "Scelle",
 		category = {
-			"pommeau",
-			"tapis",
-			-- "selle",
+			-- "pommeau",
+			-- "tapis",
+			"horse_saddles",
 			-- "sacs",
 			-- "étriers",
 			-- "couchage",
@@ -38,35 +38,3 @@ Config.Label = {
 	["queue"] = "Queue",
 }
 
-
-Config.comp_list = {
-	['tapis'] = {
-	  [1] = {
-		[1] = {
-		  ['name'] = "4TH36",
-		  ['hash'] = "127E0412",
-		  ['category'] = 'tapis'
-		},
-		[2] = {
-		  ['name'] = "4TH50",
-		  ['hash'] = "19C5E80C",
-		  ['category'] = 'tapis'
-		},
-	  }
-	},
-	['pommeau'] = {
-		[1] = {
-		  [1] = {
-			['name'] = "4TH35",
-			['hash'] = "107D9598",
-			['category'] = 'pommeau'
-		  },
-		  [2] = {
-			['name'] = "4TH77",
-			['hash'] = "2A28C8BE",
-			['category'] = 'pommeau'
-		  },
-		}
-	  }
-  
-  }
