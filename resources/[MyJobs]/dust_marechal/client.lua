@@ -89,6 +89,7 @@ function OpenCustomMenu(horse, horseid)
     end, function(data, menu)
         menu.close()
         OldCompCache = {}
+        isInteracting = true
         ---- RESET SKIN D'ORIGINE DU CHEVAL 
     end)
 end
