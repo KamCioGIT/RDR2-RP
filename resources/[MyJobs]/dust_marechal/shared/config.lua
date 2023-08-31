@@ -21,7 +21,9 @@ Config.MenuElements = {
 	}
 }
 
-Config.Customzone
+Config.Customzone = {
+	["saint-denis"] = {vector3(2502.748, -1450.436, 46.31255)}
+}
 
 Config.Label = {
 	["pommeau"] = "Pommeau",
