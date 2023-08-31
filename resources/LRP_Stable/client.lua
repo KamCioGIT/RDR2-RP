@@ -135,6 +135,11 @@ Citizen.CreateThread(
                             CamPos = {v.SpawnPoint.CamPos.x, v.SpawnPoint.CamPos.y}
                             SpawnPoint = {x = v.SpawnPoint.Pos.x, y = v.SpawnPoint.Pos.y, z = v.SpawnPoint.Pos.z, h = v.SpawnPoint.Heading}
                             Wait(300)
+                            SendNUIMessage(
+                                {
+                                    EnableCustom = "true"
+                                }
+                            )
                         end
                     end
                     OpenStable()
@@ -902,22 +907,22 @@ Citizen.CreateThread(function()
 	end
 end)
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(1)
-        if Citizen.InvokeNative(0x91AEF906BCA88877, 0, 0x24978A28) then -- Control =  H
-			WhistleHorse()
-			Citizen.Wait(10000) --Flood Protection? i think yes zoot
-        end
+-- Citizen.CreateThread(function()
+--     while true do
+--         Citizen.Wait(1)
+--         if Citizen.InvokeNative(0x91AEF906BCA88877, 0, 0x24978A28) then -- Control =  H
+-- 			WhistleHorse()
+-- 			Citizen.Wait(10000) --Flood Protection? i think yes zoot
+--         end
 		
-        if Citizen.InvokeNative(0x91AEF906BCA88877, 0, 0x4216AF06) then -- Control = Horse Flee            
-         --   local horseCheck = Citizen.InvokeNative(0x7912F7FC4F6264B6, PlayerPedId(), myHorse[4])            
-			if SpawnplayerHorse ~= 0 then
-				fleeHorse(SpawnplayerHorse)
-			end
-		end		
-    end    
-end)
+--         if Citizen.InvokeNative(0x91AEF906BCA88877, 0, 0x4216AF06) then -- Control = Horse Flee            
+--          --   local horseCheck = Citizen.InvokeNative(0x7912F7FC4F6264B6, PlayerPedId(), myHorse[4])            
+-- 			if SpawnplayerHorse ~= 0 then
+-- 				fleeHorse(SpawnplayerHorse)
+-- 			end
+-- 		end		
+--     end    
+-- end)
 
 function interpCamera(cameraName, entity)
     for k, v in pairs(cameraUsing) do
