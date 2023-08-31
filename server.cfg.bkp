@@ -27,6 +27,7 @@ ensure chat
 ensure ipl_tool
 
 # Spooner
+start redm-uiprompt
 exec @spooner/permissions.cfg
 start spooner
 
