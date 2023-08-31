@@ -33,7 +33,7 @@ AddEventHandler("VP:STABLE:CheckSelectedHorse", function()
                 if horses[i].selected == 1 then
                     TriggerClientEvent("VP:HORSE:SetHorseInfo", _source, horses[i].model, horses[i].name, horses[i].components)
                 end
-            end                    
+            end
         end
     end)
 end)
@@ -114,35 +114,18 @@ local Horses
 --     end)
 -- end)
 
--- RegisterNetEvent("VP:STABLE:SelectHorseWithId")
--- AddEventHandler("VP:STABLE:SelectHorseWithId", function(horseid)
---         local _source = source
---         local user = RedEM.GetPlayer(_source)
---         local identifier = user.identifier
---         local charid = user.charid
+RegisterNetEvent("VP:STABLE:SelectHorseWithId")
+AddEventHandler("VP:STABLE:SelectHorseWithId", function(horseid)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local identifier = user.identifier
+    local charid = user.charid
 
---             MySQL.Async.fetchAll('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid;', {identifier = identifier, charid = charid}, function(horse)
-                
---                 for i = 1, #horse do  
---                     local horseID = horse[i].horseid
---                     MySQL.Async.execute("UPDATE stable SET `selected`='0' WHERE `identifier`=@identifier AND `id`=@id", {identifier = identifier,  id = horseID}, function(done)            
---                     end)
+    MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid;', {identifier = identifier, charid = charid}, function(horse)          
+        TriggerClientEvent("VP:HORSE:SetHorseInfo", _source, horse[i].model, horse[i].name, horse[i].components)
+    end)
+end)
 
---                     Wait(300)
-                    
---                     if horse[i].id == id then      
---                         MySQL.Async.execute("UPDATE horses SET `selected`='1' WHERE `identifier`=@identifier AND `id`=@id", {identifier = identifier, id = id}, function(done)                        
---                             TriggerClientEvent("VP:HORSE:SetHorseInfo", _source, horse[i].model, horse[i].name, horse[i].components)
---                             -- TriggerClientEvent('VP:NOTIFY:Simple', _source, 'Horse selected')                  
---                         end)            
---                     end
---                 end
-               
-           
---             end)
---         end)        
---     end
--- )
 
 -- RegisterNetEvent("VP:STABLE:SellHorseWithId")
 -- AddEventHandler(
