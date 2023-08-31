@@ -123,9 +123,9 @@ function OpenCategory(menu_catagory)
         a = a + 1
         options = {}
 
-        -- for i = 1, GetMaxTexturesForModel(k, CompCache[k].model or 1), 1 do
-        --     table.insert(options, i.." Color")
-        -- end
+        for i = 1, GetMaxTexturesForModel(k, CompCache[k].model or 1), 1 do
+            table.insert(options, i.." Color")
+        end
         table.insert(elements, {
             label = Config.Label[k] .. " Color" or v,
             value = CompCache[k].texture or 1,
@@ -133,7 +133,7 @@ function OpenCategory(menu_catagory)
             desc = "Change the color",
             type = "slider",
             min = 1,
-            -- max = GetMaxTexturesForModel(k, CompCache[k].model or 1),
+            max = GetMaxTexturesForModel(k, CompCache[k].model or 1),
             change_type = "texture",
             id = a,
             options = options
@@ -180,9 +180,9 @@ function MenuUpdateComp(data, menu, horse)
 
                 -- end
                 menu.setElement(data.current.id + 1, "options", options)
-                menu.setElement(data.current.id + 1, "max"),
+                menu.setElement(data.current.id + 1, "max",)
                     -- GetMaxTexturesForModel(data.current.category, data.current.value))
-                menu.setElement(data.current.id + 1, "min", 1),
+                menu.setElement(data.current.id + 1, "min", 1)
                 menu.setElement(data.current.id + 1, "value", 1)
                 menu.refresh()
 
