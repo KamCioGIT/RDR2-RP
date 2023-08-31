@@ -39,5 +39,6 @@ Config.Label = {
 	["horse_manes"] = "Crinière",
 	["horse_bridles"] = "Rênes",
 	["horse_accessories"] = "Masque",
+	["HORSE_TAILS"] = "Queue",
 }
 
