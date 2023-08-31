@@ -6,10 +6,10 @@ Config.MenuElements = {
 		category = {
 			"pommeau",
 			"tapis",
-			"selle",
-			"sacs",
-			"étriers",
-			"couchage",
+			-- "selle",
+			-- "sacs",
+			-- "étriers",
+			-- "couchage",
 		}
 	},
 	["cheval"] = {
