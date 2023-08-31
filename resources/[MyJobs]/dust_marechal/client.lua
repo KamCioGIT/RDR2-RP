@@ -81,7 +81,7 @@ function OpenCustomMenu(horse, horseid)
             OpenCategory(data.current.value, horse)
         else
             menu.close()
-            TriggerServerEvent("rdr_marechal:save", CompCache, horseid, CurrentPrice)
+            TriggerServerEvent("rdr_marechal:save", CompCache, horseid)
             OldCompCache = {}
 
         end

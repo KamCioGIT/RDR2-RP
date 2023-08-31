@@ -6,8 +6,9 @@ TriggerEvent("redemrp_inventory:getData",function(call)
 end)
 
 RegisterServerEvent('rdr_marechal:save')
-AddEventHandler('rdr_marechal:save', function(comp, horseid, price)
+AddEventHandler('rdr_marechal:save', function(comp, horseid)
     local _horseid= horseid
+    print (comp)
     local _comp = json.encode(comp)
     TriggerEvent("rdr_marechal:retrievecomp", _horseid, function(call)
         if call then
