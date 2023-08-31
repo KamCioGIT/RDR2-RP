@@ -77,7 +77,7 @@
 	height:5vh;
 	padding: 7px;
 	font-size: 18px;
-	text-align: left;
+	text-align: center;
 	text-indent: 5px;
 	margin-top: 6px;
 	margin-left:auto;
@@ -154,7 +154,7 @@ i{
 }
 #item-label {
  width:80%;
- float:center;
+ float:left;
  /*width: 100%;*/
  display: -webkit-box;
  -webkit-line-clamp: 1;
