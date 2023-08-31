@@ -38,9 +38,8 @@ Citizen.CreateThread(function()
                     isInteracting = true
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
-                    TriggerServerEvent("dust_stable:server:askhorse")
                     Wait(200)
-                    OpenCustomMenu(horse, horseid)
+                    TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
                 end
             end
         end
@@ -134,7 +133,7 @@ function OpenCategory(menu_catagory)
             desc = "Change the color",
             type = "slider",
             min = 1,
-            max = GetMaxTexturesForModel(k, ClothesCache[k].model or 1),
+            max = GetMaxTexturesForModel(k, CompCache[k].model or 1),
             change_type = "texture",
             id = a,
             options = options
