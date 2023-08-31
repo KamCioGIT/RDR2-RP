@@ -73,6 +73,7 @@ function OpenStable()
     horsesp = true
 
     local playerHorse = GetMount(PlayerPedId())
+    local horseid = Entity(playerHorse).state.horseid
 
     SetEntityHeading(playerHorse, 334)
     DeleteeEntity = true
@@ -104,7 +105,7 @@ function OpenStable()
     -- TriggerServerEvent("VP:STABLE:AskForMyHorses")
     SendNUIMessage(
         {
-            myHorsesData = playerHorse
+            myHorsesData = horseid
         }
     )
 end
