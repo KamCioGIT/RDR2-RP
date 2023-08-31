@@ -165,7 +165,7 @@ end
 
 function MenuUpdateComp(data, menu, horse)
     print (horse)
-    NativeSetPedComponentEnabled(horse, tonumber(0x106961A8))
+    NativeSetPedComponentEnabled(horse, 0x106961A8)
     -- if data.current.change_type == "model" then
     --     if CompCache[data.current.category].model ~= data.current.value then
     --         CompCache[data.current.category].texture = 1
@@ -179,6 +179,10 @@ end
 function Change(horse, componentHash)
     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash, true, true, true)
 end
+function NativeSetPedComponentEnabled(ped, component)
+    Citizen.InvokeNative(0xD3A7B003ED343FD9, ped, component, true, true, true)
+end
+
 
 
 
