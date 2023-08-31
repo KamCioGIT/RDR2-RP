@@ -8,7 +8,6 @@ Config.MenuElements = {
 			"horse_bedrolls",
 			"horse_blankets",
 			"horse_bridles",
-			"horse_manes",
 			"HORSE_SADDLEBAGS",
 			"saddle_horns",
 			"saddle_stirrups",
@@ -17,9 +16,9 @@ Config.MenuElements = {
 	["cheval"] = {
 		label = "Cheval",
 		category = {
-			"horse_mustache",
 			"HORSE_TAILS",
 			"horse_accessories",
+			"horse_manes",
 	}
 	}
 }
@@ -31,13 +30,14 @@ Config.Customzone = {
 Config.OpenKey = "0x156F7119"
 
 Config.Label = {
-	["pommeau"] = "Pommeau",
-	["tapis"] = "Tapis de Scelle",
-	["selle"] = "Selle",
-	["sacs"] = "Sacoches",
-	["étriers"] = "Étriers",
-	["couchage"] = "Couchage",
-	["crinière"] = "Crinière",
-	["queue"] = "Queue",
+	["saddle_horns"] = "Pommeau",
+	["horse_blankets"] = "Tapis de Scelle",
+	["horse_saddles"] = "Selle",
+	["HORSE_SADDLEBAGS"] = "Sacoches",
+	["saddle_stirrups"] = "Étriers",
+	["horse_bedrolls"] = "Couchage",
+	["horse_manes"] = "Crinière",
+	["horse_bridles"] = "Rênes",
+	["horse_accessories"] = "Masque",
 }
 
