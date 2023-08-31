@@ -165,7 +165,7 @@ end
 
 function MenuUpdateComp(data, menu, horse)
     print (data.current.value,  comp_list[data.current.category][data.current.value].hash)
-    NativeSetPedComponentEnabled(horse, 0x106961A8)
+    NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
     -- if data.current.change_type == "model" then
     --     if CompCache[data.current.category].model ~= data.current.value then
     --         CompCache[data.current.category].texture = 1
