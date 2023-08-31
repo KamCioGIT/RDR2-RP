@@ -68,12 +68,18 @@ Citizen.CreateThread(
     end
 )
 
+RegisterCommand(
+    "stable",
+    function()
+        OpenStable()
+    end
+)
+
 function OpenStable()
     inCustomization = true
     horsesp = true
 
-    local playerHorse = GetMount(PlayerPedId())
-    local horseid = Entity(playerHorse).state.horseid
+    local playerHorse = MyHorse_entity
 
     SetEntityHeading(playerHorse, 334)
     DeleteeEntity = true
@@ -88,20 +94,21 @@ function OpenStable()
         createCamera(PlayerPedId())
     end
     --  SetEntityVisible(PlayerPedId(), false)
-    if playerHorse ~= nil then
+    if not alreadySentShopData then
         SendNUIMessage(
             {
-                EnableCustom = "true"
+                action = "show",
+                shopData = getShopData()
             }
         )
     else
         SendNUIMessage(
             {
-                EnableCustom = "false"
+                action = "show"
             }
         )
     end
-    -- TriggerServerEvent("VP:STABLE:AskForMyHorses")
+    TriggerServerEvent("VP:STABLE:AskForMyHorses")
 end
 
 local promptGroup
@@ -122,7 +129,7 @@ Citizen.CreateThread(
             for _, prompt in pairs(prompts) do
                 if PromptIsJustPressed(prompt) then
                     for k, v in pairs(Config.Stables) do
-                        if GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < 7  and IsPedOnMount(PlayerPedId()) then
+                        if GetDistanceBetweenCoords(coords, v.Pos.x, v.Pos.y, v.Pos.z, true) < 7 then
                             HeadingPoint = v.Heading
                             StablePoint = {v.Pos.x, v.Pos.y, v.Pos.z}
                             CamPos = {v.SpawnPoint.CamPos.x, v.SpawnPoint.CamPos.y}
@@ -407,32 +414,32 @@ function setcloth(hash)
     Citizen.InvokeNative(0xD3A7B003ED343FD9, MyHorse_entity, tonumber(hash), true, true, true)
 end
 
--- RegisterNUICallback(
---     "selectHorse",
---     function(data)
---         TriggerServerEvent("VP:STABLE:SelectHorseWithId", tonumber(data.horseID))
---     end
--- )
+RegisterNUICallback(
+    "selectHorse",
+    function(data)
+        TriggerServerEvent("VP:STABLE:SelectHorseWithId", tonumber(data.horseID))
+    end
+)
 
--- RegisterNUICallback(
---     "sellHorse",
---     function(data)
---         DeleteEntity(showroomHorse_entity)
---         TriggerServerEvent("VP:STABLE:SellHorseWithId", tonumber(data.horseID))
---         TriggerServerEvent("VP:STABLE:AskForMyHorses")
---         alreadySentShopData = false
---         Wait(300)
+RegisterNUICallback(
+    "sellHorse",
+    function(data)
+        DeleteEntity(showroomHorse_entity)
+        TriggerServerEvent("VP:STABLE:SellHorseWithId", tonumber(data.horseID))
+        TriggerServerEvent("VP:STABLE:AskForMyHorses")
+        alreadySentShopData = false
+        Wait(300)
 
---         SendNUIMessage(
---             {
---                 action = "show",
---                 shopData = getShopData()
---             }
---         )
---         TriggerServerEvent("VP:STABLE:AskForMyHorses")
+        SendNUIMessage(
+            {
+                action = "show",
+                shopData = getShopData()
+            }
+        )
+        TriggerServerEvent("VP:STABLE:AskForMyHorses")
 
---     end
--- )
+    end
+)
 
 
 
@@ -460,50 +467,63 @@ AcsLuggageUsing = nil
 
 --- /// ARRASTAR CAVALO
 
--- RegisterNUICallback(
---     "loadHorse",
---     function(data)
---         local horseModel = data.horseModel
+local alreadySentShopData = false
 
---         if showroomHorse_model == horseModel then
---             return
---         end
 
---         if MyHorse_entity ~= nil then
---             DeleteEntity(MyHorse_entity)
---             MyHorse_entity = nil
---         end		
 
---         local modelHash = GetHashKey(horseModel)
+function getShopData()
+    alreadySentShopData = true
 
---         if IsModelValid(modelHash) then
---             if not HasModelLoaded(modelHash) then
---                 RequestModel(modelHash)
---                 while not HasModelLoaded(modelHash) do
---                     Citizen.Wait(10)
---                 end
---             end
---         end    
+    local ret = Config.Horses
 
---         if showroomHorse_entity ~= nil then    
---             DeleteEntity(showroomHorse_entity)
---             showroomHorse_entity = nil
---         end
+    return ret
+end
 
---         showroomHorse_model = horseModel
 
---         showroomHorse_entity = CreatePed(modelHash, SpawnPoint.x, SpawnPoint.y, SpawnPoint.z - 0.98, SpawnPoint.h, false, 0)
---         Citizen.InvokeNative(0x283978A15512B2FE, showroomHorse_entity, true)
---         Citizen.InvokeNative(0x58A850EAEE20FAA3, showroomHorse_entity)
+RegisterNUICallback(
+    "loadHorse",
+    function(data)
+        local horseModel = data.horseModel
 
---         NetworkSetEntityInvisibleToNetwork(showroomHorse_entity, true)
---         SetVehicleHasBeenOwnedByPlayer(showroomHorse_entity, true)
+        if showroomHorse_model == horseModel then
+            return
+        end
 
---         -- SetModelAsNoLongerNeeded(modelHash)
+        if MyHorse_entity ~= nil then
+            DeleteEntity(MyHorse_entity)
+            MyHorse_entity = nil
+        end		
+
+        local modelHash = GetHashKey(horseModel)
+
+        if IsModelValid(modelHash) then
+            if not HasModelLoaded(modelHash) then
+                RequestModel(modelHash)
+                while not HasModelLoaded(modelHash) do
+                    Citizen.Wait(10)
+                end
+            end
+        end    
+
+        if showroomHorse_entity ~= nil then    
+            DeleteEntity(showroomHorse_entity)
+            showroomHorse_entity = nil
+        end
+
+        showroomHorse_model = horseModel
+
+        showroomHorse_entity = CreatePed(modelHash, SpawnPoint.x, SpawnPoint.y, SpawnPoint.z - 0.98, SpawnPoint.h, false, 0)
+        Citizen.InvokeNative(0x283978A15512B2FE, showroomHorse_entity, true)
+        Citizen.InvokeNative(0x58A850EAEE20FAA3, showroomHorse_entity)
+
+        NetworkSetEntityInvisibleToNetwork(showroomHorse_entity, true)
+        SetVehicleHasBeenOwnedByPlayer(showroomHorse_entity, true)
+
+        -- SetModelAsNoLongerNeeded(modelHash)
 		
---         interpCamera("Horse", showroomHorse_entity)
---     end
--- )
+        interpCamera("Horse", showroomHorse_entity)
+    end
+)
 
 
 RegisterNUICallback(
