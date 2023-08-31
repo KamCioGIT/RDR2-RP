@@ -37,3 +37,22 @@ Config.Label = {
 	["crinière"] = "Crinière",
 	["queue"] = "Queue",
 }
+
+
+Config.comp_list = {
+	['tapis'] = {
+	  [1] = {
+		[1] = {
+		  ['name'] = "4TH36",
+		  ['hash'] = "127E0412",
+		  ['category'] = 'tapis'
+		},
+		[2] = {
+		  ['name'] = "4TH50",
+		  ['hash'] = "19C5E80C",
+		  ['category'] = 'tapis'
+		},
+	  }
+	}
+  
+  }

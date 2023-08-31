@@ -98,7 +98,7 @@ function OpenCategory(menu_catagory)
     local elements = {}
     local a = 1
     for v, k in pairs(Config.MenuElements[menu_catagory].category) do
-        local category = comp_list[k]
+        local category = Config.comp_list[k]
         if CompCache[k] == nil then
             CompCache[k] = {}
             CompCache[k].model = 0
