@@ -17,7 +17,7 @@ Config.DiscordSpamBlock = true --This block same link in 1 line spam on discord
 -----------------------------
 -----------NOTIFY------------
 -----------------------------
-Config.NotifyImage = "https://i.imgur.com/i1ylkFj.png"
+Config.NotifyImage = ""
 -----------------------------
 -----------------------------
 -----------------------------
