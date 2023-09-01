@@ -164,7 +164,9 @@ function OpenCategory(menu_catagory, horse, horseid)
         menu.close()
         OpenCustomMenu(horse, horseid)
     end, function(data, menu)
-        MenuUpdateComp(data, menu, horse)
+        if data.current.value ~= 0 then 
+            MenuUpdateComp(data, menu, horse)
+        end
     end)
 end
 
