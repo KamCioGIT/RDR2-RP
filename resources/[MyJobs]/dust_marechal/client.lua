@@ -112,7 +112,7 @@ function OpenCategory(menu_catagory, horse, horseid)
         print (CompCache[k])
         if CompCache[k] == nil then
             CompCache[k] = {}
-            CompCache[k].hash = 0
+            CompCache[k] = 0
         end
         local options = {}
         for k, v in pairs(category) do
@@ -120,7 +120,7 @@ function OpenCategory(menu_catagory, horse, horseid)
         end
         table.insert(elements, {
             label = Config.Label[k] or v,
-            value = CompCache[k].hash or 0,
+            value = CompCache[k] or 0,
             category = k,
             desc = "Change component",
             type = "slider",
