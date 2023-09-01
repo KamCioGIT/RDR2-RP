@@ -81,7 +81,7 @@ function OpenCustomMenu(horse, horseid)
 
     }, function(data, menu)
         if data.current.value ~= "save" then
-            OpenCategory(data.current.value, horse)
+            OpenCategory(data.current.value, horse, horseid)
         else
             menu.close()
             TriggerServerEvent("rdr_marechal:save", CompCache, horseid)
@@ -103,7 +103,7 @@ function OpenCustomMenu(horse, horseid)
     end)
 end
 
-function OpenCategory(menu_catagory, horse)
+function OpenCategory(menu_catagory, horse, horseid)
     MenuData.CloseAll()
     local elements = {}
     local a = 1
