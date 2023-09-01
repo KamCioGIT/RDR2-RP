@@ -175,16 +175,9 @@ end
 function MenuUpdateComp(data, menu, horse)
     print (data.current.value,  comp_list[data.current.category][data.current.value].hash)
     NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
-    for k, v in pairs(CompCache) do
-        if k == data.current.category then
-            CompCache[k].hash = comp_list[data.current.category][data.current.value].hash
-        else
-            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
-        end
+    if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
+        CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
     end
-    -- if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
-    --     CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
-    -- end
 end
 
 function Change(horse, componentHash)
@@ -201,7 +194,7 @@ end
 RegisterNetEvent('rdr_marechal:OpenCustomMenu')
 AddEventHandler('rdr_marechal:OpenCustomMenu', function(Components, horse, horseid)
     CompCache = Components
-    for k,v in pairs(comp_list) do
+    for k, v in pairs(comp_list) do
         if CompCache[k] == nil then
             CompCache[k] = {}
             CompCache[k].hash = 0
