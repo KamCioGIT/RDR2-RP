@@ -96,8 +96,8 @@ function OpenCustomMenu(horse, horseid)
         isInteracting = false
         FreezeEntityPosition(horse, false)
         ---- RESET SKIN D'ORIGINE DU CHEVAL 
-        for _, componentHash in pairs(OldCompCache) do
-            NativeSetPedComponentEnabled(entity, tonumber(componentHash))
+        for k, v in pairs(Config.Label) do
+            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, OldCompCache[k], true, true, true)
         end
         OldCompCache = {}
     end)
@@ -199,15 +199,15 @@ end
 
 
 RegisterNetEvent('rdr_marechal:OpenCustomMenu')
-AddEventHandler('rdr_marechal:OpenCustomMenu', function(ClothesComponents, horse, horseid)
-    CompCache = ClothesComponents
+AddEventHandler('rdr_marechal:OpenCustomMenu', function(Components, horse, horseid)
+    CompCache = Components
     for k,v in pairs(comp_list) do
         if CompCache[k] == nil then
             CompCache[k] = {}
             CompCache[k].hash = 0
         end
     end
-    OldCompCache = deepcopy(CompCache)
+    OldCompCache = Components
     FreezeEntityPosition(horse, true)
     OpenCustomMenu(horse, horseid)
 end)
@@ -226,5 +226,6 @@ function deepcopy(orig)
     end
     return copy
 end
+
 
 
