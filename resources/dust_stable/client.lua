@@ -29,9 +29,9 @@ Uiprompt:new(0x760A9C6F, "Ouvrir", stableprompt)
 Uiprompt:new(0x156F7119, "Gérer", stableprompt):setHoldMode(true)
 
 
-local storeprompt = UipromptGroup:new("Écurie")
-Uiprompt:new(0x760A9C6F, "Ranger", storeprompt)
-
+local storeprompt = Uiprompt:new(0x760A9C6F, "Mettre à l'écurie")
+storeprompt:setStandardMode(true)
+storeprompt:setEnabledAndVisible(false)
 
 
 ----- INTERACT WITH STABLE ----
@@ -58,13 +58,13 @@ Citizen.CreateThread(function()
                 end
             end
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
-                storeprompt:setActiveThisFrame()
-                if IsControlJustReleased(0, 0x760A9C6F) then
+                storeprompt:setEnabledAndVisible(true)
+                if storeprompt:isJustReleased() then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid)
                 end
-            end
+            else storeprompt:setEnabledAndVisible(false) end
         end
     end
 end)
