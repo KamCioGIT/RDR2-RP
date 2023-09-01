@@ -56,7 +56,16 @@ Citizen.CreateThread(function()
                     Wait(200)
                     OpenStable(menutype, v.name)
                 end
-            else stableprompt:setActive(false) end 
+            end 
+        end
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(0)
+        local playerpos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
                 storeprompt:setEnabledAndVisible(true)
                 if IsControlJustReleased(0, 0x156F7119) then
@@ -68,7 +77,6 @@ Citizen.CreateThread(function()
         end
     end
 end)
-
 ---- Refresh DB Stable ----
 
 local horselist = {}
