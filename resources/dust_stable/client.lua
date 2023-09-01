@@ -423,9 +423,6 @@ function spawnhorse(model, name, horseid)
     end
     SetPedConfigFlag(horse, 297, true)
     
-    for k, v in pairs(selectedcomp) do
-        selectedcomp[k] = nil
-    end
     TriggerServerEvent("dust_stable:server:horseout", horseid)
     
     table.insert(spawnedhorses, horse)
