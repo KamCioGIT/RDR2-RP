@@ -95,6 +95,10 @@ function OpenCustomMenu(horse, horseid)
         menu.close()
         isInteracting = false
         for k, v in pairs(Config.Label) do
+            Citizen.InvokeNative(0x0D7FFA1B2F69ED82, horse, CompCache[k].hash, true, true, true)
+        end
+        Wait.(100)
+        for k, v in pairs(Config.Label) do
             Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, OldCompCache[k].hash, true, true, true)
         end
         FreezeEntityPosition(horse, false)
@@ -192,12 +196,6 @@ RegisterNetEvent('rdr_marechal:OpenCustomMenu')
 AddEventHandler('rdr_marechal:OpenCustomMenu', function(Components, horse, horseid)
     CompCache = Components
     OldCompCache = deepcopy(Components)
-    for k,v in pairs(comp_list) do
-        if OldCompCache[k] == nil then
-            OldCompCache[k] = {}
-            OldCompCache[k].hash = 0
-        end
-    end
     FreezeEntityPosition(horse, true)
     OpenCustomMenu(horse, horseid)
 end)
