@@ -98,26 +98,28 @@ Citizen.CreateThread(function ()
                 end
                 if IsControlJustReleased(0, 0xD9D0E1C0) then
                     isInteracting = true
-                    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                        MenuData.CloseAll()
-                        AddTextEntry("FMMC_MPM_TYP86", "Code")
-                        DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+                    -- local result = exports.gtp_safecracking:StartSafeCrackingMiniGame(3) - The number 6 indicates the amount of tumblers that the safe has.
+                    local result = exports.gtp_safecracking:StartSafeCrackingMiniGame({15, 23, 82}) - The table signifies the safe code predefined by you.
+                    -- TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+                    --     MenuData.CloseAll()
+                    --     AddTextEntry("FMMC_MPM_TYP86", "Code")
+                    --     DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
                     
-                        while (UpdateOnscreenKeyboard() == 0) do
-                            DisableAllControlActions(0)
-                            Citizen.Wait(0)
-                        end
-                        if (GetOnscreenKeyboardResult()) then
-                            inputcode = GetOnscreenKeyboardResult()
-                        else
-                        return
-                        end
+                    --     while (UpdateOnscreenKeyboard() == 0) do
+                    --         DisableAllControlActions(0)
+                    --         Citizen.Wait(0)
+                    --     end
+                    --     if (GetOnscreenKeyboardResult()) then
+                    --         inputcode = GetOnscreenKeyboardResult()
+                    --     else
+                    --     return
+                    --     end
                                     
-                        if inputcode == v.getcode then
+                        if result then
                             TriggerEvent("redemrp_inventory:OpenStash", k, weight)
                         return
                         end
-                    end)
+                    -- end)
                 end
                 if IsControlJustReleased(0, 0x156F7119) then
                     isInteracting = true
