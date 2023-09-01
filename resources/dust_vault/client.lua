@@ -98,8 +98,8 @@ Citizen.CreateThread(function ()
                 end
                 if IsControlJustReleased(0, 0xD9D0E1C0) then
                     isInteracting = true
-                    -- local result = exports.gtp_safecracking:StartSafeCrackingMiniGame(3) - The number 6 indicates the amount of tumblers that the safe has.
-                    local result = exports.gtp_safecracking:StartSafeCrackingMiniGame({15, 23, 82}) - The table signifies the safe code predefined by you.
+                    -- local result = exports.gtp_safecracking:StartSafeCrackingMiniGame(3) -- The number 6 indicates the amount of tumblers that the safe has.
+                    local result = exports.gtp_safecracking:StartSafeCrackingMiniGame({15, 23, 82}) -- The table signifies the safe code predefined by you.
                     -- TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                     --     MenuData.CloseAll()
                     --     AddTextEntry("FMMC_MPM_TYP86", "Code")
