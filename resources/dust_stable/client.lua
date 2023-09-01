@@ -60,6 +60,7 @@ Citizen.CreateThread(function()
             end
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
                 storeprompt:setEnabledAndVisible(true)
+                print 'yyyy'
                 if storeprompt:isJustReleased() then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
