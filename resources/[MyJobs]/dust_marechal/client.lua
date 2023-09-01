@@ -35,7 +35,7 @@ prompt:setStandardMode(true)
 --     Wait(200)
 --     TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
 -- end)
-Uiprompt:setEnabledAndVisible(false)
+prompt:setEnabledAndVisible(false)
 
 -- UipromptManager:startEventThread()
 
@@ -47,7 +47,7 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Customzone) do
             if #(playerpos - v ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
-                Uiprompt:setEnabledAndVisible(true)
+                prompt:setEnabledAndVisible(true)
                 if prompt:isJustReleased()then
                     isInteracting = true
                     local horse = GetMount(PlayerPedId())
