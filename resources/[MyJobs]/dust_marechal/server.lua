@@ -8,8 +8,6 @@ end)
 RegisterServerEvent('rdr_marechal:save')
 AddEventHandler('rdr_marechal:save', function(comp, id)
     local horseid = id
-    print (comp)
-    print (horseid)
     local components = json.encode(comp)
     MySQL.update("UPDATE stable SET `components`=@components WHERE `horseid`=@horseid", {
         components = components,

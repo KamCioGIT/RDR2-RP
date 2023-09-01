@@ -175,13 +175,11 @@ end
 function MenuUpdateComp(data, menu, horse)
     print (data.current.value,  comp_list[data.current.category][data.current.value].hash)
     NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
-    for _, v in pairs(CompCache) do
-        if v.category == data.current.category then
-            print 'add comp'
-            v.hash = comp_list[data.current.category][data.current.value].hash
+    for k, v in pairs(CompCache) do
+        if k == data.current.category then
+            CompCache[k] = comp_list[data.current.category][data.current.value].hash
         else
-            table.insert(CompCache, {category = data.current.category, hash = comp_list[data.current.category][data.current.value].hash})
-    
+            CompCache[data.current.category] = comp_list[data.current.category][data.current.value].hash
         end
     end
     -- if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
