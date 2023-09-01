@@ -151,7 +151,7 @@ function OpenCategory(menu_catagory, horse)
         -- })
 
         options = {}
-        a = a + 1
+        a = a -- + 1
     end
     MenuData.Open('default', GetCurrentResourceName(), 'custommenucategory', {
 
