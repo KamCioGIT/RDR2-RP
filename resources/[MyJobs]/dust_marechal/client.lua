@@ -22,11 +22,9 @@ Citizen.CreateThread(function()
             if #(playerpos - v ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
                 customprompt:setActiveThisFrame(true)
                 if customprompt:hasHoldModeJustCompleted()then
-                    print 'check'
                     isInteracting = true
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
-                    print (horseid)
                     Wait(200)
                     TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
                 end
@@ -169,7 +167,7 @@ function OpenCategory(menu_catagory, horse)
 
     end, function(data, menu)
         menu.close()
-        OpenCustomMenu(horse)
+        OpenCustomMenu(horse, horseid)
     end, function(data, menu)
         MenuUpdateComp(data, menu, horse)
     end)
