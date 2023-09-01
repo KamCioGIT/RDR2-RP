@@ -419,7 +419,6 @@ function spawnhorse(model, name, horseid)
     Entity(horse).state.horseid = horseid
     if selectedcomp ~= nil and selectedcomp ~= "0" then
         for _, componentHash in pairs(selectedcomp) do
-            print (componentHash.hash)
             Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash.hash, true, true, true)
         end
     end
