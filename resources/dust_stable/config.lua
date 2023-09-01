@@ -32,5 +32,19 @@ Config.WarHorses = {
     },
 }
 
+Config.Label = {
+	"saddle_horns",
+	"horse_blankets",
+	"horse_saddles",
+	"HORSE_SADDLEBAGS",
+	"saddle_stirrups",
+	"horse_bedrolls",
+	"horse_manes",
+	"horse_bridles",
+	"horse_accessories",
+	"HORSE_TAILS",
+}
+
+
 
 

@@ -108,7 +108,6 @@ function OpenCategory(menu_catagory, horse, horseid)
     local elements = {}
     local a = 1
     for v, k in pairs(Config.MenuElements[menu_catagory].category) do
-        print (v, k)
         local category = comp_list[k]
         if CompCache[k] == nil then
             CompCache[k] = {}
