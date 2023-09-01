@@ -54,8 +54,8 @@ end)
 -- end)
 
 local stableprompt = UipromptGroup:new("Écurie")
-openprompt:new(0x760A9C6F, "Ouvrir", stableprompt)
-manageprompt:new(0x156F7119, "Gérer", stableprompt):setHoldMode(true)
+Uiprompt:new(0x760A9C6F, "Ouvrir", stableprompt)
+Uiprompt:new(0x156F7119, "Gérer", stableprompt):setHoldMode(true)
 
 
 -- local GaragePromptGroup = GetRandomIntInRange(0, 0xffffff)
