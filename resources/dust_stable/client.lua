@@ -86,14 +86,14 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 stableprompt:setActiveThisFrame()
-                if openprompt:isJustReleased() then
+                if stableprompt:isJustReleased() then
                     isInteracting = true
                     local menutype = "Ouvrir"
                     TriggerServerEvent("dust_stable:server:askhorse")
                     Wait(200)
                     OpenStable(menutype, v.name)
                 end
-                if manageprompt:hasHoldModeJustCompleted() then
+                if stableprompt:hasHoldModeJustCompleted() then
                     isInteracting = true
                     local menutype = "Chevaux"
                     TriggerServerEvent("dust_stable:server:askhorse")
