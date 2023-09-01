@@ -22,7 +22,7 @@ files{
 	'html/js/jquery-func.js',
 	'html/js/jquery.jcarousel.pack.js',
 	'html/js/listener.js',
-	'html/banniere.png',
+	'html/*.png',
 }
 
 ui_page 'html/ui.html'
