@@ -23,58 +23,10 @@ end)
 
 
 ---- PROMPT ----
--- local StablePromptGroup = GetRandomIntInRange(0, 0xffffff)
--- local StablePromptName = CreateVarString(10, "LITERAL_STRING", "Écurie")
--- local OpenPrompt
--- local ManagePrompt
--- local StablePromptShown = false
--- local IsInteracting = false
--- Citizen.CreateThread(function()
---     local str = 'Ouvrir'
---     OpenPrompt = PromptRegisterBegin()
---     PromptSetControlAction(OpenPrompt, 0x760A9C6F)
---     str = CreateVarString(10, 'LITERAL_STRING', str)
---     PromptSetText(OpenPrompt, str)
---     PromptSetEnabled(OpenPrompt, true)
---     PromptSetVisible(OpenPrompt, true)
---     PromptSetHoldMode(OpenPrompt, false)
---     PromptSetGroup(OpenPrompt, StablePromptGroup)
---     PromptRegisterEnd(OpenPrompt)
-
---     str = 'Gérer'
---     ManagePrompt = PromptRegisterBegin()
---     PromptSetControlAction(ManagePrompt, 0x156F7119)
---     str = CreateVarString(10, 'LITERAL_STRING', str)
---     PromptSetText(ManagePrompt, str)
---     PromptSetEnabled(ManagePrompt, true)
---     PromptSetVisible(ManagePrompt, true)
---     PromptSetHoldMode(ManagePrompt, false)
---     PromptSetGroup(ManagePrompt, StablePromptGroup)
---     PromptRegisterEnd(ManagePrompt)
--- end)
 
 local stableprompt = UipromptGroup:new("Écurie")
 Uiprompt:new(0x760A9C6F, "Ouvrir", stableprompt)
 Uiprompt:new(0x156F7119, "Gérer", stableprompt):setHoldMode(true)
-
-
--- local GaragePromptGroup = GetRandomIntInRange(0, 0xffffff)
--- local GaragePromptName = CreateVarString(10, "LITERAL_STRING", "Écurie")
--- local RangerPrompt
--- local GaragePromptShown = false
--- local IsInteracting = false
--- Citizen.CreateThread(function()
---     local str = "Mettre à l'écurie"
---     RangerPrompt = PromptRegisterBegin()
---     PromptSetControlAction(RangerPrompt, 0x156F7119)
---     str = CreateVarString(10, 'LITERAL_STRING', str)
---     PromptSetText(RangerPrompt, str)
---     PromptSetEnabled(RangerPrompt, true)
---     PromptSetVisible(RangerPrompt, true)
---     PromptSetHoldMode(RangerPrompt, false)
---     PromptSetGroup(RangerPrompt, GaragePromptGroup)
---     PromptRegisterEnd(RangerPrompt)
--- end)
 
 
 local storeprompt = Uiprompt:new(0x760A9C6F, "Mettre à l'écurie")
@@ -108,7 +60,7 @@ Citizen.CreateThread(function()
             end
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
                 storeprompt:setEnabledAndVisible(true)
-                if IsControlJustReleased(0, 0x760A9C6F) then
+                if storeprompt:isJustReleased() then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid)
