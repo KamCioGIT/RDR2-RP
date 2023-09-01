@@ -27,7 +27,7 @@ end)
 local stableprompt = UipromptGroup:new("Écurie")
 Uiprompt:new(0x760A9C6F, "Ouvrir", stableprompt)
 Uiprompt:new(0x156F7119, "Gérer", stableprompt):setHoldMode(true)
-
+stableprompt:setActive(false)
 
 local storeprompt = Uiprompt:new(0x156F7119, "Mettre à l'écurie")
 storeprompt:setStandardMode(true)
@@ -41,7 +41,7 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
-                stableprompt:setActiveThisFrame()
+                stableprompt:setActive(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     isInteracting = true
                     local menutype = "Ouvrir"
@@ -56,7 +56,7 @@ Citizen.CreateThread(function()
                     Wait(200)
                     OpenStable(menutype, v.name)
                 end
-            end
+            else stableprompt:setActive(false) end
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
                 storeprompt:setEnabledAndVisible(true)
                 if IsControlJustReleased(0, 0x156F7119) then
