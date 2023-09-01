@@ -96,9 +96,9 @@ function OpenCustomMenu(horse, horseid)
         isInteracting = false
         FreezeEntityPosition(horse, false)
         ---- RESET SKIN D'ORIGINE DU CHEVAL 
-        for k, v in pairs(Config.Label) do
-            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, OldCompCache[k], true, true, true)
-        end
+        -- for k, v in pairs(Config.Label) do
+        --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, OldCompCache[k], true, true, true)
+        -- end
         OldCompCache = {}
     end)
 end
