@@ -191,7 +191,7 @@ end
 RegisterNetEvent('rdr_marechal:OpenCustomMenu')
 AddEventHandler('rdr_marechal:OpenCustomMenu', function(Components, horse, horseid)
     CompCache = Components
-    OldCompCache = Components
+    OldCompCache = deepcopy(Components)
     FreezeEntityPosition(horse, true)
     OpenCustomMenu(horse, horseid)
 end)
