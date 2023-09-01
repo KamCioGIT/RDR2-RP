@@ -22,6 +22,7 @@ Citizen.CreateThread(function()
             if #(playerpos - v ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
                 customprompt:setActiveThisFrame(true)
                 if customprompt:hasHoldModeJustCompleted()then
+                    print 'check'
                     isInteracting = true
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
@@ -130,7 +131,7 @@ function OpenCategory(menu_catagory, horse)
             id = a,
             options = options
         })
-        a = a + 1
+        a = a -- + 1
         options = {}
 
         -- for i = 1, GetMaxTexturesForModel(k, CompCache[k].model or 1), 1 do
