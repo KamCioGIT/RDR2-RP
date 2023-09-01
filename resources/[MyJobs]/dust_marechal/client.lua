@@ -29,7 +29,7 @@ Citizen.CreateThread(function()
                     Wait(200)
                     TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
                 end
-            else prompt:setEnabledAndVisible(true) end
+            else prompt:setEnabledAndVisible(false) end
         end
     end
 end)
