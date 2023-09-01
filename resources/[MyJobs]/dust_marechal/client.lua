@@ -9,7 +9,7 @@ end)
 ------ PROMPT ------ 
 
 local customprompt = Uipromptgroup:new("Maréchal Ferrant")
-Uiprompt:new(0x156F7119, "Changer l'équipemement", stableprompt):setHoldMode(true)
+Uiprompt:new(0x156F7119, "Changer l'équipemement", customprompt):setHoldMode(true)
 customprompt:setActive(false)
 
 
