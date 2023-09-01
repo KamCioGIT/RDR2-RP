@@ -416,8 +416,11 @@ function spawnhorse(model, name, horseid)
     -- for _, component in pairs(selectedcomp) do
     --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, component, true, true, true)
     -- end
+
     for k, v in pairs(Config.Label) do
-        Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, selectedcomp[k].hash, true, true, true)
+        if selectedcomp[k] then
+            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, selectedcomp[k].hash, true, true, true)
+        end
     end
     SetPedConfigFlag(horse, 297, true)
 
