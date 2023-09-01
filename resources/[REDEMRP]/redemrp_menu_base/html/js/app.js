@@ -279,8 +279,8 @@
                                     if (elem.value > min) {
                                         if (typeof elem.hop != 'undefined') {
                                             elem.value = (elem.value - elem.hop);
-                                            if (elem.value < min) {
-                                                elem.value = min
+                                            if (elem.value < elem.min) {
+                                                elem.value = elem.min
                                             }
                                         }
                                         else {
