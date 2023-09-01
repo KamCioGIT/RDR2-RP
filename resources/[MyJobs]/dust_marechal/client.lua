@@ -210,7 +210,7 @@ AddEventHandler('rdr_marechal:OpenCustomMenu', function(ClothesComponents, horse
     end
     OldCompCache = deepcopy(CompCache)
     FreezeEntityPosition(horse, true)
-    OpenCustomMenu(horse)
+    OpenCustomMenu(horse, horsid)
 end)
 
 function deepcopy(orig)
