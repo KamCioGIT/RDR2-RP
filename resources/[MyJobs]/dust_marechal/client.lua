@@ -129,9 +129,10 @@ function OpenCategory(menu_catagory, horse)
             max = #category,
             change_type = "model",
             id = a,
-            options = options
+            options = options,
+            hop = 1
         })
-        a = a -- + 1
+        a = a + 1
         options = {}
 
         -- for i = 1, GetMaxTexturesForModel(k, CompCache[k].model or 1), 1 do
@@ -151,7 +152,7 @@ function OpenCategory(menu_catagory, horse)
         -- })
 
         options = {}
-        a = a -- + 1
+        a = a + 1
     end
     MenuData.Open('default', GetCurrentResourceName(), 'custommenucategory', {
 
