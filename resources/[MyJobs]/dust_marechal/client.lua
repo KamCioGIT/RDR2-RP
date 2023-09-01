@@ -121,7 +121,7 @@ function OpenCategory(menu_catagory, horse)
         end
         table.insert(elements, {
             label = Config.Label[k] or v,
-            value = CompCache[k].hash or 0,
+            value = CompCache[k].hash,
             category = k,
             desc = "Change component",
             type = "slider",
@@ -129,8 +129,7 @@ function OpenCategory(menu_catagory, horse)
             max = #category,
             change_type = "model",
             id = a,
-            options = options,
-            hop = 1
+            options = options
         })
         a = a + 1
         options = {}
