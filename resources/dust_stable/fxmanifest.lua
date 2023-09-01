@@ -9,6 +9,7 @@ server_script {
 }
  
 client_script {
+	"@uiprompt/uiprompt.lua",
 	'client.lua',
 	'config.lua'
 }
