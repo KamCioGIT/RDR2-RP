@@ -87,6 +87,7 @@ function OpenCustomMenu(horse, horseid)
             TriggerServerEvent("rdr_marechal:save", CompCache, horseid)
             OldCompCache = {}
             isInteracting = false
+            FreezeEntityPosition(horse, false)
 
         end
 
