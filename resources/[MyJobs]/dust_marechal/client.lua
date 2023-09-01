@@ -8,36 +8,10 @@ end)
 
 ------ PROMPT ------ 
 
--- local CustomPromptGroup = GetRandomIntInRange(0, 0xffffff)
--- local CustomPromptName = CreateVarString(10, "LITERAL_STRING", "Écurie")
--- local CustomPrompt
--- local CustomPromptShown = false
--- local IsInteracting = false
--- Citizen.CreateThread(function()
---     local str = "Mettre à l'écurie"
---     CustomPrompt = PromptRegisterBegin()
---     PromptSetControlAction(CustomPrompt, 0x156F7119)
---     str = CreateVarString(10, 'LITERAL_STRING', str)
---     PromptSetText(CustomPrompt, str)
---     PromptSetEnabled(CustomPrompt, true)
---     PromptSetVisible(CustomPrompt, true)
---     PromptSetHoldMode(CustomPrompt, false)
---     PromptSetGroup(CustomPrompt, CustomPromptGroup)
---     PromptRegisterEnd(CustomPrompt)
--- end)
-
 local prompt = Uiprompt:new(0x156F7119, "Changer l'équipement du cheval")
 prompt:setStandardMode(true)
--- prompt:setOnStandardModeJustCompleted(function()
--- 	isInteracting = true
---     local horse = GetMount(PlayerPedId())
---     local horseid = Entity(horse).state.horseid
---     Wait(200)
---     TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
--- end)
 prompt:setEnabledAndVisible(false)
 
--- UipromptManager:startEventThread()
 
 
 ----- Open Menu ----
