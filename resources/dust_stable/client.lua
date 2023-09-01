@@ -64,7 +64,7 @@ Citizen.CreateThread(function()
                     local horseid = Entity(horse).state.horseid
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid)
                 end
-            else storeprompt:setEnabledAndVisible(true) end 
+            else storeprompt:setEnabledAndVisible(false) end
         end
     end
 end)
