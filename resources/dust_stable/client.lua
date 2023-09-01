@@ -361,13 +361,9 @@ end
 
 ---- Get Horse ----
 
--- local selectedcomp = {}
 local spawnedhorses = {}
 RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(horseid, components, model)
-    -- for k, v in pairs(selectedcomp) do
-    --     selectedcomp[k] = nil
-    -- end
     selectedcomp = components
 end)
 
@@ -421,7 +417,7 @@ function spawnhorse(model, name, horseid)
     --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, component, true, true, true)
     -- end
     for k, v in pairs(Config.Label) do
-        print (k, selectedcomp[k], selectedcomp["saddle_horns"])
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, selectedcomp[k], true, true, true)
     end
     SetPedConfigFlag(horse, 297, true)
     
