@@ -173,7 +173,6 @@ function OpenCategory(menu_catagory, horse, horseid)
 end
 
 function MenuUpdateComp(data, menu, horse)
-    print (data.current.value,  comp_list[data.current.category][data.current.value].hash)
     NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
     for k, v in pairs(CompCache) do
         if k == data.current.category then
