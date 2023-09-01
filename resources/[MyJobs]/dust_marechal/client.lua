@@ -112,8 +112,7 @@ function OpenCategory(menu_catagory, horse, horseid)
         local category = comp_list[k]
         if CompCache[k] == nil then
             CompCache[k] = {}
-            CompCache[k].model = 0
-            CompCache[k].texture = 1
+            CompCache[k].hash = 0
         end
         local options = {}
         for k, v in pairs(category) do
@@ -177,14 +176,9 @@ end
 function MenuUpdateComp(data, menu, horse)
     print (data.current.value,  comp_list[data.current.category][data.current.value].hash)
     NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
-    -- if data.current.change_type == "model" then
-    --     if CompCache[data.current.category].model ~= data.current.value then
-    --         CompCache[data.current.category].texture = 1
-    --         CompCache[data.current.category].model = data.current.value
-
-    --         Change(horse, CompCache[data.current.category].model)
-    --     end
-    -- end
+    if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
+        CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+    end
 end
 
 function Change(horse, componentHash)
@@ -204,8 +198,7 @@ AddEventHandler('rdr_marechal:OpenCustomMenu', function(ClothesComponents, horse
     for k,v in pairs(comp_list) do
         if CompCache[k] == nil then
             CompCache[k] = {}
-            CompCache[k].model = 0
-            CompCache[k].texture = 0
+            CompCache[k].hash = 0
         end
     end
     OldCompCache = deepcopy(CompCache)
