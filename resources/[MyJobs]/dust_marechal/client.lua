@@ -30,13 +30,13 @@ local prompt = Uiprompt:new(0x156F7119, "Changer l'équipement du cheval")
 
 prompt:setStandardMode(true)
 
-prompt:setOnStandardModeJustCompleted(function()
-	isInteracting = true
-    local horse = GetMount(PlayerPedId())
-    local horseid = Entity(horse).state.horseid
-    Wait(200)
-    TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
-end)
+-- prompt:setOnStandardModeJustCompleted(function()
+-- 	isInteracting = true
+--     local horse = GetMount(PlayerPedId())
+--     local horseid = Entity(horse).state.horseid
+--     Wait(200)
+--     TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
+-- end)
 
 Uiprompt:setEnabledAndVisible(false)
 
@@ -51,13 +51,13 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Customzone) do
             if #(playerpos - v ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
                 Uiprompt:setEnabledAndVisible(true)
-                -- if prompt:isJustReleased()then
-                --     isInteracting = true
-                --     local horse = GetMount(PlayerPedId())
-                --     local horseid = Entity(horse).state.horseid
-                --     Wait(200)
-                --     TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
-                -- end
+                if prompt:isJustReleased()then
+                    isInteracting = true
+                    local horse = GetMount(PlayerPedId())
+                    local horseid = Entity(horse).state.horseid
+                    Wait(200)
+                    TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
+                end
             end
         end
     end
