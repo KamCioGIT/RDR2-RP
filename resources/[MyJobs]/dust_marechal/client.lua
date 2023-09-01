@@ -109,10 +109,6 @@ function OpenCategory(menu_catagory, horse, horseid)
     local a = 1
     for v, k in pairs(Config.MenuElements[menu_catagory].category) do
         local category = comp_list[k]
-        if CompCache[k] == nil then
-            CompCache[k] = {}
-            CompCache[k].hash = 0
-        end
         local options = {}
         for k, v in pairs(category) do
             table.insert(options, k .." Style")
@@ -194,12 +190,6 @@ end
 RegisterNetEvent('rdr_marechal:OpenCustomMenu')
 AddEventHandler('rdr_marechal:OpenCustomMenu', function(Components, horse, horseid)
     CompCache = Components
-    for k, v in pairs(comp_list) do
-        if CompCache[k] == nil then
-            CompCache[k] = {}
-            CompCache[k].hash = 0
-        end
-    end
     OldCompCache = Components
     FreezeEntityPosition(horse, true)
     OpenCustomMenu(horse, horseid)
