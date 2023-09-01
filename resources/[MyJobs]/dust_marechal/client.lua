@@ -28,7 +28,6 @@ end)
 
 local prompt = Uiprompt:new(0x156F7119, "Changer l'équipement du cheval")
 prompt:setStandardMode(true)
-
 -- prompt:setOnStandardModeJustCompleted(function()
 -- 	isInteracting = true
 --     local horse = GetMount(PlayerPedId())
@@ -36,8 +35,9 @@ prompt:setStandardMode(true)
 --     Wait(200)
 --     TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
 -- end)
+Uiprompt:setEnabledAndVisible(false)
 
-UipromptManager:startEventThread()
+-- UipromptManager:startEventThread()
 
 
 ----- Open Menu ----
