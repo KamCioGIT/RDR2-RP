@@ -121,13 +121,14 @@ function OpenCategory(menu_catagory, horse)
         end
         table.insert(elements, {
             label = Config.Label[k] or v,
-            value = CompCache[k].hash or 1,
+            value = CompCache[k].hash or 0,
             category = k,
             desc = "Change component",
             type = "slider",
-            min = 1,
+            min = 0,
             max = #category,
             change_type = "model",
+            hop = 0,
             id = a,
             options = options
         })
