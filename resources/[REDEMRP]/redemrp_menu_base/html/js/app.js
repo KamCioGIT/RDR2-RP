@@ -279,8 +279,8 @@
                                     if (elem.value > min) {
                                         if (typeof elem.hop != 'undefined') {
                                             elem.value = (elem.value - elem.hop);
-                                            if (elem.value < elem.min) {
-                                                elem.value = elem.min
+                                            if (elem.value < min) {
+                                                elem.value = min
                                             }
                                         }
                                         else {
@@ -316,10 +316,10 @@
                                     break;
 
                                 case 'slider': {
-                                    if (typeof elem.options != 'undefined' && elem.value < elem.options.length - 1) {
-                                        elem.value++;
-                                        MenuData.change(focused.namespace, focused.name, elem);
-                                    }
+                                    // if (typeof elem.options != 'undefined' && elem.value < elem.options.length - 1) {
+                                    //     elem.value++;
+                                    //     MenuData.change(focused.namespace, focused.name, elem);
+                                    // }
 
                                     if (typeof elem.max != 'undefined' && elem.value < elem.max) {
 
