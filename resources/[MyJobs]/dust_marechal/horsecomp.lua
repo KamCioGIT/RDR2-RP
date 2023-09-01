@@ -1,5 +1,6 @@
 comp_list = {
 		['horse_saddles'] = {
+            {hashname="",category_hashname="horse_saddles",ped_type="horse",is_multiplayer=true,category_hash=0xBAA7E618,hash=0,hash_dec_signed=0,category_hash_dec_signed=-1163401704},
 			{hashname="",category_hashname="horse_saddles",ped_type="horse",is_multiplayer=true,category_hash=0xBAA7E618,hash=0x003897CA,hash_dec_signed=3708874,category_hash_dec_signed=-1163401704},
             {hashname="",category_hashname="horse_saddles",ped_type="horse",is_multiplayer=true,category_hash=0xBAA7E618,hash=0x0205E696,hash_dec_signed=33941142,category_hash_dec_signed=-1163401704},
             {hashname="",category_hashname="horse_saddles",ped_type="horse",is_multiplayer=true,category_hash=0xBAA7E618,hash=0x19FFCB58,hash_dec_signed=436194136,category_hash_dec_signed=-1163401704},
