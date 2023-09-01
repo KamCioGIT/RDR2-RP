@@ -421,7 +421,7 @@ function spawnhorse(model, name, horseid)
     --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, component, true, true, true)
     -- end
     for k, v in pairs(Config.Label) do
-        print (selectedcomp.k)
+        print (selectedcomp[k])
     end
     SetPedConfigFlag(horse, 297, true)
     
