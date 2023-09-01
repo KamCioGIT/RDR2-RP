@@ -33,16 +33,16 @@ Config.WarHorses = {
 }
 
 Config.Label = {
-	"saddle_horns",
-	"horse_blankets",
-	"horse_saddles",
-	"HORSE_SADDLEBAGS",
-	"saddle_stirrups",
-	"horse_bedrolls",
-	"horse_manes",
-	"horse_bridles",
-	"horse_accessories",
-	"HORSE_TAILS",
+	["saddle_horns"] = "Pommeau",
+	["horse_blankets"] = "Tapis de Scelle",
+	["horse_saddles"] = "Selle",
+	["HORSE_SADDLEBAGS"] = "Sacoches",
+	["saddle_stirrups"] = "Étriers",
+	["horse_bedrolls"] = "Couchage",
+	["horse_manes"] = "Crinière",
+	["horse_bridles"] = "Rênes",
+	["horse_accessories"] = "Masque",
+	["HORSE_TAILS"] = "Queue",
 }
 
 
