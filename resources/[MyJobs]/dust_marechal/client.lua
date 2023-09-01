@@ -8,7 +8,7 @@ end)
 
 ------ PROMPT ------ 
 
-local prompt = Uiprompt:new(0x156F7119, "Changer l'équipement du cheval")
+local prompt = Uiprompt:new(0x760A9C6F, "Changer l'équipement du cheval")
 prompt:setStandardMode(true)
 prompt:setEnabledAndVisible(false)
 
