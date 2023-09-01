@@ -417,7 +417,7 @@ function spawnhorse(model, name, horseid)
     --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, component, true, true, true)
     -- end
     for k, v in pairs(Config.Label) do
-        if selectedcomp ~= nil then
+        if selectedcomp ~= {} then
             Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, selectedcomp[k].hash, true, true, true)
         end
     end
