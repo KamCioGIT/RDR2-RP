@@ -48,6 +48,22 @@ end)
 
 function OpenCustomMenu(horse, horseid)
     MenuData.CloseAll()
+    local playerPed = PlayerPedId()
+    local Position = GetEntityCoords(playerPed)
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 10.0 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                    FreezeEntityPosition(horse, false)
+                end)
+                return
+            end
+        end
+    end)
+
     local elements = {}
 
     for v, k in pairs(Config.MenuElements) do
@@ -90,6 +106,7 @@ function OpenCustomMenu(horse, horseid)
     end, function(data, menu)
         menu.close()
         isInteracting = false
+        FreezeEntityPosition(horse, false)
         ---- RESET SKIN D'ORIGINE DU CHEVAL 
         for _, componentHash in pairs(OldCompCache) do
             NativeSetPedComponentEnabled(entity, tonumber(componentHash))
@@ -203,6 +220,7 @@ AddEventHandler('rdr_marechal:OpenCustomMenu', function(ClothesComponents, horse
         end
     end
     OldCompCache = deepcopy(CompCache)
+    FreezeEntityPosition(horse, true)
     OpenCustomMenu(horse)
 end)
 

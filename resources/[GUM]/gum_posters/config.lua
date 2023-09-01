@@ -26,65 +26,65 @@ Config.NotifyImage = ""
 -----------GAME--------------
 -----------------------------
 Config.CleanerTime = 7--in days (every  7 days will be removed old pinned posters)
-Config.CityPoster = false--If you want filter posters by city
+Config.CityPoster = true --If you want filter posters by city
 Config.ICNamePoster = false --If you want see in game who post this poster
 
-Config.Name = "Affiche"
+Config.Name = "Panneau d'affichage"
 Config.UserName = "Nom : "
 Config.TownName = "Ville : "
 
 Config.Posters = {
     [1] = {
         blip=true,
-        name="Panneau d'affichage - Saint Denis", 
+        name="Panneau d'affichage - New Hannover", --- saint denis
         object="mp005_p_mp_bountyboard01x",
         coords={2516.90, -1305.57, 48.99, 90.0},
     },
     [2] = {
         blip=true,
-        name="Panneau d'affichage - Valentine", 
+        name="Panneau d'affichage - New Hannover",  ---- Valentine
         object="mp005_p_mp_bountyboard01x",
         coords={-270.05, 807.20, 119.42, 100.0},
     },
     [3] = {
         blip=true,
-        name="Panneau d'affichage - Rhodes", 
+        name="Panneau d'affichage - New Hannover",  ---- Rhodes
         object="mp005_p_mp_bountyboard01x",
         coords={1234.15, -1293.25, 76.91, -45.0},
     },
     [4] = {
         blip=true,
-        name="Panneau d'affichage - Van horn", 
+        name="Panneau d'affichage - New Hannover",  ---- Van Horn
         object="mp005_p_mp_bountyboard02x",
         coords={2956.05 ,501.69 ,44.87, 95.0},
     },
     [5] = {
         blip=true,
-        name="Panneau d'affichage - Annesburg", 
+        name="Panneau d'affichage - New Hannover",  --- Annesburg
         object="mp005_p_mp_bountyboard02x",
         coords={2927.45 ,1287.86, 43.46, 250.00},
     },
     [6] = {
         blip=true,
-        name="Panneau d'affichage - Strawberry", 
+        name="Panneau d'affichage - West Elizabeth",  ---- Strawberry
         object="mp005_p_mp_bountyboard01x",
         coords={-1765.30, -386.10, 157.80, 326.74},
     },
     [7] = {
         blip=true,
-        name="Panneau d'affichage - Blackwater", 
+        name="Panneau d'affichage - West Elizabeth",  --- blackwater
         object="mp005_p_mp_bountyboard02x",
         coords={-867.08, -1329.78, 42.20, 89.00},
     },
     [8] = {
         blip=true,
-        name="Panneau d'affichage - Armadillo", 
+        name="Panneau d'affichage - New Austin",  --- Armadillo
         object="mp005_p_mp_bountyboard02x",
         coords={-3722.10, -2603.63, -14.40, 87.97},
     },
     [9] = {
         blip=true,
-        name="Panneau d'affichage - Tumbleweed", 
+        name="Panneau d'affichage - New Austin",  --- Tumbleweed
         object="mp005_p_mp_bountyboard01x",
         coords={-5525.96, -2926.90, -1.90, 115.85},
     },
