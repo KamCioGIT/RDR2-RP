@@ -118,11 +118,11 @@ function OpenCategory(menu_catagory, horse, horseid)
         end
         table.insert(elements, {
             label = Config.Label[k] or v,
-            value = 0,
+            value = CompCache[k].hash or 0,
             category = k,
             desc = "Change component",
             type = "slider",
-            min = 1,
+            min = 0,
             max = #category,
             change_type = "model",
             id = a,
@@ -166,7 +166,9 @@ function OpenCategory(menu_catagory, horse, horseid)
         menu.close()
         OpenCustomMenu(horse, horseid)
     end, function(data, menu)
+        if data.current.value ~= 0 then 
             MenuUpdateComp(data, menu, horse)
+        end
     end)
 end
 
