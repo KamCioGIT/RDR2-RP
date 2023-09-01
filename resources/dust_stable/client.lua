@@ -54,7 +54,7 @@ end)
 -- end)
 
 local stableprompt = UipromptGroup:new("Écurie")
-Uiprompt:new(0x760A9C6F, "Ouvrir", stableprompt).setStandardMode(true)
+Uiprompt:new(0x760A9C6F, "Ouvrir", stableprompt)
 Uiprompt:new(0x156F7119, "Gérer", stableprompt):setHoldMode(true)
 
 
