@@ -8,23 +8,40 @@ end)
 
 ------ PROMPT ------ 
 
-local CustomPromptGroup = GetRandomIntInRange(0, 0xffffff)
-local CustomPromptName = CreateVarString(10, "LITERAL_STRING", "Écurie")
-local CustomPrompt
-local CustomPromptShown = false
-local IsInteracting = false
-Citizen.CreateThread(function()
-    local str = "Mettre à l'écurie"
-    CustomPrompt = PromptRegisterBegin()
-    PromptSetControlAction(CustomPrompt, 0x156F7119)
-    str = CreateVarString(10, 'LITERAL_STRING', str)
-    PromptSetText(CustomPrompt, str)
-    PromptSetEnabled(CustomPrompt, true)
-    PromptSetVisible(CustomPrompt, true)
-    PromptSetHoldMode(CustomPrompt, false)
-    PromptSetGroup(CustomPrompt, CustomPromptGroup)
-    PromptRegisterEnd(CustomPrompt)
+-- local CustomPromptGroup = GetRandomIntInRange(0, 0xffffff)
+-- local CustomPromptName = CreateVarString(10, "LITERAL_STRING", "Écurie")
+-- local CustomPrompt
+-- local CustomPromptShown = false
+-- local IsInteracting = false
+-- Citizen.CreateThread(function()
+--     local str = "Mettre à l'écurie"
+--     CustomPrompt = PromptRegisterBegin()
+--     PromptSetControlAction(CustomPrompt, 0x156F7119)
+--     str = CreateVarString(10, 'LITERAL_STRING', str)
+--     PromptSetText(CustomPrompt, str)
+--     PromptSetEnabled(CustomPrompt, true)
+--     PromptSetVisible(CustomPrompt, true)
+--     PromptSetHoldMode(CustomPrompt, false)
+--     PromptSetGroup(CustomPrompt, CustomPromptGroup)
+--     PromptRegisterEnd(CustomPrompt)
+-- end)
+
+local prompt = Uiprompt:new(0x156F7119, "Changer l'équipement du cheval")
+
+prompt:setStandardMode(true)
+
+prompt:setOnStandardModeJustCompleted(function()
+	isInteracting = true
+    local horse = GetMount(PlayerPedId())
+    local horseid = Entity(horse).state.horseid
+    Wait(200)
+    TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
 end)
+
+Uiprompt:setEnabledAndVisible(false)
+
+UipromptManager:startEventThread()
+
 
 ----- Open Menu ----
 Citizen.CreateThread(function()
@@ -33,14 +50,14 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Customzone) do
             if #(playerpos - v ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
-                PromptSetActiveGroupThisFrame(CustomPromptGroup, CustomPromptName)
-                if IsControlJustReleased(0, 0x156F7119) then
-                    isInteracting = true
-                    local horse = GetMount(PlayerPedId())
-                    local horseid = Entity(horse).state.horseid
-                    Wait(200)
-                    TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
-                end
+                Uiprompt:setEnabledAndVisible(true)
+                -- if prompt:isJustReleased()then
+                --     isInteracting = true
+                --     local horse = GetMount(PlayerPedId())
+                --     local horseid = Entity(horse).state.horseid
+                --     Wait(200)
+                --     TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
+                -- end
             end
         end
     end
