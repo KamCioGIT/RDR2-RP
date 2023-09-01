@@ -54,7 +54,7 @@ end)
 -- end)
 
 local stableprompt = UipromptGroup:new("Écurie")
-Uiprompt:new(0x760A9C6F, "Ouvrir", stableprompt)
+Uiprompt:new(0x760A9C6F, "Ouvrir", stableprompt).setStandardMode(true)
 Uiprompt:new(0x156F7119, "Gérer", stableprompt):setHoldMode(true)
 
 
@@ -86,7 +86,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 stableprompt:setActiveThisFrame()
-                if stableprompt:isJustPressed() then
+                if stableprompt:hasStandardModeJustCompleted() then
                     isInteracting = true
                     local menutype = "Ouvrir"
                     TriggerServerEvent("dust_stable:server:askhorse")
