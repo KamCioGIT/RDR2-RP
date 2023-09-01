@@ -368,7 +368,7 @@ AddEventHandler("dust_stable:server:getcomponents", function(horseid, components
     for k, v in pairs(selectedcomp) do
         selectedcomp[k] = nil
     end
-    table.insert(selectedcomp, components)
+    selectedcomp = components
 end)
 
 local initializing = false
