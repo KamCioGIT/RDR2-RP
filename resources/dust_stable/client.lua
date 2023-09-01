@@ -361,13 +361,13 @@ end
 
 ---- Get Horse ----
 
-local selectedcomp = {}
+-- local selectedcomp = {}
 local spawnedhorses = {}
 RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(horseid, components, model)
-    for k, v in pairs(selectedcomp) do
-        selectedcomp[k] = nil
-    end
+    -- for k, v in pairs(selectedcomp) do
+    --     selectedcomp[k] = nil
+    -- end
     selectedcomp = components
 end)
 
