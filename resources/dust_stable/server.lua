@@ -81,7 +81,7 @@ AddEventHandler(
 		}, function(result)
 			if #result ~= 0 then
 				for i = 1, #result do
-					local components = json.encode(result[i].components)
+					local components = json.decode(result[i].components)
 					TriggerClientEvent("dust_stable:server:getcomponents", _source, horseid, components, model)
 				end                    
 			end
