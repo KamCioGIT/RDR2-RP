@@ -199,7 +199,7 @@ end
 
 
 RegisterNetEvent('rdr_marechal:OpenCustomMenu')
-AddEventHandler('rdr_marechal:OpenCustomMenu', function(ClothesComponents, horse)
+AddEventHandler('rdr_marechal:OpenCustomMenu', function(ClothesComponents, horse, horseid)
     CompCache = ClothesComponents
     for k,v in pairs(comp_list) do
         if CompCache[k] == nil then
