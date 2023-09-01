@@ -417,10 +417,13 @@ function spawnhorse(model, name, horseid)
 
     SetPedPromptName(horse, name)
     Entity(horse).state.horseid = horseid
-    for cat, v in pairs(Config.Label) do
-            print (selectedcomp[cat].hash)
-            -- Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash.hash, true, true, true)
+    if selectedcomp ~= nil and selectedcomp ~= "0" then
+        for _, componentHash in pairs(selectedcomp) do
+            print (componentHash.hash)
+            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash.hash, true, true, true)
+        end
     end
+
     SetPedConfigFlag(horse, 297, true)
     
     for k, v in pairs(selectedcomp) do
