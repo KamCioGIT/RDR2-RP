@@ -109,10 +109,9 @@ function OpenCategory(menu_catagory, horse, horseid)
     local a = 1
     for v, k in pairs(Config.MenuElements[menu_catagory].category) do
         local category = comp_list[k]
-        print (CompCache[k], k)
         if CompCache[k] == nil then
             CompCache[k] = {}
-            CompCache[k] = 0
+            CompCache[k].hash = 0
         end
         local options = {}
         for k, v in pairs(category) do
@@ -120,7 +119,7 @@ function OpenCategory(menu_catagory, horse, horseid)
         end
         table.insert(elements, {
             label = Config.Label[k] or v,
-            value = CompCache[k] or 0,
+            value = CompCache[k].hash or 0,
             category = k,
             desc = "Change component",
             type = "slider",
@@ -178,9 +177,9 @@ function MenuUpdateComp(data, menu, horse)
     NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
     for k, v in pairs(CompCache) do
         if k == data.current.category then
-            CompCache[k] = comp_list[data.current.category][data.current.value].hash
+            CompCache[k].hash = comp_list[data.current.category][data.current.value].hash
         else
-            CompCache[data.current.category] = comp_list[data.current.category][data.current.value].hash
+            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
         end
     end
     -- if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
@@ -205,7 +204,7 @@ AddEventHandler('rdr_marechal:OpenCustomMenu', function(Components, horse, horse
     for k,v in pairs(comp_list) do
         if CompCache[k] == nil then
             CompCache[k] = {}
-            CompCache[k] = 0
+            CompCache[k].hash = 0
         end
     end
     OldCompCache = Components
