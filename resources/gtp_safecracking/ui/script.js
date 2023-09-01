@@ -1,6 +1,6 @@
 const AudioFiles = {
     TUMBLER_TURN: { name: "TUMBLER_TURN.wav", volume: 0.2 },
-    TUMBLER_PIN_FALL: { name: "TUMBLER_PIN_FALL.wav", volume: 0.02 },
+    TUMBLER_PIN_FALL: { name: "TUMBLER_PIN_FALL.wav", volume: 0.00 },
     TUMBLER_PIN_FALL_FINAL: { name: "TUMBLER_PIN_FALL_FINAL.wav", volume: 0.1 },
     TUMBLER_RESET: { name: "TUMBLER_RESET.wav", volume: 0.3 },
     OPEN_SAFE: { name: "OPEN_SAFE.wav", volume: 0.3 },
