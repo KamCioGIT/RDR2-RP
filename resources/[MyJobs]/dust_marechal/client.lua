@@ -119,7 +119,7 @@ function OpenCategory(menu_catagory, horse, horseid)
         end
         table.insert(elements, {
             label = Config.Label[k] or v,
-            value = CompCache[k].hash or 0,
+            value = 0,
             category = k,
             desc = "Change component",
             type = "slider",
