@@ -21,7 +21,7 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Customzone) do
             if #(playerpos - v ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
-                prompt:setActiveThisFrame()
+                prompt:setEnabledAndVisible(true)
                 if prompt:isJustReleased()then
                     isInteracting = true
                     local horse = GetMount(PlayerPedId())
@@ -29,7 +29,7 @@ Citizen.CreateThread(function()
                     Wait(200)
                     TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
                 end
-            end
+            else prompt:setEnabledAndVisible(true) end
         end
     end
 end)
