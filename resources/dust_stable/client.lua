@@ -86,6 +86,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 stableprompt:setActiveThisFrame()
+                for _, v in ipairs(promptGroup:getPrompts()) do print (v) end
                 if stableprompt:hasStandardModeJustCompleted() then
                     isInteracting = true
                     local menutype = "Ouvrir"
