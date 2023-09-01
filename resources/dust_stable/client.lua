@@ -31,7 +31,6 @@ Uiprompt:new(0x156F7119, "Gérer", stableprompt):setHoldMode(true)
 
 local storeprompt = Uiprompt:new(0x760A9C6F, "Mettre à l'écurie")
 storeprompt:setStandardMode(true)
-storeprompt:setEnabledAndVisible(false)
 
 
 
@@ -65,7 +64,7 @@ Citizen.CreateThread(function()
                     local horseid = Entity(horse).state.horseid
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid)
                 end
-            end
+            else storeprompt:setEnabledAndVisible(true) end 
         end
     end
 end)
