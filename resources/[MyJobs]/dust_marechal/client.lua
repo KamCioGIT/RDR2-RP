@@ -8,10 +8,9 @@ end)
 
 ------ PROMPT ------ 
 
-local prompt = Uiprompt:new(0x760A9C6F, "Changer l'équipement du cheval")
-prompt:setStandardMode(true)
-prompt:setEnabledAndVisible(false)
-
+local customprompt = Uipromptgroup:new("Maréchal Ferrant")
+Uiprompt:new(0x156F7119, "Changer l'équipemement", stableprompt):setHoldMode(true)
+customprompt:setActive(false)
 
 
 ----- Open Menu ----
@@ -21,15 +20,15 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Customzone) do
             if #(playerpos - v ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
-                prompt:setEnabledAndVisible(true)
-                if prompt:isJustReleased()then
+                customprompt:setActiveThisFrame(true)
+                if customprompt:hasHoldModeJustCompleted()then
                     isInteracting = true
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
                     Wait(200)
                     TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
                 end
-            else prompt:setEnabledAndVisible(false) end
+            end
         end
     end
 end)
