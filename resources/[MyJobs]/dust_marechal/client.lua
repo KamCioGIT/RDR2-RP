@@ -21,7 +21,7 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Customzone) do
             if #(playerpos - v ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
-                prompt:setEnabledAndVisible(true)
+                prompt:setActiveThisFrame()
                 if prompt:isJustReleased()then
                     isInteracting = true
                     local horse = GetMount(PlayerPedId())
