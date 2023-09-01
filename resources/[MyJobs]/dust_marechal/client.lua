@@ -128,7 +128,7 @@ function OpenCategory(menu_catagory, horse)
             min = 0,
             max = #category,
             change_type = "model",
-            hop = 0,
+            hop = 1,
             id = a,
             options = options
         })
