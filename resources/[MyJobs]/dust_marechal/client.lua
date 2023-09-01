@@ -120,7 +120,7 @@ function OpenCategory(menu_catagory, horse, horseid)
         end
         table.insert(elements, {
             label = Config.Label[k] or v,
-            value = CompCache[k] or 1,
+            value = CompCache[k] or 0,
             category = k,
             desc = "Change component",
             type = "slider",
@@ -205,7 +205,7 @@ AddEventHandler('rdr_marechal:OpenCustomMenu', function(Components, horse, horse
     for k,v in pairs(comp_list) do
         if CompCache[k] == nil then
             CompCache[k] = {}
-            CompCache[k].hash = 0
+            CompCache[k] = 0
         end
     end
     OldCompCache = Components
