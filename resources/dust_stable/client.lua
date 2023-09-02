@@ -615,7 +615,6 @@ function OpenhorseStash(entity)
         local pos = GetEntityCoords(entity)
         if #(pos - oldpos) > 2.0 then
             TriggerEvent("redemrp_inventory:closeinv")
-            break
         end
     end
 end
