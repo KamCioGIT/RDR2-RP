@@ -14,5 +14,5 @@ client_script {
 	'client.lua',
 	'config.lua',
 	"horsecomp.lua",
-	"cartcomp"
+	"cartcomp.lua"
 }
