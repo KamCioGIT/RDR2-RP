@@ -262,14 +262,14 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
     local elements = {}
     local a = 1
     for v, k in pairs(Config.MenuCart[menu_catagory].category) do
-        local category = comp_cart[k]
+        local category = comp_list[k]
         local options = {}
         for k, v in pairs(category) do
             table.insert(options, k .." Style")
         end
         table.insert(elements, {
             label = Config.LabelCart[k] or v,
-            value = 0,
+            value = ClothesCache[k].hash or 0,
             category = k,
             desc = "Change component",
             type = "slider",
