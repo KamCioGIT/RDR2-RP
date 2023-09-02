@@ -294,7 +294,7 @@ end)
 ---- RANGER LE CHEVAL ----
 
 RegisterServerEvent("dust_stable:server:stockhorse") 
-AddEventHandler("dust_stable:server:stockhorse", function(stable, horseid, valueHealth, valueStamina)
+AddEventHandler("dust_stable:server:stockhorse", function(stable, horseid, valueHealth, valueStamina, type)
 	local _source = source
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
@@ -314,7 +314,7 @@ AddEventHandler("dust_stable:server:stockhorse", function(stable, horseid, value
 						horseid = horseid,
 						meta = json.encode(_meta)
 					}, function(rowsChanged)
-						TriggerClientEvent("dust_stable:server:horsestocked", _source)
+						TriggerClientEvent("dust_stable:server:horsestocked", _source, type)
 				end)          
 			end
 		end)

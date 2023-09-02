@@ -72,16 +72,18 @@ Citizen.CreateThread(function()
                     local horseid = Entity(horse).state.horseid
                     local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, horse, 0)
                     local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, horse, 1)
-                    TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid, valueHealth, valueStamina)
+                    local type = "horse"
+                    TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid, valueHealth, valueStamina, type)
                 end
             end
             if #(playerpos - v.pos ) < 7 and IsPedInAnyVehicle(PlayerPedId(), 0) then
                 print 'ya'
                 storeprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x156F7119) then
-                    local cart = GetVehiclePedIsIn(PlayerPedId())
+                    local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
                     local cartid = Entity(cart).state.horseid
-                    TriggerServerEvent("dust_stable:server:stockhorse", v.name, cartid, valueHealth, valueStamina)
+                    local type = "cart"
+                    TriggerServerEvent("dust_stable:server:stockhorse", v.name, cartid, valueHealth, valueStamina, type)
                 end
             end
         end
@@ -498,11 +500,19 @@ end
 
 ---- RANGER LE CHEVAL  ----
 RegisterNetEvent("dust_stable:server:horsestocked")
-AddEventHandler("dust_stable:server:horsestocked", function()
-    local horse = GetMount(PlayerPedId())
-    TaskDismountAnimal(PlayerPedId(), 0x48E92D3DDE23C23A, 0, 0 ,0, horse) --- joue l'anim descendre du cheval
-    Wait(2000)
-    DeleteEntity(horse)
+AddEventHandler("dust_stable:server:horsestocked", function(type)
+    if type == "horse" then
+        local horse = GetMount(PlayerPedId())
+        TaskDismountAnimal(PlayerPedId(), 0x48E92D3DDE23C23A, 0, 0 ,0, horse) --- joue l'anim descendre du cheval
+        Wait(2000)
+        DeleteEntity(horse)
+    elseif type == "cart" then
+        local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
+        TaskLeaveVehicle(PlayerPedId(), cart, 256)
+        Wait(2000)
+        DeleteEntity(cart)
+    end
+
 end)
 
 ----- CHOISIR LE NOM -----
