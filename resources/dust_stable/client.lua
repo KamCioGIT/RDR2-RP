@@ -362,8 +362,8 @@ end
 ---- Get Horse ----
 
 local spawnedhorses = {}
-local selectedcomp = {}
-local selectedmeta = {}
+local selectedcomp 
+local selectedmeta
 RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(components, meta)
     selectedcomp = components
