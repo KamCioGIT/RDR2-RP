@@ -209,7 +209,7 @@ AddEventHandler(
 		local generetedUid = string.format("%03d%04d", numBase0, numBase1)
 		if type == "horse" then
 			MySQL.update(
-			'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `components`, `stashid`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @components, @stashid);',
+			'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `components`, `stashid`, `type`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @components, @stashid, @type);',
 			{
 				identifier = identifier,
 				charid = charid,
@@ -234,7 +234,7 @@ AddEventHandler(
 		end
 		if type == "cart" then
 			MySQL.update(
-			'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `components`, `stashid`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @components, @stashid);',
+			'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `components`, `stashid`, `type`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @components, @stashid, @type);',
 			{
 				identifier = identifier,
 				charid = charid,
