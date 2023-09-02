@@ -75,6 +75,14 @@ Citizen.CreateThread(function()
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid, valueHealth, valueStamina)
                 end
             end
+            if #(playerpos - v.pos ) < 7 and IsPedInVehicle(PlayerPedId()) then
+                storeprompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x156F7119) then
+                    local cart = GetVehiclePedIsIn(PlayerPedId())
+                    local cartid = Entity(cart).state.horseid
+                    TriggerServerEvent("dust_stable:server:stockhorse", v.name, cartid, valueHealth, valueStamina)
+                end
+            end
         end
     end
 end)
