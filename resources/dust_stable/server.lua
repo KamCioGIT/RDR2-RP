@@ -201,9 +201,9 @@ AddEventHandler(
     	local numBase1 = math.random(0, 999)
     	local generetedhorseid = string.format("%03d%04d", numBase0, numBase1)
 		local horseid = generetedhorseid
-		print (identifier, charid, name, horseid, model, stable)
+		local _meta = {health = 50, stamina = 50}
 		MySQL.update(
-		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race);',
+		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta);',
 		{
 			identifier = identifier,
 			charid = charid,
@@ -211,7 +211,8 @@ AddEventHandler(
 			horseid = horseid,
 			model = model,
 			stable = stable,
-			race = race
+			race = race,
+			meta = json.encode(_meta)
 		}, function(rowsChanged)
 
 		end)
@@ -229,9 +230,10 @@ AddEventHandler("dust_stable:server:askcomponents", function(horseid)
 	MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;', {horseid = horseid}, function(result)
 		if result[1] then
 			components = json.decode(result[1].components)
+			meta = json.decode(result[1].meta)
 		end
 	end)
-	TriggerClientEvent("dust_stable:server:getcomponents", _source, components)
+	TriggerClientEvent("dust_stable:server:getcomponents", _source, components, meta)
 end)
 
 ------ CHEVAL SORTI ----
@@ -248,11 +250,12 @@ end)
 ---- RANGER LE CHEVAL ----
 
 RegisterServerEvent("dust_stable:server:stockhorse") 
-AddEventHandler("dust_stable:server:stockhorse", function(stable, horseid)
+AddEventHandler("dust_stable:server:stockhorse", function(stable, horseid, valueHealth, valueStamina)
 	local _source = source
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
 	local charid = user.charid
+	local _meta = {health = valueHealth, stamina = valueStamina}
 	MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid AND `horseid`=@horseid;',
 		{
 			identifier = identifier,
@@ -260,11 +263,12 @@ AddEventHandler("dust_stable:server:stockhorse", function(stable, horseid)
 			horseid = horseid
 		}, function(result)
 			if #result ~= 0 then
-				MySQL.update('UPDATE stable SET `stable`=@stable, `selected`=@selected  WHERE `horseid`=@horseid;',
+				MySQL.update('UPDATE stable SET `stable`=@stable, `selected`=@selected, `meta`=@meta WHERE `horseid`=@horseid;',
 					{
 						stable = stable,
 						selected = 0,
-						horseid = horseid
+						horseid = horseid,
+						meta = json.encode(_meta)
 					}, function(rowsChanged)
 						TriggerClientEvent("dust_stable:server:horsestocked", _source)
 				end)          
@@ -341,3 +345,23 @@ RegisterServerEvent('dust_stable:server:resethorse', function()
 		end
 	end)        
 end)
+
+
+------- META/STATUS CHEVAUX -----
+----HORSE ITEMS
+RegisterServerEvent("RegisterUsableItem:horsehaycube")
+AddEventHandler("RegisterUsableItem:horsehaycube", function(source)
+ local _source = source
+		   	local itemData = data.getItem(_source, "horsehaycube")
+	itemData.RemoveItem(1)
+	TriggerClientEvent('horse:haycube', _source)
+end)
+RegisterServerEvent("RegisterUsableItem:horsestimulant")
+AddEventHandler("RegisterUsableItem:horsestimulant", function(source)
+ local _source = source
+		   	local itemData = data.getItem(_source, "horsestimulant")
+	itemData.RemoveItem(1)
+	TriggerClientEvent('horse:horsestimulant', _source)
+end)
+
+-- Save meta du cheval dans la db

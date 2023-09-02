@@ -71,7 +71,9 @@ Citizen.CreateThread(function()
                 if IsControlJustReleased(0, 0x156F7119) then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
-                    TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid)
+                    local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, horse, 0)
+                    local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, horse, 1)
+                    TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid, valueHealth, valueStamina)
                 end
             else storeprompt:setEnabledAndVisible(false) end
         end
@@ -363,8 +365,9 @@ end
 
 local spawnedhorses = {}
 RegisterNetEvent("dust_stable:server:getcomponents")
-AddEventHandler("dust_stable:server:getcomponents", function(horseid, components, model)
+AddEventHandler("dust_stable:server:getcomponents", function(components, meta)
     selectedcomp = components
+    selectedmeta = meta
 end)
 
 local initializing = false
@@ -417,15 +420,20 @@ function spawnhorse(model, name, horseid)
     --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, component, true, true, true)
     -- end
 
+    --- SET LES META DU CHEVAL
+
     for k, v in pairs(Config.Label) do
         if selectedcomp[k] then
             Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, selectedcomp[k].hash, true, true, true)
         end
     end
     SetPedConfigFlag(horse, 297, true)
+    print (meta.health, meta.stamina)
+    Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, meta.health)
+    Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, meta.stamina)
 
     TriggerServerEvent("dust_stable:server:horseout", horseid)
-    
+
     table.insert(spawnedhorses, horse)
     initializing = false
 end
@@ -552,7 +560,67 @@ Citizen.CreateThread(function()
     end
 end)
 
+
+---- RESET CHEVAUX AU RESTART ----
 AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
     TriggerServerEvent('dust_stable:server:resethorse')
+end)
+
+AddEventHandler('txAdmin:events:scheduledRestart', function()
+    TriggerServerEvent('dust_stable:server:resethorse')
+end)
+
+
+------- META/STATUS CHEVAUX -----
+RegisterNetEvent('horse:haycube')
+AddEventHandler('horse:haycube', function(source)
+
+    local player = PlayerPedId()
+    local onhorse = IsPedOnMount(player)
+    local _source = source
+        if onhorse then
+            local Cavallo = GetMount(player)
+
+            TaskAnimalInteraction(player, horse, -224471938, true, true) --Animazione
+
+            local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, horse, 0)
+            local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, horse, 1)
+
+            if not tonumber(valueHealth) then valueHealth = 0 end
+            if not tonumber(valueStamina) then valueStamina = 0 end
+            Citizen.Wait(3500)
+            Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, valueHealth + 15)
+            Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, valueStamina + 15)
+        end
+end)
+
+
+RegisterNetEvent('horse:horsestimulant')
+AddEventHandler('horse:horsestimulant', function(source)
+
+    local player = PlayerPedId()
+    local onhorse = IsPedOnMount(Ped)
+    local _source = source
+
+            local horse = GetMount(player)
+
+                TaskAnimalInteraction(PlayerPedId(), horse,-1355254781, 0, 0) --stem
+
+                local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, horse, 0)
+                local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, horse, 1)
+
+                    if not tonumber(valueHealth) then valueHealth = 0 end
+                    if not tonumber(valueStamina) then valueStamina = 0 end
+                Citizen.Wait(3500)
+                Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, valueHealth + 35)
+                Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, valueStamina + 35)
+
+
+                Citizen.InvokeNative(0xF6A7C08DF2E28B28, horse, 0, 1000.0)
+                Citizen.InvokeNative(0xF6A7C08DF2E28B28, horse, 1, 1000.0)
+
+                Citizen.InvokeNative(0x50C803A4CD5932C5, true) --core
+                Citizen.InvokeNative(0xD4EE21B7CC7FD350, true) --core
+                PlaySoundFrontend("Core_Fill_Up", "Consumption_Sounds", true, 0)
 end)
