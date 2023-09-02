@@ -77,7 +77,6 @@ Citizen.CreateThread(function()
                 end
             end
             if #(playerpos - v.pos ) < 7 and IsPedInAnyVehicle(PlayerPedId(), 0) then
-                print 'ya'
                 storeprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x156F7119) then
                     local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
