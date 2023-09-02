@@ -421,7 +421,7 @@ function spawnhorse(model, name, horseid)
     --- SET LES META DU CHEVAL
     
     for k, v in pairs(Config.Label) do
-            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, CompCache[k], true, true, true)
+            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, CompCache[k].hash, true, true, true)
     end
     SetPedConfigFlag(horse, 297, true)
     print (meta.health, meta.stamina)
