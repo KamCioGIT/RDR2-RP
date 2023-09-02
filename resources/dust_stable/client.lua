@@ -509,7 +509,7 @@ AddEventHandler("dust_stable:server:horsestocked", function(type)
     elseif type == "cart" then
         local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
         TaskLeaveVehicle(PlayerPedId(), cart, 256)
-        Wait(2000)
+        Wait(3000)
         DeleteEntity(cart)
     end
 
