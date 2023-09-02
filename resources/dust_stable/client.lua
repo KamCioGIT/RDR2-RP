@@ -595,7 +595,7 @@ Citizen.CreateThread(function()
                 if Entity(entity).state.saddle == "true" and not IsPedOnMount(PlayerPedId()) then
                     saddleprompt:setActiveThisFrame(true)
                     if IsControlJustReleased(0, 0x760A9C6F) then
-                        OpenHorseStash(entity)
+                        OpenhorseStash(entity)
                     end
                 end
             end
