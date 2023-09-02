@@ -362,7 +362,7 @@ end
 ---- Get Horse ----
 
 local spawnedhorses = {}
-local selectedcomp 
+local selectedcomp
 local selectedmeta
 RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(components, meta)
@@ -421,13 +421,9 @@ function spawnhorse(model, name, horseid)
     -- end
 
     --- SET LES META DU CHEVAL
-
-    for k,v in pairs(Config.Label) do
-        if selectedcomp[k] == nil then
-            selectedcomp[k] = {}
-            selectedcomp[k].hash = 0
-        end
-        if selectedcomp[k].hash ~= 0 then
+    
+    for k, v in pairs(Config.Label) do
+        if selectedcomp[k].hash then
             Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, selectedcomp[k].hash, true, true, true)
         end
     end
