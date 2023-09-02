@@ -574,7 +574,7 @@ AddEventHandler('txAdmin:events:scheduledRestart', function()
 end)
 
 ---- LOOT STASHES ---
-Citizen.CreateThread(fucntion()
+Citizen.CreateThread(function()
     while true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
