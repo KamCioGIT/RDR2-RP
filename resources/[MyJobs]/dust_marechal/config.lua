@@ -30,7 +30,6 @@ Config.MenuCart = {
 			"tints",
 			"propsets",
 			"liveries",
-			"extras",
 		}
 	},
 	["extras"] = {
