@@ -363,7 +363,7 @@ end
 
 local spawnedhorses = {}
 RegisterNetEvent("dust_stable:server:getcomponents")
-AddEventHandler("dust_stable:server:getcomponents", function(components, meta)
+AddEventHandler("dust_stable:server:getcomponents", function(source, components, meta)
     CompCache = components
     selectedmeta = meta
 end)
