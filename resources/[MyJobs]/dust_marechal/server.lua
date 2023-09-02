@@ -24,25 +24,20 @@ AddEventHandler('rdr_marechal:loadcomp', function(value, horseid, horse)
 
     MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;', {
         horseid = _horseid
-    }, function(result)
-        if #result ~= 0 then
-            for i = 1, #result do
-                if result[i].selected == 0 then 
-                    model = result[i].model
-                    _comp = json.decode(_comp[1].components)
-                end
-            end
+    }, function(_comp)
+        if _comp[1] then
+            _comp = json.decode(_comp[1].components)
+            model = _comp[1].model
+        else
+            _comp = {}
+            model = _comp[1].model
         end
-        -- if _comp[1] then
-        --     _comp = json.decode(_comp[1].components)
-        -- else
-        --     _comp = {}
-        -- end
-        -- model = _comp[1].model
-        if _value == 1 then
-            TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid, model)
-        elseif _value == 2 then
-            TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid)
+        if _comp ~= nil then
+            if _value == 1 then
+                TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid, model)
+            elseif _value == 2 then
+                TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid)
+            end
         end
     end)
 end)
