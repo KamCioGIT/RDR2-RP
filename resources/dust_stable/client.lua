@@ -577,8 +577,9 @@ end)
 Citizen.CreateThread(function()
     while true do
         Wait(0)
-        local coords = GetEntityCoords(PlayerPedId())
-        RayCast(coords)
+        local player = PlayerPedId()
+        local coords = GetEntityCoords(player)
+        local ped = GetPlayerTargetEntity(player)
         if ped then
             print 'okayped'
             if Entity(ped).state.horseid then
@@ -588,10 +589,6 @@ Citizen.CreateThread(function()
     end
 end)
 
-function RayCast(origin, target, options, ignoreEntity, radius)
-    local handle = StartShapeTestBox(origin.x, origin.y, origin.z, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
-    return GetShapeTestResult(handle)
-end
 
 
 ------- META/STATUS CHEVAUX -----
