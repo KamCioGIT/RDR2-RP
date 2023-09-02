@@ -21,20 +21,13 @@ Citizen.CreateThread(function()
     end
 end)
 
-
----- PROMPT ----
-Citizen.CreateThread(function()
-    local stableprompt = UipromptGroup:new("Écurie")
-    Uiprompt:new(0x760A9C6F, "Ouvrir", stableprompt)
-    Uiprompt:new(0x156F7119, "Gérer", stableprompt):setHoldMode(true)
-    stableprompt:setActive(false)
-
-    local storeprompt = Uiprompt:new(0x156F7119, "Mettre à l'écurie")
-    storeprompt:setStandardMode(true)
-    storeprompt:setEnabledAndVisible(false)
-end)
-
 ----- INTERACT WITH STABLE ----
+
+local stableprompt = UipromptGroup:new("Écurie")
+Uiprompt:new(0x760A9C6F, "Ouvrir", stableprompt)
+Uiprompt:new(0x156F7119, "Gérer", stableprompt):setHoldMode(true)
+stableprompt:setActive(false)
+
 Citizen.CreateThread(function()
     while true do
         Wait(0)
@@ -60,6 +53,11 @@ Citizen.CreateThread(function()
         end
     end
 end)
+
+
+local storeprompt = Uiprompt:new(0x156F7119, "Mettre à l'écurie")
+storeprompt:setStandardMode(true)
+storeprompt:setEnabledAndVisible(false)
 
 Citizen.CreateThread(function()
     while true do
