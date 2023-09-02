@@ -441,7 +441,7 @@ function spawnhorse(model, name, horseid, stashid)
     initializing = false
 end
 
-function spawnhorse(model, name, horseid, stashid)
+function spawncart(model, name, horseid, stashid)
     if initializing then
         return
     end
