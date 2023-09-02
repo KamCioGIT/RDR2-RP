@@ -365,8 +365,6 @@ local spawnedhorses = {}
 RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(components, meta)
     CompCache = json.decode(components)
-    print (CompCache)
-    print (#CompCache)
     selectedmeta = meta
 end)
 
