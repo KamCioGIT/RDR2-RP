@@ -10,7 +10,6 @@ server_script {
  
 client_script {
 	"@uiprompt/uiprompt.lua",
-	'@ox_lib/init.lua',
 	'client.lua',
 	'config.lua'
 }
