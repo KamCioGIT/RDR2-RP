@@ -29,6 +29,8 @@ Citizen.CreateThread(function()
                     TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
                 end
             end
+        end
+        for k, v in pairs(Config.Customcart) do
             if #(playerpos - v.pos ) < 7 and IsPedInAnyVehicle(PlayerPedId(), 0) then
                 customprompt:setActiveThisFrame(true)
                 if customprompt:hasHoldModeJustCompleted()then
