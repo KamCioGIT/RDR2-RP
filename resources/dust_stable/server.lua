@@ -232,6 +232,7 @@ AddEventHandler("dust_stable:server:askcomponents", function(horseid)
 		if result[1] then
 			components = json.decode(result[1].components)
 			meta = json.decode(result[1].meta)
+			print (#components)
 		end
 	end)
 	TriggerClientEvent("dust_stable:server:getcomponents", _source, components, meta)
