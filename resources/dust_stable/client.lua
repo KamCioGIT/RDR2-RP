@@ -365,7 +365,6 @@ RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(components, _meta)
     CompCache = components
     selectedmeta = _meta
-    print (type(_meta))
 end)
 
 local initializing = false
@@ -423,7 +422,7 @@ function spawnhorse(model, name, horseid)
     for k, v in pairs(Config.Label) do
         Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, CompCache[k].hash, true, true, true)
     end
-    if CompCache["horse_saddles"].hash ~= 0 then
+    if CompCache["horse_saddles"].hash ~= nil then
         Entity(horse).state.saddle = "true"
         print (CompCache["horse_saddles"].hash)
     end
