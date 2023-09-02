@@ -421,7 +421,10 @@ function spawnhorse(model, name, horseid)
     --- SET LES META DU CHEVAL
     
     for k, v in pairs(Config.Label) do
-            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, CompCache[k].hash, true, true, true)
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, CompCache[k].hash, true, true, true)
+    end
+    if CompCache["horse_saddles"].hash ~= 0 then
+        Entity(horse).state.saddle = "true"
     end
     SetPedConfigFlag(horse, 297, true)
     Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, selectedmeta.health)
@@ -586,7 +589,9 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
                 if Entity(entity).state.horseid then
-                    print ("yess")
+                    if Entity(entity).state.saddle == "true" then
+                        print "mamacita"
+                    end
                 end
             end
         end
