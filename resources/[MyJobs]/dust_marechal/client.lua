@@ -261,6 +261,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
     MenuData.CloseAll()
     local elements = {}
     local a = 1
+    print (model)
     for v, k in pairs(Config.MenuCart[menu_catagory].category) do
         local category = comp_cart[k]
         local options = {}
@@ -279,18 +280,18 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
             id = a,
             options = options
         })
-        -- table.insert(elements, {
-        --     label = "Peinture",
-        --     value = comp_cart["tints"],
-        --     category = k,
-        --     desc = "Change component",
-        --     type = "slider",
-        --     min = 0,
-        --     max = #category,
-        --     change_type = "model",
-        --     id = a,
-        --     options = options
-        -- })
+        table.insert(elements, {
+            label = "Peinture",
+            value = comp_cart["tints"][model],
+            category = k,
+            desc = "Change component",
+            type = "slider",
+            min = 0,
+            max = #category,
+            change_type = "model",
+            id = a,
+            options = options
+        })
         a = a + 1
         options = {}
 
