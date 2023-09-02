@@ -579,7 +579,7 @@ end)
 
 ---- LOOT STASHES ---
 local saddleprompt = UipromptGroup:new("Sacoches")
-Uiprompt:new(0x760A9C6F, "Ouvrir", saddleprompt):setHoldMode(true)
+Uiprompt:new(0x760A9C6F, "Ouvrir", saddleprompt)
 saddleprompt:setActive(false)
 
 Citizen.CreateThread(function()
@@ -594,7 +594,7 @@ Citizen.CreateThread(function()
                 local model = GetEntityModel(entity)
                 if Entity(entity).state.saddle == "true" then
                     saddleprompt:setActiveThisFrame(true)
-                    if saddleprompt:hasHoldModeJustCompleted() then
+                    if IsControlJustReleased(0, 0x760A9C6F) then
                         TriggerEvent("redemrp_inventory:OpenStash", Entity(entity).state.stashid, 10.0)
                     end
                 end
