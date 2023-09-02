@@ -578,7 +578,7 @@ Citizen.CreateThread(function()
     while true do
         Wait(0)
         local coords = GetEntityCoords(PlayerPedId())
-        local ped = lib.getClosestPed(coords, 2.0)
+        local hit, ped, pedcoords, surfaceNormal, materialHash = lib.raycast.cam(8, 4, 5.0)
         if ped then
             print 'okayped'
             if Entity(ped).state.horseid then
@@ -587,6 +587,7 @@ Citizen.CreateThread(function()
         end
     end
 end)
+
 
 
 
