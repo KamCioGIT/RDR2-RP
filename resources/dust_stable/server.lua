@@ -191,7 +191,7 @@ end)
 RegisterNetEvent("dust_stable:server:createhorse")
 AddEventHandler(
     "dust_stable:server:createhorse",
-    function(alias, model, stable, race, components)
+    function(alias, model, stable, race, comp)
         local _source = source     
 		local user = RedEM.GetPlayer(_source)
 		local identifier = user.identifier
@@ -203,7 +203,7 @@ AddEventHandler(
 		local horseid = generetedhorseid
 		local _meta = {health = 50, stamina = 50}
 		MySQL.update(
-		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `comp`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @comp);',
+		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `components`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @components);',
 		{
 			identifier = identifier,
 			charid = charid,
@@ -213,7 +213,7 @@ AddEventHandler(
 			stable = stable,
 			race = race,
 			meta = json.encode(_meta),
-			comp = json.encode(components)
+			components = json.encode(comp)
 		}, function(rowsChanged)
 
 		end)
