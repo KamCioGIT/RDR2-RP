@@ -232,11 +232,19 @@ AddEventHandler("dust_stable:server:askcomponents", function(horseid)
 		if result[1] then
 			_components = result[1].components
 			_meta = json.decode(result[1].meta)
-			print (#_components)
+		end
+		if #result ~= 0 then
+			for i = 1, #result do
+				if result[i].selected == 0 then 
+					_components = json.decode(result[1].components)
+					_meta = json.decode(result[1].meta)
+					TriggerClientEvent("dust_stable:server:getcomponents", _source, _components, _meta)
+				end
+			end                    
 		end
 	end)
-	TriggerClientEvent("dust_stable:server:getcomponents", _source, _components, _meta)
 end)
+	
 
 ------ CHEVAL SORTI ----
 RegisterServerEvent("dust_stable:server:horseout")
