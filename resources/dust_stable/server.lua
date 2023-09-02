@@ -220,7 +220,8 @@ AddEventHandler(
 				race = race,
 				meta = json.encode(_meta),
 				components = json.encode(comp),
-				stashid = "horse_"..generetedUid
+				stashid = "horse_"..generetedUid,
+				type = type
 			}, function(rowsChanged)
 
 			end)
@@ -244,7 +245,8 @@ AddEventHandler(
 				race = race,
 				meta = json.encode(_meta),
 				components = json.encode(comp),
-				stashid = "cart_"..generetedUid
+				stashid = "cart_"..generetedUid,
+				type = type
 			}, function(rowsChanged)
 
 			end)
