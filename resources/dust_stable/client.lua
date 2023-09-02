@@ -367,7 +367,7 @@ local selectedmeta = {}
 RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(components, meta)
     selectedcomp = components
-    print (selectedcomp["HORSE_SADDLEBAGS"])
+    print (components["HORSE_SADDLEBAGS"])
     selectedmeta = meta
 end)
 
