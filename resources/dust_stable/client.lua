@@ -362,6 +362,8 @@ end
 ---- Get Horse ----
 
 local spawnedhorses = {}
+local selectedcomp = {}
+local selectedmeta = {}
 RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(components, meta)
     selectedcomp = components
@@ -430,8 +432,8 @@ function spawnhorse(model, name, horseid)
     end
     SetPedConfigFlag(horse, 297, true)
     print (meta.health, meta.stamina)
-    Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, meta.health)
-    Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, meta.stamina)
+    Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, selectedmeta.health)
+    Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, selectedmeta.stamina)
 
     TriggerServerEvent("dust_stable:server:horseout", horseid)
 
