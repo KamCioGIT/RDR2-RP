@@ -365,12 +365,6 @@ local spawnedhorses = {}
 RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(components, meta)
     CompCache = components
-    for k,v in pairs(Config.Label) do
-        if CompCache[k] == nil then
-            CompCache[k] = {}
-            CompCache[k].hash = 0
-        end
-    end
     selectedmeta = meta
 end)
 
