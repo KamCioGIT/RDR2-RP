@@ -202,8 +202,12 @@ AddEventHandler(
     	local generetedhorseid = string.format("%03d%04d", numBase0, numBase1)
 		local horseid = generetedhorseid
 		local _meta = {health = 50, stamina = 50}
+		local _comp = {}
+		for k, v in pairs(Config.Label) do
+			comp[k] = 0
+		end
 		MySQL.update(
-		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta);',
+		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `comp`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @comp);',
 		{
 			identifier = identifier,
 			charid = charid,
@@ -212,7 +216,8 @@ AddEventHandler(
 			model = model,
 			stable = stable,
 			race = race,
-			meta = json.encode(_meta)
+			meta = json.encode(_meta),
+			comp = json.encode(_comp)
 		}, function(rowsChanged)
 
 		end)
