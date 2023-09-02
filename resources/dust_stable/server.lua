@@ -204,7 +204,7 @@ AddEventHandler(
 		local _meta = {health = 50, stamina = 50}
 		local _comp = {}
 		for k, v in pairs(Config.Label) do
-			comp[k] = 0
+			_comp[k] = 0
 		end
 		MySQL.update(
 		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `comp`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @comp);',
