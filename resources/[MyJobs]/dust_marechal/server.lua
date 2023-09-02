@@ -32,13 +32,13 @@ AddEventHandler('rdr_marechal:loadcomp', function(value, horseid, horse)
         end
         if #_comp ~= 0 then
             for i = 1, #_comp do
-                model = _comp[i].model
+                _model = _comp[i].model
             end
         end
         if _comp ~= nil then
             if _value == 1 then
                 print (model)
-                TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid, model)
+                TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid, _model)
             elseif _value == 2 then
                 TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid)
             end
