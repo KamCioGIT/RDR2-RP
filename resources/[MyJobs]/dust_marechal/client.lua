@@ -281,7 +281,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
         })
         table.insert(elements, {
             label = "Peinture",
-            value = comp_cart[k][model],
+            value = comp_cart["tints"],
             category = k,
             desc = "Change component",
             type = "slider",
