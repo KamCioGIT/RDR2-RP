@@ -38,7 +38,7 @@ Citizen.CreateThread(function()
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Customcart) do
-            if #(playerpos - v.pos ) < 7 and IsPedInAnyVehicle(PlayerPedId(), 0) then
+            if #(playerpos - v.pos ) < 7  then
                 customprompt:setActiveThisFrame(true)
                 print 'rrr'
                 if customprompt:hasHoldModeJustCompleted()then
