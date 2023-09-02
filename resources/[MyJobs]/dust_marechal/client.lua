@@ -330,9 +330,17 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
         OpenCustomCart(horse, horseid, model)
     end, function(data, menu)
         if data.current.value ~= 0 then 
-            MenuUpdateComp(data, menu, horse)
+            MenuUpdateCart(data, menu, horse)
         end
     end)
+end
+
+function MenuUpdateCart(data, menu, horse)
+    print (data.current.value,  comp_list[data.current.category][data.current.value].hash)
+    NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
+    if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
+        CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+    end
 end
 
 function MenuUpdateComp(data, menu, horse)
