@@ -366,6 +366,8 @@ RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(source, components, meta)
     CompCache = components
     selectedmeta = meta
+    print (type(meta))
+    print (type(selectedmeta))
 end)
 
 local initializing = false

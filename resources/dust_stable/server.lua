@@ -232,7 +232,6 @@ AddEventHandler("dust_stable:server:askcomponents", function(horseid)
 				if result[i].selected == 0 then 
 					_components = json.decode(result[1].components)
 					meta = json.decode(result[1].meta)
-					print (type(meta))
 					TriggerClientEvent("dust_stable:server:getcomponents", _source, _components, meta)
 				end
 			end                    
