@@ -366,7 +366,7 @@ RegisterNetEvent('rdr_marechal:OpenCustomMenu')
 AddEventHandler('rdr_marechal:OpenCustomMenu', function(value, Components, horse, horseid, model)
     CompCache = Components
     if value == 1 then
-        for k, v in pairs(comp_cart) do
+        for k, v in pairs(comp_list) do
             if CompCache[k] == nil then
                 CompCache[k] = {}
                 CompCache[k].hash = 0
