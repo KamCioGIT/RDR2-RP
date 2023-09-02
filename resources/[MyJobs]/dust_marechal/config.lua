@@ -39,7 +39,7 @@ Config.Customzone = {
 	vector3(2502.748, -1450.436, 46.31255), --- saint denis
 }
 Config.Customcart = {
-	vector3(2500.031, -1419.292, 46.12471)
+	vector3(2500.031, -1419.292, 46.12471),
 }
 
 Config.OpenKey = "0x156F7119"
