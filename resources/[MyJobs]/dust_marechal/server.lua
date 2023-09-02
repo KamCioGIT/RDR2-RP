@@ -26,7 +26,7 @@ AddEventHandler('rdr_marechal:loadcomp', function(value, horseid, horse)
         horseid = _horseid
     }, function(_comp)
         if #_comp ~= 0 then
-			for i = 1, #result do
+			for i = 1, #_comp do
                 _comp = json.decode(_comp[i].components)
             end
         else
