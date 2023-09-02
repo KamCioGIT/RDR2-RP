@@ -32,6 +32,22 @@ Config.WarHorses = {
     },
 }
 
+Config.Buycart = {
+	Saint_Denis = {
+		pos = vector3(2503.784, -1403.029, 46.16075),
+		name = 'Achat',
+		stable= 'buyhorse',
+	},
+}
+
+Config.Cart = {
+	gatchuck= {
+		model = "gatchuck",
+		name = "Charrette",
+		desc = "Une Charrette",
+    },
+}
+
 Config.Label = {
 	["saddle_horns"] = "Pommeau",
 	["horse_blankets"] = "Tapis de Scelle",
@@ -45,6 +61,12 @@ Config.Label = {
 	["HORSE_TAILS"] = "Queue",
 }
 
+Config.CartCustom = {
+	["tints"] = "Couleurs",
+	["propsets"] = "Équipements",
+	["liveries"] = "Peintures",
+	["extras"] = "Ajouts",
+}
 
 
 

@@ -535,7 +535,8 @@ function buyhorse(stable)
                     comp[k].hash = nil
                 end
             end
-            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp)
+            local type = "horse"
+            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type)
             isInteracting = false
         end,
 
@@ -668,3 +669,62 @@ AddEventHandler('horse:horsestimulant', function(source)
                 Citizen.InvokeNative(0xD4EE21B7CC7FD350, true) --core
                 PlaySoundFrontend("Core_Fill_Up", "Consumption_Sounds", true, 0)
 end)
+
+
+----- CHARRETTE ----- 
+local cartprompt = UipromptGroup:new("Sacoches")
+Uiprompt:new(0x156F7119, "Ouvrir", cartprompt)
+cartprompt:setActive(false)
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(0)
+        local playerpos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.Buyhorse) do
+            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+                cartprompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x156F7119) then
+                    buycart(v.stable)
+                    isInteracting = true
+                end
+            end
+        end
+    end
+end)
+
+function buycart(stable)
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local elements = {}
+
+        for k, v in pairs(Config.Cart) do
+            table.insert(elements, {label = v.name, value = v.model, desc = v.desc})
+        end
+        MenuData.Open('default', GetCurrentResourceName(), 'buycart', {
+            title = "Acheter une charrette",
+            subtext = "Charrette",
+            align = 'top-right',
+            elements = elements,
+        },
+        
+        function(data, menu)
+            MenuData.CloseAll()
+            local comp = {}
+            for k,v in pairs(Config.CartCustom) do
+                if comp[k] == nil then
+                    comp[k] = {}
+                    comp[k].id = nil
+                end
+            end
+            local type = "cart"
+            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type)
+            isInteracting = false
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end
