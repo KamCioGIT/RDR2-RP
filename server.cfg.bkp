@@ -47,6 +47,7 @@ ensure redemrp_clothes_store
 ensure redemrp_charselect
 ensure [REDEMRP]
 ensure gumApi
+ensure gtp_safecracking
 
 # Dust Resources
 ensure dust_stable
@@ -65,7 +66,7 @@ ensure dust_rumors
 ensure [GUM]
 ensure redm-doorsearch
 ensure dust_marechal
-ensure gtp_safecracking
+
 
 #MAPPING
 ensure [MAPPING]
