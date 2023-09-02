@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `stable` (
   `race` varchar(50) NULL,
   `name` varchar(50) NULL,
   `components`  varchar(5000) NOT NULL DEFAULT '{}',
+  `meta`  varchar(5000) NOT NULL DEFAULT '{}',
   `job` varchar(50) NOT NULL DEFAULT 'x',
   `jobgrade` int(11) NOT NULL DEFAULT 0,
   `gang` varchar(50) NOT NULL DEFAULT 'x',
