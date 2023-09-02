@@ -39,12 +39,10 @@ AddEventHandler('rdr_marechal:loadcomp', function(value, horseid, horse)
         --     _comp = {}
         -- end
         -- model = _comp[1].model
-        if _comp ~= nil then
-            if _value == 1 then
-                TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid, model)
-            elseif _value == 2 then
-                TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid)
-            end
+        if _value == 1 then
+            TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid, model)
+        elseif _value == 2 then
+            TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid)
         end
     end)
 end)
