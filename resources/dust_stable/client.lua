@@ -557,6 +557,15 @@ Citizen.CreateThread(function()
                 end
             end
         end
+        for k, v in pairs(Config.Buycart) do
+            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+                PromptSetActiveGroupThisFrame(AchatPromptGroup, AchatPromptName)
+                if IsControlJustReleased(0, 0x156F7119) then
+                    buycart(v.stable)
+                    isInteracting = true
+                end
+            end
+        end
     end
 end)
 
@@ -587,6 +596,43 @@ function buyhorse(stable)
                 end
             end
             local type = "horse"
+            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type)
+            isInteracting = false
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end
+
+function buycart(stable)
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local elements = {}
+
+        for k, v in pairs(Config.Cart) do
+            table.insert(elements, {label = v.name, value = v.model, desc = v.desc})
+        end
+        MenuData.Open('default', GetCurrentResourceName(), 'buycart', {
+            title = "Acheter une charrette",
+            subtext = "Charrette",
+            align = 'top-right',
+            elements = elements,
+        },
+        
+        function(data, menu)
+            MenuData.CloseAll()
+            local comp = {}
+            for k,v in pairs(Config.CartCustom) do
+                if comp[k] == nil then
+                    comp[k] = {}
+                    comp[k].id = nil
+                end
+            end
+            local type = "cart"
             TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type)
             isInteracting = false
         end,
@@ -743,39 +789,3 @@ Citizen.CreateThread(function()
     end
 end)
 
-function buycart(stable)
-    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-        MenuData.CloseAll()
-
-        local elements = {}
-
-        for k, v in pairs(Config.Cart) do
-            table.insert(elements, {label = v.name, value = v.model, desc = v.desc})
-        end
-        MenuData.Open('default', GetCurrentResourceName(), 'buycart', {
-            title = "Acheter une charrette",
-            subtext = "Charrette",
-            align = 'top-right',
-            elements = elements,
-        },
-        
-        function(data, menu)
-            MenuData.CloseAll()
-            local comp = {}
-            for k,v in pairs(Config.CartCustom) do
-                if comp[k] == nil then
-                    comp[k] = {}
-                    comp[k].id = nil
-                end
-            end
-            local type = "cart"
-            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type)
-            isInteracting = false
-        end,
-
-        function(data, menu)
-            menu.close()
-            isInteracting = false
-        end)
-    end)
-end

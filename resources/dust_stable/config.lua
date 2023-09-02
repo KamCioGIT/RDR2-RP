@@ -34,7 +34,7 @@ Config.WarHorses = {
 
 Config.Buycart = {
 	Saint_Denis = {
-		pos = vector3(2503.784, -1403.029, 46.16075),
+		pos = vector3(2502.023, -1487.874, 45.9691),
 		name = 'Achat',
 		stable= 'buyhorse',
 	},
