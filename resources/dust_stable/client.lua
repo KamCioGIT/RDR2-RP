@@ -420,7 +420,7 @@ function spawnhorse(model, name, horseid)
 
     --- SET LES META DU CHEVAL
 
-    if selectedcomp ~= {} then
+    if next(selectedcomp) ~= nil then
         print 'okay'
         for k, v in pairs(Config.Label) do
             if selectedcomp[k] then
