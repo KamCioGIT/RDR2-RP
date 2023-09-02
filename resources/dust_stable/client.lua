@@ -56,7 +56,7 @@ end)
 
 
 local storeprompt = UipromptGroup:new("Écurie")
-Uiprompt:new(0x156F7119, "Mettre à l'écurie", storeprompt):setHoldMode(true)
+Uiprompt:new(0x156F7119, "Mettre à l'écurie", storeprompt)
 storeprompt:setActive(false)
 
 
