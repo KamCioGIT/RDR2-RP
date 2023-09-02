@@ -530,7 +530,9 @@ function buyhorse(stable)
             MenuData.CloseAll()
             local comp = {}
             for k, v in pairs(Config.Label) do
-                table.insert(comp, {[k].hash = 0})
+                if not comp[k] then
+                    comp[k].hash = 0
+                end
             end
             TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp)
             isInteracting = false
