@@ -14,3 +14,5 @@ client_script {
 	'client.lua',
 	'config.lua'
 }
+
+lua54 'yes'
