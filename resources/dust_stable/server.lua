@@ -217,8 +217,6 @@ AddEventHandler(
 		}, function(rowsChanged)
 
 		end)
-		local ItemData = data.getItem(_source, "createhorse")
-		ItemData.RemoveItem(1)
 end)
 
 ------- ASK COMPONENTS -----
@@ -229,10 +227,6 @@ AddEventHandler("dust_stable:server:askcomponents", function(horseid)
 	local identifier = user.identifier
 	local charid = user.charid
 	MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;', {horseid = horseid}, function(result)
-		if result[1] then
-			_components = result[1].components
-			_meta = json.decode(result[1].meta)
-		end
 		if #result ~= 0 then
 			for i = 1, #result do
 				if result[i].selected == 0 then 
