@@ -57,7 +57,6 @@ end)
 
 local storeprompt = Uiprompt:new(0x156F7119, "Mettre à l'écurie")
 storeprompt:setStandardMode(true)
-storeprompt:setEnabledAndVisible(false)
 
 Citizen.CreateThread(function()
     while true do
