@@ -421,7 +421,7 @@ function spawnhorse(model, name, horseid)
     -- end
 
     --- SET LES META DU CHEVAL
-    if selectedcomp ~= nil and selectedcomp ~= "0" then
+    if selectedcomp ~= nil then
         local comp = json.decode(selectedcomp)
         for k, v in pairs(Config.Label) do
             if comp[k] then
