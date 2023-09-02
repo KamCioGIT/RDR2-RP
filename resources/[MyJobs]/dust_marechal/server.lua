@@ -27,14 +27,16 @@ AddEventHandler('rdr_marechal:loadcomp', function(value, horseid, horse)
     }, function(_comp)
         if _comp[1] then
             _comp = json.decode(_comp[1].components)
+            model = _comp[1].model
         else
             _comp = {}
+            model = _comp[1].model
         end
         if _comp ~= nil then
             if _value == 1 then
-                TriggerClientEvent("rdr_marechal:ApplyComp", _source, _comp, horse, _horseid)
+                TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid, model)
             elseif _value == 2 then
-                TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _comp, horse, _horseid)
+                TriggerClientEvent("rdr_marechal:OpenCustomMenu", _source, _value, _comp, horse, _horseid)
             end
         end
     end)

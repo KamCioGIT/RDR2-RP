@@ -23,8 +23,23 @@ Config.MenuElements = {
 	}
 }
 
+Config.MenuCart = {
+	["équipement"] = {
+		label = "Modifications",
+		category = {
+			"tints",
+			"propsets",
+			"liveries",
+			"extras",
+		}
+	},
+}
+
 Config.Customzone = {
 	vector3(2502.748, -1450.436, 46.31255), --- saint denis
+}
+Config.Customcart = {
+	vector3(2500.031, -1419.292, 46.12471)
 }
 
 Config.OpenKey = "0x156F7119"
@@ -42,3 +57,9 @@ Config.Label = {
 	["HORSE_TAILS"] = "Queue",
 }
 
+Config.LabelCart = {
+	["tints"] = "Couleurs",
+	["propsets"] = "Équipements",
+	["liveries"] = "Peintures",
+	["extras"] = "Ajouts",
+}

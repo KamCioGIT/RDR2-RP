@@ -29,6 +29,16 @@ Citizen.CreateThread(function()
                     TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
                 end
             end
+            if #(playerpos - v.pos ) < 7 and IsPedInAnyVehicle(PlayerPedId(), 0) then
+                customprompt:setActiveThisFrame(true)
+                if customprompt:hasHoldModeJustCompleted()then
+                    isInteracting = true
+                    local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
+                    local cartid = Entity(cart).state.horseid
+                    Wait(200)
+                    TriggerServerEvent('rdr_marechal:loadcomp', 1, cartid, cart)
+                end
+            end
         end
     end
 end)
@@ -172,6 +182,157 @@ function OpenCategory(menu_catagory, horse, horseid)
     end)
 end
 
+function OpenCustomCart(horse, horseid, model)
+    MenuData.CloseAll()
+    local playerPed = PlayerPedId()
+    local Position = GetEntityCoords(playerPed)
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 10.0 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                    FreezeEntityPosition(horse, false)
+                end)
+                return
+            end
+        end
+    end)
+
+    local elements = {}
+
+    for v, k in pairs(Config.MenuCart) do
+
+        table.insert(elements, {
+            label = k.label or v,
+            value = v,
+            category = v,
+            desc = "Change component"
+        })
+    end
+
+    table.insert(elements, {
+        label = Config.LabelCart["save"] or "Save",
+        value = "save",
+        desc = "Save Clothes"
+    })
+
+    MenuData.Open('default', GetCurrentResourceName(), 'custommenu', {
+
+        title = 'Cheval',
+
+        subtext = "Changer l'équipement",
+
+        align = 'top-left',
+
+        elements = elements
+
+    }, function(data, menu)
+        if data.current.value ~= "save" then
+            OpenCategoryCart(data.current.value, horse, horseid)
+        else
+            menu.close()
+            TriggerServerEvent("rdr_marechal:save", CompCache, horseid)
+            OldCompCache = {}
+            isInteracting = false
+            FreezeEntityPosition(horse, false)
+
+        end
+
+    end, function(data, menu)
+        menu.close()
+        isInteracting = false
+        for k, v in pairs(Config.Label) do
+            Citizen.InvokeNative(0x0D7FFA1B2F69ED82, horse, CompCache[k].hash, true, true, true)
+        end
+        Wait(100)
+        for k, v in pairs(Config.Label) do
+            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, OldCompCache[k].hash, true, true, true)
+        end
+        FreezeEntityPosition(horse, false)
+        OldCompCache = {}
+    end)
+end
+
+function OpenCategoryCart(menu_catagory, horse, horseid, model)
+    MenuData.CloseAll()
+    local elements = {}
+    local a = 1
+    for v, k in pairs(Config.MenuCart[menu_catagory].category) do
+        local category = comp_cart[k]
+        local options = {}
+        for k, v in pairs(category) do
+            table.insert(options, k .." Style")
+        end
+        table.insert(elements, {
+            label = Config.LabelCart[k] or v,
+            value = 0,
+            category = k,
+            desc = "Change component",
+            type = "slider",
+            min = 0,
+            max = #category,
+            change_type = "model",
+            id = a,
+            options = options
+        })
+        table.insert(elements, {
+            label = "Peinture",
+            value = comp_cart[k][model],
+            category = k,
+            desc = "Change component",
+            type = "slider",
+            min = 0,
+            max = #category,
+            change_type = "model",
+            id = a,
+            options = options
+        })
+        a = a + 1
+        options = {}
+
+        -- for i = 1, GetMaxTexturesForModel(k, CompCache[k].model or 1), 1 do
+        --     table.insert(options, i.." Color")
+        -- end
+        -- table.insert(elements, {
+        --     label = Config.Label[k] .. " Color" or v,
+        --     value = CompCache[k].texture or 1,
+        --     category = k,
+        --     desc = "Change the color",
+        --     type = "slider",
+        --     min = 1,
+        --     -- max = GetMaxTexturesForModel(k, CompCache[k].model or 1),
+        --     change_type = "texture",
+        --     id = a,
+        --     options = options
+        -- })
+
+        options = {}
+        a = a + 1
+    end
+    MenuData.Open('default', GetCurrentResourceName(), 'custommenucategory', {
+
+        title = 'Clothes',
+
+        subtext = 'Options',
+
+        align = 'top-left',
+
+        elements = elements
+
+    }, function(data, menu)
+
+    end, function(data, menu)
+        menu.close()
+        OpenCustomCart(horse, horseid, model)
+    end, function(data, menu)
+        if data.current.value ~= 0 then 
+            MenuUpdateComp(data, menu, horse)
+        end
+    end)
+end
+
 function MenuUpdateComp(data, menu, horse)
     print (data.current.value,  comp_list[data.current.category][data.current.value].hash)
     NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
@@ -192,17 +353,30 @@ end
 
 
 RegisterNetEvent('rdr_marechal:OpenCustomMenu')
-AddEventHandler('rdr_marechal:OpenCustomMenu', function(Components, horse, horseid)
+AddEventHandler('rdr_marechal:OpenCustomMenu', function(value, Components, horse, horseid, model)
     CompCache = Components
-    for k,v in pairs(comp_list) do
-        if CompCache[k] == nil then
-            CompCache[k] = {}
-            CompCache[k].hash = 0
+    if value == 1 then
+        for k, v in pairs(comp_cart) do
+            if CompCache[k] == nil then
+                CompCache[k] = {}
+                CompCache[k].hash = 0
+            end
         end
+        OldCompCache = deepcopy(CompCache)
+        FreezeEntityPosition(horse, true)
+        OpenCustomCraft(horse, horseid, model)
     end
-    OldCompCache = deepcopy(CompCache)
-    FreezeEntityPosition(horse, true)
-    OpenCustomMenu(horse, horseid)
+    if value == 2 then
+        for k, v in pairs(comp_list) do
+            if CompCache[k] == nil then
+                CompCache[k] = {}
+                CompCache[k].hash = 0
+            end
+        end
+        OldCompCache = deepcopy(CompCache)
+        FreezeEntityPosition(horse, true)
+        OpenCustomMenu(horse, horseid)
+    end
 end)
 
 function deepcopy(orig)
