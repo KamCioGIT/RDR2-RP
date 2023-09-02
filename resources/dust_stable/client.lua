@@ -450,6 +450,7 @@ function spawncart(model, name, horseid, stashid)
     local pCoords = GetEntityCoords(ped)
     local modelHash = GetHashKey(model)
 
+
     if not HasModelLoaded(modelHash) then
         RequestModel(modelHash)
         while not HasModelLoaded(modelHash) do
@@ -459,7 +460,7 @@ function spawncart(model, name, horseid, stashid)
 
     initializing = true
     local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
-    local cart = CreateVehicle(modelhash, spawnPosition, GetEntityHeading(ped) - 90.0, true, true)
+    local cart = CreateVehicle(modelHash, spawnPosition, GetEntityHeading(ped) - 90.0, true, true)
     SetModelAsNoLongerNeeded(modelHash)
 
     SetPedPromptName(cart, name)
