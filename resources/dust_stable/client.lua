@@ -82,10 +82,10 @@ end)
 
 local horselist = {}
 RegisterNetEvent("dust_stable:server:gethorse")
-AddEventHandler("dust_stable:server:gethorse", function(horseid, nom, model, pos, _race)
+AddEventHandler("dust_stable:server:gethorse", function(horseid, nom, model, pos, _race, idstash)
     horselist = {}
     Wait(50)
-    table.insert(horselist, {id = horseid, name = nom, race = model, stable = pos, lib = _race})
+    table.insert(horselist, {id = horseid, name = nom, race = model, stable = pos, lib = _race, stashid = idstash})
 end)
 
 ---- Menu stable ----
@@ -143,7 +143,7 @@ function OpenStable(menutype, stable)
                     Wait(500)
                     for k, v in pairs(horselist) do
                         if v.id == data.current.value then
-                            spawnhorse(v.race, v.name, v.id)
+                            spawnhorse(v.race, v.name, v.id, v.stashid)
                         end
                         Wait(100)
                         horselist[k] = nil
@@ -368,7 +368,7 @@ AddEventHandler("dust_stable:server:getcomponents", function(components, _meta)
 end)
 
 local initializing = false
-function spawnhorse(model, name, horseid)
+function spawnhorse(model, name, horseid, stashid)
     if initializing then
         return
     end
@@ -424,6 +424,7 @@ function spawnhorse(model, name, horseid)
     end
     if CompCache["horse_saddles"].hash ~= nil then
         Entity(horse).state.saddle = "true"
+        Entity(entity).state.saddle = stashid
     end
     SetPedConfigFlag(horse, 297, true)
     Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, selectedmeta.health)
@@ -593,7 +594,7 @@ Citizen.CreateThread(function()
                 if Entity(entity).state.saddle == "true" then
                     saddleprompt:setActiveThisFrame(true)
                     if saddleprompt:hasHoldModeJustCompleted() then
-
+                        TriggerEvent("redemrp_inventory:OpenStash", Entity(entity).state.stashid, 10.0)
                     end
                 end
             end

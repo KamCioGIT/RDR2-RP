@@ -57,7 +57,8 @@ AddEventHandler(
 						local model = result[i].model
 						local stable = result[i].stable
 						local race = result[i].race
-						TriggerClientEvent("dust_stable:server:gethorse", _source, horseid, name, model, stable, race)
+						local stashid = result[i].stashid
+						TriggerClientEvent("dust_stable:server:gethorse", _source, horseid, name, model, stable, race, satshid)
 					end
 				end                    
 			end
@@ -202,8 +203,11 @@ AddEventHandler(
     	local generetedhorseid = string.format("%03d%04d", numBase0, numBase1)
 		local horseid = generetedhorseid
 		local _meta = {health = 50, stamina = 50}
+		local numBase0 = math.random(100, 999)
+		local numBase1 = math.random(0, 9999)
+		local generetedUid = string.format("%03d%04d", numBase0, numBase1)
 		MySQL.update(
-		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `components`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @components);',
+		'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `components`, `stashid`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @components, @stashid);',
 		{
 			identifier = identifier,
 			charid = charid,
@@ -213,10 +217,17 @@ AddEventHandler(
 			stable = stable,
 			race = race,
 			meta = json.encode(_meta),
-			components = json.encode(comp)
+			components = json.encode(comp),
+			stashid = "horse_"..generetedUid
 		}, function(rowsChanged)
 
 		end)
+		MySQL.update(
+		'INSERT INTO stashes (`stashid`) VALUES (@stashid);',
+		{
+			stashid = "horse_"..generetedUid
+		}, function(rowsChanged)
+	end)
 end)
 
 ------- ASK COMPONENTS -----
