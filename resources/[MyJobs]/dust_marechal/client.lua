@@ -269,7 +269,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
         end
         table.insert(elements, {
             label = Config.LabelCart[k] or v,
-            value = ClothesCache[k].hash or 0,
+            value = CompCache[k].hash or 0,
             category = k,
             desc = "Change component",
             type = "slider",
