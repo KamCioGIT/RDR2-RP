@@ -577,10 +577,11 @@ end)
 Citizen.CreateThread(function()
     while true do
         Wait(0)
-        local playerpos = GetEntityCoords(PlayerPedId())
-        local ped = GetClosestPed(playerpos.x, playerpos.y, playerpos.z , 2.0, 0, 0, ped, 0, 0, 6)
-        for k, v in pairs(peds) do
-            if Entity(v.ped).state.horseid then
+        local coords = GetEntityCoords(PlayerPedId())
+        local ped = GetClosestVehicle(coords.x, coords.y, coords.z, 5.0, 0, 70)
+        if ped then
+            print 'okayped'
+            if Entity(ped).state.horseid then
                 print "okay horseid"
             end
         end
