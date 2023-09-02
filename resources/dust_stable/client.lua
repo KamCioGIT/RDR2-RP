@@ -84,9 +84,7 @@ end)
 local horselist = {}
 RegisterNetEvent("dust_stable:server:gethorse")
 AddEventHandler("dust_stable:server:gethorse", function(horseid, nom, model, pos, _race)
-    for k, v in pairs(horselist) do
-        table.remove(horselist, k)
-    end
+    horselist = {}
     Wait(50)
     table.insert(horselist, {id = horseid, name = nom, race = model, stable = pos, lib = _race})
 end)
