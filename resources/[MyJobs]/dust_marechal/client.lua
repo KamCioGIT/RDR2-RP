@@ -232,7 +232,7 @@ function OpenCustomCart(horse, horseid, model)
 
     }, function(data, menu)
         if data.current.value ~= "save" then
-            OpenCategoryCart(data.current.value, horse, horseid)
+            OpenCategoryCart(data.current.value, horse, horseid, model)
         else
             menu.close()
             TriggerServerEvent("rdr_marechal:save", CompCache, horseid)
