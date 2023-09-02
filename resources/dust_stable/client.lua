@@ -529,8 +529,9 @@ function buyhorse(stable)
         function(data, menu)
             MenuData.CloseAll()
             local comp = {}
-            for k, v in pairs(Config.Label) do
-                if not comp[k] then
+            for k,v in pairs(Config.Label) do
+                if comp[k] == nil then
+                    comp[k] = {}
                     comp[k].hash = 0
                 end
             end
