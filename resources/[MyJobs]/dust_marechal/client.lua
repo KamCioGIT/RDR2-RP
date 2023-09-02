@@ -337,24 +337,24 @@ end
 
 function MenuUpdateCart(data, menu, horse)
     if data.current.category == "tints" then
-
-        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
-            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+        Citizen.InvokeNative(0x8268B098F6FCA4E2, horse, comp_cart[data.current.category][data.current.value].hash)
+        if CompCache[data.current.category].hash ~= comp_cart[data.current.category][data.current.value].hash then
+            CompCache[data.current.category].hash = comp_cart[data.current.category][data.current.value].hash
         end
     elseif data.current.category == "propsets" then
 
-        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
-            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+        if CompCache[data.current.category].hash ~= comp_cart[data.current.category][data.current.value].hash then
+            CompCache[data.current.category].hash = comp_cart[data.current.category][data.current.value].hash
         end
     elseif data.current.category == "extras" then
-        Citizen.InvokeNative(0xBB6F89150BC9D16B, horse, 1, 0)
-        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
-            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+        Citizen.InvokeNative(0xBB6F89150BC9D16B, horse, comp_cart[data.current.category][data.current.value].hash, 0)
+        if CompCache[data.current.category].hash ~= comp_cart[data.current.category][data.current.value].hash then
+            CompCache[data.current.category].hash = comp_cart[data.current.category][data.current.value].hash
         end
     elseif data.current.category == "liveries" then
-
-        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
-            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+        Citizen.InvokeNative(0xF89D82A0582E46ED, horse, comp_cart[data.current.category][data.current.value].hash)
+        if CompCache[data.current.category].hash ~= comp_cart[data.current.category][data.current.value].hash then
+            CompCache[data.current.category].hash = comp_cart[data.current.category][data.current.value].hash
         end
     end 
     
