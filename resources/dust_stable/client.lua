@@ -469,15 +469,14 @@ function spawncart(model, name, horseid, stashid)
     -- end
     
     -- for k, v in pairs(Config.CartCustom) do
-    --     if selectedcomp[k] == 'extras' then
-    --         Citizen.InvokeNative(0xBB6F89150BC9D16B, cart, tonumber(selectedcomp[k].id), 0) -- EXTRA
-    --     elseif selectedcomp[k] == 'liveries' then
-    --         Citizen.InvokeNative(0xF89D82A0582E46ED, cart, tonumber(selectedcomp[k].id))
-    --     elseif selectedcomp[k] == 'propsets' then
-    --         Citizen.InvokeNative(0x75F90E4051CC084C, cart, GetHashKey(tostring(selectedcomp[k].id)))
-    --     elseif selectedcomp[k] == 'tints' then
-    --         Citizen.InvokeNative(0x8268B098F6FCA4E2, cart, tonumber(selectedcomp[k].id))
-    --     end
+    --         Citizen.InvokeNative(0xBB6F89150BC9D16B, cart, tonumber(selectedcomp['extras'].id), 0) -- EXTRA
+
+    --         Citizen.InvokeNative(0xF89D82A0582E46ED, cart, tonumber(selectedcomp['liveries'].id))
+   
+    --         Citizen.InvokeNative(0x75F90E4051CC084C, cart, GetHashKey(tostring(selectedcomp['propsets'].id)))
+
+    --         Citizen.InvokeNative(0x8268B098F6FCA4E2, cart, tonumber(selectedcomp['tints'].id))
+
     -- end
     Entity(cart).state.stashid = stashid
 
