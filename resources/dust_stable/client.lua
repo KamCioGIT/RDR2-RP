@@ -422,7 +422,7 @@ function spawnhorse(model, name, horseid, stashid)
     for k, v in pairs(Config.Label) do
         Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, CompCache[k].hash, true, true, true)
     end
-    if CompCache["horse_saddles"].hash ~= nil then
+    if CompCache["HORSE_SADDLEBAGS"].hash ~= nil then
         Entity(horse).state.saddle = "true"
         Entity(entity).state.saddle = stashid
     end
