@@ -245,13 +245,13 @@ function OpenCustomCart(horse, horseid, model)
     end, function(data, menu)
         menu.close()
         isInteracting = false
-        for k, v in pairs(Config.LabelCart) do
-            Citizen.InvokeNative(0x0D7FFA1B2F69ED82, horse, CompCache[k].hash, true, true, true)
-        end
-        Wait(100)
-        for k, v in pairs(Config.LabelCart) do
-            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, OldCompCache[k].hash, true, true, true)
-        end
+        -- for k, v in pairs(Config.LabelCart) do
+        --     Citizen.InvokeNative(0x0D7FFA1B2F69ED82, horse, CompCache[k].hash, true, true, true)
+        -- end
+        -- Wait(100)
+        -- for k, v in pairs(Config.LabelCart) do
+        --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, OldCompCache[k].hash, true, true, true)
+        -- end
         FreezeEntityPosition(horse, false)
         OldCompCache = {}
     end)
