@@ -596,6 +596,7 @@ Citizen.CreateThread(function()
                     saddleprompt:setActiveThisFrame(true)
                     if IsControlJustReleased(0, 0x760A9C6F) then
                         OpenhorseStash(entity)
+                        TriggerEvent("redemrp_inventory:OpenStash", Entity(entity).state.stashid, 10.0)
                     end
                 end
             end
@@ -612,7 +613,6 @@ function OpenhorseStash(entity)
     while true do
         Wait(0)
         local pos = GetEntityCoords(entity)
-        TriggerEvent("redemrp_inventory:OpenStash", Entity(entity).state.stashid, 10.0)
         if #(pos - oldpos) > 2.0 then
             TriggerEvent("redemrp_inventory:closeinv")
             break
