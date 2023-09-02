@@ -270,7 +270,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
         end
         table.insert(elements, {
             label = Config.LabelCart[k] or v,
-            value = 0  or comp_cart["propsets"][model],
+            value = 0,
             category = k,
             desc = "Change component",
             type = "slider",
@@ -280,18 +280,18 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
             id = a,
             options = options
         })
-        -- table.insert(elements, {
-        --     label = "Props",
-        --     value = comp_cart["propsets"][model],
-        --     category = "propsets",
-        --     desc = "Change component",
-        --     type = "slider",
-        --     min = 0,
-        --     max = #category,
-        --     change_type = "model",
-        --     id = a,
-        --     options = options
-        -- })
+        table.insert(elements, {
+            label = "Props",
+            value = comp_cart["propsets"][model],
+            category = "propsets",
+            desc = "Change component",
+            type = "slider",
+            min = 0,
+            max = #category,
+            change_type = "model",
+            id = a,
+            options = options
+        })
         a = a + 1
         options = {}
 
@@ -393,6 +393,7 @@ AddEventHandler('rdr_marechal:OpenCustomMenu', function(value, Components, horse
         OldCompCache = deepcopy(CompCache)
         FreezeEntityPosition(horse, true)
         OpenCustomCart(horse, horseid, model)
+        print ("kkk" model)
     end
     if value == 2 then
         for k, v in pairs(comp_list) do
