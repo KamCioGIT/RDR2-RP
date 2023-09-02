@@ -262,7 +262,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
     local elements = {}
     local a = 1
     for v, k in pairs(Config.MenuCart[menu_catagory].category) do
-        local category = comp_list[k]
+        local category = comp_cart[k]
         local options = {}
         for k, v in pairs(category) do
             table.insert(options, k .." Style")
@@ -366,7 +366,7 @@ RegisterNetEvent('rdr_marechal:OpenCustomMenu')
 AddEventHandler('rdr_marechal:OpenCustomMenu', function(value, Components, horse, horseid, model)
     CompCache = Components
     if value == 1 then
-        for k, v in pairs(comp_list) do
+        for k, v in pairs(comp_cart) do
             if CompCache[k] == nil then
                 CompCache[k] = {}
                 CompCache[k].hash = 0
