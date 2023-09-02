@@ -32,7 +32,7 @@ Config.MenuCart = {
 			"liveries",
 			"extras",
 		}
-	},
+	}
 }
 
 Config.Customzone = {
