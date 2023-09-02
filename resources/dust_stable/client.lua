@@ -579,7 +579,7 @@ Citizen.CreateThread(function()
         Wait(0)
         local player = PlayerPedId()
         local coords = GetEntityCoords(player)
-        local ped = GetPlayerTargetEntity(player)
+        local target, ped = GetPlayerTargetEntity(player)
         if ped then
             print 'okayped'
             if Entity(ped).state.horseid then
