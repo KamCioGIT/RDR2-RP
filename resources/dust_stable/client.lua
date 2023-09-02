@@ -362,11 +362,15 @@ end
 ---- Get Horse ----
 
 local spawnedhorses = {}
-local selectedcomp
-local selectedmeta
 RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(components, meta)
-    selectedcomp = components
+    CompCache = components
+    for k,v in pairs(Config.Label) do
+        if CompCache[k] == nil then
+            CompCache[k] = {}
+            CompCache[k].hash = 0
+        end
+    end
     selectedmeta = meta
 end)
 
@@ -423,9 +427,9 @@ function spawnhorse(model, name, horseid)
     --- SET LES META DU CHEVAL
     
     for k, v in pairs(Config.Label) do
-        print (selectedcomp[k])
-        if selectedcomp[k].hash then
-            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, selectedcomp[k].hash, true, true, true)
+        print (CompCache[k])
+        if CompCache[k].hash then
+            Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, CompCache[k].hash, true, true, true)
         end
     end
     SetPedConfigFlag(horse, 297, true)
