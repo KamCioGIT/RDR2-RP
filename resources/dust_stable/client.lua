@@ -55,8 +55,10 @@ Citizen.CreateThread(function()
 end)
 
 
-local storeprompt = Uiprompt:new(0x156F7119, "Mettre à l'écurie")
-storeprompt:setStandardMode(true)
+local storeprompt = UipromptGroup:new("Écurie")
+Uiprompt:new(0x156F7119, "Mettre à l'écurie", storeprompt):setHoldMode(true)
+storeprompt:setActive(false)
+
 
 Citizen.CreateThread(function()
     while true do
@@ -64,7 +66,7 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
-                storeprompt:setEnabledAndVisible(true)
+                storeprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x156F7119) then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
@@ -72,7 +74,7 @@ Citizen.CreateThread(function()
                     local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, horse, 1)
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid, valueHealth, valueStamina)
                 end
-            else storeprompt:setEnabledAndVisible(false) end
+            end
         end
     end
 end)
