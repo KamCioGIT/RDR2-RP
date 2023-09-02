@@ -33,7 +33,6 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Customcart) do
             if #(playerpos - v ) < 7 and IsPedInAnyVehicle(PlayerPedId(), 0) then
                 customprompt:setActiveThisFrame(true)
-                print 'rrr'
                 if customprompt:hasHoldModeJustCompleted()then
                     isInteracting = true
                     local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
