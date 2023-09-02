@@ -220,7 +220,7 @@ function OpenCustomCart(horse, horseid, model)
         desc = "Save Clothes"
     })
 
-    MenuData.Open('default', GetCurrentResourceName(), 'custommenu', {
+    MenuData.Open('default', GetCurrentResourceName(), 'customcart', {
 
         title = 'Cheval',
 
@@ -245,11 +245,11 @@ function OpenCustomCart(horse, horseid, model)
     end, function(data, menu)
         menu.close()
         isInteracting = false
-        for k, v in pairs(Config.Label) do
+        for k, v in pairs(Config.LabelCart) do
             Citizen.InvokeNative(0x0D7FFA1B2F69ED82, horse, CompCache[k].hash, true, true, true)
         end
         Wait(100)
-        for k, v in pairs(Config.Label) do
+        for k, v in pairs(Config.LabelCart) do
             Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, OldCompCache[k].hash, true, true, true)
         end
         FreezeEntityPosition(horse, false)
@@ -313,7 +313,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
         options = {}
         a = a + 1
     end
-    MenuData.Open('default', GetCurrentResourceName(), 'custommenucategory', {
+    MenuData.Open('default', GetCurrentResourceName(), 'customcartcategory', {
 
         title = 'Clothes',
 
