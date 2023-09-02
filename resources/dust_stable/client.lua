@@ -528,7 +528,11 @@ function buyhorse(stable)
         
         function(data, menu)
             MenuData.CloseAll()
-            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label)
+            local comp = {}
+            for k, v in pairs(Config.Label) do
+                comp[k].hash = 0
+            end
+            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp)
             isInteracting = false
         end,
 
