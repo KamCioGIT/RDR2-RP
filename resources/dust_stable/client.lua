@@ -424,7 +424,6 @@ function spawnhorse(model, name, horseid)
             Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, CompCache[k].hash, true, true, true)
     end
     SetPedConfigFlag(horse, 297, true)
-    print (selectedmeta.health, selectedmeta.stamina)
     Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, selectedmeta.health)
     Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, selectedmeta.stamina)
 
