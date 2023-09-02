@@ -6,7 +6,8 @@ server_script {
 	'@oxmysql/lib/MySQL.lua',
 	'server.lua',
 	'config.lua',
-	"horsecomp.lua"
+	"horsecomp.lua",
+	"cartcomp.lua"
 }
  
 client_script {

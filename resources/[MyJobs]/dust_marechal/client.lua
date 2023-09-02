@@ -262,7 +262,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
     local elements = {}
     local a = 1
     for v, k in pairs(Config.MenuCart[menu_catagory].category) do
-        local category = comp_cart["équipement"]
+        local category = comp_cart[k]
         local options = {}
         for k, v in pairs(category) do
             table.insert(options, k .." Style")
