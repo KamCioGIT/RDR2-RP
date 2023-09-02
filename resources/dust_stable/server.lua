@@ -65,28 +65,28 @@ AddEventHandler(
 end)
 
 
-RegisterNetEvent("dust_stable:server:askcomponents")
-AddEventHandler(
-    "dust_stable:server:askcomponents",
-    function(horseid)
-        local _source = source     
-		local user = RedEM.GetPlayer(_source)
-		local identifier = user.identifier
-		local charid = user.charid
-	MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid AND `horseid`=@horseid;',
-		{
-			identifier = identifier,
-			charid = charid,
-			horseid = horseid
-		}, function(result)
-			if #result ~= 0 then
-				for i = 1, #result do
-					local components = json.decode(result[i].components)
-					TriggerClientEvent("dust_stable:server:getcomponents", _source, horseid, components, model)
-				end                    
-			end
-		end)
-end)
+-- RegisterNetEvent("dust_stable:server:askcomponents")
+-- AddEventHandler(
+--     "dust_stable:server:askcomponents",
+--     function(horseid)
+--         local _source = source     
+-- 		local user = RedEM.GetPlayer(_source)
+-- 		local identifier = user.identifier
+-- 		local charid = user.charid
+-- 	MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid AND `horseid`=@horseid;',
+-- 		{
+-- 			identifier = identifier,
+-- 			charid = charid,
+-- 			horseid = horseid
+-- 		}, function(result)
+-- 			if #result ~= 0 then
+-- 				for i = 1, #result do
+-- 					local components = json.decode(result[i].components)
+-- 					TriggerClientEvent("dust_stable:server:getcomponents", _source, horseid, components, model)
+-- 				end                    
+-- 			end
+-- 		end)
+-- end)
 
 ---- Add Horse -----
 RegisterServerEvent("dust_stable:server:rename")
