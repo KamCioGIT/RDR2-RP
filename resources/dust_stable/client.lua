@@ -82,10 +82,10 @@ end)
 
 local horselist = {}
 RegisterNetEvent("dust_stable:server:gethorse")
-AddEventHandler("dust_stable:server:gethorse", function(horseid, nom, model, pos, _race, idstash)
+AddEventHandler("dust_stable:server:gethorse", function(horseid, nom, model, pos, _race, idstash, _type)
     horselist = {}
     Wait(50)
-    table.insert(horselist, {id = horseid, name = nom, race = model, stable = pos, lib = _race, stashid = idstash})
+    table.insert(horselist, {id = horseid, name = nom, race = model, stable = pos, lib = _race, stashid = idstash, type = _type})
 end)
 
 ---- Menu stable ----
@@ -143,7 +143,11 @@ function OpenStable(menutype, stable)
                     Wait(500)
                     for k, v in pairs(horselist) do
                         if v.id == data.current.value then
-                            spawnhorse(v.race, v.name, v.id, v.stashid)
+                            if v.type == "horse" then
+                                spawnhorse(v.race, v.name, v.id, v.stashid)
+                            elseif v.type == "cart" then
+                                spawncart(v.race, v.name, v.id, v.stashid)
+                            end
                         end
                         Wait(100)
                         horselist[k] = nil
@@ -436,6 +440,53 @@ function spawnhorse(model, name, horseid, stashid)
     table.insert(spawnedhorses, horse)
     initializing = false
 end
+
+function spawnhorse(model, name, horseid, stashid)
+    if initializing then
+        return
+    end
+
+    local ped = PlayerPedId()
+    local pCoords = GetEntityCoords(ped)
+    local modelHash = GetHashKey(model)
+
+    if not HasModelLoaded(modelHash) then
+        RequestModel(modelHash)
+        while not HasModelLoaded(modelHash) do
+            Citizen.Wait(10)
+        end
+    end
+
+    initializing = true
+    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
+    local cart = 
+    SetModelAsNoLongerNeeded(modelHash)
+
+    SetPedPromptName(cart, name)
+    Entity(cart).state.horseid = horseid
+    -- for _, component in pairs(selectedcomp) do
+    --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, component, true, true, true)
+    -- end
+    
+    for k, v in pairs(Config.CartCustom) do
+        if selectedcomp[k] == 'extras' then
+            Citizen.InvokeNative(0xBB6F89150BC9D16B, cart, tonumber(selectedcomp[k].id), 0) -- EXTRA
+        elseif selectedcomp[k] == 'liveries' then
+            Citizen.InvokeNative(0xF89D82A0582E46ED, cart, tonumber(selectedcomp[k].id))
+        elseif selectedcomp[k] == 'propsets' then
+            Citizen.InvokeNative(0x75F90E4051CC084C, cart, GetHashKey(tostring(selectedcomp[k].id)))
+        elseif selectedcomp[k] == 'tints' then
+            Citizen.InvokeNative(0x8268B098F6FCA4E2, cart, tonumber(selectedcomp[k].id))
+        end
+    end
+    Entity(cart).state.stashid = stashid
+
+    TriggerServerEvent("dust_stable:server:horseout", horseid)
+
+    table.insert(spawnedhorses, cart)
+    initializing = false
+end
+
 
 ---- RANGER LE CHEVAL  ----
 RegisterNetEvent("dust_stable:server:horsestocked")
