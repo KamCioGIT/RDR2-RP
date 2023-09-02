@@ -75,7 +75,7 @@ Citizen.CreateThread(function()
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid, valueHealth, valueStamina)
                 end
             end
-            if #(playerpos - v.pos ) < 7 and IsPedInVehicle(PlayerPedId()) then
+            if #(playerpos - v.pos ) < 7 and IsPedInAnyVehicle(PlayerPedId(), 0) then
                 print 'ya'
                 storeprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x156F7119) then
