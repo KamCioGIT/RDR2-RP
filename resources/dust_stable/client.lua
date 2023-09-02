@@ -574,20 +574,7 @@ AddEventHandler('txAdmin:events:scheduledRestart', function()
 end)
 
 ---- LOOT STASHES ---
-Citizen.CreateThread(function()
-    while true do
-        Wait(0)
-        local player = PlayerPedId()
-        local coords = GetEntityCoords(player)
-        local target, ped = GetPlayerTargetEntity(player)
-        if ped then
-            print 'okayped'
-            if Entity(ped).state.horseid then
-                print "okay horseid"
-            end
-        end
-    end
-end)
+
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
