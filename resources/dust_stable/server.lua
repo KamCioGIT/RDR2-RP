@@ -229,7 +229,7 @@ AddEventHandler("dust_stable:server:askcomponents", function(horseid)
 	local charid = user.charid
 	MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;', {horseid = horseid}, function(result)
 		if result[1] then
-			components = json.decode(result[1].components)
+			components = result[1].components
 			meta = json.decode(result[1].meta)
 		end
 	end)

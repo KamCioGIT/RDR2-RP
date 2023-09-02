@@ -421,12 +421,11 @@ function spawnhorse(model, name, horseid)
     -- end
 
     --- SET LES META DU CHEVAL
-
-    if selectedcomp ~= {} then
-        print 'okay'
+    if selectedcomp ~= nil and selectedcomp ~= "0" then
+        local comp = json.decode(selectedcomp)
         for k, v in pairs(Config.Label) do
-            if selectedcomp[k] then
-                Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, selectedcomp[k].hash, true, true, true)
+            if comp[k] then
+                Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, comp[k].hash, true, true, true)
             end
         end
     end
