@@ -13,5 +13,6 @@ client_script {
 	"@uiprompt/uiprompt.lua",
 	'client.lua',
 	'config.lua',
-	"horsecomp.lua"
+	"horsecomp.lua",
+	"cartcomp"
 }
