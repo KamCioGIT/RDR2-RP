@@ -424,7 +424,8 @@ function spawnhorse(model, name, horseid, stashid)
     end
     if CompCache["HORSE_SADDLEBAGS"].hash ~= nil then
         Entity(horse).state.saddle = "true"
-        Entity(entity).state.saddle = stashid
+        Entity(horse).state.stashid = stashid
+        print (stashid)
     end
     SetPedConfigFlag(horse, 297, true)
     Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, selectedmeta.health)
