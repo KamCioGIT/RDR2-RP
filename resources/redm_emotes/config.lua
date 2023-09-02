@@ -1,6 +1,6 @@
 Config = {}
 
-Config.framework = "rsg" --"redemrp" or "rsg"
+Config.framework = "redemrp" --"redemrp" or "rsg"
 
 Config.Texts = {
     action = "Action Emotes",
