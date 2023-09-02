@@ -85,7 +85,7 @@ comp_cart = {
             {category= 'liveries',hash= 29},
             {category= 'liveries',hash= 30},
             },
-        -- ["comp_liveries"] = {
+        -- ["propsets"] = {
         --         ["armoredCar01x"] = {
         --             "pg_veh_armoredCar01x_1",
         --         },

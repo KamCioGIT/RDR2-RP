@@ -28,7 +28,7 @@ Config.MenuCart = {
 		label = "Modifications",
 		category = {
 			"tints",
-			"propsets",
+			-- "propsets",
 			"liveries",
 		}
 	},
