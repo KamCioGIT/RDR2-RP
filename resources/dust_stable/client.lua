@@ -573,6 +573,21 @@ AddEventHandler('txAdmin:events:scheduledRestart', function()
     TriggerServerEvent('dust_stable:server:resethorse')
 end)
 
+---- LOOT STASHES ---
+Citizen.CreateThread(fucntion()
+    while true do
+        Wait(0)
+        local playerpos = GetEntityCoords(PlayerPedId())
+        local peds = lib.getNearbyPeds(playerpos, 2.0)
+        for k, v in pairs(peds) do
+            if Entity(v.ped).state.horseid then
+                print "okay horseid"
+            end
+        end
+    end
+end)
+
+
 
 ------- META/STATUS CHEVAUX -----
 RegisterNetEvent('horse:haycube')
