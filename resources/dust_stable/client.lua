@@ -424,7 +424,6 @@ function spawnhorse(model, name, horseid)
     end
     if CompCache["horse_saddles"].hash ~= nil then
         Entity(horse).state.saddle = "true"
-        print (CompCache["horse_saddles"].hash)
     end
     SetPedConfigFlag(horse, 297, true)
     Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, selectedmeta.health)
@@ -577,20 +576,24 @@ AddEventHandler('txAdmin:events:scheduledRestart', function()
 end)
 
 ---- LOOT STASHES ---
+local saddleprompt = UipromptGroup:new("Sacoches")
+Uiprompt:new(0x760A9C6F, "Ouvrir", saddleprompt):setHoldMode(true)
+saddleprompt:setActive(false)
 
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         local itemSet = CreateItemset(true)
-        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 5.0, itemSet, 1, Citizen.ResultAsInteger())
+        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 1.5, itemSet, 1, Citizen.ResultAsInteger())
       
         if size > 0 then
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
-                if Entity(entity).state.horseid then
-                    if Entity(entity).state.saddle == "true" then
-                        print "mamacita"
+                if Entity(entity).state.saddle == "true" then
+                    saddleprompt:setActiveThisFrame(true)
+                    if saddleprompt:hasHoldModeJustCompleted() then
+
                     end
                 end
             end
