@@ -336,11 +336,28 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
 end
 
 function MenuUpdateCart(data, menu, horse)
-    print (data.current.value,  comp_list[data.current.category][data.current.value].hash)
-    NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
-    if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
-        CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
-    end
+    if data.current.category == "tints" then
+
+        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
+            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+        end
+    elseif data.current.category == "propsets" then
+
+        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
+            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+        end
+    elseif data.current.category == "extras" then
+        Citizen.InvokeNative(0xBB6F89150BC9D16B, horse, 1, 0)
+        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
+            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+        end
+    elseif data.current.category == "liveries" then
+
+        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
+            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+        end
+    end 
+    
 end
 
 function MenuUpdateComp(data, menu, horse)
