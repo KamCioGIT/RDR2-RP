@@ -230,12 +230,12 @@ AddEventHandler("dust_stable:server:askcomponents", function(horseid)
 	local charid = user.charid
 	MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;', {horseid = horseid}, function(result)
 		if result[1] then
-			components = json.decode(result[1].components)
-			meta = json.decode(result[1].meta)
-			print (#components)
+			_components = json.decode(result[1].components)
+			_meta = json.decode(result[1].meta)
+			print (#_components)
 		end
 	end)
-	TriggerClientEvent("dust_stable:server:getcomponents", _source, components, meta)
+	TriggerClientEvent("dust_stable:server:getcomponents", _source, _components, _meta)
 end)
 
 ------ CHEVAL SORTI ----
