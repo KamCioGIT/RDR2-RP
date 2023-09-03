@@ -380,11 +380,11 @@ AddEventHandler("RegisterUsableItem:horsereviver", function(source)
 end)
 
 RegisterServerEvent("RegisterUsableItem:horsehaycube")
-AddEventHandler("RegisterUsableItem:haycube", function(source)
+AddEventHandler("RegisterUsableItem:horsehaycube", function(source)
  local _source = source
 		   	local itemData = data.getItem(_source, "horsehaycube")
 	itemData.RemoveItem(1)
-	TriggerClientEvent('dust_stable:haycube', _source)
+	TriggerClientEvent('dust_stable:horsehaycube', _source)
 end)
 RegisterServerEvent("RegisterUsableItem:horsestimulant")
 AddEventHandler("RegisterUsableItem:horsestimulant", function(source)

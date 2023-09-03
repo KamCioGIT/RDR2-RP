@@ -762,8 +762,8 @@ end)
 
 
 ------- META/STATUS CHEVAUX -----
-RegisterNetEvent('dust_stable:haycube')
-AddEventHandler('dust_stable:haycube', function(source)
+RegisterNetEvent('dust_stable:horsehaycube')
+AddEventHandler('dust_stable:horsehaycube', function(source)
 
     local player = PlayerPedId()
     local onhorse = IsPedOnMount(player)
