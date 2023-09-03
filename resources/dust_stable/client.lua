@@ -822,7 +822,7 @@ AddEventHandler('horse:horsereviver', function(source)
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
                 ResurrectPed(entity)
-                SetEntityCoords(entity, spawnposition.x, spawnposition.y, spawnposition.z, 0, 0, 0, 0)
+                SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 0, 0)
             end
         end
 
