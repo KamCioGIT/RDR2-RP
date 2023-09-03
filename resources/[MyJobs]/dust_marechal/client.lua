@@ -338,8 +338,8 @@ function MenuUpdateCart(data, menu, horse, model)
         end
     elseif data.current.category == "propsets" then
         Citizen.InvokeNative(0x75F90E4051CC084C, horse, cart_props[model][data.current.value].hash)
-        if CompCache[data.current.category].hash ~= comp_cart[data.current.category][data.current.value].hash then
-            CompCache[data.current.category].hash = comp_cart[data.current.category][data.current.value].hash
+        if CompCache[data.current.category].hash ~= cart_props[model][data.current.value].hash then
+            CompCache[data.current.category].hash = cart_props[model][data.current.value].hash
         end
     elseif data.current.category == "extras" then
         Citizen.InvokeNative(0xBB6F89150BC9D16B, horse, comp_cart[data.current.category][data.current.value].hash, 0)
