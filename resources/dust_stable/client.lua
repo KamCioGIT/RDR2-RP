@@ -832,6 +832,10 @@ AddEventHandler('dust_stable:horsereviver', function(source)
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.horseid then
                 -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
+                    RequestAnimDict("mech_inventory@item@stimulants@inject@quick")
+                    while not HasAnimDictLoaded("mech_inventory@item@stimulants@inject@quick") do
+                        Citizen.Wait(100)
+                    end
                     TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.horseid)
                     TaskPlayAnim(PlayerPedId(), "mech_inventory@item@stimulants@inject@quick", "quick_stimulant_inject_rhand", 8.0, -8.0, 3000, 0, 0, true, 0, false, 0, false)
                     Wait(3000)
