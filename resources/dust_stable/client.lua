@@ -828,7 +828,7 @@ AddEventHandler('horse:horsereviver', function(source)
                 -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
                     TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.horseid)
                     -- oldentity = entity
-                    DeleteEntity(oldentity)
+                    DeleteEntity(entity)
                     Wait(200)
                     spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid)
                     return
