@@ -923,7 +923,7 @@ Config.Items = {
         canBeUsed = true,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/folder_notes.png",
+        imgsrc = "items/consumable_horse_medicine.png",
         type = "item_standard",
     },
 }
