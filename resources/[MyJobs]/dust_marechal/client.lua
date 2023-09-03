@@ -262,7 +262,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
     local elements = {}
     local a = 1
     print (model)
-    if menu_category == "propsets" then
+    if menu_catagory == "propsets" then
         local cat = cart_props[model]
         for k, v in pairs(cat) do
             table.insert(options, k .." Style")
@@ -279,7 +279,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
             id = a,
             options = options
         })
-    elseif  menu_category ~= "propsets" then 
+    else
         for v, k in pairs(Config.MenuCart[menu_catagory].category) do
             local category = comp_cart[k]
             local options = {}
@@ -322,6 +322,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
             a = a + 1
         end
     end
+
     MenuData.Open('default', GetCurrentResourceName(), 'customcartcategory', {
 
         title = 'Clothes',
