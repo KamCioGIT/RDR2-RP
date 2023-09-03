@@ -382,7 +382,7 @@ AddEventHandler("dust_stable:server:getcomponents", function(components, _meta)
 end)
 
 local initializing = false
-function spawnhorse(model, name, horseid, stashid)
+function spawnhorse(model, name, horseid, stashid, health, stamina)
     if initializing then
         return
     end
@@ -830,9 +830,7 @@ AddEventHandler('dust_stable:horsereviver', function(source)
                 -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
                     TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.horseid)
                     Wait(200)
-                    spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid)
-                    Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, 10)
-                    Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, 10)
+                    spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid, 10, 10)
                     DeleteEntity(entity)
                     return
                 end
