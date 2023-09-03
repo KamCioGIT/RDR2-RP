@@ -380,7 +380,7 @@ AddEventHandler("RegisterUsableItem:horsereviver", function(source)
 end)
 
 RegisterServerEvent("RegisterUsableItem:horsehaycube")
-AddEventHandler("RegisterUsableItem:horsehaycube", function(source)
+AddEventHandler("RegisterUsableItem:haycube", function(source)
  local _source = source
 		   	local itemData = data.getItem(_source, "horsehaycube")
 	itemData.RemoveItem(1)
@@ -393,12 +393,12 @@ AddEventHandler("RegisterUsableItem:horsestimulant", function(source)
 	itemData.RemoveItem(1)
 	TriggerClientEvent('dust_stable:horsestimulant', _source)
 end)
-RegisterServerEvent("RegisterUsableItem:horsereviver")
-AddEventHandler("RegisterUsableItem:horsereviver", function(source)
+RegisterServerEvent("RegisterUsableItem:horsemedicine")
+AddEventHandler("RegisterUsableItem:horsemedicine", function(source)
  local _source = source
-		   	local itemData = data.getItem(_source, "horsereviver")
+		   	local itemData = data.getItem(_source, "horsemedicine")
 	itemData.RemoveItem(1)
-	TriggerClientEvent('dust_stable:horsereviver', _source)
+	TriggerClientEvent('dust_stable:horsemedicine', _source)
 end)
 
 -- Save meta du cheval dans la db
