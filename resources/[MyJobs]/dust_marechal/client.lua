@@ -264,9 +264,9 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
     print (model)
     for v, k in pairs(Config.MenuCart[menu_catagory].category) do
         if menu_catagory ~= "propsets" then
-            local category = comp_cart[k]
+            category = comp_cart[k]
         else
-            local category = cart_props[model]
+            category = cart_props[model]
         end
         local options = {}
         for k, v in pairs(category) do
