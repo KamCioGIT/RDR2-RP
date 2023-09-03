@@ -829,6 +829,7 @@ AddEventHandler('horse:horsereviver', function(source)
                     TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.horseid)
                     Wait(200)
                     print (GetEntityModel(entity))
+                    DeleteEntity(cart)
                     spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid)
                     return
                 end
