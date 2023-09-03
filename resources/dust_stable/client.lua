@@ -427,6 +427,7 @@ function spawnhorse(model, name, horseid, stashid)
 
     SetPedPromptName(horse, name)
     Entity(horse).state.horseid = horseid
+    Entity(horse).state.name = name
     -- for _, component in pairs(selectedcomp) do
     --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, component, true, true, true)
     -- end
@@ -822,12 +823,9 @@ AddEventHandler('horse:horsereviver', function(source)
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 2.0, 0.0)
                 -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
-                ResurrectPed(entity)
-                SetAnimalTuningBoolParam(entity, 25, false)
-                SetAnimalTuningBoolParam(entity, 24, false)
-            
-                TaskAnimalUnalerted(entity, -1, false, 0, 0)
-                SetPedConfigFlag(entity, 297, true)
+                TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.stashid)
+                Wait(200)
+                spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid)
             end
         end
 
