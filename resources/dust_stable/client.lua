@@ -827,10 +827,9 @@ AddEventHandler('horse:horsereviver', function(source)
                 if Entity(entity).state.horseid then
                 -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
                     TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.horseid)
-                    oldentity = entity
-                    print (GetEntityModel(oldentity))
+                    -- oldentity = entity
+                    DeleteEntity(oldentity)
                     Wait(200)
-                    DeleteEntity(cart)
                     spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid)
                     return
                 end
