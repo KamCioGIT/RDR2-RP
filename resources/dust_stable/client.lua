@@ -746,22 +746,24 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
         local coords = GetEntityCoords(PlayerPedId())
         local cart = lib.getClosestVehicle(coords, 3.0, false)
-      
-        if Entity(cart).state.stashid then
-            print 'yyyyy'
-            saddleprompt:setActiveThisFrame(true)
-            if IsControlJustReleased(0, 0x760A9C6F) then
-                TriggerEvent("redemrp_inventory:OpenStash", Entity(cart).state.stashid, 10.0)
-                local oldpos = GetEntityCoords(entity)
-                -- while true do
-                --     Wait(0)
-                --     local pos = GetEntityCoords(entity)
-                --     if #(pos - oldpos) > 2.0 then
-                --         TriggerEvent("redemrp_inventory:closeinv")
-                --     end
-                -- end
-            end
+        if cart then
+            print 'rrrr'
         end
+        -- if Entity(cart).state.stashid then
+        --     print 'yyyyy'
+        --     saddleprompt:setActiveThisFrame(true)
+        --     if IsControlJustReleased(0, 0x760A9C6F) then
+        --         TriggerEvent("redemrp_inventory:OpenStash", Entity(cart).state.stashid, 10.0)
+        --         local oldpos = GetEntityCoords(entity)
+        --         -- while true do
+        --         --     Wait(0)
+        --         --     local pos = GetEntityCoords(entity)
+        --         --     if #(pos - oldpos) > 2.0 then
+        --         --         TriggerEvent("redemrp_inventory:closeinv")
+        --         --     end
+        --         -- end
+        --     end
+        -- end
 end
 end)
 
