@@ -832,12 +832,12 @@ AddEventHandler('dust_stable:horsereviver', function(source)
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.horseid then
                 -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
-                    RequestAnimDict("mech_skin@sample@base")
-                    while not HasAnimDictLoaded("mech_skin@sample@base") do
+                    RequestAnimDict("mech_revive@unapproved")
+                    while not HasAnimDictLoaded("mech_revive@unapproved") do
                         Citizen.Wait(100)
                     end
                     TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.horseid)
-                    TaskPlayAnim(PlayerPedId(), "mech_skin@sample@base", "enter_high_syringe", 8.0, -8.0, 3000, 0, 0, true, 0, false, 0, false)
+                    TaskPlayAnim(PlayerPedId(), "mech_revive@unapproved", "syringe_revive", 8.0, -8.0, 3000, 0, 0, true, 0, false, 0, false)
                     Wait(3000)
                     spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid, 10, 10)
                     DeleteEntity(entity)
