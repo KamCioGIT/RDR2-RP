@@ -240,7 +240,6 @@ end)
 ------- ASK COMPONENTS -----
 RegisterServerEvent("dust_stable:server:askcomponents")
 AddEventHandler("dust_stable:server:askcomponents", function(horseid)
-	print 'test'
 	local _source = source
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
