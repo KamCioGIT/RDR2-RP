@@ -778,10 +778,14 @@ AddEventHandler('dust_stable:horsehaycube', function(source)
             TaskAnimalInteraction(player, horse, -224471938, true, true) --Anim
 
             local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, horse, 1)
+            Citizen.Wait(3500)
 
             if not tonumber(valueStamina) then valueStamina = 0 end
-            Citizen.Wait(3500)
-            Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, valueStamina + 15)
+            if valueStamina <= 10 then
+                Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, 10)
+            else
+                Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, valueStamina + 30)
+            end
         end
 end)
 
