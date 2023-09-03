@@ -383,7 +383,6 @@ end)
 
 local initializing = false
 function spawnhorse(model, name, horseid, stashid)
-    print 'rrr'
     if initializing then
         return
     end
@@ -446,8 +445,13 @@ function spawnhorse(model, name, horseid, stashid)
         print (stashid)
     end
     SetPedConfigFlag(horse, 297, true)
-    Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, selectedmeta.health)
-    Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, selectedmeta.stamina)
+    if  health and stamina then
+        Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, 10)
+        Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, 10)
+    else
+        Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, selectedmeta.health)
+        Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, selectedmeta.stamina)
+    end
 
     TriggerServerEvent("dust_stable:server:horseout", horseid)
 
