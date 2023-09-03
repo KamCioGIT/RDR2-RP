@@ -787,7 +787,7 @@ AddEventHandler('dust_stable:horsestimulant', function(source)
 
     local player = PlayerPedId()
     local _source = source
-    if IsPedOnMount(Ped) then
+    if IsPedOnMount(player) then
         local horse = GetMount(player)
         print 'rrr'
 
