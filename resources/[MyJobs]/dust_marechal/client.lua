@@ -279,7 +279,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
             id = a,
             options = options
         })
-    else
+    elseif  menu_category ~= "propsets" then 
         for v, k in pairs(Config.MenuCart[menu_catagory].category) do
             local category = comp_cart[k]
             local options = {}
