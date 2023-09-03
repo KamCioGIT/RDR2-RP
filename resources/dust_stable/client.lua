@@ -790,6 +790,7 @@ AddEventHandler('dust_stable:horsestimulant', function(source)
     local _source = source
     if onhorse then
         local horse = GetMount(player)
+        print 'rrr'
 
         TaskAnimalInteraction(PlayerPedId(), horse,-1355254781, 0, 0) --stem
 
