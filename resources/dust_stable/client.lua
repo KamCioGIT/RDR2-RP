@@ -390,17 +390,16 @@ function spawnhorse(model, name, horseid, stashid)
 
     local ped = PlayerPedId()
     local pCoords = GetEntityCoords(ped)
-    if type(model) ~= 'number' then 
-        local modelHash = GetHashKey(model)
-        if not HasModelLoaded(modelHash) then
-            RequestModel(modelHash)
-            while not HasModelLoaded(modelHash) do
-                Citizen.Wait(10)
-            end
+    local modelHash = GetHashKey(model)
+    if type(model) == 'number' then 
+        modelHash = model
+    end
+    if not HasModelLoaded(modelHash) then
+        RequestModel(modelHash)
+        while not HasModelLoaded(modelHash) do
+            Citizen.Wait(10)
         end
-    else local modelHash = model end
-
-    
+    end
 
     initializing = true
     local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
