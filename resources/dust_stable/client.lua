@@ -823,6 +823,11 @@ AddEventHandler('horse:horsereviver', function(source)
                 local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 2.0, 0.0)
                 -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
                 ResurrectPed(entity)
+                SetAnimalTuningBoolParam(entity, 25, false)
+                SetAnimalTuningBoolParam(entity, 24, false)
+            
+                TaskAnimalUnalerted(entity, -1, false, 0, 0)
+                SetPedConfigFlag(entity, 297, true)
             end
         end
 
