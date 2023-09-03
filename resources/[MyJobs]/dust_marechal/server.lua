@@ -35,6 +35,7 @@ AddEventHandler('rdr_marechal:loadcomp', function(value, horseid, horse)
                 _model = _comp[i].model
             end
         end
+        _model = _comp[i].model
         if _comp ~= nil then
             if _value == 1 then
                 print (_model)
