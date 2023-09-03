@@ -978,7 +978,7 @@ Config.Items = {
         canBeUsed = true,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/brosse.png",
+        imgsrc = "items/brush.png",
         type = "item_standard",
     },
 }
