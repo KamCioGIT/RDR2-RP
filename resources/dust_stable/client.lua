@@ -786,9 +786,8 @@ RegisterNetEvent('dust_stable:horsestimulant')
 AddEventHandler('dust_stable:horsestimulant', function(source)
 
     local player = PlayerPedId()
-    local onhorse = IsPedOnMount(Ped)
     local _source = source
-    if onhorse then
+    if IsPedOnMount(Ped) then
         local horse = GetMount(player)
         print 'rrr'
 
