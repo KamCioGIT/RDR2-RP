@@ -390,14 +390,17 @@ function spawnhorse(model, name, horseid, stashid)
 
     local ped = PlayerPedId()
     local pCoords = GetEntityCoords(ped)
-    local modelHash = GetHashKey(model)
-
-    if not HasModelLoaded(modelHash) then
-        RequestModel(modelHash)
-        while not HasModelLoaded(modelHash) do
-            Citizen.Wait(10)
+    if type(model) ~= 'number' then 
+        local modelHash = GetHashKey(model)
+        if not HasModelLoaded(modelHash) then
+            RequestModel(modelHash)
+            while not HasModelLoaded(modelHash) do
+                Citizen.Wait(10)
+            end
         end
-    end
+    else local modelHash = model end
+
+    
 
     initializing = true
     local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
@@ -827,7 +830,7 @@ AddEventHandler('horse:horsereviver', function(source)
                 TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.stashid)
                 Wait(200)
                 print (GetEntityModel(entity))
-                spawnhorse(GetHashKey(GetEntityModel(entity)), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid)
+                spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid)
             end
         end
 
