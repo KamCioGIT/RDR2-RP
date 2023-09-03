@@ -383,6 +383,7 @@ end)
 
 local initializing = false
 function spawnhorse(model, name, horseid, stashid)
+    print 'rrr'
     if initializing then
         return
     end
