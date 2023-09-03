@@ -833,7 +833,8 @@ AddEventHandler('dust_stable:horsereviver', function(source)
                 if Entity(entity).state.horseid then
                 -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
                     TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.horseid)
-                    Wait(200)
+                    TaskPlayAnim(PlayerPedId(), "mech_revive@unapproved", "syringe_revive", 8.0, -8.0, 3000, 0, 0, true, 0, false, 0, false)
+                    Wait(3000)
                     spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid, 10, 10)
                     DeleteEntity(entity)
                     return
