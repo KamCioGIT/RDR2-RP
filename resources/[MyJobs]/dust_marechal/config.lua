@@ -28,7 +28,7 @@ Config.MenuCart = {
 		label = "Modifications",
 		category = {
 			"tints",
-			"propsets",
+			-- "propsets",
 			"liveries",
 		}
 	},
@@ -36,6 +36,12 @@ Config.MenuCart = {
 		label = "Extras",
 		category = {
 			"extras",
+		}
+	},
+	["propsets"] = {
+		label = "Props",
+		category = {
+			"propsets",
 		}
 	},
 }
@@ -64,7 +70,7 @@ Config.Label = {
 
 Config.LabelCart = {
 	["tints"] = "Couleurs",
-	["propsets"] = "Équipements",
+	-- ["propsets"] = "Équipements",
 	["liveries"] = "Peintures",
 	["extras"] = "Ajouts",
 }

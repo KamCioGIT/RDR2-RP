@@ -280,22 +280,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
             id = a,
             options = options
         })
-        local cat = cart_props[model]
-        for k, v in pairs(cat) do
-            table.insert(options, k .." Style")
-        end
-        table.insert(elements, {
-            label = "Props",
-            value = 0,
-            category = k,
-            desc = "Change component",
-            type = "slider",
-            min = 0,
-            max = #cat,
-            change_type = "model",
-            id = a,
-            options = options
-        })
+        
         a = a + 1
         options = {}
 
@@ -317,6 +302,24 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
 
         options = {}
         a = a + 1
+    end
+    if menu_category == "propsets" then
+        local cat = cart_props[model]
+        for k, v in pairs(cat) do
+            table.insert(options, k .." Style")
+        end
+        table.insert(elements, {
+            label = "Props",
+            value = 0,
+            category = k,
+            desc = "Change component",
+            type = "slider",
+            min = 0,
+            max = #cat,
+            change_type = "model",
+            id = a,
+            options = options
+        })
     end
     MenuData.Open('default', GetCurrentResourceName(), 'customcartcategory', {
 
