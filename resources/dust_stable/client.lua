@@ -825,12 +825,12 @@ AddEventHandler('horse:horsereviver', function(source)
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.horseid then
-                -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
-                    TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.horseid)
-                    -- oldentity = entity
+                    local newentity = entity
                     DeleteEntity(entity)
+                -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
+                    TriggerServerEvent("dust_stable:server:askcomponents", Entity(newentity).state.horseid)
                     Wait(200)
-                    spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid)
+                    spawnhorse(GetEntityModel(newentity), Entity(newentity).state.name, Entity(newentity).state.horseid, Entity(newentity).state.stashid)
                     return
                 end
             end
