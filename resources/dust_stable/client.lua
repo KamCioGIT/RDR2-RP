@@ -858,6 +858,8 @@ AddEventHandler('dust_stable:horsemedicine', function(source)
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.horseid then
+                    TaskPlayAnim(PlayerPedId(), "script_re@injured_rider@dr_office", "brkout_syringe_01_doc", 8.0, -8.0, 3000, 0, 0, true, 0, false, 0, false)
+                    Wait(3000)
                     Citizen.InvokeNative(0xC6258F41D86676E0, entity, 0, 50)
                     return
                 end
