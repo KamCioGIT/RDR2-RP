@@ -28,7 +28,6 @@ AddEventHandler('rdr_marechal:loadcomp', function(value, horseid, horse)
         if _comp[1] then
             _model = _comp[1].model
             _comp = json.decode(_comp[1].components)
-            
         else
             _comp = {}
         end
