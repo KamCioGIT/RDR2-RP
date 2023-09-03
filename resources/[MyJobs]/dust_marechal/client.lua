@@ -262,65 +262,50 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
     local elements = {}
     local a = 1
     print (model)
-    if menu_catagory == "propsets" then
-        local cat = cart_props[model]
-        for k, v in pairs(cat) do
+    for v, k in pairs(Config.MenuCart[menu_catagory].category) do
+        if menu_catagory ~= "propsets" then
+            local category = comp_cart[k]
+        else
+            local category = cart_props[model]
+        end
+        local options = {}
+        for k, v in pairs(category) do
             table.insert(options, k .." Style")
         end
         table.insert(elements, {
-            label = "Props",
+            label = Config.LabelCart[k] or v,
             value = 0,
             category = k,
             desc = "Change component",
             type = "slider",
             min = 0,
-            max = #cat,
+            max = #category,
             change_type = "model",
             id = a,
             options = options
         })
-    else
-        for v, k in pairs(Config.MenuCart[menu_catagory].category) do
-            local category = comp_cart[k]
-            local options = {}
-            for k, v in pairs(category) do
-                table.insert(options, k .." Style")
-            end
-            table.insert(elements, {
-                label = Config.LabelCart[k] or v,
-                value = 0,
-                category = k,
-                desc = "Change component",
-                type = "slider",
-                min = 0,
-                max = #category,
-                change_type = "model",
-                id = a,
-                options = options
-            })
-            
-            a = a + 1
-            options = {}
+        
+        a = a + 1
+        options = {}
 
-            -- for i = 1, GetMaxTexturesForModel(k, CompCache[k].model or 1), 1 do
-            --     table.insert(options, i.." Color")
-            -- end
-            -- table.insert(elements, {
-            --     label = Config.Label[k] .. " Color" or v,
-            --     value = CompCache[k].texture or 1,
-            --     category = k,
-            --     desc = "Change the color",
-            --     type = "slider",
-            --     min = 1,
-            --     -- max = GetMaxTexturesForModel(k, CompCache[k].model or 1),
-            --     change_type = "texture",
-            --     id = a,
-            --     options = options
-            -- })
+        -- for i = 1, GetMaxTexturesForModel(k, CompCache[k].model or 1), 1 do
+        --     table.insert(options, i.." Color")
+        -- end
+        -- table.insert(elements, {
+        --     label = Config.Label[k] .. " Color" or v,
+        --     value = CompCache[k].texture or 1,
+        --     category = k,
+        --     desc = "Change the color",
+        --     type = "slider",
+        --     min = 1,
+        --     -- max = GetMaxTexturesForModel(k, CompCache[k].model or 1),
+        --     change_type = "texture",
+        --     id = a,
+        --     options = options
+        -- })
 
-            options = {}
-            a = a + 1
-        end
+        options = {}
+        a = a + 1
     end
 
     MenuData.Open('default', GetCurrentResourceName(), 'customcartcategory', {
