@@ -47,8 +47,8 @@ Config.Cart = {
 		desc = "Une Charrette",
     },
 	cart01= {
-		model = "cart01",
-		name = "Charrette",
+		model = "chuckwagon000x",
+		name = "Chuckwagon",
 		desc = "Une Charrette",
     },
 }
