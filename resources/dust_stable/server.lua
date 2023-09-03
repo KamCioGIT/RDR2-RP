@@ -407,4 +407,9 @@ AddEventHandler("RegisterUsableItem:fercheval", function(source)
 	itemData.RemoveItem(1)
 	TriggerClientEvent('dust_stable:fercheval', _source)
 end)
+RegisterServerEvent("RegisterUsableItem:brosse")
+AddEventHandler("RegisterUsableItem:brosse", function(source)
+ local _source = source
+	TriggerClientEvent('dust_stable:brosse', _source)
+end)
 -- Save meta du cheval dans la db

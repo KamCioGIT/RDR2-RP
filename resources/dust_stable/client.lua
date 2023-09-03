@@ -766,6 +766,35 @@ end)
 
 
 ------- META/STATUS CHEVAUX -----
+
+RegisterNetEvent('dust_stable:brosse')
+AddEventHandler('dust_stable:brosse', function(source)
+    while true do
+        Citizen.Wait(0)
+        local itemSet = CreateItemset(true)
+        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 2.0, itemSet, 1, Citizen.ResultAsInteger())
+      
+        if size > 0 then
+            for index = 0, size - 1 do
+                local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
+                if Entity(entity).state.horseid then
+                -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
+                    Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_Brush"), GetHashKey("p_brushHorse02x"), 1)
+                    Wait(3000)
+                    ClearPedEnvDirt(entity) 
+                    ClearPedDamageDecalByZone(entity ,10 ,"ALL")
+                    ClearPedBloodDamage(entity)
+                    return
+                end
+            end
+        end
+
+        if IsItemsetValid(itemSet) then
+            DestroyItemset(itemSet)
+        end
+    end
+end)
+
 RegisterNetEvent('dust_stable:horsehaycube')
 AddEventHandler('dust_stable:horsehaycube', function(source)
 

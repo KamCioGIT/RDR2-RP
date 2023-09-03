@@ -970,6 +970,17 @@ Config.Items = {
         imgsrc = "items/horseshoe.png",
         type = "item_standard",
     },
+    ["brosse"] = {
+        label = "Brosse",
+        description = "Pour nettoyer votre cheval",
+        weight = 0.01,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/brosse.png",
+        type = "item_standard",
+    },
 }
 
 exports("GetItemsList", function()
