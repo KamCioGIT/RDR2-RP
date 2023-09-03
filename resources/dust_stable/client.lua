@@ -824,12 +824,13 @@ AddEventHandler('horse:horsereviver', function(source)
         if size > 0 then
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
-                local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 2.0, 0.0)
+                if Entity(entity).state.horseid then
                 -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
-                TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.stashid)
-                Wait(200)
-                print (GetEntityModel(entity))
-                spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid)
+                    TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.stashid)
+                    Wait(200)
+                    print (GetEntityModel(entity))
+                    spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid)
+                end
             end
         end
 
