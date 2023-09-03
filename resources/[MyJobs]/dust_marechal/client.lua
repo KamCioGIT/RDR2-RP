@@ -325,19 +325,19 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
         OpenCustomCart(horse, horseid, model)
     end, function(data, menu)
         if data.current.value ~= 0 then 
-            MenuUpdateCart(data, menu, horse)
+            MenuUpdateCart(data, menu, horse, model)
         end
     end)
 end
 
-function MenuUpdateCart(data, menu, horse)
+function MenuUpdateCart(data, menu, horse, model)
     if data.current.category == "tints" then
         Citizen.InvokeNative(0x8268B098F6FCA4E2, horse, comp_cart[data.current.category][data.current.value].hash)
         if CompCache[data.current.category].hash ~= comp_cart[data.current.category][data.current.value].hash then
             CompCache[data.current.category].hash = comp_cart[data.current.category][data.current.value].hash
         end
     elseif data.current.category == "propsets" then
-        Citizen.InvokeNative(0x75F90E4051CC084C, horse, comp_cart[data.current.category][data.current.value].hash)
+        Citizen.InvokeNative(0x75F90E4051CC084C, horse, cart_props[model][data.current.value].hash)
         if CompCache[data.current.category].hash ~= comp_cart[data.current.category][data.current.value].hash then
             CompCache[data.current.category].hash = comp_cart[data.current.category][data.current.value].hash
         end
