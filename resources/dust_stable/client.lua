@@ -871,6 +871,31 @@ AddEventHandler('dust_stable:horsemedicine', function(source)
 end)
 
 
+RegisterNetEvent('dust_stable:fercheval')
+AddEventHandler('dust_stable:fercheval', function(source)
+    while true do
+        Citizen.Wait(0)
+        local itemSet = CreateItemset(true)
+        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 2.0, itemSet, 1, Citizen.ResultAsInteger())
+      
+        if size > 0 then
+            for index = 0, size - 1 do
+                local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
+                if Entity(entity).state.horseid then
+                    Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, 50)
+                    return
+                end
+            end
+        end
+
+        if IsItemsetValid(itemSet) then
+            DestroyItemset(itemSet)
+        end
+    end
+end)
+
+
+
 
 ----- CHARRETTE ----- 
 local cartprompt = UipromptGroup:new("Charrette")

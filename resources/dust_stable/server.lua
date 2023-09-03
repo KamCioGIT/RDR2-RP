@@ -400,5 +400,11 @@ AddEventHandler("RegisterUsableItem:horsemedicine", function(source)
 	itemData.RemoveItem(1)
 	TriggerClientEvent('dust_stable:horsemedicine', _source)
 end)
-
+RegisterServerEvent("RegisterUsableItem:fercheval")
+AddEventHandler("RegisterUsableItem:fercheval", function(source)
+ local _source = source
+		   	local itemData = data.getItem(_source, "fercheval")
+	itemData.RemoveItem(1)
+	TriggerClientEvent('dust_stable:fercheval', _source)
+end)
 -- Save meta du cheval dans la db

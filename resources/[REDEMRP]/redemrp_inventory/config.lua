@@ -959,6 +959,17 @@ Config.Items = {
         imgsrc = "items/consumable_horse_medicine.png",
         type = "item_standard",
     },
+    ["fercheval"] = {
+        label = "Fer à cheval",
+        description = "Penser à les changer lorsque votre cheval est à bout",
+        weight = 0.01,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/horseshoe.png",
+        type = "item_standard",
+    },
 }
 
 exports("GetItemsList", function()
