@@ -280,14 +280,18 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
             id = a,
             options = options
         })
+        local cat = cart_props[model]
+        for k, v in pairs(cat) do
+            table.insert(options, k .." Style")
+        end
         table.insert(elements, {
             label = "Props",
-            value = comp_cart["propsets"][model] or 0,
-            category = "propsets",
+            value = 0,
+            category = k,
             desc = "Change component",
             type = "slider",
             min = 0,
-            max = #category,
+            max = #cat,
             change_type = "model",
             id = a,
             options = options
