@@ -114,17 +114,17 @@ cart_props = {
     --     "pg_veh_canoe_02",
     -- },
 
-    ["cart01"] = {
-        "pg_re_checkpoint02x_food",
-        "pg_re_moonshineCampgroupCart01x",
-        "pg_teamster_cart01_breakables",
-        "pg_teamster_cart01_gen",
-        "pg_teamster_cart01_perishables",
-        "pg_teamster_cart01_tnt",
-        "pg_veh_cart01_1",
-        "pg_veh_cart01_2",
-        "pg_veh_cart01_3",
-    },
+    -- ["cart01"] = {
+    --     "pg_re_checkpoint02x_food",
+    --     "pg_re_moonshineCampgroupCart01x",
+    --     "pg_teamster_cart01_breakables",
+    --     "pg_teamster_cart01_gen",
+    --     "pg_teamster_cart01_perishables",
+    --     "pg_teamster_cart01_tnt",
+    --     "pg_veh_cart01_1",
+    --     "pg_veh_cart01_2",
+    --     "pg_veh_cart01_3",
+    -- },
 
     -- ["cart02"] = {
     --     "pg_mission_caravanCart02x",
