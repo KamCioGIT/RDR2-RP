@@ -837,7 +837,7 @@ AddEventHandler('dust_stable:horsereviver', function(source)
                         Citizen.Wait(100)
                     end
                     TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.horseid)
-                    TaskPlayAnim(PlayerPedId(), "script_re@injured_rider@dr_office", "brkout_syringe_01_doc", 8.0, -8.0, 3000, 0, 0, true, 0, false, 0, false)
+                    TaskPlayAnim(PlayerPedId(), "script_re@injured_rider@dr_office", "surgery_idle_02_syringe", 8.0, -8.0, 3000, 0, 0, true, 0, false, 0, false)
                     Wait(3000)
                     spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid, 10, 10)
                     DeleteEntity(entity)
