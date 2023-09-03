@@ -827,6 +827,8 @@ AddEventHandler('dust_stable:horsereviver', function(source)
                     TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.horseid)
                     Wait(200)
                     spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid)
+                    Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, 10)
+                    Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, 10)
                     DeleteEntity(entity)
                     return
                 end
