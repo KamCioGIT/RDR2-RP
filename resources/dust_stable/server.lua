@@ -393,6 +393,14 @@ end)
 
 ------- META/STATUS CHEVAUX -----
 ----HORSE ITEMS
+RegisterServerEvent("RegisterUsableItem:horsereviver")
+AddEventHandler("RegisterUsableItem:horsereviver", function(source)
+	local _source = source
+		   	local itemData = data.getItem(_source, "horsereviver")
+	itemData.RemoveItem(1)
+    TriggerClientEvent("horse:horsereviver", _source)
+end)
+
 RegisterServerEvent("RegisterUsableItem:horsehaycube")
 AddEventHandler("RegisterUsableItem:horsehaycube", function(source)
  local _source = source

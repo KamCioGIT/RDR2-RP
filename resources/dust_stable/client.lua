@@ -713,7 +713,6 @@ Citizen.CreateThread(function()
         if size > 0 then
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
-                local model = GetEntityModel(entity)
                 if Entity(entity).state.saddle == "true" and not IsPedOnMount(PlayerPedId()) then
                     saddleprompt:setActiveThisFrame(true)
                     if IsControlJustReleased(0, 0x760A9C6F) then
@@ -809,6 +808,28 @@ AddEventHandler('horse:horsestimulant', function(source)
                 Citizen.InvokeNative(0x50C803A4CD5932C5, true) --core
                 Citizen.InvokeNative(0xD4EE21B7CC7FD350, true) --core
                 PlaySoundFrontend("Core_Fill_Up", "Consumption_Sounds", true, 0)
+end)
+
+RegisterNetEvent('horse:horsereviver')
+AddEventHandler('horse:horsereviver', function(source)
+    while true do
+        Citizen.Wait(0)
+        local itemSet = CreateItemset(true)
+        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 2.0, itemSet, 1, Citizen.ResultAsInteger())
+      
+        if size > 0 then
+            for index = 0, size - 1 do
+                local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
+                local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
+                ResurrectPed(entity)
+                SetEntityCoords(entity, spawnposition.x, spawnposition.y, spawnposition.z, 0, 0, 0, 0)
+            end
+        end
+
+        if IsItemsetValid(itemSet) then
+            DestroyItemset(itemSet)
+        end
+    end
 end)
 
 
