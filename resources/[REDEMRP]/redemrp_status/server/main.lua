@@ -121,18 +121,3 @@ RegisterServerEvent("redemrp_status:server:AddHungerThirstForId", function(_sour
     TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress)
 end)
 
-----HORSE ITEMS
-RegisterServerEvent("RegisterUsableItem:horsehaycube")
-AddEventHandler("RegisterUsableItem:horsehaycube", function(source)
- local _source = source
-		   	local itemData = data.getItem(_source, "horsehaycube")
-	itemData.RemoveItem(1)
-	TriggerClientEvent('horse:haycube', _source)
-end)
-RegisterServerEvent("RegisterUsableItem:horsestimulant")
-AddEventHandler("RegisterUsableItem:horsestimulant", function(source)
- local _source = source
-		   	local itemData = data.getItem(_source, "horsestimulant")
-	itemData.RemoveItem(1)
-	TriggerClientEvent('horse:horsestimulant', _source)
-end)
