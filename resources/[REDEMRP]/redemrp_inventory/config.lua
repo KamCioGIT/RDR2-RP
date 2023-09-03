@@ -914,6 +914,17 @@ Config.Items = {
         limit = 2000,
         imgsrc = "items/folder_notes.png",
         type = "item_standard",
+    },   
+    ["horsereviver"] = {
+        label = "Remontant pour cheval",
+        description = "De quoi remettre un cheval sur ses pattes",
+        weight = 0.01,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/folder_notes.png",
+        type = "item_standard",
     },
 }
 
