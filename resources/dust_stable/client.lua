@@ -748,7 +748,6 @@ Citizen.CreateThread(function()
         local cart = lib.getClosestVehicle(coords, 3.0, false)
         if cart then
             if Entity(cart).state.stashid then
-                print 'yyyyy'
                 saddleprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     TriggerEvent("redemrp_inventory:OpenStash", Entity(cart).state.stashid, 10.0)
