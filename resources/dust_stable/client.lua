@@ -830,6 +830,7 @@ AddEventHandler('horse:horsereviver', function(source)
                     Wait(200)
                     print (GetEntityModel(entity))
                     spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid)
+                    break
                 end
             end
         end
