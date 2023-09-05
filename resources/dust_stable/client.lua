@@ -858,6 +858,7 @@ AddEventHandler('dust_stable:horsestimulant', function(source)
                     Citizen.InvokeNative(0x50C803A4CD5932C5, true) --core
                     Citizen.InvokeNative(0xD4EE21B7CC7FD350, true) --core
                     PlaySoundFrontend("Core_Fill_Up", "Consumption_Sounds", true, 0)
+                    return
                 end
             end
         end
