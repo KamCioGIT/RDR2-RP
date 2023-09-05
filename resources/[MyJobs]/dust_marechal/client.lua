@@ -134,7 +134,7 @@ function OpenCategory(menu_catagory, horse, horseid)
             image="items/weapon_melee_hammer.png",
             descriptionimages = {
              {
-              image = "items/weapon_melee_hammer.png",
+              src = "nui://redemrp_inventory/html/items/ammo_22_tranquilizer.png",
               text = "Kumaş",
               count = "x1"
              }},
