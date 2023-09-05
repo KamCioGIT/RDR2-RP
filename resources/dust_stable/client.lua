@@ -861,12 +861,12 @@ AddEventHandler('dust_stable:horsereviver', function(source)
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.horseid then
                 -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
-                    RequestAnimDict("amb_work@prop_human_seat_chair@mortar_pestle@medicine@male_a@base")
-                    while not HasAnimDictLoaded("amb_work@prop_human_seat_chair@mortar_pestle@medicine@male_a@base") do
+                    RequestAnimDict("amb_work@prop_human_seat_chair@mortar_pestle@medicine@male_a@trans@a_trans_pouch")
+                    while not HasAnimDictLoaded("amb_work@prop_human_seat_chair@mortar_pestle@medicine@male_a@trans@a_trans_pouch") do
                         Citizen.Wait(100)
                     end
                     TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.horseid)
-                    TaskPlayAnim(PlayerPedId(), "amb_work@prop_human_seat_chair@mortar_pestle@medicine@male_a@base", "base_medicine", 8.0, -8.0, 3000, 0, 0, true, 0, false, 0, false)
+                    TaskPlayAnim(PlayerPedId(), "amb_work@prop_human_seat_chair@mortar_pestle@medicine@male_a@trans", "a_trans_pouch", 8.0, -8.0, 3000, 0, 0, true, 0, false, 0, false)
                     Wait(3000)
                     spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid, 10, 10)
                     DeleteEntity(entity)
@@ -883,20 +883,18 @@ end)
 
 RegisterNetEvent('dust_stable:horsemedicine')
 AddEventHandler('dust_stable:horsemedicine', function(source)
-    local ped = PlayerPedId()
     while true do
         Citizen.Wait(0)
         local itemSet = CreateItemset(true)
-        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(ped), 2.0, itemSet, 1, Citizen.ResultAsInteger())
+        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 2.0, itemSet, 1, Citizen.ResultAsInteger())
       
         if size > 0 then
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.horseid then
-                    TaskStartScenarioInPlace(PlayerPedId(), GetHashKey(`WORLD_HUMAN_CROUCH_INSPECT`), playEnterAnim, true)
+                    TaskStartScenarioInPlace(ped, `WORLD_HUMAN_CLEAN_WINDOW`, -1, true, false, false, false)
                     Wait(5000)
                     Citizen.InvokeNative(0xC6258F41D86676E0, entity, 0, 50)
-                    ClearPedTasks(ped)
                     return
                 end
             end
