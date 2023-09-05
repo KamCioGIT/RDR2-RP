@@ -9,6 +9,10 @@ Config.Stables = {
 		pos = vector3(2493.225, -1398.888, 45.93799),
 		name = 'buyhorse',
     },
+	cinematic = {
+		pos = vector3(2557.551, -789.9655, 42.35028),
+		name = 'cinematic',
+    },
 
 }
 Config.Buyhorse = {
