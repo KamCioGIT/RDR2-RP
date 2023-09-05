@@ -126,7 +126,7 @@ function OpenCategory(menu_catagory, horse, horseid)
         local category = comp_list[k]
         local options = {}
         for k, v in pairs(category) do
-            table.insert(options, k .." Style")
+            table.insert(options, k)
         end
         table.insert(elements, {
             label = Config.Label[k] or v,
