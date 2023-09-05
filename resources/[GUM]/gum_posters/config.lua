@@ -92,7 +92,7 @@ Config.Posters = {
         blip=true,
         name="Panneau d'affichage - New Hannover", --- saint denis
         object="mp005_p_mp_bountyboard01x",
-        coords={(2573.404, -782.3102, 42.34581, 250.9799)},
+        coords={2573.404, -782.3102, 42.34581, 250.9799},
     },
 }
 
