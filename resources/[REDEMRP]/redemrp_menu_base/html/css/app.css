@@ -5,7 +5,7 @@
 
 @font-face {
 	font-family: HapnaSlabSerif-Medium;
-	src: url(../fonts/HapnaSlabSerif-Medium.ttf) format('truetype')
+	src: url(../fonts/Milonga-Regular.ttf) format('truetype')
 }
 
 @font-face {
@@ -99,7 +99,7 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 100% 100%;
-	font-family: "Milonga-Regular" !important;
+	font-family: "HapnaSlabSerif-Medium" !important;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -127,7 +127,7 @@ i{
 	margin-top:3%;
 }
 .desciption {
-	font-family: "Milonga-Regular";
+	font-family: "HapnaSlabSerif-Medium";
 	font-weight: 400 !important;
 	margin-left:auto;
 	margin-right:auto;
@@ -171,7 +171,6 @@ i{
  float:left;
 }
 #item-label {
- font-family: "Milonga-Regular";
  width:100%;
  float:left;
  /*width: 100%;*/
