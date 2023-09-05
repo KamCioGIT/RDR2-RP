@@ -33,7 +33,7 @@
 }
 .topline {
 	width: 90%;
-	height:4px;
+	height:6px;
 	margin: auto auto;
 	background-image: url(divider_line.png);
 	background-repeat: no-repeat;
@@ -130,6 +130,7 @@ i{
 	margin-right:auto;
 	text-align: center;
 	width: 370px;	
+	margin-top: 2vh;
 }
 .options-amount {
 	float:right;
