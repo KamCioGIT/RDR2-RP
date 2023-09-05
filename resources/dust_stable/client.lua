@@ -888,9 +888,9 @@ AddEventHandler('dust_stable:horsemedicine', function(source)
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.horseid then
-                    TaskStartScenarioInPlace(ped, `WORLD_HUMAN_CROUCH_INSPECT`, playEnterAnim, true)
+                    Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_Injection_Quick"), GetHashKey("p_cs_syringe01x"), 1)
                     Wait(5000)
-                    local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, horse, 0)
+                    local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, entity, 0)
                     Citizen.InvokeNative(0xC6258F41D86676E0, entity, 0, valueHealth + 50)
                     ClearPedTasks(ped)
                     return
