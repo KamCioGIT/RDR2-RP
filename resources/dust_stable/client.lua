@@ -892,8 +892,8 @@ AddEventHandler('dust_stable:horsemedicine', function(source)
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.horseid then
-                    TaskPlayAnim(PlayerPedId(), "script_re@injured_rider@dr_office", "brkout_syringe_01_doc", 8.0, -8.0, 3000, 0, 0, true, 0, false, 0, false)
-                    Wait(3000)
+                    TaskStartScenarioInPlace(ped, `WORLD_HUMAN_CLEAN_WINDOW`, -1, true, false, false, false)
+                    Wait(5000)
                     Citizen.InvokeNative(0xC6258F41D86676E0, entity, 0, 50)
                     return
                 end
@@ -909,16 +909,20 @@ end)
 
 RegisterNetEvent('dust_stable:fercheval')
 AddEventHandler('dust_stable:fercheval', function(source)
+    local ped = PlayerPedId()
     while true do
         Citizen.Wait(0)
         local itemSet = CreateItemset(true)
-        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 2.0, itemSet, 1, Citizen.ResultAsInteger())
+        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(ped), 2.0, itemSet, 1, Citizen.ResultAsInteger())
       
         if size > 0 then
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.horseid then
+                    TaskStartScenarioInPlace(ped, `WORLD_HUMAN_CROUCH_INSPECT`, -1, true, false, false, false)
+                    Wait(5000)
                     Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, 50)
+                    ClearPedTasks(ped)
                     return
                 end
             end
