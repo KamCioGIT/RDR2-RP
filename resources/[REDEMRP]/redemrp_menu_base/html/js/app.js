@@ -1,6 +1,6 @@
 (function () {
     let MenuTpl =
-        '<div id="menu_{{_namespace}}_{{_name}}" style="height: 80%;width: 25%;" class="menu{{#align}} align-{{align}}{{/align}}">' +
+        '<div id="menu_{{_namespace}}_{{_name}}" style="height: 75%;width: 25%;" class="menu{{#align}} align-{{align}}{{/align}}">' +
         '<div class="head"><span>{{{title}}}</span></div>' +
         '<div class="desciption">{{{subtext}}}</div>' +
         '<div class="topline"></div>' +
