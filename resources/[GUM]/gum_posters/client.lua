@@ -22,17 +22,14 @@ end)
 RegisterNetEvent('gum_poster:open', function()
 	api.setPromptEnable(""..Config.Language[2].."", promptDataOpen, false)
 	local pCoords = GetEntityCoords(PlayerPedId(), true)
-	local coords, entity = api.getTarget()
 	for a,b in pairs(posterBoard) do
 		local dist = GetDistanceBetweenCoords(pCoords, GetEntityCoords(b), true)
-		if dist < 8.0 then
-			if b == entity then
+		if dist < 4 then
 				local coords = GetEntityCoords(b)
 				local offset = GetOffsetFromEntityInWorldCoords(b, 0.0, -0.6, 1.6)
 				setCamera(offset.x, offset.y, offset.z, GetEntityHeading(b), coords)
 				backupCity = Config.Posters[a].name
 				TriggerServerEvent("gum_poster:getInformation", Config.Posters[a].name)
-			end
 		end
 	end
 	Citizen.Wait(1000)
