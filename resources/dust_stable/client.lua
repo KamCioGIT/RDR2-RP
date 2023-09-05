@@ -920,7 +920,7 @@ AddEventHandler('dust_stable:fercheval', function(source)
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.horseid then
-                    TaskStartScenarioInPlace(ped, `WORLD_HUMAN_CROUCH_INSPECT`, -1, true, false, false, false)
+                    TaskStartScenarioInPlace(ped, `WORLD_HUMAN_CROUCH_INSPECT`, playEnterAnim, true)
                     Wait(5000)
                     Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, 50)
                     ClearPedTasks(ped)
