@@ -136,7 +136,11 @@ function OpenCategory(menu_catagory, horse, horseid)
              {
               src = "nui://redemrp_inventory/html/items/ammo_22_tranquilizer.png",
               text = "Kumaş",
-              count = "x1"
+              count = "x1"},
+              {
+              src = "nui://redemrp_inventory/html/items/ammo_arrow_drain.png",
+              text = "Kumaş2",
+              count = "x4"
              }},
             category = k,
             desc = "Change component",
