@@ -85,7 +85,7 @@
 	background-image: url(selection_box_bg_1d.png);
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 100% 110%;
+	background-size: cover;
 	font-family: "HapnaSlabSerif-Medium", HapnaSlabSerif-Medium, serif;
 	justify-content: space-between;
 	align-items: center;
