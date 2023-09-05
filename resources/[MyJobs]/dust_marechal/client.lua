@@ -270,7 +270,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
         end
         local options = {}
         for k, v in pairs(category) do
-            table.insert(options, k .." Style")
+            table.insert(options, k)
         end
         table.insert(elements, {
             label = Config.LabelCart[k] or v,
@@ -282,7 +282,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
             max = #category,
             change_type = "model",
             id = a,
-            -- options = options
+            options = options
         })
         
         a = a + 1
