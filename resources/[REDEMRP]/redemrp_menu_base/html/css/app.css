@@ -134,6 +134,7 @@ i{
 	width: 370px;	
 	margin-top: 2vh;
 	margin-bottom: 1vh;
+	letter-spacing: 0.1vw;
 }
 .options-amount {
 	float:right;
