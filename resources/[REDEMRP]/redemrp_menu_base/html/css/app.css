@@ -21,7 +21,7 @@
 
 
 .menu {
-	font-family: "Timberline";
+	font-family: "Milonga-Regular";
 	min-width: 380px;
 	color: #fff;
 	position: absolute;
@@ -127,6 +127,7 @@ i{
 	margin-top:3%;
 }
 .desciption {
+	font-family: "Milonga-Regular";
 	margin-left:auto;
 	margin-right:auto;
 	text-align: center;
