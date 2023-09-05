@@ -159,7 +159,7 @@ i{
  float:left;
 }
 #item-label {
- width:80%;
+ width:100%;
  float:left;
  /*width: 100%;*/
  display: -webkit-box;
