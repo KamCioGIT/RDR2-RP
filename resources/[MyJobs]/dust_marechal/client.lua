@@ -282,7 +282,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
             max = #category,
             change_type = "model",
             id = a,
-            options = options
+            -- options = options
         })
         
         a = a + 1
