@@ -4,7 +4,7 @@
         '<div class="head"><span>{{{title}}}</span></div>' +
         '<div class="desciption">{{{subtext}}}</div>' +
         '<div class="topline"></div>' +
-        '<div class="menu-items" style="height: 48%;max-height: unset;">' +
+        '<div class="menu-items" style="height: 50%;max-height: unset;">' +
 
         '{{#elements}}' +
         '<div class="menu-item {{#selected}}selected{{/selected}} {{#isSlider}}slider{{/isSlider}} {{#isText}}text{{/isText}}">' +
