@@ -137,7 +137,7 @@ function OpenCategory(menu_catagory, horse, horseid)
               src = "nui://redemrp_menu_base/html/items/cloth.png",
               text = "Kumaş",
               count = "x1"
-             },
+             }},
             category = k,
             desc = "Change component",
             type = "slider",
