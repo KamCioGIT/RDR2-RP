@@ -71,14 +71,14 @@ function OpenCustomMenu(horse, horseid)
             label = k.label or v,
             value = v,
             category = v,
-            desc = "Change component"
+            desc = "Changer l'équipement"
         })
     end
 
     table.insert(elements, {
-        label = Config.Label["save"] or "Save",
+        label = Config.Label["save"] or "Valider",
         value = "save",
-        desc = "Save Clothes"
+        desc = "Changer l'équipement"
     })
 
     MenuData.Open('default', GetCurrentResourceName(), 'custommenu', {
@@ -132,7 +132,7 @@ function OpenCategory(menu_catagory, horse, horseid)
             label = Config.Label[k] or v,
             value = 0,
             category = k,
-            desc = "Change component",
+            desc = "Changer l'équipement",
             type = "slider",
             min = 0,
             max = #category,
@@ -164,7 +164,7 @@ function OpenCategory(menu_catagory, horse, horseid)
     end
     MenuData.Open('default', GetCurrentResourceName(), 'custommenucategory', {
 
-        title = 'Clothes',
+        title = 'Cheval',
 
         subtext = 'Options',
 

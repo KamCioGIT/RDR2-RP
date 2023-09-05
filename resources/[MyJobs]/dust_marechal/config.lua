@@ -2,7 +2,7 @@ Config = {}
 
 Config.MenuElements = {
 	["équipement"] = {
-		label = "Scelle",
+		label = "Selle",
 		category = {
 			"horse_saddles",
 			"horse_bedrolls",
@@ -57,7 +57,7 @@ Config.OpenKey = "0x156F7119"
 
 Config.Label = {
 	["saddle_horns"] = "Pommeau",
-	["horse_blankets"] = "Tapis de Scelle",
+	["horse_blankets"] = "Tapis de Selle",
 	["horse_saddles"] = "Selle",
 	["HORSE_SADDLEBAGS"] = "Sacoches",
 	["saddle_stirrups"] = "Étriers",
