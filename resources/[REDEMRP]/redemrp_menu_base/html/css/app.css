@@ -128,7 +128,7 @@ i{
 }
 .desciption {
 	font-family: "Milonga-Regular";
-	font-weight: 200;
+	font-weight: 400 !important;
 	margin-left:auto;
 	margin-right:auto;
 	text-align: center;
