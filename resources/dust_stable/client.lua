@@ -798,25 +798,33 @@ end)
 
 RegisterNetEvent('dust_stable:horsehaycube')
 AddEventHandler('dust_stable:horsehaycube', function(source)
-
-    local player = PlayerPedId()
-    local onhorse = IsPedOnMount(player)
-    local _source = source
-        if onhorse then
-            local horse = GetMount(player)
-
-            TaskAnimalInteraction(player, horse, -224471938, true, true) --Anim
-
-            local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, horse, 1)
-            Citizen.Wait(3500)
-
-            if not tonumber(valueStamina) then valueStamina = 0 end
-            if valueStamina <= 10 then
-                Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, 10)
-            else
-                Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, valueStamina + 30)
+    local ped = PlayerPedId()
+    while true do
+        Citizen.Wait(0)
+        local itemSet = CreateItemset(true)
+        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 2.0, itemSet, 1, Citizen.ResultAsInteger())
+      
+        if size > 0 then
+            for index = 0, size - 1 do
+                local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
+                if Entity(entity).state.horseid then
+                    Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_Food"), GetHashKey("s_horsnack_haycube01x"), 1)
+                    Citizen.Wait(3500)
+                    if not tonumber(valueStamina) then valueStamina = 0 end
+                    if valueStamina <= 10 then
+                        Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, 10)
+                    else
+                        Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, valueStamina + 30)
+                    end
+                    return
+                end
             end
         end
+
+        if IsItemsetValid(itemSet) then
+            DestroyItemset(itemSet)
+        end
+    end
 end)
 
 
