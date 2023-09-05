@@ -8,8 +8,14 @@
 	src: url(../fonts/HapnaSlabSerif-Medium.ttf) format('truetype')
 }
 
+@font-face {
+	font-family: Milonga-Regular;
+	src: url(../fonts/Milonga-Regular.ttf) format('truetype')
+}
+
+
 .menu {
-	font-family: "crock", crock, serif;
+	font-family: "Milonga-Regular";
 	min-width: 380px;
 	color: #fff;
 	position: absolute;
@@ -86,7 +92,7 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 100% 100%;
-	font-family: "HapnaSlabSerif-Medium", HapnaSlabSerif-Medium, serif;
+	font-family: "Milonga-Regular";
 	justify-content: space-between;
 	align-items: center;
 }
