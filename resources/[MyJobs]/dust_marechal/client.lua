@@ -131,6 +131,13 @@ function OpenCategory(menu_catagory, horse, horseid)
         table.insert(elements, {
             label = Config.Label[k] or v,
             value = 0,
+            image="items/weapon_melee_hammer.png",
+            descriptionimages = {
+             {
+              src = "nui://redemrp_menu_base/html/items/cloth.png",
+              text = "Kumaş",
+              count = "x1"
+             },
             category = k,
             desc = "Change component",
             type = "slider",
