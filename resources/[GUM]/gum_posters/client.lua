@@ -25,7 +25,7 @@ RegisterNetEvent('gum_poster:open', function()
 	local coords, entity = api.getTarget()
 	for a,b in pairs(posterBoard) do
 		local dist = GetDistanceBetweenCoords(pCoords, GetEntityCoords(b), true)
-		if dist < 4 then
+		if dist < 8.0 then
 			if b == entity then
 				local coords = GetEntityCoords(b)
 				local offset = GetOffsetFromEntityInWorldCoords(b, 0.0, -0.6, 1.6)
