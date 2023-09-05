@@ -33,7 +33,7 @@
 }
 .topline {
 	width: 90%;
-	height:6px;
+	height: 10px;
 	margin: auto auto;
 	background-image: url(divider_line.png);
 	background-repeat: no-repeat;
