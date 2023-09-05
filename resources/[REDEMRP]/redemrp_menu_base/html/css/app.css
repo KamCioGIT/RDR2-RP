@@ -81,7 +81,7 @@
 	min-height: 275px;
 	max-height: 405px;
 	overflow-y: hidden;
-	font-weight: 400;
+	/* font-weight: 400; */
 }
 
 .menu .menu-items .menu-item {
@@ -128,7 +128,7 @@ i{
 }
 .desciption {
 	font-family: "HapnaSlabSerif-Medium";
-	font-weight: 400 !important;
+	/* font-weight: 400 !important; */
 	margin-left:auto;
 	margin-right:auto;
 	text-align: center;
