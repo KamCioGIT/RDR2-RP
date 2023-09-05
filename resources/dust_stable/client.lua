@@ -871,6 +871,7 @@ end)
 
 RegisterNetEvent('dust_stable:horsereviver')
 AddEventHandler('dust_stable:horsereviver', function(source)
+    local ped = PlayerPedId()
     while true do
         Citizen.Wait(0)
         local itemSet = CreateItemset(true)
@@ -882,10 +883,11 @@ AddEventHandler('dust_stable:horsereviver', function(source)
                 if Entity(entity).state.horseid then
                 -- SetEntityCoords(entity, spawnPosition.x, spawnPosition.y, spawnPosition.z, 0, 0, 1, 0)
                     TriggerServerEvent("dust_stable:server:askcomponents", Entity(entity).state.horseid)
-                    Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_Injection_Quick"), GetHashKey("p_cs_syringe01x"), 1)
+                     TaskStartScenarioInPlace(ped, `WORLD_HUMAN_CROUCH_INSPECT`, playEnterAnim, true)
                     Wait(3000)
                     spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid, 10, 10)
                     DeleteEntity(entity)
+                    ClearPedTasks(ped)
                     return
                 end
             end
