@@ -883,10 +883,11 @@ end)
 
 RegisterNetEvent('dust_stable:horsemedicine')
 AddEventHandler('dust_stable:horsemedicine', function(source)
+    local ped = PlayerPedId()
     while true do
         Citizen.Wait(0)
         local itemSet = CreateItemset(true)
-        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 2.0, itemSet, 1, Citizen.ResultAsInteger())
+        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(ped), 2.0, itemSet, 1, Citizen.ResultAsInteger())
       
         if size > 0 then
             for index = 0, size - 1 do
@@ -895,6 +896,7 @@ AddEventHandler('dust_stable:horsemedicine', function(source)
                     TaskStartScenarioInPlace(ped, `WORLD_HUMAN_CLEAN_WINDOW`, -1, true, false, false, false)
                     Wait(5000)
                     Citizen.InvokeNative(0xC6258F41D86676E0, entity, 0, 50)
+                    ClearPedTasks(ped)
                     return
                 end
             end
