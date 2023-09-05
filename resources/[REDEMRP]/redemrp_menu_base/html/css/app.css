@@ -99,7 +99,7 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 100% 100%;
-	font-family: "HapnaSlabSerif-Medium" !important;
+	font-family: "Milonga-Regular" !important;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -127,7 +127,7 @@ i{
 	margin-top:3%;
 }
 .desciption {
-	font-family: "HapnaSlabSerif-Medium";
+	font-family: "Milonga-Regular";
 	font-weight: 400 !important;
 	margin-left:auto;
 	margin-right:auto;
@@ -171,6 +171,7 @@ i{
  float:left;
 }
 #item-label {
+ font-family: "Milonga-Regular";
  width:100%;
  float:left;
  /*width: 100%;*/
