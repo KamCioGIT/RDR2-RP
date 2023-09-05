@@ -48,13 +48,11 @@ Citizen.CreateThread(function()
 			local dist = GetDistanceBetweenCoords(pCoords, GetEntityCoords(b), true)
 			if dist < 10 then
 				loop = 120
-				if b == entity then
 					if inPoster then
 						api.showPrompt(""..Config.Language[1].."", promptDataClose, true)
 					else
 						api.showPrompt(""..Config.Language[1].."", promptDataOpen, true)
 					end
-				end
 			end
 		end
 		for k,v in pairs(Config.Posters) do
