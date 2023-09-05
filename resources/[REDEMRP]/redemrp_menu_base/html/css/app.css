@@ -13,9 +13,15 @@
 	src: url(../fonts/Milonga-Regular.ttf) format('truetype')
 }
 
+@font-face {
+	font-family: Timberline;
+	src: url(../fonts/Timberline.ttf) format('truetype')
+}
+
+
 
 .menu {
-	font-family: "Milonga-Regular";
+	font-family: "Timberline";
 	min-width: 380px;
 	color: #fff;
 	position: absolute;
