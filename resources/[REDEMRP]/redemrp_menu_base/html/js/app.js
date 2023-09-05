@@ -33,7 +33,7 @@
         '{{#descriptionimages}}' +
         '<div style="display: flex;flex-wrap: wrap;flex-direction: column;align-items: flex-end;margin: 5px">' +
         '<span style="position: absolute;">{{{count}}}</span>' +
-        '<img style="width: 30px;height: 30px;background-image: url(nui://redemrp_inventory/html/slot-bk.png);background-blend-mode: screen;background-repeat: round;align-content: center;padding: 10px;" src={{{src}}}>' +
+        '<img style="width: 40px;height: 40px;background-image: url(nui://redemrp_inventory/html/slot-bk.png);background-blend-mode: screen;background-repeat: round;align-content: center;padding: 10px;" src={{{src}}}>' +
         '<span style="width: 100%;text-align: center;">{{{text}}}</span>' +
         '</div>' +
         '{{/descriptionimages}}' +
