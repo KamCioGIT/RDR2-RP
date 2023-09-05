@@ -802,19 +802,19 @@ AddEventHandler('dust_stable:horsehaycube', function(source)
     while true do
         Citizen.Wait(0)
         local itemSet = CreateItemset(true)
-        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 2.0, itemSet, 1, Citizen.ResultAsInteger())
+        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(ped), 2.0, itemSet, 1, Citizen.ResultAsInteger())
       
         if size > 0 then
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.horseid then
-                    Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_Food"), GetHashKey("p_carrot01x"), 1)
+                    Citizen.InvokeNative(0xCD181A959CFDD7F4, ped, entity, GetHashKey("Interaction_Food"), 0, 1)
                     Citizen.Wait(3500)
                     if not tonumber(valueStamina) then valueStamina = 0 end
                     if valueStamina <= 10 then
-                        Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, 10)
+                        Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, 10)
                     else
-                        Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, valueStamina + 30)
+                        Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, valueStamina + 30)
                     end
                     return
                 end
@@ -830,30 +830,41 @@ end)
 
 RegisterNetEvent('dust_stable:horsestimulant')
 AddEventHandler('dust_stable:horsestimulant', function(source)
+    local ped = PlayerPedId()
+    while true do
+        Citizen.Wait(0)
+        local itemSet = CreateItemset(true)
+        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(ped), 2.0, itemSet, 1, Citizen.ResultAsInteger())
+      
+        if size > 0 then
+            for index = 0, size - 1 do
+                local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
+                if Entity(entity).state.horseid then
+                    Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_Injection_Quick"), GetHashKey("p_cs_syringe01x"), 1)
 
-    local player = PlayerPedId()
-    local _source = source
-    if IsPedOnMount(player) then
-        local horse = GetMount(player)
+                    local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, entity, 0)
+                    local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, entity, 1)
+            
+                    if not tonumber(valueHealth) then valueHealth = 0 end
+                    if not tonumber(valueStamina) then valueStamina = 0 end
+                    Citizen.Wait(3500)
+                    Citizen.InvokeNative(0xC6258F41D86676E0, entity, 0, valueHealth + 35)
+                    Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, valueStamina + 35)
+            
+            
+                    Citizen.InvokeNative(0xF6A7C08DF2E28B28, entity, 0, 1000.0)
+                    Citizen.InvokeNative(0xF6A7C08DF2E28B28, entity, 1, 1000.0)
+            
+                    Citizen.InvokeNative(0x50C803A4CD5932C5, true) --core
+                    Citizen.InvokeNative(0xD4EE21B7CC7FD350, true) --core
+                    PlaySoundFrontend("Core_Fill_Up", "Consumption_Sounds", true, 0)
+                end
+            end
+        end
 
-        TaskAnimalInteraction(PlayerPedId(), horse,-1355254781, 0, 0) --stem
-
-        local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, horse, 0)
-        local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, horse, 1)
-
-            if not tonumber(valueHealth) then valueHealth = 0 end
-            if not tonumber(valueStamina) then valueStamina = 0 end
-        Citizen.Wait(3500)
-        Citizen.InvokeNative(0xC6258F41D86676E0, horse, 0, valueHealth + 35)
-        Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, valueStamina + 35)
-
-
-        Citizen.InvokeNative(0xF6A7C08DF2E28B28, horse, 0, 1000.0)
-        Citizen.InvokeNative(0xF6A7C08DF2E28B28, horse, 1, 1000.0)
-
-        Citizen.InvokeNative(0x50C803A4CD5932C5, true) --core
-        Citizen.InvokeNative(0xD4EE21B7CC7FD350, true) --core
-        PlaySoundFrontend("Core_Fill_Up", "Consumption_Sounds", true, 0)
+        if IsItemsetValid(itemSet) then
+            DestroyItemset(itemSet)
+        end
     end
 end)
 
