@@ -84,8 +84,8 @@
 	padding: 7px;
 	font-size: 18px;
 	text-align: center;
-	text-indent: 5px;
-	margin-top: 6px;
+	/* text-indent: 5px; */
+	margin-top: 10px;
 	margin-left:auto;
 	margin-right:auto;
 	background-image: url(selection_box_bg_1d.png);
