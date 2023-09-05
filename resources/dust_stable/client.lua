@@ -808,7 +808,7 @@ AddEventHandler('dust_stable:horsehaycube', function(source)
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.horseid then
-                    Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_Food"), GetHashKey("s_horsnack_haycube01x"), 1)
+                    Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_Food"), GetHashKey("p_carrot01x"), 1)
                     Citizen.Wait(3500)
                     if not tonumber(valueStamina) then valueStamina = 0 end
                     if valueStamina <= 10 then
