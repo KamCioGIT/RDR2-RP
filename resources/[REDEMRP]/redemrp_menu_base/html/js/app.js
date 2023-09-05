@@ -28,7 +28,7 @@
         '{{#selected}}' +
         '<div class="options-amount">{{{list_id}}}/{{{list_max}}}</div>' +
         '<br>'+
-        '<div style="display: flex;align-items: center;justify-content: space-evenly;flex-direction: column;align-content: center;margin:10px;margin-top:0;">' +
+        '<div style="display: flex;align-items: center;justify-content: space-evenly;flex-direction: column;align-content: center;margin:10px;margin-top:-20px;">' +
         '<div class="images" style="display: flex;flex-wrap: wrap;justify-content: center;flex-direction: row;width: 100%;">' +
         '{{#descriptionimages}}' +
         '<div style="display: flex;flex-wrap: wrap;flex-direction: column;align-items: flex-end;margin: 5px">' +
