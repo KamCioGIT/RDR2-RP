@@ -23,10 +23,10 @@
 
         '{{/elements}}' +
         '</div>' +
-        '<div class="options-amount">{{{list_id}}}/{{{list_max}}}</div>' +
-        '<div class="scrollbottom"></div>' +
         '{{#elements}}' +
         '{{#selected}}' +
+        '<div class="options-amount">{{{list_id}}}/{{{list_max}}}</div>' +
+        '<div class="scrollbottom"></div>' +
         // '<br>'+
         '<div style="display: flex;align-items: center;justify-content: space-evenly;flex-direction: column;align-content: center;margin:10px;margin-top:-20px;">' +
         '<div class="images" style="display: flex;flex-wrap: wrap;justify-content: center;flex-direction: row;width: 100%;">' +
