@@ -883,6 +883,7 @@ end)
 
 RegisterNetEvent('dust_stable:horsemedicine')
 AddEventHandler('dust_stable:horsemedicine', function(source)
+    local ped = PlayerPedId()
     while true do
         Citizen.Wait(0)
         local itemSet = CreateItemset(true)
@@ -896,6 +897,7 @@ AddEventHandler('dust_stable:horsemedicine', function(source)
                     Wait(5000)
                     local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, horse, 0)
                     Citizen.InvokeNative(0xC6258F41D86676E0, entity, 0, valueHealth + 50)
+                    ClearPedTasks(ped)
                     return
                 end
             end
