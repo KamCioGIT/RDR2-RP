@@ -1007,7 +1007,7 @@ function removeItem(name, amount, meta, identifier, charid)
         local player_inventory = Inventory[identifier .. "_" .. charid]
         local item, id = getInventoryItemFromName(_name, player_inventory, getMetaOutput(meta))
         if item then
-            if itemData.type == "item_standard" then
+            if itemData.type == "item_standard" or itemData.type == "item_ammo" then
                 if _amount > 0 then
                     if item.getAmount() >= _amount then
                         if item.removeAmount(_amount) then
@@ -2143,7 +2143,6 @@ end)
 
 
 RegisterServerEvent("ammo:remove", function (pweptype)
-    print 'trtrtrtrtr'
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local identifier = user.GetIdentifier()
