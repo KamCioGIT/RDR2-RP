@@ -1,22 +1,9 @@
 Config = {}
 
-Config.MsgWorking = "Appuie sur Del" -- Message de récolte
-Config.MsgOpenMenu = "Appuie sur Entrer" -- Message de traitement
+Config.Atelier = {
+    vector3(1327.263, -1321.737, 77.88863),
 
-Config.RessourcesPointPos = vector3(2562.859, -1495.206, 46.0) -- Récolte Souffre
-Config.WorkingTime = 5000
-Config.DistanceToInteract = 1.5
-
-Config.CreateFerAndLaitonPos = vector3(2317.1611, -1455.7, 47.01) -- 1 Charbon + 10 Minerai brut  = Lingot de Laiton
-
-Config.CreateGunPowerPos = vector3(2366.535, -1467.595, 46.0) -- 
-Config.Atelier = vector3(2369.379, -1467.595, 46.0) -- Creer toutes les balles
-Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
-Config.CraftAnim = {
-    "base_trans_base",
 }
-
-Config.RecolteSouffreAnim = 'WORLD_HUMAN_HAMMER_TABLE' -- A CHANGER
 
 Config.CraftingsReceipe = {
     ['douille'] = {
