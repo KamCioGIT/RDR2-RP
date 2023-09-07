@@ -226,6 +226,12 @@ AddEventHandler(
     end
 )
 
+RegisterNetEvent("redemrp_inventory:UseAmmo")
+AddEventHandler("redemrp_inventory:UseAmmo", function(ammoType, amount)
+    SetPedAmmoByType(PlayerPedId(), ammoType, amount)
+    ReloadWeapons()
+end)
+
 local PistolsEquipping = 0
 
 RegisterCommand("lanternbelt", function()

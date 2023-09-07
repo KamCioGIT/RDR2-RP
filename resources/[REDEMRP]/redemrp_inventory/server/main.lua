@@ -629,6 +629,14 @@ AddEventHandler(
             TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Weapon Equipped", data.label, "menu_textures", "menu_icon_holster", 1000)
             TriggerClientEvent("redemrp_inventory:PlaySound", _source, 1)
         end
+        if itemData.type == "item_ammo" then
+            TriggerClientEvent(
+                "redemrp_inventory:UseAmmo",
+                _source,
+                itemData.ammoType,
+                data.amount
+            )
+        end
     end
 )
 
