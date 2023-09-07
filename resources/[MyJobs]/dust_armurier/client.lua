@@ -20,7 +20,6 @@ Citizen.CreateThread(function()
             if #(playerpos - v ) < 3 and not isInteracting then
                 customwprompt:setActiveThisFrame(true)
                 if customwprompt:hasHoldModeJustCompleted()then
-                    isInteracting = true
                     Wait(200)
                     inspect()
                 end
