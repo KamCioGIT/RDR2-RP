@@ -924,5 +924,5 @@ RegisterNUICallback(
 
 
 RegisterNetEvent("redemrp_inventory:removeammo", function()
-    RemoveAllPedWeapons(PlayerPedId())
+    RemoveAllPedWeapons(PlayerPedId(), true, true)
 end)
