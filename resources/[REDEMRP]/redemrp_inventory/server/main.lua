@@ -677,26 +677,26 @@ AddEventHandler(
     end
 )
 
-RegisterServerEvent("redemrp_inventory:ChangeAmmoAmount")
-AddEventHandler(
-    "redemrp_inventory:ChangeAmmoAmount",
-    function(table)
-        local _source = source
-        local _table = table
-        local Player = RedEM.GetPlayer(_source)
-        if Player then
-            local identifier = Player.GetIdentifier()
-            local charid = Player.GetActiveCharacter()
-            local player_inventory = Inventory[identifier .. "_" .. charid]
-            for i, k in pairs(_table) do
-                local item, id = getInventoryItemFromName(k.name, player_inventory, k.meta)
-                if item then
-                    item.setAmount(tonumber(k.Ammo))
-                end
-            end
-        end
-    end
-)
+-- RegisterServerEvent("redemrp_inventory:ChangeAmmoAmount")
+-- AddEventHandler(
+--     "redemrp_inventory:ChangeAmmoAmount",
+--     function(table)
+--         local _source = source
+--         local _table = table
+--         local Player = RedEM.GetPlayer(_source)
+--         if Player then
+--             local identifier = Player.GetIdentifier()
+--             local charid = Player.GetActiveCharacter()
+--             local player_inventory = Inventory[identifier .. "_" .. charid]
+--             for i, k in pairs(_table) do
+--                 local item, id = getInventoryItemFromName(k.name, player_inventory, k.meta)
+--                 if item then
+--                     item.setAmount(tonumber(k.Ammo))
+--                 end
+--             end
+--         end
+--     end
+-- )
 
 RegisterCommand("listitems", function(source,args)
     local _source = source

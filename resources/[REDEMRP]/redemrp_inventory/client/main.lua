@@ -219,7 +219,7 @@ AddEventHandler(
             if not WeaponsWithoutAmmo[UsedWeapons[tonumber(hash)].name] then
                 UsedWeapons[tonumber(hash)].Ammo = GetAmmoInPedWeapon(PlayerPedId(), tonumber(hash))
             end
-            TriggerServerEvent("redemrp_inventory:ChangeAmmoAmount", {UsedWeapons[tonumber(hash)]})
+            -- TriggerServerEvent("redemrp_inventory:ChangeAmmoAmount", {UsedWeapons[tonumber(hash)]})
             UsedWeapons[tonumber(hash)] = nil
         end
         ReloadWeapons()
@@ -480,27 +480,27 @@ RegisterCommand("weaponbreak", function()
     TriggerEvent("weapons:BreakWeapon")
 end)]]
 
-Citizen.CreateThread(
-    function()
-        while true do
-            Wait(10000)
-            local Changed = false
-            if next(UsedWeapons) ~= nil then
-                for i, k in pairs(UsedWeapons) do
-                    if HasPedGotWeapon(PlayerPedId(), i, 0, 0) then
-                        if not WeaponsWithoutAmmo[k.name] then
-                            Changed = true
-                            UsedWeapons[i].Ammo = GetAmmoInPedWeapon(PlayerPedId(), i)
-                        end
-                    end
-                end
-                if Changed then
-                    TriggerServerEvent("redemrp_inventory:ChangeAmmoAmount", UsedWeapons)
-                end
-            end
-        end
-    end
-)
+-- Citizen.CreateThread(
+--     function()
+--         while true do
+--             Wait(10000)
+--             local Changed = false
+--             if next(UsedWeapons) ~= nil then
+--                 for i, k in pairs(UsedWeapons) do
+--                     if HasPedGotWeapon(PlayerPedId(), i, 0, 0) then
+--                         if not WeaponsWithoutAmmo[k.name] then
+--                             Changed = true
+--                             UsedWeapons[i].Ammo = GetAmmoInPedWeapon(PlayerPedId(), i)
+--                         end
+--                     end
+--                 end
+--                 if Changed then
+--                     TriggerServerEvent("redemrp_inventory:ChangeAmmoAmount", UsedWeapons)
+--                 end
+--             end
+--         end
+--     end
+-- )
 
 
 RegisterNetEvent(
