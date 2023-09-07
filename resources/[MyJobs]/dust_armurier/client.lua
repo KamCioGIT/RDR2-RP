@@ -20,13 +20,11 @@ Citizen.CreateThread(function()
             if #(playerpos - v ) < 3 and not isInteracting then
                 customwprompt:setActiveThisFrame(true)
                 if customwprompt:hasHoldModeJustCompleted()then
+                    isInteracting = true
                     Wait(200)
                     inspect()
                 end
             end
-        end
-        while IsPedRunningTaskItemInteraction(PlayerPedId()) do
-            isInteracting = true
         end
     end
 end)
@@ -42,6 +40,16 @@ function inspect()
     if WeaponType == "MELEE" then WeaponType = "SHORTARM" end
 	if WeaponType == "BOW" then WeaponType = "SHORTARM" end
     Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
+    local Position = GetEntityCoords(ped)
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                isInteracting = false
+                return
+            end
+        end
+    end)
 end
 
 function GetWeaponType(hash)
