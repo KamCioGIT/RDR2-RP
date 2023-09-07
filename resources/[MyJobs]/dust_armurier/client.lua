@@ -6,9 +6,9 @@ end)
 
 ---- Prompt ----
 
-local customprompt = UipromptGroup:new("Armurier Atelier")
-Uiprompt:new(0x156F7119, "Travailler l'arme", customprompt):setHoldMode(true)
-customprompt:setActive(false)
+local customwprompt = UipromptGroup:new("Armurier Atelier")
+Uiprompt:new(0x156F7119, "Travailler l'arme", customwprompt):setHoldMode(true)
+customwprompt:setActive(false)
 
 
 ----- Open Menu ----
