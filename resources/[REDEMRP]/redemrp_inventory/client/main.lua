@@ -230,7 +230,6 @@ RegisterNetEvent("redemrp_inventory:UseAmmo")
 AddEventHandler("redemrp_inventory:UseAmmo", function(ammoType, amount)
     SetPedAmmoByType(PlayerPedId(), ammoType, amount)
     print (ammoType, amount)
-    ReloadWeapons()
 end)
 
 local PistolsEquipping = 0
