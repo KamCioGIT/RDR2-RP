@@ -921,3 +921,8 @@ RegisterNUICallback(
         isOtherOpen = false
     end
 )
+
+
+RegisterNetEvent("redemrp_inventory:removeammo", function(ammoType)
+    SetPedAmmoByType(PlayerPedId(), ammoType, 0)
+end)

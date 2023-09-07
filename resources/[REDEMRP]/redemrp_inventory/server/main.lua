@@ -439,6 +439,9 @@ AddEventHandler("redemrp_inventory:drop",function(data, letterSend)
             if itemData.type == "item_weapon" then
                 TriggerClientEvent("redemrp_inventory:removeWeapon", _source, itemData.weaponHash)
             end
+            if itemData.type == "item_ammo" then
+                TriggerClientEvent("redemrp_inventory:removeammo", _source, itemData.ammoType)
+            end
         end
     end
 end)
@@ -475,6 +478,9 @@ AddEventHandler(
                 )
                 if itemData.type == "item_weapon" then
                     TriggerClientEvent("redemrp_inventory:removeWeapon", _source, itemData.weaponHash)
+                end
+                if itemData.type == "item_ammo" then
+                    TriggerClientEvent("redemrp_inventory:removeammo", _source, itemData.ammoType)
                 end
                 TriggerClientEvent("redem_roleplay:NotifyRight", toPlayer, "You were given "..data.amount.."x "..itemData.label, 3000)
                 TriggerClientEvent("redem_roleplay:NotifyRight", _source, "You gave "..data.amount.."x "..itemData.label, 3000)
