@@ -440,7 +440,7 @@ AddEventHandler("redemrp_inventory:drop",function(data, letterSend)
                 TriggerClientEvent("redemrp_inventory:removeWeapon", _source, itemData.weaponHash)
             end
             if itemData.type == "item_ammo" then
-                TriggerClientEvent("redemrp_inventory:removeammo", _source, itemData.ammoType)
+                TriggerClientEvent("redemrp_inventory:removeammo", _source, itemData.ammoType, itemData.ammount)
             end
         end
     end

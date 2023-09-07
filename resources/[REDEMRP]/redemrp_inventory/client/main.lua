@@ -923,6 +923,6 @@ RegisterNUICallback(
 )
 
 
-RegisterNetEvent("redemrp_inventory:removeammo", function()
-    RemoveAllPedAmmo(PlayerPedId())
+RegisterNetEvent("redemrp_inventory:removeammo", function(ammoType, ammount)
+    RemoveAmmoFromPedByType(PlayerPedId(), ammoType, ammount, GetHashKey("REMOVE_REASON_DROPPED"))
 end)
