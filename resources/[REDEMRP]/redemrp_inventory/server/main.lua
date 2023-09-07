@@ -2143,6 +2143,7 @@ end)
 
 
 RegisterServerEvent("ammo:remove", function (pweptype)
+    print 'trtrtrtrtr'
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local identifier = user.GetIdentifier()
