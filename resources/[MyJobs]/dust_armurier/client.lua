@@ -25,6 +25,9 @@ Citizen.CreateThread(function()
                 end
             end
         end
+        while IsPedRunningTaskItemInteraction(PlayerPedId()) do
+            isInteracting = true
+        end
     end
 end)
 
