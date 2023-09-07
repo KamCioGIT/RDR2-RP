@@ -981,6 +981,19 @@ Config.Items = {
         imgsrc = "items/brush.png",
         type = "item_standard",
     },
+
+    ------ AMMO ----
+    ["ammo_revolver"] = {
+        label = "Balles de Revolver",
+        description = "Une balle, un mort",
+        weight = 0.01,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/brush.png",
+        type = "item_ammo",
+    },
 }
 
 exports("GetItemsList", function()

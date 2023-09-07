@@ -264,7 +264,7 @@ function ReloadWeapons()
                 givePlayerWeapon(k.WeaponHash, 3)
             else
                 Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
-                SetPedAmmo(PlayerPedId(), k.WeaponHash , k.Ammo)
+                SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
                 if k.meta.components ~= nil and k.meta.components["GLOBAL"] ~= nil then
                     TriggerEvent('WH_Redemrp_WeaponCustomization:Apply', k.WeaponHash, k.meta.components)
                 end
@@ -274,12 +274,12 @@ function ReloadWeapons()
             SetCurrentPedWeapon(PlayerPedId(), `WEAPON_MELEE_LANTERN`, true, 0, false, false)
         else
             Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
-            SetPedAmmo(PlayerPedId(), k.WeaponHash , k.Ammo)
+            SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
             if k.meta.components ~= nil and k.meta.components["GLOBAL"] ~= nil then
                 TriggerEvent('WH_Redemrp_WeaponCustomization:Apply', k.WeaponHash, k.meta.components)
             end
         end
-        SetPedAmmo(PlayerPedId(), k.WeaponHash, k.Ammo)
+        SetPedAmmo(PlayerPedId(), k.WeaponHash, 0)
         if k.meta.components ~= nil and k.meta.components["GLOBAL"] ~= nil then
             TriggerEvent('darkk_weapon_customization:Apply', k.WeaponHash, k.meta.components)
         end
