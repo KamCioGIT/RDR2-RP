@@ -923,7 +923,6 @@ RegisterNUICallback(
 )
 
 
-RegisterNetEvent("redemrp_inventory:removeammo", function(ammoType, ammount)
-    print (ammoType)
-    SetPedAmmoByType(PlayerPedId(), ammoType, 0)
+RegisterNetEvent("redemrp_inventory:removeammo", function()
+    RemoveAllPedWeapons(PlayerPedId())
 end)
