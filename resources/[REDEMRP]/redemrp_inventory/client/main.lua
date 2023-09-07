@@ -309,7 +309,7 @@ RegisterCommand('inspect', function(source, args, raw)
     local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
     local WeaponType = GetWeaponType(wepHash)
     if wepHash == `WEAPON_UNARMED` then return end
-    ShowWeaponStats()
+    -- ShowWeaponStats()
     if WeaponType == "SHOTGUN" then WeaponType = "LONGARM" end
     if WeaponType == "MELEE" then WeaponType = "SHORTARM" end
 	if WeaponType == "BOW" then WeaponType = "SHORTARM" end
