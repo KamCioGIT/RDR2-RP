@@ -395,8 +395,8 @@ Citizen.CreateThread(function()
                     if not UsedWeapons[i].meta.dirt then
                         UsedWeapons[i].meta.dirt = 0.0
                     end
-                    UsedWeapons[i].meta.damage = tonumber(math.format("%.2f", UsedWeapons[i].meta.damage + ((math.random(5, 9)/10) / 100)))
-                    UsedWeapons[i].meta.dirt = tonumber(math.format("%.2f", UsedWeapons[i].meta.dirt + ((math.random(5, 9)/10) / 100)))
+                    UsedWeapons[i].meta.damage = tonumber(string.format("%.2f", UsedWeapons[i].meta.damage + ((math.random(5, 9)/10) / 100)))
+                    UsedWeapons[i].meta.dirt = tonumber(string.format("%.2f", UsedWeapons[i].meta.dirt + ((math.random(5, 9)/10) / 100)))
                     if UsedWeapons[i].meta.damage > 1.0 then
                         UsedWeapons[i].meta.damage = 1.0
                     end
