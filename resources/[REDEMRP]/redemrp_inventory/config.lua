@@ -993,7 +993,7 @@ Config.Items = {
         limit = 2000,
         imgsrc = "items/AMMO_REVOLVER.png",
         type = "item_ammo",
-        ammoType = "AMMO_REVOLVER",
+        ammoType = GetHashKey("AMMO_REVOLVER"),
     },
     ["ammo_pistol"] = {
         label = "Balles de Pistolet",
@@ -1005,7 +1005,7 @@ Config.Items = {
         limit = 2000,
         imgsrc = "items/AMMO_PISTOL_VOLCANIC.png",
         type = "item_ammo",
-        ammoType = "AMMO_PISTOL",
+        ammoType = GetHashKey("AMMO_PISTOL"),
     },
     ["ammo_repeater"] = {
         label = "Balles de Carabine",
@@ -1017,7 +1017,7 @@ Config.Items = {
         limit = 2000,
         imgsrc = "items/AMMO_REPEATER.png",
         type = "item_ammo",
-        ammoType = "AMMO_REPEATER",
+        ammoType = GetHashKey("AMMO_REPEATER"),
     },
     ["ammo_rifle"] = {
         label = "Balles de Fusil",
@@ -1029,7 +1029,7 @@ Config.Items = {
         limit = 2000,
         imgsrc = "items/AMMO_RIFLE.png",
         type = "item_ammo",
-        ammoType = "AMMO_RIFLE",
+        ammoType = GetHashKey("AMMO_RIFLE"),
     },
     ["ammo_shotgun"] = {
         label = "Balles de Fusil à pompe",
@@ -1041,7 +1041,7 @@ Config.Items = {
         limit = 2000,
         imgsrc = "items/AMMO_SHOTGUN_REPEATING.png",
         type = "item_ammo",
-        ammoType = "AMMO_SHOTGUN",
+        ammoType = GetHashKey("AMMO_SHOTGUN"),
     },
 
 }
