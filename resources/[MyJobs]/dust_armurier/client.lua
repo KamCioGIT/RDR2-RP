@@ -17,7 +17,7 @@ Citizen.CreateThread(function()
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Atelier) do
-            if #(playerpos - v ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
+            if #(playerpos - v ) < 3 and not isInteracting then
                 customprompt:setActiveThisFrame(true)
                 if customprompt:hasHoldModeJustCompleted()then
                     isInteracting = true
