@@ -17,7 +17,7 @@ Citizen.CreateThread(function()
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Atelier) do
-            if #(playerpos - v ) < 3 and not isInteracting then
+            if #(playerpos - v ) < 1.5 and not isInteracting then
                 customwprompt:setActiveThisFrame(true)
                 if customwprompt:hasHoldModeJustCompleted()then
                     isInteracting = true
@@ -44,7 +44,7 @@ function inspect()
     Citizen.CreateThread(function()
         while true do
             Wait(100)
-            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+            if #(Position - GetEntityCoords(PlayerPedId())) > 1.0 then
                 isInteracting = false
                 return
             end
