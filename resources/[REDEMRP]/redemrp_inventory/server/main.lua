@@ -2138,3 +2138,32 @@ RegisterServerEvent("redemrp_inventory:removeitemfrommeta", function (source, na
         )
     end
 end)
+
+
+
+
+RegisterServerEvent("ammo:remove", function (pweptype)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local identifier = user.GetIdentifier()
+    local charid = user.GetActiveCharacter()
+        local _table = table
+        local Player = RedEM.GetPlayer(_source)
+        if Player then
+            local identifier = Player.GetIdentifier()
+            local charid = Player.GetActiveCharacter()
+            local player_inventory = Inventory[identifier .. "_" .. charid]
+            for i, k in pairs(Config.Items) do
+                if k.ammoType == pweptype then
+                    if removeItem(i, 1, nil, identifier, charid) then
+                        TriggerClientEvent(
+                            "redemrp_inventory:SendItems",
+                            _source,
+                            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+                            {},
+                            InventoryWeight[identifier .. "_" .. charid]
+                        )
+                    end
+            end
+        end
+end)
