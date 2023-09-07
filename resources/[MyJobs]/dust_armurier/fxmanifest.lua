@@ -4,6 +4,7 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 
 
 client_scripts {
+	"@uiprompt/uiprompt.lua",
 	'config.lua',
 	'client.lua',
 }
