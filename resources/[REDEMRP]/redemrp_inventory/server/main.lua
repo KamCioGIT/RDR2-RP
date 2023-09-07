@@ -952,7 +952,7 @@ function addItem(name, amount, meta, identifier, charid, lvl)
         end
         local item, id = getInventoryItemFromName(_name, Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
         if not item then
-            if itemData.type == "item_standard" then
+            if itemData.type == "item_standard" or itemData.type == "item_ammo" then
                 if _amount > 0 then
                     if
                         InventoryWeight[identifier .. "_" .. charid] + (itemData.weight * _amount) <=
@@ -975,7 +975,7 @@ function addItem(name, amount, meta, identifier, charid, lvl)
                 end
             end
         else
-            if itemData.type == "item_standard" then
+            if itemData.type == "item_standard" or itemData.type == "item_ammo" then
                 if _amount > 0 then
                     if
                         InventoryWeight[identifier .. "_" .. charid] + (itemData.weight * _amount) <=
