@@ -1,7 +1,7 @@
 Config = {}
 
 Config.Atelier = {
-    vector3(1327.263, -1321.737, 77.88863),
+    vector3(1327.263, -1321.737, 77.88863), -- Rhodes
 
 }
 
