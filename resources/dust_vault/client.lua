@@ -72,8 +72,6 @@ Citizen.CreateThread(function()
         TriggerServerEvent("dust_vault:server:AskStashes")
     end
 end)
-
-
 RegisterNetEvent("dust_vault:server:getStashes")
 AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code, model)
     local vaultpos = vector3(coords.x, coords.y, coords.z)
@@ -81,7 +79,6 @@ AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code,
         stashcache[stashid] = {pos = vaultpos, getcode = code, getmodel = model}
     end
 end)
-
 Citizen.CreateThread(function ()
     while true do
         Citizen.Wait(0)
@@ -113,7 +110,7 @@ Citizen.CreateThread(function ()
                         return
                         end
                                     
-                        if result then
+                        if inputcode == v.getcode then
                             TriggerEvent("redemrp_inventory:OpenStash", k, weight)
                         return
                         end
