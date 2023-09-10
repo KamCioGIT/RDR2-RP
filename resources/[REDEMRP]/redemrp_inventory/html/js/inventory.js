@@ -966,11 +966,11 @@ function show(playerInventory, otherInventory, crafting) {
 
     if(otherInventory){
         //console.log("Other inventory")
-        $("#selfinv").css("height", "40.5%");
+        $("#selfinv").css("height", "60%");
         SecondInventoryActive = true;
     } else {
         //console.log("NO Other inventory")
-        $("#selfinv").css("height", "80.5%");
+        $("#selfinv").css("height", "60%");
         SecondInventoryActive = false;
     }
 
