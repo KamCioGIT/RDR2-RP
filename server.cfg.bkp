@@ -62,10 +62,12 @@ ensure dust_vault
 ensure dust_usine
 ensure dust_mineur
 ensure ts-trains
-ensure dust_rumors
+-- ensure dust_rumors
 ensure [GUM]
 ensure redm-doorsearch
 ensure dust_marechal
+ensure redm_emotes
+ensure redemrp_weaponshop
 
 
 #MAPPING
