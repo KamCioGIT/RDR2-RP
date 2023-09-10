@@ -724,7 +724,7 @@ Citizen.CreateThread(function()
                 if Entity(entity).state.saddle == "true" and not IsPedOnMount(PlayerPedId()) then
                     saddleprompt:setActiveThisFrame(true)
                     if IsControlJustReleased(0, 0x760A9C6F) then
-                        Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_LootSaddleBags"), 0, 1)
+                        -- Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_LootSaddleBags"), 0, 1)
                         TriggerEvent("redemrp_inventory:OpenStash", Entity(entity).state.stashid, 10.0)
                         local oldpos = GetEntityCoords(entity)
                         -- while true do
