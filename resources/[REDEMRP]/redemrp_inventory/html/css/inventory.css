@@ -178,13 +178,12 @@ body {
 	
     bottom: 5%;
     width: 90%;
-    /* height: 6%; */
+    height: 15%;
     margin: 0 4%;
     text-align: left;
     color: white;
     overflow-x: hidden;
     margin-top: 1.5%;
-	margin-bottom: 3vh;
     font-size: 0.8vw;
     padding-top: 1%;
     /* background-image: url(selection_box_bg_1d.png); */
