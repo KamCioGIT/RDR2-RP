@@ -3,6 +3,7 @@ var SecondInventoryActive = false;
 var SplittingObject = null;
 var SplitMode = false;
 
+
 $(function(){
 	window.onload = (e) => {
 		window.addEventListener('message', (event) => {
@@ -205,10 +206,6 @@ function createObjectBox(object) {
         }
     } else if(object.name == "newspaper") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `A newspaper (edition " + object.meta.edition + ")`)    ");
-    } else if(object.name == "contratsigne") {
-        boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Contrat de travail de " + object.meta.job + " de " + object.meta.name + "`)    ");
-    } else if(object.name == "transferhorse") {
-        boxContent.setAttribute('onmouseover', "Over(`" + object.name + "`, `Certificat du cheval " + object.meta.horseid + "`)");
     } else if(object.name == "wateringcan") {
         if(object.meta.water != undefined && object.meta.water != null) {
             var waterdisp = object.meta.water * 10;
@@ -1033,7 +1030,8 @@ function Over(item, desc) {
     }
 }
 
-
+barre_sup = document.getElementById('barre_sup');
+    barre_sup.style.width = "10%";
 
 async function getItems(data, secondInventory, targetPlayer, weight) {
     objectsIn = data;
@@ -1050,7 +1048,11 @@ async function getItems(data, secondInventory, targetPlayer, weight) {
         }
     } 
     var weight_object = document.getElementById("weight");
-    weight_object.innerHTML = Math.round(weight * 100) / 100 + " / 45 KG";
+
+    barre_sup = document.getElementById('barre_sup');
+    barre_sup.style.width = (Math.round(weight * 100) / 100) * 100 / 45 + "%";
+
+    weight_object.innerHTML = Math.round(weight * 100) / 100 + " / 45 kg";
     grids[0].sort('amount:desc', {
         layout: 'instant'
     });

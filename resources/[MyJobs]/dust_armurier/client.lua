@@ -52,6 +52,30 @@ function inspect()
     end)
 end
 
+function cleanandrepair()
+    local ped = PlayerPedId()
+    local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
+    local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
+    local WeaponType = GetWeaponType(wepHash)
+    if wepHash == `WEAPON_UNARMED` then return end
+    -- ShowWeaponStats()
+    if WeaponType == "SHOTGUN" then WeaponType = "LONGARM" end
+    if WeaponType == "MELEE" then WeaponType = "SHORTARM" end
+	if WeaponType == "BOW" then WeaponType = "SHORTARM" end
+    Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
+    Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), 1242464081, Cloth, PropId, actshort, 1, 0, -1.0)   
+    local Position = GetEntityCoords(ped)
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 1.0 then
+                isInteracting = false
+                return
+            end
+        end
+    end)
+end
+
 function GetWeaponType(hash)
 	if Citizen.InvokeNative(0x959383DCD42040DA, hash)  or Citizen.InvokeNative(0x792E3EF76C911959, hash)   then
 		return "MELEE"

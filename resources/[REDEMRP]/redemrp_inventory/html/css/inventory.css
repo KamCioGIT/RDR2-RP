@@ -4,6 +4,12 @@
 	src: url(crock.ttf);
 }
 
+
+@font-face {
+	font-family: milonga;
+	src: url(Milonga-Regular.ttf);
+}
+
 * {
 	font-family: crock;
 	overflow: hidden;
@@ -25,15 +31,28 @@ body {
 }
 .invinfo {
 	position: relative;
-	width: 90%;
-	padding-top: 10px;
-	height: 4%;
-	margin: 0 5%;
-	color: white;
-	overflow-x: hidden;
-	padding-left:1.5%;
-	margin-bottom:1%;
+    width: 90%;
+    padding-top: 10px;
+    /* height: 4%; */
+    margin: 0 5%;
+    color: white;
+    overflow-x: hidden;
+    padding-left: 1.5%;
+    margin-bottom: 1%;
 }
+
+.invbarre {
+	width: 85%;
+	margin: auto;
+	margin-top: 0.5vh;
+}
+
+.invbarre img {
+	width: 100%;
+	margin: auto;
+}
+
+/*
 .invCraft {
 	position: absolute;
 	width: 15vw;
@@ -50,6 +69,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
+*/
 
 .invSplit {
 	position:absolute;
@@ -95,36 +115,50 @@ body {
 }
 
 .invtext {
-	font-size: 1.1vw;
-	color: white;
-	float: left;
-	width: 25%;
+	font-size: 1.9vw;
+    color: white;
+    /* float: left; */
+    width: 100%;
 }
+
+.invtext p
+{
+	text-align: center;
+    color: #D7D7D7;
+	margin: 0;
+	font-family: "milonga";
+}
+
 .invweight {
 	font-size: 0.9vw;
-	color: black;
-	float: left;
-	width: 25%;
-	height:100%;
-	line-height:200%;
-	text-align:center;
-	background-image: url("selection_box_bg_1d.png");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
+    color: #D7D7D7;
+    float: right;
+    /* width: 35%; */
+    /* height: 100%; */
+    margin-right: 5%;
+    line-height: 200%;
+    text-align: center;
+    /* background-image: url("selection_box_bg_1d.png"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-family: "milonga";
+	margin-bottom: 0.5vh;
 }
 
 .money {
-	font-size: 1.1vw;
-	color: black;
-	float: right;
-	width: 20%;
-	text-align:center;
-	background-image: url("selection_box_bg_1d.png");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	margin-left:5%;
+	font-size: 0.9vw;
+    color: #D7D7D7;
+    float: left;
+    width: 25%;
+    /* height: 100%; */
+    line-height: 200%;
+    text-align: center;
+    /* background-image: url("selection_box_bg_1d.png"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+	font-family: "milonga";
 }
 
 .clock {
@@ -141,7 +175,7 @@ body {
 }
 
 .info {
-	position: absolute;
+	
     bottom: 5%;
     width: 90%;
     height: 6%;
@@ -156,7 +190,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 95% 100%;
-    padding-left: 5%;
 }
 
 #info2 {
@@ -179,21 +212,87 @@ body {
 }
 
 .inventory {
-    position: absolute;
-    top: 50%;
-    right: 20%;
-    transform: translate(50%, -50%);
-    height: 80%;
-    width: 28%;
+	position: absolute;
+    top: 3%;
+    left: 2%;
+    /* transform: translate(50%, -50%); */
+    height: 25vw;
+    width: 21.40vw;
     margin-left: 0;
     padding-left: 0;
     background: #151515cf;
-    padding: 40px;
-    background: url(../redm.png);
-
-    background-size: contain;
+    padding: 25px;
+    background: url(background_inventory.png);
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+	box-shadow: 0px 0px 10px 8px #00000080;
+}
+
+.inv_tiers
+{
+	position: absolute;
+    top: 3%;
+    left: 28%;
+    /* transform: translate(50%, -50%); */
+    height: 15vw;
+    width: 20.8vw;
+    margin-left: 0;
+    padding-left: 0;
+    background: #151515cf;
+    padding: 15px;
+    background: url(background_inventaire_tiers.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	box-shadow: 0px 0px 10px 8px #00000080;
+}
+
+.weight_bar
+{
+	width: 92%;
+    margin: auto;
+    height: 1.6vh;
+    position: relative;
+}
+
+#cache_n_un
+{
+	position: absolute;
+	height: 100%;
+	width: 2%;
+	left: 33.3%;
+	transform: translate(-100%);
+	background-color: #090909;
+	z-index: 2;
+}
+
+#cache_n_deux
+{
+	position: absolute;
+	height: 100%;
+	width: 2%;
+	left: 66.6%;
+	transform: translate(-50%);
+	background-color: #090909;
+	z-index: 2;
+}
+
+#barre_sup
+{
+	width: 33.3%;
+    height: 100%;
+    position: absolute;
+    background-color: #615C43;
+    z-index: 1;
+}
+
+#barre_und
+{
+    background-color: #171717;
+    width: 100%;
+    position: absolute;
+    height: 100%;
 }
 
 .grid {
@@ -215,7 +314,7 @@ body {
 	min-height: 30%;
 	max-height: 30%;
 	margin: 1%;
-	background: rgba(0, 0, 0, 0.6);
+	background: #171717;
 	border-radius: 1px;
 	float: left;
 }
@@ -223,19 +322,19 @@ body {
 .column {
 	position: relative;
 	margin: 0 1.5%;
-	background: rgba(0, 0, 0, 0.6);
 	border-radius: 1px;
 	min-height: 13%;
 }
 
 .scroll {
 	position: relative;
-	width: 90%;
-	height:40.5%;
-	margin-left: auto;
-	margin-right: auto;
-	overflow-x: hidden;
-	overflow-y: auto;
+    width: 90%;
+    height: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: hidden;
+    margin-bottom: 5%;
+    overflow-y: auto;
 }
 
 .column.box0 {
@@ -280,7 +379,7 @@ body {
 	max-height: 6vh;
 	min-width: 20px;
 	margin: 3px;
-	background-color: rgba(0, 0, 0, 0.60);
+	background-color: #171717;
 	color: #fff;
 	display: grid;
 }
@@ -292,8 +391,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	border: none;*/
-	border: 1px solid red;
-	background-color:rgba(50, 50, 50, 0.60);
+	border: 1px solid #DC5858;
 	transform:scale(0.8);
 }
 
