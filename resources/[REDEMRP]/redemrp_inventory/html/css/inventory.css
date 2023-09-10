@@ -195,9 +195,15 @@ body {
 }
 
 #info2 {
+	font-family: "milonga" !important;
 	font-size: 1vw;
 	font-weight: 750;
 }
+
+#info3 {
+	font-family: "milonga" !important;
+}
+
 
 .main {
 	user-select: none;
