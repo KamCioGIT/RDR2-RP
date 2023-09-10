@@ -184,6 +184,7 @@ body {
     color: white;
     overflow-x: hidden;
     margin-top: 1.5%;
+	margin-bottom: 3vh;
     font-size: 0.8vw;
     padding-top: 1%;
     /* background-image: url(selection_box_bg_1d.png); */
@@ -329,7 +330,7 @@ body {
 .scroll {
 	position: relative;
     width: 95%;
-    height: 60%;
+    height: 25vh;
     margin-left: auto;
     margin-right: auto;
     overflow-x: hidden;
@@ -378,7 +379,7 @@ body {
 	height: 6vh;
 	max-height: 6vh;
 	min-width: 20px;
-	margin: 3%;
+	margin: 3px;
 	background-color: #171717;
 	color: #fff;
 	display: grid;
