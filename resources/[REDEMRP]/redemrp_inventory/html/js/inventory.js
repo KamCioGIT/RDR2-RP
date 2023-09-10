@@ -568,7 +568,7 @@ var grids = [
         item.getElement().style.height = item.getHeight() + 'px';
     })
     .on('dragReleaseEnd', function(item) {
-        item.getElement().style.width = '16%';
+        item.getElement().style.width = '18%';
         item.getElement().style.height = '6vh';
         grids.forEach(function(grid) {
             grid.refreshItems();
@@ -612,7 +612,7 @@ var grids = [
         item.getElement().style.height = item.getHeight() + 'px';
     })
     .on('dragReleaseEnd', function(item) {
-        item.getElement().style.width = '16%';
+        item.getElement().style.width = '18%';
         item.getElement().style.height = '6vh';
         grids.forEach(function(grid) {
             grid.refreshItems();
