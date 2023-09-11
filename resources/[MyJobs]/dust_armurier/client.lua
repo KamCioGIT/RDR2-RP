@@ -292,7 +292,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
         end
         local options = {}
         for k, v in pairs(category) do
-            table.insert(options, k)
+            table.insert(options, v)
         end
         table.insert(elements, {
             label = Config.LabelW[k] or v,
