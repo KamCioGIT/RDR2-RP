@@ -283,6 +283,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     MenuData.CloseAll()
     local elements = {}
     local a = 1
+    print(wepHash)
     for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
         if menu_catagory == "special" then 
             if model_specific_components[wepHash][k] ~= nil then
