@@ -1043,7 +1043,19 @@ Config.Items = {
         type = "item_ammo",
         ammoType = GetHashKey("AMMO_SHOTGUN"),
     },
-
+    ----- Armurier ------
+    ["repairkitweapon"] = {
+        label = "Kit d'entretien d'arme",
+        description = "Remise à neuf de votre machine à tuer",
+        weight = 0.01,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/AMMO_SHOTGUN_REPEATING.png",
+        type = "item_ammo",
+        ammoType = GetHashKey("AMMO_SHOTGUN"),
+    },
 }
 
 exports("GetItemsList", function()
