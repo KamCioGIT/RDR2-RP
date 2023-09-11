@@ -12,4 +12,5 @@ client_scripts {
 
 server_scripts {
 	'server.lua',
+	'wepcomps.lua',
 }
