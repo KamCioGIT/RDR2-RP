@@ -71,6 +71,7 @@ function inspectcustom()
                 spe_category = weapon_comp["model_specific_components"][wepHash][k]
             end
         end
+    end
     OpenCustomWMenu(wepHash, WeapType, ped, com_category, spe_category)
 end
 
