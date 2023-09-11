@@ -1,6 +1,6 @@
 model_specific_components = {
 
-    [GetHashKey("WEAPON_REVOLVER_CATTLEMAN")] = {
+    [379542007] = { --- WEAPON_REVOLVER_CATTLEMAN
         ["BARREL"] = {
           "COMPONENT_REVOLVER_CATTLEMAN_BARREL_SHORT",
           "COMPONENT_REVOLVER_CATTLEMAN_BARREL_LONG",
@@ -24,7 +24,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_REVOLVER_DOUBLEACTION")] = {
+    [127400949] = { -- WEAPON_REVOLVER_DOUBLEACTION
         ["BARREL"] = {
           "COMPONENT_REVOLVER_DOUBLEACTION_BARREL_SHORT",
           "COMPONENT_REVOLVER_DOUBLEACTION_BARREL_LONG",
@@ -43,13 +43,13 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_REVOLVER_DOUBLEACTION_EXOTIC")] = {
+    [600245965] = {  -- WEAPON_REVOLVER_DOUBLEACTION_EXOTIC
         ["GRIP"] = {
           "COMPONENT_REVOLVER_DOUBLEACTION_GRIP_EXOTIC",
         },
     },
 
-    [GetHashKey("WEAPON_REVOLVER_SCHOFIELD")] = {
+    [2075992054] = { -- WEAPON_REVOLVER_SCHOFIELD
         ["BARREL"] = {
           "COMPONENT_REVOLVER_SCHOFIELD_BARREL_SHORT",
           "COMPONENT_REVOLVER_SCHOFIELD_BARREL_LONG",
@@ -73,7 +73,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_PISTOL_MAUSER")] = {
+    [2239809086] = { -- WEAPON_PISTOL_MAUSER
         ["BARREL"] = {
           "COMPONENT_PISTOL_MAUSER_BARREL_SHORT",
           "COMPONENT_PISTOL_MAUSER_BARREL_LONG",
@@ -100,7 +100,7 @@ model_specific_components = {
         }
     },
 
-    [GetHashKey("WEAPON_PISTOL_SEMIAUTO")] = {
+    [1701864918] = { -- WEAPON_PISTOL_SEMIAUTO
         ["BARREL"] = {
           "COMPONENT_PISTOL_SEMIAUTO_BARREL_SHORT",
           "COMPONENT_PISTOL_SEMIAUTO_BARREL_LONG",
@@ -121,7 +121,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_PISTOL_VOLCANIC")] = {
+    [34411519] = {  -- WEAPON_PISTOL_VOLCANIC
         ["BARREL"] = {
           "COMPONENT_PISTOL_VOLCANIC_BARREL_SHORT",
           "COMPONENT_PISTOL_VOLCANIC_BARREL_LONG",
@@ -146,7 +146,7 @@ model_specific_components = {
 
     },
 
-    [GetHashKey("WEAPON_PISTOL_M1899")] = {
+    [1534638301] = { -- WEAPON_PISTOL_M1899
         ["BARREL"] = {
           "COMPONENT_PISTOL_M1899_BARREL_SHORT",
           "COMPONENT_PISTOL_M1899_BARREL_LONG",
@@ -166,7 +166,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_REVOLVER_LEMAT")] = {
+    [1529685685] = { -- WEAPON_REVOLVER_LEMAT
         ["BARREL"] = {
           "COMPONENT_REVOLVER_LEMAT_BARREL_SHORT",
           "COMPONENT_REVOLVER_LEMAT_BARREL_LONG",
@@ -183,7 +183,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_REVOLVER_NAVY")] = {
+    [132728264] = { -- WEAPON_REVOLVER_NAVY
         ["BARREL"] = {
           "COMPONENT_REVOLVER_NAVY_BARREL_SHORT",
           "COMPONENT_REVOLVER_NAVY_BARREL_LONG",
@@ -203,7 +203,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_REPEATER_CARBINE")] = {
+    [4111948705] = { -- WEAPON_REPEATER_CARBINE
 
         ["GRIP"] = {
           "COMPONENT_REPEATER_CARBINE_GRIP",
@@ -231,7 +231,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_REPEATER_HENRY")] = {
+    [2511488402] = {  -- WEAPON_REPEATER_HENRY
 
         ["GRIP"] = {
           "COMPONENT_REPEATER_HENRY_GRIP",
@@ -253,7 +253,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_REPEATER_EVANS")] = {
+    [1905553950] = { -- WEAPON_REPEATER_EVANS
 
         ["GRIP"] = {
           "COMPONENT_REPEATER_EVANS_GRIP",
@@ -280,7 +280,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_REPEATER_WINCHESTER")] = {
+    [2823250668] = { -- WEAPON_REPEATER_WINCHESTER
 
         ["GRIP"] = {
           "COMPONENT_REPEATER_WINCHESTER_GRIP",
@@ -307,7 +307,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_RIFLE_VARMINT")] = {
+    [3724000286] = { -- WEAPON_RIFLE_VARMINT
 
         ["GRIP"] = {
           "COMPONENT_RIFLE_VARMINT_GRIP",
@@ -341,7 +341,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_RIFLE_BOLTACTION")] = {
+    [1999408598] = { --- WEAPON_RIFLE_BOLTACTION
         ["GRIP"] = {
           "COMPONENT_RIFLE_BOLTACTION_GRIP",
           "COMPONENT_RIFLE_BOLTACTION_GRIP_IRONWOOD",
@@ -366,7 +366,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_RIFLE_ELEPHANT")] = {
+    [2577544200] = {  -- WEAPON_RIFLE_ELEPHANT
     	["BARREL"] = {
     	  "COMPONENT_RIFLE_ELEPHANT_BARREL_SHORT",
     	  "COMPONENT_RIFLE_ELEPHANT_BARREL_LONG",
@@ -393,7 +393,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_RIFLE_SPRINGFIELD")] = {
+    [1676963302] = { ---Springfield
         ["GRIP"] = {
           "COMPONENT_RIFLE_SPRINGFIELD_GRIP",
           "COMPONENT_RIFLE_SPRINGFIELD_GRIP_IRONWOOD",
@@ -414,7 +414,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_SNIPERRIFLE_CARCANO")] = {
+    [1402226560] = { -- WEAPON_SNIPERRIFLE_CARCANO
         ["GRIP"] = {
           "COMPONENT_RIFLE_CARCANO_GRIP",
           "COMPONENT_RIFLE_CARCANO_GRIP_ENGRAVED",
@@ -439,7 +439,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_SNIPERRIFLE_ROLLINGBLOCK")] = {
+    [3788682007] = { -- WEAPON_SNIPERRIFLE_ROLLINGBLOCK
         ["GRIP"] = {
           "COMPONENT_SNIPERRIFLE_ROLLINGBLOCK_GRIP",
           "COMPONENT_SNIPERRIFLE_ROLLINGBLOCK_GRIP_EXOTIC",
@@ -465,7 +465,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_SHOTGUN_REPEATING")] = {
+    [1674213418] = {  -- WEAPON_SHOTGUN_REPEATING
         ["BARREL"] = {
           "COMPONENT_SHOTGUN_REPEATING_BARREL_SHORT",
           "COMPONENT_SHOTGUN_REPEATING_BARREL_LONG",
@@ -490,7 +490,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_SHOTGUN_PUMP")] = {
+    [834124286] = { -- WEAPON_SHOTGUN_PUMP
         ["BARREL"] = {
           "COMPONENT_SHOTGUN_PUMP_BARREL_SHORT",
           "COMPONENT_SHOTGUN_PUMP_BARREL_LONG",
@@ -530,7 +530,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_SHOTGUN_DOUBLEBARREL")] = {
+    [1845102363] = { -- WEAPON_SHOTGUN_DOUBLEBARREL
         ["BARREL"] = {
           "COMPONENT_SHOTGUN_DOUBLEBARREL_BARREL_SHORT",
           "COMPONENT_SHOTGUN_DOUBLEBARREL_BARREL_LONG",
@@ -569,7 +569,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_SHOTGUN_SAWEDOFF")] = {
+    [392538360] = { --  WEAPON_SHOTGUN_SAWEDOFF
         ["GRIP"] = {
           "COMPONENT_SHOTGUN_SAWEDOFF_GRIP",
           "COMPONENT_SHOTGUN_SAWEDOFF_GRIP_IRONWOOD",
@@ -601,7 +601,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_SHOTGUN_SEMIAUTO")] = {
+    [1838922096] = { --WEAPON_SHOTGUN_SEMIAUTO
         ["BARREL"] = {
           "COMPONENT_SHOTGUN_SEMIAUTO_BARREL_SHORT",
           "COMPONENT_SHOTGUN_SEMIAUTO_BARREL_LONG",
@@ -626,7 +626,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_BOW_IMPROVED")] = {
+    [115405099] = { -- WEAPON_BOW_IMPROVED
         ["GRIP"] = {
           "COMPONENT_BOW_IMPROVED_GRIP",
           "COMPONENT_BOW_IMPROVED_GRIP_ALLIGATOR",
@@ -672,7 +672,7 @@ model_specific_components = {
         },
     },
 
-    [GetHashKey("WEAPON_MELEE_KNIFE")] = {
+    [3676417164] = { -- WEAPON_MELEE_KNIFE
         ["GRIP"] = {
           "COMPONENT_MELEE_KNIFE02_GRIP",
           "COMPONENT_MELEE_KNIFE13_GRIP",
@@ -680,19 +680,19 @@ model_specific_components = {
 
     },
 
-    [GetHashKey("WEAPON_THROWN_DYNAMITE")] = {
+    [2790107742] = { --WEAPON_THROWN_DYNAMITE
         ["TORCH_MATCHSTICK"] = {
           "COMPONENT_DYNAMITE_MOLOTOV_TORCH_MATCHSTICK",
         },
     },
 
-    [GetHashKey("WEAPON_KIT_BINOCULARS")] = {
+    [4134042714] = { -- WEAPON_KIT_BINOCULARS
         ["TORCH_MATCHSTICK"] = {
           "COMPONENT_BINOCULARS_SCOPE01",
         },
     },
 
-    [GetHashKey("WEAPON_FISHINGROD")] = {
+    [2879944532] = { -- WEAPON_FISHINGROD
         ["COMPONENT_FISHING_LINE"] = {
           "COMPONENT_FISHING_LINE",
         },
