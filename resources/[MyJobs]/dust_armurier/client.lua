@@ -349,14 +349,17 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)
         print (shared_components[Weapontype][data.current.category][data.current.value])
         -- CompCache[data.current.category] = weapon_component_model_hash
     end
-    print (model)
+    print (model )
     if model and model ~= 0 then
         RequestModel(model)
+        print 'grrr'
         while not HasModelLoaded(model) do
             Citizen.Wait(10)
         end
-
+        if HasModelLoaded(model) then
+            
             Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, model, wepHash, true)  -- GiveWeaponComponentToEntity
             SetModelAsNoLongerNeeded(model)
+        end
     end
 end
