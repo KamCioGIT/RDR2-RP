@@ -32,6 +32,7 @@ Citizen.CreateThread(function()
                     local ped = PlayerPedId()
                     local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
                     local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
+                    local WeapType = GetWeaponType(wepHash)
                     inspectcustom()
                     OpenCustomWMenu(wepHash, WeapType, ped)
                 end
