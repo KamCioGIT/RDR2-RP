@@ -286,13 +286,13 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     local a = 1
     for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
         if model_specific_components[wepHash][k] ~= nil then
-            local category = model_specific_components[wepHash][k]
+            local cat = model_specific_components[wepHash][k]
         end
         -- if menu_catagory == "commun" then
-        --     category = shared_components[Weapontype][k]
+        --     = shared_components[Weapontype][k]
         -- end
         local options = {}
-        for k, v in pairs(category) do
+        for k, v in pairs(cat) do
                 table.insert(options, k)
         end
         table.insert(elements, {
