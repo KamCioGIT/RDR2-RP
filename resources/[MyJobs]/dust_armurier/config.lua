@@ -81,7 +81,7 @@ Config.CraftingsReceipe = {
 }
 
 
-Config.MenuElements = {
+Config.MenuElementsW = {
 	["special"] = {
 		label = "Spécifique",
 		category = {
@@ -136,7 +136,7 @@ Config.MenuElements = {
 
 }
 
-Config.Label = {
+Config.LabelW = {
 	["BARREL"] = "Canon",
 	["GRIP"] = "Poignée",
 	["SIGHT"] = "Mire",

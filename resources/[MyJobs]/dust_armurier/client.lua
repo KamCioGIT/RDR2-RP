@@ -228,7 +228,7 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
 
     local elements = {}
 
-    for v, k in pairs(Config.MenuElements) do
+    for v, k in pairs(Config.MenuElementsW) do
 
         table.insert(elements, {
             label = k.label or v,
@@ -283,18 +283,18 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     MenuData.CloseAll()
     local elements = {}
     local a = 1
-    for v, k in pairs(Config.MenuElements[menu_catagory].category) do
+    for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
         if menu_catagory == "special" then
-            category = model_specific_components[k]
+            category = model_specific_components[wepHash][k]
         else
-            category = shared_components[Weapontype]
+            category = shared_components[Weapontype][k]
         end
         local options = {}
         for k, v in pairs(category) do
             table.insert(options, k)
         end
         table.insert(elements, {
-            label = Config.Label[k] or v,
+            label = Config.LabelW[k] or v,
             value = 0,
             category = k,
             desc = "Modifier l'arme",
