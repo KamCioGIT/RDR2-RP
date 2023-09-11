@@ -288,8 +288,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
             if weapon_comp["shared_components"][Weapontype][k] ~= nil then
                 category = weapon_comp["shared_components"][Weapontype][k]
             end
-        end
-        if menu_catagory == "special" then 
+        elseif menu_catagory == "special" then 
             if weapon_comp["model_specific_components"][wepHash][k] ~= nil then
                 category = weapon_comp["model_specific_components"][wepHash][k]
             end
