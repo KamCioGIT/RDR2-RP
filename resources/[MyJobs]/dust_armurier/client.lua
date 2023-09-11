@@ -289,7 +289,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
             if weapon_comp["shared_components"][Weapontype][k] ~= nil then
                 category = weapon_comp["shared_components"][Weapontype][k]
             end
-        elseif  menu_catagory == "special" then 
+        elseif  menu_catagory == "specialweapon" then 
             if weapon_comp["model_specific_components"][wepHash][k] ~= nil then
                 category = weapon_comp["model_specific_components"][wepHash][k]
             end
@@ -338,7 +338,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
 end
 
 function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)    
-    if menu_catagory == "special" then
+    if menu_catagory == "specialweapon" then
         for _, comp in pairs(weapon_comp["model_specific_components"][wepHash][data.current.category]) do
             Citizen.InvokeNative(0x19F70C4D80494FF8, ped, GetHashKey(comp), wepHash)
         end
