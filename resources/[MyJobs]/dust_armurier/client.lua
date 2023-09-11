@@ -350,14 +350,14 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)
     print (weapon_component_model_hash)
     print (model)
     print (wepHash)
-    RequestModel(weapon_component_model_hash)
+    RequestModel(model)
     local i = 0
-    while not HasModelLoaded(weapon_component_model_hash) and i <= 300 do
+    while not HasModelLoaded(model) and i <= 300 do
         i = i + 1
         Citizen.Wait(0)
     end
-    if HasModelLoaded(weapon_component_model_hash) then
+    if HasModelLoaded(model) then
         Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, model, wepHash, true)  -- GiveWeaponComponentToEntity
-        SetModelAsNoLongerNeeded(weapon_component_model_hash)
+        SetModelAsNoLongerNeeded(model)
     end
 end
