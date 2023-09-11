@@ -40,6 +40,7 @@ function inspectcustom()
     if WeapType == "MELEE_BLADE" then WeaponType = "SHORTARM" end
 	if WeapType == "BOW" then WeaponType = "SHORTARM" end
     if WeapType == "LONGARM" then WeaponType = "LONGARM" end
+    print (WeapType)
     Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
     local Position = GetEntityCoords(ped)
     Citizen.CreateThread(function()
