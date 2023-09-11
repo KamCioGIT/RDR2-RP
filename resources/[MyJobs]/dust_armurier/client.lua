@@ -280,19 +280,17 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
 end
 
 function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
-    print (Weapontype)
-    print (menu_catagory)
     MenuData.CloseAll()
     local elements = {}
     local a = 1
     for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
         if model_specific_components[wepHash][k] ~= nil then
-            print 'check'
             local category = model_specific_components[wepHash][k]
         end
         -- if menu_catagory == "commun" then
         --     category = shared_components[Weapontype][k]
         -- end
+        print (type(category))
         local options = {}
         for k, v in pairs(category) do
                 table.insert(options, k)
