@@ -1114,7 +1114,7 @@ function removeItemStash(source, name, amount, meta, stashId)
 
         if item then
             --print(item.getAmount(), _amount)
-            if itemData.type == "item_standard" then
+            if itemData.type == "item_standard" or itemData.type == "item_ammo" then
                 if _amount > 0 then
                     if item.getAmount() >= _amount then
                         if item.removeAmount(_amount) then
