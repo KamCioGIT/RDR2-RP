@@ -52,6 +52,10 @@ function inspect()
     end)
 end
 
+RegisterCommand("repairw", function()
+    cleanandrepair()
+end)
+
 function cleanandrepair()
     local ped = PlayerPedId()
     local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
@@ -62,8 +66,10 @@ function cleanandrepair()
     if WeaponType == "SHOTGUN" then WeaponType = "LONGARM" end
     if WeaponType == "MELEE" then WeaponType = "SHORTARM" end
 	if WeaponType == "BOW" then WeaponType = "SHORTARM" end
-    Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
-    Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), 1242464081, Cloth, PropId, actshort, 1, 0, -1.0)   
+    local Cloth= CreateObject(GetHashKey('s_balledragcloth01x'), GetEntityCoords(PlayerPedId()), false, true, false, false, true)
+    local PropId = GetHashKey("CLOTH")
+    -- Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
+    Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), 1242464081, Cloth, PropId, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)   
     local Position = GetEntityCoords(ped)
     Citizen.CreateThread(function()
         while true do
