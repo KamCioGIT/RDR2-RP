@@ -279,22 +279,17 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
     end)
 end
 
-function OpenCategoryWeapon(menu_catagory, _wepHash, _Weapontype, _ped)
-    local ped = PlayerPedId()
-    local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
-    local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
-    local Weapontype = GetWeaponType(wepHash)
+function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     MenuData.CloseAll()
     local elements = {}
     local a = 1
-    print(Weapontype)
     for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
         if menu_catagory == "commun" then 
             if weapon_comp["shared_components"][Weapontype][k] ~= nil then
                 category = weapon_comp["shared_components"][Weapontype][k]
             end
         end
-        if menu_catagory == "special" then 
+        if menu_catagory == "specialweapon" then 
             if weapon_comp["model_specific_components"][wepHash][k] ~= nil then
                 category = weapon_comp["model_specific_components"][wepHash][k]
             end

@@ -82,7 +82,7 @@ Config.CraftingsReceipe = {
 
 
 Config.MenuElementsW = {
-	["special"] = {
+	["specialweapon"] = {
 		label = "Spécifique",
 		category = {
 			"BARREL",
