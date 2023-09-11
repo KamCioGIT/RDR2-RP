@@ -287,10 +287,10 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
         if menu_catagory == "special" then
             -- category = model_specific_components[wepHash][k]
         else
-            category = shared_components[Weapontype]
+            category = shared_components[Weapontype][k]
         end
         local options = {}
-        for k, v in pairs(category) do
+        for k, v in ipairs(category) do
             table.insert(options, k)
         end
         table.insert(elements, {
