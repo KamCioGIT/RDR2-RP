@@ -239,7 +239,7 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
     end
 
     table.insert(elements, {
-        label = Config.LabelCart["save"] or "Save",
+        label = Config.Label["save"] or "Save",
         value = "save",
         desc = "Save Clothes"
     })
