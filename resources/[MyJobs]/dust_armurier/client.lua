@@ -80,7 +80,6 @@ function cleanandrepair()
         Citizen.InvokeNative(0x812CE61DEBCAB948, weaponObject, 0.0, 0)
         Citizen.InvokeNative(0xA9EF4AD10BDDDB57, weaponObject, 0.0, 0)
         TriggerServerEvent('weapons:server:ApplyDamage', UsedWeapons)
-        break
     end
 end
 
