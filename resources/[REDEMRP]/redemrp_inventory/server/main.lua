@@ -1070,7 +1070,7 @@ function addItemStash(source, name, amount, meta, stashId)
         end
         
         if not item then
-            if itemData.type == "item_standard" then
+            if itemData.type == "item_standard" or itemData.type == "item_ammo" then
                 if _amount > 0 then
                     table.insert(stash, CreateItem(_name, _amount, _meta))
                     output = true
@@ -1087,7 +1087,7 @@ function addItemStash(source, name, amount, meta, stashId)
             end
         else
             if _amount > 0 then
-                if itemData.type == "item_standard" then
+                if itemData.type == "item_standard" or itemData.type == "item_ammo" then
                     item.addAmount(_amount)
                     output = true
                 end
@@ -1228,7 +1228,7 @@ AddEventHandler("redemrp_inventory:server:additemstash",function(name, amount, m
         end
         
         if not item then
-            if itemData.type == "item_standard" then
+            if itemData.type == "item_standard" or itemData.type == "item_ammo" then
                 if _amount > 0 then
                     table.insert(stash, CreateItem(_name, _amount, _meta))
                     output = true
@@ -1245,7 +1245,7 @@ AddEventHandler("redemrp_inventory:server:additemstash",function(name, amount, m
             end
         else
             if _amount > 0 then
-                if itemData.type == "item_standard" then
+                if itemData.type == "item_standard" or itemData.type == "item_ammo" then
                     item.addAmount(_amount)
                     output = true
                 end
