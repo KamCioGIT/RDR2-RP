@@ -291,12 +291,11 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
             end
         elseif  menu_catagory == "specialweapon" then 
             print (wepHash)
-            if weapon_comp["model_specific_components"][wepHash] then
+            if weapon_comp["model_specific_components"][wepHash][k] ~= nil then
                 print 'meow'
                 category = weapon_comp["model_specific_components"][wepHash][k]
             end
         end
-        Wait(500)
         local options = {}
         for k, v in pairs(category) do
                 table.insert(options, k)
