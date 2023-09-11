@@ -33,14 +33,14 @@ function inspectcustom()
     local ped = PlayerPedId()
     local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
     local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
-    local WeaponType = GetWeaponType(wepHash)
+    local WeapType = GetWeaponType(wepHash)
     if wepHash == `WEAPON_UNARMED` then return end
     -- ShowWeaponStats()
-    if WeaponType == "SHOTGUN" then _WeaponType = "LONGARM" end
-    if WeaponType == "MELEE_BLADE" then _WeaponType = "SHORTARM" end
-	if WeaponType == "BOW" then _WeaponType = "SHORTARM" end
-    if WeaponType == "LONGARM" then _WeaponType = "LONGARM" end
-    Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(_WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
+    if WeapType == "SHOTGUN" then WeaponType = "LONGARM" end
+    if WeapType == "MELEE_BLADE" then WeaponType = "SHORTARM" end
+	if WeapType == "BOW" then WeaponType = "SHORTARM" end
+    if WeapType == "LONGARM" then WeaponType = "LONGARM" end
+    Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
     local Position = GetEntityCoords(ped)
     Citizen.CreateThread(function()
         while true do
@@ -52,7 +52,7 @@ function inspectcustom()
         end
     end)
     Wait(1000)
-    OpenCustomWMenu(wepHash, Weapontype, ped)
+    OpenCustomWMenu(wepHash, WeapType, ped)
 end
 
 RegisterNetEvent('dust_armurier:repairkitweapon', function()
