@@ -336,9 +336,13 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     end)
 end
 
-function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)
-
+function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)    
     if menu_catagory == "special" then
+        for _, comp in pairs(model_specific_components[wepHash][data.current.category]) do
+            Citizen.InvokeNative(0x19F70C4D80494FF8, ped, GetHashKey(comp), weaponHash)
+        end
+
+        
         model = GetHashKey(model_specific_components[wepHash][data.current.category][data.current.value])
         weapon_component_model_hash = Citizen.InvokeNative(0x59DE03442B6C9598, model )
         print (model_specific_components[wepHash][data.current.category][data.current.value])
