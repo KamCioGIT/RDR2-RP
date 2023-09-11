@@ -285,7 +285,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     local a = 1
     for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
         if menu_catagory == "special" then
-            category = model_specific_components[wepHash]
+            category = model_specific_components[k]
         else
             category = shared_components[Weapontype]
         end
