@@ -296,6 +296,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
                 category = weapon_comp["model_specific_components"][wepHash][k]
             end
         end
+        Wait(500)
         local options = {}
         for k, v in pairs(category) do
                 table.insert(options, k)
