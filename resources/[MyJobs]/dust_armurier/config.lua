@@ -128,7 +128,7 @@ Config.MenuElementsW = {
             "MELEE_BLADE_MATERIAL",
             "MELEE_BLADE_ENGRAVING",
             "MELEE_BLADE_ENGRAVING_MATERIAL",
-            "GRIP_TINT",FRAME_VERTDATA
+            "GRIP_TINT",
 
 
 		}
