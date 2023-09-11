@@ -301,7 +301,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
             desc = "Modifier l'arme",
             type = "slider",
             min = 0,
-            max = #category,
+            max = tonumber(#category),
             change_type = "model",
             id = a,
             options = options
