@@ -7,6 +7,7 @@ client_scripts {
 	"@uiprompt/uiprompt.lua",
 	'config.lua',
 	'client.lua',
+	'wepcomps.lua',
 }
 
 server_scripts {
