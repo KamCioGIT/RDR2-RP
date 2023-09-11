@@ -29,7 +29,11 @@ Citizen.CreateThread(function()
                 if customwprompt:hasHoldModeJustCompleted()then
                     isInteracting = true
                     Wait(200)
+                    local ped = PlayerPedId()
+                    local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
+                    local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
                     inspectcustom()
+                    OpenCustomWMenu(wepHash, WeapType, ped)
                 end
             end
         end
@@ -60,7 +64,6 @@ function inspectcustom()
         end
     end)
     Wait(1000)
-    OpenCustomWMenu(wepHash, WeapType, ped)
 end
 
 RegisterNetEvent('dust_armurier:repairkitweapon', function()
@@ -358,6 +361,7 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)
         Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, model, wepHash, true)
         -- CompCache[data.current.category] = weapon_component_model_hash
     end
+    inspectcustom()
     -- print (model )
     -- if model and model ~= 0 then
     --     RequestModel(model)
