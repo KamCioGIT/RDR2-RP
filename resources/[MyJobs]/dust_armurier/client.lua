@@ -290,7 +290,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
             category = shared_components[Weapontype][k]
         end
         local options = {}
-        for k, v in ipairs(category) do
+        for k, v in pairs(category) do
             table.insert(options, k)
         end
         table.insert(elements, {
