@@ -261,54 +261,20 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
             menu.close()
             -- TriggerServerEvent("rdr_marechal:save", CompCache, horseid)
             OldCompCache = {}
-            local ped = PlayerPedId()
-            local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
-            local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
-            local WeapType = GetWeaponType(wepHash)
-            if wepHash == `WEAPON_UNARMED` then return end
-            -- ShowWeaponStats()
-            if WeapType == "SHOTGUN" then WeaponType = "LONGARM" end
-            if WeapType == "MELEE" then WeaponType = "SHORTARM" end
-            if WeapType == "BOW" then WeaponType = "SHORTARM" end
-            if WeapType == "LONGARM" then WeaponType = "LONGARM" end
-            if WeapType == "SHORTARM" then WeaponType = "SHORTARM" end
-            Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
-            local Position = GetEntityCoords(ped)
-            Citizen.CreateThread(function()
-                while true do
-                    Wait(100)
-                    if #(Position - GetEntityCoords(PlayerPedId())) > 1.0 then
-                        isInteracting = false
-                        return
-                    end
-                end
-            end)
+            isInteracting = false
+
         end
 
     end, function(data, menu)
         menu.close()
-        local ped = PlayerPedId()
-        local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
-        local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
-        local WeapType = GetWeaponType(wepHash)
-        if wepHash == `WEAPON_UNARMED` then return end
-        -- ShowWeaponStats()
-        if WeapType == "SHOTGUN" then WeaponType = "LONGARM" end
-        if WeapType == "MELEE" then WeaponType = "SHORTARM" end
-        if WeapType == "BOW" then WeaponType = "SHORTARM" end
-        if WeapType == "LONGARM" then WeaponType = "LONGARM" end
-        if WeapType == "SHORTARM" then WeaponType = "SHORTARM" end
-        Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
-        local Position = GetEntityCoords(ped)
-        Citizen.CreateThread(function()
-            while true do
-                Wait(100)
-                if #(Position - GetEntityCoords(PlayerPedId())) > 1.0 then
-                    isInteracting = false
-                    return
-                end
-            end
-        end)
+        isInteracting = false
+        -- for k, v in pairs(Config.LabelCart) do
+        --     Citizen.InvokeNative(0x0D7FFA1B2F69ED82, horse, CompCache[k].hash, true, true, true)
+        -- end
+        -- Wait(100)
+        -- for k, v in pairs(Config.LabelCart) do
+        --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, OldCompCache[k].hash, true, true, true)
+        -- end
         OldCompCache = {}
     end)
 end
@@ -317,16 +283,15 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     MenuData.CloseAll()
     local elements = {}
     local a = 1
-    print(wepHash)
     for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
         if menu_catagory == "special" then 
             if model_specific_components[wepHash][k] ~= nil then
-                category = model_specific_components[wepHash][k]
+                local category = model_specific_components[wepHash][k]
             end
         end
         if menu_catagory == "commun" then 
             if shared_components[Weapontype][k] ~= nil then
-                category = shared_components[Weapontype][k]
+                local category = shared_components[Weapontype][k]
             end
         end
         local options = {}
