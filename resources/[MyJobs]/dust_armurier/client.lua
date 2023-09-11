@@ -349,7 +349,7 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)
         print (shared_components[Weapontype][data.current.category][data.current.value])
         -- CompCache[data.current.category] = weapon_component_model_hash
     end
-    RequestModel(model)
+    print (weapon_component_model_hash)
     if weapon_component_model_hash and weapon_component_model_hash ~= 0 then
         RequestModel(weapon_component_model_hash)
         local i = 0
