@@ -283,12 +283,13 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     MenuData.CloseAll()
     local elements = {}
     local a = 1
+    print(menu_catagory)
     for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
         if menu_catagory == "commun" then 
             if weapon_comp["shared_components"][Weapontype][k] ~= nil then
                 category = weapon_comp["shared_components"][Weapontype][k]
             end
-        else
+        elseif  menu_catagory == "special" then 
             if weapon_comp["model_specific_components"][wepHash][k] ~= nil then
                 category = weapon_comp["model_specific_components"][wepHash][k]
             end
