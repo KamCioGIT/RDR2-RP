@@ -339,7 +339,7 @@ end
 function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)    
     if menu_catagory == "special" then
         for _, comp in pairs(model_specific_components[wepHash][data.current.category]) do
-            Citizen.InvokeNative(0x19F70C4D80494FF8, ped, GetHashKey(comp), weaponHash)
+            Citizen.InvokeNative(0x19F70C4D80494FF8, ped, GetHashKey(comp), wepHash)
         end
 
         
