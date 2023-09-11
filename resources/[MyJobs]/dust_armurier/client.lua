@@ -44,7 +44,7 @@ function inspectcustom()
     if wepHash == `WEAPON_UNARMED` then return end
     -- ShowWeaponStats()
     if WeapType == "SHOTGUN" then WeaponType = "LONGARM" end
-    if WeapType == "MELEE_BLADE" then WeaponType = "SHORTARM" end
+    if WeapType == "MELEE" then WeaponType = "SHORTARM" end
 	if WeapType == "BOW" then WeaponType = "SHORTARM" end
     if WeapType == "LONGARM" then WeaponType = "LONGARM" end
     if WeapType == "SHORTARM" then WeaponType = "SHORTARM" end

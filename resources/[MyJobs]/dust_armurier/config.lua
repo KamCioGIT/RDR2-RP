@@ -129,8 +129,6 @@ Config.MenuElementsW = {
             "MELEE_BLADE_ENGRAVING",
             "MELEE_BLADE_ENGRAVING_MATERIAL",
             "GRIP_TINT",
-
-
 		}
 	},
 
@@ -151,7 +149,6 @@ Config.LabelW = {
 	["TRIGGER_TINT"] = "Teinte de la gâchette",
 	["TORCH_MATCHSTICK"] = "Allumette",
 	["COMPONENT_FISHING_LINE"] = "Ligne de pêche",
-    ----- 
 	["TRIGGER_MATERIAL"] = "Matière de la gâchette",
     ["SIGHT_MATERIAL"] = "Matière de la mire",
     ["HAMMER_MATERIAL"] = "Matière du marteau",
