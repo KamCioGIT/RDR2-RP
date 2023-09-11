@@ -1052,9 +1052,8 @@ Config.Items = {
         canBeUsed = true,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/AMMO_SHOTGUN_REPEATING.png",
-        type = "item_ammo",
-        ammoType = GetHashKey("AMMO_SHOTGUN"),
+        imgsrc = "items/generic_skin_revolver.png",
+        type = "item_standard",
     },
 }
 

@@ -52,10 +52,9 @@ function inspect()
     end)
 end
 
-RegisterCommand("repairw", function()
+RegisterNetEvent('dust_armurier:repairkitweapon', function()
     TriggerEvent("weapons:CleanAndRepairWeapon")
 end)
-
 
 function GetWeaponType(hash)
 	if Citizen.InvokeNative(0x959383DCD42040DA, hash)  or Citizen.InvokeNative(0x792E3EF76C911959, hash)   then
