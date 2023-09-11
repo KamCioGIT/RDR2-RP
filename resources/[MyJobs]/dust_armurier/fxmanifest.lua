@@ -6,7 +6,6 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 client_scripts {
 	"@uiprompt/uiprompt.lua",
 	'wepsharedcomp.lua',
-	'wepspecomp.lua',
 	'config.lua',
 	'client.lua',
 	
@@ -14,7 +13,6 @@ client_scripts {
 
 server_scripts {
 	'wepsharedcomp.lua',
-	'wepspecomp.lua',
 	'server.lua',
 	
 }
