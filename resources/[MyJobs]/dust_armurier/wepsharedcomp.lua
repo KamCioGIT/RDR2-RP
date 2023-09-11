@@ -1,5 +1,5 @@
 weapon_comp = {
-  [shared_components] = {
+  ["shared_components"] = {
       ["SHORTARM"] = {
 
           ["TRIGGER_MATERIAL"] = {
@@ -554,7 +554,7 @@ weapon_comp = {
       },
   },
 
-  [model_specific_components] = {
+  ["model_specific_components"] = {
 
     [379542007] = { --- WEAPON_REVOLVER_CATTLEMAN
         ["BARREL"] = {

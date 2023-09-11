@@ -286,13 +286,13 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     print(Weapontype)
     for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
         if menu_catagory == "commun" then 
-            if weapon_comp[shared_components][Weapontype][k] ~= nil then
-                category = weapon_comp[shared_components][Weapontype][k]
+            if weapon_comp["shared_components"][Weapontype][k] ~= nil then
+                category = weapon_comp["shared_components"][Weapontype][k]
             end
         end
         if menu_catagory == "special" then 
-            if weapon_comp[model_specific_components][wepHash][k] ~= nil then
-                category = weapon_comp[model_specific_components][wepHash][k]
+            if weapon_comp["model_specific_components"][wepHash][k] ~= nil then
+                category = weapon_comp["model_specific_components"][wepHash][k]
             end
         end
         local options = {}
@@ -340,20 +340,20 @@ end
 
 function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)    
     if menu_catagory == "special" then
-        for _, comp in pairs(weapon_comp[model_specific_components][wepHash][data.current.category]) do
+        for _, comp in pairs(weapon_comp["model_specific_components"][wepHash][data.current.category]) do
             Citizen.InvokeNative(0x19F70C4D80494FF8, ped, GetHashKey(comp), wepHash)
         end
 
         
-        model = GetHashKey(weapon_comp[model_specific_components][wepHash][data.current.category][data.current.value])
+        model = GetHashKey(weapon_comp["model_specific_components"][wepHash][data.current.category][data.current.value])
         weapon_component_model_hash = Citizen.InvokeNative(0x59DE03442B6C9598, model )
         Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, model, wepHash, true)
         -- CompCache[data.current.category] = weapon_component_model_hash
     else
-        for _, comp in pairs(weapon_comp[shared_components][Weapontype][data.current.category]) do
+        for _, comp in pairs(weapon_comp["shared_components"][Weapontype][data.current.category]) do
             Citizen.InvokeNative(0x19F70C4D80494FF8, ped, GetHashKey(comp), wepHash)
         end
-        model = GetHashKey(weapon_comp[shared_components][Weapontype][data.current.category][data.current.value])
+        model = GetHashKey(weapon_comp["shared_components"][Weapontype][data.current.category][data.current.value])
         weapon_component_model_hash =  Citizen.InvokeNative(0x59DE03442B6C9598, model)
         Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, model, wepHash, true)
         -- CompCache[data.current.category] = weapon_component_model_hash
