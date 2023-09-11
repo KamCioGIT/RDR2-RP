@@ -279,7 +279,11 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
     end)
 end
 
-function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
+function OpenCategoryWeapon(menu_catagory, _wepHash, _Weapontype, _ped)
+    local ped = PlayerPedId()
+    local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
+    local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
+    local Weapontype = GetWeaponType(wepHash)
     MenuData.CloseAll()
     local elements = {}
     local a = 1
