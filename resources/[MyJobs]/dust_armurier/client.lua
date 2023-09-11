@@ -291,8 +291,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
             end
         elseif  menu_catagory == "specialweapon" then 
             print (wepHash)
-            print(weapon_comp["model_specific_components"][wepHash])
-            if weapon_comp["model_specific_components"][wepHash] == wepHash then
+            if weapon_comp["model_specific_components"][wepHash] then
                 print 'meow'
                 category = weapon_comp["model_specific_components"][wepHash][k]
             end
