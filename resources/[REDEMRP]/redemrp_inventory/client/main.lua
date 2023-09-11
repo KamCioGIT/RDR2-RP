@@ -430,9 +430,9 @@ RegisterNetEvent("weapons:CleanAndRepairWeapon", function()
         -- print("Weapon hash --> "..weaponHash)
         -- print("NOmbre--> "..weaponName)
         if model == 416676503 or model == -1101297303 then
-            Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), 1242464081, Cloth, PropId, actshort, 1, 0, -1.0)   
+            Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), weaponHash, Cloth, PropId, actshort, 1, 0, -1.0)   
         else
-            Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), 1242464081, Cloth, PropId, actlong, 1, 0, -1.0)   
+            Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), weaponHash, Cloth, PropId, actlong, 1, 0, -1.0)   
         end
         RepairWeapon()
         -- TriggerServerEvent("redemrp_weaponshop:server:RemoveGunOil")
