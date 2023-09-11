@@ -1198,7 +1198,7 @@ shared_components = {
         },
     },
 
-    ["MELEE_BLADE"] = {
+    ["MELEE"] = {
         ["MELEE_BLADE_MATERIAL"] = {
           {"COMPONENT_MELEE_BLADE_MATERIAL_7"},
           {"COMPONENT_MELEE_BLADE_MATERIAL_5"},
