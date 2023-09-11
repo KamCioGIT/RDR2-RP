@@ -60,19 +60,7 @@ function inspectcustom()
         end
     end)
     Wait(1000)
-    for v, k in pairs(Config.MenuElementsW) do
-        if k.category == "commun" then 
-            if weapon_comp["shared_components"][WeapType][k] ~= nil then
-                com_category = weapon_comp["shared_components"][WeapType][k]
-            end
-        end
-        if k.category == "special" then 
-            if weapon_comp["model_specific_components"][wepHash][k] ~= nil then
-                spe_category = weapon_comp["model_specific_components"][wepHash][k]
-            end
-        end
-    end
-    OpenCustomWMenu(wepHash, WeapType, ped, com_category, spe_category)
+    OpenCustomWMenu(wepHash, WeapType, ped)
 end
 
 RegisterNetEvent('dust_armurier:repairkitweapon', function()
@@ -221,7 +209,7 @@ end
 
 ----- Menu Custom -----
 
-function OpenCustomWMenu(wepHash, Weapontype, ped, com_category, spe_category)
+function OpenCustomWMenu(wepHash, Weapontype, ped)
     MenuData.CloseAll()
     local playerPed = PlayerPedId()
     local Position = GetEntityCoords(playerPed)
@@ -268,7 +256,7 @@ function OpenCustomWMenu(wepHash, Weapontype, ped, com_category, spe_category)
 
     }, function(data, menu)
         if data.current.value ~= "save" then
-            OpenCategoryWeapon(data.current.value, wepHash, Weapontype, ped, com_category, spe_category)
+            OpenCategoryWeapon(data.current.value, wepHash, Weapontype, ped)
         else
             menu.close()
             -- TriggerServerEvent("rdr_marechal:save", CompCache, horseid)
@@ -291,15 +279,20 @@ function OpenCustomWMenu(wepHash, Weapontype, ped, com_category, spe_category)
     end)
 end
 
-function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped, com_category, spe_category)
+function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     MenuData.CloseAll()
     local elements = {}
     local a = 1
     for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
         if menu_catagory == "commun" then 
-            category = com_category
-        else
-            category = spe_category
+            if weapon_comp["shared_components"][Weapontype][k] ~= nil then
+                category = weapon_comp["shared_components"][Weapontype][k]
+            end
+        end
+        if menu_catagory == "special" then 
+            if weapon_comp["model_specific_components"][wepHash][k] ~= nil then
+                category = weapon_comp["model_specific_components"][wepHash][k]
+            end
         end
         local options = {}
         for k, v in pairs(category) do
@@ -336,7 +329,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped, com_categor
 
     end, function(data, menu)
         menu.close()
-        OpenCustomWMenu(wepHash, Weapontype, ped, com_category, spe_category)
+        OpenCustomWMenu(wepHash, Weapontype, ped)
     end, function(data, menu)
         if data.current.value ~= 0 then 
             MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)
