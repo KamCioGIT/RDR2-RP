@@ -4,6 +4,13 @@ RegisterNetEvent("dust_armurier:addammotoweapon", function (weapon, ammo)
     SetPedAmmo(PlayerPedId(), weapon, ammo)
 end)
 
+MenuData = {}
+TriggerEvent("redemrp_menu_base:getData", function(call)
+    MenuData = call
+end)
+
+
+
 ---- Prompt ----
 
 local customwprompt = UipromptGroup:new("Armurier Atelier")
