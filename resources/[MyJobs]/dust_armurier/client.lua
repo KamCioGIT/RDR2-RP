@@ -284,16 +284,10 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     local elements = {}
     local a = 1
     print(menu_catagory)
-    for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
+    for v, k in pairs(Config.MenuElementsW["commun"].category) do
         if menu_catagory == "commun" then 
             if weapon_comp["shared_components"][Weapontype][k] ~= nil then
                 category = weapon_comp["shared_components"][Weapontype][k]
-            end
-        elseif  menu_catagory == "specialweapon" then 
-            print (wepHash)
-            if weapon_comp["model_specific_components"][wepHash][k] ~= nil then
-                print 'meow'
-                category = weapon_comp["model_specific_components"][wepHash][k]
             end
         end
         local options = {}
@@ -311,6 +305,11 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
             change_type = "model",
             id = a,
             options = options
+        })
+        table.insert(elements, {
+            label = "Spécial",
+            value = "specialweapon",
+            desc = "Modifications uniques pour cette arme",
         })
         
         a = a + 1
@@ -333,7 +332,63 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
         menu.close()
         OpenCustomWMenu(wepHash, Weapontype, ped)
     end, function(data, menu)
-        if data.current.value ~= 0 then 
+        if data.current.value ~= 0 and data.current.value ~= "specialweapon" then 
+            MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)
+        end
+        if data.current.value == "specialweapon" then
+            Openspecialmenu(wepHash, Weapontype, ped)
+        end
+    end)
+end
+
+function Openspecialmenu(wepHash, Weapontype, ped)
+    MenuData.CloseAll()
+    local elements = {}
+    local a = 1
+    for v, k in pairs(Config.MenuElementsW["specialweapon"].category) do
+        print (wepHash)
+        if weapon_comp["model_specific_components"][wepHash] ~= nil then
+            print 'meow'
+            category = weapon_comp["model_specific_components"][wepHash][k]
+        end
+        local options = {}
+        for k, v in pairs(category) do
+                table.insert(options, k)
+        end
+        table.insert(elements, {
+            label = Config.LabelW[k] or v,
+            value = 0,
+            category = k,
+            desc = "Modifier l'arme",
+            type = "slider",
+            min = 0,
+            max = #category,
+            change_type = "model",
+            id = a,
+            options = options
+        })
+        
+        a = a + 1
+        options = {}
+    end
+
+    MenuData.Open('default', GetCurrentResourceName(), 'customspeweaponcategory', {
+
+        title = 'Arme',
+
+        subtext = 'Options',
+
+        align = 'top-left',
+
+        elements = elements
+
+    }, function(data, menu)
+
+    end, function(data, menu)
+        menu.close()
+        OpenCategoryWeapon(wepHash, Weapontype, ped)
+    end, function(data, menu)
+        if data.current.value ~= 0 and data.current.value ~= "specialweapon" then 
             MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)
         end
     end)
