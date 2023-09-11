@@ -301,6 +301,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
             type = "slider",
             min = 0,
             max = #category,
+            change_type = "model",
             id = a,
             options = options
         })
