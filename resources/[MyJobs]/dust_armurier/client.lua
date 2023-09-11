@@ -346,10 +346,12 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)
         model = GetHashKey(shared_components[Weapontype][data.current.category][data.current.value])
         weapon_component_model_hash =  Citizen.InvokeNative(0x59DE03442B6C9598, model)
         -- CompCache[data.current.category] = weapon_component_model_hash
-        print (model)
     end
     print (weapon_component_model_hash)
-    Citizen.InvokeNative(0x74C9090FDD1BB48E, GetCurrentPedWeaponEntityIndex(PlayerPedId()), model, wepHash, true)  -- GiveWeaponComponentToEntity
+    print (model)
+    print (wepHash)
+    print (ped)
+    Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, model, wepHash, true)  -- GiveWeaponComponentToEntity
     if weapon_component_model_hash and weapon_component_model_hash ~= 0 then
         RequestModel(weapon_component_model_hash)
         local i = 0
