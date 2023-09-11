@@ -57,29 +57,31 @@ RegisterCommand("repairw", function()
 end)
 
 function cleanandrepair()
+    TriggerEvent("redemrp_inventory:closeinv")
     local ped = PlayerPedId()
-    local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
-    local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
-    local WeaponType = GetWeaponType(wepHash)
-    if wepHash == `WEAPON_UNARMED` then return end
-    -- ShowWeaponStats()
-    if WeaponType == "SHOTGUN" then WeaponType = "LONGARM" end
-    if WeaponType == "MELEE" then WeaponType = "SHORTARM" end
-	if WeaponType == "BOW" then WeaponType = "SHORTARM" end
-    local Cloth= CreateObject(GetHashKey('s_balledragcloth01x'), GetEntityCoords(PlayerPedId()), false, true, false, false, true)
-    local PropId = GetHashKey("CLOTH")
-    -- Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
-    Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), 1242464081, Cloth, PropId, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)   
-    local Position = GetEntityCoords(ped)
-    Citizen.CreateThread(function()
-        while true do
-            Wait(100)
-            if #(Position - GetEntityCoords(PlayerPedId())) > 1.0 then
-                isInteracting = false
-                return
-            end
+    local retval, weaponHash = GetCurrentPedWeapon(PlayerPedId(), false, weaponHash, false)
+    if weaponHash ~= `WEAPON_UNARMED` then
+        local Cloth= CreateObject(GetHashKey('s_balledragcloth01x'), GetEntityCoords(PlayerPedId()), false, true, false, false, true)
+        local PropId = GetHashKey("CLOTH")
+        local actshort = GetHashKey("SHORTARM_CLEAN_ENTER")
+        local actlong = GetHashKey("LONGARM_CLEAN_ENTER")
+        local model = GetWeapontypeGroup(weaponHash)
+        local object = GetObjectIndexFromEntityIndex(GetCurrentPedWeaponEntityIndex(PlayerPedId(),0))
+        -- print("Model --> "..model)
+        -- print("Weapon hash --> "..weaponHash)
+        -- print("NOmbre--> "..weaponName)
+        if model == 416676503 or model == -1101297303 then
+            Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), 1242464081, Cloth, PropId, actshort, 1, 0, -1.0)   
+        else
+            Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), 1242464081, Cloth, PropId, actlong, 1, 0, -1.0)   
         end
-    end)
+        local weaponObject = Citizen.InvokeNative(0x6CA484C9A7377E4F, PlayerPedId(), 1)
+        Citizen.InvokeNative(0xA7A57E89E965D839, weaponObject, 0.0)
+        Citizen.InvokeNative(0x812CE61DEBCAB948, weaponObject, 0.0, 0)
+        Citizen.InvokeNative(0xA9EF4AD10BDDDB57, weaponObject, 0.0, 0)
+        TriggerServerEvent('weapons:server:ApplyDamage', UsedWeapons)
+        break
+    end
 end
 
 function GetWeaponType(hash)
