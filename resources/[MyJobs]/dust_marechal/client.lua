@@ -210,19 +210,19 @@ function OpenCustomCart(horse, horseid, model)
             label = k.label or v,
             value = v,
             category = v,
-            desc = "Change component"
+            desc = "Modifier la charrette"
         })
     end
 
     table.insert(elements, {
-        label = Config.LabelCart["save"] or "Save",
+        label = Config.LabelCart["save"] or "Valider",
         value = "save",
-        desc = "Save Clothes"
+        desc = "Valider"
     })
 
     MenuData.Open('default', GetCurrentResourceName(), 'customcart', {
 
-        title = 'Cheval',
+        title = 'Charrette',
 
         subtext = "Changer l'équipement",
 
@@ -276,7 +276,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
             label = Config.LabelCart[k] or v,
             value = 0,
             category = k,
-            desc = "Change component",
+            desc = "Changer l'équipement",
             type = "slider",
             min = 0,
             max = #category,
@@ -287,30 +287,11 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
         
         a = a + 1
         options = {}
-
-        -- for i = 1, GetMaxTexturesForModel(k, CompCache[k].model or 1), 1 do
-        --     table.insert(options, i.." Color")
-        -- end
-        -- table.insert(elements, {
-        --     label = Config.Label[k] .. " Color" or v,
-        --     value = CompCache[k].texture or 1,
-        --     category = k,
-        --     desc = "Change the color",
-        --     type = "slider",
-        --     min = 1,
-        --     -- max = GetMaxTexturesForModel(k, CompCache[k].model or 1),
-        --     change_type = "texture",
-        --     id = a,
-        --     options = options
-        -- })
-
-        options = {}
-        a = a + 1
     end
 
     MenuData.Open('default', GetCurrentResourceName(), 'customcartcategory', {
 
-        title = 'Clothes',
+        title = 'Charrette',
 
         subtext = 'Options',
 
@@ -356,7 +337,6 @@ function MenuUpdateCart(data, menu, horse, model)
 end
 
 function MenuUpdateComp(data, menu, horse)
-    print (data.current.value,  comp_list[data.current.category][data.current.value].hash)
     NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
     if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
         CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash

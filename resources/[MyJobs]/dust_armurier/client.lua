@@ -22,24 +22,25 @@ Citizen.CreateThread(function()
                 if customwprompt:hasHoldModeJustCompleted()then
                     isInteracting = true
                     Wait(200)
-                    inspect()
+                    inspectcustom()
                 end
             end
         end
     end
 end)
 
-function inspect()
+function inspectcustom()
     local ped = PlayerPedId()
     local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
     local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
     local WeaponType = GetWeaponType(wepHash)
     if wepHash == `WEAPON_UNARMED` then return end
     -- ShowWeaponStats()
-    if WeaponType == "SHOTGUN" then WeaponType = "LONGARM" end
-    if WeaponType == "MELEE" then WeaponType = "SHORTARM" end
-	if WeaponType == "BOW" then WeaponType = "SHORTARM" end
-    Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
+    if WeaponType == "SHOTGUN" then _WeaponType = "LONGARM" end
+    if WeaponType == "MELEE_BLADE" then _WeaponType = "SHORTARM" end
+	if WeaponType == "BOW" then _WeaponType = "SHORTARM" end
+    if WeaponType == "LONGARM" then _WeaponType = "LONGARM" end
+    Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(_WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
     local Position = GetEntityCoords(ped)
     Citizen.CreateThread(function()
         while true do
@@ -50,6 +51,8 @@ function inspect()
             end
         end
     end)
+    Wait(1000)
+    OpenCustomWMenu(wepHash, Weapontype, ped)
 end
 
 RegisterNetEvent('dust_armurier:repairkitweapon', function()
@@ -192,4 +195,154 @@ function ShopMenu()
     end, function(data, menu)
         menu.close()
     end) 
+end
+
+
+
+----- Menu Custom -----
+
+function OpenCustomWMenu(wepHash, Weapontype, ped)
+    MenuData.CloseAll()
+    local playerPed = PlayerPedId()
+    local Position = GetEntityCoords(playerPed)
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 10.0 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    local elements = {}
+
+    for v, k in pairs(Config.MenuElements) do
+
+        table.insert(elements, {
+            label = k.label or v,
+            value = v,
+            category = v,
+            desc = "Change component"
+        })
+    end
+
+    table.insert(elements, {
+        label = Config.LabelCart["save"] or "Save",
+        value = "save",
+        desc = "Save Clothes"
+    })
+
+    MenuData.Open('default', GetCurrentResourceName(), 'customweapon', {
+
+        title = 'Arme',
+
+        subtext = "Modifier l'arme",
+
+        align = 'top-left',
+
+        elements = elements
+
+    }, function(data, menu)
+        if data.current.value ~= "save" then
+            OpenCategoryWeapon(data.current.value, wepHash, Weapontype, ped)
+        else
+            menu.close()
+            -- TriggerServerEvent("rdr_marechal:save", CompCache, horseid)
+            OldCompCache = {}
+            isInteracting = false
+
+        end
+
+    end, function(data, menu)
+        menu.close()
+        isInteracting = false
+        -- for k, v in pairs(Config.LabelCart) do
+        --     Citizen.InvokeNative(0x0D7FFA1B2F69ED82, horse, CompCache[k].hash, true, true, true)
+        -- end
+        -- Wait(100)
+        -- for k, v in pairs(Config.LabelCart) do
+        --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, OldCompCache[k].hash, true, true, true)
+        -- end
+        OldCompCache = {}
+    end)
+end
+
+function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
+    MenuData.CloseAll()
+    local elements = {}
+    local a = 1
+    for v, k in pairs(Config.MenuElements[menu_catagory].category) do
+        if menu_catagory == "special" then
+            category = model_specific_components[wepHash][k]
+        else
+            category = shared_components[Weapontype]
+        end
+        local options = {}
+        for k, v in pairs(category) do
+            table.insert(options, k)
+        end
+        table.insert(elements, {
+            label = Config.Label[k] or v,
+            value = 0,
+            category = k,
+            desc = "Modifier l'arme",
+            type = "slider",
+            min = 0,
+            max = #category,
+            id = a,
+            options = options
+        })
+        
+        a = a + 1
+        options = {}
+    end
+
+    MenuData.Open('default', GetCurrentResourceName(), 'customweaponcategory', {
+
+        title = 'Arme',
+
+        subtext = 'Options',
+
+        align = 'top-left',
+
+        elements = elements
+
+    }, function(data, menu)
+
+    end, function(data, menu)
+        menu.close()
+        OpenCustomWMenu(wepHash, Weapontype, ped)
+    end, function(data, menu)
+        if data.current.value ~= 0 then 
+            MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)
+        end
+    end)
+end
+
+function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped)
+
+    if menu_catagory == "special" then
+        weapon_component_model_hash = Citizen.InvokeNative(0x59DE03442B6C9598, model_specific_components[wepHash][data.current.category][data.current.value])
+        CompCache[data.current.category] = weapon_component_model_hash
+    else
+        weapon_component_model_hash =  Citizen.InvokeNative(0x59DE03442B6C9598, shared_components[Weapontype][data.current.category][data.current.value])
+        CompCache[data.current.category] = weapon_component_model_hash
+    end
+
+    if weapon_component_model_hash and weapon_component_model_hash ~= 0 then
+        RequestModel(weapon_component_model_hash)
+        local i = 0
+        while not HasModelLoaded(weapon_component_model_hash) and i <= 300 do
+            i = i + 1
+            Citizen.Wait(0)
+        end
+        if HasModelLoaded(weapon_component_model_hash) then
+            Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, weapon_component_hash, wepHash, true)  -- GiveWeaponComponentToEntity
+            SetModelAsNoLongerNeeded(weapon_component_model_hash)
+        end
+    end
 end
