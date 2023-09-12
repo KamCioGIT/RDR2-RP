@@ -266,6 +266,7 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
                         NewCompCache[u] = v
                     end
                 end
+            end
             TriggerEvent("weapons:savecomp", NewCompCache, wep_uid)
             NewCompCache = {}
             isInteracting = false
