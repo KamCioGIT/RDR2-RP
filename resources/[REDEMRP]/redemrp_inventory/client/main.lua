@@ -930,7 +930,8 @@ end)
 RegisterNetEvent("redemrp_inventory:askuid", function(wepHash, WeapType, ped)
     for k, v in pairs(UsedWeapons) do
         if k == wepHash then
-            TriggerEvent("dust_armurier:getuid", v.name, v.meta.uid, v.meta.components, WeapType, ped)
+            compcache = v.meta.components
+            TriggerEvent("dust_armurier:getuid", v.name, v.meta.uid, compcache, WeapType, ped)
         end
     end
 end)
