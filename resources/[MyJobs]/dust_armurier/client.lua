@@ -30,6 +30,7 @@ Citizen.CreateThread(function()
                     isInteracting = true
                     Wait(200)
                     inspectcustom()
+                    showWeaponStats()
                 end
             end
         end
@@ -411,5 +412,87 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped, menu_catagory)
         weapon_component_model_hash =  Citizen.InvokeNative(0x59DE03442B6C9598, model)
         Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, model, wepHash, true)
         -- CompCache[data.current.category] = weapon_component_model_hash
+    end
+end
+
+
+
+RegisterNetEvent('rdr_marechal:OpenCustomMenu')
+AddEventHandler('rdr_marechal:OpenCustomMenu', function(value, Components, horse, horseid, model)
+    CompCache = Components
+    if value == 1 then
+        for k, v in pairs(comp_cart) do
+            if CompCache[k] == nil then
+                CompCache[k] = {}
+                CompCache[k].hash = 0
+            end
+        end
+        OldCompCache = deepcopy(CompCache)
+        FreezeEntityPosition(horse, true)
+        OpenCustomCart(horse, horseid, model)
+        print (model)
+    end
+    if value == 2 then
+        for k, v in pairs(comp_list) do
+            if CompCache[k] == nil then
+                CompCache[k] = {}
+                CompCache[k].hash = 0
+            end
+        end
+        OldCompCache = deepcopy(CompCache)
+        FreezeEntityPosition(horse, true)
+        OpenCustomMenu(horse, horseid)
+    end
+end)
+
+function deepcopy(orig)
+    local orig_type = type(orig)
+    local copy
+    if orig_type == 'table' then
+        copy = {}
+        for orig_key, orig_value in next, orig, nil do
+            copy[deepcopy(orig_key)] = deepcopy(orig_value)
+        end
+        setmetatable(copy, deepcopy(getmetatable(orig)))
+    else -- number, string, boolean, etc
+        copy = orig
+    end
+    return copy
+end
+
+
+function getWeaponStats(weaponHash)
+    local emptyStruct = {} -- Create an empty table
+
+    local charStruct = {} -- Create another empty table
+    Citizen.InvokeNative("0x886DFD3E185C8A89", 1, emptyStruct, GetHashKey("CHARACTER"), -1591664384, charStruct)
+        
+    local unkStruct = {} -- Create another empty table
+    Citizen.InvokeNative("0x886DFD3E185C8A89", 1, charStruct, 923904168, -740156546, unkStruct)
+
+    local weaponStruct = {} -- Create another empty table
+    Citizen.InvokeNative("0x886DFD3E185C8A89", 1, unkStruct, weaponHash, -1591664384, weaponStruct)
+
+    return weaponStruct
+end
+
+function showWeaponStats()
+    local weapon = GetCurrentPedWeapon(PlayerPedId(), true, 0, true)
+    if weapon[1] then
+        local uiFlowBlock = RequestFlowBlock(GetHashKey("PM_FLOW_WEAPON_INSPECT"))
+
+        local uiContainer = DatabindingAddDataContainerFromPath("", "ItemInspection")
+        Citizen.InvokeNative("0x46DB71883EE9D5AF", uiContainer, "stats", getWeaponStats(weapon[1]), PlayerPedId())
+        DatabindingAddDataString(uiContainer, "tipText", GetLabelTextByHash(-54957657))
+        DatabindingAddDataHash(uiContainer, "itemLabel", weapon[1])
+        DatabindingAddDataBool(uiContainer, "Visible", true)
+
+        Citizen.InvokeNative("0x10A93C057B6BD944", uiFlowBlock)
+        Citizen.InvokeNative("0x3B7519720C9DCB45", uiFlowBlock, 0)
+        Citizen.InvokeNative("0x4C6F2C4B7A03A266", -813354801, uiFlowBlock)
+        
+        Citizen.SetTimeout(function()
+            Citizen.InvokeNative("0x4EB122210A90E2D8", -813354801)
+        end, 5000)
     end
 end
