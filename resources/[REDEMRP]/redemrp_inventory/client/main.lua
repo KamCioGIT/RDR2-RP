@@ -270,20 +270,20 @@ function ReloadWeapons()
                 givePlayerWeapon(k.WeaponHash, 3)
             else
                 Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
-                SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
-                if k.meta.components ~= nil then
-                    TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
-                end
+                -- SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
+                -- if k.meta.components ~= nil then
+                --     TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
+                -- end
             end
         elseif k.name == "WEAPON_MELEE_LANTERN" then
             GiveWeaponToPed_2(PlayerPedId(), `WEAPON_MELEE_LANTERN`, 0, true, true , 0, false, 0.5, 1.0, 752097756, false, 0, false)
             SetCurrentPedWeapon(PlayerPedId(), `WEAPON_MELEE_LANTERN`, true, 0, false, false)
         else
             Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
-            SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
-            if k.meta.components ~= nil then
-                TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
-            end
+            -- SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
+            -- if k.meta.components ~= nil then
+            --     TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
+            -- end
         end
         SetPedAmmo(PlayerPedId(), k.WeaponHash, 0)
         if k.meta.components ~= nil then
