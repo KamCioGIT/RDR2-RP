@@ -707,18 +707,17 @@ AddEventHandler(
             for i, k in pairs(_table) do
                 local item, id = getInventoryItemFromName(k.name, player_inventory, {})
                 if item then
-                    -- if not k.meta.components then
-                    --     k.meta.components = compcache
-                    -- end
-                    k.meta.components = compcache
-                    item.setMeta(k.meta)
-                    TriggerClientEvent(
-                        "redemrp_inventory:SendItems",
-                        _source,
-                        PrepareToOutput(Inventory[identifier .. "_" .. charid]),
-                        {},
-                        InventoryWeight[identifier .. "_" .. charid]
-                    )
+                    if k.meta.uid == uid then
+                        k.meta.components = compcache
+                        item.setMeta(k.meta)
+                        TriggerClientEvent(
+                            "redemrp_inventory:SendItems",
+                            _source,
+                            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+                            {},
+                            InventoryWeight[identifier .. "_" .. charid]
+                        )
+                    end
                 end
             end
         end
