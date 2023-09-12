@@ -453,7 +453,7 @@ end
 RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp)
     wep_name = name
     wep_uid = uid
-    CompCache = comp
+    NewCompCache = comp
     -- local hashwep = GetHashKey(wep_name)
     -- for k, v in pairs(weapon_comp) do
     --     if CompCache[hashwep][k] == nil then

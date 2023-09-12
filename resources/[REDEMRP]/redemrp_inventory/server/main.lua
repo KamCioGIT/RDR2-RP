@@ -708,7 +708,6 @@ AddEventHandler(
                 local item, id = getInventoryItemFromName(k.name, player_inventory, {})
                 if item then
                     k.meta.components = compcache
-                    print 'meta'
                     item.setMeta(k.meta)
                     TriggerClientEvent(
                         "redemrp_inventory:SendItems",
