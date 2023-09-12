@@ -272,7 +272,7 @@ function ReloadWeapons()
                 Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
                 SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
                 if k.meta.components ~= nil and k.meta.components["GLOBAL"] ~= nil then
-                    TriggerEvent('WH_Redemrp_WeaponCustomization:Apply', k.WeaponHash, k.meta.components)
+                    TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
                 end
             end
         elseif k.name == "WEAPON_MELEE_LANTERN" then
@@ -282,12 +282,12 @@ function ReloadWeapons()
             Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
             SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
             if k.meta.components ~= nil and k.meta.components["GLOBAL"] ~= nil then
-                TriggerEvent('WH_Redemrp_WeaponCustomization:Apply', k.WeaponHash, k.meta.components)
+                TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
             end
         end
         SetPedAmmo(PlayerPedId(), k.WeaponHash, 0)
         if k.meta.components ~= nil and k.meta.components["GLOBAL"] ~= nil then
-            TriggerEvent('darkk_weapon_customization:Apply', k.WeaponHash, k.meta.components)
+            TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
         end
     end
 end
@@ -943,5 +943,12 @@ RegisterNetEvent("weapons:savecomp", function(compcache, uid)
             TriggerServerEvent('weapons:server:ApplyComp', UsedWeapons, uid, compcache)
             break
         end
+    end
+end)
+
+RegisterNetEvent('redemrp_inventory:compweapon', function (WeaponHash, wepcomp)
+    local ped = PlayerPedId()
+    for k, v in wepcomp do
+        Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, v, WeaponHash, true)
     end
 end)
