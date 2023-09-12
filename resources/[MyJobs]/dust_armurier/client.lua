@@ -290,11 +290,11 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
             end
             table.insert(elements, {
                 label = Config.LabelW[k] or v,
-                value = -1,
+                value = 0,
                 category = k,
                 desc = "Modifier l'arme",
                 type = "slider",
-                min = 0,
+                min = -1,
                 max = #category,
                 change_type = "model",
                 id = a,
@@ -316,11 +316,11 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
             end
             table.insert(elements, {
                 label = Config.LabelW[k] or v,
-                value = -1,
+                value = 0,
                 category = k,
                 desc = "Modifier l'arme",
                 type = "slider",
-                min = 0,
+                min = -1,
                 max = #category,
                 change_type = "model",
                 id = a,
