@@ -287,7 +287,32 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     if menu_catagory == "commun" then
         for k, v in pairs(weapon_comp["shared_components"][Weapontype]) do
             if k ~= nil then
-                print 'testrrr'
+                category = v
+            end
+            local options = {}
+            for k, v in pairs(category) do
+                table.insert(options, k)
+            end
+            table.insert(elements, {
+                label = Config.LabelW[k] or v,
+                value = 0,
+                category = k,
+                desc = "Modifier l'arme",
+                type = "slider",
+                min = 0,
+                max = #category,
+                change_type = "model",
+                id = a,
+                options = options
+            })
+            
+            a = a + 1
+            options = {}
+        end
+    end
+    if menu_catagory == "specialweapon" then
+        for k, v in pairs(weapon_comp["model_specific_components"][wepHash]) do
+            if k ~= nil then
                 category = v
             end
             local options = {}
