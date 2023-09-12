@@ -940,7 +940,7 @@ RegisterNetEvent("weapons:savecomp", function(compcache, uid)
     for i, k in pairs(UsedWeapons) do
         if k.WeaponHash == pedWeapon then
             UsedWeapons[i].meta.components = compcache
-            TriggerServerEvent('weapons:server:ApplyComp', UsedWeapons, uid)
+            TriggerServerEvent('weapons:server:ApplyComp', UsedWeapons, uid, compcache)
             break
         end
     end

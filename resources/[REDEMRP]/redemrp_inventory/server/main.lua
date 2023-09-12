@@ -695,7 +695,7 @@ AddEventHandler(
 RegisterServerEvent("weapons:server:ApplyComp")
 AddEventHandler(
     "weapons:server:ApplyComp",
-    function(table, uid)
+    function(table, uid, compcache)
         local _source = source
         local _table = table
         local _uid = uid
@@ -707,9 +707,7 @@ AddEventHandler(
             for i, k in pairs(_table) do
                 local item, id = getInventoryItemFromName(k.name, player_inventory, {})
                 if item then
-                    if not k.meta.components then
-                        k.meta.components = {}
-                    end
+                    k.meta.components = compcache
                     print 'meta'
                     item.setMeta(k.meta)
                     TriggerClientEvent(
