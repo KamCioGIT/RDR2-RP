@@ -332,39 +332,6 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
         end
     end
 
-    -- for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
-    --     if menu_catagory == "commun" then 
-    --         if weapon_comp["shared_components"][Weapontype][k] ~= nil then
-    --             category = weapon_comp["shared_components"][Weapontype][k]
-    --         end
-    --     elseif menu_catagory == "specialweapon" then 
-    --         print (wepHash)
-    --         if weapon_comp["model_specific_components"][wepHash][k] ~= nil then
-    --             print 'meow'
-    --             category = weapon_comp["model_specific_components"][wepHash][k]
-    --         end
-    --     end
-    --     local options = {}
-    --     for k, v in pairs(category) do
-    --         table.insert(options, k)
-    --     end
-    --     table.insert(elements, {
-    --         label = Config.LabelW[k] or v,
-    --         value = 0,
-    --         category = k,
-    --         desc = "Modifier l'arme",
-    --         type = "slider",
-    --         min = 0,
-    --         max = #category,
-    --         change_type = "model",
-    --         id = a,
-    --         options = options
-    --     })
-        
-    --     a = a + 1
-    --     options = {}
-    -- end
-
     MenuData.Open('default', GetCurrentResourceName(), 'customweaponcategory', {
 
         title = 'Arme',
@@ -453,7 +420,7 @@ end
 RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped)
     wep_name = name
     wep_uid = uid
-    -- NewCompCache = comp
+    NewCompCache = comp
     -- for k, v in pairs(weapon_comp["model_specific_components"]) do
     --     if NewCompCache[v] == nil then
     --         NewCompCache[v] = {}
