@@ -366,7 +366,6 @@ AddEventHandler('rdr_marechal:OpenCustomMenu', function(value, Components, horse
         OldCompCache = deepcopy(CompCache)
         FreezeEntityPosition(horse, true)
         OpenCustomCart(horse, horseid, model)
-        print (model)
     end
     if value == 2 then
         for k, v in pairs(comp_list) do

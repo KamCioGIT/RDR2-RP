@@ -927,17 +927,10 @@ RegisterNetEvent("redemrp_inventory:removeammo", function()
     RemoveAllPedWeapons(PlayerPedId(), true, true)
 end)
 
-RegisterNetEvent("redemrp_inventory:getuid", function(wepHash)
+RegisterNetEvent("redemrp_inventory:askuid", function(wepHash)
     for k, v in pairs(UsedWeapons) do
         if k == wepHash then
-            print (v.name, v.meta.uid)
+            TriggerEvent("dust_armurier:getuid", v.name, v.meta.uid, v.meta.components)
         end
     end
-    -- UsedWeapons[tonumber(hash)] = {
-    --     WeaponHash = tonumber(hash),
-    --     WeaponType = pweptype,
-    --     Ammo = tonumber(ammoAmount),
-    --     name = name,
-    --     meta = meta,
-    -- }
 end)

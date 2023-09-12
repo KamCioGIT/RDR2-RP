@@ -60,7 +60,7 @@ function inspectcustom()
     end)
     Wait(1000)
     OpenCustomWMenu(wepHash, WeapType, ped)
-    TriggerEvent("redemrp_inventory:getuid", wepHash)
+    TriggerEvent("redemrp_inventory:askuid", wepHash)
 end
 
 RegisterNetEvent('dust_armurier:repairkitweapon', function()
@@ -259,7 +259,7 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
             OpenCategoryWeapon(data.current.value, wepHash, Weapontype, ped)
         else
             menu.close()
-            -- TriggerServerEvent("rdr_marechal:save", CompCache, horseid)
+            TriggerServerEvent("rdr_armurier:save", CompCache, wep_uid)
             OldCompCache = {}
             isInteracting = false
 
@@ -396,6 +396,9 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped, menu_catagory)
     if menu_catagory == "specialweapon" then
         for _, comp in pairs(weapon_comp["model_specific_components"][wepHash][data.current.category]) do
             Citizen.InvokeNative(0x19F70C4D80494FF8, ped, GetHashKey(comp), wepHash)
+            comp_cat = weapon_comp["model_specific_components"][wepHash][data.current.category]
+            print (comp_cat)
+            CompCache[comp_cat] = GetHashKey(comp)
         end
 
         
@@ -415,49 +418,6 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped, menu_catagory)
 end
 
 
-
-RegisterNetEvent('rdr_marechal:OpenCustomMenu')
-AddEventHandler('rdr_marechal:OpenCustomMenu', function(value, Components, horse, horseid, model)
-    CompCache = Components
-    if value == 1 then
-        for k, v in pairs(comp_cart) do
-            if CompCache[k] == nil then
-                CompCache[k] = {}
-                CompCache[k].hash = 0
-            end
-        end
-        OldCompCache = deepcopy(CompCache)
-        FreezeEntityPosition(horse, true)
-        OpenCustomCart(horse, horseid, model)
-        print (model)
-    end
-    if value == 2 then
-        for k, v in pairs(comp_list) do
-            if CompCache[k] == nil then
-                CompCache[k] = {}
-                CompCache[k].hash = 0
-            end
-        end
-        OldCompCache = deepcopy(CompCache)
-        FreezeEntityPosition(horse, true)
-        OpenCustomMenu(horse, horseid)
-    end
-end)
-
-function deepcopy(orig)
-    local orig_type = type(orig)
-    local copy
-    if orig_type == 'table' then
-        copy = {}
-        for orig_key, orig_value in next, orig, nil do
-            copy[deepcopy(orig_key)] = deepcopy(orig_value)
-        end
-        setmetatable(copy, deepcopy(getmetatable(orig)))
-    else -- number, string, boolean, etc
-        copy = orig
-    end
-    return copy
-end
 
 --- AFFICHAGE STATS ARMES ----
 -- function getWeaponStats(weaponHash)
@@ -495,3 +455,33 @@ end
 --         end, 5000)
 --     end
 -- end
+
+RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp)
+    wep_name = name
+    wep_uid = uid
+    CompCache = comp
+    -- local hashwep = GetHashKey(wep_name)
+    -- for k, v in pairs(weapon_comp) do
+    --     if CompCache[hashwep][k] == nil then
+    --         CompCache[hashwep][k] = {}
+    --         CompCache[k].hash = 0
+    --     end
+    -- end
+    -- OldCompCache = deepcopy(CompCache)
+end)
+
+
+function deepcopy(orig)
+    local orig_type = type(orig)
+    local copy
+    if orig_type == 'table' then
+        copy = {}
+        for orig_key, orig_value in next, orig, nil do
+            copy[deepcopy(orig_key)] = deepcopy(orig_value)
+        end
+        setmetatable(copy, deepcopy(getmetatable(orig)))
+    else -- number, string, boolean, etc
+        copy = orig
+    end
+    return copy
+end
