@@ -76,7 +76,7 @@ function CreateInventory(items)
         end
 		if Config.Items[name] then
             table.insert(items_table, CreateItem(name, k.amount, meta))
-            if items_table[#items_table].getData().type == "item_standard" then
+            if items_table[#items_table].getData().type == "item_standard" or items_table[#items_table].getData().type == "item_ammo" then
                 weight = weight + items_table[#items_table].getData().weight * k.amount
             else
                 weight = weight + items_table[#items_table].getData().weight
