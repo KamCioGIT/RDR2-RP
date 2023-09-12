@@ -286,7 +286,8 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     print(menu_catagory)
     if menu_catagory == "commun" then
         for k, v in pairs(weapon_comp["shared_components"][Weapontype]) do
-            if Config.MenuElementsW[menu_catagory].category == k then
+            if k ~= nil then
+                print 'testrrr'
                 category = v
             end
             local options = {}
