@@ -285,10 +285,10 @@ function ReloadWeapons()
                 TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
             end
         end
-        -- SetPedAmmo(PlayerPedId(), k.WeaponHash, 0)
-        -- if k.meta.components ~= nil then
-        --     TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
-        -- end
+        SetPedAmmo(PlayerPedId(), k.WeaponHash, 0)
+        if k.meta.components ~= nil then
+            TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
+        end
     end
 end
 
