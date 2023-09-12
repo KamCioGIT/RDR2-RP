@@ -936,7 +936,6 @@ RegisterNetEvent("redemrp_inventory:askuid", function(wepHash)
 end)
 
 RegisterNetEvent("weapons:savecomp", function(compcache, uid)
-    local weaponObject = Citizen.InvokeNative(0x6CA484C9A7377E4F, PlayerPedId(), 1)
     local _,pedWeapon = GetCurrentPedWeapon(PlayerPedId(), 1)
     for i, k in pairs(UsedWeapons) do
         if k.WeaponHash == pedWeapon then

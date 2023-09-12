@@ -710,6 +710,7 @@ AddEventHandler(
                     if not k.meta.components then
                         k.meta.components = {}
                     end
+                    print 'meta'
                     item.setMeta(k.meta)
                     TriggerClientEvent(
                         "redemrp_inventory:SendItems",
