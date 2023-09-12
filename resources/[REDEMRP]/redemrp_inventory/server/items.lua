@@ -36,7 +36,7 @@ function CreateItem (name, amount, meta)
         if number > 0 and self.amount - tonumber(number) >= 0 then
             self.amount = self.amount - tonumber(number)
         end
-        if self.data.type == "item_standard" or self.data.type == "item_ammo" then
+        if self.data.type == "item_standard" then
             if self.amount == 0 then
                 return true
             else
