@@ -692,6 +692,37 @@ AddEventHandler(
     end
 )
 
+RegisterServerEvent("weapons:server:ApplyComp")
+AddEventHandler(
+    "weapons:server:ApplyComp",
+    function(table, uid)
+        local _source = source
+        local _table = table
+        local _uid = uid
+        local Player = RedEM.GetPlayer(_source)
+        if Player then
+            local identifier = Player.GetIdentifier()
+            local charid = Player.GetActiveCharacter()
+            local player_inventory = Inventory[identifier .. "_" .. charid]
+            for i, k in pairs(_table) do
+                local item, id = getInventoryItemFromName(k.name, player_inventory, {})
+                if item then
+                    if not k.meta.components then
+                        k.meta.components = {}
+                    end
+                    item.setMeta(k.meta)
+                    TriggerClientEvent(
+                        "redemrp_inventory:SendItems",
+                        _source,
+                        PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+                        {},
+                        InventoryWeight[identifier .. "_" .. charid]
+                    )
+                end
+            end
+        end
+    end
+)
 -- RegisterServerEvent("redemrp_inventory:ChangeAmmoAmount")
 -- AddEventHandler(
 --     "redemrp_inventory:ChangeAmmoAmount",

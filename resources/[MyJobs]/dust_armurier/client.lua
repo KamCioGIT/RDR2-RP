@@ -260,7 +260,7 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
             OpenCategoryWeapon(data.current.value, wepHash, Weapontype, ped)
         else
             menu.close()
-            TriggerServerEvent("redemrp_inventory:savewepcomp", NewCompCache, wep_uid)
+            TriggerServerEvent("weapons:savecomp", NewCompCache, wep_uid)
             NewCompCache = {}
             isInteracting = false
 
