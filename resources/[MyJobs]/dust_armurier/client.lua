@@ -422,6 +422,7 @@ RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped
     wep_uid = uid
     NewCompCache = comp
     for k, v in pairs(weapon_comp["model_specific_components"]) do
+        print(NewCompCache[v])
         if NewCompCache[v] == nil then
             NewCompCache[v] = {}
             NewCompCache[v] = 0
