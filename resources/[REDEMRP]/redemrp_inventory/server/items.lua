@@ -43,6 +43,13 @@ function CreateItem (name, amount, meta)
                 return false
             end
         end
+        if self.data.type == "item_ammo" then
+            if self.amount == 0 then
+                return true
+            else
+                return false
+            end
+        end
     end
 
     rTable.getData = function()
