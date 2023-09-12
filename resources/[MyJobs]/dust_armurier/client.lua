@@ -261,7 +261,6 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
         else
             menu.close()
             TriggerEvent("weapons:savecomp", NewCompCache, wep_uid)
-            NewCompCache = {}
             isInteracting = false
 
         end
@@ -270,7 +269,6 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
         menu.close()
         isInteracting = false
         --- reset skin de base
-        NewCompCache = {}
     end)
 end
 
@@ -420,21 +418,7 @@ end
 RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped)
     wep_name = name
     wep_uid = uid
-    -- NewCompCache = comp
-    for k, v in pairs(weapon_comp["model_specific_components"]) do
-        if comp[v] == nil then
-            NewCompCache[v] = 0
-        else
-            NewCompCache[v] = comp[v]
-            print (comp[v])
-        end
-    end
-    for k, v in pairs(weapon_comp["shared_components"]) do
-        if NewCompCache[v] == nil then
-            NewCompCache[v] = 0
-        end
-    end
-    OldCompCache = deepcopy(NewCompCache)
+    NewCompCache = comp
 end)
 
 function deepcopy(orig)
