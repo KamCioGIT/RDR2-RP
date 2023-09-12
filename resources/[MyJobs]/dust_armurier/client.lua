@@ -30,6 +30,7 @@ Citizen.CreateThread(function()
                     isInteracting = true
                     Wait(200)
                     inspectcustom()
+                    NewCompCache = {}
                 end
             end
         end
@@ -259,8 +260,8 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
             OpenCategoryWeapon(data.current.value, wepHash, Weapontype, ped)
         else
             menu.close()
-            TriggerServerEvent("rdr_armurier:save", CompCache, wep_uid)
-            OldCompCache = {}
+            TriggerServerEvent("redemrp_inventory:savewepcomp", NewCompCache, wep_uid)
+            NewCompCache = {}
             isInteracting = false
 
         end
@@ -268,14 +269,8 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
     end, function(data, menu)
         menu.close()
         isInteracting = false
-        -- for k, v in pairs(Config.LabelCart) do
-        --     Citizen.InvokeNative(0x0D7FFA1B2F69ED82, horse, CompCache[k].hash, true, true, true)
-        -- end
-        -- Wait(100)
-        -- for k, v in pairs(Config.LabelCart) do
-        --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, OldCompCache[k].hash, true, true, true)
-        -- end
-        OldCompCache = {}
+        --- reset skin de base
+        NewCompCache = {}
     end)
 end
 
@@ -392,7 +387,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     end)
 end
 
-local NewCompCache = {}
+
 function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped, menu_catagory)    
     if menu_catagory == "specialweapon" then
         for _, comp in pairs(weapon_comp["model_specific_components"][wepHash][data.current.category]) do

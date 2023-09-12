@@ -934,3 +934,11 @@ RegisterNetEvent("redemrp_inventory:askuid", function(wepHash)
         end
     end
 end)
+
+RegisterNetEvent("redemrp_inventory:savewepcomp", function(compcache, wep_uid)
+    for i, k in pairs(UsedWeapons) do
+        if k.meta.uid == wep_uid then
+            k.meta.components = compcache
+        end
+    end
+end)
