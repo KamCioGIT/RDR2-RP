@@ -13,7 +13,7 @@ end)
 
 ---- Prompt ----
 
-local customwprompt = UipromptGroup:new("Chibre de Manny")
+local customwprompt = UipromptGroup:new("Armurier Atelier")
 Uiprompt:new(0x156F7119, "Travailler l'arme", customwprompt):setHoldMode(true)
 customwprompt:setActive(false)
 
