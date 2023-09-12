@@ -289,32 +289,70 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
             if weapon_comp["shared_components"][Weapontype][k] ~= nil then
                 category = weapon_comp["shared_components"][Weapontype][k]
             end
+            local options = {}
+            for k, v in pairs(category) do
+                    table.insert(options, k)
+            end
+            table.insert(elements, {
+                label = Config.LabelW[k] or v,
+                value = 0,
+                category = k,
+                desc = "Modifier l'arme",
+                type = "slider",
+                min = 0,
+                max = #category,
+                change_type = "model",
+                id = a,
+                options = options
+            })
+            
+            a = a + 1
+            options = {}
         elseif menu_catagory == "specialweapon" then 
             print (wepHash)
             if weapon_comp["model_specific_components"][wepHash][k] ~= nil then
                 print 'meow'
                 category = weapon_comp["model_specific_components"][wepHash][k]
+                local options = {}
+                for k, v in pairs(category) do
+                        table.insert(options, k)
+                end
+                table.insert(elements, {
+                    label = Config.LabelW[k] or v,
+                    value = 0,
+                    category = k,
+                    desc = "Modifier l'arme",
+                    type = "slider",
+                    min = 0,
+                    max = #category,
+                    change_type = "model",
+                    id = a,
+                    options = options
+                })
+                
+                a = a + 1
+                options = {}
             end
         end
-        local options = {}
-        for k, v in pairs(category) do
-                table.insert(options, k)
-        end
-        table.insert(elements, {
-            label = Config.LabelW[k] or v,
-            value = 0,
-            category = weapon_comp["shared_components"][Weapontype],
-            desc = "Modifier l'arme",
-            type = "slider",
-            min = 0,
-            max = #category,
-            change_type = "model",
-            id = a,
-            options = options
-        })
+        -- local options = {}
+        -- for k, v in pairs(category) do
+        --         table.insert(options, k)
+        -- end
+        -- table.insert(elements, {
+        --     label = Config.LabelW[k] or v,
+        --     value = 0,
+        --     category = k,
+        --     desc = "Modifier l'arme",
+        --     type = "slider",
+        --     min = 0,
+        --     max = #category,
+        --     change_type = "model",
+        --     id = a,
+        --     options = options
+        -- })
         
-        a = a + 1
-        options = {}
+        -- a = a + 1
+        -- options = {}
     end
 
     MenuData.Open('default', GetCurrentResourceName(), 'customweaponcategory', {
