@@ -304,7 +304,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
             table.insert(elements, {
                 label = Config.LabelW[k] or v,
                 value = 0,
-                category = k,
+                category = weapon_comp["shared_components"]["SHORTARM"],
                 desc = "Modifier l'arme",
                 type = "slider",
                 min = 0,
