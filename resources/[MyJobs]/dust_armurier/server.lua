@@ -13,3 +13,13 @@ AddEventHandler("RegisterUsableItem:repairkitweapon", function(source)
 	itemData.RemoveItem(1)
 	TriggerClientEvent('dust_armurier:repairkitweapon', _source)
 end)
+
+RegisterServerEvent("dust_armurier:savecomp")
+AddEventHandler("dust_armurier:savecomp", function()
+
+end)
+
+RegisterServerEvent("dust_armurier:loadweapon")
+AddEventHandler("dust_armurier:loadweapon", function()
+
+end)

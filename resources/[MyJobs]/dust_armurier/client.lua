@@ -60,6 +60,7 @@ function inspectcustom()
     end)
     Wait(1000)
     OpenCustomWMenu(wepHash, WeapType, ped)
+    TriggerEvent("redemrp_inventory:getuid", wepHash)
 end
 
 RegisterNetEvent('dust_armurier:repairkitweapon', function()

@@ -213,7 +213,7 @@ AddEventHandler(
                 WeaponType = pweptype,
                 Ammo = tonumber(ammoAmount),
                 name = name,
-                meta = meta
+                meta = meta,
             }
         else
             if not WeaponsWithoutAmmo[UsedWeapons[tonumber(hash)].name] then
@@ -922,7 +922,20 @@ RegisterNUICallback(
     end
 )
 
-
+--- CUSTOM EVENT ---
 RegisterNetEvent("redemrp_inventory:removeammo", function()
     RemoveAllPedWeapons(PlayerPedId(), true, true)
+end)
+
+RegisterNetEvent("redemrp_inventory:getuid", function(wepHash)
+    for k, v in pairs(UsedWeapons[tonumber(hash)]) do
+        print (v.meta.uid)
+    end
+    -- UsedWeapons[tonumber(hash)] = {
+    --     WeaponHash = tonumber(hash),
+    --     WeaponType = pweptype,
+    --     Ammo = tonumber(ammoAmount),
+    --     name = name,
+    --     meta = meta,
+    -- }
 end)
