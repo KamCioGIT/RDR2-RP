@@ -30,7 +30,6 @@ Citizen.CreateThread(function()
                     isInteracting = true
                     Wait(200)
                     inspectcustom()
-                    showWeaponStats()
                 end
             end
         end
@@ -43,7 +42,6 @@ function inspectcustom()
     local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
     local WeapType = GetWeaponType(wepHash)
     if wepHash == `WEAPON_UNARMED` then return end
-    -- ShowWeaponStats()
     if WeapType == "SHOTGUN" then WeaponType = "LONGARM" end
     if WeapType == "MELEE" then WeaponType = "SHORTARM" end
 	if WeapType == "BOW" then WeaponType = "SHORTARM" end
@@ -460,39 +458,39 @@ function deepcopy(orig)
     return copy
 end
 
+--- AFFICHAGE STATS ARMES ----
+-- function getWeaponStats(weaponHash)
+--     local emptyStruct = {} -- Create an empty table
 
-function getWeaponStats(weaponHash)
-    local emptyStruct = {} -- Create an empty table
-
-    local charStruct = {} -- Create another empty table
-    Citizen.InvokeNative("0x886DFD3E185C8A89", 1, emptyStruct, GetHashKey("CHARACTER"), -1591664384, charStruct)
+--     local charStruct = {} -- Create another empty table
+--     Citizen.InvokeNative("0x886DFD3E185C8A89", 1, emptyStruct, GetHashKey("CHARACTER"), -1591664384, charStruct)
         
-    local unkStruct = {} -- Create another empty table
-    Citizen.InvokeNative("0x886DFD3E185C8A89", 1, charStruct, 923904168, -740156546, unkStruct)
+--     local unkStruct = {} -- Create another empty table
+--     Citizen.InvokeNative("0x886DFD3E185C8A89", 1, charStruct, 923904168, -740156546, unkStruct)
 
-    local weaponStruct = {} -- Create another empty table
-    Citizen.InvokeNative("0x886DFD3E185C8A89", 1, unkStruct, weaponHash, -1591664384, weaponStruct)
+--     local weaponStruct = {} -- Create another empty table
+--     Citizen.InvokeNative("0x886DFD3E185C8A89", 1, unkStruct, weaponHash, -1591664384, weaponStruct)
 
-    return weaponStruct
-end
+--     return weaponStruct
+-- end
 
-function showWeaponStats()
-    local weapon = GetCurrentPedWeapon(PlayerPedId(), true, 0, true)
-    if weapon[1] then
-        local uiFlowBlock = RequestFlowBlock(GetHashKey("PM_FLOW_WEAPON_INSPECT"))
+-- function showWeaponStats()
+--     local weapon = GetCurrentPedWeapon(PlayerPedId(), true, 0, true)
+--     if weapon[1] then
+--         local uiFlowBlock = RequestFlowBlock(GetHashKey("PM_FLOW_WEAPON_INSPECT"))
 
-        local uiContainer = DatabindingAddDataContainerFromPath("", "ItemInspection")
-        Citizen.InvokeNative("0x46DB71883EE9D5AF", uiContainer, "stats", getWeaponStats(weapon[1]), PlayerPedId())
-        DatabindingAddDataString(uiContainer, "tipText", GetLabelTextByHash(-54957657))
-        DatabindingAddDataHash(uiContainer, "itemLabel", weapon[1])
-        DatabindingAddDataBool(uiContainer, "Visible", true)
+--         local uiContainer = DatabindingAddDataContainerFromPath("", "ItemInspection")
+--         Citizen.InvokeNative("0x46DB71883EE9D5AF", uiContainer, "stats", getWeaponStats(weapon[1]), PlayerPedId())
+--         DatabindingAddDataString(uiContainer, "tipText", GetLabelTextByHash(-54957657))
+--         DatabindingAddDataHash(uiContainer, "itemLabel", weapon[1])
+--         DatabindingAddDataBool(uiContainer, "Visible", true)
 
-        Citizen.InvokeNative("0x10A93C057B6BD944", uiFlowBlock)
-        Citizen.InvokeNative("0x3B7519720C9DCB45", uiFlowBlock, 0)
-        Citizen.InvokeNative("0x4C6F2C4B7A03A266", -813354801, uiFlowBlock)
+--         Citizen.InvokeNative("0x10A93C057B6BD944", uiFlowBlock)
+--         Citizen.InvokeNative("0x3B7519720C9DCB45", uiFlowBlock, 0)
+--         Citizen.InvokeNative("0x4C6F2C4B7A03A266", -813354801, uiFlowBlock)
         
-        Citizen.SetTimeout(function()
-            Citizen.InvokeNative("0x4EB122210A90E2D8", -813354801)
-        end, 5000)
-    end
-end
+--         Citizen.SetTimeout(function()
+--             Citizen.InvokeNative("0x4EB122210A90E2D8", -813354801)
+--         end, 5000)
+--     end
+-- end
