@@ -392,6 +392,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     end)
 end
 
+local NewCompCache = {}
 function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped, menu_catagory)    
     if menu_catagory == "specialweapon" then
         for _, comp in pairs(weapon_comp["model_specific_components"][wepHash][data.current.category]) do
