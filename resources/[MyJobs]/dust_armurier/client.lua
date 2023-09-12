@@ -458,14 +458,14 @@ RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped
     for k, v in pairs(weapon_comp["model_specific_components"]) do
         if k == hashwep then
             for i, u in pairs(Config.MenuElementsW["specialweapon"].category) do
-                    NewCompCache[k][u] = 0
+                NewCompCache[k][u] = 0
             end
         end
     end
     for k, v in pairs(weapon_comp["shared_components"]) do
         if k == WeapType then
             for i, u in pairs(Config.MenuElementsW["commun"].category) do
-                    NewCompCache[k][u] = 0
+                NewCompCache[k][u] = 0
             end
         end
     end
