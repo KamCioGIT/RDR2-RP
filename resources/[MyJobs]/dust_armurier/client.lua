@@ -60,6 +60,12 @@ function inspectcustom()
         end
     end)
     Wait(1000)
+    if weapon_comp["shared_components"][WeapType] ~= nil then
+        com_category = weapon_comp["shared_components"][WeapType]
+    end
+    if weapon_comp["model_specific_components"][wepHash] ~= nil then
+        spec_category = weapon_comp["model_specific_components"][wepHash]
+    end
     OpenCustomWMenu(wepHash, WeapType, ped)
 end
 
@@ -209,7 +215,7 @@ end
 
 ----- Menu Custom -----
 
-function OpenCustomWMenu(wepHash, Weapontype, ped)
+function OpenCustomWMenu(wepHash, Weapontype, ped, spec_category, com_category)
     MenuData.CloseAll()
     local playerPed = PlayerPedId()
     local Position = GetEntityCoords(playerPed)
@@ -285,16 +291,10 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
     local a = 1
     print(menu_catagory)
     for v, k in pairs(Config.MenuElementsW[menu_catagory].category) do
-        if menu_catagory == "commun" then 
-            if weapon_comp["shared_components"][Weapontype][k] ~= nil then
-                category = weapon_comp["shared_components"][Weapontype][k]
-            end
-        elseif  menu_catagory == "specialweapon" then 
-            print (wepHash)
-            if weapon_comp["model_specific_components"][wepHash][k] ~= nil then
-                print 'meow'
-                category = weapon_comp["model_specific_components"][wepHash][k]
-            end
+        if menu_catagory == "commun" then
+            category = com_category[k]
+        elseif menu_catagory == "specialweapon" then
+            category = spec_category[k]
         end
         local options = {}
         for k, v in pairs(category) do
