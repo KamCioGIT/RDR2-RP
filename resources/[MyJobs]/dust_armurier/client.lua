@@ -424,7 +424,7 @@ RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped
             NewCompCache[k] = {}
             NewCompCache[k] = 0
         end
-        print NewCompCache[k]
+        print (NewCompCache[k])
     end
 end)
 
