@@ -109,6 +109,9 @@ AddEventHandler(
                     if itemData.type == "item_weapon" then
                         TriggerClientEvent("redemrp_inventory:removeWeapon", _source, itemData.weaponHash)
                     end
+                    if itemData.type == "item_ammo" then
+                        TriggerClientEvent("redemrp_inventory:removeammo", _source, itemData.ammoType)
+                    end
                 end
             elseif _type == "add" then
                 if stashId then
@@ -178,7 +181,10 @@ AddEventHandler(
                                         _source,
                                         itemData.weaponHash
                                     )
-                                end 
+                                end
+                                if itemData.type == "item_ammo" then
+                                    TriggerClientEvent("redemrp_inventory:removeammo", _source, itemData.ammoType)
+                                end
                             end
                         end
                     elseif _type == "add" then
@@ -199,6 +205,9 @@ AddEventHandler(
                                         _target,
                                         itemData.weaponHash
                                     )
+                                end
+                                if itemData.type == "item_ammo" then
+                                    TriggerClientEvent("redemrp_inventory:removeammo", _source, itemData.ammoType)
                                 end
                             end
                         end
@@ -1640,6 +1649,9 @@ function SharedInventoryFunctions.getItem(source, name, meta)
                     )
                     if data.ItemInfo.type == "item_weapon" then
                         TriggerClientEvent("redemrp_inventory:removeWeapon", _source, data.ItemInfo.weaponHash)
+                    end
+                    if data.ItemInfo.type == "item_ammo" then
+                        TriggerClientEvent("redemrp_inventory:removeammo", _source, data.ItemInfo.ammoType)
                     end
                 end
                 return output
