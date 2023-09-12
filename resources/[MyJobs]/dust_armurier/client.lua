@@ -459,6 +459,7 @@ RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped
         if k == hashwep then
             for i, u in pairs(Config.MenuElementsW["specialweapon"].category) do
                 if NewCompCache[k][u] == nil then
+                    print 'compcccc'
                     NewCompCache[k][u] = 0
                 end
             end
