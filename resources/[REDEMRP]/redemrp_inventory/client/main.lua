@@ -928,8 +928,10 @@ RegisterNetEvent("redemrp_inventory:removeammo", function()
 end)
 
 RegisterNetEvent("redemrp_inventory:getuid", function(wepHash)
-    for k, v in pairs(UsedWeapons[tonumber(wepHash)]) do
-        print (v.meta.uid)
+    for k, v in pairs(UsedWeapons) do
+        if k == wepHash then
+            print (v.name, v.meta.uid)
+        end
     end
     -- UsedWeapons[tonumber(hash)] = {
     --     WeaponHash = tonumber(hash),
