@@ -928,7 +928,7 @@ RegisterNetEvent("redemrp_inventory:removeammo", function()
 end)
 
 RegisterNetEvent("redemrp_inventory:getuid", function(wepHash)
-    for k, v in pairs(UsedWeapons[tonumber(hash)]) do
+    for k, v in pairs(UsedWeapons[tonumber(wepHash)]) do
         print (v.meta.uid)
     end
     -- UsedWeapons[tonumber(hash)] = {
