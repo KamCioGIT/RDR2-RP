@@ -318,9 +318,12 @@ function posecoffre(model)
             if PoseCoffrePromptShown == false then
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
                  ---- Lancer anim porter une caisse
-                previsu = true
+                local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
+                Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
+                -- local tempvault = CreateObject(model, playerpos.x, playerpos.y, playerpos.z, false, true, true)
+                -- SetEntityAlpha(tempvault, 50, false)
+                -- DeleteEntity(tempvault)
                 if PromptHasHoldModeCompleted(LeavePrompt) then
-                    print ("pose")
                     ---- cancel anim
                     PoseCoffrePromptShown = true
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
@@ -364,7 +367,6 @@ function posecoffre(model)
                             SetEntityHeading(prop, tonumber(heading))
                             PlaceObjectOnGroundProperly(prop)
                             table.insert(coordscache, {pos = vaultpos, spawn = 'true', head = heading, mod = model, object = prop})
-                            previsu = false
                             spawned = true
                             return
                         end
@@ -378,14 +380,6 @@ function posecoffre(model)
                 end
             end
             
-        end
-        while previsu do
-            local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
-            -- Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
-            local tempvault = CreateObject(model, playerpos.x, playerpos.y, playerpos.z, false, true, true)
-            SetEntityAlpha(tempvault, 50, false)
-            Wait(50)
-            DeleteEntity(tempvault)
         end
     end)
 end
