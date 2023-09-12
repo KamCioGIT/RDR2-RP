@@ -426,7 +426,7 @@ RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped
             NewCompCache[v] = {}
             NewCompCache[v] = 0
         else
-            print( NewCompCache[v])
+            print(NewCompCache[v])
         end
     end
     for k, v in pairs(weapon_comp["shared_components"]) do
