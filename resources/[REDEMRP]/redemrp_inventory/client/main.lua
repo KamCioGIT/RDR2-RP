@@ -271,7 +271,7 @@ function ReloadWeapons()
             else
                 Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
                 SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
-                if k.meta.components ~= nil and k.meta.components["GLOBAL"] ~= nil then
+                if k.meta.components ~= nil then
                     TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
                 end
             end
@@ -281,12 +281,12 @@ function ReloadWeapons()
         else
             Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
             SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
-            if k.meta.components ~= nil and k.meta.components["GLOBAL"] ~= nil then
+            if k.meta.components ~= nil then
                 TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
             end
         end
         SetPedAmmo(PlayerPedId(), k.WeaponHash, 0)
-        if k.meta.components ~= nil and k.meta.components["GLOBAL"] ~= nil then
+        if k.meta.components ~= nil then
             TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
         end
     end
