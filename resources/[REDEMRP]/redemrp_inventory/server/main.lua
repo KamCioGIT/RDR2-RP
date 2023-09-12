@@ -705,7 +705,7 @@ AddEventHandler(
             local charid = Player.GetActiveCharacter()
             local player_inventory = Inventory[identifier .. "_" .. charid]
             for i, k in pairs(_table) do
-                local item, id = getInventoryItemFromName(k.name, player_inventory, k.uid)
+                local item, id = getInventoryItemFromName(k.name, player_inventory, k.meta.uid)
                 if item then
                     k.meta.components = compcache
                     item.setMeta(k.meta)
