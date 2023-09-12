@@ -260,13 +260,6 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
             OpenCategoryWeapon(data.current.value, wepHash, Weapontype, ped)
         else
             menu.close()
-            if OldCompCache ~= {} then 
-                for u, v in pairs(OldCompCache) do
-                    if NewCompCache[u] ~= v then 
-                        NewCompCache[u] = v
-                    end
-                end
-            end
             TriggerEvent("weapons:savecomp", NewCompCache, wep_uid)
             NewCompCache = {}
             isInteracting = false
@@ -475,7 +468,6 @@ RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped
     end
     OldCompCache = deepcopy(NewCompCache)
 end)
-
 
 function deepcopy(orig)
     local orig_type = type(orig)
