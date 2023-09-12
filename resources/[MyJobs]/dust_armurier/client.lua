@@ -461,25 +461,18 @@ RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped
     wep_name = name
     wep_uid = uid
     NewCompCache = comp
-    -- local hashwep = GetHashKey(wep_name)
-    -- for k, v in pairs(weapon_comp["model_specific_components"]) do
-    --     if k == hashwep then
-    --         for i, u in pairs(Config.MenuElementsW["specialweapon"].category) do
-    --             if NewCompCache[k][u] == nil then
-    --                 NewCompCache[k][u] = 0
-    --             end
-    --         end
-    --     end
-    -- end
-    -- for k, v in pairs(weapon_comp["shared_components"]) do
-    --     if k == WeapType then
-    --         for i, u in pairs(Config.MenuElementsW["commun"].category) do
-    --             if NewCompCache[k][u] == nil then
-    --                 NewCompCache[k][u] = 0
-    --             end
-    --         end
-    --     end
-    -- end
+    for k, v in pairs(weapon_comp["model_specific_components"]) do
+        if NewCompCache[v] == nil then
+            NewCompCache[v] = {}
+            NewCompCache[v] = 0
+        end
+    end
+    for k, v in pairs(weapon_comp["shared_components"]) do
+        if NewCompCache[v] == nil then
+            NewCompCache[v] = {}
+            NewCompCache[v] = 0
+        end
+    end
     OldCompCache = deepcopy(NewCompCache)
 end)
 

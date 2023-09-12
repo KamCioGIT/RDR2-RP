@@ -15,7 +15,8 @@ AddEventHandler("RegisterUsableItem:repairkitweapon", function(source)
 end)
 
 RegisterServerEvent("dust_armurier:savecomp")
-AddEventHandler("dust_armurier:savecomp", function()
+AddEventHandler("dust_armurier:savecomp", function(NewCompCache, wep_uid)
+	
 
 end)
 
