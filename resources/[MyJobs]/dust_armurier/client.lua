@@ -30,7 +30,6 @@ Citizen.CreateThread(function()
                     isInteracting = true
                     Wait(200)
                     inspectcustom()
-                    NewCompCache = {}
                 end
             end
         end
@@ -59,9 +58,9 @@ function inspectcustom()
             end
         end
     end)
+    TriggerEvent("redemrp_inventory:askuid", wepHash, WeapType, ped)
     Wait(1000)
     OpenCustomWMenu(wepHash, WeapType, ped)
-    TriggerEvent("redemrp_inventory:askuid", wepHash, WeapType, ped)
 end
 
 RegisterNetEvent('dust_armurier:repairkitweapon', function()
