@@ -420,7 +420,7 @@ end
 RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped)
     wep_name = name
     wep_uid = uid
-    NewCompCache = comp
+    -- NewCompCache = comp
     -- for k, v in pairs(weapon_comp["model_specific_components"]) do
     --     if NewCompCache[v] == nil then
     --         NewCompCache[v] = {}
@@ -433,7 +433,7 @@ RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped
     --         NewCompCache[v] = 0
     --     end
     -- end
-    OldCompCache = deepcopy(NewCompCache)
+    -- OldCompCache = deepcopy(NewCompCache)
 end)
 
 function deepcopy(orig)
