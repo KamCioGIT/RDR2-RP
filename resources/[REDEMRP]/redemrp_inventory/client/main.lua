@@ -269,26 +269,26 @@ function ReloadWeapons()
             elseif PistolsEquipping == 2 then
                 givePlayerWeapon(k.WeaponHash, 3)
             else
-                Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
+                local givenwep = Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
                 SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
                 if k.meta.components ~= nil then
-                    TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
+                    TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components, givenwep)
                 end
             end
         elseif k.name == "WEAPON_MELEE_LANTERN" then
             GiveWeaponToPed_2(PlayerPedId(), `WEAPON_MELEE_LANTERN`, 0, true, true , 0, false, 0.5, 1.0, 752097756, false, 0, false)
             SetCurrentPedWeapon(PlayerPedId(), `WEAPON_MELEE_LANTERN`, true, 0, false, false)
         else
-            Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
+            local givenwep = Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
             SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
             if k.meta.components ~= nil then
-                TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
+                TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components, givenwep)
             end
         end
-        SetPedAmmo(PlayerPedId(), k.WeaponHash, 0)
-        if k.meta.components ~= nil then
-            TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
-        end
+        -- SetPedAmmo(PlayerPedId(), k.WeaponHash, 0)
+        -- if k.meta.components ~= nil then
+        --     TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components)
+        -- end
     end
 end
 
@@ -947,10 +947,9 @@ RegisterNetEvent("weapons:savecomp", function(compcache, uid)
     end
 end)
 
-RegisterNetEvent('redemrp_inventory:compweapon', function (WeaponHash, wepcomp)
-    local ped = PlayerPedId()
+RegisterNetEvent('redemrp_inventory:compweapon', function (WeaponHash, wepcomp, entity)
     for k, v in pairs(wepcomp) do
         print (k, v)
-        Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, v, WeaponHash, true)
+        Citizen.InvokeNative(0x74C9090FDD1BB48E, entity, v, WeaponHash, true)
     end
 end)
