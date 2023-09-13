@@ -296,7 +296,7 @@ RegisterNetEvent("redemrp_respawn:respawnCoords", function(coords)
     TriggerEvent('playerSpawned')
     Citizen.InvokeNative(0xF808475FA571D823, true)
     NetworkSetFriendlyFireOption(true)
-    -- RespawnCamera(coords)
+    RespawnCamera(coords)
     TriggerServerEvent("RedEM:server:RegisterCoords", coords)
     SavePosition()
     revived = false
