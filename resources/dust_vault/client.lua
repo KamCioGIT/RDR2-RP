@@ -311,11 +311,11 @@ end)
 
 function posecoffre(model)
     PoseCoffrePromptShown = false
+    showtempvault = true
     Citizen.CreateThread(function()
         while not spawned do
             Citizen.Wait(0)
             local playerPed = PlayerPedId()
-            showtempvault = true
             if PoseCoffrePromptShown == false then
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
                  ---- Lancer anim porter une caisse
