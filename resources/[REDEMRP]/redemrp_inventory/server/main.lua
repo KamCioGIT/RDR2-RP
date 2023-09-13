@@ -2218,7 +2218,7 @@ RegisterServerEvent("ammo:remove", function (pweptype)
     end
 end)
 
-RegisterServerEvent("redemrp_inventory:checkuserweight", function (id, char)
+function checkuserweight(id, char)
     local weight = InventoryWeight[id .. "_" .. char]
     return weight
-end)
+end
