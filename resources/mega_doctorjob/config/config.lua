@@ -51,7 +51,7 @@ Config.language = {
 
 -- uncomment to enable webhook options
 Config.webhookOptions = {
-    webhook = "https://discord.com/api/webhooks/1019985997108355124/LoMPlbhDpxewsa4DlxVor_94QfI-Z1UJDpF4vHa4WIosJu9amsAI1li1g18G84zIAJ2L",
+    webhook = "https://discord.com/api/webhooks/1151618474972553389/1Vgnzf6NB6Caex__cTH4CV3cOLM8J77powKBuHFMUCn4eEZG_FKjKLs1LRB4ki8cDGN-",
     color = 3447003
 }
 
