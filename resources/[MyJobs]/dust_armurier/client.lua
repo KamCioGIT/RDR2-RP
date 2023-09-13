@@ -418,8 +418,8 @@ end
 RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped)
     wep_name = name
     wep_uid = uid
-    NewCompCache  = {}
     NewCompCache = comp
+    print(WeapType)
     _wephash = GetHashKey(name)
     for k, v in pairs(weapon_comp["shared_components"][WeapType]) do
         if NewCompCache[k] == nil then
