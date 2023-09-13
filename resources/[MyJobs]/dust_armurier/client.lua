@@ -465,4 +465,4 @@ Citizen.CreateThread(function()
             print(pweptype)
         end
     end
-end
+end)
