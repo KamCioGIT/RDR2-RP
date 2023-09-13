@@ -1,8 +1,8 @@
-CREATE TABLE IF NOT EXISTS `diseases` (
-  `charid` int(11) NOT NULL,
+CREATE TABLE `diseases` (
+  `charid` int(11) DEFAULT 0,
   `diseases` longtext DEFAULT '{}',
   PRIMARY KEY (`charid`),
-  CONSTRAINT `id` FOREIGN KEY (`charid`) REFERENCES `characters` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `characterid` FOREIGN KEY (`charid`) REFERENCES `characters` (`characterid`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `hospital` (

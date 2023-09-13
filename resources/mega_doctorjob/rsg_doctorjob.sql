@@ -2,7 +2,7 @@ CREATE TABLE `diseases` (
     `charid` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_general_ci',
     `diseases` LONGTEXT NULL DEFAULT '{}' COLLATE 'utf8mb4_general_ci',
     PRIMARY KEY (`charid`) USING BTREE,
-    CONSTRAINT `citizenid_fk` FOREIGN KEY (`charid`) REFERENCES `players` (`citizenid`) ON UPDATE NO ACTION ON DELETE CASCADE
+    CONSTRAINT `citizenid_fk` FOREIGN KEY (`charid`) REFERENCES `characters` (`citizenid`) ON UPDATE NO ACTION ON DELETE CASCADE
 )
 COLLATE='utf8mb4_general_ci'
 ENGINE=InnoDB
