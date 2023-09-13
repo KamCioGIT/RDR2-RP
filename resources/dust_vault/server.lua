@@ -136,7 +136,12 @@ end)
 RegisterServerEvent("dust_vault:server:removestash")
 AddEventHandler("dust_vault:server:removestash", function(stashid, model, pos)
 	local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local identifier = user.identifier
+    local charid = user.charid
 	local stashW = exports.redemrp_inventory.GetStashWeight(source, tostring(stashid))
+	local weight = TriggerServerEvent("redemrp_inventory:checkuserweight", identifier, charid)
+	print (weight)
 	if stashW == 0 then
 		if model == Config.SmallVault then
 			local ItemData = data.getItem(_source, "smallvault")

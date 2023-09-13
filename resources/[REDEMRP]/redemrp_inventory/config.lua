@@ -1,6 +1,6 @@
 Config = {}
 
-Config.MaxWeight = 24.0 -- kg
+Config.MaxWeight = 45.0 -- kg
 
 Config.Crafting = {
     ["bandage"] = {

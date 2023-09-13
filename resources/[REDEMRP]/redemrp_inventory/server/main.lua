@@ -527,7 +527,7 @@ AddEventHandler(
     end
 )
 
-local otodropitemdelete = 120 -- second for each item
+local otodropitemdelete = 2700 -- second for each item
 Citizen.CreateThread(function()
     while true do
         Wait(5000)
@@ -2216,4 +2216,9 @@ RegisterServerEvent("ammo:remove", function (pweptype)
             end
         end
     end
+end)
+
+RegisterServerEvent("redemrp_inventory:checkuserweight", function (id, char)
+    local weight = InventoryWeight[id .. "_" .. char]
+    return weight
 end)
