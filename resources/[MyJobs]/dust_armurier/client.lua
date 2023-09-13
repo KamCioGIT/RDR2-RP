@@ -60,6 +60,7 @@ function inspectcustom()
     end)
     TriggerEvent("redemrp_inventory:askuid", wepHash, WeapType, ped)
     Wait(1000)
+    print(wepHash)
     OpenCustomWMenu(wepHash, WeapType, ped)
 end
 
