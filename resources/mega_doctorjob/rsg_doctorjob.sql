@@ -1,12 +1,10 @@
 CREATE TABLE `diseases` (
-    `charid` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_general_ci',
-    `diseases` LONGTEXT NULL DEFAULT '{}' COLLATE 'utf8mb4_general_ci',
+    `charid` int(11) DEFAULT 0,
+    `diseases` longtext DEFAULT '{}',
     PRIMARY KEY (`charid`) USING BTREE,
-    CONSTRAINT `citizenid_fk` FOREIGN KEY (`charid`) REFERENCES `characters` (`citizenid`) ON UPDATE NO ACTION ON DELETE CASCADE
+    CONSTRAINT `characterid_fk` FOREIGN KEY (`charid`) REFERENCES `characters` (`characterid`) ON UPDATE NO ACTION ON DELETE CASCADE
 )
-COLLATE='utf8mb4_general_ci'
-ENGINE=InnoDB
-;
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 CREATE TABLE `hospital` (
