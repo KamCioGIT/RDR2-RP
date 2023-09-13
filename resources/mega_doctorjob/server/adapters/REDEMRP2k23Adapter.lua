@@ -14,7 +14,7 @@ if Config.framework == 'redemrp2k23' then
     local RedEM = exports["redem_roleplay"]:RedEM()
     
     function ResurrectPlayer(targetID) 
-        TriggerEvent("redemrp_respawn:client:Revived", targetID)
+        TriggerClientEvent("redemrp_respawn:client:Revived", targetID)
     end
     
     function GetCharJob(targetID) 
