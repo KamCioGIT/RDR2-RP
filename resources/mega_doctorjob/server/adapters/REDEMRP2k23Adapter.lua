@@ -22,7 +22,7 @@ if Config.framework == 'redemrp2k23' then
     end
     
     function GetCharIdentifier(targetID)
-        return RedEM.GetPlayer(targetID).identifier
+        return RedEM.GetPlayer(targetID).citizenid
     end
     
     function GetCharFirstname(targetID)
