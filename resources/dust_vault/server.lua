@@ -140,7 +140,7 @@ AddEventHandler("dust_vault:server:removestash", function(stashid, model, pos)
     local identifier = user.identifier
     local charid = user.charid
 	local stashW = exports.redemrp_inventory.GetStashWeight(source, tostring(stashid))
-	local weight = exports.redemrp_inventory.checkuserweight(identifier, charid)
+	local weight = exports.redemrp_inventory.checkuserweight(_source, identifier, charid)
 	print (weight)
 	if stashW == 0 then
 		if model == Config.SmallVault then
