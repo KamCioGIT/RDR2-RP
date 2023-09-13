@@ -787,7 +787,7 @@ weapon_comp = {
         },
     },
 
-    [2511488402] = {  -- WEAPON_REPEATER_HENRY
+    [-1783478894] = {  -- WEAPON_REPEATER_HENRY
 
         ["GRIP"] = {
           "COMPONENT_REPEATER_HENRY_GRIP",
