@@ -138,19 +138,23 @@ AddEventHandler("dust_vault:server:removestash", function(stashid, model, pos)
 	local _source = source
 	local stashW = exports.redemrp_inventory.GetStashWeight(source, tostring(stashid))
 	if stashW == 0 then
-		MySQL.update('DELETE FROM vault WHERE `stashid`=@stashid', {stashid = stashid })
-		Citizen.Wait(100)
-		MySQL.update('DELETE FROM stashes WHERE `stashid`=@stashid', {stashid = stashid })
-		TriggerClientEvent("dust_vault:server:delvault", _source, pos)
 		if model == Config.SmallVault then
 			local ItemData = data.getItem(_source, "smallvault")
-			ItemData.AddItem(1)
+			retval = ItemData.AddItem(1)
 		elseif model == Config.MediumVault then
 			local ItemData = data.getItem(_source, "mediumvault")
-			ItemData.AddItem(1)
+			retval = ItemData.AddItem(1)
 		elseif model == Config.LargeVault then
 			local ItemData = data.getItem(_source, "largevault")
-			ItemData.AddItem(1)
+			retval = ItemData.AddItem(1)
+		end
+		if retval == true then
+			MySQL.update('DELETE FROM vault WHERE `stashid`=@stashid', {stashid = stashid })
+			Citizen.Wait(100)
+			MySQL.update('DELETE FROM stashes WHERE `stashid`=@stashid', {stashid = stashid })
+			TriggerClientEvent("dust_vault:server:delvault", _source, pos)
+		else
+			return
 		end
 	end
 end)
