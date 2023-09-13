@@ -948,11 +948,11 @@ RegisterNetEvent("weapons:savecomp", function(compcache, uid)
     end
 end)
 
-RegisterNetEvent('redemrp_inventory:compweapon', function (WeaponHash, wepcomp)
+RegisterNetEvent('redemrp_inventory:compweapon', function (WeaponHash, wepcomp, wepobj)
     local ped = PlayerPedId()
     for k, v in pairs(wepcomp) do
         RequestModel(v)
         print (k, v)
-        Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, v, WeaponHash, true)
+        Citizen.InvokeNative(0x74C9090FDD1BB48E, wepobj, v, WeaponHash, true)
     end
 end)
