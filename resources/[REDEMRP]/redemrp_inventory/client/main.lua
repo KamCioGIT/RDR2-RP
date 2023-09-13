@@ -386,7 +386,8 @@ Citizen.CreateThread(function()
         if IsPedShooting(PlayerPedId()) then
             local weaponObject = Citizen.InvokeNative(0x6CA484C9A7377E4F, PlayerPedId(), 1) -- _GET_PED_WEAPON_OBJECT
             local _,pedWeapon = GetCurrentPedWeapon(PlayerPedId(), 1)
-            local pweptype = Citizen.InvokeNative(0x5C2EA6C44F515F34, pedWeapon)
+            -- local pweptype = Citizen.InvokeNative(0x5C2EA6C44F515F34, pedWeapon)
+            local pweptype = Citizen.InvokeNative(0x7FEAD38B326B9F74, PlayerPedId(), pedWeapon)
             for i, k in pairs(UsedWeapons) do
                 if k.WeaponHash == pedWeapon then
                     if not UsedWeapons[i].meta.damage then
