@@ -1055,6 +1055,18 @@ Config.Items = {
         imgsrc = "items/generic_skin_revolver.png",
         type = "item_standard",
     },
+    ----- DOCTORS ---- 
+    ["syringe"] = {
+        label = "Seringue",
+        description = "De quoi remettre quelqu'un d'aplomb",
+        weight = 0.01,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/generic_skin_revolver.png",
+        type = "item_standard",
+    },
 }
 
 exports("GetItemsList", function()

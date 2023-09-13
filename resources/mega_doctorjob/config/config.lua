@@ -88,7 +88,7 @@ Config.allowPlayerTargeting = true
 Config.playerTargetRange = 1.5
 
 -- jobs that can inspect a dead body
-Config.inspectCommand = 'inspect'
+Config.inspectCommand = 'analyse'
 Config.inspectJobs = { 'doctor', 'police' } 
 Config.allowPlayerInspecting = true
 Config.playerInspectRange = 1.5
