@@ -391,11 +391,11 @@ function posecoffre(model)
         while showtempvault == true do
             print 'temp'
             local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
+            local heading = GetEntityHeading(PlayerPedId())
             -- Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
             local tempvault = CreateObject(model, playerpos.x, playerpos.y, playerpos.z, false, true, true)
-            PlaceObjectOnGroundProperly(tempvault)
-            local heading = GetEntityHeading(PlayerPedId())
             SetEntityHeading(prop, tonumber(heading))
+            PlaceObjectOnGroundProperly(tempvault)
             SetEntityAlpha(tempvault, 195)
             Citizen.Wait(10)
             DeleteEntity(tempvault)
