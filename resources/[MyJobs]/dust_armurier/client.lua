@@ -452,3 +452,17 @@ function deepcopy(orig)
     end
     return copy
 end
+
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(0)
+        if IsPedShooting(PlayerPedId()) then
+            local weaponObject = Citizen.InvokeNative(0x6CA484C9A7377E4F, PlayerPedId(), 1) -- _GET_PED_WEAPON_OBJECT
+            local _,pedWeapon = GetCurrentPedWeapon(PlayerPedId(), 1)
+            -- local pweptype = Citizen.InvokeNative(0x5C2EA6C44F515F34, pedWeapon)
+            local pweptype = Citizen.InvokeNative(0x7E7B19A4355FEE13, PlayerPedId(), weaponObject)
+            print(pweptype)
+        end
+    end
+end
