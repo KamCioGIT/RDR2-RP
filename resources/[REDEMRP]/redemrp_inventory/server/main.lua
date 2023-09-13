@@ -2222,3 +2222,4 @@ function checkuserweight(id, char)
     local weight = InventoryWeight[id .. "_" .. char]
     return weight
 end
+exports("checkuserweight", checkuserweight)
