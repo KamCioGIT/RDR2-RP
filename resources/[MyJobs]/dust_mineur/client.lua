@@ -44,7 +44,12 @@ function startMission()
             Wait(0)
             local playerPos = GetEntityCoords(PlayerPedId())
             if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 6.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
+                local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
+                -- Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
+                temprock = CreateObject(GetHashKey("old_hen_rock_02"), playerpos.x, playerpos.y, playerpos.z, false, true, true)
+                SetEntityHeading(temprock, tonumber(heading))
+                PlaceObjectOnGroundProperly(temprock)
             end
             if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isMining then
                 DrawTxt(Config.MsgGathering, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
@@ -155,6 +160,7 @@ function StartMining()
         ClearPedTasksImmediately(PlayerPedId())
 		FreezeEntityPosition(playerPed, false)
         isMining = false
+        DeleteEntity(temprock)
         GivePlayerRessource()
         GetRandomRessourcePoint()
     end)

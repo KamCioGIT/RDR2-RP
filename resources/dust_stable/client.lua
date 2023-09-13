@@ -810,6 +810,7 @@ AddEventHandler('dust_stable:horsehaycube', function(source)
                 if Entity(entity).state.horseid then
                     Citizen.InvokeNative(0xCD181A959CFDD7F4, ped, entity, GetHashKey("Interaction_Food"), 0, 1)
                     Citizen.Wait(3500)
+                    local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, entity, 1)
                     if not tonumber(valueStamina) then valueStamina = 0 end
                     if valueStamina <= 10 then
                         Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, 10)
