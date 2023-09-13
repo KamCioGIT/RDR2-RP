@@ -1064,7 +1064,7 @@ Config.Items = {
         canBeUsed = true,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/generic_skin_revolver.png",
+        imgsrc = "items/consumable_health_serum.png",
         type = "item_standard",
     },
 }
