@@ -144,19 +144,19 @@ AddEventHandler("dust_vault:server:removestash", function(stashid, model, pos)
 	retval = false
 	if stashW == 0 then
 		if model == Config.SmallVault then
-			if #45 - weight >= 5 then
+			if 45 - weight >= 5 then
 				local ItemData = data.getItem(_source, "smallvault")
 				ItemData.AddItem(1)
 				retval = true
 			end
 		elseif model == Config.MediumVault then
-			if #45 - weight >= 10 then
+			if 45 - weight >= 10 then
 				local ItemData = data.getItem(_source, "mediumvault")
 				ItemData.AddItem(1)
 				retval = true
 			end
 		elseif model == Config.LargeVault then
-			if #45 - weight >= 20 then
+			if 45 - weight >= 20 then
 				local ItemData = data.getItem(_source, "largevault")
 				ItemData.AddItem(1)
 				retval = true
