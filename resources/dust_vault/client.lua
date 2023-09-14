@@ -319,21 +319,30 @@ function posecoffre(model)
             local playerPed = PlayerPedId()
             if PoseCoffrePromptShown == false then
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
-                RequestAnimDict('mech_loco_m@generic@carry@box@front@idle') -- Remplacez 'anim_dict' par le nom de votre animation
-            
-                while not HasAnimDictLoaded('mech_loco_m@generic@carry@box@front@idle') do
+
+                local playerPed = PlayerPedId()
+                local playerCoords = GetEntityCoords(playerPed)
+                
+                -- Remplacez "prop_toolbox" par le modèle de la caisse à outils que vous souhaitez utiliser
+                local propModel = GetHashKey("p_boxlrgtool01x")
+                
+                -- Charge le modèle de la caisse à outils
+                RequestModel(propModel)
+                
+                -- Attend que le modèle soit chargé
+                while not HasModelLoaded(propModel) do
                     Citizen.Wait(0)
                 end
                 
-                local ped = PlayerPedId()
-                local x, y, z = table.unpack(GetEntityCoords(ped))
-                crateEntity = CreateObject(GetHashKey('p_ammoboxlancaster02x'), x, y, z + 0.15, true, true, true)
+                -- Crée une instance de la caisse à outils
+                local prop = CreateObject(propModel, playerCoords.x, playerCoords.y, playerCoords.z, true, true, true)
                 
-                AttachEntityToEntity(crateEntity, ped, GetPedBoneIndex(ped, 57005), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
+                -- Attache la caisse à outils à la main droite du personnage
+                local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_Hand")
+                AttachEntityToEntity(prop, playerPed, boneIndex, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
                 
-                TaskPlayAnim(ped, 'mech_loco_m@generic@carry@box@front@idle', 'idle', 8.0, -8.0, -1, 49, 0, false, false, false)
-                
-                carryingCrate = true
+                -- Décharge le modèle de la caisse à outils
+                SetModelAsNoLongerNeeded(propModel)
 
                 if PromptHasHoldModeCompleted(LeavePrompt) then
                     PoseCoffrePromptShown = true
@@ -379,14 +388,7 @@ function posecoffre(model)
                             PlaceObjectOnGroundProperly(prop)
                             table.insert(coordscache, {pos = vaultpos, spawn = 'true', head = heading, mod = model, object = prop})
                             showtempvault = false
-                            local ped = PlayerPedId()
-            
-                            DetachEntity(crateEntity, true, true)
-                            DeleteEntity(crateEntity)
-                            
-                            ClearPedTasksImmediately(ped)
-                            
-                            carryingCrate = false
+                            DeleteEntity(prop)
                             
                             spawned = true
                             return
@@ -397,14 +399,7 @@ function posecoffre(model)
                     showtempvault = false
                     PoseCoffrePromptShown = true
                     
-                    local ped = PlayerPedId()
-            
-                    DetachEntity(crateEntity, true, true)
-                    DeleteEntity(crateEntity)
-                    
-                    ClearPedTasksImmediately(ped)
-                    
-                    carryingCrate = false
+                    DeleteEntity(prop)
 
                     spawned = true
                     return
