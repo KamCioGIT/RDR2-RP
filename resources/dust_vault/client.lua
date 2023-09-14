@@ -308,7 +308,7 @@ end)
 
 
 
-
+local placement = false
 function posecoffre(model)
     PoseCoffrePromptShown = false
     showtempvault = true
@@ -409,10 +409,11 @@ end
 ---- Anim porter la caisse ---- 
 local carryingCrate = false
 local crateEntity = nil
-local placement = false
+
 
 Citizen.CreateThread(function()
     while placement do
+        Wait(50)
         if not carryingCrate then
             RequestAnimDict('mech_loco_m@generic@carry@box@front@idle') -- Remplacez 'anim_dict' par le nom de votre animation
             
