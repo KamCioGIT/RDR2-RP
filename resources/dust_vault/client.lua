@@ -278,7 +278,7 @@ RegisterNetEvent("dust_vault:server:getmodel")
 AddEventHandler("dust_vault:server:getmodel", function (model, heading, coords)
     local playerPos = GetEntityCoords(PlayerPedId())
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    print'getv
+    print'getv'
     table.insert(coordscache, {pos = vaultpos, spawn = 'false', head = heading, mod = model, prop = "nil"})
 end)
 
