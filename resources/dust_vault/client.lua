@@ -428,23 +428,6 @@ function posecoffre(model)
     end)
 end
 
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-        
-        if carryingCrate then
-            local ped = PlayerPedId()
-            local x, y, z = table.unpack(GetEntityCoords(ped))
-            
-            if IsControlPressed(0, 32) then -- Touche W (avancer)
-                local heading = GetEntityHeading(ped)
-                local newX = x + math.sin(math.rad(heading)) * 0.1
-                local newY = y + math.cos(math.rad(heading)) * 0.1
-                SetEntityCoordsNoOffset(ped, newX, newY, z, true, true, true)
-            end
-        end
-    end
-end)
 
 
 ---- Anim porter la caisse ---- 
