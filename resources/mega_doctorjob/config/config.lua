@@ -7,46 +7,46 @@ Config.adminGroups = { 'admin', 'moderator', 'superadmin' }
 Config.framework = 'redemrp2k23'
 
 Config.language = {
-    notificationTitle = "Medical",
-    medicalBed = "Medical Bed",
-    layDown = "Lay Down",
-    getUp = "Get Up",
-    visit = "Visit",
-    inspect = "Inspect",
-    unableToUseItem = "You're unable to use this item",
-    doctorsOnline = "There's a doctor around, go ask him help.",
-    notEnoughMoney = "You don't have enough money.",
-    healed = "You have been healed by the doctor.",
-    noDiseases = "You don't have any disease.",
-    revived = "You have been revived by the doctor.",
-    notDead = "Cannot revive alive players.",
-    cannotReviveHeadshot = "The player was shot in the head, it cannot be revived.",
-    healMe = "Heal Me",
-    npcDoctor = "Doctor",
-    revive = "Revive",
-    noDoctorsOnline = "There are no doctors online",
-    helpRequest = "You hear some people calling for help, there's an unconscious person in danger. Look at the map.",
-    helpRequested = "You sent someone to look for help. Doctors are on the way.",
-    helpBlipText = "Help Requested #%d | %s",
-    helpResponse = "A doctor is on the way to your location, please don't move.",
+    notificationTitle = "Santé",
+    medicalBed = "Table d'examen",
+    layDown = "S'allonger",
+    getUp = "Se lever",
+    visit = "Visiter",
+    inspect = "Osculter",
+    unableToUseItem = "Vous ne savez pas utiliser cet objet.",
+    doctorsOnline = "Il y a un de mes collègues en service.",
+    notEnoughMoney = "Vous n'avez pas assez d'argent.",
+    healed = "Vous avez été soigné par le médecin.",
+    noDiseases = "Vous n'êtes pas malade.",
+    revived = "Vous avez été relevé par le médecin.",
+    notDead = "Vous ne pouvez pas relever ce joueur.",
+    cannotReviveHeadshot = "Le joueur a pris une balle dans la tête.",
+    healMe = "Me Soigner",
+    npcDoctor = "Médecin de garde",
+    revive = "Relever",
+    noDoctorsOnline = "Il n'y as pas de médecins",
+    helpRequest = "Quelqu'un a entendu un blessé crier dans les environs.",
+    helpRequested = "Vous criez à l'aide.",
+    helpBlipText = "Personne en danger #%d | %s",
+    helpResponse = "Quelqu'un est parti chercher de l'aide.",
     -- webhooks
     embedName = "Mega Doctorjob",
-    newDiseaseTitle = "Player has contracted a disease",
-    newDiseaseText = "**Player ID**: %s (%s)\n**Disease:** %s\n**Bone:** %s\n**Damage Type:** %s",
-    autoHealedDiseaseTitle = "Player disease has auto-healed",
-    autoHealedDiseaseText = "**Disease:** %s\n**Player ID:** %s (%s)",
-    healItemUsedTitle = "Player used heal item",
-    healItemUsedText = "**Item:** %s\n**Player:** %s (%s)\n**Diseases Healed:** %s",
-    doctorHealedDiseaseTitle = "Doctor has healed a disease",
-    doctorHealedDiseaseText = "**Disease:** %s\n**Damage Type:** %s\n**Doctor Player ID:** %s (%s)\n**Target Player ID:** %s (%s)",
-    npcDoctorHealedTitle = "NPC Doctor Healed Player",
-    npcDoctorHealedText = "**Player ID:** %s (%s)\n**Hospital:** %s",
-    npcDoctorRevivedTitle = "NPC Doctor Revived Player",
-    npcDoctorRevivedText = "**Player ID:** %s (%s)\n**Hospital:** %s",
-    resurrectedPlayerTitle = "Player was resurrected",
-    resurrectedPlayerText = "**Player ID:** %s (%s)\n**Target Player ID:** %s (%s)",
-    playerAlertTitle = "Player asked for help",
-    playerAlertText = "**Player ID:** %s (%s)\n**Player Coords:** `%s %s %s`"
+    newDiseaseTitle = "Nouvelle maladie",
+    newDiseaseText = "**Joueur**: %s (%s)\n**Maladie:** %s\n**Bone:** %s\n**Type de dommage:** %s",
+    autoHealedDiseaseTitle = "La maladie s'est auto-heal",
+    autoHealedDiseaseText = "**Maladie:** %s\n**Joueur:** %s (%s)",
+    healItemUsedTitle = "Utilisation de heal",
+    healItemUsedText = "**Item:** %s\n**Joueur:** %s (%s)\n**Maladie heal:** %s",
+    doctorHealedDiseaseTitle = "Un médecin a soignée une maladie",
+    doctorHealedDiseaseText = "**Disease:** %s\n**Damage Type:** %s\n**Médecin:** %s (%s)\n**Joueur:** %s (%s)",
+    npcDoctorHealedTitle = "PNJ Heal Joueur",
+    npcDoctorHealedText = "**Joueur:** %s (%s)\n**Hôpital:** %s",
+    npcDoctorRevivedTitle = "PNJ Revive Joueur",
+    npcDoctorRevivedText = "**Joueur:** %s (%s)\n**Hôpital:** %s",
+    resurrectedPlayerTitle = "Un joueur a été relevé",
+    resurrectedPlayerText = "**Joueur:** %s (%s)\n**Target Joueur:** %s (%s)",
+    playerAlertTitle = "Un joueur demande de l'aide",
+    playerAlertText = "**Joueur:** %s (%s)\n**Coords:** `%s %s %s`"
 }
 
 -- uncomment to enable webhook options
@@ -75,10 +75,10 @@ Config.alertCommand = 'alertdoctor'
 Config.respondCommand = 'respond'
 Config.clearAlertCommand = 'clearAlerts'
 -- put 0 if you don't want to show anything
-Config.alertBlipSprite = -924021303	
+Config.alertBlipSprite = -1998899839	
 Config.showRadiusAroundBlip = true
-Config.blipRadius = 20.0
-Config.radiusStyle = 1673015813
+Config.blipRadius = 50.0
+Config.radiusStyle = -666422021
 -- seconds to wait before the alert blip will be removed from the map
 Config.alertTimeout = 300
 
@@ -94,7 +94,7 @@ Config.allowPlayerInspecting = true
 Config.playerInspectRange = 1.5
 
 -- NPC Revive System
-Config.noHeadshotRevive = true
+Config.noHeadshotRevive = false
 
 -- If you already have a bandana script, you can link it by adding an event when the bandana is up or down
 -- doctorjob script will listen for this event, data must be a boolean (true/false) for (up/down)
@@ -102,7 +102,7 @@ Config.noHeadshotRevive = true
 Config.bandanaEvent = 'syn_robbery:bandana'
 
 -- Whether to remove or not diseases on revive/respawn
-Config.removeDiseaseOnRevive = true
+Config.removeDiseaseOnRevive = false
 
 -- Hospitals are just used for patient notes.
 -- When a doctor saves a note for a patient it will be shared within the hospital structure.

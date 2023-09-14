@@ -1095,14 +1095,14 @@ function addItemStash(source, name, amount, meta, stashId)
         local weightLimit = StashMaxWeights[_source] or 60.0
         if itemData.type == "item_weapon" or itemData.type == "item_letter" then
             --("Boss stash weight: ".. weight .." vs ".. weightLimit)
-            TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
+            -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
             --(weight + (itemData.weight * amount))
             if weight + (itemData.weight) > weightLimit then
                 return output
             end
         else
             --("Boss stash weight: ".. weight .." vs ".. weightLimit)
-            TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight * amount)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
+            -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight * amount)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
             --(weight + (itemData.weight * amount))
             if weight + (itemData.weight * amount) > weightLimit then
                 return output
@@ -1172,7 +1172,7 @@ function removeItemStash(source, name, amount, meta, stashId)
     
     local weightLimit = StashMaxWeights[_source] or 60.0
     --print("Bank stash weight: ".. weight .." vs ".. weightLimit)
-    TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", GetStashWeight(stashId)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
+    -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", GetStashWeight(stashId)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
     return output
 end
 

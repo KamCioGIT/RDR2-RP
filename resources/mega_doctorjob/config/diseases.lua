@@ -36,7 +36,7 @@ DiseasesConfig = {
    },
    ['brokenBone'] = {
       name = 'brokenBone',
-      displayName = 'Broken Bone',
+      displayName = 'Os fissuré',
       healthLossPerTick = 0,
       tickRate = 250,
       effectRate = 120000,
@@ -50,15 +50,15 @@ DiseasesConfig = {
       -- damage for running while having a broken bone
       damageRunning = 100,
       language = {
-         started = "You hear your bone cracking and it hurts.",
-         autoHealed = "The bone fused back, you feel better.",
+         started = "Vous entendez votre os craquer, une douleur vous envahit.",
+         autoHealed = "La douleur disparaît peu à peu.",
       },
    },
    ['bleeding'] = {
       name = 'bleeding',
-      displayName = "Bleeding",
-      healthLossPerTick = 25,
-      tickRate = 250,
+      displayName = "Hémorragie",
+      healthLossPerTick = 1,
+      tickRate = 6000,
       effectRate = 5000,
       -- milliseconds, time it will take to apply the cure item
       applyDuration = 10000,
@@ -66,8 +66,8 @@ DiseasesConfig = {
       autoHealTime = 300000,
       enableRagdoll = true,
       language = {
-         started = "You started bleeding, put on a bandage and visit a doctor.",
-         autoHealed = "The bleeding stopped on its own.",
+         started = "Vous commencez à saigner, appliquez un bandage et allez voir un médecin.",
+         autoHealed = "Le saignement s'est arrêté",
       },
       -- Firearms that can affect bleeding
       -- [weaponHash] = bleedProbability (0.0 -> 1.0) }
@@ -75,7 +75,7 @@ DiseasesConfig = {
       firearmsBleedProbability = {
          ['weapon_revolver_doubleaction'] = 0.1,
          ['weapon_revolver_cattleman'] = 0.1,
-         ['weapon_revolver_lemat'] = 1.0,
+         ['weapon_revolver_lemat'] = 0.1,
          ['weapon_revolver_schofield'] = 0.1,
          ['weapon_pistol_mauser'] = 0.1,
          ['weapon_pistol_semiauto'] = 0.1,
@@ -203,7 +203,7 @@ DiseasesConfig = {
    },
    ['snakeBite'] = {
       name = 'snakeBite',
-      displayName = "Snake Bite",
+      displayName = "Morsure de serpent",
       healthLossPerTick = 25,
       tickRate = 250,
       effectRate = 30000,
@@ -213,8 +213,8 @@ DiseasesConfig = {
       autoHealTime = -1,
       enableRagdoll = true,
       language = {
-         started = "The snake's bite hurts and your skin is irritating.",
-         autoHealed = "The effects from the venom went completely away.",
+         started = "Votre peau est irritée à l'endroit de la morsure.",
+         autoHealed = "Les effets du venin se sont dissipés",
       },
       -- Probability of getting poisoned after being bitten (0.0 - 1.0)
       poisonousBiteProbability = 1.0,

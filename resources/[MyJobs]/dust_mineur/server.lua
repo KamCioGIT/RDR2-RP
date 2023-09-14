@@ -67,8 +67,6 @@ end)
 RegisterServerEvent("CheckStash", function()
 	local depstashW = exports.redemrp_inventory.GetStashWeight(source, "dep_mineur")
 	local retstashW = exports.redemrp_inventory.GetStashWeight(source, "ret_mineur")
-	print("Stash weight: " .. tonumber(depstashW))
-	print("Stash weight: " .. tonumber(retstashW))
 end)
 
 Citizen.CreateThread(function()
