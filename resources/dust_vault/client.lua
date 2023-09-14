@@ -292,6 +292,7 @@ Citizen.CreateThread(function()
                     local prop = CreateObject(v.mod, v.pos.x, v.pos.y, v.pos.z, false, true, true)
                     SetEntityHeading(prop, tonumber(v.head))
                     PlaceObjectOnGroundProperly(prop)
+                    FreezeEntityPosition(prop, true)
                     print "spawn"
                     v.spawn = 'true'
                     v.object = prop
@@ -377,6 +378,7 @@ function posecoffre(model)
                             local prop = CreateObject(model, vaultpos.x, vaultpos.y, vaultpos.z, true, true, true)
                             SetEntityHeading(prop, tonumber(heading))
                             PlaceObjectOnGroundProperly(prop)
+                            FreezeEntityPosition(prop, true)
                             table.insert(coordscache, {pos = vaultpos, spawn = 'true', head = heading, mod = model, object = prop})
                             showtempvault = false
                             
