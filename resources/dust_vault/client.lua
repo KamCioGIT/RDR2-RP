@@ -323,19 +323,14 @@ function posecoffre(model)
                 local playerPed = PlayerPedId()
                 local playerCoords = GetEntityCoords(playerPed)
                 
-                -- Remplacez "prop_toolbox" par le modèle de la caisse à outils que vous souhaitez utiliser
                 local propModel = GetHashKey("p_boxlrgtool01x")
                 
-                -- Charge le modèle de la caisse à outils
                 RequestModel(propModel)
                 
-                -- Attend que le modèle soit chargé
                 while not HasModelLoaded(propModel) do
                     Citizen.Wait(0)
                 end
-                
-                -- Crée une instance de la caisse à outils
-                local prop = CreateObject(propModel, playerCoords.x, playerCoords.y, playerCoords.z, true, true, true)
+                prop = CreateObject(propModel, playerCoords.x, playerCoords.y, playerCoords.z, true, true, true)
                 
                 -- Attache la caisse à outils à la main droite du personnage
                 local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_Hand")
