@@ -95,11 +95,12 @@ Citizen.CreateThread(function ()
                 end
                 if IsControlJustReleased(0, 0xD9D0E1C0) then
                     isInteracting = true
+                    TaskPlayAnim(PlayerPedId(), Config.SafeDict, Config.SafeAnim, 1.0, 1.0, -1, 1, 0.0, 0, 0, 0)
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                         MenuData.CloseAll()
                         AddTextEntry("FMMC_MPM_TYP86", "Code")
                         DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
-                        TaskPlayAnim(PlayerPedId(), Config.SafeDict, Config.SafeAnim, 1.0, 1.0, -1, 1, 0.0, 0, 0, 0)
+                        
                         while (UpdateOnscreenKeyboard() == 0) do
                             DisableAllControlActions(0)
                             Citizen.Wait(0)
