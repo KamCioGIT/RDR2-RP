@@ -95,7 +95,11 @@ Citizen.CreateThread(function ()
                 end
                 if IsControlJustReleased(0, 0xD9D0E1C0) then
                     isInteracting = true
-                    TaskPlayAnim(PlayerPedId(), Config.SafeDict, Config.SafeAnim, 1.0, -1.0, -1, 1, 0, false, false, false)
+                    RequestAnimDict(Config.SafeDict)
+                    while not HasAnimDictLoaded(Config.SafeDict) do
+                        Citizen.Wait(0)
+                    end
+                    TaskPlayAnim(PlayerPedId(), Config.SafeDict, Config.SafeAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                         MenuData.CloseAll()
                         AddTextEntry("FMMC_MPM_TYP86", "Code")
@@ -125,7 +129,7 @@ Citizen.CreateThread(function ()
                         MenuData.CloseAll()
                         AddTextEntry("FMMC_MPM_TYP86", "Code")
                         DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
-                        TaskPlayAnim(PlayerPedId(), Config.SafeDict, Config.SafeAnim, 1.0, -1.0, -1, 1, 0.0, 0, 0, 0)
+                        TaskPlayAnim(PlayerPedId(), Config.SafeDict, Config.SafeAnim, 1.0, 1.0, -1, 1, 0.0, 0, 0, 0)
                         while (UpdateOnscreenKeyboard() == 0) do
                             DisableAllControlActions(0)
                             Citizen.Wait(0)
@@ -255,10 +259,6 @@ Citizen.CreateThread(function()
     end
     RequestModel(Config.LargeVault, true)
     while not HasModelLoaded(Config.LargeVault, true) do
-        Citizen.Wait(0)
-    end
-    RequestAnimDict(Config.SafeDict, true)
-    while not HasAnimDictLoaded(Config.SafeDict) do
         Citizen.Wait(0)
     end
     RequestModel(GetHashKey("p_boxlrgtool01x"), true)
