@@ -108,6 +108,7 @@ Citizen.CreateThread(function ()
                             inputcode = GetOnscreenKeyboardResult()
                             ClearPedTasks(PlayerPedId())
                         else
+                            ClearPedTasks(PlayerPedId())
                         return
                         end
                                     
@@ -132,6 +133,7 @@ Citizen.CreateThread(function ()
                             _inputcode = GetOnscreenKeyboardResult()
                             ClearPedTasks(PlayerPedId())
                         else
+                            ClearPedTasks(PlayerPedId())
                         return
                         end
                                     
@@ -201,6 +203,8 @@ function Submenu(action, menu, stashid, model, weight, pos)
                     newcode = GetOnscreenKeyboardResult()
                     ClearPedTasks(PlayerPedId())
                 else
+                    menu.close()
+                    ClearPedTasks(PlayerPedId())
                 return
                 end
                             
