@@ -78,4 +78,7 @@ Config.CartCustom = {
 }
 
 
-
+Config.StashWeight = {
+	["gatchuck"] = 100,
+	["chuckwagon000x"] = 100,
+}

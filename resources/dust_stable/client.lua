@@ -504,6 +504,12 @@ function spawncart(model, name, horseid, stashid)
         end 
     end
     Entity(cart).state.stashid = stashid
+    
+    for k, v in (Config.StashWeight) do
+        if k == model then
+            Entity(cart).state.stashweight = v
+        end
+    end
 
     TriggerServerEvent("dust_stable:server:horseout", horseid)
 
@@ -758,7 +764,7 @@ Citizen.CreateThread(function()
             if Entity(cart).state.stashid then
                 saddleprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
-                    TriggerEvent("redemrp_inventory:OpenStash", Entity(cart).state.stashid, 10.0)
+                    TriggerEvent("redemrp_inventory:OpenStash", Entity(cart).state.stashid, Entity(cart).state.stashweight)
                 end
             end
         end
