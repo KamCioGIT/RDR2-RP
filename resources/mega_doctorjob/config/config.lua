@@ -107,7 +107,7 @@ Config.removeDiseaseOnRevive = false
 -- Hospitals are just used for patient notes.
 -- When a doctor saves a note for a patient it will be shared within the hospital structure.
 Config.hospitals = {
-    ['Saint Denis Hospital'] = {
+    ['Cabinet de Médecin'] = {
         showBlip = true,
         blipSprite = -1739686743,
         coords = vector3(2725.86, -1227.72, 50.36),
