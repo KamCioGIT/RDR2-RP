@@ -256,14 +256,15 @@ Citizen.CreateThread(function()
     while not HasModelLoaded(Config.LargeVault, true) do
         Citizen.Wait(0)
     end
-    RequestModel(GetHashKey("p_boxlrgtool01x"))
-    while not HasModelLoaded(GetHashKey("p_boxlrgtool01x")) do
-        Citizen.Wait(0)
-    end
     RequestAnimDict(Config.SafeDict)
     while not HasAnimDictLoaded(Config.SafeDict) do
         Citizen.Wait(0)
     end
+    RequestModel(GetHashKey("p_boxlrgtool01x"))
+    while not HasModelLoaded(GetHashKey("p_boxlrgtool01x")) do
+        Citizen.Wait(0)
+    end
+
 end)
 
 
