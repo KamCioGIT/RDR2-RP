@@ -259,6 +259,10 @@ Citizen.CreateThread(function()
     while not HasModelLoaded(GetHashKey("p_boxlrgtool01x")) do
         Citizen.Wait(0)
     end
+    RequestAnimDict(Config.SafeDict)
+    while not HasAnimDictLoaded(Config.SafeDict) do
+        Citizen.Wait(50)
+    end
     TriggerServerEvent("dust_vault:server:Askcoords")
 end)
 
