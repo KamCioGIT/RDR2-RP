@@ -329,7 +329,7 @@ function posecoffre(model)
                 local x, y, z = table.unpack(GetEntityCoords(ped))
                 crateEntity = CreateObject(GetHashKey('p_ammoboxlancaster02x'), x, y, z + 0.15, true, true, true)
                 
-                AttachEntityToEntity(crateEntity, ped, GetPedBoneIndex(ped, 57005), 0.12, 0.0, 0.0, 0.0, 180.0, 180.0, true, true, false, true, 1, true)
+                AttachEntityToEntity(crateEntity, ped, GetPedBoneIndex(ped, 57005), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
                 
                 TaskPlayAnim(ped, 'mech_loco_m@generic@carry@box@front@idle', 'idle', 8.0, -8.0, -1, 49, 0, false, false, false)
                 
@@ -428,6 +428,23 @@ function posecoffre(model)
     end)
 end
 
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        
+        if carryingCrate then
+            local ped = PlayerPedId()
+            local x, y, z = table.unpack(GetEntityCoords(ped))
+            
+            if IsControlPressed(0, 32) then -- Touche W (avancer)
+                local heading = GetEntityHeading(ped)
+                local newX = x + math.sin(math.rad(heading)) * 0.1
+                local newY = y + math.cos(math.rad(heading)) * 0.1
+                SetEntityCoordsNoOffset(ped, newX, newY, z, true, true, true)
+            end
+        end
+    end
+end)
 
 
 ---- Anim porter la caisse ---- 
