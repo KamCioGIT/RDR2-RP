@@ -334,7 +334,7 @@ function posecoffre(model)
                 
                 -- Attache la caisse à outils à la main droite du personnage
                 local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_Hand")
-                AttachEntityToEntity(tool, playerPed, boneIndex, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
+                AttachEntityToEntity(tool, playerPed, boneIndex, 0.1, 0.0, -0.2, 90.0, 0.0, 0.0, true, true, false, true, 1, true)
                 
                 -- Décharge le modèle de la caisse à outils
                 SetModelAsNoLongerNeeded(toolModel)
