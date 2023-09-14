@@ -396,7 +396,7 @@ function posecoffre(model)
             local xOffset, yOffset, zOffset = 0.08, 0.08, -0.15  -- Ajustez ces valeurs pour l'attache correcte
             local tool = CreateObject(propModel, 0, 0, 0, true, true, true)
 
-            AttachEntityToEntity(tool, PlayerPedId(), boneIndex, xOffset, yOffset, zOffset, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
+            AttachEntityToEntity(tool, PlayerPedId(), boneIndex, xOffset, yOffset, zOffset, 0.0, 0.0, 90.0, true, true, false, true, 1, true)
 
 
 
