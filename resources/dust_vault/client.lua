@@ -320,25 +320,6 @@ function posecoffre(model)
             if PoseCoffrePromptShown == false then
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
 
-                local playerPed = PlayerPedId()
-                local playerCoords = GetEntityCoords(playerPed)
-                
-                local toolModel = GetHashKey("p_boxlrgtool01x")
-                
-                RequestModel(toolModel)
-                
-                while not HasModelLoaded(toolModel) do
-                    Citizen.Wait(0)
-                end
-                tool = CreateObject(toolModel, playerCoords.x, playerCoords.y, playerCoords.z, true, true, true)
-                
-                -- Attache la caisse à outils à la main droite du personnage
-                local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_Hand")
-                AttachEntityToEntity(tool, playerPed, boneIndex, 0.1, 0.0, -0.2, 90.0, 0.0, 0.0, true, true, false, true, 1, true)
-                
-                -- Décharge le modèle de la caisse à outils
-                SetModelAsNoLongerNeeded(toolModel)
-
                 if PromptHasHoldModeCompleted(LeavePrompt) then
                     PoseCoffrePromptShown = true
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
@@ -383,7 +364,6 @@ function posecoffre(model)
                             PlaceObjectOnGroundProperly(prop)
                             table.insert(coordscache, {pos = vaultpos, spawn = 'true', head = heading, mod = model, object = prop})
                             showtempvault = false
-                            DeleteEntity(tool)
                             
                             spawned = true
                             return
@@ -393,8 +373,6 @@ function posecoffre(model)
                 if IsControlJustReleased(0, 0x8E90C7BB) then
                     showtempvault = false
                     PoseCoffrePromptShown = true
-                    
-                    DeleteEntity(tool)
 
                     spawned = true
                     return
@@ -414,6 +392,16 @@ function posecoffre(model)
             SetEntityAlpha(tempvault, 195)
             Citizen.Wait(10)
             DeleteEntity(tempvault)
+
+
+            local propModel = GetHashKey("p_boxlrgtool01x")
+            local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_Hand")
+            local xOffset, yOffset, zOffset = 0.08, 0.08, -0.15  -- Ajustez ces valeurs pour l'attache correcte
+            local tool = CreateObject(propModel, 0, 0, 0, true, true, true)
+
+            AttachEntityToEntity(tool, playerPed, boneIndex, xOffset, yOffset, zOffset, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
+            DeleteEntity(tool)
+
         end
     end)
 end
