@@ -220,14 +220,15 @@ function createObjectBox(object) {
             var waterdisp = object.meta.water * 10;
             boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `A canteen (" + waterdisp.toFixed(0) + "% Full)`)    ");
         }
-    } else if(object.type == "item_weapon") {
-        if((object.meta.damage != undefined && object.meta.damage != null) &&
-         (object.meta.dirt != undefined && object.meta.dirt != null)) {
-            boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `" + object.description + " (" + (object.meta.dirt*100).toFixed(2) + "% Dirt, "+(object.meta.damage*100).toFixed(2)+"% Damage)`)    ");
-        } else {
-            boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `" + object.description + "`)    ");
-        }
-    } else {
+    } // else if(object.type == "item_weapon") {
+    //     if((object.meta.damage != undefined && object.meta.damage != null) &&
+    //      (object.meta.dirt != undefined && object.meta.dirt != null)) {
+    //         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `" + object.description + " (" + (object.meta.dirt*100).toFixed(2) + "% Dirt, "+(object.meta.damage*100).toFixed(2)+"% Damage)`)    ");
+    //     } else {
+    //         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `" + object.description + "`)    ");
+    //     }
+    // } 
+    else {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `" + object.description + "`)    ");
     }
     
