@@ -308,7 +308,8 @@ end)
 
 
 
-local placement = false
+local carryingCrate = false
+local crateEntity = nil
 function posecoffre(model)
     PoseCoffrePromptShown = false
     showtempvault = true
@@ -318,13 +319,21 @@ function posecoffre(model)
             local playerPed = PlayerPedId()
             if PoseCoffrePromptShown == false then
                 PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
-                placement = true
-                -- local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
-                -- -- Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
-                -- local tempvault = CreateObject(model, playerpos.x, playerpos.y, playerpos.z, false, true, true)
-                -- PlaceObjectOnGroundProperly(tempvault)
-                -- SetEntityAlpha(tempvault, 50, false)
-                -- DeleteEntity(tempvault)
+                RequestAnimDict('mech_loco_m@generic@carry@box@front@idle') -- Remplacez 'anim_dict' par le nom de votre animation
+            
+                while not HasAnimDictLoaded('mech_loco_m@generic@carry@box@front@idle') do
+                    Citizen.Wait(0)
+                end
+                
+                local ped = PlayerPedId()
+                local x, y, z = table.unpack(GetEntityCoords(ped))
+                crateEntity = CreateObject(GetHashKey('p_ammoboxlancaster02x'), x, y, z + 0.15, true, true, true)
+                
+                AttachEntityToEntity(crateEntity, ped, GetPedBoneIndex(ped, 57005), 0.12, 0.0, 0.0, 0.0, 180.0, 180.0, true, true, false, true, 1, true)
+                
+                TaskPlayAnim(ped, 'mech_loco_m@generic@carry@box@front@idle', 'idle', 8.0, -8.0, -1, 49, 0, false, false, false)
+                
+                carryingCrate = true
 
                 if PromptHasHoldModeCompleted(LeavePrompt) then
                     PoseCoffrePromptShown = true
@@ -370,8 +379,15 @@ function posecoffre(model)
                             PlaceObjectOnGroundProperly(prop)
                             table.insert(coordscache, {pos = vaultpos, spawn = 'true', head = heading, mod = model, object = prop})
                             showtempvault = false
-                            carryingCrate = true
-                            placement = false 
+                            local ped = PlayerPedId()
+            
+                            DetachEntity(crateEntity, true, true)
+                            DeleteEntity(crateEntity)
+                            
+                            ClearPedTasksImmediately(ped)
+                            
+                            carryingCrate = false
+                            
                             spawned = true
                             return
                         end
@@ -380,9 +396,17 @@ function posecoffre(model)
                 if IsControlJustReleased(0, 0x8E90C7BB) then
                     showtempvault = false
                     PoseCoffrePromptShown = true
+                    
+                    local ped = PlayerPedId()
+            
+                    DetachEntity(crateEntity, true, true)
+                    DeleteEntity(crateEntity)
+                    
+                    ClearPedTasksImmediately(ped)
+                    
+                    carryingCrate = false
+
                     spawned = true
-                    carryingCrate = true
-                    placement = false 
                     return
                 end
             end
@@ -407,38 +431,37 @@ end
 
 
 ---- Anim porter la caisse ---- 
-local carryingCrate = false
-local crateEntity = nil
 
 
-Citizen.CreateThread(function()
-    while placement do
-        Wait(50)
-        if not carryingCrate then
-            RequestAnimDict('mech_loco_m@generic@carry@box@front@idle') -- Remplacez 'anim_dict' par le nom de votre animation
+
+-- Citizen.CreateThread(function()
+--     while placement do
+--         Wait(50)
+--         if not carryingCrate then
+--             RequestAnimDict('mech_loco_m@generic@carry@box@front@idle') -- Remplacez 'anim_dict' par le nom de votre animation
             
-            while not HasAnimDictLoaded('mech_loco_m@generic@carry@box@front@idle') do
-                Citizen.Wait(0)
-            end
+--             while not HasAnimDictLoaded('mech_loco_m@generic@carry@box@front@idle') do
+--                 Citizen.Wait(0)
+--             end
             
-            local ped = PlayerPedId()
-            local x, y, z = table.unpack(GetEntityCoords(ped))
-            crateEntity = CreateObject(GetHashKey('p_ammoboxlancaster02x'), x, y, z + 0.15, true, true, true)
+--             local ped = PlayerPedId()
+--             local x, y, z = table.unpack(GetEntityCoords(ped))
+--             crateEntity = CreateObject(GetHashKey('p_ammoboxlancaster02x'), x, y, z + 0.15, true, true, true)
             
-            AttachEntityToEntity(crateEntity, ped, GetPedBoneIndex(ped, 57005), 0.12, 0.0, 0.0, 0.0, 180.0, 180.0, true, true, false, true, 1, true)
+--             AttachEntityToEntity(crateEntity, ped, GetPedBoneIndex(ped, 57005), 0.12, 0.0, 0.0, 0.0, 180.0, 180.0, true, true, false, true, 1, true)
             
-            TaskPlayAnim(ped, 'mech_loco_m@generic@carry@box@front@idle', 'idle', 8.0, -8.0, -1, 49, 0, false, false, false)
+--             TaskPlayAnim(ped, 'mech_loco_m@generic@carry@box@front@idle', 'idle', 8.0, -8.0, -1, 49, 0, false, false, false)
             
-            carryingCrate = true
-        else
-            local ped = PlayerPedId()
+--             carryingCrate = true
+--         else
+--             local ped = PlayerPedId()
             
-            DetachEntity(crateEntity, true, true)
-            DeleteEntity(crateEntity)
+--             DetachEntity(crateEntity, true, true)
+--             DeleteEntity(crateEntity)
             
-            ClearPedTasksImmediately(ped)
+--             ClearPedTasksImmediately(ped)
             
-            carryingCrate = false
-        end
-    end
-end)
+--             carryingCrate = false
+--         end
+--     end
+-- end)
