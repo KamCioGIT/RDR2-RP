@@ -327,7 +327,6 @@ function posecoffre(model)
                 -- DeleteEntity(tempvault)
 
                 if PromptHasHoldModeCompleted(LeavePrompt) then
-                    AttachCrateToPed()
                     PoseCoffrePromptShown = true
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                         MenuData.CloseAll()
@@ -380,7 +379,6 @@ function posecoffre(model)
                     showtempvault = false
                     PoseCoffrePromptShown = true
                     spawned = true
-                    AttachCrateToPed()
                     return
                 end
             end
@@ -405,35 +403,34 @@ end
 
 
 ---- Anim porter la caisse ---- 
-local isCarryingCrate = false
-local crateObject = nil
+local carryingCrate = false
+local crateEntity = nil
 
 function AttachCrateToPed()
-    local ped = PlayerPedId()
-
-    if not isCarryingCrate then
+    if not carryingCrate then
+        RequestAnimDict('mech_loco_m@generic@carry@box@front@idle') -- Remplacez 'anim_dict' par le nom de votre animation
+        
+        while not HasAnimDictLoaded('mech_loco_m@generic@carry@box@front@idle') do
+            Citizen.Wait(0)
+        end
+        
+        local ped = PlayerPedId()
         local x, y, z = table.unpack(GetEntityCoords(ped))
-        local boneIndex = GetPedBoneIndex(ped, 57005)  
-
-        RequestAnimDict("anim@heists@box_carry@")
-        while not HasAnimDictLoaded("anim@heists@box_carry@") do
-            Citizen.Wait(0)
-        end
-
-        TaskPlayAnimAdvanced(ped, "anim@heists@box_carry@", "idle", x, y, z, 0, 0, 0, 1.0, 1.0, -1, 9, 0, 0, 0, 0)
-
-        RequestModel("p_ammoboxlancaster02x") 
-        while not HasModelLoaded("p_ammoboxlancaster02x") do
-            Citizen.Wait(0)
-        end
-
-        crateObject = CreateObject(GetHashKey("p_ammoboxlancaster02x"), 1.0, 1.0, 1.0, true, true, false)
-        AttachEntityToEntity(crateObject, ped, boneIndex, 0.1, 0.0, 0.0, 0.0, 180.0, 0.0, true, true, false, true, 1, true)
-
-        isCarryingCrate = true
+        crateEntity = CreateObject(GetHashKey('p_ammoboxlancaster02x'), x, y, z + 0.15, true, true, true)
+        
+        AttachEntityToEntity(crateEntity, ped, GetPedBoneIndex(ped, 57005), 0.12, 0.0, 0.0, 0.0, 180.0, 180.0, true, true, false, true, 1, true)
+        
+        TaskPlayAnim(ped, 'mech_loco_m@generic@carry@box@front@idle', 'idle', 8.0, -8.0, -1, 49, 0, false, false, false)
+        
+        carryingCrate = true
     else
-        ClearPedSecondaryTask(ped)
-        DeleteEntity(crateObject)
-        isCarryingCrate = false
+        local ped = PlayerPedId()
+        
+        DetachEntity(crateEntity, true, true)
+        DeleteEntity(crateEntity)
+        
+        ClearPedTasksImmediately(ped)
+        
+        carryingCrate = false
     end
 end
