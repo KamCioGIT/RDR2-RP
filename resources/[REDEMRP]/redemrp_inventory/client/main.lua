@@ -865,7 +865,8 @@ RegisterNetEvent(
         OpenStash = id
         CurrentMaxWeight = weight
         --print(weight)
-        TaskPlayAnim(PlayerPedId(), "mech_loco_m@generic@searching@low_energy@indirect@unarmed@idle", "idle", 1.0, 1.0, -1, 1, 0.0, 0, 0, 0)
+        local dict = "mech_loco_m@generic@searching@low_energy@indirect@unarmed@idle"
+        TaskPlayAnim(PlayerPedId(), dict, "idle", 1.0, 8.0, -1, 1, 0, false, false, false)
         TriggerServerEvent("redemrp_inventory:GetStash", OpenStash, weight)
     end
 )
