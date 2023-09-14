@@ -397,7 +397,7 @@ function posecoffre(model)
             local propModel = GetHashKey("p_boxlrgtool01x")
             local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_Hand")
             local xOffset, yOffset, zOffset = 0.08, 0.08, -0.15  -- Ajustez ces valeurs pour l'attache correcte
-            local tool = CreateObject(propModel, 0, 0, 0, true, true, true)
+            local tool = CreateObject(propModel, playerpos.x, playerpos.y, playerpos.z, true, true, true)
 
             AttachEntityToEntity(tool, playerPed, boneIndex, xOffset, yOffset, zOffset, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
             DeleteEntity(tool)
