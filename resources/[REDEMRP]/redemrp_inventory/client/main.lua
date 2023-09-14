@@ -52,6 +52,7 @@ AddEventHandler('redemrp_inventory:close_inventory', function()
     SetNuiFocus(false, false)
     isInventoryOpen = false
     isOtherOpen = false
+    ClearPedTasks(PlayerPedId())
 end)
 
 RegisterNetEvent("redemrp_inventory:client:ResetWeapons", function()
@@ -864,6 +865,7 @@ RegisterNetEvent(
         OpenStash = id
         CurrentMaxWeight = weight
         --print(weight)
+        TaskPlayAnim(PlayerPedId(), "mech_loco_m@generic@searching@low_energy@indirect@unarmed@idle", "idle", 1.0, 1.0, -1, 1, 0.0, 0, 0, 0)
         TriggerServerEvent("redemrp_inventory:GetStash", OpenStash, weight)
     end
 )
