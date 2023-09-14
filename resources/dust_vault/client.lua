@@ -243,6 +243,7 @@ end)
 ----- REQUEST LES MODEL ----
 
 Citizen.CreateThread(function()
+    TriggerServerEvent("dust_vault:server:Askcoords")
     RequestModel(Config.SmallVault, true)
     while not HasModelLoaded(Config.SmallVault) do
         Citizen.Wait(0)
@@ -261,9 +262,8 @@ Citizen.CreateThread(function()
     end
     RequestAnimDict(Config.SafeDict)
     while not HasAnimDictLoaded(Config.SafeDict) do
-        Citizen.Wait(50)
+        Citizen.Wait(0)
     end
-    TriggerServerEvent("dust_vault:server:Askcoords")
 end)
 
 
