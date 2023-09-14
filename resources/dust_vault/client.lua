@@ -390,9 +390,6 @@ function posecoffre(model)
             SetEntityHeading(tempvault, tonumber(heading))
             PlaceObjectOnGroundProperly(tempvault)
             SetEntityAlpha(tempvault, 195)
-            Citizen.Wait(10)
-            DeleteEntity(tempvault)
-
 
             local propModel = GetHashKey("p_boxlrgtool01x")
             local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_Hand")
@@ -400,6 +397,11 @@ function posecoffre(model)
             local tool = CreateObject(propModel, playerpos.x, playerpos.y, playerpos.z, true, true, true)
 
             AttachEntityToEntity(tool, playerPed, boneIndex, xOffset, yOffset, zOffset, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
+
+
+
+            Citizen.Wait(10)
+            DeleteEntity(tempvault)
             DeleteEntity(tool)
 
         end
