@@ -305,8 +305,6 @@ Config.Herbs = {
         animDur = 2000
     },
 
-
-
     ["COMPOSITE_LOOTABLE_MILKWEED_DEF"] =  {
         blipSprite = -675651933,
         blipName = "Jahody",
@@ -525,15 +523,13 @@ Config.Animals = {
     [GetHashKey("a_c_alligator_01")] =   {
         randomized = false,
         items = {
-            {"Gamey_Meat", 3, "Kvalitní maso"},
-            {"Big_Leather", 3, "Velká Kůže"},
-			{"Fang", 1, "Zvířecí Zub"},
+            {"crocalligator", 3, "Croc d'Alligator"},
         }
     },    
     [GetHashKey("a_c_alligator_03")] =   {
         randomized = false,
         items = {
-            {"Gamey_Meat", 3, "Kvalitní maso"},
+            {"crocalligator", 3, "Kvalitní maso"},
             {"Big_Leather", 3, "Velká Kůže"},
 			{"Fang", 1, "Zvířecí Zub"},
         }
@@ -572,7 +568,7 @@ Config.Animals = {
     [GetHashKey("a_c_bearblack_01")] =   {
         randomized = false,
         items = {
-            {"Gamey_Meat", 3, "Kvalitní maso"},
+            {"graisse", 3, "Kvalitní maso"},
             {"Big_Leather", 3, "Velká Kůže"},
 		    {"Bear_Paw", 1, "Medvědí Tlapa"},
 			{"Animal_Tallow", 1, "Zvířecí Lůj"},
