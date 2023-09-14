@@ -867,7 +867,6 @@ RegisterNetEvent(
         --print(weight)
         local dict = "mech_loco_m@generic@searching@low_energy@direct@unarmed@idle"
         TaskPlayAnim(PlayerPedId(), dict, "idle", 1.0, 8.0, -1, 1, 0, false, false, false)
-        print("yes")
         TriggerServerEvent("redemrp_inventory:GetStash", OpenStash, weight)
     end
 )
