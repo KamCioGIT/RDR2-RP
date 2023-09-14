@@ -323,21 +323,21 @@ function posecoffre(model)
                 local playerPed = PlayerPedId()
                 local playerCoords = GetEntityCoords(playerPed)
                 
-                local propModel = GetHashKey("p_boxlrgtool01x")
+                local toolModel = GetHashKey("p_boxlrgtool01x")
                 
-                RequestModel(propModel)
+                RequestModel(toolModel)
                 
-                while not HasModelLoaded(propModel) do
+                while not HasModelLoaded(toolModel) do
                     Citizen.Wait(0)
                 end
-                prop = CreateObject(propModel, playerCoords.x, playerCoords.y, playerCoords.z, true, true, true)
+                tool = CreateObject(toolModel, playerCoords.x, playerCoords.y, playerCoords.z, true, true, true)
                 
                 -- Attache la caisse à outils à la main droite du personnage
                 local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_Hand")
-                AttachEntityToEntity(prop, playerPed, boneIndex, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
+                AttachEntityToEntity(tool, playerPed, boneIndex, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, true, true, false, true, 1, true)
                 
                 -- Décharge le modèle de la caisse à outils
-                SetModelAsNoLongerNeeded(propModel)
+                SetModelAsNoLongerNeeded(toolModel)
 
                 if PromptHasHoldModeCompleted(LeavePrompt) then
                     PoseCoffrePromptShown = true
@@ -383,7 +383,7 @@ function posecoffre(model)
                             PlaceObjectOnGroundProperly(prop)
                             table.insert(coordscache, {pos = vaultpos, spawn = 'true', head = heading, mod = model, object = prop})
                             showtempvault = false
-                            DeleteEntity(prop)
+                            DeleteEntity(tool)
                             
                             spawned = true
                             return
@@ -394,7 +394,7 @@ function posecoffre(model)
                     showtempvault = false
                     PoseCoffrePromptShown = true
                     
-                    DeleteEntity(prop)
+                    DeleteEntity(tool)
 
                     spawned = true
                     return
