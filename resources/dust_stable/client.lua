@@ -505,7 +505,7 @@ function spawncart(model, name, horseid, stashid)
     end
     Entity(cart).state.stashid = stashid
     
-    for k, v in (Config.StashWeight) do
+    for k, v in pairs(Config.StashWeight) do
         if k == model then
             Entity(cart).state.stashweight = v
         end
