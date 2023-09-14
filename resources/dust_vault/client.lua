@@ -99,13 +99,14 @@ Citizen.CreateThread(function ()
                         MenuData.CloseAll()
                         AddTextEntry("FMMC_MPM_TYP86", "Code")
                         DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
-                    
+                        TaskPlayAnim(PlayerPedId(), Config.SafeDict, Config.SafeAnim, 1.0, 1.0, -1, 1, 0, 0, 0, 0)
                         while (UpdateOnscreenKeyboard() == 0) do
                             DisableAllControlActions(0)
                             Citizen.Wait(0)
                         end
                         if (GetOnscreenKeyboardResult()) then
                             inputcode = GetOnscreenKeyboardResult()
+                            ClearPedTasks(PlayerPedId())
                         else
                         return
                         end
@@ -122,13 +123,14 @@ Citizen.CreateThread(function ()
                         MenuData.CloseAll()
                         AddTextEntry("FMMC_MPM_TYP86", "Code")
                         DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
-                    
+                        TaskPlayAnim(PlayerPedId(), Config.SafeDict, Config.SafeAnim, 1.0, 1.0, -1, 1, 0, 0, 0, 0)
                         while (UpdateOnscreenKeyboard() == 0) do
                             DisableAllControlActions(0)
                             Citizen.Wait(0)
                         end
                         if (GetOnscreenKeyboardResult()) then
                             _inputcode = GetOnscreenKeyboardResult()
+                            ClearPedTasks(PlayerPedId())
                         else
                         return
                         end
@@ -190,13 +192,14 @@ function Submenu(action, menu, stashid, model, weight, pos)
                 MenuData.CloseAll()
                 AddTextEntry("FMMC_MPM_TYP86", "Nouveau Code")
                 DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
-            
+                TaskPlayAnim(PlayerPedId(), Config.SafeDict, Config.SafeAnim, 1.0, 1.0, -1, 1, 0, 0, 0, 0)
                 while (UpdateOnscreenKeyboard() == 0) do
                     DisableAllControlActions(0)
                     Citizen.Wait(0)
                 end
                 if (GetOnscreenKeyboardResult()) then
                     newcode = GetOnscreenKeyboardResult()
+                    ClearPedTasks(PlayerPedId())
                 else
                     menu.close()
                 return
