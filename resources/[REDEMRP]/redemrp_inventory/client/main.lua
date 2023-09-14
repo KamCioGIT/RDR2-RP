@@ -866,6 +866,10 @@ RegisterNetEvent(
         CurrentMaxWeight = weight
         --print(weight)
         local dict = "mech_loco_m@generic@searching@low_energy@direct@unarmed@idle"
+        RequestAnimDict(dict)
+        while not HasAnimDictLoaded(dict) do
+            Citizen.Wait(10)
+        end
         TaskPlayAnim(PlayerPedId(), dict, "idle", 1.0, 8.0, -1, 1, 0, false, false, false)
         TriggerServerEvent("redemrp_inventory:GetStash", OpenStash, weight)
     end
@@ -923,6 +927,7 @@ RegisterNUICallback(
         IsCrafting = false
         isInventoryOpen = false
         isOtherOpen = false
+        ClearPedTasks(PlayerPedId())
     end
 )
 
