@@ -201,7 +201,6 @@ function Submenu(action, menu, stashid, model, weight, pos)
                     newcode = GetOnscreenKeyboardResult()
                     ClearPedTasks(PlayerPedId())
                 else
-                    menu.close()
                 return
                 end
                             
