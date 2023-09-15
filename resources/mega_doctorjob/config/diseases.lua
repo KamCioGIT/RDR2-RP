@@ -13,7 +13,7 @@ DiseasesConfig = {
       -- for each tick the player is not inside the cold factors it will lose a coldness point
       maxColdnessLevel = 1200,
       -- temperature which is considered to be cold
-      coldTemperature = 10.0,
+      coldTemperature = 7.0,
       -- how much the factors affect the coldness level (0 (nothing) to n)
       -- staying in cold temperatures
       temperatureRate = 1,
