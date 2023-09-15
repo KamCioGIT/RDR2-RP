@@ -360,7 +360,7 @@ function posecoffre(model)
             if PoseCoffrePromptShown == false then
                 -- PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
                 PoseCoffrePromptGroup:setActiveThisFrame(true)
-                if PoseCoffrePromptGroup:hasHoldModeJustCompleted() then
+                if IsControlJustReleased(0, 0x760A9C6F) then
                     PoseCoffrePromptShown = true
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                         MenuData.CloseAll()
@@ -412,7 +412,7 @@ function posecoffre(model)
                         end
                     end)
                 end
-                if IsControlJustReleased(0, 0x760A9C6F) then
+                if PoseCoffrePromptGroup:hasHoldModeJustCompleted() then
                     showtempvault = false
                     PoseCoffrePromptShown = true
 
