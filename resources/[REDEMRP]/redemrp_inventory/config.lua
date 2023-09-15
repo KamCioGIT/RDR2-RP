@@ -1067,6 +1067,20 @@ Config.Items = {
         imgsrc = "items/consumable_health_serum.png",
         type = "item_standard",
     },
+
+
+    ----  FERME ----
+    ["ble"] = {
+        label = "Blé",
+        description = "À ne pas confondre avec l'oseille",
+        weight = 0.01,
+        canBeDropped = true,
+        canBeUsed = false,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/consumable_health_serum.png",
+        type = "item_standard",
+    },
 }
 
 exports("GetItemsList", function()
