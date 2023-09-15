@@ -77,6 +77,7 @@ AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code,
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     if not stashcache[stashid] then
         stashcache[stashid] = {pos = vaultpos, getcode = code, getmodel = model}
+        print (v.pos)
     end
 end)
 Citizen.CreateThread(function ()
@@ -84,7 +85,7 @@ Citizen.CreateThread(function ()
         Citizen.Wait(0)
         local playerPos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(stashcache) do
-            print (v.pos)
+            
             if #(playerPos - v.pos) < 1.5 and not IsInteracting then
                 print "open"
                 PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
