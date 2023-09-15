@@ -82,11 +82,11 @@ $(function() {
             }
 		},
 		items: {
-			"use": {name: "Use"},
-			"split": {name: "Split"},
-			"drop": {name: "Drop"},
-			"give": {name: "Give"},
-            "transfer": {name: "Transfer"},
+			"use": {name: "Utiliser"},
+			"split": {name: "Diviser"},
+			"drop": {name: "Jeter"},
+			"give": {name: "Donner"},
+            "transfer": {name: "Transférer"},
 		}
 	});
 });
