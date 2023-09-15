@@ -75,7 +75,6 @@ end)
 RegisterNetEvent("dust_vault:server:getStashes")
 AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code, model)
     local vaultpos = vector3(coords.x, coords.y, coords.z)
-    print (vaultpos)
     if not stashcache[stashid] then
         stashcache[stashid] = {pos = vaultpos, getcode = code, getmodel = model}
     end
@@ -85,7 +84,9 @@ Citizen.CreateThread(function ()
         Citizen.Wait(0)
         local playerPos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(stashcache) do
+            print (v.pos)
             if #(playerPos - v.pos) < 1.5 and not IsInteracting then
+                print "open"
                 PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
                 if v.getmodel == Config.SmallVault then
                     weight = Config.SmallWeight
