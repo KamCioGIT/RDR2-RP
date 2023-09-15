@@ -161,6 +161,7 @@ Citizen.CreateThread(function ()
                                     
                         if _inputcode == v.getcode then
                             ManageVault(k, v.getmodel, weight, v.pos)
+                            isInteracting = true
                         end
                     end)
                 end      
@@ -193,6 +194,7 @@ function ManageVault(stashid, model, weight, pos)
 
         function(data, menu)
             menu.close()
+            isInteracting = false
         end)
     end)
 end
@@ -210,6 +212,7 @@ function Submenu(action, menu, stashid, model, weight, pos)
         end
         if action == "demonter" then
             TriggerServerEvent("dust_vault:server:removestash", stashid, model, pos)
+            isInteracting = false
         end
         if action == "changecode" then
             RequestAnimDict(Config.SafeDict)
@@ -237,6 +240,7 @@ function Submenu(action, menu, stashid, model, weight, pos)
                 if #(newcode) >= 1 then
                     TriggerServerEvent("dust_vault:server:ChangeCode", newcode, pos)
                     TriggerEvent("redemrp_inventory:OpenStash", stashid, weight)
+                    isInteracting = false
                     for k, v in pairs(stashcache) do
                         if pos == v.pos then
                             v.getcode = tostring(newcode)
