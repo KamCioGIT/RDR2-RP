@@ -413,3 +413,17 @@ AddEventHandler("RegisterUsableItem:brosse", function(source)
 	TriggerClientEvent('dust_stable:brosse', _source)
 end)
 -- Save meta du cheval dans la db
+
+
+AddEventHandler("onResourceStop", function(resourceName)
+    if resourceName ~= GetCurrentResourceName() then return end
+    TriggerEvent('dust_stable:server:resethorse')
+end)
+
+AddEventHandler('txAdmin:events:scheduledRestart', function()
+    TriggerEvent('dust_stable:server:resethorse')
+end)
+
+AddEventHandler('txAdmin:events:serverShuttingDown', function()
+    TriggerEvent('dust_stable:server:resethorse')
+end)
