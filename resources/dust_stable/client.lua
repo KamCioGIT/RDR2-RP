@@ -703,19 +703,12 @@ Citizen.CreateThread(function()
 end)
 
 
----- RESET CHEVAUX AU RESTART ----
--- AddEventHandler("onResourceStop", function(resourceName)
---     if resourceName ~= GetCurrentResourceName() then return end
---     TriggerServerEvent('dust_stable:server:resethorse')
--- end)
+---- RESET CHEVAUX AU RESTART de la ressource ----
+AddEventHandler("onResourceStop", function(resourceName)
+    if resourceName ~= GetCurrentResourceName() then return end
+    TriggerServerEvent('dust_stable:server:resethorse')
+end)
 
--- AddEventHandler('txAdmin:events:scheduledRestart', function()
---     TriggerServerEvent('dust_stable:server:resethorse')
--- end)
-
--- AddEventHandler('txAdmin:events:serverShuttingDown', function()
---     TriggerServerEvent('dust_stable:server:resethorse')
--- end)
 
 ---- LOOT STASHES ---
 local saddleprompt = UipromptGroup:new("Sacoches")
