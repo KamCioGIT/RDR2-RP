@@ -6,6 +6,14 @@ TriggerEvent("redemrp_inventory:getData",function(call)
     data = call
 end)
 
+RegisterServerEvent('fermier:askjob')
+AddEventHandler('fermier:askjob', function()
+	local _source = source
+	local job = RedEM.GetPlayer(_source).job
+	local jobgrade = RedEM.GetPlayer(_source).jobgrade
+	TriggerClientEvent("fermier:CheckPlayerJob", _source, job, jobgrade)
+end)
+
 RegisterServerEvent('fermier:addble')
 AddEventHandler('fermier:addble', function() 
 	local _source = source
