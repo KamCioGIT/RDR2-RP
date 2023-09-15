@@ -1,44 +1,28 @@
 Config = {}
 
-Config.MinerJobCoalPos = { vector3(2797.434, 1395.36, 70.32012)} -- Pos du charbon
-Config.MinerJobRubblePos = {x = 2791.935, y = 1337.352, z = 71.329} -- Pos des gravats
-Config.MinerJobDepositPos = { vector3(2880.175, 1401.344, 68.70103)} -- 
-Config.MinerJobWithdrawalPos = { vector3(2954.671, 1374.939, 51.32298)}
-Config.GetVirginContractPos = { vector3(2917.933, 1381.086, 56.22201)}
+Config.FarmerDepositPos = { vector3(-2584.335, 415.2029, 148.965)} -- 
+Config.FarmerWithdrawalPos = { vector3(-2589.263, 417.8567, 148.9784)}
+Config.GetVirginContractPos = { vector3(-2592.237, 455.9889, 146.9973)}
 Config.DistanceToInteract = 2.2
 
 Config.PointSprite = 2033377404
 
-Config.JobRanks = 
-{
-    [1] = Mineur,
-    [2] = Contremaitre,
-    [3] = Patron
-} 
 
-Config.MsgGathering = "Appuie sur Del" -- Message de récolte
-Config.MsgDeposit = "Appuie sur Entrer pour déposer" -- Message de dépot
-Config.MsgRetrieve = "Appuie sur Entrer" -- Message de traitement
+Config.GatherDict = 'amb_work@world_human_farmer_hoe@male_b@wip_base'
+Config.GatherAnim = 'wip_base'
 
-Config.MiningAnim = 'WORLD_HUMAN_PICKAXE_WALL'
 
-Config.WorkingTime = 10000
-Config.WorkingTimeCoal = 5000
-Config.TimerMsg = " Currently working for :"
+Config.WorkingTime = 5000
 
 Config.ShowBlips = true
 
 Config.RessourcesPoints = 
 {
-    vector3(2754.291, 1358.377, 68.368),
-    vector3(2753.534, 1367.671, 67.804),
-    vector3(2758.344, 1371.043, 68.042),
-    vector3(2767.227, 1371.093, 67.987),
-    vector3(2767.958, 1382.240, 67.929)
+    vector3(-2572.389, 551.3449, 141.3406),
+    vector3(-2569.031, 546.512, 141.3784),
+    vector3(-2563.755, 550.1628, 141.096),
+    vector3(-2567.136, 556.5611, 141.2192),
+    vector3(-2561.816, 561.8822, 140.8911),
+    vector3(-2556.401, 556.0502, 141.0345),
+    vector3(-2549.916, 560.5123, 140.7749)
 }
-
-Config.p1 = { x = 2754.291, y = 1358.377, z = 68.368 }
-Config.p2 = { x = 2753.534, y = 1367.671, z = 67.804 }
-Config.p3 = { x = 2758.344, y = 1371.043, z = 68.042 }
-Config.p4 = { x = 2767.227, y = 1371.093, z = 67.987 }
-Config.p5 = { x = 2767.958, y = 1382.240, z = 67.929 }

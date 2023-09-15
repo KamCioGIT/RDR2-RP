@@ -54,14 +54,6 @@ RegisterServerEvent("mineur:server:mineur:retStash", function()
     end
 end)
 
--- RegisterServerEvent("mineur:server:mineur:traitement", function()
--- 	for k,v in pairs(Config.Items) do
--- 		if string.find(k, args[1]) == "ferbrut" then
--- 			if string.find(k, args[]) == "ferbrut"
-
--- 	addItemStash(_source, "pepitefer", 1, data.meta, "dep_"..job)
--- 	removeItemStash(_source, "ferbrut", 2, data.meta, "ret_"..job)
--- end)
 
 
 RegisterServerEvent("CheckStash", function()
