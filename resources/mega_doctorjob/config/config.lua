@@ -135,7 +135,7 @@ Config.hospitals = {
 Config.ClothesTemperatures = {
     -- Hat
     [0x9925C067] = {
-        temperature = 1.0 -- How many degrees add to the local temperature if wearing this
+        temperature = 2.0 -- How many degrees add to the local temperature if wearing this
     }, 
     -- Shirts
     [0x2026C46D] = {
@@ -143,7 +143,7 @@ Config.ClothesTemperatures = {
     },
     -- Pants
     [0x1D4C528A] = {
-        temperature = 1.0
+        temperature = 2.0
     },
     -- Boots
     [0x777EC6EF] = {
@@ -151,15 +151,15 @@ Config.ClothesTemperatures = {
     },
     -- Coats
     [0xE06D30CE] = {
-        temperature = 2.0
+        temperature = 3.0
     },
     -- Coats Closed
     [0x662AC34] = {
-        temperature = 3.0
+        temperature = 4.0
     },
     -- Gloves 
     [0xEABE0032] = {
-        temperature = 0.5
+        temperature = 1.0
     },
     -- Vest
     [0x485EE834] = {
@@ -167,15 +167,15 @@ Config.ClothesTemperatures = {
     },
     -- Ponchos
     [0xAF14310B] = {
-        temperature = 1.0
+        temperature = 2.0
     },
     -- Cloaks
     [0x3C1A74CD] = {
-        temperature = 1.0
+        temperature = 2.0
     },
     -- Skirts
     [0xA0E3AB7F] = {
-        temperature = 1.0
+        temperature = 2.0
     }
 }
 
