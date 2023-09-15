@@ -5,6 +5,7 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 shared_script 'cfg.lua'
 
 client_scripts {
+	"@uiprompt/uiprompt.lua",
 	'@ox_lib/init.lua',
 	'cfg.lua',
 	'client.lua',
