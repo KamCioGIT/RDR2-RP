@@ -52,7 +52,7 @@ AddEventHandler('redemrp_inventory:close_inventory', function()
     SetNuiFocus(false, false)
     isInventoryOpen = false
     isOtherOpen = false
-    ClearPedTasks(PlayerPedId())
+    -- ClearPedTasks(PlayerPedId())
 end)
 
 RegisterNetEvent("redemrp_inventory:client:ResetWeapons", function()
@@ -927,7 +927,7 @@ RegisterNUICallback(
         IsCrafting = false
         isInventoryOpen = false
         isOtherOpen = false
-        ClearPedTasks(PlayerPedId())
+        -- ClearPedTasks(PlayerPedId())
     end
 )
 
