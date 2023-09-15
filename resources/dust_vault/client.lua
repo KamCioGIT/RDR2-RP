@@ -96,7 +96,7 @@ Citizen.CreateThread(function ()
         Citizen.Wait(0)
         local playerPos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(stashcache) do
-            if #(playerPos - v.pos) < 2.0 and not IsInteracting then
+            if #(playerPos - v.pos) < 1.7 and not IsInteracting then
                 -- PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
                 OpenCoffrePromptGroup:setActiveThisFrame(true)
                 if v.getmodel == Config.SmallVault then
@@ -161,7 +161,6 @@ Citizen.CreateThread(function ()
                                     
                         if _inputcode == v.getcode then
                             ManageVault(k, v.getmodel, weight, v.pos)
-                            isInteracting = true
                         end
                     end)
                 end      
