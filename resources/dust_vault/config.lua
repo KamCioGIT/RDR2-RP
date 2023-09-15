@@ -27,7 +27,7 @@ Config.IdleAnim = {'idle_b'}
 Config.WorkingTime = 3000
 
 Config.SmallVault = GetHashKey("p_safe_ser") -- GetHashKey("p_safe_ser") ---- 1408938498
-Config.MediumVault = 442299187 -- GetHashKey("s_safe03x") --- 230276839
+Config.MediumVault = GetHashKey("s_safe03x") -- 442299187 -- GetHashKey("s_safe03x") --- 230276839
 Config.LargeVault = GetHashKey("p_safe01") ---- Ancien -1212348817
 
 Config.DistanceAffichage = 100.0
