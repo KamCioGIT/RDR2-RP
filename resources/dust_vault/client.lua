@@ -77,7 +77,7 @@ AddEventHandler("dust_vault:server:getStashes", function (coords, stashid, code,
     local vaultpos = vector3(coords.x, coords.y, coords.z)
     if not stashcache[stashid] then
         stashcache[stashid] = {pos = vaultpos, getcode = code, getmodel = model}
-        print (v.pos)
+        print (stashcache[stashid].pos)
     end
 end)
 Citizen.CreateThread(function ()
