@@ -2,67 +2,79 @@ RedEM = exports["redem_roleplay"]:RedEM()
 
 local isInteracting = false
 ---- PROMPT ----
-local PoseCoffrePromptGroup = GetRandomIntInRange(0, 0xffffff)
-local PoseCoffrePromptName = CreateVarString(10, "LITERAL_STRING", "Poser le coffre")
-local LeavePrompt
-local CoffrePrompt
-local PoseCoffrePromptShown = false
+
+local PoseCoffrePromptGroup = UipromptGroup:new("Poser le coffre")
+Uiprompt:new(0x760A9C6F, "Poser", PoseCoffrePromptGroup)
+Uiprompt:new(0x156F7119, "Annuler", PoseCoffrePromptGroup):setHoldMode(true)
+PoseCoffrePromptGroup:setActive(false)
+
+-- local PoseCoffrePromptGroup = GetRandomIntInRange(0, 0xffffff)
+-- local PoseCoffrePromptName = CreateVarString(10, "LITERAL_STRING", "Poser le coffre")
+-- local LeavePrompt
+-- local CoffrePrompt
+-- local PoseCoffrePromptShown = false
 
 local coordscache = {}
 local stashcache = {}
 
-Citizen.CreateThread(function()
-    local str = 'Annuler'
-    CoffrePrompt = PromptRegisterBegin()
-    PromptSetControlAction(CoffrePrompt, 0x8E90C7BB)
-    str = CreateVarString(10, 'LITERAL_STRING', str)
-    PromptSetText(CoffrePrompt, str)
-    PromptSetEnabled(CoffrePrompt, true)
-    PromptSetVisible(CoffrePrompt, true)
-    PromptSetHoldMode(CoffrePrompt, false)
-    PromptSetGroup(CoffrePrompt, PoseCoffrePromptGroup)
-    PromptRegisterEnd(CoffrePrompt)
+-- Citizen.CreateThread(function()
+--     local str = 'Annuler'
+--     CoffrePrompt = PromptRegisterBegin()
+--     PromptSetControlAction(CoffrePrompt, 0x8E90C7BB)
+--     str = CreateVarString(10, 'LITERAL_STRING', str)
+--     PromptSetText(CoffrePrompt, str)
+--     PromptSetEnabled(CoffrePrompt, true)
+--     PromptSetVisible(CoffrePrompt, true)
+--     PromptSetHoldMode(CoffrePrompt, false)
+--     PromptSetGroup(CoffrePrompt, PoseCoffrePromptGroup)
+--     PromptRegisterEnd(CoffrePrompt)
 
-    str = 'Poser'
-    LeavePrompt = PromptRegisterBegin()
-    PromptSetControlAction(LeavePrompt, 0xD9D0E1C0)
-    str = CreateVarString(10, 'LITERAL_STRING', str)
-    PromptSetText(LeavePrompt, str)
-    PromptSetEnabled(LeavePrompt, true)
-    PromptSetVisible(LeavePrompt, true)
-    PromptSetHoldMode(LeavePrompt, true)
-    PromptSetGroup(LeavePrompt, PoseCoffrePromptGroup)
-    PromptRegisterEnd(LeavePrompt)
-end)
+--     str = 'Poser'
+--     LeavePrompt = PromptRegisterBegin()
+--     PromptSetControlAction(LeavePrompt, 0xD9D0E1C0)
+--     str = CreateVarString(10, 'LITERAL_STRING', str)
+--     PromptSetText(LeavePrompt, str)
+--     PromptSetEnabled(LeavePrompt, true)
+--     PromptSetVisible(LeavePrompt, true)
+--     PromptSetHoldMode(LeavePrompt, true)
+--     PromptSetGroup(LeavePrompt, PoseCoffrePromptGroup)
+--     PromptRegisterEnd(LeavePrompt)
+-- end)
 
-local OpenCoffrePromptGroup = GetRandomIntInRange(0, 0xffffff)
-local OpenCoffrePromptName = CreateVarString(10, "LITERAL_STRING", "Coffre fort")
-local OpenPrompt
-local DemontPrompt
-local OpenCoffrePromptShown = false
-Citizen.CreateThread(function()
-    local str = 'Ouvrir'
-    OpenPrompt = PromptRegisterBegin()
-    PromptSetControlAction(OpenPrompt, 0xD9D0E1C0)
-    str = CreateVarString(10, 'LITERAL_STRING', str)
-    PromptSetText(OpenPrompt, str)
-    PromptSetEnabled(OpenPrompt, true)
-    PromptSetVisible(OpenPrompt, true)
-    PromptSetHoldMode(OpenPrompt, false)
-    PromptSetGroup(OpenPrompt, OpenCoffrePromptGroup)
-    PromptRegisterEnd(OpenPrompt)
+local OpenCoffrePromptGroup = UipromptGroup:new("Coffre-Fort")
+Uiprompt:new(0x760A9C6F, "Ouvrir", OpenCoffrePromptGroup)
+Uiprompt:new(0x156F7119, "Gérer", OpenCoffrePromptGroup):setHoldMode(true)
+OpenCoffrePromptGroup:setActive(false)
 
-    local str = 'Gérer'
-    DemontPrompt = PromptRegisterBegin()
-    PromptSetControlAction(DemontPrompt, 0x156F7119)
-    str = CreateVarString(10, 'LITERAL_STRING', str)
-    PromptSetText(DemontPrompt, str)
-    PromptSetEnabled(DemontPrompt, true)
-    PromptSetVisible(DemontPrompt, true)
-    PromptSetHoldMode(DemontPrompt, false)
-    PromptSetGroup(DemontPrompt, OpenCoffrePromptGroup)
-    PromptRegisterEnd(DemontPrompt)
-end)
+
+-- local OpenCoffrePromptGroup = GetRandomIntInRange(0, 0xffffff)
+-- local OpenCoffrePromptName = CreateVarString(10, "LITERAL_STRING", "Coffre fort")
+-- local OpenPrompt
+-- local DemontPrompt
+-- local OpenCoffrePromptShown = false
+-- Citizen.CreateThread(function()
+--     local str = 'Ouvrir'
+--     OpenPrompt = PromptRegisterBegin()
+--     PromptSetControlAction(OpenPrompt, 0xD9D0E1C0)
+--     str = CreateVarString(10, 'LITERAL_STRING', str)
+--     PromptSetText(OpenPrompt, str)
+--     PromptSetEnabled(OpenPrompt, true)
+--     PromptSetVisible(OpenPrompt, true)
+--     PromptSetHoldMode(OpenPrompt, false)
+--     PromptSetGroup(OpenPrompt, OpenCoffrePromptGroup)
+--     PromptRegisterEnd(OpenPrompt)
+
+--     local str = 'Gérer'
+--     DemontPrompt = PromptRegisterBegin()
+--     PromptSetControlAction(DemontPrompt, 0x156F7119)
+--     str = CreateVarString(10, 'LITERAL_STRING', str)
+--     PromptSetText(DemontPrompt, str)
+--     PromptSetEnabled(DemontPrompt, true)
+--     PromptSetVisible(DemontPrompt, true)
+--     PromptSetHoldMode(DemontPrompt, false)
+--     PromptSetGroup(DemontPrompt, OpenCoffrePromptGroup)
+--     PromptRegisterEnd(DemontPrompt)
+-- end)
 
 ----- ZONE STASHES -----
 
@@ -84,8 +96,9 @@ Citizen.CreateThread(function ()
         Citizen.Wait(0)
         local playerPos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(stashcache) do
-            if #(playerPos - v.pos) < 1.5 and not IsInteracting then
-                PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
+            if #(playerPos - v.pos) < 2.0 and not IsInteracting then
+                -- PromptSetActiveGroupThisFrame(OpenCoffrePromptGroup, OpenCoffrePromptName)
+                OpenCoffrePromptGroup:setActiveThisFrame(true)
                 if v.getmodel == Config.SmallVault then
                     weight = Config.SmallWeight
                 elseif v.getmodel == Config.MediumVault then
@@ -345,8 +358,8 @@ function posecoffre(model)
             Citizen.Wait(0)
             local playerPed = PlayerPedId()
             if PoseCoffrePromptShown == false then
-                PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
-
+                -- PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
+                PoseCoffrePromptGroup:setActiveThisFrame(true)
                 if PromptHasHoldModeCompleted(LeavePrompt) then
                     PoseCoffrePromptShown = true
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
@@ -362,6 +375,7 @@ function posecoffre(model)
                             code = GetOnscreenKeyboardResult()
                         else
                             menu.close()
+                            showtempvault = true
                         return
                         end
                                     
