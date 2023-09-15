@@ -5,32 +5,34 @@ local ressourcePointIndexForMining = nil
 local isInBossMenu = false
 
 --- Définir si le joueur est fermier 
-Citizen.CreateThread(function()
-    local PlayerData = RedEM.GetPlayerData()
-    while RedEM.GetPlayerData().isLoggedIn ~= true do 
-        Wait(1000)
-        if job == "fermier" then
-            startMission()
-            if jobgrade == 2 then
-                if jobgrade == 3 then
-                    patronUpdate() 
-                    print("SetPatronUpdate")    
-                end 
-            end
-        end
-    end
-    if RedEM.GetPlayerData().isLoggedIn 
-    then 
-        if job == "fermier" then
-            startMission()            
-            if jobgrade == 2 then
-                if jobgrade == 3 then
-                    patronUpdate()     
-                    print("SetPatronUpdate") 
+AddEventHandler("global:CheckPlayerJob", function(source, job, jobgrade)
+    Citizen.CreateThread(function()
+        local PlayerData = RedEM.GetPlayerData()
+        while RedEM.GetPlayerData().isLoggedIn ~= true do 
+            Wait(1000)
+            if job == "fermier" then
+                startMission()
+                if jobgrade == 2 then
+                    if jobgrade == 3 then
+                        patronUpdate() 
+                        print("SetPatronUpdate")    
+                    end 
                 end
             end
         end
-    end
+        if RedEM.GetPlayerData().isLoggedIn 
+        then 
+            if job == "fermier" then
+                startMission()            
+                if jobgrade == 2 then
+                    if jobgrade == 3 then
+                        patronUpdate()     
+                        print("SetPatronUpdate") 
+                    end
+                end
+            end
+        end
+    end)
 end)
 
 
