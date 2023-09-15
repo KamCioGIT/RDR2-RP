@@ -28,7 +28,7 @@ Config.WorkingTime = 3000
 
 Config.SmallVault = GetHashKey("p_safe_ser") -- 3797250019 -- GetHashKey("p_safe_ser") ---- 1408938498
 Config.MediumVault = 442299187 -- GetHashKey("s_safe03x") --- 230276839
-Config.LargeVault = 575786725 -- GetHashKey("p_safe_01")---- Ancien -1212348817
+Config.LargeVault = GetHashKey("p_safe_01")-- 575786725 ---- Ancien -1212348817
 
 Config.DistanceAffichage = 100.0
 
