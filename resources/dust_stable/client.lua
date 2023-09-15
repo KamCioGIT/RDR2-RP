@@ -713,6 +713,10 @@ AddEventHandler('txAdmin:events:scheduledRestart', function()
     TriggerServerEvent('dust_stable:server:resethorse')
 end)
 
+AddEventHandler('txAdmin:events:serverShuttingDown', function()
+    TriggerServerEvent('dust_stable:server:resethorse')
+end)
+
 ---- LOOT STASHES ---
 local saddleprompt = UipromptGroup:new("Sacoches")
 Uiprompt:new(0x760A9C6F, "Ouvrir", saddleprompt)
