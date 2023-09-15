@@ -4,35 +4,33 @@ local isDeposit = false
 local ressourcePointIndexForMining = nil
 local isInBossMenu = false
 
---- Définir si le joueur est mineur 
-AddEventHandler("global:CheckPlayerJob", function(job, jobgrade)
-    Citizen.CreateThread(function()
-        local PlayerData = RedEM.GetPlayerData()
-        while RedEM.GetPlayerData().isLoggedIn ~= true do 
-            Wait(1000)
-            if job == "mineur" then
-                startMission()
-                if jobgrade == 2 then
-                    if jobgrade == 3 then
-                        patronUpdate() 
-                        print("SetPatronUpdate")    
-                    end 
+--- Définir si le joueur est fermier 
+Citizen.CreateThread(function()
+    local PlayerData = RedEM.GetPlayerData()
+    while RedEM.GetPlayerData().isLoggedIn ~= true do 
+        Wait(1000)
+        if job == "fermier" then
+            startMission()
+            if jobgrade == 2 then
+                if jobgrade == 3 then
+                    patronUpdate() 
+                    print("SetPatronUpdate")    
+                end 
+            end
+        end
+    end
+    if RedEM.GetPlayerData().isLoggedIn 
+    then 
+        if job == "fermier" then
+            startMission()            
+            if jobgrade == 2 then
+                if jobgrade == 3 then
+                    patronUpdate()     
+                    print("SetPatronUpdate") 
                 end
             end
         end
-        if RedEM.GetPlayerData().isLoggedIn 
-        then 
-            if job == "mineur" then
-                startMission()            
-                if jobgrade == 2 then
-                    if jobgrade == 3 then
-                        patronUpdate()     
-                        print("SetPatronUpdate") 
-                    end
-                end
-            end
-        end
-    end)
+    end
 end)
 
 
@@ -77,7 +75,7 @@ function startMission()
                 if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
                     depprompt:setActiveThisFrame(true)
                     if IsControlJustPressed(2, 0x4AF4D473) then 
-                        TriggerServerEvent('mineur:server:mineur:depStash')
+                        TriggerServerEvent('fermier:depStash')
                     end
                 else end
             end
@@ -100,7 +98,7 @@ function contremaitre() --- RETRAIT
             if #(playerPos - v) < Config.DistanceToInteract then
                 retprompt:setActiveThisFrame(true)
                 if IsControlJustPressed(2, 0x4AF4D473) then 
-                    TriggerServerEvent('mineur:server:mineur:retStash')
+                    TriggerServerEvent('fermier:retStash')
                 end
             else end
         end
@@ -121,7 +119,7 @@ function patronUpdate()
             if #(playerPos - v) < Config.DistanceToInteract and not isInBossMenu then
                 patronprompt:setActiveThisFrame(true)
                 if IsControlJustPressed(2, 0x4AF4D473) then 
-                    TriggerServerEvent('mineur:RequestBossMenu')
+                    TriggerServerEvent('fermier:RequestBossMenu')
                     isInBossMenu = true
                 end
             else end
@@ -165,14 +163,13 @@ end
 
 
 function GivePlayerRessource()
-    TriggerServerEvent('mineur:addferbrut')
+    TriggerServerEvent('fermier:addble')
 end
 
 
 
-RegisterNetEvent("mineur:OpenBossMenu", function()
+RegisterNetEvent("fermier:OpenBossMenu", function()
     local Position = GetEntityCoords(PlayerPedId())
-    print("mineur:OpenBossMenu triggered")
 
     Citizen.CreateThread(function()
         while true do
