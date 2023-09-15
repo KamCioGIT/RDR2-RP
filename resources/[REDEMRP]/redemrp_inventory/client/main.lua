@@ -927,7 +927,7 @@ RegisterNUICallback(
         IsCrafting = false
         isInventoryOpen = false
         isOtherOpen = false
-        -- ClearPedTasks(PlayerPedId())
+        ClearPedTasks(PlayerPedId())
     end
 )
 

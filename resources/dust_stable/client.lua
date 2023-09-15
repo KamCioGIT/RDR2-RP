@@ -827,6 +827,7 @@ AddEventHandler('dust_stable:horsehaycube', function(source)
                     else
                         Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, valueStamina + 30)
                     end
+                    TriggerServerEvent("dust_stable:removeitem", "horsehaycube")
                     return
                 end
             end
@@ -869,6 +870,7 @@ AddEventHandler('dust_stable:horsestimulant', function(source)
                     Citizen.InvokeNative(0x50C803A4CD5932C5, true) --core
                     Citizen.InvokeNative(0xD4EE21B7CC7FD350, true) --core
                     PlaySoundFrontend("Core_Fill_Up", "Consumption_Sounds", true, 0)
+                    TriggerServerEvent("dust_stable:removeitem", "horsestimulant")
                     return
                 end
             end
@@ -899,6 +901,7 @@ AddEventHandler('dust_stable:horsereviver', function(source)
                     spawnhorse(GetEntityModel(entity), Entity(entity).state.name, Entity(entity).state.horseid, Entity(entity).state.stashid, 10, 10)
                     DeleteEntity(entity)
                     ClearPedTasks(ped)
+                    TriggerServerEvent("dust_stable:removeitem", "horsereviver")
                     return
                 end
             end
@@ -927,6 +930,7 @@ AddEventHandler('dust_stable:horsemedicine', function(source)
                     local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, entity, 0)
                     Citizen.InvokeNative(0xC6258F41D86676E0, entity, 0, valueHealth + 50)
                     ClearPedTasks(ped)
+                    TriggerServerEvent("dust_stable:removeitem", "horsemedicine")
                     return
                 end
             end
@@ -955,6 +959,7 @@ AddEventHandler('dust_stable:fercheval', function(source)
                     Wait(5000)
                     Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, 50)
                     ClearPedTasks(ped)
+                    TriggerServerEvent("dust_stable:removeitem", "fercheval")
                     return
                 end
             end

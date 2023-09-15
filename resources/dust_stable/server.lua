@@ -374,43 +374,45 @@ end)
 RegisterServerEvent("RegisterUsableItem:horsereviver")
 AddEventHandler("RegisterUsableItem:horsereviver", function(source)
 	local _source = source
-		   	local itemData = data.getItem(_source, "horsereviver")
-	itemData.RemoveItem(1)
+	TriggerEvent("redemrp_inventory:closeinv")
     TriggerClientEvent("dust_stable:horsereviver", _source)
 end)
 
 RegisterServerEvent("RegisterUsableItem:horsehaycube")
 AddEventHandler("RegisterUsableItem:horsehaycube", function(source)
- local _source = source
-		   	local itemData = data.getItem(_source, "horsehaycube")
-	itemData.RemoveItem(1)
+ 	local _source = source
+	TriggerEvent("redemrp_inventory:closeinv")
 	TriggerClientEvent('dust_stable:horsehaycube', _source)
 end)
 RegisterServerEvent("RegisterUsableItem:horsestimulant")
 AddEventHandler("RegisterUsableItem:horsestimulant", function(source)
- local _source = source
-		   	local itemData = data.getItem(_source, "horsestimulant")
-	itemData.RemoveItem(1)
+ 	local _source = source
+	TriggerEvent("redemrp_inventory:closeinv")
 	TriggerClientEvent('dust_stable:horsestimulant', _source)
 end)
 RegisterServerEvent("RegisterUsableItem:horsemedicine")
 AddEventHandler("RegisterUsableItem:horsemedicine", function(source)
- local _source = source
-		   	local itemData = data.getItem(_source, "horsemedicine")
-	itemData.RemoveItem(1)
+ 	local _source = source
+	TriggerEvent("redemrp_inventory:closeinv")
 	TriggerClientEvent('dust_stable:horsemedicine', _source)
 end)
 RegisterServerEvent("RegisterUsableItem:fercheval")
 AddEventHandler("RegisterUsableItem:fercheval", function(source)
- local _source = source
-		   	local itemData = data.getItem(_source, "fercheval")
-	itemData.RemoveItem(1)
+ 	local _source = source
+	TriggerEvent("redemrp_inventory:closeinv")
 	TriggerClientEvent('dust_stable:fercheval', _source)
 end)
 RegisterServerEvent("RegisterUsableItem:brosse")
 AddEventHandler("RegisterUsableItem:brosse", function(source)
- local _source = source
+ 	local _source = source
+ 	TriggerEvent("redemrp_inventory:closeinv")
 	TriggerClientEvent('dust_stable:brosse', _source)
+end)
+
+RegisterServerEvent("dust_stable:removeitem", function(itemtoremove)
+	local _source = source
+	local itemData = data.getItem(_source, itemtoremove)
+	itemData.RemoveItem(1)
 end)
 -- Save meta du cheval dans la db
 
