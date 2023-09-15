@@ -106,7 +106,7 @@ Citizen.CreateThread(function ()
                 elseif v.getmodel == Config.LargeVault then
                     weight = Config.LargeWeight
                 end
-                if IsControlJustReleased(0, 0xD9D0E1C0) then
+                if IsControlJustReleased(0, 0x760A9C6F) then
                     isInteracting = true
                     RequestAnimDict(Config.SafeDict)
                     while not HasAnimDictLoaded(Config.SafeDict) do
@@ -136,7 +136,7 @@ Citizen.CreateThread(function ()
                         end
                     end)
                 end
-                if IsControlJustReleased(0, 0x156F7119) then
+                if OpenCoffrePromptGroup:hasHoldModeJustCompleted() then
                     isInteracting = true
                     RequestAnimDict(Config.SafeDict)
                     while not HasAnimDictLoaded(Config.SafeDict) do
@@ -360,7 +360,7 @@ function posecoffre(model)
             if PoseCoffrePromptShown == false then
                 -- PromptSetActiveGroupThisFrame(PoseCoffrePromptGroup, PoseCoffrePromptName)
                 PoseCoffrePromptGroup:setActiveThisFrame(true)
-                if PromptHasHoldModeCompleted(LeavePrompt) then
+                if PoseCoffrePromptGroup:hasHoldModeJustCompleted() then
                     PoseCoffrePromptShown = true
                     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                         MenuData.CloseAll()
@@ -412,7 +412,7 @@ function posecoffre(model)
                         end
                     end)
                 end
-                if IsControlJustReleased(0, 0x8E90C7BB) then
+                if IsControlJustReleased(0, 0x760A9C6F) then
                     showtempvault = false
                     PoseCoffrePromptShown = true
 
