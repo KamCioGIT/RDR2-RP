@@ -68,7 +68,7 @@ function startMission()
         while true do
             Wait(0)
             local playerPos = GetEntityCoords(PlayerPedId())
-            for k, v in ipairs(Config.FarmerJobDepositPos) do
+            for k, v in ipairs(Config.FarmerDepositPos) do
                 if #(playerPos - v) < 6.0 then
                     Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
@@ -91,7 +91,7 @@ function contremaitre() --- RETRAIT
     while true do    
         Wait(0)
         local playerPos = GetEntityCoords(PlayerPedId())
-        for k, v in ipairs(Config.FarmerJobWithdrawalPos) do
+        for k, v in ipairs(Config.FarmerWithdrawalPos) do
             if #(playerPos - v) < 6.0 then
                 Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
             end
