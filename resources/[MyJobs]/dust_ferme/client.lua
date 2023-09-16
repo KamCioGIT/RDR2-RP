@@ -19,6 +19,7 @@ RegisterNetEvent("fermier:CheckPlayerJob", function(job, jobgrade)
     if job == "fermier" then
         startMission()
         if jobgrade == 2 then
+            contremaitre()
             if jobgrade == 3 then
                 patronUpdate()  
             end 
