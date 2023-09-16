@@ -122,8 +122,15 @@ function GetRandomRessourcePoint()
 
     ressourcePointIndexForMining = math.random(1, #Config.RessourcesPoints)
     blip = Citizen.InvokeNative(0x554d9d53f696d002, Config.PointSprite, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z)
-    tempweath = CreateObject(GetHashKey("crp_wheat_dry_aa_sim"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
-    PlaceObjectOnGroundProperly(tempweath)
+    Citizen.CreateThread(function()
+        while true do
+            if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 100 then
+                tempweath = CreateObject(GetHashKey("crp_wheat_dry_aa_sim"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
+                PlaceObjectOnGroundProperly(tempweath)
+                break
+            end
+        end
+    end)
 end
 
 -- ACTION DE MINER
@@ -133,23 +140,27 @@ function StartMining()
     started = false
     pressing = false
     FreezeEntityPosition(playerPed, true)
-    local timer = GetGameTimer() + Config.WorkingTime
+    RequestAnimDict(Config.GatherDict)
+    while not HasAnimDictLoaded(Config.GatherDict) do
+        Wait(10)
+    end
     TaskPlayAnim(playerPed, Config.GatherDict, "stn_enter", 1.0, 1.0, -1, 2, 0, false, false, false)
-    Wait(750)
+    Wait(500)
     TaskPlayAnim(playerPed, Config.GatherDict, Config.GatherAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
     isInteracting = true
+    local timer = GetGameTimer() + Config.WorkingTime
     Citizen.CreateThread(function()
         while GetGameTimer() < timer do 
             Wait(0)
         end
 		FreezeEntityPosition(playerPed, false)
-        isInteracting = false
         DeleteEntity(tempweath)
         TaskPlayAnim(playerPed, Config.GatherDict, "stn_exit", 1.0, 1.0, -1, 2, 0, false, false, false)
-        Wait(750)
+        Wait(500)
         ClearPedTasks(playerPed)
         GivePlayerRessource()
         DeleteEntity(tempweath)
+        isInteracting = false
         GetRandomRessourcePoint()
     end)
 end
