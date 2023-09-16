@@ -135,7 +135,7 @@ function StartMining()
     FreezeEntityPosition(playerPed, true)
     local timer = GetGameTimer() + Config.WorkingTime
     TaskPlayAnim(playerPed, Config.GatherDict, "stn_enter", 1.0, 1.0, -1, 2, 0, false, false, false)
-    Wait(1000)
+    Wait(750)
     TaskPlayAnim(playerPed, Config.GatherDict, Config.GatherAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
     isInteracting = true
     Citizen.CreateThread(function()
@@ -148,7 +148,7 @@ function StartMining()
         showweath = true
         DeleteEntity(tempweath)
         TaskPlayAnim(playerPed, Config.GatherDict, "stn_exit", 1.0, 1.0, -1, 2, 0, false, false, false)
-        Wait(1000)
+        Wait(750)
         ClearPedTasks(playerPed)
         GivePlayerRessource()
         DeleteEntity(tempweath)
