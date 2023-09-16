@@ -104,9 +104,8 @@ Citizen.CreateThread(function()
             end
         end
     end
+    
 end)
-
-
 
 
 RegisterNetEvent("EnablePanningMode", function()

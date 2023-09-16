@@ -27,16 +27,18 @@ AddEventHandler('dust-or:server:ramp', function()
     local _source = source
     Citizen.CreateThread(function()
         while true do
-            local ItemData = data.getItem(_source, "cailloux")
-            if ItemData.ItemAmount >= 2 then    
-                Citizen.Wait(Config.WorkingTime)
-                if ItemData.RemoveItem(2) then
-                    local ItemDatagive = data.getItem(_source, "pepiteor")
-                    ItemDatagive.AddItem(1)
+            if transform then
+                local ItemData = data.getItem(_source, "cailloux")
+                if ItemData.ItemAmount >= 2 then    
+                    Citizen.Wait(Config.WorkingTime)
+                    if ItemData.RemoveItem(2) then
+                        local ItemDatagive = data.getItem(_source, "pepiteor")
+                        ItemDatagive.AddItem(1)
+                    end
+                else
+                    TriggerClientEvent("dust-or:server:notinteracting", _source)
+                    return
                 end
-            else
-                TriggerClientEvent("dust-or:server:notinteracting", _source)
-                return
             end
         end
     end)
