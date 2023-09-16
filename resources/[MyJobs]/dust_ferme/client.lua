@@ -144,7 +144,6 @@ function StartMining()
         end
 		FreezeEntityPosition(playerPed, false)
         isInteracting = false
-        showweath = true
         DeleteEntity(tempweath)
         TaskPlayAnim(playerPed, Config.GatherDict, "stn_exit", 1.0, 1.0, -1, 2, 0, false, false, false)
         Wait(750)
