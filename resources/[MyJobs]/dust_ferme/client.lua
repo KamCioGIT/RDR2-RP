@@ -43,9 +43,6 @@ function startMission()
         while true do
             Wait(0)
             local playerPos = GetEntityCoords(PlayerPedId())
-            if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 6.0 then
-                -- Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
-            end
             if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isInteracting then
                 bleprompt:setActiveThisFrame(true)
                 if IsControlJustPressed(0, 0x760A9C6F) and not isInteracting then 
@@ -136,8 +133,10 @@ function StartMining()
     started = false
     pressing = false
     FreezeEntityPosition(playerPed, true)
-    TaskPlayAnim(playerPed, Config.GatherDict, Config.GatherAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
     local timer = GetGameTimer() + Config.WorkingTime
+    TaskPlayAnim(playerPed, Config.GatherDict, "stn_enter", 1.0, 1.0, -1, 0, 0, false, false, false)
+    Wait(1000)
+    TaskPlayAnim(playerPed, Config.GatherDict, Config.GatherAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
     isInteracting = true
     Citizen.CreateThread(function()
         while GetGameTimer() < timer do 
