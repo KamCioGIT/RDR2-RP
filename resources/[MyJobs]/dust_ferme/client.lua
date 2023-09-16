@@ -64,7 +64,7 @@ function startMission()
                 end
                 if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
                     depprompt:setActiveThisFrame(true)
-                    if IsControlJustPressed(2, 0x4AF4D473) then 
+                    if IsControlJustPressed(2, 0x760A9C6F) then 
                         TriggerServerEvent('fermier:depStash')
                     end
                 else end
@@ -87,7 +87,7 @@ function contremaitre() --- RETRAIT
             end
             if #(playerPos - v) < Config.DistanceToInteract then
                 retprompt:setActiveThisFrame(true)
-                if IsControlJustPressed(2, 0x4AF4D473) then 
+                if IsControlJustPressed(2, 0x760A9C6F) then 
                     TriggerServerEvent('fermier:retStash')
                 end
             else end
@@ -108,7 +108,7 @@ function patronUpdate()
             end
             if #(playerPos - v) < Config.DistanceToInteract and not isInBossMenu then
                 patronprompt:setActiveThisFrame(true)
-                if IsControlJustPressed(2, 0x4AF4D473) then 
+                if IsControlJustPressed(2, 0x760A9C6F) then 
                     TriggerServerEvent('fermier:RequestBossMenu')
                     isInBossMenu = true
                 end
