@@ -134,7 +134,7 @@ function StartMining()
     pressing = false
     FreezeEntityPosition(playerPed, true)
     local timer = GetGameTimer() + Config.WorkingTime
-    TaskPlayAnim(playerPed, Config.GatherDict, "stn_enter", 1.0, 1.0, -1, 0, 0, false, false, false)
+    TaskPlayAnim(playerPed, Config.GatherDict, "stn_enter", 1.0, 1.0, -1, 2, 0, false, false, false)
     Wait(1000)
     TaskPlayAnim(playerPed, Config.GatherDict, Config.GatherAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
     isInteracting = true
@@ -147,6 +147,8 @@ function StartMining()
         isInteracting = false
         showweath = true
         DeleteEntity(tempweath)
+        TaskPlayAnim(playerPed, Config.GatherDict, "stn_exit", 1.0, 1.0, -1, 2, 0, false, false, false)
+        Wait(1000)
         ClearPedTasks(playerPed)
         GivePlayerRessource()
         DeleteEntity(tempweath)
