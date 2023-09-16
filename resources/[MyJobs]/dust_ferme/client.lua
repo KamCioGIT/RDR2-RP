@@ -4,9 +4,10 @@ local isDeposit = false
 local ressourcePointIndexForMining = nil
 local isInBossMenu = false
 local showweath = false
+
 Citizen.CreateThread(function()
     while RedEM.GetPlayerData().isLoggedIn ~= true do 
-        Wait(1000)
+        Wait(5000)
         TriggerServerEvent("fermier:askjob")
     end
     if RedEM.GetPlayerData().isLoggedIn then
