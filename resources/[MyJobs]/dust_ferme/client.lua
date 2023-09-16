@@ -142,7 +142,6 @@ function StartMining()
         while GetGameTimer() < timer do 
             Wait(0)
         end
-        ClearPedTasksImmediately(PlayerPedId())
 		FreezeEntityPosition(playerPed, false)
         isInteracting = false
         showweath = true
