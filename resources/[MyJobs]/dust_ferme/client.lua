@@ -45,25 +45,13 @@ function startMission()
             local playerPos = GetEntityCoords(PlayerPedId())
             if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 6.0 then
                 -- Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
-                showweath = true
             end
             if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isInteracting then
                 bleprompt:setActiveThisFrame(true)
                 if IsControlJustPressed(0, 0x760A9C6F) and not isInteracting then 
                     StartMining()
-                    showweath = false
                 end
             else end
-        end
-    end)
-    Citizen.CreateThread(function()
-        while showweath == true do
-
-            tempweath = CreateObject(GetHashKey("crp_wheat_dry_aa_sim"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
-            PlaceObjectOnGroundProperly(tempweath)
-            Citizen.Wait(10)
-            DeleteEntity(tempweath)
-
         end
     end)
     Citizen.CreateThread(function() --- DEPOT
@@ -137,6 +125,8 @@ function GetRandomRessourcePoint()
 
     ressourcePointIndexForMining = math.random(1, #Config.RessourcesPoints)
     blip = Citizen.InvokeNative(0x554d9d53f696d002, Config.PointSprite, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z)
+    tempweath = CreateObject(GetHashKey("crp_wheat_dry_aa_sim"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
+    PlaceObjectOnGroundProperly(tempweath)
 end
 
 -- ACTION DE MINER
@@ -160,6 +150,7 @@ function StartMining()
         DeleteEntity(tempweath)
         ClearPedTasks(playerPed)
         GivePlayerRessource()
+        DeleteEntity(tempweath)
         GetRandomRessourcePoint()
     end)
 end
