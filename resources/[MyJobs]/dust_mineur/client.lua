@@ -43,13 +43,6 @@ function startMission()
         while true do
             Wait(0)
             local playerPos = GetEntityCoords(PlayerPedId())
-            if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 6.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
-                local playerpos = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0)
-                -- Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, playerpos.x, playerpos.y, playerpos.z - 1.0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)
-                temprock = CreateObject(GetHashKey("old_hen_rock_02"), playerpos.x, playerpos.y, playerpos.z, false, true, true)
-                PlaceObjectOnGroundProperly(temprock)
-            end
             if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isMining then
                 DrawTxt(Config.MsgGathering, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
                 if IsControlJustPressed(2, 0x4AF4D473) and not isMining then 
@@ -140,6 +133,16 @@ function GetRandomRessourcePoint()
 
     ressourcePointIndexForMining = math.random(1, #Config.RessourcesPoints)
     blip = Citizen.InvokeNative(0x554d9d53f696d002, Config.PointSprite, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z)
+    Citizen.CreateThread(function()
+        while true do
+            local playerPos = GetEntityCoords(PlayerPedId())
+            if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 100 then
+                temprock = CreateObject(GetHashKey("old_hen_rock_02"), playerpos.x, playerpos.y, playerpos.z, false, true, true)
+                PlaceObjectOnGroundProperly(temprock)
+                break
+            end
+        end
+    end)
 end
 
 -- ACTION DE MINER
@@ -153,14 +156,14 @@ function StartMining()
     local timer = GetGameTimer() + Config.WorkingTime
     isMining = true
     Citizen.CreateThread(function()
-        while GetGameTimer() < timer do 
+        while GetGameTimer() < timer do
             Wait(0)
         end
         ClearPedTasksImmediately(PlayerPedId())
 		FreezeEntityPosition(playerPed, false)
         isMining = false
-        DeleteEntity(temprock)
         GivePlayerRessource()
+        DeleteEntity(temprock)
         GetRandomRessourcePoint()
     end)
 end
