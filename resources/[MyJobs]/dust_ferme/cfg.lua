@@ -8,8 +8,8 @@ Config.DistanceToInteract = 2.2
 Config.PointSprite = 2033377404
 
 
-Config.GatherDict = 'amb_work@world_human_farmer_hoe@male_b@wip_base'
-Config.GatherAnim = 'wip_base'
+Config.GatherDict = 'mech_pickup@plant@milkweed'
+Config.GatherAnim = 'stn_pick'
 
 
 Config.WorkingTime = 5000
