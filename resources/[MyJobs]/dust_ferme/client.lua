@@ -3,7 +3,7 @@ local isInteracting = false
 local isDeposit = false
 local ressourcePointIndexForMining = nil
 local isInBossMenu = false
-
+local showweath = false
 Citizen.CreateThread(function()
     while RedEM.GetPlayerData().isLoggedIn ~= true do 
         Wait(1000)
