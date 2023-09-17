@@ -50,7 +50,7 @@ Config.TeaPot = "Teapot_Can"
 
 Config.SQL_Farming_1 = "stable"--Table with wagons
 Config.SQL_Farming_2 = "model"--Column model in table
-Config.SQL_Farming_3 = "citizenid"--Column for character id in stables
+Config.SQL_Farming_3 = "charid"--Column for character id in stables
 Config.SQL_Farming_4 = "selected"--Column for selected wagons
 
 Config.Wagons_Support = {
