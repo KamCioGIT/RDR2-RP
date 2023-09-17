@@ -927,7 +927,8 @@ RegisterNUICallback(
         IsCrafting = false
         isInventoryOpen = false
         isOtherOpen = false
-        ClearPedTasks(PlayerPedId())
+        local dict = "mech_loco_m@generic@searching@low_energy@direct@unarmed@idle"
+        StopAnimTask(PlayerPedId(), dict, "idle", 1.0)
     end
 )
 
