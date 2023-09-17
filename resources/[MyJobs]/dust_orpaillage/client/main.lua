@@ -81,9 +81,10 @@ Citizen.CreateThread(function()
                 TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), -1, true, false, false, false) 
                 local Position = GetEntityCoords(playerPed)
                 while true do
-                    Wait(100)
+                    print (Position)
                     if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
-                        transform = false
+                        Citizen.Wait(Config.WorkingTime)
+                        TriggerServerEvent('dust-or:server:ramp')
                         isInteracting = false
                         return
                     end
@@ -115,13 +116,6 @@ Citizen.CreateThread(function()
         end
     end
     
-end)
-
-Citizen.CreateThread(function()
-    while transform == true do
-        Citizen.Wait(Config.WorkingTime)
-        TriggerServerEvent('dust-or:server:ramp')
-    end
 end)
 
 
