@@ -1092,6 +1092,19 @@ Config.Items = {
         imgsrc = "items/flour.png",
         type = "item_standard",
     },
+
+    ---- GUM FARMING ---
+    ["Corn_Seed"] = {
+        label = "Graine de Maïs",
+        description = "Une petite graine",
+        weight = 0.01,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/flour.png",
+        type = "item_standard",
+    },
 }
 
 exports("GetItemsList", function()
