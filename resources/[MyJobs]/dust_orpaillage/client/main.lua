@@ -86,7 +86,7 @@ Citizen.CreateThread(function()
                         TriggerServerEvent('dust-or:server:ramp')
                     else
                         isInteracting = false
-                        return
+                        break
                     end
                 end
             end
