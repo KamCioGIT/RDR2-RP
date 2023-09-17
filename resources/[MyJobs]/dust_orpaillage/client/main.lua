@@ -76,9 +76,9 @@ Citizen.CreateThread(function()
             end
             if IsControlJustReleased(0, 0x5181713D) and not isInteracting then
                 isInteracting = true
-                local playerPed = PlayerPedId()
-                TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), -1, true, false, false, false)
                 transform = true
+                local playerPed = PlayerPedId()
+                TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), -1, true, false, false, false) 
                 local Position = GetEntityCoords(playerPed)
                 while true do
                     Wait(100)
@@ -88,11 +88,6 @@ Citizen.CreateThread(function()
                         return
                     end
                 end
-            end
-            while transform do
-                print 'ookay'
-                Citizen.Wait(Config.WorkingTime)
-                TriggerServerEvent('dust-or:server:ramp')
             end
             if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
                 local playerPed = PlayerPedId()
@@ -120,6 +115,13 @@ Citizen.CreateThread(function()
         end
     end
     
+end)
+
+Citizen.CreateThread(function()
+    while transform do
+        Citizen.Wait(Config.WorkingTime)
+        TriggerServerEvent('dust-or:server:ramp')
+    end
 end)
 
 
