@@ -545,7 +545,7 @@ Citizen.CreateThread(function()
     while true do
         local searched = false
         for entities in EnumerateObjects() do
-            if GetEntityModel(entities) == GetHashKey("p_well02x") then
+            if GetEntityModel(entities) == GetHashKey("p_waterpump01x") or GetEntityModel(entities) == GetHashKey("p_well02x") then
                 local playerCd = GetEntityCoords(PlayerPedId())
                 local pumpCd = GetEntityCoords(entities)
                 if GetDistanceBetweenCoords(playerCd.x, playerCd.y, playerCd.z, pumpCd.x, pumpCd.y, pumpCd.z, false) < 10.0 then
