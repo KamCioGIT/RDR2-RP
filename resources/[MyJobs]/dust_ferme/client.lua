@@ -81,6 +81,7 @@ function contremaitre() --- RETRAIT
         local playerPos = GetEntityCoords(PlayerPedId())
         for k, v in ipairs(Config.FarmerWithdrawalPos) do
             if #(playerPos - v) < 6.0 then
+                print 'ouais'
                 Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
             end
             if #(playerPos - v) < Config.DistanceToInteract then
