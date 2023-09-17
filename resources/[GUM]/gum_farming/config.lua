@@ -90,7 +90,7 @@ Config.Language = {
 	[9] = "Prendre",
 	[10] = "Eau",
 	[11] = "Détruire",
-	[12] = "Usine",
+	[12] = "Planter",
 	[13] = "Reprendre",
 	[14] = "Remplir",
 	[15] = "Ajouter",
@@ -478,7 +478,7 @@ Config.FarmHerbs = {
 		multipleUse = true,
 		herbToSeed = 3,
 		multipleEvent = "gum_farming:useSeed",--argument is herbSeed, herbName, herbCount
-		herbName = "Kukurice",
+		herbName = "Maïs",
 		herbItem = "Corn",
 		potStageProps = {--Stage is calculated automaticaly from grow time
 			[1] = {"crp_cornstalks_bb_sim", 301},
@@ -988,11 +988,11 @@ Config.FarmHerbs = {
 
 
 Config.RareHerbs = {
-    ["Corn"] =  {
-        items = {
-            {"Corn_Leaves", 3, "Lístky kukuřice"},
-        },
-    },
+    -- ["Corn"] =  {
+    --     items = {
+    --         {"Corn_Leaves", 3, "Feuile de Maïs"},
+    --     },
+    -- },
 	-- ["Chamomile"] =  {
     --     items = {
     --         {"Chamomile_Leaves", 3, "Lístky heřmánku"},--
@@ -1011,11 +1011,11 @@ Config.RareHerbs = {
     --     },
     -- },
 
-    ["Potato"] =  {
-        items = {
-            {"Potato_Leaves", 3, "Lístky brambor"},
-        },
-    },
+    -- ["Potato"] =  {
+    --     items = {
+    --         {"Potato_Leaves", 3, "Lístky brambor"},
+    --     },
+    -- },
 
     -- ["Sugar"] =  {
     --     items = {
