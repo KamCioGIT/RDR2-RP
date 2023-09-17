@@ -90,6 +90,7 @@ Citizen.CreateThread(function()
                 end
             end
             while transform do
+                print 'ookay'
                 Citizen.Wait(Config.WorkingTime)
                 TriggerServerEvent('dust-or:server:ramp')
             end
