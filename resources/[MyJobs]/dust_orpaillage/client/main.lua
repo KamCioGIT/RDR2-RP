@@ -6,6 +6,7 @@ local SearchingForGold = false
 local Prop = nil
 local spawnramp = false
 local isInteracting = false
+local transform = false
 
 local GoldPanPromptGroup = GetRandomIntInRange(0, 0xffffff)
 local GoldPanningPromptName = CreateVarString(10, "LITERAL_STRING", "Bâtée")
@@ -77,6 +78,19 @@ Citizen.CreateThread(function()
                 isInteracting = true
                 local playerPed = PlayerPedId()
                 TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), -1, true, false, false, false)
+                transform = true
+                local Position = GetEntityCoords(playerPed)
+                while true do
+                    Wait(100)
+                    if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                        transform = false
+                        isInteracting = false
+                        return
+                    end
+                end
+            end
+            while transform do
+                Citizen.Wait(Config.WorkingTime)
                 TriggerServerEvent('dust-or:server:ramp')
             end
             if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
