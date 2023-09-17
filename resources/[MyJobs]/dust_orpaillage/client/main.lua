@@ -118,7 +118,7 @@ Citizen.CreateThread(function()
 end)
 
 Citizen.CreateThread(function()
-    while transform do
+    while transform == true do
         Citizen.Wait(Config.WorkingTime)
         TriggerServerEvent('dust-or:server:ramp')
     end
