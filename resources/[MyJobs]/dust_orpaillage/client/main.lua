@@ -119,6 +119,7 @@ Citizen.CreateThread(function()
 end)
 
 
+
 RegisterNetEvent("EnablePanningMode", function()
     GoldPanning = true
     SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
