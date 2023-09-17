@@ -591,7 +591,7 @@ Citizen.CreateThread(function()
                     if GetEntityModel(NetworkGetEntityFromNetworkId(a)) == GetHashKey("oilWagon01x") or GetEntityModel(NetworkGetEntityFromNetworkId(a)) == GetHashKey("oilWagon02x")  or GetEntityModel(NetworkGetEntityFromNetworkId(a)) == GetHashKey("cart05") then
                         local cartCoords = GetEntityCoords(NetworkGetEntityFromNetworkId(a))
                         local entityWorld = GetOffsetFromEntityInWorldCoords(NetworkGetEntityFromNetworkId(a), 0.0, -3.0, 0.0)
-                        if GetDistanceBetweenCoords(playerCoords.x, playerCoords.y, playerCoords.z, entityWorld.x, entityWorld.y, entityWorld.z, false) < 3.0 then
+                        if GetDistanceBetweenCoords(playerCoords.x, playerCoords.y, playerCoords.z, entityWorld.x, entityWorld.y, entityWorld.z, false) < 1.5 then
                             timer = api.fpsTimer()
                             PromptSetActiveGroupThisFrame(buttonPrompts5, CreateVarString(10, 'LITERAL_STRING', ""..Config.Language[17].." "..b.water.."l"))
                             PromptSetVisible(buttons5[""..Config.Language[15]..""], false)
@@ -656,7 +656,7 @@ Citizen.CreateThread(function()
         for k,v in pairs(pumpEntities) do
             local playerCd = GetEntityCoords(PlayerPedId())
             local pumpCd = GetEntityCoords(k)
-            if GetDistanceBetweenCoords(playerCd.x, playerCd.y, playerCd.z, pumpCd.x, pumpCd.y, pumpCd.z, false) < 1.0 and not waterInBucket and not activePump then
+            if GetDistanceBetweenCoords(playerCd.x, playerCd.y, playerCd.z, pumpCd.x, pumpCd.y, pumpCd.z, false) < 3.0 and not waterInBucket and not activePump then
                 if holdBucket then
                     optimalization = api.fpsTimer()
                     PromptSetActiveGroupThisFrame(buttonPrompts4, CreateVarString(10, 'LITERAL_STRING', ""..Config.Language[18]..""))
