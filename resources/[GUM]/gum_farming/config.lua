@@ -48,7 +48,7 @@ Config.Image = "farming"
 Config.Watering_Can_Item = "Watering_Can"
 Config.TeaPot = "Teapot_Can"
 
-Config.SQL_Farming_1 = "wagons"--Table with wagons
+Config.SQL_Farming_1 = "stable"--Table with wagons
 Config.SQL_Farming_2 = "model"--Column model in table
 Config.SQL_Farming_3 = "charid"--Column for character id in stables
 Config.SQL_Farming_4 = "selected"--Column for selected wagons
@@ -76,7 +76,7 @@ Config.GrowSlowIfCold = 1.5
 Config.AddWaterOnBucket = 100
 Config.AddFertilize = 100
 
-Config.Fertilizer = "Fertilizer"
+Config.Fertilizer = "Engrais"
 
 Config.Language = {
 	[1] = "Agriculture",
@@ -115,7 +115,7 @@ Config.Language = {
 	[34] = "Vous ne pouvez pas planter cette plante ici.",
 }
 
-Config.HerbCountMax = 5
+Config.HerbCountMax = 10 ---- Max de plantes qu'un jooueur peut planter si il a pas de job fermier
 Config.FarmingJobCoords = {
 	-- Farmar = {
 	-- 	blipSprite = 0,

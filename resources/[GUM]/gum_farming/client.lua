@@ -471,7 +471,7 @@ Citizen.CreateThread(function()
     createPrompt5(""..Config.Language[15].."", 0x018C47CF, buttonPrompts5)
     createPrompt5(""..Config.Language[16].."", 0x27D1C284, buttonPrompts5)
 
-    createPrompt6("Naplnit vodou", 0x27D1C284, buttonPrompts6)
+    createPrompt6("Remplir", 0x27D1C284, buttonPrompts6)
 end)
 
 function createPrompt(text, key, promptHash)
@@ -700,8 +700,8 @@ Citizen.CreateThread(function()
                     else
                         if holdTeapot == false and holdBucket == false then
                             optimalization = api.fpsTimer()
-                            PromptSetActiveGroupThisFrame(buttonPrompts6, CreateVarString(10, 'LITERAL_STRING', "Naplnit vodou"))
-                            if Citizen.InvokeNative(0xE0F65F0640EF0617, buttons6["Naplnit vodou"]) then
+                            PromptSetActiveGroupThisFrame(buttonPrompts6, CreateVarString(10, 'LITERAL_STRING', "Remplir"))
+                            if Citizen.InvokeNative(0xE0F65F0640EF0617, buttons6["Remplir"]) then
                                 activePump = true
                                 ClearPedTasks(PlayerPedId())
                                 Citizen.InvokeNative(0x322BFDEA666E2B0E, PlayerPedId(), pumpCd.x, pumpCd.y, pumpCd.z, 2.0, -1, 1, 1, 1, 1)
