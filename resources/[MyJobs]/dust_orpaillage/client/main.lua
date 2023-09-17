@@ -80,10 +80,14 @@ Citizen.CreateThread(function()
                 local playerPed = PlayerPedId()
                 TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CLEAN_TABLE'), -1, true, false, false, false) 
                 local Position = GetEntityCoords(playerPed)
-                while #(Position - GetEntityCoords(PlayerPedId())) < 1.0 do
+                while true do
                     Citizen.Wait(Config.WorkingTime)
-                    TriggerServerEvent('dust-or:server:ramp')
-                    isInteracting = false
+                    if #(Position - GetEntityCoords(PlayerPedId())) < 1.0 then
+                        TriggerServerEvent('dust-or:server:ramp')
+                    else
+                        isInteracting = false
+                        return
+                    end
                 end
             end
             if PromptHasHoldModeCompleted(LeavePrompt) and not isInteracting then
