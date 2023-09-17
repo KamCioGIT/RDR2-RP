@@ -1095,6 +1095,17 @@ Config.Items = {
 
     ---- GUM FARMING ---
     ["Watering_Can"] = {
+        label = "Sceau",
+        description = "L'arroseur arrosé",
+        weight = 1.0,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/bucket.png",
+        type = "item_standard",
+    },
+    ["Teapot_Can"] = {
         label = "Arrosoire",
         description = "L'arroseur arrosé",
         weight = 1.0,
@@ -1103,17 +1114,6 @@ Config.Items = {
         requireLvl = 0,
         limit = 2000,
         imgsrc = "items/wateringcan.png",
-        type = "item_standard",
-    },
-    ["Teapot_Can"] = {
-        label = "Petit Arrosoire",
-        description = "L'arroseur arrosé",
-        weight = 1.0,
-        canBeDropped = true,
-        canBeUsed = true,
-        requireLvl = 0,
-        limit = 2000,
-        imgsrc = "items/moonshine_pot.png",
         type = "item_standard",
     },
     ["Engrais"] = {

@@ -54,9 +54,9 @@ Config.SQL_Farming_3 = "charid"--Column for character id in stables
 Config.SQL_Farming_4 = "selected"--Column for selected wagons
 
 Config.Wagons_Support = {
-	oilWagon01x = 200,
-	oilWagon02x = 200,
-	cart05 = 50,
+	oilWagon01x = 500,
+	oilWagon02x = 500,
+	cart05 = 200,
 }
 
 Config.UpdateTime = 15--Every 15 min update state
