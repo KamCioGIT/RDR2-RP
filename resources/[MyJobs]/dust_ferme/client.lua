@@ -131,17 +131,17 @@ function GetRandomRessourcePoint()
 
     ressourcePointIndexForMining = math.random(1, #Config.RessourcesPoints)
     blip = Citizen.InvokeNative(0x554d9d53f696d002, Config.PointSprite, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z)
-    Citizen.CreateThread(function()
-        while true do
-            Wait(50)
-            local playerPos = GetEntityCoords(PlayerPedId())    
-            if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 100 then
+    -- Citizen.CreateThread(function()
+    --     while true do
+    --         Wait(50)
+    --         local playerPos = GetEntityCoords(PlayerPedId())    
+    --         if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 100 then
                 tempweath = CreateObject(GetHashKey("crp_wheat_dry_aa_sim"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
                 PlaceObjectOnGroundProperly(tempweath)
-                break
-            end
-        end
-    end)
+    --             break
+    --         end
+    --     end
+    -- end)
 end
 
 -- ACTION DE MINER
