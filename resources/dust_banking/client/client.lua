@@ -66,7 +66,7 @@ Citizen.CreateThread(function()
             --     args = { false, true, false },
             -- })
             local playerpos = GetEntityCoords(PlayerPedId())
-            if #(playerpos - v.coords ) < 7 then
+            if #(playerpos - v.coords ) < 4 then
                 bankprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     TriggerEvent("qbr-banking:openBankScreen")
