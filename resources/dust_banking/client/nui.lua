@@ -29,6 +29,7 @@ AddEventHandler('qbr-banking:client:newCardSuccess', function(cardno, ctype)
 end)
 
 RegisterNUICallback("createSavingsAccount", function(data, cb)
+    print'lessgo'
     TriggerServerEvent('qbr-banking:createSavingsAccount')
     TriggerEvent("debug", 'Banking: Create Savings Account', 2000, 0, 'hud_textures', 'check')
 end)
