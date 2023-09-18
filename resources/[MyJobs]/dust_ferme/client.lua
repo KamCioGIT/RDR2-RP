@@ -115,6 +115,14 @@ function patronUpdate()
     end
 end
 
+
+Citizen.CreateThread(function()
+    RequestModel(GetHashKey("crp_wheat_dry_aa_sim"))
+    if HasModelLoaded(GetHashKey("crp_wheat_dry_aa_sim")) then
+        Wait(10)
+    end
+end)
+
 local blip
 function GetRandomRessourcePoint()
     if blip ~= nil then 
