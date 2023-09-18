@@ -153,6 +153,7 @@ function StartMining()
     isInteracting = true
     local timer = GetGameTimer() + Config.WorkingTime
     Citizen.CreateThread(function()
+        DeleteEntity(tempweath)
         while GetGameTimer() < timer do 
             Wait(0)
         end
@@ -161,7 +162,6 @@ function StartMining()
         Wait(500)
         ClearPedTasks(playerPed)
         GivePlayerRessource()
-        DeleteEntity(tempweath)
         isInteracting = false
         GetRandomRessourcePoint()
     end)
