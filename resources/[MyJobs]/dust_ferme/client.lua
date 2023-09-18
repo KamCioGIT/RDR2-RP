@@ -153,13 +153,13 @@ function StartMining()
     isInteracting = true
     Citizen.CreateThread(function()
         Wait(Config.WorkingTime)
-        DeleteEntity(tempweath)
 		FreezeEntityPosition(playerPed, false)
         TaskPlayAnim(playerPed, Config.GatherDict, "stn_exit", 1.0, 1.0, -1, 2, 0, false, false, false)
         Wait(500)
         ClearPedTasks(playerPed)
         GivePlayerRessource()
         isInteracting = false
+        DeleteEntity(tempweath)
         GetRandomRessourcePoint()
     end)
 end
