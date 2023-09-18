@@ -18,7 +18,7 @@ window.addEventListener("message", function (event) {
         $("#currentStatementATM").DataTable().destroy();
         $("#accountName").html(event.data.information.name)
         $("#accountNumber").html(event.data.information.accountinfo);
-        $("#accountSortCode").html(event.data.information.accountinfo.sort_code);
+        // $("#accountSortCode").html(event.data.information.accountinfo.sort_code);
 
         $('#newPinNumber').val('');
         $("#bankingHome-tab").addClass('active');
@@ -40,7 +40,7 @@ window.addEventListener("message", function (event) {
         $("#savingsBalance").html('');
         $("#accountName2").html('');
         $("#saccountNumber").html('');
-        $("#saccountSortCode").html('');
+        // $("#saccountSortCode").html('');
         $("#savingAccountCreator").css({"display":"block"});
         $("#savingsQuicky1").css({"display":"none"});
         $("#bankingSavings-tab").css({"display":"none"});
