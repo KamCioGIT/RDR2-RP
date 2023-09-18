@@ -11,7 +11,10 @@ server_scripts {
     'server/wrappers/*.lua'
 }
 
-client_script 'client/*.lua'
+client_script 	{
+    "@uiprompt/uiprompt.lua",
+    'client/*.lua'
+}
 shared_scripts {
 	'config.lua'
 }
