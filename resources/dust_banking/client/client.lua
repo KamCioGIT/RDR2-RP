@@ -50,6 +50,13 @@ Uiprompt:new(0x760A9C6F, "Ouvrir", bankprompt)
 bankprompt:setActive(false)
 
 Citizen.CreateThread(function()
+    for banks, v in pairs(Config.BankLocations) do
+        if v.showblip == true then
+            local StoreBlip = N_0x554d9d53f696d002(1664425300, v.coords)
+            SetBlipSprite(StoreBlip, -2128054417, 52)
+            SetBlipScale(StoreBlip, 0.2)
+        end
+    end
     while true do
         Wait(0)
         for banks, v in pairs(Config.BankLocations) do
@@ -58,11 +65,6 @@ Citizen.CreateThread(function()
             --     event = 'qbr-banking:openBankScreen',
             --     args = { false, true, false },
             -- })
-            if v.showblip == true then
-                local StoreBlip = N_0x554d9d53f696d002(1664425300, v.coords)
-                SetBlipSprite(StoreBlip, -2128054417, 52)
-                SetBlipScale(StoreBlip, 0.2)
-            end
             local playerpos = GetEntityCoords(PlayerPedId())
             if #(playerpos - v.coords ) < 7 then
                 bankprompt:setActiveThisFrame(true)
