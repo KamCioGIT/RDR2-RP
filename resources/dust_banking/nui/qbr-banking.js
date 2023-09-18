@@ -124,7 +124,7 @@ function setupSavingsMenu(data, name)
     $("#savingsBalance").html(data.amount);
     $("#accountName2").html(name);
     $("#saccountNumber").html(data.details.account);
-    $("#saccountSortCode").html(data.details.sortcode);
+    // $("#saccountSortCode").html(data.details.sortcode);
     $("#savingAccountCreator").css({"display":"none"});
     $("#savingsQuicky1").css({"display":"block"});
     $("#bankingSavings-tab").css({"display":"block"});
@@ -384,19 +384,20 @@ $(function() {
 
     $("#initiateTransfer").click(function() {
         var amount = $('#transferAmount').val();
-        var sortcode = $('#transferSortCode').val();
+        // var sortcode = $('#transferSortCode').val();
         var account = $('#transferAcctNo').val();
 
-        if(amount !== undefined && amount !== null && amount > 0 && sortcode !== undefined && sortcode !== null && sortcode > 0 && account !== undefined && account !== null && account > 0) {
+        // if(amount !== undefined && amount !== null && amount > 0 && sortcode !== undefined && sortcode !== null && sortcode > 0 && account !== undefined && account !== null && account > 0) {
+        if(amount !== undefined && amount !== null && amount > 0 && account !== undefined && account !== null && account > 0) {
             $("#transferError").css({"display":"none"});
             $("#transferErrorMsg").html('');
             $.post('https://qbr-banking/doTransfer', JSON.stringify({ 
                 amount: parseInt(amount),
                 account: parseInt(account),
-                sortcode: parseInt(sortcode)
+                // sortcode: parseInt(sortcode)
             }));
             $('#transferAmount').val('');
-            $('#transferSortCode').val('');
+            // $('#transferSortCode').val('');
             $('#transferAcctNo').val('');
         } else {
             $("#transferError").css({"display":"block"});
