@@ -2,11 +2,11 @@ RedEM = exports["redem_roleplay"]:RedEM()
 
 function generateCurrent(cid)
     local self = {}
-    self.cid = cid
+    self.charid = cid
     self.source = -1
     local processed = false
 
-    local getCurrentAccount = MySQL.query.await('SELECT * FROM bank_cards WHERE citizenid = ?', { self.cid })
+    local getCurrentAccount = MySQL.query.await('SELECT * FROM bank_cards WHERE citizenid = ?', { self.charid })
     if getCurrentAccount[1] ~= nil then
         self.aid = getCurrentAccount[1].record_id
         self.balance = getCurrentAccount[1].amount
@@ -17,7 +17,7 @@ function generateCurrent(cid)
             self.cardLocked = getCurrentAccount[1].cardLocked
             self.cardDecrypted = getCurrentAccount[1].cardDecrypted
             self.cardType = getCurrentAccount[1].cardType
-            bankCards[tonumber(self.cardNumber)] = { ['pin'] = self.cardPin, ['cid'] = self.cid, ['locked'] = self.cardLocked, ['active'] = self.cardActive, ['decrypted'] = self.cardDecrypted }
+            bankCards[tonumber(self.cardNumber)] = { ['pin'] = self.cardPin, ['cid'] = self.charid, ['locked'] = self.cardLocked, ['active'] = self.cardActive, ['decrypted'] = self.cardDecrypted }
         else
             self.cardNumber = 0
             self.cardActive = false
@@ -30,7 +30,7 @@ function generateCurrent(cid)
     repeat Wait(0) until processed == true
     processed = false
 
-    local bankStatement = MySQL.query.await('SELECT * FROM bank_statements WHERE account = ? AND citizenid = ? ORDER BY record_id DESC LIMIT 30', { 'Current', self.cid })
+    local bankStatement = MySQL.query.await('SELECT * FROM bank_statements WHERE account = ? AND citizenid = ? ORDER BY record_id DESC LIMIT 30', { 'Current', self.charid })
     if bankStatement[1] ~= nil then
         self.bankStatement = bankStatement
     else
@@ -69,7 +69,7 @@ function generateCurrent(cid)
     self.saveAccount = function()
         local success
         local processed = false
-        MySQL.query("UPDATE `bank_accounts` SET `amount` = ? WHERE `character_id` = ? AND `record_id` = ?", { self.balance, self.cid, self.aid }, function(success1)
+        MySQL.query("UPDATE `bank_accounts` SET `amount` = ? WHERE `character_id` = ? AND `record_id` = ?", { self.balance, self.charid, self.aid }, function(success1)
             if success1 > 0 then
                 success = true
             else
@@ -88,7 +88,7 @@ function generateCurrent(cid)
     end
 
     rTable.ToggleDebitCard = function(toggle)
-        MySQL.query("UPDATE `bank_accounts` SET `cardLocked` = ? WHERE `character_id` = ? AND `record_id` = ?", { toggle, self.cid, self.aid }, function(rowsChanged)
+        MySQL.query("UPDATE `bank_accounts` SET `cardLocked` = ? WHERE `character_id` = ? AND `record_id` = ?", { toggle, self.charid, self.aid }, function(rowsChanged)
             if rowsChanged == 1 then
                 self.cardLocked = toggle
                 bankCards[tonumber(self.cardNumber)].locked = self.cardLocked
@@ -121,7 +121,7 @@ function generateCurrent(cid)
                 1,
                 0,
                 friendlyName,
-                self.cid,
+                self.charid,
                 self.aid
             }, function(rowsChanged)
                 self.cardNumber = cardNumber
@@ -129,7 +129,7 @@ function generateCurrent(cid)
                 self.cardLocked = false
                 self.cardDecrypted = false
                 self.cardType = friendlyName
-                bankCards[tonumber(self.cardNumber)] = { ['pin'] = pinSet, ['cid'] = self.cid, ['locked'] = self.cardLocked, ['active'] = self.cardActive, ['decrypted'] = self.cardDecrypted }
+                bankCards[tonumber(self.cardNumber)] = { ['pin'] = pinSet, ['cid'] = self.charid, ['locked'] = self.cardLocked, ['active'] = self.cardActive, ['decrypted'] = self.cardDecrypted }
                 success = true
                 genId = cardNumber
 
@@ -138,9 +138,9 @@ function generateCurrent(cid)
                     local xPlayer = RedEM.GetPlayer(self.source)
 
                     if selectedCard == "visa" then
-                        xPlayer.Functions.AddItem('visa', 1)
+                        xPlayer.AddItem('visa', 1)
                     elseif selectedCard == "mastercard" then
-                        xPlayer.Functions.AddItem('mastercard', 1)
+                        xPlayer.AddItem('mastercard', 1)
                     end
                 end
             end)
@@ -161,7 +161,7 @@ function generateCurrent(cid)
     end
 
     rTable.UpdateDebitCardPin = function(pin)
-        MySQL.query("UPDATE `bank_accounts` SET `cardPin` = ? WHERE `character_id` = ? AND `record_id` = ?", { pin, self.cid, self.aid }, function(rowsChanged)
+        MySQL.query("UPDATE `bank_accounts` SET `cardPin` = ? WHERE `character_id` = ? AND `record_id` = ?", { pin, self.charid, self.aid }, function(rowsChanged)
             if rowsChanged == 1 then
                 self.cardPin = pin
                 self.updateItemPin(pin)
@@ -201,7 +201,7 @@ function generateCurrent(cid)
                 -- TODO: The nil value might not be accepted by the sql handler here
                 MySQL.insert.await("INSERT INTO `bank_statements` (`account`, `character_id`, `account_number`, `sort_code`, `deposited`, `withdraw`, `balance`, `date`, `type`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", {
                     "Current",
-                    self.cid,
+                    self.charid,
                     self.account,
                     self.sortcode,
                     amt,
@@ -211,7 +211,7 @@ function generateCurrent(cid)
                     text
                 }, function(statementUpdated)
                     if statementUpdated > 0 then
-                        local statementTable = {['withdraw'] = nil, ['deposited'] = amt, ['type'] = text, ['sort_code'] = self.sortcode, ['date'] = time, ['balance'] = self.balance, ['account'] = "Current", ['record_id'] = statementUpdated, ['account_number'] = self.account, ['character_id'] = self.cid }
+                        local statementTable = {['withdraw'] = nil, ['deposited'] = amt, ['type'] = text, ['sort_code'] = self.sortcode, ['date'] = time, ['balance'] = self.balance, ['account'] = "Current", ['record_id'] = statementUpdated, ['account_number'] = self.account, ['character_id'] = self.charid }
                         table.insert(self.bankStatement, statementTable)
 
                         if self.source ~= -1 then
@@ -223,7 +223,7 @@ function generateCurrent(cid)
                     end
                     Addprocessed = true
                 end)
-                local statementTable = {['withdraw'] = nil, ['deposited'] = amt, ['type'] = text, ['sort_code'] = self.sortcode, ['date'] = time, ['balance'] = self.balance, ['account'] = "Current", ['record_id'] = statementUpdated, ['account_number'] = self.account, ['character_id'] = self.cid }
+                local statementTable = {['withdraw'] = nil, ['deposited'] = amt, ['type'] = text, ['sort_code'] = self.sortcode, ['date'] = time, ['balance'] = self.balance, ['account'] = "Current", ['record_id'] = statementUpdated, ['account_number'] = self.account, ['character_id'] = self.charid }
                 table.insert(self.bankStatement, statementTable)
 
                 if self.source ~= -1 then
@@ -252,7 +252,7 @@ function generateCurrent(cid)
                     -- TODO: The nil value might not be accepted by the sql handler here
                     MySQL.insert.await("INSERT INTO `bank_statements` (`account`, `character_id`, `account_number`, `sort_code`, `deposited`, `withdraw`, `balance`, `date`, `type`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", {
                         "Current",
-                        self.cid,
+                        self.charid,
                         self.account,
                         self.sortcode,
                         nil,
@@ -263,7 +263,7 @@ function generateCurrent(cid)
                     }, function(statementUpdated)
                         if statementUpdated > 0 then
                             successOri = true
-                            local statementTable = {['withdraw'] = amt, ['deposited'] = nil, ['type'] = text, ['sort_code'] = self.sortcode, ['date'] = time, ['balance'] = self.balance, ['account'] = "Current", ['record_id'] = statementUpdated, ['account_number'] = self.account, ['character_id'] = self.cid }
+                            local statementTable = {['withdraw'] = amt, ['deposited'] = nil, ['type'] = text, ['sort_code'] = self.sortcode, ['date'] = time, ['balance'] = self.balance, ['account'] = "Current", ['record_id'] = statementUpdated, ['account_number'] = self.account, ['character_id'] = self.charid }
                             table.insert(self.bankStatement, statementTable)
 
                             if self.source ~= -1 then
@@ -300,18 +300,18 @@ end)
 
 function generateSavings(cid)
     local self  = {}
-    self.cid = cid
+    self.charid = cid
     self.source = -1
-    local getSavingsAccount = MySQL.query.await('SELECT * FROM bank_accounts WHERE citizenid = ? AND account_type = ?', { self.cid, 'Savings' })
+    local getSavingsAccount = MySQL.query.await('SELECT * FROM bank_accounts WHERE citizenid = ? AND account_type = ?', { self.charid, 'Savings' })
     if getSavingsAccount[1] ~= nil then
         self.aid = getSavingsAccount[1].record_id
         self.balance = getSavingsAccount[1].amount
     end
-    local stats = MySQL.query.await('SELECT * FROM bank_statements WHERE account = ? AND citizenid = ? ORDER BY record_id DESC LIMIT 30', { 'Savings', self.cid })
+    local stats = MySQL.query.await('SELECT * FROM bank_statements WHERE account = ? AND citizenid = ? ORDER BY record_id DESC LIMIT 30', { 'Savings', self.charid })
     self.bankStatement = stats
 
     self.saveAccount = function()
-        MySQL.query('UPDATE bank_accounts SET amount = ? WHERE citizenid = ? AND record_id = ?', { self.balance, self.cid, self.aid }, function(success)
+        MySQL.query('UPDATE bank_accounts SET amount = ? WHERE citizenid = ? AND record_id = ?', { self.balance, self.charid, self.aid }, function(success)
             if success then
                 return true
             else
@@ -349,7 +349,7 @@ function generateSavings(cid)
             local success = self.saveAccount()
             local time = os.date("%Y-%m-%d %H:%M:%S")
             MySQL.insert.await('INSERT INTO bank_statements (citizenid, account, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
-                self.cid,
+                self.charid,
                 'Saving',
                 amt,
                 0,
@@ -357,7 +357,7 @@ function generateSavings(cid)
                 time,
                 text
             })
-            local statementTable = {['withdraw'] = nil, ['deposited'] = amt, ['type'] = text,  ['date'] = time, ['balance'] = self.balance, ['account'] = "Savings", ['record_id'] = statementUpdate, ['character_id'] = self.cid }
+            local statementTable = {['withdraw'] = nil, ['deposited'] = amt, ['type'] = text,  ['date'] = time, ['balance'] = self.balance, ['account'] = "Savings", ['record_id'] = statementUpdate, ['character_id'] = self.charid }
             table.insert(self.bankStatement, statementTable)
             return true
         end
@@ -370,7 +370,7 @@ function generateSavings(cid)
                 local success = self.saveAccount()
                 local time = os.date("%Y-%m-%d %H:%M:%S")
                 MySQL.insert.await('INSERT INTO bank_statements (citizenid, account, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
-                    self.cid,
+                    self.charid,
                     'Saving',
                     0,
                     amt,
@@ -378,7 +378,7 @@ function generateSavings(cid)
                     time,
                     text
                 })
-                local statementTable = {['withdraw'] = amt, ['deposited'] = nil, ['type'] = text,  ['date'] = time, ['balance'] = self.balance, ['account'] = "Savings", ['record_id'] = statementUpdate, ['character_id'] = self.cid }
+                local statementTable = {['withdraw'] = amt, ['deposited'] = nil, ['type'] = text,  ['date'] = time, ['balance'] = self.balance, ['account'] = "Savings", ['record_id'] = statementUpdate, ['character_id'] = self.charid }
                 table.insert(self.bankStatement, statementTable)
                 return true
             end
