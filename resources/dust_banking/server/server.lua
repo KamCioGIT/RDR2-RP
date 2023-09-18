@@ -170,8 +170,8 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
     local currentCash = xPlayer.GetMoney()
 
     if tonumber(amount) <= currentCash then
-        local cash = xPlayer.RemoveMoney('cash', tonumber(amount), 'banking-quick-depo')
-        local bank = xPlayer.AddMoney('bank', tonumber(amount), 'banking-quick-depo')
+        local cash = xPlayer.RemoveMoney(tonumber(amount), 'banking-quick-depo')
+        local bank = xPlayer.AddBankMoney(tonumber(amount), 'banking-quick-depo')
         if bank then
             TriggerClientEvent('qbr-banking:openBankScreen', src)
             TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash deposit of $'..amount..' successfully.')
@@ -188,8 +188,8 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
     local currentCash = xPlayer.GetBankMoney
 
     if tonumber(amount) <= currentCash then
-        local cash = xPlayer.RemoveMoney('bank', tonumber(amount), 'banking-quick-withdraw')
-        local bank = xPlayer.AddMoney('cash', tonumber(amount), 'banking-quick-withdraw')
+        local cash = xPlayer.RemoveBankMoney(tonumber(amount), 'banking-quick-withdraw')
+        local bank = xPlayer.AddMoney(tonumber(amount), 'banking-quick-withdraw')
         if cash then
             TriggerClientEvent('qbr-banking:openBankScreen', src)
             TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash withdrawal of $'..amount..' successfully.')
@@ -206,7 +206,7 @@ AddEventHandler('qbr-banking:savingsDeposit', function(amount)
     local currentBank = xPlayer.GetBankMoney
 
     if tonumber(amount) <= currentBank then
-        local bank = xPlayer.RemoveMoney('bank', tonumber(amount))
+        local bank = xPlayer.RemoveBankMoney(tonumber(amount))
         local savings = savingsAccounts[xPlayer.citizenid].AddMoney(tonumber(amount), 'Current Account to Savings Transfer')
         while bank == nil do Wait(0) end
         while savings == nil do Wait(0) end
@@ -225,7 +225,7 @@ AddEventHandler('qbr-banking:savingsWithdraw', function(amount)
 
     if tonumber(amount) <= currentSavings then
         local savings = savingsAccounts[xPlayer.citizenid].RemoveMoney(tonumber(amount), 'Savings to Current Account Transfer')
-        local bank = xPlayer.AddMoney('bank', tonumber(amount), 'banking-quick-withdraw')
+        local bank = xPlayer.AddBankMoney(tonumber(amount), 'banking-quick-withdraw')
         while bank == nil do Wait(0) end
         while savings == nil do Wait(0) end
         TriggerClientEvent('qbr-banking:openBankScreen', src)
