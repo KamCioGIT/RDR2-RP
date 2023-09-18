@@ -167,7 +167,7 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
-    local currentCash = xPlayer.GetMoney('cash')
+    local currentCash = xPlayer.GetMoney()
 
     if tonumber(amount) <= currentCash then
         local cash = xPlayer.RemoveMoney('cash', tonumber(amount), 'banking-quick-depo')
@@ -185,7 +185,7 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
-    local currentCash = xPlayer.GetMoney('bank')
+    local currentCash = xPlayer.GetBankMoney
 
     if tonumber(amount) <= currentCash then
         local cash = xPlayer.RemoveMoney('bank', tonumber(amount), 'banking-quick-withdraw')
@@ -203,7 +203,7 @@ AddEventHandler('qbr-banking:savingsDeposit', function(amount)
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
-    local currentBank = xPlayer.GetMoney('bank')
+    local currentBank = xPlayer.GetBankMoney
 
     if tonumber(amount) <= currentBank then
         local bank = xPlayer.RemoveMoney('bank', tonumber(amount))
