@@ -142,8 +142,8 @@ RedEM.RegisterCallback('qbr-banking:getBankingInformation', function(source, cb)
         if (xPlayer) then
             local banking = {
                     ['name'] = xPlayer.firstname .. ' ' .. xPlayer.lastname,
-                    ['bankbalance'] = '$'.. format_int(xPlayer.money['bank']),
-                    ['cash'] = '$'.. format_int(xPlayer.money['cash']),
+                    ['bankbalance'] = '$'.. format_int(xPlayer.bankmoney),
+                    ['cash'] = '$'.. format_int(xPlayer.money),
                     ['accountinfo'] = xPlayer.account,
                 }
                 --[[
