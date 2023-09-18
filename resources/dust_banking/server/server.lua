@@ -236,7 +236,6 @@ end)
 
 RegisterServerEvent('qbr-banking:createSavingsAccount')
 AddEventHandler('qbr-banking:createSavingsAccount', function()
-    print 'okay'
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     local success = createSavingsAccount(xPlayer.citizenid)
