@@ -175,7 +175,7 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
         if bank then
             TriggerClientEvent('qbr-banking:openBankScreen', src)
             TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash deposit of $'..amount..' successfully.')
-            TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', 'lightgreen', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a cash deposit of $"..amount.." successfully.")
+            -- TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', 'lightgreen', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a cash deposit of $"..amount.." successfully.")
         end
     end
 end)
@@ -193,7 +193,7 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
         if cash then
             TriggerClientEvent('qbr-banking:openBankScreen', src)
             TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash withdrawal of $'..amount..' successfully.')
-            TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', 'red', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a cash withdrawal of $"..amount.." successfully.")
+            -- TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', 'red', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a cash withdrawal of $"..amount.." successfully.")
         end
     end
 end)
@@ -212,7 +212,7 @@ AddEventHandler('qbr-banking:savingsDeposit', function(amount)
         while savings == nil do Wait(0) end
         TriggerClientEvent('qbr-banking:openBankScreen', src)
         TriggerClientEvent('qbr-banking:successAlert', src, 'You made a savings deposit of $'..tostring(amount)..' successfully.')
-        TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', 'lightgreen', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a savings deposit of $"..tostring(amount).." successfully..")
+        -- TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', 'lightgreen', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a savings deposit of $"..tostring(amount).." successfully..")
     end
 end)
 
@@ -230,7 +230,7 @@ AddEventHandler('qbr-banking:savingsWithdraw', function(amount)
         while savings == nil do Wait(0) end
         TriggerClientEvent('qbr-banking:openBankScreen', src)
         TriggerClientEvent('qbr-banking:successAlert', src, 'You made a savings withdrawal of $'..tostring(amount)..' successfully.')
-        TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', 'red', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a savings withdrawal of $"..tostring(amount).." successfully.")
+        -- TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', 'red', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a savings withdrawal of $"..tostring(amount).." successfully.")
     end
 end)
 
@@ -243,6 +243,6 @@ AddEventHandler('qbr-banking:createSavingsAccount', function()
     repeat Wait(0) until success ~= nil
     TriggerClientEvent('qbr-banking:openBankScreen', src)
     TriggerClientEvent('qbr-banking:successAlert', src, 'You have successfully opened a savings account.')
-    TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', "lightgreen", "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** opened a savings account")
+    -- TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', "lightgreen", "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** opened a savings account")
 end)
 
