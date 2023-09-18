@@ -48,6 +48,8 @@ function startMission()
                 bleprompt:setActiveThisFrame(true)
                 if IsControlJustPressed(0, 0x760A9C6F) and not isInteracting then 
                     StartMining()
+                    Wait(Config.WorkingTime)
+                    DeleteEntity(tempweath)
                 end
             else end
         end
@@ -128,20 +130,19 @@ function GetRandomRessourcePoint()
     if blip ~= nil then 
         RemoveBlip(blip)
     end
-
     ressourcePointIndexForMining = math.random(1, #Config.RessourcesPoints)
     blip = Citizen.InvokeNative(0x554d9d53f696d002, Config.PointSprite, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z)
-    -- Citizen.CreateThread(function()
-    --     while true do
-    --         Wait(50)
-    --         local playerPos = GetEntityCoords(PlayerPedId())    
-    --         if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 100 then
+    Citizen.CreateThread(function()
+        while true do
+            Wait(50)
+            local playerPos = GetEntityCoords(PlayerPedId())    
+            if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 100 then
                 tempweath = CreateObject(GetHashKey("crp_wheat_dry_aa_sim"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
                 PlaceObjectOnGroundProperly(tempweath)
-    --             break
-    --         end
-    --     end
-    -- end)
+                break
+            end
+        end
+    end)
 end
 
 -- ACTION DE MINER
@@ -160,7 +161,7 @@ function StartMining()
     TaskPlayAnim(playerPed, Config.GatherDict, Config.GatherAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
     isInteracting = true
     Wait(Config.WorkingTime)
-    DeleteEntity(tempweath)
+    -- DeleteEntity(tempweath)
     FreezeEntityPosition(playerPed, false)
     TaskPlayAnim(playerPed, Config.GatherDict, "stn_exit", 1.0, 1.0, -1, 2, 0, false, false, false)
     Wait(500)
