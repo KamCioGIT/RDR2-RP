@@ -242,7 +242,7 @@ function pad(n, width, z) {
 }
 
 function closeBanking() {
-    $.post("https://qbr-banking/NUIFocusOff", JSON.stringify({}));
+    $.post("https://dust_banking/NUIFocusOff", JSON.stringify({}));
 };
 
 $(function() {
@@ -256,18 +256,18 @@ $(function() {
         $("#debitCardStatus").removeClass('bg-success');
         $("#debitCardStatus").addClass('bg-danger');
         $("#debitCardStatus").html('<div class="card-header">Card Locked</div><div class="card-body">Your card is currently LOCKED.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="unLockCard">Unlock/Unblock Card</button></div>');
-        $.post('https://qbr-banking/lockCard', JSON.stringify({ }));
+        $.post('https://dust_banking/lockCard', JSON.stringify({ }));
     });
 
     $(document).on('click','#unLockCard',function(){
         $("#debitCardStatus").removeClass('bg-danger');
         $("#debitCardStatus").addClass('bg-success');
         $("#debitCardStatus").html('<div class="card-header">Card Unlocked</div><div class="card-body">Your card is currently active.</div><div class="card-footer"><button class="btn btn-primary btn-block" id="lockCard">Lock/Block Card</button></div>');
-        $.post('https://qbr-banking/unLockCard', JSON.stringify({ }));
+        $.post('https://dust_banking/unLockCard', JSON.stringify({ }));
     });
 
     $("#openSavings").click(function() {
-        $.post('https://qbr-banking/createSavingsAccount', JSON.stringify({ }));
+        $.post('https://dust_banking/createSavingsAccount', JSON.stringify({ }));
     });
 
     $("#changePin").click(function() {
@@ -280,7 +280,7 @@ $(function() {
         if(newPin !== null && newPin !== undefined && newPin.replace(/[^0-9]/g,"").length === 4) {
             $("#newPinReqMsgDiv").css({"display":"none"});
             $("#newPinReqMsg").html('')
-            $.post('https://qbr-banking/updatePin', JSON.stringify({
+            $.post('https://dust_banking/updatePin', JSON.stringify({
                 pin: pad(newPin, 4)
              }));
              $('#newPinNumber').val('');
@@ -297,7 +297,7 @@ $(function() {
         if(amount !== undefined && amount > 0) {
             $("#withdrawError").css({"display":"none"});
             $("#withdrawErrorMsg").html('');
-            $.post('https://qbr-banking/doWithdraw', JSON.stringify({ 
+            $.post('https://dust_banking/doWithdraw', JSON.stringify({ 
                 amount: parseInt(amount)
             }));
             $('#withdrawAmount').val('')
@@ -314,7 +314,7 @@ $(function() {
             if(amount !== undefined && amount > 0) {
                 $("#withdrawATMError").css({"display":"none"});
                 $("#withdrawATMErrorMsg").html('');
-                $.post('https://qbr-banking/doATMWithdraw', JSON.stringify({ 
+                $.post('https://dust_banking/doATMWithdraw', JSON.stringify({ 
                     amount: parseInt(amount)
                 }));
                 $('#withdrawAmountATM').val('');
@@ -341,7 +341,7 @@ $(function() {
         if(amount !== undefined && amount > 0) {
             $("#depositError").css({"display":"none"});
             $("#depositErrorMsg").html('');
-            $.post('https://qbr-banking/doDeposit', JSON.stringify({ 
+            $.post('https://dust_banking/doDeposit', JSON.stringify({ 
                 amount: parseInt(amount)
             }));
             $('#depositAmount').val('');
@@ -355,7 +355,7 @@ $(function() {
     $("[data-action=deposit]").click(function() {
         var amount = $(this).attr('data-amount');
         if(amount > 0) {
-            $.post('https://qbr-banking/doDeposit', JSON.stringify({ 
+            $.post('https://dust_banking/doDeposit', JSON.stringify({ 
                 amount: parseInt(amount)
             }));
         }
@@ -372,7 +372,7 @@ $(function() {
         if(pinValue !== null && pinValue !== undefined && pinValue.replace(/[^0-9]/g,"").length === 4) {
             $("#pinCreatorError").css({"display":"none"});
             $("#pinCreatorErrorMsg").html('');
-            $.post('https://qbr-banking/createDebitCard', JSON.stringify({ 
+            $.post('https://dust_banking/createDebitCard', JSON.stringify({ 
                 pin: pad(pinValue, 4)
             }));
         } else {
@@ -391,7 +391,7 @@ $(function() {
         if(amount !== undefined && amount !== null && amount > 0 && account !== undefined && account !== null && account > 0) {
             $("#transferError").css({"display":"none"});
             $("#transferErrorMsg").html('');
-            $.post('https://qbr-banking/doTransfer', JSON.stringify({ 
+            $.post('https://dust_banking/doTransfer', JSON.stringify({ 
                 amount: parseInt(amount),
                 account: parseInt(account),
                 // sortcode: parseInt(sortcode)
@@ -409,7 +409,7 @@ $(function() {
     $("[data-action=withdraw]").click(function() {
         var amount = $(this).attr('data-amount');
         if(amount > 0) {
-            $.post('https://qbr-banking/doWithdraw', JSON.stringify({ 
+            $.post('https://dust_banking/doWithdraw', JSON.stringify({ 
                 amount: parseInt(amount)
             }));
         }
@@ -419,7 +419,7 @@ $(function() {
         var amount = $(this).attr('data-amount');
         if (currentLimit + parseInt(amount) <= Config.ATMTransLimit) {
             if(amount > 0) {
-                $.post('https://qbr-banking/doATMWithdraw', JSON.stringify({ 
+                $.post('https://dust_banking/doATMWithdraw', JSON.stringify({ 
                     amount: parseInt(amount)
                 }));
                 $("#successMessageATM").removeClass('alert-danger').addClass('alert-success');
@@ -438,7 +438,7 @@ $(function() {
     $("[data-action=savingsdeposit]").click(function() {
         var amount = $(this).attr('data-amount');
         if(amount > 0) {
-            $.post('https://qbr-banking/savingsDeposit', JSON.stringify({ 
+            $.post('https://dust_banking/savingsDeposit', JSON.stringify({ 
                 amount: parseInt(amount)
             }));
         }
@@ -458,7 +458,7 @@ $(function() {
         $("#requestNewCard2").css({"display":"none"});
         $("#requestNewCard3").css({"display":"block"});
 
-        $.post('https://qbr-banking/requestNewCard', JSON.stringify({ 
+        $.post('https://dust_banking/requestNewCard', JSON.stringify({ 
                 
         }));
 
@@ -476,13 +476,13 @@ $(function() {
             if(action == "deposit") {
                 $("#savingsTAmount").val('');
                 $("#savingsAction").val('def');
-                $.post('https://qbr-banking/savingsDeposit', JSON.stringify({ 
+                $.post('https://dust_banking/savingsDeposit', JSON.stringify({ 
                     amount: parseInt(amount)
                 }));
             } else {
                 $("#savingsTAmount").val('');
                 $("#savingsAction").val('def');
-                $.post('https://qbr-banking/savingsWithdraw', JSON.stringify({ 
+                $.post('https://dust_banking/savingsWithdraw', JSON.stringify({ 
                     amount: parseInt(amount)
                 }));
             }
@@ -524,7 +524,7 @@ $(function() {
     $("[data-action=savingswithdraw]").click(function() {
         var amount = $(this).attr('data-amount');
         if(amount > 0) {
-            $.post('https://qbr-banking/savingsWithdraw', JSON.stringify({ 
+            $.post('https://dust_banking/savingsWithdraw', JSON.stringify({ 
                 amount: parseInt(amount)
             }));
         }
