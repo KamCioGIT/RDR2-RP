@@ -496,8 +496,8 @@ Config.FarmHerbs = {
 		rewardItem = {--If you have disabled quality set [XX] to [0]
 			[80] = {"Corn", 5},--Upper 80% to 100
 			[50] = {"Corn", 3},--Upper 50% to 80
-			[25] = {"Corn", 2},--Upper 0% to 50
-			[0] = {"Corn", 1},--Upper 0% to 50
+			[25] = {"Corn", 2},--Upper 25% to 50
+			[0] = {"Corn", 1},--Upper 0% to 25
 		},
 		grounded = 0.0,--downgrade under ground
 	},

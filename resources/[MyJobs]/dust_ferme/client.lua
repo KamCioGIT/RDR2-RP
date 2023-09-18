@@ -157,7 +157,6 @@ function StartMining()
             Wait(0)
         end
 		FreezeEntityPosition(playerPed, false)
-        DeleteEntity(tempweath)
         TaskPlayAnim(playerPed, Config.GatherDict, "stn_exit", 1.0, 1.0, -1, 2, 0, false, false, false)
         Wait(500)
         ClearPedTasks(playerPed)
