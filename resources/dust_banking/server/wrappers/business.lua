@@ -19,8 +19,8 @@ function generatebusinessAccount(acc, sc, bid)
         self.balance = bankAccount[1].amount
         self.account_type = "business"
         self.account_for = bankAccount[1].business
-        if self.account_for == "realestate" then
-            self.account_name = "Real Estates"
+        if self.account_for == "fermier" then
+            self.account_name = "Ferme"
         elseif self.account_for == "police" then
             self.account_name = "Police"
         elseif self.account_for == "ems" then
