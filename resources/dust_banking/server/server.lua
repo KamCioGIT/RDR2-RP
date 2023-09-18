@@ -185,7 +185,7 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
-    local currentCash = xPlayer.GetBankMoney
+    local currentCash = xPlayer.GetBankMoney()
 
     if tonumber(amount) <= currentCash then
         local cash = xPlayer.RemoveBankMoney(tonumber(amount), 'banking-quick-withdraw')
