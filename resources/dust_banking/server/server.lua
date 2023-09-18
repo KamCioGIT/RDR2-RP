@@ -144,7 +144,7 @@ RedEM.RegisterCallback('qbr-banking:getBankingInformation', function(source, cb)
                     ['name'] = xPlayer.firstname .. ' ' .. xPlayer.lastname,
                     ['bankbalance'] = '$'.. format_int(xPlayer.bankmoney),
                     ['cash'] = '$'.. format_int(xPlayer.money),
-                    ['accountinfo'] = XPlayer.pobox,
+                    ['accountinfo'] = 'N°' ..tostring(XPlayer.pobox),
                 }
                 --[[
                 if savingsAccounts[xPlayer.PlayerData.citizenid] then
