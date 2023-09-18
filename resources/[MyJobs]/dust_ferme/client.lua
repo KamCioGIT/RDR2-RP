@@ -138,7 +138,7 @@ function GetRandomRessourcePoint()
             if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 100 then
                 tempweath = CreateObject(GetHashKey("crp_wheat_dry_aa_sim"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
                 PlaceObjectOnGroundProperly(tempweath)
-                return
+                break
             end
         end
     end)
@@ -160,13 +160,13 @@ function StartMining()
     TaskPlayAnim(playerPed, Config.GatherDict, Config.GatherAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
     isInteracting = true
     Wait(Config.WorkingTime)
+    DeleteEntity(tempweath)
     FreezeEntityPosition(playerPed, false)
     TaskPlayAnim(playerPed, Config.GatherDict, "stn_exit", 1.0, 1.0, -1, 2, 0, false, false, false)
     Wait(500)
     ClearPedTasks(playerPed)
     GivePlayerRessource()
     isInteracting = false
-    DeleteEntity(tempweath)
     GetRandomRessourcePoint()
 end
 
