@@ -396,6 +396,7 @@ AddEventHandler('qbr-banking:server:registerSavingsAccount', function(cid)
 end)
 
 function createSavingsAccount(cid)
+    print 'ouais la zone'
     local completed = false
     local success = false
     local getSavingsAccount = MySQL.query.await('SELECT * FROM bank_accounts WHERE citizenid = ? AND account_type = ? ', { cid, "Savings" })
