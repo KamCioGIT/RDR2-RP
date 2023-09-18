@@ -61,6 +61,7 @@ ensure dust_camp
 ensure dust_vault
 ensure dust_usine
 ensure dust_mineur
+ensure dust_ferme
 ensure ts-trains
 -- ensure dust_rumors
 ensure [GUM]
