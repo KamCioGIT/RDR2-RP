@@ -61,51 +61,51 @@ window.addEventListener("message", function (event) {
         $("#bankingContainer").css({"display":"block"});
 
     }    
-    // else if(event.data.status == "openbusiness") {
-    //     $("#savingsStatement").DataTable().destroy();
-    //     $("#currentStatement").DataTable().destroy();
-    //     $("#accountName").html(event.data.information.name)
-    //     $("#accountNumber").html(event.data.information.accountinfo);
+    else if(event.data.status == "openbusiness") {
+        $("#savingsStatement").DataTable().destroy();
+        $("#currentStatement").DataTable().destroy();
+        $("#accountName").html(event.data.information.name)
+        $("#accountNumber").html(event.data.information.accountinfo);
 
-    //     $("#businessHome-tab").addClass('active');
-    //     $("#businessWithdraw-tab").removeClass('active');
-    //     $("#businessDeposit-tab").removeClass('active');
-    //     $("#businessTransfer-tab").removeClass('active');
-    //     $("#businessStatement-tab").removeClass('active');
-    //     $("#businessActions-tab").removeClass('active');
-    //     $("#businessSavings-tab").removeClass('active');
-    //     $("#businessHome").addClass('active').addClass('show');
-    //     $("#businessWithdraw").removeClass('active').removeClass('show');
-    //     $("#businessSavings").removeClass('active').removeClass('show');
-    //     $("#businessDeposit").removeClass('active').removeClass('show');
-    //     $("#businessTransfer").removeClass('active').removeClass('show');
-    //     $("#businessStatement").removeClass('active').removeClass('show');
-    //     $("#businessActions").removeClass('active').removeClass('show');
+        $("#bankingHome-tab").addClass('active');
+        $("#bankingWithdraw-tab").removeClass('active');
+        $("#bankingDeposit-tab").removeClass('active');
+        $("#bankingTransfer-tab").removeClass('active');
+        $("#bankingStatement-tab").removeClass('active');
+        $("#bankingActions-tab").removeClass('active');
+        $("#bankingSavings-tab").removeClass('active');
+        $("#bankingHome").addClass('active').addClass('show');
+        $("#bankingWithdraw").removeClass('active').removeClass('show');
+        $("#bankingSavings").removeClass('active').removeClass('show');
+        $("#bankingDeposit").removeClass('active').removeClass('show');
+        $("#bankingTransfer").removeClass('active').removeClass('show');
+        $("#bankingStatement").removeClass('active').removeClass('show');
+        $("#bankingActions").removeClass('active').removeClass('show');
 
-    //     $("#savingsStatementContents").html('');
-    //     $("#savingsBalance").html('');
-    //     $("#accountName2").html('');
-    //     $("#saccountNumber").html('');
-    //     $("#savingAccountCreator").css({"display":"block"});
-    //     $("#savingsQuicky1").css({"display":"none"});
-    //     $("#bankingSavings-tab").css({"display":"none"});
-    //     $("#savingsQuicky2").css({"display":"none"});
-    //     if(event.data.information.savings !== undefined && event.data.information.savings !== null) {
-    //         setupSavingsMenu(event.data.information.savings, event.data.information.name);
-    //     } else {
-    //         enableSavingsCreator();
-    //     }
-    //     if(event.data.information.cardInformation !== undefined && event.data.information.cardInformation !== null) {
-    //         $('#cardType').html(event.data.information.cardInformation.type)
-    //         var str = ""+ event.data.information.cardInformation.cardNumber + "";
-    //         var res = str.slice(12);
-    //         var cardNumber = "************" + res;
-    //         $('#cardNumberShow').html(cardNumber)
-    //     }
-    //     populateBanking(event.data.information);
-    //     $("#businessContainer").css({"display":"block"});
+        $("#savingsStatementContents").html('');
+        $("#savingsBalance").html('');
+        $("#accountName2").html('');
+        $("#saccountNumber").html('');
+        $("#savingAccountCreator").css({"display":"block"});
+        $("#savingsQuicky1").css({"display":"none"});
+        $("#bankingSavings-tab").css({"display":"none"});
+        $("#savingsQuicky2").css({"display":"none"});
+        if(event.data.information.savings !== undefined && event.data.information.savings !== null) {
+            setupSavingsMenu(event.data.information.savings, event.data.information.name);
+        } else {
+            enableSavingsCreator();
+        }
+        if(event.data.information.cardInformation !== undefined && event.data.information.cardInformation !== null) {
+            $('#cardType').html(event.data.information.cardInformation.type)
+            var str = ""+ event.data.information.cardInformation.cardNumber + "";
+            var res = str.slice(12);
+            var cardNumber = "************" + res;
+            $('#cardNumberShow').html(cardNumber)
+        }
+        populateBanking(event.data.information);
+        $("#bankingContainer").css({"display":"block"});
 
-    // }
+    }
     else if (event.data.status == "updateCard") {
         $('#cardType').html(event.data.cardtype)
         var str = ""+ event.data.number + "";
@@ -194,7 +194,7 @@ function setupSavingsMenu(data, name)
             balance = '<span class="text-dark">$' + statement.balance + '</span>';
         } else if(statement.balance > 0) {
             balance = '<span class="text-success">$' + statement.balance + '</span>';
-        } else {business
+        } else {
             balance = '<span class="text-danger">$' + statement.balance + '</span>';
         }
         $("#savingsStatementContents").append('<tr class="statement"><td><small>' + statement.date + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>$' + withdraw + '</small></td><td class="text-center text-success"><small>$' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
@@ -226,13 +226,10 @@ function populateBanking(data)
     $('#withdrawAmount').val('');
     $("#customerName").html(data.name);
     $("#currentBalance").html(data.bankbalance);
-    $("#currentBusinessBalance").html(data.bankbalance);
     $("#currentCashBalance").html(data.cash);
     $("#currentBalance1").html(data.bankbalance);
-    $("#currentBusinessBalance1").html(data.bankbalance);
     $("#currentCashBalance1").html(data.cash);
     $("#currentBalance2").html(data.bankbalance);
-    $("#currentBusinessBalance2").html(data.bankbalance);
     $("#currentCashBalance2").html(data.cash);
     $("#currentStatementContents").html('');
     if(data.cardInformation !== undefined) {
