@@ -55,7 +55,7 @@ function openBusinessScreen()
             InBank = true
             SetNuiFocus(true, true)
             SendNUIMessage({
-                status = "openbank",
+                status = "openbusiness",
                 information = businessinfo
             })
 
