@@ -19,7 +19,7 @@ function generateCurrent(cid)
     self.saveAccount = function()
         local success
         local processed = false
-        MySQL.query("UPDATE `bank_accounts` SET `amount` = ? WHERE `character_id` = ? ", { self.balance, self.charid }, function(success1)
+        MySQL.query("UPDATE `bank_accounts` SET `amount` = ? WHERE `citizenid` = ? ", { self.balance, self.charid }, function(success1)
             if success1 > 0 then
                 success = true
             else
@@ -67,11 +67,9 @@ function generateCurrent(cid)
             if successBank then
                 local time = os.date("%Y-%m-%d %H:%M:%S")
                 -- TODO: The nil value might not be accepted by the sql handler here
-                MySQL.insert.await("INSERT INTO `bank_statements` (`account`, `character_id`, `account_number`, `sort_code`, `deposited`, `withdraw`, `balance`, `date`, `type`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", {
-                    "Current",
+                MySQL.insert.await("INSERT INTO `bank_statements` (`account`, `citizenid`, `deposited`, `withdraw`, `balance`, `date`, `type`) VALUES (?, ?, ?, ?, ?, ?, ?)", {
+                    "Savings",
                     self.charid,
-                    self.account,
-                    self.sortcode,
                     amt,
                     nil,
                     self.balance,
