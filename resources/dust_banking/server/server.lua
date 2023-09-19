@@ -170,8 +170,8 @@ RedEM.RegisterCallback('qbr-banking:getBusinessInformation', function(source, cb
         local accts = MySQL.query.await('SELECT * FROM bank_accounts WHERE business = ?', { job })
         buis = #accts
         if accts[1] ~= nil then
-            print 'res'
             for k, v in pairs(accts) do
+                print (v.amount, v.businessid)
                 local businessinfo = {
                         ['name'] = xPlayer.firstname .. ' ' .. xPlayer.lastname,
                         ['bankbalance'] = '$'.. format_int(v.amount),
