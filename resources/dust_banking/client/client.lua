@@ -51,7 +51,6 @@ AddEventHandler('qbr-banking:openBusinessScreen', function()
 end)
 function openBusinessScreen()
     RedEM.TriggerCallback('qbr-banking:getBusinessInformation', function(businessinfo)
-        print 'yyy'
         if businessinfo ~= nil then
             InBank = true
             SetNuiFocus(true, true)
@@ -93,7 +92,7 @@ Citizen.CreateThread(function()
                     TriggerEvent("qbr-banking:openBankScreen")
                 end
                 if IsControlJustReleased(0, 0xF3830D8E) then
-                    TriggerEvent("qbr-banking:openBusinessScreen")
+                    TriggerEvent("qbr-banking:openBankScreen")
                 end
             end 
         end
