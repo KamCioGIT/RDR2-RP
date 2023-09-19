@@ -87,6 +87,23 @@ button {
     display: none;
 }
 
+#bankingContainer2 {
+    padding-top: 55px;
+    padding-left: 125px;
+    padding-right: 125px;
+    padding-bottom: 75px;
+    background-size: cover;
+    background-size: 100% 100% !important;
+    width: 1100px !important;
+    height: 1000px !important;
+    font-family: 'Beau Rivage', cursive;
+    font-weight: 900;
+
+    background-image: url(./images/bkg.png);
+    letter-spacing: 0.25em;
+    display: none;
+}
+
 #v-pills-tabContent::-webkit-scrollbar,
 #v-pills-tabContent-atm::-webkit-scrollbar {
     width: 10px;
