@@ -283,6 +283,7 @@ AddEventHandler('qbr-banking:createBusinessAccount', function()
     local job = xPlayer.job
     local jobgrade = xPlayer.jobgrade
     if jobgrade == 3 then
+        print 'create'
         local success = createbusinessAccount(job)
         repeat Wait(0) until success ~= nil
         TriggerClientEvent('qbr-banking:openBankScreen', src)

@@ -328,7 +328,7 @@ $(function() {
         $.post('https://dust_banking/createSavingsAccount', JSON.stringify({ }));
     });
 
-    $("#openBusiness").click(function() {
+    $("#createBusiness").click(function() {
         $.post('https://dust_banking/createbusinessAccount', JSON.stringify({ }));
     });
 
