@@ -62,34 +62,45 @@ window.addEventListener("message", function (event) {
 
     }    
     else if(event.data.status == "openbusiness") {
-        $("#savingsStatement").DataTable().destroy();
-        $("#currentStatement").DataTable().destroy();
-        $("#accountName").html(event.data.information.name)
-        $("#accountNumber").html(event.data.information.accountinfo);
-
-        $("#bankingHome-tab").addClass('active');
-        $("#bankingWithdraw-tab").removeClass('active');
-        $("#bankingDeposit-tab").removeClass('active');
-        $("#bankingTransfer-tab").removeClass('active');
-        $("#bankingStatement-tab").removeClass('active');
-        $("#bankingActions-tab").removeClass('active');
-        $("#bankingSavings-tab").removeClass('active');
-        $("#bankingHome").addClass('active').addClass('show');
-        $("#bankingWithdraw").removeClass('active').removeClass('show');
-        $("#bankingSavings").removeClass('active').removeClass('show');
-        $("#bankingDeposit").removeClass('active').removeClass('show');
-        $("#bankingTransfer").removeClass('active').removeClass('show');
-        $("#bankingStatement").removeClass('active').removeClass('show');
-        $("#bankingActions").removeClass('active').removeClass('show');
-
-        $("#savingsStatementContents").html('');
-        $("#savingsBalance").html('');
-        $("#accountName2").html('');
-        $("#saccountNumber").html('');
-        $("#savingAccountCreator").css({"display":"block"});
-        $("#savingsQuicky1").css({"display":"none"});
-        $("#bankingSavings-tab").css({"display":"none"});
-        $("#savingsQuicky2").css({"display":"none"});
+                /*$("#cardDetails").css({"display":"none"});*/
+                $("#createNewPin").css({"display":"none"});
+                $("#successMessageATM").removeClass('alert-danger').addClass('alert-success');
+                $("#successRowATM").css({"display":"none"});
+                $("#successMessageATM").html('');
+                $("#withdrawATMError").css({"display":"none"});
+                $("#withdrawATMErrorMsg").html('');
+                $("#savingsStatement").DataTable().destroy();
+                $("#currentStatement").DataTable().destroy();
+                $("#currentStatementATM").DataTable().destroy();
+                $("#accountName").html(event.data.information.name)
+                $("#accountNumber").html(event.data.information.accountinfo);
+                // $("#accountSortCode").html(event.data.information.accountinfo.sort_code);
+        
+                $('#newPinNumber').val('');
+                $("#bankingHome-tab").addClass('active');
+                $("#bankingWithdraw-tab").removeClass('active');
+                $("#bankingDeposit-tab").removeClass('active');
+                $("#bankingTransfer-tab").removeClass('active');
+                $("#bankingStatement-tab").removeClass('active');
+                $("#bankingActions-tab").removeClass('active');
+                $("#bankingSavings-tab").removeClass('active');
+                $("#bankingHome").addClass('active').addClass('show');
+                $("#bankingWithdraw").removeClass('active').removeClass('show');
+                $("#bankingSavings").removeClass('active').removeClass('show');
+                $("#bankingDeposit").removeClass('active').removeClass('show');
+                $("#bankingTransfer").removeClass('active').removeClass('show');
+                $("#bankingStatement").removeClass('active').removeClass('show');
+                $("#bankingActions").removeClass('active').removeClass('show');
+        
+                $("#savingsStatementContents").html('');
+                $("#savingsBalance").html('');
+                $("#accountName2").html('');
+                $("#saccountNumber").html('');
+                // $("#saccountSortCode").html('');
+                $("#savingAccountCreator").css({"display":"block"});
+                $("#savingsQuicky1").css({"display":"none"});
+                $("#bankingSavings-tab").css({"display":"none"});
+                $("#savingsQuicky2").css({"display":"none"});
         if(event.data.information.savings !== undefined && event.data.information.savings !== null) {
             setupSavingsMenu(event.data.information.savings, event.data.information.name);
         } else {
