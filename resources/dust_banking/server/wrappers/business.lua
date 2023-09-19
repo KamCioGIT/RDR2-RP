@@ -19,16 +19,10 @@ function generatebusinessAccount(acc, sc, bid)
         self.balance = bankAccount[1].amount
         self.account_type = "business"
         self.account_for = bankAccount[1].business
-        if self.account_for == "fermier" then
-            self.account_name = "Ferme"
-        elseif self.account_for == "police" then
-            self.account_name = "Police"
-        elseif self.account_for == "ems" then
-            self.account_name = "EMS Medical Services"
-        elseif self.account_for == "taxi" then
-            self.account_name = "Taxi Services"
-        elseif self.account_for == "cardealer" then
-            self.account_name = "Car Dealership"
+        for k, v in pairs(Config.Businessaccount) do
+            if self.account_for == k then
+                self.account_name = v
+            end
         end
     end
         processed = true
