@@ -60,51 +60,8 @@ window.addEventListener("message", function (event) {
         populateBanking(event.data.information);
         $("#bankingContainer").css({"display":"block"});
 
-    }
-    else if (event.data.status == "updateCard") {
-        $('#cardType').html(event.data.cardtype)
-        var str = ""+ event.data.number + "";
-        var res = str.slice(12);
-        var cardNumber = "************" + res;
-        $('#cardNumberShow').html(cardNumber)
-    }
-    else if (event.data.status == "closebank") {
-        $("#cardDetails").css({"display":"none"});
-        $("#createNewPin").css({"display":"none"});
-        $("#bankingHomeATM, #bankingWithdrawATM, #bankingStatementATM").removeClass('show').removeClass('active');
-        $("#bankingHomeATM, #bankingWithdrawATM, #bankingStatementATM").removeClass('show').removeClass('active');
-        $("#withdrawATMErrorMsg").removeClass('alert-success').addClass('alert-danger');
-        $("#successMessageATM").removeClass('alert-danger').addClass('alert-success');
-        $("#successRowATM").css({"display":"none"});
-        $("#successMessageATM").html('');
-        $("#withdrawATMError").css({"display":"none"});
-        $("#withdrawATMErrorMsg").html('');
-        $("#savingsStatement").DataTable().destroy();
-        $("#currentStatement").DataTable().destroy();
-        $("#currentStatementATM").DataTable().destroy();
-        $("#enteringPin").addClass('show').addClass('active');
-        $("#bankingHomeATM-tab, #bankingWithdrawATM-tab, #bankingTransferATM-tab, #bankingStatementATM-tab").addClass('disabled').removeClass('active');
-        $("#bankingHomeATM-tab").addClass('active');
-        $("#createNewPin").css({"display":"block"});
-        $("#successRow").css({"display":"none"});
-        $("#successMessage").html('');
-        $("#bankingContainer").css({"display":"none"});
-        $("#savingsQuicky").css({"display":"none"});
-        $("#savingAccountCreator").css({"display":"none"});
-        $("#ATMContainer").css({"display":"none"});
-    } else if (event.data.status == "transferError") { 
-        if(event.data.error !== undefined) {
-            $("#transferError").css({"display":"block"});
-            $("#transferErrorMsg").html(event.data.error);
-        }
-    } else if (event.data.status == "successMessage") { 
-        if(event.data.message !== undefined) {
-            $("#successRow").css({"display":"block"});
-            $("#successMessage").html(event.data.message);
-        }
-    }
-
-    if(event.data.status == "openbusiness") {
+    }    
+    else if(event.data.status == "openbusiness") {
         /*$("#cardDetails").css({"display":"none"});*/
         $("#createNewPin").css({"display":"none"});
         $("#successMessageATM").removeClass('alert-danger').addClass('alert-success');
@@ -160,6 +117,50 @@ window.addEventListener("message", function (event) {
         $("#bankingContainer").css({"display":"block"});
 
     }
+    else if (event.data.status == "updateCard") {
+        $('#cardType').html(event.data.cardtype)
+        var str = ""+ event.data.number + "";
+        var res = str.slice(12);
+        var cardNumber = "************" + res;
+        $('#cardNumberShow').html(cardNumber)
+    }
+    else if (event.data.status == "closebank") {
+        $("#cardDetails").css({"display":"none"});
+        $("#createNewPin").css({"display":"none"});
+        $("#bankingHomeATM, #bankingWithdrawATM, #bankingStatementATM").removeClass('show').removeClass('active');
+        $("#bankingHomeATM, #bankingWithdrawATM, #bankingStatementATM").removeClass('show').removeClass('active');
+        $("#withdrawATMErrorMsg").removeClass('alert-success').addClass('alert-danger');
+        $("#successMessageATM").removeClass('alert-danger').addClass('alert-success');
+        $("#successRowATM").css({"display":"none"});
+        $("#successMessageATM").html('');
+        $("#withdrawATMError").css({"display":"none"});
+        $("#withdrawATMErrorMsg").html('');
+        $("#savingsStatement").DataTable().destroy();
+        $("#currentStatement").DataTable().destroy();
+        $("#currentStatementATM").DataTable().destroy();
+        $("#enteringPin").addClass('show').addClass('active');
+        $("#bankingHomeATM-tab, #bankingWithdrawATM-tab, #bankingTransferATM-tab, #bankingStatementATM-tab").addClass('disabled').removeClass('active');
+        $("#bankingHomeATM-tab").addClass('active');
+        $("#createNewPin").css({"display":"block"});
+        $("#successRow").css({"display":"none"});
+        $("#successMessage").html('');
+        $("#bankingContainer").css({"display":"none"});
+        $("#savingsQuicky").css({"display":"none"});
+        $("#savingAccountCreator").css({"display":"none"});
+        $("#ATMContainer").css({"display":"none"});
+    } else if (event.data.status == "transferError") { 
+        if(event.data.error !== undefined) {
+            $("#transferError").css({"display":"block"});
+            $("#transferErrorMsg").html(event.data.error);
+        }
+    } else if (event.data.status == "successMessage") { 
+        if(event.data.message !== undefined) {
+            $("#successRow").css({"display":"block"});
+            $("#successMessage").html(event.data.message);
+        }
+    }
+
+
 });
 
 function dynamicSort(property) {
