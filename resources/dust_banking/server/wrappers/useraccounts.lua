@@ -211,12 +211,13 @@ function generateSavings(cid)
 
     rTable.AddMoney = function(amt, text)
         if type(amt) == "number" and text then
+            print 'olé'
             self.balance = self.balance + amt
             local success = self.saveAccount()
             local time = os.date("%Y-%m-%d %H:%M:%S")
             MySQL.insert.await('INSERT INTO bank_statements (citizenid, account, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
                 self.charid,
-                'Saving',
+                'Savings',
                 amt,
                 0,
                 self.balance,
