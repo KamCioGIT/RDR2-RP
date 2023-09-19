@@ -67,20 +67,20 @@ window.addEventListener("message", function (event) {
         $("#accountName").html(event.data.information.name)
         $("#accountNumber").html(event.data.information.accountinfo);
 
-        $("#bankingHome-tab").addClass('active');
-        $("#bankingWithdraw-tab").removeClass('active');
-        $("#bankingDeposit-tab").removeClass('active');
-        $("#bankingTransfer-tab").removeClass('active');
-        $("#bankingStatement-tab").removeClass('active');
-        $("#bankingActions-tab").removeClass('active');
-        $("#bankingSavings-tab").removeClass('active');
-        $("#bankingHome").addClass('active').addClass('show');
-        $("#bankingWithdraw").removeClass('active').removeClass('show');
-        $("#bankingSavings").removeClass('active').removeClass('show');
-        $("#bankingDeposit").removeClass('active').removeClass('show');
-        $("#bankingTransfer").removeClass('active').removeClass('show');
-        $("#bankingStatement").removeClass('active').removeClass('show');
-        $("#bankingActions").removeClass('active').removeClass('show');
+        $("#businessHome-tab").addClass('active');
+        $("#businessWithdraw-tab").removeClass('active');
+        $("#businessDeposit-tab").removeClass('active');
+        $("#businessTransfer-tab").removeClass('active');
+        $("#businessStatement-tab").removeClass('active');
+        $("#businessActions-tab").removeClass('active');
+        $("#businessSavings-tab").removeClass('active');
+        $("#businessHome").addClass('active').addClass('show');
+        $("#businessWithdraw").removeClass('active').removeClass('show');
+        $("#businessSavings").removeClass('active').removeClass('show');
+        $("#businessDeposit").removeClass('active').removeClass('show');
+        $("#businessTransfer").removeClass('active').removeClass('show');
+        $("#businessStatement").removeClass('active').removeClass('show');
+        $("#businessActions").removeClass('active').removeClass('show');
 
         $("#savingsStatementContents").html('');
         $("#savingsBalance").html('');
@@ -103,7 +103,7 @@ window.addEventListener("message", function (event) {
             $('#cardNumberShow').html(cardNumber)
         }
         populateBanking(event.data.information);
-        $("#bankingContainer2").css({"display":"block"});
+        $("#bankingContainer").css({"display":"block"});
 
     }
     else if (event.data.status == "updateCard") {
