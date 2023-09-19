@@ -166,11 +166,11 @@ RedEM.RegisterCallback('qbr-banking:getBusinessInformation', function(source, cb
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     local job = xPlayer.job
-    print (job)
     while xPlayer == nil do Wait(0) end
         local accts = MySQL.query.await('SELECT * FROM bank_accounts WHERE business = ?', { job })
         buis = #accts
         if accts[1] ~= nil then
+            print 'res'
             for k, v in pairs(accts) do
                 local businessinfo = {
                         ['name'] = xPlayer.firstname .. ' ' .. xPlayer.lastname,
