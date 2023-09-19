@@ -34,6 +34,7 @@ RegisterNUICallback("createSavingsAccount", function(data, cb)
 end)
 
 RegisterNUICallback("createbusinessAccount", function(data, cb)
+    print 'cb'
     TriggerServerEvent('qbr-banking:createbusinessAccount')
     TriggerEvent("debug", 'Banking: Create Business Account', 2000, 0, 'hud_textures', 'check')
 end)
