@@ -103,7 +103,7 @@ window.addEventListener("message", function (event) {
             $('#cardNumberShow').html(cardNumber)
         }
         populateBanking(event.data.information);
-        $("#bankingContainer").css({"display":"block"});
+        $("#bankingContainer2").css({"display":"block"});
 
     }
     else if (event.data.status == "updateCard") {
