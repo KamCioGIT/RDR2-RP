@@ -86,7 +86,6 @@ window.addEventListener("message", function (event) {
         $("#savingsBalance").html('');
         $("#accountName2").html('');
         $("#saccountNumber").html('');
-        // $("#saccountSortCode").html('');
         $("#savingAccountCreator").css({"display":"block"});
         $("#savingsQuicky1").css({"display":"none"});
         $("#bankingSavings-tab").css({"display":"none"});
@@ -104,7 +103,7 @@ window.addEventListener("message", function (event) {
             $('#cardNumberShow').html(cardNumber)
         }
         populateBanking(event.data.information);
-        $("#bankingContainer").css({"display":"block"});
+        $("#businessContainer").css({"display":"block"});
 
     }
     else if (event.data.status == "updateCard") {
