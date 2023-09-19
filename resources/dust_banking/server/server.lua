@@ -171,7 +171,6 @@ RedEM.RegisterCallback('qbr-banking:getBusinessInformation', function(source, cb
         buis = #accts
         if accts[1] ~= nil then
             for k, v in pairs(accts) do
-                print (v.amount, v.businessid)
                 local businessinfo = {
                         ['name'] = xPlayer.firstname .. ' ' .. xPlayer.lastname,
                         ['bankbalance'] = '$'.. format_int(v.amount),
