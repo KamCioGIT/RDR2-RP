@@ -15,7 +15,7 @@ Citizen.CreateThread(function()
             if businessAccounts[acctType] == nil then
                 businessAccounts[acctType] = {}
             end
-            businessAccounts[acctType][tonumber(v.businessid)] = generateBusinessAccount(tonumber(v.account_number), tonumber(v.sort_code), tonumber(v.businessid))
+            businessAccounts[acctType][tonumber(v.businessid)] = generatebusinessAccount(tonumber(v.business), tonumber(v.businessid))
             while businessAccounts[acctType][tonumber(v.businessid)] == nil do Wait(0) end
         end
     end
@@ -162,6 +162,37 @@ RedEM.RegisterCallback('qbr-banking:getBankingInformation', function(source, cb)
         end
 end)
 
+RedEM.RegisterCallback('qbr-banking:getBusinessInformation', function(source, cb)
+    local src = source
+    local xPlayer = RedEM.GetPlayer(src)
+    local job = xPlayer.job
+    while xPlayer == nil do Wait(0) end
+        local accts = MySQL.query.await('SELECT * FROM bank_accounts WHERE business = ?', { job })
+        buis = #accts
+        if accts[1] ~= nil then
+            for k, v in pairs(accts) do
+                local banking = {
+                        ['name'] = xPlayer.firstname .. ' ' .. xPlayer.lastname,
+                        ['bankbalance'] = '$'.. format_int(v.amount),
+                        ['cash'] = '$'.. format_int(xPlayer.money),
+                        ['accountinfo'] = 'N°'..tostring(xPlayer.businessid),
+                    }
+                    --[[
+                    if savingsAccounts[xPlayer.PlayerData.citizenid] then
+                        local cid = xPlayer.PlayerData.citizenid
+                        banking['savings'] = {
+                            ['amount'] = savingsAccounts[cid].GetBalance(),
+                            ['details'] = savingsAccounts[cid].getAccount(),
+                            ['statement'] = savingsAccounts[cid].getStatement(),
+                        }
+                    end
+                    ]]
+                    cb(banking)
+            else
+                cb(nil)
+            end
+end)
+
 RegisterServerEvent('qbr-banking:doQuickDeposit')
 AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
     local src = source
@@ -242,7 +273,18 @@ AddEventHandler('qbr-banking:createSavingsAccount', function()
 
     repeat Wait(0) until success ~= nil
     TriggerClientEvent('qbr-banking:openBankScreen', src)
-    TriggerClientEvent('qbr-banking:successAlert', src, 'You have successfully opened a savings account.')
-    -- TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', "lightgreen", "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** opened a savings account")
+end)
+
+RegisterServerEvent('qbr-banking:createBusinessAccount')
+AddEventHandler('qbr-banking:createBusinessAccount', function()
+    local src = source
+    local xPlayer = RedEM.GetPlayer(src)
+    local job = xPlayer.job
+    local jobgrade = xPlayer.jobgrade
+    if jobgrade == 3 then
+        local success = createbusinessAccount(job)
+        repeat Wait(0) until success ~= nil
+        TriggerClientEvent('qbr-banking:openBankScreen', src)
+    end
 end)
 

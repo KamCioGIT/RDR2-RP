@@ -45,8 +45,28 @@ AddEventHandler('qbr-banking:openBankScreen', function()
     openAccountScreen()
 end)
 
+RegisterNetEvent('qbr-banking:openBusinessScreen')
+AddEventHandler('qbr-banking:openBusinessScreen', function()
+    openBusinessScreen()
+end)
+function openBusinessScreen()
+    RedEM.TriggerCallback('qbr-banking:getBusinessInformation', function(businessinfo)
+        if businessinfo ~= nil then
+            InBank = true
+            SetNuiFocus(true, true)
+            SendNUIMessage({
+                status = "openbusiness",
+                information = businessinfo
+            })
+
+            TriggerEvent("debug", 'Banking: Open UI', 2000, 0, 'hud_textures', 'check')
+        end
+    end)
+end
+
 local bankprompt = UipromptGroup:new("Banque")
-Uiprompt:new(0x760A9C6F, "Ouvrir", bankprompt)
+Uiprompt:new(0x760A9C6F, "Compte personnel", bankprompt)
+Uiprompt:new(0xF3830D8E, "Compte d'entreprise", bankprompt)
 bankprompt:setActive(false)
 
 Citizen.CreateThread(function()
@@ -70,6 +90,9 @@ Citizen.CreateThread(function()
                 bankprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     TriggerEvent("qbr-banking:openBankScreen")
+                end
+                if IsControlJustReleased(0, 0xF3830D8E) then
+                    TriggerEvent("qbr-banking:openBusinessScreen")
                 end
             end 
         end
