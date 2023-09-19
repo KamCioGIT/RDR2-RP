@@ -282,8 +282,8 @@ AddEventHandler('qbr-banking:createBusinessAccount', function()
     local xPlayer = RedEM.GetPlayer(src)
     local job = xPlayer.job
     local jobgrade = xPlayer.jobgrade
+    print 'create'
     if jobgrade == 3 then
-        print 'create'
         local success = createbusinessAccount(job)
         repeat Wait(0) until success ~= nil
         TriggerClientEvent('qbr-banking:openBankScreen', src)
