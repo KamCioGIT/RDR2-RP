@@ -188,9 +188,10 @@ RedEM.RegisterCallback('qbr-banking:getBusinessInformation', function(source, cb
                     end
                     ]]
                     cb(banking)
-            else
-                cb(nil)
             end
+        else
+            cb(nil)
+        end
 end)
 
 RegisterServerEvent('qbr-banking:doQuickDeposit')
