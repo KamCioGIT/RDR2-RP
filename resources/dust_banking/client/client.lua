@@ -92,7 +92,7 @@ Citizen.CreateThread(function()
                     TriggerEvent("qbr-banking:openBankScreen")
                 end
                 if IsControlJustReleased(0, 0xF3830D8E) then
-                    TriggerEvent("qbr-banking:openBankScreen")
+                    TriggerEvent("qbr-banking:openBusinessScreen")
                 end
             end 
         end
