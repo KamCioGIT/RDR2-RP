@@ -2225,7 +2225,7 @@ end
 exports("checkuserweight", checkuserweight)
 
 RegisterServerEvent("redemrp_inventory:ChangeWaterAmmount")
-AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(water, meta, type)
+AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
     local _source = source
     local _table = table
     local Player = RedEM.GetPlayer(_source)
@@ -2237,7 +2237,11 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(water, meta, ty
         if item then
             print 'e'
             if type == "remplir" then
-                    item.setMeta({water = 100})
+                if quality == "croupie"
+                    item.setMeta({water = 100, quality = "croupie"})
+                elseif quality == "potable" then
+                    item.setMeta({water = 100, quality = "potable"})
+                end
             end
             if type == "boire" then
                 local meta = item.getMeta()

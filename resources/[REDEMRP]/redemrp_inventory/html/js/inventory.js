@@ -210,10 +210,10 @@ function createObjectBox(object) {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Contrat de travail de " + object.meta.job + " de " + object.meta.name + "`)    ");
     } else if(object.name == "transferhorse") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.name + "`, `Certificat du cheval " + object.meta.horseid + "`)");
-    } else if(object.name == "wateringcan") {
+    } else if(object.name == "gourde") {
         if(object.meta.water != undefined && object.meta.water != null) {
             var waterdisp = object.meta.water * 10;
-            boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `A watering can (" + waterdisp.toFixed(0) + "% Full)`)    ");
+            boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Remplie à (" + object.meta.water + "% d'eau "  + object.meta.quality + "`)    ");
         }
     } else if(object.name == "canteen") {
         if(object.meta.water != undefined && object.meta.water != null) {
