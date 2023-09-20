@@ -289,4 +289,3 @@ AddEventHandler('qbr-banking:createBusinessAccount', function()
         TriggerClientEvent('qbr-banking:openBankScreen', src)
     end
 end)
-
