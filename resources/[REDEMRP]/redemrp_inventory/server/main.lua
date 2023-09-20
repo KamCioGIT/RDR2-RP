@@ -2224,9 +2224,9 @@ function checkuserweight(id, char)
 end
 exports("checkuserweight", checkuserweight)
 
-RegisterServerEvent("redemrp_inventory:ChangeAmmoAmount")
+RegisterServerEvent("redemrp_inventory:ChangeWaterAmmount")
 AddEventHandler(
-    "redemrp_inventory:ChangeAmmoAmount",
+    "redemrp_inventory:ChangeWaterAmmount",
     function(water, meta, type)
         local _source = source
         local _table = table
@@ -2240,7 +2240,7 @@ AddEventHandler(
                 if item then
                     item.setMeta({water = 100})
                 end
-            elseif type = "boire" then
+            else if type == "boire" then
                 newwater = water - 20
                 if item then
                     item.setMeta({water = newwater})
