@@ -2239,9 +2239,12 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(water, meta, ty
                 item.setMeta({water = 100})
             end
         elseif type == "boire" then
-            newwater = water - 20
             if item then
-                item.setMeta({water = newwater})
+                if item.meta.water >= 20 then
+                    newwater = item.meta.water - 20
+                    item.setMeta({water = newwater})
+                    ---- action de boire et application de la soif
+                end
             end
         end
     end
