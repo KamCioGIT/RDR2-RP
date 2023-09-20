@@ -492,3 +492,9 @@ function Boire(eau, meta)
     TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", eau, meta, "boire")
     Gourding = false
 end
+
+
+RegisterNetEvent("dust_camp:boire", function()
+    --- anim
+    TriggerServerEvent('redemrp_status:server:AddHungerThirst', 0 , 60)
+end)
