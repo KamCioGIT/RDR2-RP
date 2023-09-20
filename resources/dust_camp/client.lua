@@ -436,24 +436,29 @@ gourdeprompt:setActive(false)
 
 
 RegisterNetEvent("dust_camp:getgourde", function(_water, metagourde)
-    Gourde = true
-    water = _water
-    _metagourde = metagourde
-    SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
-    if not Prop then
-        local playerPed = PlayerPedId()
-        local pc = GetEntityCoords(playerPed)
-        local pname = 'p_gourdwater01x'
-        RequestAnimDict("SCRIPT_RE@GOLD_PANNER@GOLD_SUCCESS")
-        while not HasAnimDictLoaded("SCRIPT_RE@GOLD_PANNER@GOLD_SUCCESS") do
-            Citizen.Wait(50)
-        end
-        if IsPedMale(playerPed) then
-            Prop = CreateObject(GetHashKey(pname), pc.x, pc.y, pc.z + 0.2, true, true, true)
-            AttachEntityToEntity(Prop, playerPed, GetEntityBoneIndexByName(playerPed, "SKEL_R_Finger12"), 0.150, -0.03, 0.010, 90.0, -60.0, -30.0, true, true, false, true, 1, true)
-        else
-            Prop = CreateObject(GetHashKey(pname), pc.x, pc.y, pc.z + 0.2, true, true, true)
-            AttachEntityToEntity(Prop, playerPed, 387, 0.150, -0.03, 0.010, 90.0, -60.0, -30.0, true, true, false, true, 1, true)
+    if Gourde == true then
+        DeleteEntity(Prop)
+        Gourde = false
+    else
+        Gourde = true
+        water = _water
+        _metagourde = metagourde
+        SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
+        if not Prop then
+            local playerPed = PlayerPedId()
+            local pc = GetEntityCoords(playerPed)
+            local pname = 'p_gourdwater01x'
+            RequestAnimDict("SCRIPT_RE@GOLD_PANNER@GOLD_SUCCESS")
+            while not HasAnimDictLoaded("SCRIPT_RE@GOLD_PANNER@GOLD_SUCCESS") do
+                Citizen.Wait(50)
+            end
+            if IsPedMale(playerPed) then
+                Prop = CreateObject(GetHashKey(pname), pc.x, pc.y, pc.z + 0.2, true, true, true)
+                AttachEntityToEntity(Prop, playerPed, GetEntityBoneIndexByName(playerPed, "SKEL_R_Finger12"), 0.150, -0.03, 0.010, 90.0, -60.0, -30.0, true, true, false, true, 1, true)
+            else
+                Prop = CreateObject(GetHashKey(pname), pc.x, pc.y, pc.z + 0.2, true, true, true)
+                AttachEntityToEntity(Prop, playerPed, 387, 0.150, -0.03, 0.010, 90.0, -60.0, -30.0, true, true, false, true, 1, true)
+            end
         end
     end
 end)
