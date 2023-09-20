@@ -467,15 +467,13 @@ Citizen.CreateThread(function()
             RemoveAllPedWeapons(PlayerPedId(), true)
 
             if IsControlJustReleased(0, 0x5181713D) and not Gourding then
-                if IsEntityInWater(PlayerPedId()) then
                     Boire(water, _metagourde)
-                end
             end
 
             if gourdeprompt:hasHoldModeJustCompleted() and not Gourding then
-                Gourde = false
-                Remplirgourde(water, _metagourde)
-                Prop = nil
+                if IsEntityInWater(PlayerPedId()) then
+                    Remplirgourde(water, _metagourde)
+                end
             end
         end
     end
