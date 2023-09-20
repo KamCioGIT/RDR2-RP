@@ -2238,7 +2238,8 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(water, meta, ty
             if item then
                 item.setMeta({water = 100})
             end
-        elseif type == "boire" then
+        end
+        if type == "boire" then
             if item then
                 print (item.meta.water)
                 if tonumber(item.meta.water) >= 20 then
