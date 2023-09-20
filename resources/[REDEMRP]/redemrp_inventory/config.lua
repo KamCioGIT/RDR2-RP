@@ -855,6 +855,17 @@ Config.Items = {
         imgsrc = "items/stick.png",
         type = "item_standard",
     },
+    ["gourde"] = {
+        label = "Gourde",
+        description = "Avec ou sans modération, à vous de voir",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/stick.png",
+        type = "item_standard",
+    },
     
 
     --- VAULT

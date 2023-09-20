@@ -2223,3 +2223,29 @@ function checkuserweight(id, char)
     return weight
 end
 exports("checkuserweight", checkuserweight)
+
+RegisterServerEvent("redemrp_inventory:ChangeAmmoAmount")
+AddEventHandler(
+    "redemrp_inventory:ChangeAmmoAmount",
+    function(water, meta, type)
+        local _source = source
+        local _table = table
+        local Player = RedEM.GetPlayer(_source)
+        if Player then
+            local identifier = Player.GetIdentifier()
+            local charid = Player.GetActiveCharacter()
+            local player_inventory = Inventory[identifier .. "_" .. charid]
+            local item, id = getInventoryItemFromName("gourde", player_inventory, meta)
+            if type == "remplir" then
+                if item then
+                    item.setMeta({water = 100})
+                end
+            elseif type = "boire" then
+                newwater = water - 20
+                if item then
+                    item.setMeta({water = newwater})
+                end
+            end
+        end
+    end
+)

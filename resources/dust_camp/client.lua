@@ -5,34 +5,10 @@ local spawncamp = false
 local spawngrill = false
 local spawncauldron= false
 
-local CampPromptGroup = GetRandomIntInRange(0, 0xffffff)
-local CampPromptName = CreateVarString(10, "LITERAL_STRING", "Feu de camp")
-local CancelPrompt
-local CampPrompt
-Citizen.CreateThread(function()
-    local str = 'Cuisiner'
-    CampPrompt = PromptRegisterBegin()
-    PromptSetControlAction(CampPrompt, 0x5181713D)
-    str = CreateVarString(10, 'LITERAL_STRING', str)
-    PromptSetText(CampPrompt, str)
-    PromptSetEnabled(CampPrompt, true)
-    PromptSetVisible(CampPrompt, true)
-    PromptSetHoldMode(CampPrompt, false)
-    PromptSetGroup(CampPrompt, CampPromptGroup)
-    PromptRegisterEnd(CampPrompt)
-
-    str = 'Démonter'
-    CancelPrompt = PromptRegisterBegin()
-    PromptSetControlAction(CancelPrompt, 0x8E90C7BB)
-    str = CreateVarString(10, 'LITERAL_STRING', str)
-    PromptSetText(CancelPrompt, str)
-    PromptSetEnabled(CancelPrompt, true)
-    PromptSetVisible(CancelPrompt, true)
-    PromptSetHoldMode(CancelPrompt, true)
-    PromptSetGroup(CancelPrompt, CampPromptGroup)
-    PromptRegisterEnd(CancelPrompt)
-end)
-
+local campprompt = UipromptGroup:new("Feu de camp")
+Uiprompt:new(0x5181713D, "Cuisiner", campprompt)
+Uiprompt:new(0x8E90C7BB, "Démonter", campprompt):setHoldMode(true)
+campprompt:setActive(false)
 
 Citizen.CreateThread(function()
     while true do
@@ -45,7 +21,7 @@ Citizen.CreateThread(function()
         if campfire ~= 0 then
             local objectPos = GetEntityCoords(campfire)
             if #(pos - objectPos) < 1.5 and not isInteracting then
-                PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
+                campprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x5181713D) then
                     isInteracting = true
                     local playerPed = PlayerPedId()
@@ -60,7 +36,7 @@ Citizen.CreateThread(function()
                     Citizen.Wait(3000)
                     TriggerServerEvent("camp:RequestCampMenu",'fire')
                 end
-                if PromptHasHoldModeCompleted(CancelPrompt) and not isInteracting then
+                if campprompt:hasHoldModeJustCompleted() and not isInteracting then
                     local playerPed = PlayerPedId()
                     RequestAnimDict(Config.MenuDict)
                     while not HasAnimDictLoaded(Config.MenuDict) do
@@ -91,7 +67,7 @@ Citizen.CreateThread(function()
         if cookgrill ~= 0 then
             local objectPos = GetEntityCoords(cookgrill)
             if  #(pos - objectPos) < 1.5 and not isInteracting then
-                PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
+                campprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x5181713D) then
                     isInteracting = true
                     local playerPed = PlayerPedId()
@@ -106,7 +82,7 @@ Citizen.CreateThread(function()
                     Citizen.Wait(3000)
                     TriggerServerEvent("camp:RequestCampMenu",'grill')
                 end
-                if PromptHasHoldModeCompleted(CancelPrompt) and not isInteracting then
+                if campprompt:hasHoldModeJustCompleted() and not isInteracting then
                     local playerPed = PlayerPedId()
                     RequestAnimDict(Config.MenuDict)
                     while not HasAnimDictLoaded(Config.MenuDict) do
@@ -137,7 +113,7 @@ Citizen.CreateThread(function()
         if cauldron ~= 0 then
             local objectPos = GetEntityCoords(cauldron)
             if #(pos - objectPos) < 1.5 and not isInteracting then
-                PromptSetActiveGroupThisFrame(CampPromptGroup, CampPromptName)
+                campprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x5181713D) then
                     isInteracting = true
                     local playerPed = PlayerPedId()
@@ -152,7 +128,7 @@ Citizen.CreateThread(function()
                     Citizen.Wait(3000)
                     TriggerServerEvent("camp:RequestCampMenu",'cauldron')
                 end
-                if PromptHasHoldModeCompleted(CancelPrompt) and not isInteracting then
+                if campprompt:hasHoldModeJustCompleted() and not isInteracting then
                     local playerPed = PlayerPedId()
                     RequestAnimDict(Config.MenuDict)
                     while not HasAnimDictLoaded(Config.MenuDict) do
@@ -447,3 +423,72 @@ end)
 --         end
 --     end
 -- end)
+
+
+
+
+----- GOURDE -----
+
+local gourdeprompt = UipromptGroup:new("Gourde")
+Uiprompt:new(0x5181713D, "Boire", gourdeprompt)
+Uiprompt:new(0x8E90C7BB, "Remplir", gourdeprompt):setHoldMode(true)
+gourdeprompt:setActive(false)
+
+
+RegisterNetEvent("dust_camp:getgourde", function(_water, metagourde)
+    Gourde = true
+    water = _water
+    _metagourde = metagourde
+    SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
+    if not Prop then
+        local playerPed = PlayerPedId()
+        local pc = GetEntityCoords(playerPed)
+        local pname = 'p_gourdwater01x'
+        RequestAnimDict("SCRIPT_RE@GOLD_PANNER@GOLD_SUCCESS")
+        while not HasAnimDictLoaded("SCRIPT_RE@GOLD_PANNER@GOLD_SUCCESS") do
+            Citizen.Wait(50)
+        end
+        if IsPedMale(playerPed) then
+            Prop = CreateObject(GetHashKey(pname), pc.x, pc.y, pc.z + 0.2, true, true, true)
+            AttachEntityToEntity(Prop, playerPed, GetEntityBoneIndexByName(playerPed, "SKEL_R_Finger12"), 0.150, -0.03, 0.010, 90.0, -60.0, -30.0, true, true, false, true, 1, true)
+        else
+            Prop = CreateObject(GetHashKey(pname), pc.x, pc.y, pc.z + 0.2, true, true, true)
+            AttachEntityToEntity(Prop, playerPed, 387, 0.150, -0.03, 0.010, 90.0, -60.0, -30.0, true, true, false, true, 1, true)
+        end
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        if Gourde then
+            gourdeprompt:setActiveThisFrame(true)
+            SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
+            RemoveAllPedWeapons(PlayerPedId(), true)
+
+            if IsControlJustReleased(0, 0x5181713D) and not Gourding then
+                if IsEntityInWater(PlayerPedId()) then
+                    Boire(water, _metagourde)
+                end
+            end
+
+            if gourdeprompt:hasHoldModeJustCompleted() and not Gourding then
+                Gourde = false
+                Remplirgourde(water, _metagourde)
+                Prop = nil
+            end
+        end
+    end
+end)
+
+function Remplirgourde(eau, meta)
+    Gourding = true
+    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", eau, meta, "remplir")
+    Gourding = false
+end
+
+function Boire(eau, meta)
+    Gourding = true
+    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", eau, meta, "boire")
+    Gourding = false
+end

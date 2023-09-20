@@ -56,3 +56,12 @@ AddEventHandler("RegisterUsableItem:petitbois", function(source)
 		end
 	end)
 end)
+
+--- GOURDE ---- 
+RegisterServerEvent("RegisterUsableItem:gourde")
+AddEventHandler("RegisterUsableItem:gourde", function(source, _data)
+	local _source = source
+    local water = _data.meta.water
+	local meta = data.meta
+	TriggerClientEvent("dust_camp:getgourde", _source, water, meta)
+end)
