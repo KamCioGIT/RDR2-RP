@@ -863,7 +863,7 @@ Config.Items = {
         canBeUsed = true,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/stick.png",
+        imgsrc = "items/consumable_cyprus_brandy.png",
         type = "item_standard",
     },
     
