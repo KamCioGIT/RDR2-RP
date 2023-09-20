@@ -2241,9 +2241,9 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(water, meta, ty
             end
             if type == "boire" then
                 local meta = item.getMeta()
-                print (meta["water"])
-                if tonumber(item.meta.water) >= 20 then
-                    newwater = tonumber(item.meta.water) - 20
+                if tonumber(meta["water"]) >= 20 then
+                    newwater = tonumber(meta["water"]) - 20
+                    print (newwater)
                     item.setMeta({water = newwater})
                     TriggerClientEvent("dust_camp:boire", _source)
                 end
