@@ -2234,14 +2234,13 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(water, meta, ty
         local charid = Player.GetActiveCharacter()
         local player_inventory = Inventory[identifier .. "_" .. charid]
         local item, id = getInventoryItemFromName("gourde", player_inventory, {})
-        if type == "remplir" then
-            if item then
-                item.setMeta({water = 100})
+        if item then
+            if type == "remplir" then
+                    item.setMeta({water = 100})
             end
-        end
-        if type == "boire" then
-            if item then
-                print (item.meta.water)
+            if type == "boire" then
+                local meta = item.getMeta()
+                print (meta["water"])
                 if tonumber(item.meta.water) >= 20 then
                     newwater = tonumber(item.meta.water) - 20
                     item.setMeta({water = newwater})
