@@ -503,10 +503,8 @@ function Remplirgourde(current_water)
         Citizen.Wait(50)
     end
     for k,v in pairs(Config.RampOutAnim) do
-        TaskPlayAnim(playerPed, Config.RampOutDict, v, 8.0, -8.0, -1, 0, 0, true)
+        TaskPlayAnim(playerPed, Config.RampOutDict, v, 8.0, -8.0, 1000, 0, 0, true)
     end
-    Citizen.Wait(1000)
-    ClearPedTasksImmediately(playerPed)
     for k, v in pairs(Config.EauMaudite) do
         if current_water == v then
             TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "remplir",  "croupie")
