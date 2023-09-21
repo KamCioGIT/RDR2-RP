@@ -446,15 +446,20 @@ RegisterNetEvent("dust_camp:getgourde", function(_quality)
         if not Prop then
             local playerPed = PlayerPedId()
             local pc = GetEntityCoords(playerPed)
-            local pname = 'p_flask03x'
+            local pname = GetHashKey('p_flask03x')
             local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_HAND")
+            RequestModel(pname)
+            while not HasModelLoaded(pname) do
+                Wait(10)
+            end
             if IsPedMale(playerPed) then
-                Prop = CreateObject(GetHashKey(pname), pc.x, pc.y, pc.z + 0.2, true, true, true)
+                Prop = CreateObject(pname, pc.x, pc.y, pc.z + 0.2, true, true, true)
                 AttachEntityToEntity(tempObj2, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
             else
-                Prop = CreateObject(GetHashKey(pname), pc.x, pc.y, pc.z + 0.2, true, true, true)
+                Prop = CreateObject(pname, pc.x, pc.y, pc.z + 0.2, true, true, true)
                 AttachEntityToEntity(tempObj2, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
             end
+            SetModelAsNoLongerNeeded(pname)
         end
     end
 end)
