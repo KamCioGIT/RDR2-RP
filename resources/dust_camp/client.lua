@@ -500,7 +500,7 @@ function Remplirgourde(current_water)
     end
     for k,v in pairs(Config.RampOutAnim) do
         TaskPlayAnim(playerPed, Config.RampOutDict, v, 8.0, -8.0, -1, 0, 0, true)
-        Citizen.Wait(1000)
+        Citizen.Wait(500)
     end
     for k, v in pairs(Config.EauMaudite) do
         if current_water == v then
