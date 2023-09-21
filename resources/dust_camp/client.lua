@@ -491,10 +491,11 @@ function Remplirgourde(current_water)
     for k, v in pairs(Config.EauMaudite) do
         if current_water == v then
             TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "remplir",  "croupie")
-        else
-            TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "remplir",  "potable")
+            Gourding = false
+            return
         end
-    end 
+    end
+    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "remplir",  "potable")
     Gourding = false
 end
 
