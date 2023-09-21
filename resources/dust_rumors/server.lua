@@ -7,11 +7,11 @@ AddEventHandler('rumors:checkplayer', function(index)
     if GetPlayerPed(index) == _source then
         print("false")
         return false
-    else if IsPedAPlayer(index) == false then 
+    elseif IsPedAPlayer(index) == false then 
         print("false")
         return false
     else 
         print("true")
-        return true 
+        return true
     end
 end)
