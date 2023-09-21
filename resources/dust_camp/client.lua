@@ -8,6 +8,7 @@ local spawncauldron= false
 local campprompt = UipromptGroup:new("Feu de camp")
 Uiprompt:new(0x5181713D, "Cuisiner", campprompt)
 Uiprompt:new(0x8E90C7BB, "Démonter", campprompt):setHoldMode(true)
+UiPrompt:new(0x9959A6F0, "Purifier l'eau de la gourde", campprompt)
 campprompt:setActive(false)
 
 Citizen.CreateThread(function()
@@ -22,6 +23,28 @@ Citizen.CreateThread(function()
             local objectPos = GetEntityCoords(campfire)
             if #(pos - objectPos) < 1.5 and not isInteracting then
                 campprompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x9959A6F0) then
+                    isInteracting = true
+                    local playerPed = PlayerPedId()
+                    RequestAnimDict(Config.MenuDict)
+                    while not HasAnimDictLoaded(Config.MenuDict) do
+                        Citizen.Wait(50)
+                    end
+                    for k,v in pairs(Config.MenuAnim) do
+                        TaskPlayAnim(playerPed, Config.MenuDict, v, 8.0, -8.0, -1, 2, 0, true)
+                    end
+                    Citizen.Wait(5000)
+                    RequestAnimDict(Config.CloseMenuDict)
+                    while not HasAnimDictLoaded(Config.CloseMenuDict) do
+                        Citizen.Wait(50)
+                    end
+                    for k,v in pairs(Config.CloseMenuAnim) do
+                        TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
+                        Citizen.Wait(1000)
+                    end
+                    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "purifier")
+                    isInteracting = false
+                end
                 if IsControlJustReleased(0, 0x5181713D) then
                     isInteracting = true
                     local playerPed = PlayerPedId()

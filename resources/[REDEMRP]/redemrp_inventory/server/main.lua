@@ -2254,6 +2254,13 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
                     end
                 end
             end
+            if type == "purifier" then
+                local meta = item.getMeta()
+                if tonumber(meta["water"]) >= 20 then
+                    newwater = tonumber(meta["water"])
+                    item.setMeta({water = newwater, quality = "potable"})
+                end
+            end
             TriggerClientEvent(
             "redemrp_inventory:SendItems",
             _source,
