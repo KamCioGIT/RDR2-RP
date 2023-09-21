@@ -479,18 +479,11 @@ Citizen.CreateThread(function()
                     local x, y, z =  table.unpack(GetEntityCoords(PlayerPedId()))
 
                     local current_river = Citizen.InvokeNative(0x5BA7A68A346A5A91, x, y, z)
-                    local current_lake = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 2)
-                    local current_swamp = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 5)
-                    local current_ocean = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 6)
-                    local current_creek = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 7)
-                    local current_pond = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 8)
-                    for k, v in pairs(Config.EauMaudite) do
-                        if current_river == v then
+                        if Config.EauMaudite[current_river] then
                             Remplirgourde("croupie")
                         else
                             Remplirgourde("potable")
                         end
-                    end
                 end
             end
         end
