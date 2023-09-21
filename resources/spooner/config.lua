@@ -16,8 +16,8 @@ if Config.isRDR then
 	Config.SpawnControl           = `INPUT_DYNAMIC_SCENARIO` -- E
 	Config.SelectControl          = `INPUT_CURSOR_ACCEPT` -- Left mouse button
 	Config.DeleteControl          = `INPUT_CONTEXT_LT` -- Right mouse button
-	Config.AdjustUpControl        = `INPUT_FRONTEND_LB` -- Q
-	Config.AdjustDownControl      = `INPUT_FRONTEND_LS` -- Z 
+	Config.AdjustUpControl        = `INPUT_SELECT_QUICKSELECT_SIDEARMS_LEFT` -- Q
+	Config.AdjustDownControl      = `INPUT_SELECT_QUICKSELECT_DUALWIELD` -- Z 
 	Config.AdjustForwardControl   = `INPUT_FRONTEND_UP` -- Up arrow key
 	Config.AdjustBackwardControl  = `INPUT_FRONTEND_DOWN` -- Down arrow key
 	Config.AdjustLeftControl      = `INPUT_FRONTEND_LEFT` -- Left arrow key
@@ -36,7 +36,7 @@ if Config.isRDR then
 	Config.HelpMenuControl        = {`INPUT_WHISTLE_HORSEBACK`, `INPUT_WHISTLE`} -- H
 	Config.CloneControl           = `INPUT_INTERACT_ANIMAL` -- G
 	Config.SpeedModeControl       = `INPUT_RELOAD` -- R
-	Config.ToggleControlsControl  = `INPUT_SELECT_QUICKSELECT_SIDEARMS_LEFT` -- 1
+	Config.ToggleControlsControl  = `INPUT_FRONTEND_RT` -- 1
 	Config.FocusControl           = `INPUT_PC_FREE_LOOK` -- Alt
 	Config.ToggleFocusModeControl = {`INPUT_DUCK`, `INPUT_HORSE_STOP`} -- Ctrl
 	Config.LookLrControl          = `INPUT_LOOK_LR`
