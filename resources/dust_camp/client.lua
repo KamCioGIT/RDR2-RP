@@ -435,14 +435,13 @@ Uiprompt:new(0x8E90C7BB, "Remplir", gourdeprompt):setHoldMode(true)
 gourdeprompt:setActive(false)
 
 
-RegisterNetEvent("dust_camp:getgourde", function(_water, metagourde)
+RegisterNetEvent("dust_camp:getgourde", function(_quality)
     if Gourde == true then
         DeleteEntity(Prop)
         Gourde = false
     else
         Gourde = true
-        water = _water
-        _metagourde = metagourde
+        quality = _quality
         SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
         if not Prop then
             local playerPed = PlayerPedId()
@@ -486,13 +485,13 @@ end)
 
 function Remplirgourde(eau, meta)
     Gourding = true
-    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", eau, meta, "remplir")
+    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "remplir")
     Gourding = false
 end
 
 function Boire(eau, meta)
     Gourding = true
-    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", eau, meta, "boire")
+    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "boire", quality)
     Gourding = false
 end
 
