@@ -590,12 +590,10 @@ pompeprompt:setActive(false)
 
 Citizen.CreateThread(function()
     while true do
-        local optimalization = 500
         for k,v in pairs(pumpEntities) do
             local playerCd = GetEntityCoords(PlayerPedId())
             local pumpCd = GetEntityCoords(k)
             if GetDistanceBetweenCoords(playerCd.x, playerCd.y, playerCd.z, pumpCd.x, pumpCd.y, pumpCd.z, false) < 3.0 and not activePump then
-                optimalization = api.fpsTimer()
                 pompeprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     activePump = true
@@ -613,6 +611,6 @@ Citizen.CreateThread(function()
                 end
             end
         end
-        Citizen.Wait(optimalization)
+        Citizen.Wait(500)
     end
 end)
