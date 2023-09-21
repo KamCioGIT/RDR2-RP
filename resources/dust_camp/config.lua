@@ -105,3 +105,13 @@ Config.CraftingsReceipe = {
         WorkingTime = 5,
     }
 }
+
+
+Config.EauMaudite = {
+    -2040708515, -- WATER_LANNAHECHEE_RIVER
+    -557290573, --- Bayou swamp
+    -1229593481, -- Kamassa
+    -105598602, -- Elysian Pool
+    -823661292, -- Southfield Flats
+    2211570972, --- Mattock Pond à vérifier
+}

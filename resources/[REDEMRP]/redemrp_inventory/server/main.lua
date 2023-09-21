@@ -2235,7 +2235,6 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
         local player_inventory = Inventory[identifier .. "_" .. charid]
         local item, id = getInventoryItemFromName("gourde", player_inventory, {})
         if item then
-            print 'e'
             if type == "remplir" then
                 if quality == "croupie" then
                     item.setMeta({water = 100, quality = "croupie"})

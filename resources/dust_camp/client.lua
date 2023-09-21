@@ -471,25 +471,40 @@ Citizen.CreateThread(function()
             RemoveAllPedWeapons(PlayerPedId(), true)
 
             if IsControlJustReleased(0, 0x5181713D) and not Gourding then
-                    Boire(water, _metagourde)
+                    Boire()
             end
 
             if gourdeprompt:hasHoldModeJustCompleted() and not Gourding then
                 if IsEntityInWater(PlayerPedId()) then
-                    Remplirgourde(water, _metagourde)
+                    local x, y, z =  table.unpack(GetEntityCoords(PlayerPedId()))
+
+                    local current_river = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 3)
+                    local current_lake = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 2)
+                    local current_swamp = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 5)
+                    local current_ocean = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 6)
+                    local current_creek = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 7)
+                    local current_pond = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 8)
+
+                    for k, v in pairs(Config.EauMaudite) do
+                        if current_river == v or current_lake == v or current_swamp == v  or current_ocean == v or current_creek == v or current_pond == v then
+                            Remplirgourde("croupie")
+                        else
+                            Remplirgourde("potable")
+                        end
+                    end
                 end
             end
         end
     end
 end)
 
-function Remplirgourde(eau, meta)
+function Remplirgourde(quality)
     Gourding = true
-    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "remplir")
+    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "remplir",  quality)
     Gourding = false
 end
 
-function Boire(eau, meta)
+function Boire()
     Gourding = true
     TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "boire", quality)
     Gourding = false
