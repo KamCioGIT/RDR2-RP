@@ -13,7 +13,7 @@ Citizen.CreateThread(function()
 
                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
                 if boolA ~= nil then
-                    print(entity .." is an animal ? : " .. boolA)
+                    print(boolA)
                 end
 
                 if PlayerPedId() ~= entity then 
