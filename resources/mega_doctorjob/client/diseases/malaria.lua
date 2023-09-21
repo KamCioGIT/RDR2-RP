@@ -2,7 +2,11 @@ if DiseasesConfig['malaria'] then
     local Malaria = Disease:new(DiseasesConfig['malaria'])
 
     local infectionLevel = 0
+    local croupie = false
 
+    RegisterNetEvent("dust_maladie:dysentrie", function()
+        croupie = true
+    end)
     function Malaria:init()
         Citizen.CreateThread(function()
             local sleep = false
@@ -11,16 +15,12 @@ if DiseasesConfig['malaria'] then
                     self:setActive(true)
                     self:startEffect()
                 else
-                    local coords = GetEntityCoords(PlayerPedId())
                     for k, v in pairs(self.config.infectionZonesProbability) do
-                        if #(v.coords - coords) <= v.radius and not self._data.active then
+                        if croupie and not self._data.active then
                             sleep = false
-                            if not BandanaUp then
-                                infectionLevel = math.min(infectionLevel + v.infectionPoints,
-                                    self.config.maxInfectionLevel)
-                            else
-                                infectionLevel = math.max(infectionLevel - v.infectionPoints, 0)
-                            end
+                            infectionLevel = math.min(infectionLevel + v.infectionPoints,
+                                self.config.maxInfectionLevel)
+            
                         else
                             infectionLevel = math.max(infectionLevel - v.infectionPoints, 0)
                             sleep = true

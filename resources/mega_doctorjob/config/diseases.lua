@@ -116,8 +116,8 @@ DiseasesConfig = {
    },
    ['malaria'] = {
       name = 'malaria',
-      displayName = 'Malaria',
-      healthLossPerTick = 50,
+      displayName = 'Dysentrie',
+      healthLossPerTick = 2,
       tickRate = 1000,
       effectRate = 60000,
       -- time in milliseconds in which the disease will automatically stop, use -1 to make it last forever (until the player gets cured or bandaged)
@@ -143,8 +143,8 @@ DiseasesConfig = {
          }
       },
       language = {
-         started = "You feel weak and your stomach hurts, you also have a little nausea.",
-         autoHealed = "You're starting to feel better.",
+         started = "Vous avez bu de l'eau croupie, vous avez mal au ventre.",
+         autoHealed = "vous vous ssentez mieux.",
       },
       -- Animations
       vomitAnimationDict = 'amb_misc@world_human_vomit@male_a@idle_b',
@@ -152,7 +152,7 @@ DiseasesConfig = {
       -- Mandatory symptoms for the dashboard.
       -- Those are basically hints for the doctor to understand which cure has do be administered to the patient.
       symptoms = {
-         heartRate = 'Fast',
+         heartRate = 'Rapide',
          -- min and max values, body temps will be randomized between those values
          bodyTemperatureRange = { 38.5, 40.0 }
       }
