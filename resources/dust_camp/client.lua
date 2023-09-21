@@ -6,10 +6,9 @@ local spawngrill = false
 local spawncauldron= false
 
 local campprompt = UipromptGroup:new("Feu de camp")
-UiPrompt:new(0x9959A6F0, "Purifier", campprompt)
 Uiprompt:new(0x5181713D, "Cuisiner", campprompt)
-
 Uiprompt:new(0x8E90C7BB, "Démonter", campprompt):setHoldMode(true)
+UiPrompt:new(0xD8F73058, "Purifier l'eau de la gourde", campprompt)
 campprompt:setActive(false)
 
 Citizen.CreateThread(function()
