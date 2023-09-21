@@ -13,10 +13,7 @@ Citizen.CreateThread(function()
 
                 if PlayerPedId() ~= entity then 
                     if IsPedAPlayer(entity) ~= true then
-                        if IsPedHuman(entity) == true then 
-                            showOnPed = true
-                        else showOnPed = false
-                        end
+                        showOnPed = true
                     else showOnPed = false
                     end
                 else showOnPed = false
