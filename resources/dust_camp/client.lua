@@ -7,7 +7,7 @@ local spawncauldron= false
 
 local campprompt = UipromptGroup:new("Feu de camp")
 Uiprompt:new(0x5181713D, "Cuisiner", campprompt)
-UiPrompt:new(0x9959A6F0, "Purifier l'eau", campprompt)
+UiPrompt:new(0x9959A6F0, "Purifier", campprompt)
 Uiprompt:new(0x8E90C7BB, "Démonter", campprompt):setHoldMode(true)
 campprompt:setActive(false)
 
