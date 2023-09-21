@@ -130,18 +130,11 @@ DiseasesConfig = {
       -- timeNeeded(seconds) = (tickRate/1000) * maxInfectionLevel
       -- to get the right maxInfectionLevel knowing the timeNeeded
       -- maxInfectionLevel = timeNeeded(seconds) / (tickRate/1000)
-      maxInfectionLevel = 600,
+      maxInfectionLevel = 100,
       -- take a look at https://github.com/femga/rdr3_discoveries/tree/master/zones
       -- probability is calculated every tick (tickRate)
       -- higher tickrates and/or probability can make it easier to contract
       -- adjust those settings as you prefer
-      infectionZonesProbability = {
-         { 
-            coords = vector3(1915.09, -943.33, 43.29), 
-            radius = 100.0,
-            infectionPoints = 1
-         }
-      },
       language = {
          started = "Vous avez bu de l'eau croupie, vous avez mal au ventre.",
          autoHealed = "vous vous ssentez mieux.",

@@ -17,15 +17,11 @@ if DiseasesConfig['malaria'] then
                     self:setActive(true)
                     self:startEffect()
                 else
-                        if croupie and not self._data.active then
-                            sleep = false
-                            infectionLevel = math.min(infectionLevel + v.infectionPoints,
-                                self.config.maxInfectionLevel)
-            
-                        else
-                            infectionLevel = math.max(infectionLevel - v.infectionPoints, 0)
-                            sleep = true
-                        end
+                    if croupie and not self._data.active then
+                        sleep = false
+                        infectionLevel = math.min(infectionLevel + 100,
+                            self.config.maxInfectionLevel)
+                    end
                 end
                 if self._data.active then
                     Citizen.InvokeNative(0xDE1B1907A83A1550, PlayerPedId(), 0.0)
