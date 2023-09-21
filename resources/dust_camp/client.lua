@@ -507,6 +507,25 @@ end
 
 
 RegisterNetEvent("dust_camp:boire", function()
-    --- anim
+    local dict = "amb_rest_drunk@world_human_drinking@male_a@idle_a"
+    local playerPed = PlayerPedId()
+    local pos = GetEntityCoords(playerPed)
+    local prop = GetHashKey("P_BOTTLE008X")
+    RequestAnimDict(dict)
+    while not HasAnimDictLoaded(dict) do
+        Citizen.Wait(10)
+    end
+    RequestModel(prop)
+    while not HasModelLoaded(prop) do
+        Wait(10)
+    end
+    local tempObj2 = CreateObject(prop, pos.x, pos.y, pos.z, true, true, false)
+    local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_HAND")
+    AttachEntityToEntity(tempObj2, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
+    TaskPlayAnim(PlayerPedId(), dict, "idle_a", 1.0, 8.0, -1, 31, 0, false, false, false)
+    Citizen.Wait(4000)
+    ClearPedTasks(PlayerPedId())
+    DeleteObject(tempObj2)
+    SetModelAsNoLongerNeeded(prop)
     TriggerServerEvent('redemrp_status:server:AddHungerThirst', 0 , 60)
 end)
