@@ -507,7 +507,7 @@ RegisterNetEvent("dust_camp:boire", function()
     local dict = "amb_rest_drunk@world_human_drinking@male_a@idle_a"
     local playerPed = PlayerPedId()
     local pos = GetEntityCoords(playerPed)
-    local prop = GetHashKey("p_flask01xb")
+    local prop = GetHashKey("p_flask03x")
     RequestAnimDict(dict)
     while not HasAnimDictLoaded(dict) do
         Citizen.Wait(10)
