@@ -498,12 +498,6 @@ end
 
 function Boire()
     Gourding = true
-    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "boire", quality)
-    Gourding = false
-end
-
-
-RegisterNetEvent("dust_camp:boire", function()
     local dict = "amb_rest_drunk@world_human_drinking@male_a@idle_a"
     local playerPed = PlayerPedId()
     local pos = GetEntityCoords(playerPed)
@@ -525,4 +519,6 @@ RegisterNetEvent("dust_camp:boire", function()
     DeleteObject(tempObj2)
     SetModelAsNoLongerNeeded(prop)
     TriggerServerEvent('redemrp_status:server:AddHungerThirst', 0 , 60)
-end)
+    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "boire", quality)
+    Gourding = false
+end
