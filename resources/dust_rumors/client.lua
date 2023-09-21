@@ -1,4 +1,4 @@
-showOnPed = true
+showOnPed = false
 
 Citizen.CreateThread(function()
     while true do
@@ -10,13 +10,15 @@ Citizen.CreateThread(function()
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
+                
+                print( "Is ped human ".. IsPedHuman(entity, model))
 
                 if PlayerPedId() ~= entity then 
                     if IsPedAPlayer(entity) ~= true then
-                        showOnPed = true
-                    else showOnPed = false
+                        if IsPedHuman(entity, model) then
+                            showOnPed = true
+                        end
                     end
-                else showOnPed = false
                 end
 
                 if showOnPed then
@@ -25,6 +27,8 @@ Citizen.CreateThread(function()
                     coords = entityPos + boneCoord
                     DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
                 end
+
+                showOnPed = false
             end
         end
 
