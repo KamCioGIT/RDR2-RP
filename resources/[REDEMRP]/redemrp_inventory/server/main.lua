@@ -2237,9 +2237,9 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
         if item then
             if type == "remplir" then
                 if quality == "croupie" then
-                    item.setMeta({water = 100, quality = "croupie"})
+                    item.ChangeMeta({water = 100, quality = "croupie"})
                 elseif quality == "potable" then
-                    item.setMeta({water = 100, quality = "potable"})
+                    item.ChangeMeta({water = 100, quality = "potable"})
                 end
             end
             if type == "boire" then
@@ -2247,7 +2247,7 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
                 if tonumber(meta["water"]) >= 20 then
                     newwater = tonumber(meta["water"]) - 20
                     print (newwater)
-                    item.setMeta({water = newwater})
+                    item.ChangeMeta({water = newwater})
                     TriggerClientEvent("dust_camp:boire", _source)
                 end
             end
