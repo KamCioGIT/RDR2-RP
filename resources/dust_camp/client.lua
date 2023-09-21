@@ -436,31 +436,29 @@ gourdeprompt:setActive(false)
 
 
 RegisterNetEvent("dust_camp:getgourde", function(_quality)
-    if Prop then
+    if Gourde then
         DeleteEntity(Prop)
         Gourde = false
     else
         Gourde = true
         quality = _quality
         SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
-        if not Prop then
-            local playerPed = PlayerPedId()
-            local pc = GetEntityCoords(playerPed)
-            local pname = GetHashKey('p_flask03x')
-            local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_HAND")
-            RequestModel(pname)
-            while not HasModelLoaded(pname) do
-                Wait(10)
-            end
-            if IsPedMale(playerPed) then
-                Prop = CreateObject(pname, pc.x, pc.y, pc.z + 0.2, true, true, true)
-                AttachEntityToEntity(Prop, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
-            else
-                Prop = CreateObject(pname, pc.x, pc.y, pc.z + 0.2, true, true, true)
-                AttachEntityToEntity(Prop, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
-            end
-            SetModelAsNoLongerNeeded(pname)
+        local playerPed = PlayerPedId()
+        local pc = GetEntityCoords(playerPed)
+        local pname = GetHashKey('p_flask03x')
+        local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_HAND")
+        RequestModel(pname)
+        while not HasModelLoaded(pname) do
+            Wait(10)
         end
+        if IsPedMale(playerPed) then
+            Prop = CreateObject(pname, pc.x, pc.y, pc.z + 0.2, true, true, true)
+            AttachEntityToEntity(Prop, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
+        else
+            Prop = CreateObject(pname, pc.x, pc.y, pc.z + 0.2, true, true, true)
+            AttachEntityToEntity(Prop, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
+        end
+        SetModelAsNoLongerNeeded(pname)
     end
 end)
 
