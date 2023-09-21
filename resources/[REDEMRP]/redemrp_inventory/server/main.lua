@@ -2251,6 +2251,13 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
                     TriggerClientEvent("dust_camp:boire", _source)
                 end
             end
+            TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+            )
         end
     end
 end)
