@@ -10,7 +10,6 @@ if DiseasesConfig['malaria'] then
             local sleep = false
             RegisterNetEvent("dust_maladie:dysentrie", function()
                 croupie = true
-                print 'tttt'
             end)
             while true do
                 if infectionLevel >= self.config.maxInfectionLevel then
@@ -21,6 +20,7 @@ if DiseasesConfig['malaria'] then
                         sleep = false
                         infectionLevel = math.min(infectionLevel + 100,
                             self.config.maxInfectionLevel)
+                            croupie = false
                     end
                 end
                 if self._data.active then
