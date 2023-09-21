@@ -113,5 +113,5 @@ Config.EauMaudite = {
     -1229593481, -- Kamassa
     -105598602, -- Elysian Pool
     -823661292, -- Southfield Flats
-    2211570972, --- Mattock Pond à vérifier
+    301094150, --- Mattock Pond à vérifier
 }
