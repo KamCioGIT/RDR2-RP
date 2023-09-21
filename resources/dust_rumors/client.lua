@@ -11,13 +11,14 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
 
-                local boolA = GetIsAnimal(entity)
+                local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
                 if boolA ~= nil then
                     print(entity .." is an animal ? : " .. boolA)
                 end
 
                 if PlayerPedId() ~= entity then 
                     if IsPedAPlayer(entity) ~= true then
+                        showOnPed = true
                         -- Pas d'animaux
                     end
                 end
