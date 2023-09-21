@@ -447,12 +447,13 @@ RegisterNetEvent("dust_camp:getgourde", function(_quality)
             local playerPed = PlayerPedId()
             local pc = GetEntityCoords(playerPed)
             local pname = 'p_flask03x'
+            local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_HAND")
             if IsPedMale(playerPed) then
                 Prop = CreateObject(GetHashKey(pname), pc.x, pc.y, pc.z + 0.2, true, true, true)
-                AttachEntityToEntity(Prop, playerPed, GetEntityBoneIndexByName(playerPed, "SKEL_R_Finger12"), 0.150, -0.03, 0.010, 90.0, -60.0, -30.0, true, true, false, true, 1, true)
+                AttachEntityToEntity(tempObj2, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
             else
                 Prop = CreateObject(GetHashKey(pname), pc.x, pc.y, pc.z + 0.2, true, true, true)
-                AttachEntityToEntity(Prop, playerPed, 387, 0.150, -0.03, 0.010, 90.0, -60.0, -30.0, true, true, false, true, 1, true)
+                AttachEntityToEntity(tempObj2, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
             end
         end
     end
