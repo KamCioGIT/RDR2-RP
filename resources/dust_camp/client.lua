@@ -441,6 +441,7 @@ RegisterNetEvent("dust_camp:getgourde", function(_quality)
         Gourde = false
     else
         Gourde = true
+        DeleteEntity(Prop)
         quality = _quality
         SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
         local playerPed = PlayerPedId()
