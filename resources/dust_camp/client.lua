@@ -479,20 +479,21 @@ Citizen.CreateThread(function()
                     local x, y, z =  table.unpack(GetEntityCoords(PlayerPedId()))
 
                     local current_river = Citizen.InvokeNative(0x5BA7A68A346A5A91, x, y, z)
-                        if Config.EauMaudite[current_river] then
-                            Remplirgourde("croupie")
-                        else
-                            Remplirgourde("potable")
-                        end
+                    Remplirgourde(current_river)
                 end
             end
         end
     end
 end)
 
-function Remplirgourde(quality)
+function Remplirgourde(current_water)
     Gourding = true
-    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "remplir",  quality)
+    for k, v in pairs(Config.EauMaudite) do
+        if current_water == v then
+            TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "remplir",  "croupie")
+        else return end
+    end
+    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "remplir",  "potable")
     Gourding = false
 end
 
