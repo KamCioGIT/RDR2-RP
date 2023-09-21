@@ -13,7 +13,7 @@ Citizen.CreateThread(function()
 
                 local boolA = GetIsAnimal(entity)
                 if boolA ~= nil then
-                    print(boolA)
+                    print(entity .." is an animal ? : " .. boolA)
                 end
 
                 if PlayerPedId() ~= entity then 
