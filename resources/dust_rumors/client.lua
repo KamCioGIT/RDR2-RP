@@ -11,7 +11,10 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
 
-                print(GetStringFromHashKey(GetPedAnimalType(entity)))
+                local boolA = GetIsAnimal(entity)
+                if boolA ~= nil then
+                    print(boolA)
+                end
 
                 if PlayerPedId() ~= entity then 
                     if IsPedAPlayer(entity) ~= true then
