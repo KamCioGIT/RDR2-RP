@@ -12,7 +12,7 @@ Citizen.CreateThread(function()
                 local model = GetEntityModel(entity)
 
                 if PlayerPedId() ~= entity then
-                    if TriggerServerEvent("rumors:checkplayer", entity) then
+                    if IsPedAPlayer(entity) then
                         local entityPos = GetEntityCoords(entity) 
                         boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                         coords = entityPos + boneCoord
