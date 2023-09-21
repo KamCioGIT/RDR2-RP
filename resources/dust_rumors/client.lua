@@ -1,4 +1,4 @@
-isEntityIsAPedNonPlayer = true
+showOnPed = false
 
 Citizen.CreateThread(function()
     while true do
@@ -10,13 +10,25 @@ Citizen.CreateThread(function()
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
+                
+                print( "Is ped human ".. IsPedHuman(entity, model))
 
-                if TriggerServerEvent("rumors:checkplayer", entity) then
+                if PlayerPedId() ~= entity then 
+                    if IsPedAPlayer(entity) ~= true then
+                        if IsPedHuman(entity, model) then
+                            showOnPed = true
+                        end
+                    end
+                end
+
+                if showOnPed then
                     local entityPos = GetEntityCoords(entity) 
                     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                     coords = entityPos + boneCoord
                     DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
                 end
+
+                showOnPed = false
             end
         end
 
@@ -25,7 +37,6 @@ Citizen.CreateThread(function()
         end
     end
 end)
-
 
 function DrawText3D(x, y, z, text)
     local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z)
