@@ -11,11 +11,13 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
 
-                if TriggerServerEvent("rumors:checkplayer", entity) then
-                    local entityPos = GetEntityCoords(entity) 
-                    boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
-                    coords = entityPos + boneCoord
-                    DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
+                if TriggerServerEvent("rumors:checkplayer") then
+                    if PlayerId() ~= entity then
+                        local entityPos = GetEntityCoords(entity) 
+                        boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
+                        coords = entityPos + boneCoord
+                        DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
+                    end
                 end
             end
         end
