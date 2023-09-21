@@ -18,8 +18,12 @@ Citizen.CreateThread(function()
 
                 if PlayerPedId() ~= entity then 
                     if IsPedAPlayer(entity) ~= true then
-                        showOnPed = true
-                        -- Pas d'animaux
+                        if IsEntityDead(entity) == false then
+                            if 
+                                -- Pas d'animaux
+                                showOnPed = true
+                            end
+                        end
                     end
                 end
 
