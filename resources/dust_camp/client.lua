@@ -478,15 +478,15 @@ Citizen.CreateThread(function()
                 if IsEntityInWater(PlayerPedId()) then
                     local x, y, z =  table.unpack(GetEntityCoords(PlayerPedId()))
 
-                    local current_river = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 3)
-                    local current_lake = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 2)
-                    local current_swamp = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 5)
-                    local current_ocean = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 6)
-                    local current_creek = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 7)
-                    local current_pond = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 8)
+                    local current_river = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, -1)
+                    -- local current_lake = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 2)
+                    -- local current_swamp = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 5)
+                    -- local current_ocean = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 6)
+                    -- local current_creek = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 7)
+                    -- local current_pond = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 8)
 
                     for k, v in pairs(Config.EauMaudite) do
-                        if current_river == v or current_lake == v or current_swamp == v  or current_ocean == v or current_creek == v or current_pond == v then
+                        if current_river == v then
                             Remplirgourde("croupie")
                         else
                             Remplirgourde("potable")
