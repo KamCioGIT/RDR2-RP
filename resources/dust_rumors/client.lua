@@ -11,8 +11,8 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
 
-                if TriggerServerEvent("rumors:checkplayer") then
-                    if PlayerId() ~= entity then
+                if PlayerPedId() ~= entity then
+                    if TriggerServerEvent("rumors:checkplayer", entity) then
                         local entityPos = GetEntityCoords(entity) 
                         boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                         coords = entityPos + boneCoord
