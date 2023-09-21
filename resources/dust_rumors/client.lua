@@ -11,13 +11,16 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
 
-                if PlayerPedId() ~= entity then
-                    if IsPedAPlayer(entity) ~= true then
-                        local entityPos = GetEntityCoords(entity) 
-                        boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
-                        coords = entityPos + boneCoord
-                        DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
-                    end
+                if PlayerPedId() ~= entity and IsPedHuman(entity) == true and IsPedAPlayer(entity) ~= true then 
+                    isEntityIsAPedNonPlayer = true
+                else isEntityIsAPedNonPlayer = false
+                end
+                
+                if isEntityIsAPedNonPlayer then
+                    local entityPos = GetEntityCoords(entity) 
+                    boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
+                    coords = entityPos + boneCoord
+                    DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
                 end
             end
         end
