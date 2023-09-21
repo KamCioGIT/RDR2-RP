@@ -597,7 +597,6 @@ Citizen.CreateThread(function()
                 pompeprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     activePump = true
-                    ClearPedTasks(PlayerPedId())
                     Citizen.InvokeNative(0x322BFDEA666E2B0E, PlayerPedId(), pumpCd.x, pumpCd.y, pumpCd.z, 2.0, -1, 1, 1, 1, 1)
                     Citizen.Wait(3000)
                     FreezeEntityPosition(PlayerPedId(), true)
