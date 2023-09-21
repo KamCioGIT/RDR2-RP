@@ -2250,6 +2250,9 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
                     newwater = tonumber(meta["water"]) - 20
                     qual = tostring(meta["quality"])
                     item.setMeta({water = newwater, quality = qual})
+                    if qual == "croupie" then
+                        TriggerClientEvent("dust_maladie:dysentrie", _source)
+                    end
                     TriggerClientEvent("dust_camp:boire", _source)
                 end
             end
