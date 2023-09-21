@@ -2227,7 +2227,6 @@ exports("checkuserweight", checkuserweight)
 RegisterServerEvent("redemrp_inventory:ChangeWaterAmmount")
 AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
     local _source = source
-    local _table = table
     local Player = RedEM.GetPlayer(_source)
     if Player then
         local identifier = Player.GetIdentifier()

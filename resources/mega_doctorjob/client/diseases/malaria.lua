@@ -6,6 +6,7 @@ if DiseasesConfig['malaria'] then
 
     RegisterNetEvent("dust_maladie:dysentrie", function()
         croupie = true
+        print 'tttt'
     end)
     function Malaria:init()
         Citizen.CreateThread(function()
