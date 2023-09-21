@@ -10,12 +10,10 @@ Citizen.CreateThread(function()
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
-                
-                print( "Is ped human ".. IsPedHuman(entity, model))
 
                 if PlayerPedId() ~= entity then 
                     if IsPedAPlayer(entity) ~= true then
-                        if IsPedHuman(entity, model) then
+                        if Citizen.InvokeNative(0x9A100F1CF4546629) ~= true then
                             showOnPed = true
                         end
                     end
