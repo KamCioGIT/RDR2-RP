@@ -115,3 +115,15 @@ Config.EauMaudite = {
     -823661292, -- Southfield Flats
     301094150, --- Mattock Pond à vérifier
 }
+
+Config.RampInDict = 'mech_dynamic@world_player_dynamic_kneel_ground@tend@male_a@stand_enter@tend1'
+Config.RampInAnim = {
+    "enter_back_rf",
+
+}
+
+Config.RampOutDict = 'mech_dynamic@world_player_dynamic_kneel_ground@tend@male_a@stand_exit@tend1'
+Config.RampOutAnim = {
+    "exit_front",
+
+}
