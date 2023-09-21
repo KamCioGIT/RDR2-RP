@@ -486,7 +486,6 @@ Citizen.CreateThread(function()
                     local current_pond = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 8)
                     for k, v in pairs(Config.EauMaudite) do
                         if current_river == v then
-                            print 'yayaya'
                             Remplirgourde("croupie")
                         else
                             Remplirgourde("potable")
