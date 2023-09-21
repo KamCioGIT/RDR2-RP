@@ -533,3 +533,86 @@ function Boire()
     TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "boire", quality)
     Gourding = false
 end
+
+
+---- Remplir à la pompe
+local pumpEntities = {}
+Citizen.CreateThread(function()
+    while true do
+        local searched = false
+        for entities in EnumerateObjects() do
+            if GetEntityModel(entities) == GetHashKey("p_waterpump01x") then
+                local playerCd = GetEntityCoords(PlayerPedId())
+                local pumpCd = GetEntityCoords(entities)
+                if GetDistanceBetweenCoords(playerCd.x, playerCd.y, playerCd.z, pumpCd.x, pumpCd.y, pumpCd.z, false) < 10.0 then
+                    searched = true
+                    pumpEntities[entities] = true
+                end
+            end
+        end
+        if not searched then
+            pumpEntities = {}
+        end
+        Citizen.Wait(2000)
+    end
+end)
+
+local function EnumerateEntities(initFunc, moveFunc, disposeFunc)
+	return coroutine.wrap(function()
+	  local iter, id = initFunc()
+	  if not id or id == 0 then
+		disposeFunc(iter)
+		return
+	  end
+	  
+	  local enum = {handle = iter, destructor = disposeFunc}
+	  setmetatable(enum, entityEnumerator)
+	  
+	  local next = true
+	  repeat
+		coroutine.yield(id)
+		next, id = moveFunc(iter)
+	  until not next
+	  
+	  enum.destructor, enum.handle = nil, nil
+	  disposeFunc(iter)
+	end)
+end
+
+function EnumerateObjects()
+    return EnumerateEntities(FindFirstObject, FindNextObject, EndFindObject)
+end
+
+local pompeprompt = UipromptGroup:new("Pompe")
+Uiprompt:new(0x760A9C6F, "Remplir", pompeprompt)
+pompeprompt:setActive(false)
+
+
+Citizen.CreateThread(function()
+    while true do
+        local optimalization = 500
+        for k,v in pairs(pumpEntities) do
+            local playerCd = GetEntityCoords(PlayerPedId())
+            local pumpCd = GetEntityCoords(k)
+            if GetDistanceBetweenCoords(playerCd.x, playerCd.y, playerCd.z, pumpCd.x, pumpCd.y, pumpCd.z, false) < 3.0 and not activePump then
+                optimalization = api.fpsTimer()
+                pompeprompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x760A9C6F) then
+                    activePump = true
+                    ClearPedTasks(PlayerPedId())
+                    Citizen.InvokeNative(0x322BFDEA666E2B0E, PlayerPedId(), pumpCd.x, pumpCd.y, pumpCd.z, 2.0, -1, 1, 1, 1, 1)
+                    Citizen.Wait(3000)
+                    FreezeEntityPosition(PlayerPedId(), true)
+                    Citizen.Wait(7000)
+                    Citizen.InvokeNative(0x322BFDEA666E2B0E, PlayerPedId(), pumpCd.x, pumpCd.y, pumpCd.z, 2.0, -1, 1, 1, 1, 1)
+                    FreezeEntityPosition(PlayerPedId(), false)
+                    ClearPedTasksImmediately(PlayerPedId())
+                    ClearPedTasks(PlayerPedId())
+                    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "remplir",  "potable")
+                    activePump = false
+                end
+            end
+        end
+        Citizen.Wait(optimalization)
+    end
+end)
