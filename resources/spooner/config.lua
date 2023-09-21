@@ -16,8 +16,8 @@ if Config.isRDR then
 	Config.SpawnControl           = `INPUT_DYNAMIC_SCENARIO` -- E
 	Config.SelectControl          = `INPUT_CURSOR_ACCEPT` -- Left mouse button
 	Config.DeleteControl          = `INPUT_CONTEXT_LT` -- Right mouse button
-	Config.AdjustUpControl        = `INPUT_SELECT_QUICKSELECT_SIDEARMS_LEFT` -- Q
-	Config.AdjustDownControl      = `INPUT_SELECT_QUICKSELECT_DUALWIELD` -- Z 
+	Config.AdjustUpControl        = `INPUT_EMOTE_TWIRL_GUN_VAR_B` -- Q
+	Config.AdjustDownControl      = `INPUT_EMOTE_TWIRL_GUN_VAR_A` -- Z 
 	Config.AdjustForwardControl   = `INPUT_FRONTEND_UP` -- Up arrow key
 	Config.AdjustBackwardControl  = `INPUT_FRONTEND_DOWN` -- Down arrow key
 	Config.AdjustLeftControl      = `INPUT_FRONTEND_LEFT` -- Left arrow key
