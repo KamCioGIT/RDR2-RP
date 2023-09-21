@@ -2237,7 +2237,7 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
         if item then
             print 'e'
             if type == "remplir" then
-                if quality == "croupie"
+                if quality == "croupie" then
                     item.setMeta({water = 100, quality = "croupie"})
                 elseif quality == "potable" then
                     item.setMeta({water = 100, quality = "potable"})
