@@ -454,10 +454,10 @@ RegisterNetEvent("dust_camp:getgourde", function(_quality)
             end
             if IsPedMale(playerPed) then
                 Prop = CreateObject(pname, pc.x, pc.y, pc.z + 0.2, true, true, true)
-                AttachEntityToEntity(tempObj2, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
+                AttachEntityToEntity(Prop, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
             else
                 Prop = CreateObject(pname, pc.x, pc.y, pc.z + 0.2, true, true, true)
-                AttachEntityToEntity(tempObj2, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
+                AttachEntityToEntity(Prop, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
             end
             SetModelAsNoLongerNeeded(pname)
         end
