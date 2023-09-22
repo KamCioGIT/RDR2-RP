@@ -1223,7 +1223,16 @@ end
 
 function OpenMouthMenu()
     MenuData.CloseAll()
-    local elements = {{
+    local elements = { {
+        label = "Dents",
+        value = CreatorCache["teeth"] or 0,
+        category = "teeth",
+        desc = "Changer les dents",
+        type = "slider",
+        min = -100,
+        max = 100,
+        hop = 5
+    },{
         label = "Largeur",
         value = CreatorCache["mouth_width"] or 0,
         category = "mouth_width",
