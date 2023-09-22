@@ -114,42 +114,42 @@ DiseasesConfig = {
    --       ['weapon_thrown_throwing_knives'] = 0.1,
    --    }
    -- },
-   -- ['malaria'] = {
-   --    name = 'malaria',
-   --    displayName = 'Dysentrie',
-   --    healthLossPerTick = 2,
-   --    tickRate = 1000,
-   --    effectRate = 60000,
-   --    -- time in milliseconds in which the disease will automatically stop, use -1 to make it last forever (until the player gets cured or bandaged)
-   --    autoHealTime = -1,
-   --    -- The infection level system works like coldness level:
-   --    -- it starts from zero and it gets increased every tick if you're in an infected area
-   --    -- when it reaches the maxInfectionLevel the player will get sick
-   --    -- for each tick the player is not inside the infected area, it will lose a infection point
-   --    -- small formula to get how much time it needs to be infected (you can use that for balancing)
-   --    -- timeNeeded(seconds) = (tickRate/1000) * maxInfectionLevel
-   --    -- to get the right maxInfectionLevel knowing the timeNeeded
-   --    -- maxInfectionLevel = timeNeeded(seconds) / (tickRate/1000)
-   --    maxInfectionLevel = 100,
-   --    -- take a look at https://github.com/femga/rdr3_discoveries/tree/master/zones
-   --    -- probability is calculated every tick (tickRate)
-   --    -- higher tickrates and/or probability can make it easier to contract
-   --    -- adjust those settings as you prefer
-   --    language = {
-   --       started = "Vous avez bu de l'eau croupie, vous avez mal au ventre.",
-   --       autoHealed = "vous vous ssentez mieux.",
-   --    },
-   --    -- Animations
-   --    vomitAnimationDict = 'amb_misc@world_human_vomit@male_a@idle_b',
-   --    vomitAnimation = 'idle_e',
-   --    -- Mandatory symptoms for the dashboard.
-   --    -- Those are basically hints for the doctor to understand which cure has do be administered to the patient.
-   --    symptoms = {
-   --       heartRate = 'Rapide',
-   --       -- min and max values, body temps will be randomized between those values
-   --       bodyTemperatureRange = { 38.5, 40.0 }
-   --    }
-   -- },
+   ['malaria'] = {
+      name = 'malaria',
+      displayName = 'Dysentrie',
+      healthLossPerTick = 2,
+      tickRate = 1000,
+      effectRate = 60000,
+      -- time in milliseconds in which the disease will automatically stop, use -1 to make it last forever (until the player gets cured or bandaged)
+      autoHealTime = -1,
+      -- The infection level system works like coldness level:
+      -- it starts from zero and it gets increased every tick if you're in an infected area
+      -- when it reaches the maxInfectionLevel the player will get sick
+      -- for each tick the player is not inside the infected area, it will lose a infection point
+      -- small formula to get how much time it needs to be infected (you can use that for balancing)
+      -- timeNeeded(seconds) = (tickRate/1000) * maxInfectionLevel
+      -- to get the right maxInfectionLevel knowing the timeNeeded
+      -- maxInfectionLevel = timeNeeded(seconds) / (tickRate/1000)
+      maxInfectionLevel = 100,
+      -- take a look at https://github.com/femga/rdr3_discoveries/tree/master/zones
+      -- probability is calculated every tick (tickRate)
+      -- higher tickrates and/or probability can make it easier to contract
+      -- adjust those settings as you prefer
+      language = {
+         started = "Vous avez bu de l'eau croupie, vous avez mal au ventre.",
+         autoHealed = "vous vous ssentez mieux.",
+      },
+      -- Animations
+      vomitAnimationDict = 'amb_misc@world_human_vomit@male_a@idle_b',
+      vomitAnimation = 'idle_e',
+      -- Mandatory symptoms for the dashboard.
+      -- Those are basically hints for the doctor to understand which cure has do be administered to the patient.
+      symptoms = {
+         heartRate = 'Rapide',
+         -- min and max values, body temps will be randomized between those values
+         bodyTemperatureRange = { 38.5, 40.0 }
+      }
+   },
    -- ['cholera'] = {
    --    name = 'cholera',
    --    displayName = 'Cholera',
