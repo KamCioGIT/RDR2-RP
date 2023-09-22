@@ -159,4 +159,16 @@ Config.Items = {
             MBandage()
         end
     },
+
+    ---- recette camp ---- 
+    ["grossteakcuit"] = {
+        hunger = 60,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Eat()
+        end
+    },
 }

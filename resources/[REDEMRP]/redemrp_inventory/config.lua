@@ -659,7 +659,7 @@ Config.Items = {
         canBeDropped = true,
         canBeUsed = false,
         limit = 2000,
-        imgsrc = "items/consumable_meat_big_game_cooked.png",
+        imgsrc = "items/provision_meat_prime_beef.png",
         type = "item_standard"
     },
     ["volaille"] = {
@@ -866,7 +866,18 @@ Config.Items = {
         imgsrc = "items/consumable_cyprus_brandy.png",
         type = "item_standard",
     },
-    
+    ----- RECETTE CAMP ---- 
+    ["grossteakcuit"] = {
+        label = "Gros Steak Cuit",
+        description = "Pour les plus gourmands",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/consumable_meat_prime_beef_cooked.png",
+        type = "item_standard",
+    },
 
     --- VAULT
     ["smallvault"] = {

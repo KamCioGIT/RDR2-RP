@@ -32,14 +32,12 @@ Config.CampGrill = GetHashKey('p_cookgrate01x')
 Config.CampChaudron = GetHashKey('p_campfirecombined03x')
 
 Config.CraftingsReceipe = {
-    ['douille'] = {
-        ItemReceipe1Name = 'cuivrepepite',
-        ItemReceipe1Amount = 10,
-        ItemReceipe2Name = 'plombpepite',
-        ItemReceipe2Amount = 10,
-        ItemToGive = 'douille',
-        Amount = 10,
-        WorkingTime = 5,
+    ['steakcuit'] = {
+        ItemReceipe1Name = 'grossteak',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'steakcuit',
+        Amount = 1,
+        WorkingTime = 1,
     },
     ['piecearme'] = {
         ItemReceipe1Name = 'ferpepite',

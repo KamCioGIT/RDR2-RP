@@ -256,11 +256,11 @@ RegisterNetEvent("camp:OpenCampMenu", function(menutype)
         local elements = {}
 
         if _menutype == 'fire' then 
-            table.insert(elements, {label = "Steak cuit", value = 'gunpowder', desc = "Recette: 1 Steak"})
+            table.insert(elements, {label = "Gros Steak cuit", value = 'steak', descriptionimages = {{src = "nui://redemrp_inventory/items/provision_meat_prime_beef.png", text = "Gros Steak",count = "x1"}}})
         end
         if _menutype == 'grill' then 
-            table.insert(elements, {label = "Steak Grillé", value = 'gunpowder', desc = "Recette: 1 Steak"})
-            table.insert(elements, {label = "Steak au Thym", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Thym"})
+            table.insert(elements, {label = "Gros Steak Grillé", value = 'gunpowder', desc = "Recette: 1 Steak"})
+            table.insert(elements, {label = "Gros Steak au Thym", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Thym"})
         end
         if _menutype == 'cauldron' then 
             table.insert(elements, {label = "Ragout", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Carotte Sauvage"})
