@@ -14,9 +14,9 @@ Config.Image = "ecology"
 
 Config.TimerForCounter = 30--This count your herbs in your client cache.  (seconds)
 Config.DeleteAfterGatherAnimal = false
-Config.PickUp = "Sebrat"
-Config.YouPick = "Sebral jsi :"
-Config.Header = "Gather"
+Config.PickUp = "Ramasser"
+Config.YouPick = "Vous avez ramsassé :"
+Config.Header = "Récolter"
 Config.NotifyTime = 2000
 
 Config.RandomRewardCount = 1-- - If its 0 disabled. This function make random reward count from herbs and animals

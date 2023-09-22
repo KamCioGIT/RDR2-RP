@@ -19,7 +19,7 @@ if Config.Framework == "REDEM" then
     end
     
     function apiSrv.notify(source, title, message, image, time)
-        TriggerClientEvent("gum_notify:notify", source, title, message, image, time)
+        -- TriggerClientEvent("gum_notify:notify", source, title, message, image, time)
     end
 
     function apiSrv.CharacterTable()
