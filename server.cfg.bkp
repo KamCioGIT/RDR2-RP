@@ -25,6 +25,8 @@ ensure mapmanager
 ensure basic-gamemode 
 ensure chat
 ensure ipl_tool
+exec resources/[local]/weathersync/permissions.cfg
+start weathersync
 
 # Spooner
 start uiprompt
@@ -63,12 +65,13 @@ ensure dust_usine
 ensure dust_mineur
 ensure dust_ferme
 ensure ts-trains
--- ensure dust_rumors
+ensure dust_rumors
 ensure [GUM]
 ensure redm-doorsearch
 ensure dust_marechal
 ensure redm_emotes
 ensure dust_armurier
+ensure dust_banking
 
 # MEGA
 ensure [MEGA]
