@@ -2246,22 +2246,23 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
                 local meta = item.getMeta()
                 print (meta)
                 if meta["water"] then
-                    print 'yess'
-                end
-                if tonumber(meta["water"]) >= 20 then
-                    newwater = tonumber(meta["water"]) - 20
-                    qual = tostring(meta["quality"])
-                    item.setMeta({water = newwater, quality = qual})
-                    if qual == "croupie" then
-                        TriggerClientEvent("dust_maladie:dysentrie", _source)
+                    if tonumber(meta["water"]) >= 20 then
+                        newwater = tonumber(meta["water"]) - 20
+                        qual = tostring(meta["quality"])
+                        item.setMeta({water = newwater, quality = qual})
+                        if qual == "croupie" then
+                            TriggerClientEvent("dust_maladie:dysentrie", _source)
+                        end
                     end
                 end
             end
             if type == "purifier" then
                 local meta = item.getMeta()
-                if tonumber(meta["water"]) >= 20 then
-                    newwater = tonumber(meta["water"])
-                    item.setMeta({water = newwater, quality = "potable"})
+                if meta["water"] then
+                    if tonumber(meta["water"]) >= 20 then
+                        newwater = tonumber(meta["water"])
+                        item.setMeta({water = newwater, quality = "potable"})
+                    end
                 end
             end
             TriggerClientEvent(
