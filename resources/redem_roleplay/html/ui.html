@@ -31,7 +31,7 @@
 					let item = event.data;
 					if (item.setmoney == true) {
 						console.log('setmoney:' + item.money);
-						$("#cash").html("<i class='fas green fa-dollar-sign'></i>" + addCommas(item.money));
+						// $("#cash").html("<i class='fas green fa-dollar-sign'></i>" + addCommas(item.money));
 					} else if (item.addcash == true) {
 						$(".tiny").remove();
 						var element = $("<div class='tiny'>+ <i class='fas fa-dollar-sign'></i>" + addCommas(item.money) + "</div>");
