@@ -125,6 +125,7 @@ end)
 
 local blip
 function GetRandomRessourcePoint()
+    DeleteEntity(tempweath)
     if blip ~= nil then 
         RemoveBlip(blip)
     end
@@ -159,7 +160,7 @@ function StartMining()
     TaskPlayAnim(playerPed, Config.GatherDict, Config.GatherAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
     isInteracting = true
     Wait(Config.WorkingTime)
-    DeleteEntity(tempweath)
+    -- DeleteEntity(tempweath)
     FreezeEntityPosition(playerPed, false)
     TaskPlayAnim(playerPed, Config.GatherDict, "stn_exit", 1.0, 1.0, -1, 2, 0, false, false, false)
     Wait(500)
