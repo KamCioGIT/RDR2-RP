@@ -125,7 +125,6 @@ end)
 
 local blip
 function GetRandomRessourcePoint()
-    DeleteEntity(tempweath)
     if blip ~= nil then 
         RemoveBlip(blip)
     end
@@ -136,7 +135,7 @@ function GetRandomRessourcePoint()
             Wait(50)
             local playerPos = GetEntityCoords(PlayerPedId())    
             if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 100 then
-                tempweath = CreateObject(GetHashKey("crp_wheat_dry_aa_sim"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
+                tempweath = CreateObject(GetHashKey("crp_wheat_stk_ab_sim"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
                 PlaceObjectOnGroundProperly(tempweath)
                 break
             end
@@ -160,7 +159,8 @@ function StartMining()
     TaskPlayAnim(playerPed, Config.GatherDict, Config.GatherAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
     isInteracting = true
     Wait(Config.WorkingTime)
-    -- DeleteEntity(tempweath)
+    SetEntityAsMissionEntity(tempweath)
+    DeleteEntity(tempweath)
     FreezeEntityPosition(playerPed, false)
     TaskPlayAnim(playerPed, Config.GatherDict, "stn_exit", 1.0, 1.0, -1, 2, 0, false, false, false)
     Wait(500)
