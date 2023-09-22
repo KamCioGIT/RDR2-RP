@@ -33,6 +33,7 @@ Config.CampChaudron = GetHashKey('p_campfirecombined03x')
 
 Config.CraftingsReceipe = {
     ['steakcuit'] = {
+        Itemtocraft = 1,
         ItemReceipe1Name = 'grossteak',
         ItemReceipe1Amount = 1,
         ItemToGive = 'steakcuit',

@@ -20,7 +20,6 @@ Config.Craftcuir = {vector3(-1970.758, -1641.776, 117.1183)}
 Config.Craftviande = vector3(-1986.814, -1642.825, 117.1306)
 
 
-
 Config.Animal = {
     [1] =  {["name"] = "Bear",                     ["model"] = -1124266369,  ["viande"] = "grossteak",  ["peau"] = "cuir",  ["poor"] = 957520252,   ["good"] = 143941906,   ["perfect"] = 1292673537},
     [2] =  {["name"] = "Big Horn Ram",             ["model"] = -15687816381, ["viande"] = "grossteak",  ["peau"] = "cuir",  ["poor"] = 1796037447,  ["good"] = -476045512,  ["perfect"] = 1795984405},
