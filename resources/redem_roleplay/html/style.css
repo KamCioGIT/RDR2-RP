@@ -4,6 +4,7 @@
 }
 
 #container {
+	display: none;
 	position: absolute;
 	right: 30px;
 	bottom: 10px;
@@ -11,6 +12,7 @@
 }
 
 #money {
+	display: none;
 	font-family: crock;
 	font-size: 25px;
 	color: white;
