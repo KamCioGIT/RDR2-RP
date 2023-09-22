@@ -74,35 +74,33 @@ OpenCharacterMenu = function()
             table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, image="items/character_exists.png", value = v.characterid})
         end
     end
-    table.insert(elements, {label = "<strong>Create a New Character</strong>", desc = "Create a new character.", image="items/character_new.png", value = "new"})
+    table.insert(elements, {label = "<strong>Nouveau Personnages</strong>", desc = "Créer un nouveau personnage", image="items/character_new.png", value = "new"})
     MenuData.Open('default', GetCurrentResourceName(), 'charselect', {
-        title    = "REDEM:RP 2023",
-        subtext  = "Character Selection",
+        title    = "DUST",
+        subtext  = "Vos personnages",
         align    = 'top-right',
         opacity  = '0.95',
         elements = elements,
     },
     function(data, menu)
         if data.current.value == "new" then
-            if #CharsList < 4 then
+            if #CharsList < 1 then
                 MenuData.CloseAll()
                 SendNUIMessage({
                     new = true
                 })
                 SetNuiFocus(true, true)
-            else
-                RedEM.Functions.NotifyLeft("Character Limit Reached!", "You can't have more than 4 characters!", "menu_textures", "menu_icon_alert", 3000)
             end
         else
-            print("Selecting character "..data.current.value)
+            print("Personnage: "..data.current.value)
             SelectingChar = data.current.value
             local elements = {
-                {label = "Select Character", desc = "Spawn into this character?", image="items/charsel_confirm.png",value = "select"},
-                {label = "Delete Character", desc = "Delete this character?", image="items/charsel_delete.png", value = "delete"}
+                {label = "Choisir", desc = "Jouer ce personnage?", image="items/charsel_confirm.png",value = "select"},
+                -- {label = "Delete Character", desc = "Delete this character?", image="items/charsel_delete.png", value = "delete"}
             }
             MenuData.Open('default', GetCurrentResourceName(), 'charselect2', {
-                title    = "REDEM:RP",
-                subtext  = "Character Selection",
+                title    = "DUST",
+                subtext  = "Vos personnages",
                 align    = 'top-right',
                 opacity  = '0.95',
                 elements = elements,
