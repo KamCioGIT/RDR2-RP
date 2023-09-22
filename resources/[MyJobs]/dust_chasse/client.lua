@@ -49,7 +49,7 @@ function depviande() -- Carcasse into viande
                                 Wait(10)
                             end
                             TaskPlayAnim(playerPed, dict, "rabbitchop_trans_meatscoop", 1.0, 1.0, -1, 0, 0, false, false, false)
-                            Citizen.Wait(2000)
+                            Citizen.Wait(4000)
                             ClearPedTasks(playerPed)
                             TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["viande"], 1)
                         end
