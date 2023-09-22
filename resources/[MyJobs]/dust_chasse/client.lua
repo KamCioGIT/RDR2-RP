@@ -7,6 +7,11 @@ TriggerEvent("redemrp_inventory:getData",function(call)
     data = call
 end)
 
+local depviandeprompt = UipromptGroup:new("Boucherie")
+Uiprompt:new(0x760A9C6F, "Récupérer la viande", depviandeprompt):setHoldMode(true)
+depviandeprompt:setActive(false)
+
+
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(1)
@@ -15,8 +20,8 @@ Citizen.CreateThread(function()
             if #(playerPos - v) < 6.0 then
                 Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 2.2, 2.2, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
                 if #(playerPos - v) < 2.2 then
-                    DrawTxt(Config.MsgInteract, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
-                    if IsControlJustPressed(2, 0xC7B5340A) then 
+                    depviandeprompt:setActiveThisFrame(true)
+                    if IsControlJustReleased(0, 0x760A9C6F) then 
                         depviande()
                     end
                 end
@@ -55,6 +60,10 @@ function depviande() -- Carcasse into viande
     end
 end
 
+local deppeauprompt = UipromptGroup:new("Tannerie")
+Uiprompt:new(0x760A9C6F, "Récupérer le cuir", deppeauprompt):setHoldMode(true)
+deppeauprompt:setActive(false)
+
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(1)
@@ -63,8 +72,8 @@ Citizen.CreateThread(function()
             if #(playerPos - v) < 6.0 then
                 Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 2.2, 2.2, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
                 if #(playerPos - v) < 2.2 then
-                    DrawTxt(Config.MsgInteract, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
-                    if IsControlJustPressed(2, 0xC7B5340A) then 
+                    deppeauprompt:setActiveThisFrame(true)
+                    if IsControlJustReleased(0, 0x760A9C6F) then 
                         deppeau()
                     end
                 end
@@ -120,28 +129,6 @@ function DeleteThis(holding) -- Delete carcasse
 end
 
 -- DRAW TEXT ON SCREEEN w/ BACKGROUND
-function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
-    local str = CreateVarString(10, "LITERAL_STRING", str)
-    SetTextScale(w, h)
-    SetTextColor(math.floor(col1), math.floor(col2), math.floor(col3), math.floor(a))
-	SetTextCentre(centre)
-    if enableShadow then SetTextDropshadow(1, 0, 0, 0, 255) end
-	Citizen.InvokeNative(0xADA9255D, 1); -- Font
-    DisplayText(str, x, y)
-
-    local lineLength = string.len(str) / 100 * 0.70
-    DrawTexture("boot_flow", "selection_box_bg_1d", x, y + 0.018, lineLength, 0.07, 0, 0, 0, 0, 200)
-end
-
-
-function DrawTexture(textureStreamed,textureName,x, y, width, height,rotation,r, g, b, a, p11)
-    if not HasStreamedTextureDictLoaded(textureStreamed) then
-       RequestStreamedTextureDict(textureStreamed, false);
-    else
-        DrawSprite(textureStreamed, textureName, x, y, width, height, rotation, r, g, b, a, p11);
-    end
-end
-
 
 RegisterCommand('cart', function()
     huntcart()
