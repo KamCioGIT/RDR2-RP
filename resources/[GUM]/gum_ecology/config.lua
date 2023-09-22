@@ -16,7 +16,7 @@ Config.TimerForCounter = 30--This count your herbs in your client cache.  (secon
 Config.DeleteAfterGatherAnimal = false
 Config.PickUp = "Ramasser"
 Config.YouPick = "Vous avez ramsassé :"
-Config.Header = "Récolter"
+Config.Header = "Plante"
 Config.NotifyTime = 2000
 
 Config.RandomRewardCount = 1-- - If its 0 disabled. This function make random reward count from herbs and animals
@@ -327,13 +327,13 @@ Config.Herbs = {
     },
 
     ["COMPOSITE_LOOTABLE_WILD_CARROT_DEF"] =  {
-        blipSprite = -675651933,
+        blipSprite = 0,
         blipName = "Mrkev",
         coords = {
             {1118.69, 963.67, 128.78, 15.0},
             {-788.26, -850.73, 52.41, 15.0},
         },
-        maxSpawn = 10,--How much props is cached
+        maxSpawn = 5,--How much props is cached
         propMax = 5,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
