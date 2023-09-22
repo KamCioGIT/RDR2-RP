@@ -36,8 +36,6 @@ function depviande() -- Carcasse into viande
     local hold = GetPedType(holding)
     local quality = Citizen.InvokeNative(0x88EFFED5FE8B0B4A, holding) -- Native pour l'état de la carcasse
     local model = GetEntityModel(holding)
-    print (model)
-    print (quality)
     if holding ~= false then
         for i, row in pairs(Config.Animal) do
             if hold == 28 then
@@ -45,11 +43,27 @@ function depviande() -- Carcasse into viande
                     if quality == false then
                         local deleted = DeleteThis(holding)
                         if deleted then
+                            local dict = "amb_camp@prop_camp_butcher@working@rabbit@male_a@rabbit_chop@base"
+                            RequestAnimDict(dict)
+                            while not HasAnimDictLoaded(dict) do
+                                Wait(10)
+                            end
+                            TaskPlayAnim(playerPed, dict, "rabbitchop_trans_meatscoop", 1.0, 1.0, -1, 0, 0, false, false, false)
+                            Citizen.Wait(2000)
+                            ClearPedTasks(playerped)
                             TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["viande"], 1)
                         end
                     elseif quality ~= false then                   
                         local deleted = DeleteThis(holding)
                         if deleted then
+                            local dict = "amb_camp@prop_camp_butcher@working@rabbit@male_a@rabbit_chop@base"
+                            RequestAnimDict(dict)
+                            while not HasAnimDictLoaded(dict) do
+                                Wait(10)
+                            end
+                            TaskPlayAnim(playerPed, dict, "rabbitchop_trans_meatscoop", 1.0, 1.0, -1, 0, 0, false, false, false)
+                            Citizen.Wait(2000)
+                            ClearPedTasks(playerped)
                             TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["viande"], (quality + 1))
                         end
                     end
