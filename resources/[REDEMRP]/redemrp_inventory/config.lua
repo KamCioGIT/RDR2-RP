@@ -878,6 +878,17 @@ Config.Items = {
         imgsrc = "items/consumable_meat_prime_beef_cooked.png",
         type = "item_standard",
     },
+    ["grossteakcarottesauvage"] = {
+        label = "Gros Steak au carottes sauvages",
+        description = "Pour les plus gourmands",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/consumable_prime_beef_thyme_cooked.png",
+        type = "item_standard",
+    },
 
     --- VAULT
     ["smallvault"] = {

@@ -263,7 +263,7 @@ RegisterNetEvent("camp:OpenCampMenu", function(menutype)
             table.insert(elements, {label = "Gros Steak au Thym", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Thym"})
         end
         if _menutype == 'cauldron' then 
-            table.insert(elements, {label = "Ragout", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Carotte Sauvage"})
+            table.insert(elements, {label = "Gros Steak et Carotte Sauvage", value = 'grossteakcarottesauvage', desc = "Recette: 1 Gros Steak + 1 Carotte Sauvage"})
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'Camp', {

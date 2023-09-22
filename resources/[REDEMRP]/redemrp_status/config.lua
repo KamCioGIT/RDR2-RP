@@ -162,6 +162,16 @@ Config.Items = {
 
     ---- recette camp ---- 
     ["grossteakcuit"] = {
+        hunger = 40,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Eat()
+        end
+    },
+    ["grossteakcarottesauvage"] = {
         hunger = 60,
         thirst = 0,
         action = function(source, name)
@@ -171,4 +181,5 @@ Config.Items = {
             Eat()
         end
     },
+
 }
