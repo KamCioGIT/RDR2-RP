@@ -8,7 +8,7 @@ TriggerEvent("redemrp_inventory:getData",function(call)
 end)
 
 local depviandeprompt = UipromptGroup:new("Boucherie")
-Uiprompt:new(0x760A9C6F, "Récupérer la viande", depviandeprompt):setHoldMode(true)
+Uiprompt:new(0x760A9C6F, "Récupérer la viande", depviandeprompt)
 depviandeprompt:setActive(false)
 
 
@@ -75,7 +75,7 @@ function depviande() -- Carcasse into viande
 end
 
 local deppeauprompt = UipromptGroup:new("Tannerie")
-Uiprompt:new(0x760A9C6F, "Récupérer le cuir", deppeauprompt):setHoldMode(true)
+Uiprompt:new(0x760A9C6F, "Récupérer le cuir", deppeauprompt)
 deppeauprompt:setActive(false)
 
 Citizen.CreateThread(function()
@@ -108,22 +108,40 @@ function deppeau() -- Peau into cuir
                 if quality == Config.Animal[i]["poor"] then
                     local deleted = DeleteThis(holding)
                     if deleted then
-                        FreezeEntityPosition(playerPed, true)
-                        TaskStartScenarioInPlace(playerPed, GetHashKey("PROP_HUMAN_TANNING_RACK_FLESHING"), 3000, true, false, false, false)
+                        local dict = "amb_work@prop_human_tanning_rack_fleshing@male_a@base"
+                        RequestAnimDict(dict)
+                        while not HasAnimDictLoaded(dict) do
+                            Wait(10)
+                        end
+                        TaskPlayAnim(playerPed, dict, "base", 1.0, 1.0, -1, 0, 0, false, false, false)
+                        Wait(3000)
+                        ClearPedTasks(playerPed)
                         TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["peau"], 1)
                     end
                 elseif quality == Config.Animal[i]["good"] then
                     local deleted = DeleteThis(holding)   
                     if deleted then
-                        FreezeEntityPosition(playerPed, true)
-                        TaskStartScenarioInPlace(playerPed, GetHashKey("PROP_HUMAN_TANNING_RACK_FLESHING"), 3000, true, false, false, false)
+                        local dict = "amb_work@prop_human_tanning_rack_fleshing@male_a@base"
+                        RequestAnimDict(dict)
+                        while not HasAnimDictLoaded(dict) do
+                            Wait(10)
+                        end
+                        TaskPlayAnim(playerPed, dict, "base", 1.0, 1.0, -1, 0, 0, false, false, false)
+                        Wait(3000)
+                        ClearPedTasks(playerPed)
                         TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["peau"], 2)
                     end
                 elseif quality == Config.Animal[i]["perfect"] then
                     local deleted = DeleteThis(holding)   
                     if deleted then
-                        FreezeEntityPosition(playerPed, true)
-                        TaskStartScenarioInPlace(playerPed, GetHashKey("PROP_HUMAN_TANNING_RACK_FLESHING"), 3000, true, false, false, false)
+                        local dict = "amb_work@prop_human_tanning_rack_fleshing@male_a@base"
+                        RequestAnimDict(dict)
+                        while not HasAnimDictLoaded(dict) do
+                            Wait(10)
+                        end
+                        TaskPlayAnim(playerPed, dict, "base", 1.0, 1.0, -1, 0, 0, false, false, false)
+                        Wait(3000)
+                        ClearPedTasks(playerPed)
                         TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["peau"], 3)
                     end
                 end
