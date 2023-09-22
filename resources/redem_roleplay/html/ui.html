@@ -37,7 +37,7 @@
 						var element = $("<div class='tiny'>+ <i class='fas fa-dollar-sign'></i>" + addCommas(item.money) + "</div>");
 						$("#money").append(element);
 						setTimeout(function () {
-							$(element).fadeOut(600, function () {
+							$(element).fadeOut(1200, function () {
 								$(this).remove();
 							});
 						}, 1000);
@@ -46,7 +46,7 @@
 						var element = $("<div class='tiny'>- <i class='fas fa-dollar-sign'></i>" + addCommas(item.money) + "</div>");
 						$("#money").append(element);
 						setTimeout(function () {
-							$(element).fadeOut(600, function () {
+							$(element).fadeOut(1200, function () {
 								$(this).remove();
 							});
 						}, 1000)
