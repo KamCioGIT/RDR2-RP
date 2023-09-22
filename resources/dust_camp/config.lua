@@ -41,6 +41,7 @@ Config.CraftingsReceipe = {
         WorkingTime = 1,
     },
     ['grossteakcarottesauvage'] = {
+        Itemtocraft = 2,
         ItemReceipe1Name = 'grossteak',
         ItemReceipe1Amount = 1,
         ItemReceipe2Name = 'Wild_Carott',
