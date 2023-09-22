@@ -135,6 +135,7 @@ function GetRandomRessourcePoint()
             Wait(50)
             local playerPos = GetEntityCoords(PlayerPedId())    
             if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 100 then
+                
                 DeleteEntity(tempweath)
                 tempweath = CreateObject(GetHashKey("crp_wheat_stk_ab_sim"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
                 PlaceObjectOnGroundProperly(tempweath)

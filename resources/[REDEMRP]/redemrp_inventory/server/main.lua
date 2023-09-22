@@ -2097,7 +2097,6 @@ RegisterServerEvent("redemrp_inventory:contratsigne", function(name, job)
         local generetejob = job
         _meta.job = job
     end
-    print (_meta.job, _meta.name)
     local item, id = getInventoryItemFromName("contratsigne", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
     if not item then
         table.insert(Inventory[identifier .. "_" .. charid], CreateItem("contratsigne", 1, _meta))
