@@ -49,7 +49,7 @@ function depviande() -- Carcasse into viande
                                 Wait(10)
                             end
                             TaskPlayAnim(playerPed, dict, "rabbitchop_trans_meatscoop", 1.0, 1.0, -1, 0, 0, false, false, false)
-                            Wait(4000)
+                            Wait(3000)
                             ClearPedTasks(playerPed)
                             TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["viande"], 1)
                         end
@@ -62,7 +62,7 @@ function depviande() -- Carcasse into viande
                                 Wait(10)
                             end
                             TaskPlayAnim(playerPed, dict, "rabbitchop_trans_meatscoop", 1.0, 1.0, -1, 0, 0, false, false, false)
-                            Wait(4000)
+                            Wait(3000)
                             ClearPedTasks(playerPed)
                             TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["viande"], (quality + 1))
                         end
