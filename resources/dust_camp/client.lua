@@ -256,7 +256,7 @@ RegisterNetEvent("camp:OpenCampMenu", function(menutype)
         local elements = {}
 
         if _menutype == 'fire' then 
-            table.insert(elements, {label = "Gros Steak cuit", value = 'steak', descriptionimages = {src = "items/provision_meat_prime_beef.png", text = "Gros Steak",count = "x1"}})
+            table.insert(elements, {label = "Gros Steak cuit", value = 'steak', descriptionimages = {src = "nui://dust_camp/items/provision_meat_prime_beef.png", text = "Gros Steak",count = "x1"}})
         end
         if _menutype == 'grill' then 
             table.insert(elements, {label = "Gros Steak Grillé", value = 'gunpowder', desc = "Recette: 1 Steak"})
