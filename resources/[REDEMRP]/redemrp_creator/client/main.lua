@@ -370,30 +370,30 @@ end
 function MainMenu()
     MenuData.CloseAll()
     local elements = {{
-        label = "Body",
+        label = "Corps",
         value = 'body',
-        desc = "Edit your body"
+        desc = "Changer votre corps"
     }, {
-        label = "Face",
+        label = "Tête",
         value = 'face',
-        desc = "Edit your face"
+        desc = "Changer votre tête"
     }, {
-        label = "Hair / Beard",
+        label = "Cheveux / Barbe",
         value = 'hair',
-        desc = "Edit your hair"
+        desc = "Changer votre pilosité"
     }, {
-        label = "Makeup",
+        label = "Maquillage",
         value = 'makeup',
-        desc = "Edit your makeup"
+        desc = "Changer votre maquillage"
     }, {
-        label = "Save",
+        label = "Valider",
         value = 'save',
-        desc = "Save your character"
+        desc = "Valider votre personnage"
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'main_character_creator_menu', {
-        title = 'Basic Appearance',
-        subtext = 'Settings',
+        title = 'Apparence de base',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -404,7 +404,7 @@ end
 
 function OpenBodyMenu()
     MenuData.CloseAll()
-    local BodySizeOptions = {"Skinny", "Athletic", "Average", "Heavy", "Burly"}
+    local BodySizeOptions = {"Maigre", "Athlétique", "Moyen", "Lourd", "Costaud"}
     local BodyWaistOptions = {}
     for i, v in ipairs(WAIST_TYPES) do
         table.insert(BodyWaistOptions, "+ " .. (i / 2) .. " kg")
@@ -416,63 +416,63 @@ function OpenBodyMenu()
                              "<img src='nui://redemrp_creator/img/skin5.png' height='20'>",
                              "<img src='nui://redemrp_creator/img/skin6.png' height='20'>"}
     local elements = {{
-        label = "Face",
+        label = "Tête",
         value = CreatorCache["head"] or 1,
         category = "head",
-        desc = "Change the look of your face",
+        desc = "Modifier votre tête de base",
         type = "slider",
         min = 1,
         max = 120,
         hop = 6
     }, {
-        label = "Face Width",
+        label = "Largeur de la tête",
         value = CreatorCache["face_width"] or 0,
         category = "face_width",
-        desc = "Change the width of your face",
+        desc = "Modifier la largeur de votre tête",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Skin tone",
+        label = "Teint de peau",
         value = CreatorCache["skin_tone"] or 1,
         category = "skin_tone",
-        desc = "Change your skin tone",
+        desc = "Changer votre couleur de peau",
         type = "slider",
         min = 1,
         max = 6,
         options = SkinToneOptions
     }, {
-        label = "Body Size",
+        label = "Forme du corps",
         value = CreatorCache["body_size"] or 3,
         category = "body_size",
-        desc = "Change your body size",
+        desc = "Changer la forme de votre corps",
         type = "slider",
         min = 1,
         max = 5,
         options = BodySizeOptions
     }, {
-        label = "Waist Size",
+        label = "Poids",
         value = CreatorCache["body_waist"] or 7,
         category = "body_waist",
-        desc = "Add pounds",
+        desc = "Ajuster votre poids",
         type = "slider",
         min = 1,
         max = 21,
         options = BodyWaistOptions
     }, {
-        label = "Height",
+        label = "Taille",
         value = CreatorCache["height"] or 95,
         category = "height",
-        desc = "Change height",
+        desc = "Ajuster votre taille",
         type = "slider",
         min = 95,
         max = 105,
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'body_character_creator_menu', {
-        title = 'Basic Appearance',
-        subtext = 'Settings',
+        title = 'Apparence de base',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -491,51 +491,51 @@ function OpenFaceMenu()
     MoveCharacterCreatorCamera(-558.97, -3780.95, 239.18)
     MenuData.CloseAll()
     local elements = {{
-        label = "Eyes",
+        label = "Yeux",
         value = 'eyes',
-        desc = "Edit eyes"
+        desc = "Changer vos yeux"
     }, {
-        label = "Eyelids",
+        label = "Paupières",
         value = 'eyelids',
-        desc = "Edit eyelids"
+        desc = "Changer vos paupières"
     }, {
-        label = "Eyebrows",
+        label = "Sourcils",
         value = 'eyebrows',
-        desc = "Edit eyebrows"
+        desc = "Chnager vos sourcils"
     }, {
-        label = "Nose",
+        label = "Nez",
         value = 'nose',
-        desc = "Edit nose"
+        desc = "Changer votre nez"
     }, {
-        label = "Mouth",
+        label = "Bouche",
         value = 'mouth',
-        desc = "Edit mouth"
+        desc = "Changer votre bouche"
     }, {
-        label = "Cheekbones",
+        label = "Pommettes",
         value = 'cheekbones',
-        desc = "Edit cheekbones"
+        desc = "Changer vos pommettes"
     }, {
-        label = "Jaw",
+        label = "Mâchoire",
         value = 'jaw',
-        desc = "Edit jaw"
+        desc = "Changer votre mâchoire"
     }, {
-        label = "Ears",
+        label = "Oreilles",
         value = 'ears',
-        desc = "Edit ears"
+        desc = "Changer vos oreilles"
     }, {
-        label = "Chin",
+        label = "Menton",
         value = 'chin',
-        desc = "Edit chin"
+        desc = "Changer votre menton"
     }, {
-        label = "Defects",
+        label = "Défauts",
         value = 'defects',
-        desc = "Edit defects"
+        desc = "Changer vos défauts"
     }}
 
 
     MenuData.Open('default', GetCurrentResourceName(), 'face_main_character_creator_menu', {
-        title = 'Face',
-        subtext = 'Settings',
+        title = 'Tête',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -575,10 +575,10 @@ function OpenHairMenu2(cb)
                 table.insert(options, "Styl " .. k)
             end
             table.insert(elements, {
-                label = "Hair",
+                label = "Cheveux",
                 value = CreatorCache["hair"].model or 0,
                 category = "hair",
-                desc = "Change component",
+                desc = "Changer voos cheveux",
                 type = "slider",
                 min = 0,
                 max = #category,
@@ -593,10 +593,10 @@ function OpenHairMenu2(cb)
                 table.insert(options, "Kolor " .. i)
             end
             table.insert(elements, {
-                label = "Hair color",
+                label = "Couleur de cheveux",
                 value = CreatorCache["hair"].texture or 1,
                 category = "hair",
-                desc = "Change the color",
+                desc = "Changer la couleur de cheveux",
                 type = "slider",
                 min = 1,
                 max = GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1),
@@ -614,10 +614,10 @@ function OpenHairMenu2(cb)
                 table.insert(options, "Styl " .. k)
             end
             table.insert(elements, {
-                label = "Beard",
+                label = "Barbe",
                 value = CreatorCache["beard"].model or 0,
                 category = "beard",
-                desc = "Change component",
+                desc = "Changer votre barbe",
                 type = "slider",
                 min = 0,
                 max = #category,
@@ -632,10 +632,10 @@ function OpenHairMenu2(cb)
                 table.insert(options, "Color " .. i)
             end
             table.insert(elements, {
-                label = "Beard Color",
+                label = "Couleur de barbe",
                 value = CreatorCache["beard"].texture or 1,
                 category = "beard",
-                desc = "Change the color",
+                desc = "Changer votre couleur de barbe",
                 type = "slider",
                 min = 1,
                 max = GetMaxTexturesForModel("beard", CreatorCache["beard"].model or 1),
@@ -659,10 +659,10 @@ function OpenHairMenu2(cb)
             table.insert(options, k .. " Style")
         end
         table.insert(elements, {
-            label = "Hair",
+            label = "Cheveux",
             value = CreatorCache["hair"].model or 0,
             category = "hair",
-            desc = "Change component",
+            desc = "Changer vos cheveux",
             type = "slider",
             min = 0,
             max = #category,
@@ -677,10 +677,10 @@ function OpenHairMenu2(cb)
             table.insert(options, i .. " Color")
         end
         table.insert(elements, {
-            label = "Hair color",
+            label = "Coouleur de cheveux",
             value = CreatorCache["hair"].texture or 1,
             category = "hair",
-            desc = "Change the color",
+            desc = "Changer votre couleur de cheveux",
             type = "slider",
             min = 1,
             max = GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1),
@@ -694,13 +694,13 @@ function OpenHairMenu2(cb)
     end
 
     table.insert(elements,{
-        label = "Save",
+        label = "Valider",
         value = "save",
-        desc = "Save your changes",
+        desc = "Valider vos changements",
     })
     MenuData.Open('default', GetCurrentResourceName(), 'hair_main_character_creator_menu2', {
-        title = 'Hair',
-        subtext = 'Settings',
+        title = 'Cheveux',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -792,10 +792,10 @@ function OpenHairMenu()
                 table.insert(options, "Styl " .. k)
             end
             table.insert(elements, {
-                label = "Hair",
+                label = "Cheveux",
                 value = CreatorCache["hair"].model or 0,
                 category = "hair",
-                desc = "Change component",
+                desc = "Changer vos cheveux",
                 type = "slider",
                 min = 0,
                 max = #category,
@@ -810,10 +810,10 @@ function OpenHairMenu()
                 table.insert(options,i.." Color")
             end
             table.insert(elements, {
-                label = "Hair color",
+                label = "Couleur de cheveux",
                 value = CreatorCache["hair"].texture or 1,
                 category = "hair",
-                desc = "Change the color",
+                desc = "Changer la couleur de cheveux",
                 type = "slider",
                 min = 1,
                 max = GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1),
@@ -831,10 +831,10 @@ function OpenHairMenu()
                 table.insert(options, k.." Style")
             end
             table.insert(elements, {
-                label = "Beard",
+                label = "Barbe",
                 value = CreatorCache["beard"].model or 0,
                 category = "beard",
-                desc = "Change component",
+                desc = "Changer votre barbe",
                 type = "slider",
                 min = 0,
                 max = #category,
@@ -849,10 +849,10 @@ function OpenHairMenu()
                 table.insert(options, "Color " .. i)
             end
             table.insert(elements, {
-                label = "Beard Color",
+                label = "Couleur de barbe",
                 value = CreatorCache["beard"].texture or 1,
                 category = "beard",
-                desc = "Change the color",
+                desc = "Changer votre couleur de barbe",
                 type = "slider",
                 min = 1,
                 max = GetMaxTexturesForModel("beard", CreatorCache["beard"].model or 1),
@@ -876,10 +876,10 @@ function OpenHairMenu()
             table.insert(options, "Styl " .. k)
         end
         table.insert(elements, {
-            label = "Hair",
+            label = "Cheveux",
             value = CreatorCache["hair"].model or 0,
             category = "hair",
-            desc = "Change component",
+            desc = "Changer votre couleur de cheveux",
             type = "slider",
             min = 0,
             max = #category,
@@ -894,10 +894,10 @@ function OpenHairMenu()
             table.insert(options, "Kolor " .. i)
         end
         table.insert(elements, {
-            label = "Hair color",
+            label = "Couleur de cheveux",
             value = CreatorCache["hair"].texture or 1,
             category = "hair",
-            desc = "Change the color",
+            desc = "Changer votre couleur de cheveux",
             type = "slider",
             min = 1,
             max = GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1),
@@ -910,8 +910,8 @@ function OpenHairMenu()
         a = a + 1
     end
     MenuData.Open('default', GetCurrentResourceName(), 'hair_main_character_creator_menu', {
-        title = 'Hair',
-        subtext = 'Settings',
+        title = 'Cheuveux',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -977,18 +977,18 @@ function OpenEyesMenu()
                               "<img src='nui://redemrp_creator/img/skin5.png' height='20'>",
                               "<img src='nui://redemrp_creator/img/skin6.png' height='20'>"}
     local elements = {{
-        label = "Color",
+        label = "Couleur",
         value = CreatorCache["eyes_color"] or 1,
         category = "eyes_color",
-        desc = "Change the look",
+        desc = "Changer la couleur",
         type = "slider",
         min = 1,
         max = 18
     }, {
-        label = "Depth",
+        label = "Profondeur",
         value = CreatorCache["eyes_depth"] or 0,
         category = "eyes_depth",
-        desc = "Change the look",
+        desc = "Changer la profondeur",
         type = "slider",
         min = -100,
         max = 100,
@@ -997,16 +997,16 @@ function OpenEyesMenu()
         label = "Angle",
         value = CreatorCache["eyes_angle"] or 0,
         category = "eyes_angle",
-        desc = "Change the look",
+        desc = "Changer l'angle",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Spacing",
+        label = "Espacement",
         value = CreatorCache["eyes_distance"] or 0,
         category = "eyes_distance",
-        desc = "Change the look",
+        desc = "Changer l'espacement",
         type = "slider",
         min = -100,
         max = 100,
@@ -1014,8 +1014,8 @@ function OpenEyesMenu()
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'eyes_character_creator_menu', {
-        title = 'Eyes',
-        subtext = 'Settings',
+        title = 'Yeux',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -1032,19 +1032,19 @@ end
 function OpenEyelidsMenu()
     MenuData.CloseAll()
     local elements = {{
-        label = "Height",
+        label = "Hauteur",
         value = CreatorCache["eyelid_height"] or 0,
         category = "eyelid_height",
-        desc = "Change the look",
+        desc = "Changer la hauteur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Width",
+        label = "Largeur",
         value = CreatorCache["eyelid_width"] or 0,
         category = "eyelid_width",
-        desc = "Change the look",
+        desc = "Changer la largeur",
         type = "slider",
         min = -100,
         max = 100,
@@ -1052,8 +1052,8 @@ function OpenEyelidsMenu()
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'eyelid_character_creator_menu', {
-        title = 'Eyelids',
-        subtext = 'Settings',
+        title = 'Paupières',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -1070,28 +1070,28 @@ end
 function OpenEyebrowsMenu()
     MenuData.CloseAll()
     local elements = {{
-        label = "Height",
+        label = "Hauteur",
         value = CreatorCache["eyebrow_height"] or 0,
         category = "eyebrow_height",
-        desc = "Change the look",
+        desc = "Changer la hauteur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Width",
+        label = "Largeur",
         value = CreatorCache["eyebrow_width"] or 0,
         category = "eyebrow_width",
-        desc = "Change the look",
+        desc = "Changer la largeur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Depth",
+        label = "Profondeur",
         value = CreatorCache["eyebrow_depth"] or 0,
         category = "eyebrow_depth",
-        desc = "Change the look",
+        desc = "Changer la profondeur",
         type = "slider",
         min = -100,
         max = 100,
@@ -1100,40 +1100,40 @@ function OpenEyebrowsMenu()
         label = "Type",
         value = CreatorCache["eyebrows_t"] or 1,
         category = "eyebrows_t",
-        desc = "Change the look",
+        desc = "Changer le type",
         type = "slider",
         min = 1,
         max = 15
     }, {
-        label = "Visibility",
+        label = "Opacité",
         value = CreatorCache["eyebrows_op"] or 100,
         category = "eyebrows_op",
-        desc = "Change the look",
+        desc = "Changer l'opacité",
         type = "slider",
         min = 0,
         max = 100,
         hop = 5
     }, {
-        label = "Color palette",
+        label = "Palette de couleurs",
         value = CreatorCache["eyebrows_id"] or 10,
         category = "eyebrows_id",
-        desc = "Change the look",
+        desc = "Changer la palette",
         type = "slider",
         min = 1,
         max = 25
     }, {
-        label = "Primary color",
+        label = "Couleur principale",
         value = CreatorCache["eyebrows_c1"] or 0,
         category = "eyebrows_c1",
-        desc = "Change the look",
+        desc = "Changer la couleur",
         type = "slider",
         min = 0,
         max = 64
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'eyebrows_character_creator_menu', {
-        title = 'Eyebrows',
-        subtext = 'Settings',
+        title = 'Sourcils',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -1150,28 +1150,28 @@ end
 function OpenNoseMenu()
     MenuData.CloseAll()
     local elements = {{
-        label = "Width",
+        label = "Largeur",
         value = CreatorCache["nose_width"] or 0,
         category = "nose_width",
-        desc = "Change the look",
+        desc = "Changer la largeur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Size",
+        label = "Taille",
         value = CreatorCache["nose_size"] or 0,
         category = "nose_size",
-        desc = "Change the look",
+        desc = "Changer la taille",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Height",
+        label = "Hauteur",
         value = CreatorCache["nose_height"] or 0,
         category = "nose_height",
-        desc = "Change the look",
+        desc = "Changer la hauteur",
         type = "slider",
         min = -100,
         max = 100,
@@ -1180,25 +1180,25 @@ function OpenNoseMenu()
         label = "Angle",
         value = CreatorCache["nose_angle"] or 0,
         category = "nose_angle",
-        desc = "Change the look",
+        desc = "Changer l'angle",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Curvature",
+        label = "Courbure",
         value = CreatorCache["nose_curvature"] or 0,
         category = "nose_curvature",
-        desc = "Change the look",
+        desc = "Changer la courbure",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Nostrils Distance",
+        label = "Espacement des narines",
         value = CreatorCache["nostrils_distance"] or 0,
         category = "nostrils_distance",
-        desc = "Change the look",
+        desc = "Changer l'espacement des narines",
         type = "slider",
         min = -100,
         max = 100,
@@ -1206,8 +1206,8 @@ function OpenNoseMenu()
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'nose_character_creator_menu', {
-        title = 'Nose',
-        subtext = 'Settings',
+        title = 'Nez',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -1224,91 +1224,91 @@ end
 function OpenMouthMenu()
     MenuData.CloseAll()
     local elements = {{
-        label = "Width",
+        label = "Largeur",
         value = CreatorCache["mouth_width"] or 0,
         category = "mouth_width",
-        desc = "Change the look",
+        desc = "Changer la largeur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Depth",
+        label = "Profondeur",
         value = CreatorCache["mouth_depth"] or 0,
         category = "mouth_depth",
-        desc = "Change the look",
+        desc = "Changer la profondeur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Up / Down",
+        label = "Haut / Bas",
         value = CreatorCache["mouth_x_pos"] or 0,
         category = "mouth_x_pos",
-        desc = "Change the look",
+        desc = "Changer la position de la bouche",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Left / Right",
+        label = "Gauche / Droite",
         value = CreatorCache["mouth_y_pos"] or 0,
         category = "mouth_y_pos",
-        desc = "Change the look",
+        desc = "Changer la position de la bouche",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Upper Lip Height",
+        label = "Lèvre supérieure: Hauteur",
         value = CreatorCache["upper_lip_height"] or 0,
         category = "upper_lip_height",
-        desc = "Change the look",
+        desc = "Changer les lèvres",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Upper Lip Width",
+        label = "Lèvre supérieure: Largeur",
         value = CreatorCache["upper_lip_width"] or 0,
         category = "upper_lip_width",
-        desc = "Change the look",
+        desc = "Changer les lèvres",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Upper Lip Depth",
+        label = "Lèvre supérieure: Profondeur",
         value = CreatorCache["upper_lip_depth"] or 0,
         category = "upper_lip_depth",
-        desc = "Change the look",
+        desc = "Changer les lèvres",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Lower Lip Height",
+        label = "Lèvre inférieure: Hauteur",
         value = CreatorCache["lower_lip_height"] or 0,
         category = "lower_lip_height",
-        desc = "Change the look",
+        desc = "Changer les lèvres",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Lower Lip Width",
+        label = "Lèvre inférieure: Largeur",
         value = CreatorCache["lower_lip_width"] or 0,
         category = "lower_lip_width",
-        desc = "Change the look",
+        desc = "Changer les lèvres",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Lower Lip Depth",
+        label = "Lèvre inférieure: Profondeur",
         value = CreatorCache["lower_lip_depth"] or 0,
         category = "lower_lip_depth",
-        desc = "Change the look",
+        desc = "Changer les lèvres",
         type = "slider",
         min = -100,
         max = 100,
@@ -1316,8 +1316,8 @@ function OpenMouthMenu()
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'mouth_character_creator_menu', {
-        title = 'Mouth',
-        subtext = 'Settings',
+        title = 'Bouche',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -1334,28 +1334,28 @@ end
 function OpenCheekbonesMenu()
     MenuData.CloseAll()
     local elements = {{
-        label = "Height",
+        label = "Hauteur",
         value = CreatorCache["cheekbones_height"] or 0,
         category = "cheekbones_height",
-        desc = "Change the look",
+        desc = "Changer la hauteur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Width",
+        label = "Largeur",
         value = CreatorCache["cheekbones_width"] or 0,
         category = "cheekbones_width",
-        desc = "Change the look",
+        desc = "Changer la largeur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Depth",
+        label = "Profondeur",
         value = CreatorCache["cheekbones_depth"] or 0,
         category = "cheekbones_depth",
-        desc = "Change the look",
+        desc = "Changer la profondeur",
         type = "slider",
         min = -100,
         max = 100,
@@ -1363,8 +1363,8 @@ function OpenCheekbonesMenu()
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'cheekbones_character_creator_menu', {
-        title = 'Cheekbones',
-        subtext = 'Settings',
+        title = 'Pommettes',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -1381,28 +1381,28 @@ end
 function OpenJawMenu()
     MenuData.CloseAll()
     local elements = {{
-        label = "Height",
+        label = "Hauteur",
         value = CreatorCache["jaw_height"] or 0,
         category = "jaw_height",
-        desc = "Change the look",
+        desc = "Changer la hauteur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Width",
+        label = "Largeur",
         value = CreatorCache["jaw_width"] or 0,
         category = "jaw_width",
-        desc = "Change the look",
+        desc = "Changer la largeur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Depth",
+        label = "Profondeur",
         value = CreatorCache["jaw_depth"] or 0,
         category = "jaw_depth",
-        desc = "Change the look",
+        desc = "Changer la profondeur",
         type = "slider",
         min = -100,
         max = 100,
@@ -1410,8 +1410,8 @@ function OpenJawMenu()
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'jaw_character_creator_menu', {
-        title = 'Jaw',
-        subtext = 'Settings',
+        title = 'Mâchoire',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -1428,10 +1428,10 @@ end
 function OpenEarsMenu()
     MenuData.CloseAll()
     local elements = {{
-        label = "Width",
+        label = "Largeur",
         value = CreatorCache["ears_width"] or 0,
         category = "ears_width",
-        desc = "Change the look",
+        desc = "Changer la largeur",
         type = "slider",
         min = -100,
         max = 100,
@@ -1440,25 +1440,25 @@ function OpenEarsMenu()
         label = "Angle",
         value = CreatorCache["ears_angle"] or 0,
         category = "ears_angle",
-        desc = "Change the look",
+        desc = "Changer l'angle",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Height",
+        label = "Hauteur",
         value = CreatorCache["ears_height"] or 0,
         category = "ears_height",
-        desc = "Change the look",
+        desc = "Changer la hauteur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Size",
+        label = "Taille",
         value = CreatorCache["earlobe_size"] or 0,
         category = "earlobe_size",
-        desc = "Change the look",
+        desc = "Changer la taille",
         type = "slider",
         min = -100,
         max = 100,
@@ -1466,8 +1466,8 @@ function OpenEarsMenu()
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'ears_character_creator_menu', {
-        title = 'Ears',
-        subtext = 'Settings',
+        title = 'Oreilles',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -1484,28 +1484,28 @@ end
 function OpenChinMenu()
     MenuData.CloseAll()
     local elements = {{
-        label = "Height",
+        label = "Hauteur",
         value = CreatorCache["chin_height"] or 0,
         category = "chin_height",
-        desc = "Change the look",
+        desc = "Changer la hauteur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Width",
+        label = "Largeur",
         value = CreatorCache["chin_width"] or 0,
         category = "chin_width",
-        desc = "Change the look",
+        desc = "Changer la largeur",
         type = "slider",
         min = -100,
         max = 100,
         hop = 5
     }, {
-        label = "Depth",
+        label = "Profondeur",
         value = CreatorCache["chin_depth"] or 0,
         category = "chin_depth",
-        desc = "Change the look",
+        desc = "Changer la profondeur",
         type = "slider",
         min = -100,
         max = 100,
@@ -1513,8 +1513,8 @@ function OpenChinMenu()
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'chin_character_creator_menu', {
-        title = 'Chin',
-        subtext = 'Settings',
+        title = 'Menton',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -1531,91 +1531,91 @@ end
 function OpenDefectsMenu()
     MenuData.CloseAll()
     local elements = {{
-        label = "Scar Type",
+        label = "Cicatrice",
         value = CreatorCache["scars_t"] or 1,
         category = "scars_t",
-        desc = "Change the look",
+        desc = "Changer la cicatrice",
         type = "slider",
         min = 1,
         max = 16,
         options = nil
     }, {
-        label = "Scar Visibility",
+        label = "Cicatrice: Opacité",
         value = CreatorCache["scars_op"] or 0,
         category = "scars_op",
-        desc = "Change the look",
+        desc = "Changer la cicatrice",
         type = "slider",
         min = 0,
         max = 100,
         hop = 5
     }, {
-        label = "Aging Type",
+        label = "Rides",
         value = CreatorCache["ageing_t"] or 1,
         category = "ageing_t",
-        desc = "Change the look",
+        desc = "Changer les rides",
         type = "slider",
         min = 1,
         max = 24,
         options = nil
     }, {
-        label = "Aging Visibility",
+        label = "Rides: Opacité",
         value = CreatorCache["ageing_op"] or 0,
         category = "ageing_op",
-        desc = "Change the look",
+        desc = "Changer les rides",
         type = "slider",
         min = 0,
         max = 100,
         hop = 5
     }, {
-        label = "Freckles Type",
+        label = "Taches de rousseur",
         value = CreatorCache["freckles_t"] or 1,
         category = "freckles_t",
-        desc = "Change the look",
+        desc = "Changer les taches de rousseur",
         type = "slider",
         min = 1,
         max = 15,
         options = nil
     }, {
-        label = "Freckles Visibility",
+        label = "Taches de rousseur: Opacité",
         value = CreatorCache["freckles_op"] or 0,
         category = "freckles_op",
-        desc = "Change the look",
+        desc = "Changer les taches de rousseur",
         type = "slider",
         min = 0,
         max = 100,
         hop = 5
     }, {
-        label = "Moles Type",
+        label = "Grains de beauté",
         value = CreatorCache["moles_t"] or 1,
         category = "moles_t",
-        desc = "Change the look",
+        desc = "Changer les grains de beauté",
         type = "slider",
         min = 1,
         max = 16,
         options = nil
     }, {
-        label = "Moles Visibility",
+        label = "Grains de beauté: Opacité",
         value = CreatorCache["moles_op"] or 0,
         category = "moles_op",
-        desc = "Change the look",
+        desc = "Changer les grains de beauté",
         type = "slider",
         min = 0,
         max = 100,
         hop = 5
     }, {
-        label = "Spots Type",
+        label = "Imperfections",
         value = CreatorCache["spots_t"] or 1,
         category = "spots_t",
-        desc = "Change the look",
+        desc = "Changer les imperfections",
         type = "slider",
         min = 1,
         max = 16,
         options = nil
     }, {
-        label = "Spot Visiblity",
+        label = "Imperfections: Opacité",
         value = CreatorCache["spots_op"] or 0,
         category = "spots_op",
-        desc = "Change the look",
+        desc = "Changer les imperfections",
         type = "slider",
         min = 0,
         max = 100,
@@ -1623,8 +1623,8 @@ function OpenDefectsMenu()
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'defects_character_creator_menu', {
-        title = 'Defects',
-        subtext = 'Settings',
+        title = 'Défauts',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)
@@ -1642,150 +1642,150 @@ function OpenMakeupMenu()
     MoveCharacterCreatorCamera(-558.97, -3780.95, 239.18)
     MenuData.CloseAll()
     local elements = {{
-        label = "Shadow Types",
+        label = "Fard à paupières",
         value = CreatorCache["shadows_t"] or 1,
         category = "shadows_t",
-        desc = "Change the look",
+        desc = "Changer le fard à paupières",
         type = "slider",
         min = 1,
         max = 5
     }, {
-        label = "Shadow Visibility",
+        label = "Fard à paupières: Opacité",
         value = CreatorCache["shadows_op"] or 0,
         category = "shadows_op",
-        desc = "Change the look",
+        desc = "Changer le fard à paupières",
         type = "slider",
         min = 0,
         max = 100,
         hop = 5
     }, {
-        label = "Shadow color palette",
+        label = "Fard à paupières: Palette",
         value = CreatorCache["shadows_id"] or 1,
         category = "shadows_id",
-        desc = "Change the look",
+        desc = "Changer le fard à paupières",
         type = "slider",
         min = 1,
         max = 25
     }, {
-        label = "Primary color of shadows",
+        label = "Fard à paupières: Couleur",
         value = CreatorCache["shadows_c1"] or 0,
         category = "shadows_c1",
-        desc = "Change the look",
+        desc = "Changer le fard à paupières",
         type = "slider",
         min = 0,
         max = 64
     }, {
-        label = "Blush Type",
+        label = "Blush",
         value = CreatorCache["blush_t"] or 1,
         category = "blush_t",
-        desc = "Change the look",
+        desc = "Changer le blush",
         type = "slider",
         min = 1,
         max = 4
     }, {
-        label = "Blush Visiblity",
+        label = "Blush: Opacité",
         value = CreatorCache["blush_op"] or 0,
         category = "blush_op",
-        desc = "Change the look",
+        desc = "Changer le blush",
         type = "slider",
         min = 0,
         max = 100,
         hop = 5
     }, {
-        label = "Blush Color Palette",
+        label = "Blush: Palette",
         value = CreatorCache["blush_id"] or 1,
         category = "blush_id",
-        desc = "Change the look",
+        desc = "Changer le blush",
         type = "slider",
         min = 1,
         max = 25
     }, {
-        label = "Blush Primary Color",
+        label = "Blush: Couleur",
         value = CreatorCache["blush_c1"] or 0,
         category = "blush_c1",
-        desc = "Change the look",
+        desc = "Changer le blush",
         type = "slider",
         min = 0,
         max = 64
     }, {
-        label = "Lipstick Type",
+        label = "Rouge à lèvres",
         value = CreatorCache["lipsticks_t"] or 1,
         category = "lipsticks_t",
-        desc = "Change the look",
+        desc = "Changer le rouge à lèvres",
         type = "slider",
         min = 1,
         max = 7
     }, {
-        label = "Lipstick Visibility",
+        label = "Rouge à lèvres: Opacité",
         value = CreatorCache["lipsticks_op"] or 0,
         category = "lipsticks_op",
-        desc = "Change the look",
+        desc = "Changer le rouge à lèvres",
         type = "slider",
         min = 0,
         max = 100,
         hop = 5
     }, {
-        label = "Lipstick color palette",
+        label = "Rouge à lèvres: Palette",
         value = CreatorCache["lipsticks_id"] or 1,
         category = "lipsticks_id",
-        desc = "Change the look",
+        desc = "Changer le rouge à lèvres",
         type = "slider",
         min = 1,
         max = 25
     }, {
-        label = "Primary color of lipstick",
+        label = "Rouge à lèvres: Couleur Principale",
         value = CreatorCache["lipsticks_c1"] or 0,
         category = "lipsticks_c1",
-        desc = "Change the look",
+        desc = "Changer le rouge à lèvres",
         type = "slider",
         min = 0,
         max = 64
     }, {
-        label = "Secondary color of lipstick",
+        label = "Rouge à lèvres: Couleur Secondaire",
         value = CreatorCache["lipsticks_c2"] or 0,
         category = "lipsticks_c2",
-        desc = "Change the look",
+        desc = "Changer le rouge à lèvres",
         type = "slider",
         min = 0,
         max = 64
     }, {
-        label = "Eyeliner Type",
+        label = "Eyeliner",
         value = CreatorCache["eyeliners_t"] or 1,
         category = "eyeliners_t",
-        desc = "Change the look",
+        desc = "Change l'eyeliner",
         type = "slider",
         min = 1,
         max = 15
     }, {
-        label = "Eyeliner Visibility",
+        label = "Eyeliner: Opacité",
         value = CreatorCache["eyeliners_op"] or 0,
         category = "eyeliners_op",
-        desc = "Change the look",
+        desc = "Change l'eyeliner",
         type = "slider",
         min = 0,
         max = 100,
         hop = 5
     }, {
-        label = "Eyeliner color palette",
+        label = "Eyeliner: Palette",
         value = CreatorCache["eyeliners_id"] or 1,
         category = "eyeliners_id",
-        desc = "Change the look",
+        desc = "Change l'eyeliner",
         type = "slider",
         min = 1,
         max = 25
     }, {
-        label = "Primary color of eyeliner",
+        label = "Eyeliner: Couleur",
         value = CreatorCache["eyeliners_c1"] or 0,
         category = "eyeliners_c1",
-        desc = "Change the look",
+        desc = "Change l'eyeliner",
         type = "slider",
         min = 0,
         max = 64
     }}
 
     MenuData.Open('default', GetCurrentResourceName(), 'makeup_character_creator_menu', {
-        title = 'Makeup',
-        subtext = 'Settings',
+        title = 'Maquillage',
+        subtext = 'Options',
         align = 'top-left',
         elements = elements
     }, function(data, menu)

@@ -155,7 +155,7 @@ end
 
 function StartRightPrompt()
     Citizen.CreateThread(function()
-        local str = "Right"
+        local str = "Droite"
         PromptRight = PromptRegisterBegin()
         PromptSetControlAction(PromptRight, 0xDEB34313)
         str = CreateVarString(10, 'LITERAL_STRING', str)
@@ -171,7 +171,7 @@ end
 
 function StartLeftPrompt()
     Citizen.CreateThread(function()
-        local str = "Left"
+        local str = "Gauche"
         PromptLeft = PromptRegisterBegin()
         PromptSetControlAction(PromptLeft, 0xA65EBAB4)
         str = CreateVarString(10, 'LITERAL_STRING', str)
@@ -187,7 +187,7 @@ end
 
 function StartAcceptPrompt()
     Citizen.CreateThread(function()
-        local str = "Accept"
+        local str = "Valider"
         PromptAccept = PromptRegisterBegin()
         PromptSetControlAction(PromptAccept, 0x2CD5343E)
         str = CreateVarString(10, 'LITERAL_STRING', str)
@@ -227,11 +227,11 @@ function LightAndCam()
         Wait(0)
         DrawLightWithRange(-561.36, SpawnCoords[AcitveCamera].y, SpawnCoords[AcitveCamera].z + 1, 255, 255, 255, 5.5,
             25.0)
-        local SelectString = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", "Choose a character",
+        local SelectString = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", "Choisir un personnage",
             Citizen.ResultAsLong())
         Citizen.InvokeNative(0xFA233F8FE190514C, SelectString)
         Citizen.InvokeNative(0xE9990552DEC71600)
-        local ChoiceGroupName = CreateVarString(10, 'LITERAL_STRING', "Choose")
+        local ChoiceGroupName = CreateVarString(10, 'LITERAL_STRING', "Choisir")
         PromptSetActiveGroupThisFrame(ChoiceGroup, ChoiceGroupName)
         if PromptHasHoldModeCompleted(PromptLeft) then
             if AcitveCamera ~= 1 then
