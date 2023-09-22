@@ -258,7 +258,6 @@ RegisterNetEvent("camp:OpenCampMenu", function(menutype)
         if _menutype == 'fire' then 
             table.insert(elements, {label = "Gros Steak cuit", value = 'steak', descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}})
         end
-        'nui://redemrp_inventory/html/items/"..itemName..".png'
         if _menutype == 'grill' then 
             table.insert(elements, {label = "Gros Steak Grillé", value = 'gunpowder', desc = "Recette: 1 Steak"})
             table.insert(elements, {label = "Gros Steak au Thym", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Thym"})
