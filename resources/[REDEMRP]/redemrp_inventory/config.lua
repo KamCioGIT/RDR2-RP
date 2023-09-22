@@ -994,6 +994,18 @@ Config.Items = {
     },
 
     ------ AMMO ----
+    ["ammo_arrow"] = {
+        label = "Flèche",
+        description = "Une flèche, un mort",
+        weight = 0.01,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/AMMO_ARROW.png",
+        type = "item_ammo",
+        ammoType = GetHashKey("AMMO_ARROW"),
+    },
     ["ammo_revolver"] = {
         label = "Balles de Revolver",
         description = "Une balle, un mort",
