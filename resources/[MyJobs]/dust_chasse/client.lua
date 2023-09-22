@@ -89,6 +89,8 @@ function deppeau() -- Peau into cuir
     local model = GetEntityModel(holding)
     local hold = GetPedType(holding)
     if holding ~= false then
+        FreezeEntityPosition(playerPed, true)
+        TaskStartScenarioInPlace(playerPed, GetHashKey("PROP_HUMAN_TANNING_RACK_FLESHING"), 3000, true, false, false, false)
         for i, row in pairs(Config.Animal) do
             if quality ~= false then
                 if quality == Config.Animal[i]["poor"] then
