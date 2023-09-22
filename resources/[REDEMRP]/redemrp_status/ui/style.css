@@ -122,7 +122,7 @@ body {
 }
 
 .huds .hud.temp {
-	display: none;
+	visibility: hidden;
 	-webkit-transform: scale(0.9);
 	-ms-transform: scale(0.9);
 	transform: scale(0.9);
