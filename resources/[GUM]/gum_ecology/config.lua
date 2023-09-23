@@ -1207,3 +1207,4 @@ Config.Herbs = {
 --         }
 --     },    
 -- }
+Config.Animals = {}
