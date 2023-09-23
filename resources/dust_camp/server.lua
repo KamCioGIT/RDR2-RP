@@ -29,9 +29,7 @@ end)
 
 RegisterServerEvent("camp:RequestCampMenu", function(menutype)
     local _source = tonumber(source)
-    local craftingtable = {}
-    
-
+    local craftingtable = {} 
 	for k, v in pairs(Config.CraftingsReceipe) do
 		if v.type == menutype then
 			if v.Itemtocraft == 1 then

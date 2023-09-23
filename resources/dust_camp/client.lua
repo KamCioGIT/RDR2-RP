@@ -325,9 +325,9 @@ function StartCooking(itemName, menu, _menutype)
             Wait(0)
         end
         TriggerServerEvent("camp:CraftItem", itemName, playerPed)
+        Wait(500)
+        TriggerServerEvent("camp:RequestCampMenu", _menutype)
     end)
-    Wait(500)
-    TriggerServerEvent("camp:RequestCampMenu", _menutype)
 end
 
 
