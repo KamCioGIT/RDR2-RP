@@ -64,7 +64,7 @@ RegisterServerEvent("camp:RequestCampMenu", function(menutype)
 		end
 	end
 
-	TriggerClientEvent("camp:OpenCampMenu", _source, craftingtable)
+	TriggerClientEvent("camp:OpenCampMenu", _source, craftingtable, menutype)
 end)
 
 

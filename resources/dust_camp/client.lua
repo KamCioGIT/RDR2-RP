@@ -223,7 +223,7 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent("camp:OpenCampMenu", function(craftingtable)
+RegisterNetEvent("camp:OpenCampMenu", function(craftingtable, menutype)
     local Position = GetEntityCoords(PlayerPedId())
     local _menutype = menutype
     local playerPed = PlayerPedId()
@@ -326,7 +326,7 @@ function StartCooking(itemName, menu, _menutype)
         end
         TriggerServerEvent("camp:CraftItem", itemName, playerPed)
     end)
-    TriggerEvent("camp:OpenCampMenu", _menutype)
+    TriggerServerEvent("camp:RequestCampMenu", _menutype)
 end
 
 
