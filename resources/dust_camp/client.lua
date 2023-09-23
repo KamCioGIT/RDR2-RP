@@ -256,18 +256,18 @@ RegisterNetEvent("camp:OpenCampMenu", function(craftingtable)
         for k, v in pairs(craftingtable) do
             table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
         end
-        if _menutype == 'fire' then 
-            table.insert(elements, {label = "Gros Steak cuit", value = 'grossteakcuit', descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}})
-        end
-        if _menutype == 'grill' then 
-            table.insert(elements, {label = "Gros Steak Grillé", value = 'gunpowder', desc = "Recette: 1 Steak"})
-            table.insert(elements, {label = "Gros Steak au Thym", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Thym"})
-        end
-        if _menutype == 'cauldron' then 
-            table.insert(elements, {label = "Gros Steak et Carotte Sauvage", value = 'grossteakcarottesauvage', descriptionimages = 
-            {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}, 
-            {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_carrots.png', text = "Carotte Sauvage",count = "x2"}}})
-        end
+        -- if _menutype == 'fire' then 
+        --     table.insert(elements, {label = "Gros Steak cuit", value = 'grossteakcuit', descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}})
+        -- end
+        -- if _menutype == 'grill' then 
+        --     table.insert(elements, {label = "Gros Steak Grillé", value = 'gunpowder', desc = "Recette: 1 Steak"})
+        --     table.insert(elements, {label = "Gros Steak au Thym", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Thym"})
+        -- end
+        -- if _menutype == 'cauldron' then 
+        --     table.insert(elements, {label = "Gros Steak et Carotte Sauvage", value = 'grossteakcarottesauvage', descriptionimages = 
+        --     {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}, 
+        --     {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_carrots.png', text = "Carotte Sauvage",count = "x2"}}})
+        -- end
 
         MenuData.Open('default', GetCurrentResourceName(), 'Camp', {
             title = "Feu de Camp",
