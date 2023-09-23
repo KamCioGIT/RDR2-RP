@@ -254,7 +254,9 @@ RegisterNetEvent("camp:OpenCampMenu", function(craftingtable)
 
         local elements = {}
         for k, v in pairs(craftingtable) do
-            table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+            if k then
+                table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+            end
         end
         -- if _menutype == 'fire' then 
         --     table.insert(elements, {label = "Gros Steak cuit", value = 'grossteakcuit', descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}})
