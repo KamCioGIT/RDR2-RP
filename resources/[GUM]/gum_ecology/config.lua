@@ -12,7 +12,7 @@ Config.webhookLanguage = {
 Config.Gum_Notify_NUI = false
 Config.Image = "ecology"
 
-Config.TimerForCounter = 480--This count your herbs in your client cache.  (seconds)
+Config.TimerForCounter = 300 --This count your herbs in your client cache.  (seconds)
 Config.DeleteAfterGatherAnimal = false
 Config.PickUp = "Ramasser"
 Config.YouPick = "Vous avez ramsassé :"
@@ -333,8 +333,8 @@ Config.Herbs = {
             {1118.69, 963.67, 128.78, 15.0},
             {-788.26, -850.73, 52.41, 15.0},
         },
-        maxSpawn = 5,--How much props is cached
-        propMax = 5,--Spawn max props on limit
+        maxSpawn = 10,--How much props is cached
+        propMax = 10,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
