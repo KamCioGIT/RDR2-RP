@@ -223,8 +223,7 @@ Citizen.CreateThread(function()
     end
 end)
 
-
-RegisterNetEvent("camp:OpenCampMenu", function(menutype)
+RegisterNetEvent("camp:OpenCampMenu", function(craftingtable)
     local Position = GetEntityCoords(PlayerPedId())
     local _menutype = menutype
     local playerPed = PlayerPedId()
@@ -254,7 +253,9 @@ RegisterNetEvent("camp:OpenCampMenu", function(menutype)
         local jobgrade = RedEM.GetPlayerData().jobgrade
 
         local elements = {}
-
+        for k, v in pairs(craftingtable) do
+            table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+        end
         if _menutype == 'fire' then 
             table.insert(elements, {label = "Gros Steak cuit", value = 'grossteakcuit', descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}})
         end

@@ -33,14 +33,19 @@ Config.CampChaudron = GetHashKey('p_campfirecombined03x')
 
 Config.CraftingsReceipe = {
     ['grossteakcuit'] = {
+        type = 'fire',
         Itemtocraft = 1,
         ItemReceipe1Name = 'grossteak',
         ItemReceipe1Amount = 1,
         ItemToGive = 'grossteakcuit',
         Amount = 1,
         WorkingTime = 1,
+        label = 'Gros Steak Cuit',
+        descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}
+
     },
     ['grossteakcarottesauvage'] = {
+        type = 'cauldron',
         Itemtocraft = 2,
         ItemReceipe1Name = 'grossteak',
         ItemReceipe1Amount = 1,
@@ -49,6 +54,8 @@ Config.CraftingsReceipe = {
         ItemToGive = 'grossteakcarottesauvage',
         Amount = 1,
         WorkingTime = 1,
+        label = 'Gros Steak aux Carottes Sauvages',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_carrots.png', text = "Carotte Sauvage",count = "x2"}},
     },
     ['gunpowder'] = {
         ItemReceipe1Name = 'souffre',

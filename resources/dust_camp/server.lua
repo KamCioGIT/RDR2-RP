@@ -28,9 +28,52 @@ AddEventHandler('camp:CraftItem', function(itemNameStr, playerPedId)
 end)
 
 RegisterServerEvent("camp:RequestCampMenu", function(menutype)
-    local _source = source
-	TriggerClientEvent("camp:OpenCampMenu", _source, menutype)
+    local _source = tonumber(source)
+    local craftingtable = {}
+    
+
+	for k, v in pairs(Config.CraftingsReceipe) do
+		if v.type == menutype then
+			if v.Itemtocraft == 1 then
+				local ItemData = data.getItem(_source, v.ItemReceipe1Name)
+				local rItem1Amount = tonumber(ItemData.ItemAmount - v.ItemReceipe1Amount)
+				if rItem1Amount >= 0 then
+					craftingtable[k] = v
+				end
+			end
+			if v.Itemtocraft == 2 then
+				local ItemData = data.getItem(_source, v.ItemReceipe1Name)
+				local ItemData2 = data.getItem(_source, v.ItemReceipe2Name)
+				local rItem1Amount = tonumber(ItemData.ItemAmount - v.ItemReceipe1Amount)
+				local rItem2Amount = tonumber(ItemData2.ItemAmount / v.ItemReceipe2Amount)
+				if rItem1Amount >= 0 and rItem2Amount >= 0 then
+					craftingtable[k] = v
+				end
+			end
+			if v.Itemtocraft == 3 then
+				local ItemData = data.getItem(_source, v.ItemReceipe1Name)
+				local ItemData2 = data.getItem(_source, v.ItemReceipe2Name)
+				local ItemData3 = data.getItem(_source, v.ItemReceipe3Name)
+				local rItem1Amount = tonumber(ItemData.ItemAmount - v.ItemReceipe1Amount)
+				local rItem2Amount = tonumber(ItemData2.ItemAmount / v.ItemReceipe2Amount)
+				local rItem3Amount = tonumber(ItemData3.ItemAmount / v.ItemReceipe3Amount)
+				if rItem1Amount >= 0 and rItem2Amount >= 0 and rItem3Amount >= 0 then
+					craftingtable[k] = v
+				end
+			end
+		end
+	end
+
+	TriggerClientEvent("camp:OpenCampMenu", _source, craftingtable)
 end)
+
+
+
+
+-- RegisterServerEvent("camp:RequestCampMenu", function(menutype)
+--     local _source = source
+-- 	TriggerClientEvent("camp:OpenCampMenu", _source, menutype)
+-- end)
 
 ----Usable items needed for crafting to work
 RegisterServerEvent("RegisterUsableItem:cauldron")
@@ -74,3 +117,5 @@ AddEventHandler("RegisterUsableItem:gourde", function(source, _data)
 	local meta = data.meta
 	TriggerClientEvent("dust_camp:getgourde", _source, water, meta)
 end)
+
+
