@@ -181,16 +181,16 @@ DiseasesConfig = {
       -- [weaponHash] = bleedProbability (0.0 -> 1.0) }
       -- https://github.com/femga/rdr3_discoveries/blob/master/weapons/weapons.lua
       meleeBleedProbability = {
-         ['weapon_melee_knife_jawbone'] = 0.1,
-         ['weapon_melee_machete'] = 0.1,
-         ['weapon_melee_knife'] = 0.1,
-         ['weapon_melee_hatchet'] = 0.1,
-         ['weapon_melee_hatchet_hunter'] = 0.1,
-         ['weapon_thrown_tomahawk'] = 0.1,
-         ['weapon_melee_cleaver'] = 0.1,
-         ['weapon_melee_hatchet_double_bit'] = 0.1,
-         ['weapon_melee_knife_trader'] = 0.1,
-         ['weapon_thrown_throwing_knives'] = 0.1,
+         ['weapon_melee_knife_jawbone'] = 1.0,
+         ['weapon_melee_machete'] = 1.0,
+         ['weapon_melee_knife'] = 1.0,
+         ['weapon_melee_hatchet'] = 1.0,
+         ['weapon_melee_hatchet_hunter'] = 1.0,
+         ['weapon_thrown_tomahawk'] = 1.0,
+         ['weapon_melee_cleaver'] = 1.0,
+         ['weapon_melee_hatchet_double_bit'] = 1.0,
+         ['weapon_melee_knife_trader'] = 1.0,
+         ['weapon_thrown_throwing_knives'] = 1.0,
       }
    },
    ['gun1'] = {
