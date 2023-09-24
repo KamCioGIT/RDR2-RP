@@ -195,7 +195,7 @@ Config.damageTypes = {
         lang = 'Vous retirez le projectile...',
         animationDict = 'amb_work@world_human_repair@med@oilcan@male_a@idle_b',
         animation = 'idle_d',
-        duration = 20000
+        duration = 5000
     },
     ['cut'] = {
         next = nil,

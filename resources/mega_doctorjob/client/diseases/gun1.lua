@@ -59,32 +59,34 @@ if DiseasesConfig['gun1'] then
     end
 
     function gun1:startEffect()
-        self._data.paused = false
-        TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle, self.config.language.started, 5000,
-            'health')
-        -- Start timer
-        if self.config.autoHealTime ~= -1 then
-            Citizen.CreateThread(function()
-                Citizen.Wait(self.config.autoHealTime)
-                if self._data.active then
-                    TriggerServerEvent('mega_doctorjob:autoHealDiseaseWebhook', self.config.displayName)
-                    TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle,
-                        self.config.language.autoHealed, 5000, 'health')
-                    self:stopEffect()
-                    self:setActive(false)
-                end
-            end)
+        if self._data.active == false then
+            self._data.paused = false
+            TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle, self.config.language.started, 5000,
+                'health')
+            -- Start timer
+            if self.config.autoHealTime ~= -1 then
+                Citizen.CreateThread(function()
+                    Citizen.Wait(self.config.autoHealTime)
+                    if self._data.active then
+                        TriggerServerEvent('mega_doctorjob:autoHealDiseaseWebhook', self.config.displayName)
+                        TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle,
+                            self.config.language.autoHealed, 5000, 'health')
+                        self:stopEffect()
+                        self:setActive(false)
+                    end
+                end)
+            end
+            -- Set Walkanim
+            if not self._data.bone then
+                local hit, bone = GetPedLastDamageBone(PlayerPedId())
+                self._data.bone = bone
+            end
+            if not self._data.damageType then
+                self._data.damageType = 'projectile'
+            end
+            TriggerServerEvent('mega_doctorjob:newDiseaseWebhook', self.config.displayName, self.data)
+            -- Start blood fountain
         end
-        -- Set Walkanim
-        if not self._data.bone then
-            local hit, bone = GetPedLastDamageBone(PlayerPedId())
-            self._data.bone = bone
-        end
-        if not self._data.damageType then
-            self._data.damageType = 'projectile'
-        end
-        TriggerServerEvent('mega_doctorjob:newDiseaseWebhook', self.config.displayName, self.data)
-        -- Start blood fountain
     end
 
     function gun1:stopEffect()
