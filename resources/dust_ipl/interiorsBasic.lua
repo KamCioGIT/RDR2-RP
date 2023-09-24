@@ -1689,12 +1689,12 @@ RequestImap(-1956194332)
 RequestImap(945532872)
 RequestImap(-890895654)
 RequestImap(1953646620)
-RequestImap(1299817544)
-RequestImap(1204787444)
-RequestImap(66523468)
+RemoveImap(1299817544) --- MAPPING GUNSTORE
+RemoveImap(1204787444) --- MAPPING GUNSTORE
+RemoveImap(66523468) --- MAPPING GUNSTORE
 RequestImap(2040259178)
 RequestImap(1190076410)
-RequestImap(1598834669) -- Strawberry house
+RemoveImap(1598834669) --- MAPPING GUNSTORE
 RequestImap(-1106517275)
 RequestImap(-1986209836)
 RequestImap(1525054056)
@@ -2519,7 +2519,7 @@ RemoveImap(1419819915)
 RemoveImap(621272158)
 RemoveImap(1192526031)
 RemoveImap(422167750)
-RequestImap(-1403908542)
+RemoveImap(-1403908542) --- MAPPING GUNSTORE
 RequestImap(-2116659774)
 RequestImap(-893624314)
 RequestImap(985448695)
