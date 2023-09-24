@@ -289,7 +289,7 @@ function spawnPlayer(spawnIdx, cb)
 
         -- gamelogic-style cleanup stuff
         ClearPedTasksImmediately(ped)
-        SetEntityHealth(ped, 300) -- TODO: allow configuration of this?
+        SetEntityHealth(ped, 600) -- TODO: allow configuration of this?
         RemoveAllPedWeapons(ped) -- TODO: make configurable (V behavior?)
         ClearPlayerWantedLevel(PlayerId())
 
