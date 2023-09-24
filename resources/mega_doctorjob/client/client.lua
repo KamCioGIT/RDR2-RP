@@ -464,9 +464,9 @@ end)
 
 RegisterNetEvent('mega_doctorjob:addHelpRequest')
 AddEventHandler('mega_doctorjob:addHelpRequest', function (coords, time, source)
-    local xOffset = math.random(1, 15)
-    local yOffset = math.random(1, 15)
-    local zOffset = math.random(1, 15)
+    local xOffset = math.random(1, 70)
+    local yOffset = math.random(1, 70)
+    local zOffset = math.random(1, 70)
     local newccords = {
         x = coords.x + xOffset,
         y = coords.y + yOffset,
