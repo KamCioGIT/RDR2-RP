@@ -14,6 +14,7 @@ client_scripts {
 	'client/cl_hud.lua',
 	'client/cl_callbacks.lua',
 	'client/cl_notification.js',
+	'client/cl_dataview.lua',
 	'client/cl_notification.lua',
 	'client/cl_game.lua',
 	'client/cl_events.lua',
