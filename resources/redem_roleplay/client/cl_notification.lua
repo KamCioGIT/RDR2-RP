@@ -295,3 +295,11 @@ exports("warninnotify",function(title, msg, _audioRef,_audioName, duration)
     Wait(duration)
     Citizen.InvokeNative(0x00A15B94CBA4F76F,zz)
 end)
+
+
+local a2 = DataView.ArrayBuffer(12 * 8)
+local a3 = DataView.ArrayBuffer(12 * 8)
+Citizen.InvokeNative("0xCB5D11F9508A928D", 1, a2:Buffer(), a3:Buffer(), GetHashKey("UPGRADE_HEALTH_TANK_1"), 1084182731, Config.MaxHealthCore, 752097756)
+local a2 = DataView.ArrayBuffer(12 * 8)
+local a3 = DataView.ArrayBuffer(12 * 8)
+Citizen.InvokeNative("0xCB5D11F9508A928D", 1, a2:Buffer(), a3:Buffer(), GetHashKey("UPGRADE_STAMINA_TANK_1"), 1084182731, Config.MaxStaminaCore, 752097756)
