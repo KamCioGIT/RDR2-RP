@@ -81,25 +81,25 @@ Citizen.CreateThread(function()
     end
 end)
 
-if Config.Game.WeaponRecoilSystem then
+if Config.WeaponRecoilSystem then
     Citizen.CreateThread(function()
         while true do
             local ped = PlayerPedId()
             if IsPedShooting(ped) then
                 local _,wep = GetCurrentPedWeapon(ped)
-                if Config.Game.WeaponRecoils[wep] and Config.Game.WeaponRecoils[wep] ~= 0 then
+                if Config.WeaponRecoils[wep] and Config.WeaponRecoils[wep] ~= 0 then
                     TimeValue = 0
                     repeat
                         Wait(0)
                         GameplayCamPitch = GetGameplayCamRelativePitch()
-                        if Config.Game.WeaponRecoils[wep] > 0.1 then
+                        if Config.WeaponRecoils[wep] > 0.1 then
                             SetGameplayCamRelativePitch(GameplayCamPitch+0.6, 1.2)
                             TimeValue = TimeValue+0.6
                         else
                             SetGameplayCamRelativePitch(GameplayCamPitch+0.016, 0.333)
                             TimeValue = TimeValue+0.1
                         end
-                    until TimeValue >= Config.Game.WeaponRecoils[wep]
+                    until TimeValue >= Config.WeaponRecoils[wep]
                 end
             end
             Wait(0)

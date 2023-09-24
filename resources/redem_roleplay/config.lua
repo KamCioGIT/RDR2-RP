@@ -11,8 +11,8 @@ Config.DisableAimAssist                     = true          -- Set to true to di
 Config.StartingCash                         = 100           -- The amount of cash to start with
 Config.StartingBank                         = 0             -- The amount of bank money to start with
 
-Config.Game.WeaponRecoilSystem              = true          -- Set to true to enable weapon recoil system.
-Config.Game.WeaponRecoils = {
+Config.WeaponRecoilSystem              = true          -- Set to true to enable weapon recoil system.
+Config.WeaponRecoils = {
     [34411519]                          = 0.7,          -- weapon_pistol_volcanic
     [1252941818]                        = 0.7,          -- weapon_pistol_mauser_drunk
     [1534638301]                        = 0.7,          -- weapon_pistol_m1899
