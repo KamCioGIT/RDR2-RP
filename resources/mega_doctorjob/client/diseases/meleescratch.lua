@@ -8,7 +8,7 @@ if DiseasesConfig['meleescratch'] then
                 local weaponUsed = data:GetInt32(8 * 5)
                 local ammoUsed = data:GetInt32(8 * 6)
                 local isMelee = data:GetInt32(8 * 12)
-                if entityDamaged == PlayerPedId() then
+                if entityDamaged == PlayerPedId() and not self._data.active then
                     if isMelee == 1 then
                         for k, prob in pairs(self.config.meleeBleedProbability) do
                             if GetHashKey(k) == weaponUsed then
@@ -59,7 +59,6 @@ if DiseasesConfig['meleescratch'] then
     end
 
     function meleescratch:startEffect()
-        if self._data.active == false then
             self._data.paused = false
             TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle, self.config.language.started, 5000,
                 'health')
@@ -86,7 +85,6 @@ if DiseasesConfig['meleescratch'] then
             end
             TriggerServerEvent('mega_doctorjob:newDiseaseWebhook', self.config.displayName, self.data)
             -- Start blood fountain
-        end
     end
 
     function meleescratch:stopEffect()
