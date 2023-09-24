@@ -219,4 +219,5 @@ function givePlayerWeapon(weaponName, attachPoint)
     while not Citizen.InvokeNative(0xFF07CF465F48B830, weaponHash) do Wait(10) end
     -- GIVE_WEAPON_TO_PED
     Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), weaponHash, ammoCount, true, false, attachPoint, true, 0.0, 0.0, addReason, true, 0.0, false);
+    SetPlayerWeaponGroupDamageModifier(PlayerPedId(), weaponHash, Config.DamageModifier[weaponHash])
 end
