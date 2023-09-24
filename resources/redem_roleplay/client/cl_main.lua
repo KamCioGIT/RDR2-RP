@@ -81,13 +81,15 @@ Citizen.CreateThread(function()
     end
 end)
 
-if Config.WeaponRecoilSystem then
-    Citizen.CreateThread(function()
-        while true do
-            local ped = PlayerPedId()
-            SetPedConfigFlag(ped,263,true) -- No Critical Hits
-            SetPedConfigFlag(ped,169,true) -- Disable Grapple
-            SetPedConfigFlag(ped,340,true)
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(0)
+        local ped = PlayerPedId()
+        SetPedConfigFlag(ped,263,true) -- No Critical Hits
+        SetPedConfigFlag(ped,169,true) -- Disable Grapple
+        SetPedConfigFlag(ped,340,true)
+        if Config.WeaponRecoilSystem then
             if IsPedShooting(ped) then
                 local _,wep = GetCurrentPedWeapon(ped)
                 if Config.WeaponRecoils[wep] and Config.WeaponRecoils[wep] ~= 0 then
@@ -105,13 +107,6 @@ if Config.WeaponRecoilSystem then
                     until TimeValue >= Config.WeaponRecoils[wep]
                 end
             end
-            Wait(0)
         end
-    end)
-end
-
-if Config.HSModifier then
-    Citizen.CreateThread(function()
-        
-    end)
-end
+    end
+end)
