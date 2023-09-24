@@ -4,7 +4,7 @@ Config.Version                              = "1.0.0"		-- Set the version of you
 Config.AnonymousNames                       = true          -- Set to true to make all players have anonymous target names ["Stranger (PlayerID)"]
 Config.DisableChallengeNotifications        = true          -- Set to true to disable challenge notifications (base game)
 Config.DisableSpaceInWeaponWheel            = true          -- Set to true to disable space in weapon wheel soft locking the game (base game)
-Config.MapCrossName                         = ""            -- Set the BLIP_NAME when a player is hovered over a non-existant blip on the map (base game)
+Config.MapCrossName                         = "Repère"            -- Set the BLIP_NAME when a player is hovered over a non-existant blip on the map (base game)
 Config.DisableLootBoxes                     = true          -- Set to true to disable random loot boxes (base game)
 Config.DisableAimAssist                     = true          -- Set to true to disable aim assist on controllers (unfair for RP servers)
 
@@ -40,3 +40,6 @@ Config.WeaponRecoils = {
     [1402226560]                        = 0.7,          -- weapon_sniperrifle_carcano
     [3788682007]                        = 0.7,          -- weapon_sniperrifle_rollingblock
 }
+
+Config.MaxHealthCore =  5 -- 50% max health core
+Config.MaxStaminaCore = 5 -- 50% max stamina core
