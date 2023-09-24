@@ -32,6 +32,7 @@ RegisterNetEvent('redemrp_charselect:SpawnCharacter', function(new)
     Citizen.Wait(1000)
     DestroyAllCams()
     TriggerServerEvent("redemrp_respawn:CheckPos")
+    SetPedHeadshotDamageMultiplier(playerPedId(), 0.3)
 end)
 
 local isHidden = false
