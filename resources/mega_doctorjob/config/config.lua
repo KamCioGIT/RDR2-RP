@@ -192,28 +192,28 @@ Config.ClothesTemperatures = {
 Config.damageTypes = {
     ['projectile'] = {
         next = 'cut',
-        lang = 'Removing projectile...',
+        lang = 'Vous retirez le projectile...',
         animationDict = 'amb_work@world_human_repair@med@oilcan@male_a@idle_b',
         animation = 'idle_d',
-        duration = 5000
+        duration = 20000
     },
     ['cut'] = {
         next = nil,
-        lang = 'Applying stitches...',
+        lang = 'Application de points de suture...',
         animationDict = 'script_re@injured_rider@dr_office',
         animation = 'surgery_exit_doc',
         duration = 20000
     },
     ['broken'] = {
         next = nil,
-        lang = 'Applying splint...',
+        lang = "Application d'une attelle...",
         animationDict = 'script_re@injured_rider@dr_office',
         animation = 'surgery_exit_doc',
         duration = 20000
     },
     ['bandaged'] = {
         next = 'cut',
-        lang = 'Removing bandage...',
+        lang = 'Vous retirez les bandages...',
         animationDict = 'amb_work@world_human_repair@med@oilcan@male_a@idle_b',
         animation = 'idle_d',
         duration = 5000
@@ -221,7 +221,7 @@ Config.damageTypes = {
     -- default fallback state if none of those is set
     ['default'] = {
         next = nil,
-        lang = 'Healing...',
+        lang = 'Soin...',
         animationDict = 'script_re@injured_rider@dr_office',
         animation = 'surgery_exit_doc',
         duration = 20000

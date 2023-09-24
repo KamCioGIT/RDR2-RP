@@ -14,9 +14,9 @@ MedicineItems = {
         -- inner core health added from 0 to 100
         innerCoreHealth = 20,
         language = {
-            cureExpired = "The bandage has fallen, you start bleeding again. Put on a bandage and visit a doctor.",
-            applying = "Applying bandage...",
-            applied = "Bandage applied, you stopped bleeding.",
+            cureExpired = "Votre bandage est tombé, vous saignez à nouveau. Appliquez un bandage et allez voir un docteur.",
+            applying = "Application d'un bandage...",
+            applied = "Vous avez arrêtez le saignement.",
         },
         -- if you don't want to use animation set those to nil and set scenario instead
         animationDict = nil,
