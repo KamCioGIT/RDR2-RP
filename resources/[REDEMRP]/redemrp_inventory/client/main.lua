@@ -155,7 +155,7 @@ AddEventHandler("redemrp_inventory:SearchPlayer", function()
 			TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer), false)
 		end
 	else
-		RedEM.Functions.NotifyLeft("Can't Find", "No players nearby!", "menu_textures", "menu_icon_alert", 4000)
+		RedEM.Functions.NotifyLeft("Introuvable", "Il n'y a personne devant vous !", "menu_textures", "menu_icon_alert", 4000)
 	end
 end)
 
@@ -167,7 +167,7 @@ AddEventHandler(
         if closestPlayer ~= -1 and closestDistance <= 1.5 then
             TriggerServerEvent("redemrp_inventory:GetPlayerAsPolice", GetPlayerServerId(closestPlayer))
         else
-            RedEM.Functions.NotifyLeft("Can't Find", "No players nearby!", "menu_textures", "menu_icon_alert", 4000)
+            RedEM.Functions.NotifyLeft("Introuvable", "Il n'y a personne devant vous !", "menu_textures", "menu_icon_alert", 4000)
         end
     end
 )
@@ -650,7 +650,7 @@ RegisterNUICallback(
             --print(json.encode(data))
             TriggerServerEvent("redemrp_inventory:giveItem", data.data, GetPlayerServerId(closestPlayer))
         else
-            RedEM.Functions.NotifyLeft("Can't Find", "No players nearby!", "menu_textures", "menu_icon_alert", 4000)
+            RedEM.Functions.NotifyLeft("Introuvable", "Il n'y a personne devant vous !", "menu_textures", "menu_icon_alert", 4000)
         end
     end
 )

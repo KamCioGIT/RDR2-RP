@@ -269,12 +269,12 @@ RegisterNetEvent('redemrp_status:UpdateStatus', function(thrist, hunger, stress)
     local shownotifiaction2 = false
     if hunger <= 10 and not shownotifiaction2 then
         shownotifiaction1 = true
-        RedEM.Functions.NotifyLeft("Hungry", "You are starving! Eat something right away.", "menu_textures", "menu_icon_alert", 4000)
+        RedEM.Functions.NotifyLeft("Affamé(e)", "Vous avez faim, il faut manger quelque chose.", "menu_textures", "menu_icon_alert", 4000)
     end
 
     if thrist <= 10 and not shownotifiaction1 then
         shownotifiaction2 = true
-        RedEM.Functions.NotifyLeft("Thirsty", "You are thirsty! Drink something right away.", "menu_textures", "menu_icon_alert", 4000)
+        RedEM.Functions.NotifyLeft("Assoifé(e)", "Vous avez soif, buvez quelque chose.", "menu_textures", "menu_icon_alert", 4000)
     end
     shownotifiaction2 = not shownotifiaction2
     shownotifiaction1 = not shownotifiaction1
