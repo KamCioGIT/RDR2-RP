@@ -89,10 +89,10 @@ Citizen.CreateThread(function()
         SetPedConfigFlag(ped,263,true) -- No Critical Hits
         -- SetPedConfigFlag(ped,169,true) -- Disable Grapple
         SetPedConfigFlag(ped,340,true)  --- no melle finish
-        local _,wep = GetCurrentPedWeapon(ped)
-        Citizen.InvokeNative(0xD77AE48611B7B10A, ped, Config.DamageModifier[wep])
         if Config.WeaponRecoilSystem then
             if IsPedShooting(ped) then
+                local _,wep = GetCurrentPedWeapon(ped)
+                Citizen.InvokeNative(0xD77AE48611B7B10A, ped, Config.DamageModifier[wep])
                 if Config.WeaponRecoils[wep] and Config.WeaponRecoils[wep] ~= 0 then
                     TimeValue = 0
                     repeat
