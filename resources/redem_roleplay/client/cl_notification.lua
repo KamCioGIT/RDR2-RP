@@ -20,9 +20,6 @@ AddEventHandler('redem_roleplay:NotifyLeft', function(firsttext, secondtext, dic
         _icon = "tick"
     end
     exports.redem_roleplay:ShowAdvancedNotification(tostring(firsttext), tostring(secondtext), tostring(_dict), tostring(_icon), tonumber(duration))
-    exports.redem_roleplay:ShowTooltip(tostring(secondtext), tonumber(duration)) 
-    exports.redem_roleplay:ShowObjective(tostring(secondtext), tonumber(duration)) 
-    exports.redem_roleplay:ShowTopNotification(tostring(firsttext), tostring(secondtext), tonumber(duration))
 end)
 
 RegisterNetEvent('redem_roleplay:Tip')

@@ -686,3 +686,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
     end
 end)
+
+RegisterCommand("testallo", function()
+    TriggerEvent("redem_roleplay:ShowAdvancedRightNotification", "TEST", "PETITE BITE", "generic_textures" , "tick" , "COLOR_PURE_WHITE", 4000 )
+end)
