@@ -77,7 +77,7 @@ Config.clearAlertCommand = 'clearAlerts'
 -- put 0 if you don't want to show anything
 Config.alertBlipSprite = -1998899839	
 Config.showRadiusAroundBlip = true
-Config.blipRadius = 50.0
+Config.blipRadius = 75.0
 Config.radiusStyle = -666422021
 -- seconds to wait before the alert blip will be removed from the map
 Config.alertTimeout = 300

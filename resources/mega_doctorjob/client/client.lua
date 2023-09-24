@@ -464,8 +464,17 @@ end)
 
 RegisterNetEvent('mega_doctorjob:addHelpRequest')
 AddEventHandler('mega_doctorjob:addHelpRequest', function (coords, time, source)
-    local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, coords.x, coords.y, coords.z)
-    local radius = Citizen.InvokeNative(0x45F13B7E0A15C880, Config.radiusStyle, coords.x, coords.y, coords.z, Config.blipRadius)
+    local xOffset = math.random(1, 15)
+    local yOffset = math.random(1, 15)
+    local zOffset = math.random(1, 15)
+    local newccords = {
+        x = coords.x + xOffset,
+        y = coords.y + yOffset,
+        z = coords.z + zOffset
+    }
+
+    local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, newccords.x, newccords.y, newccords.z)
+    local radius = Citizen.InvokeNative(0x45F13B7E0A15C880, Config.radiusStyle, newccords.x, newccords.y, newccords.z, Config.blipRadius)
     SetBlipSprite(blip, Config.alertBlipSprite)
     SetBlipScale(blip, 0.2)
     table.insert(helpRequests, { blip = blip, radius = radius, source = source, coords = coords })
