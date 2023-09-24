@@ -1,9 +1,9 @@
 Config = {}
-Config.RespawnTime = 600000
-Config.LocaleDead = "You've gone unconscious!"
-Config.RespawnPrice = 15
-Config.LocaleTimer = "Respawn Available in"
-Config.PressRespawn = "Press E to respawn"
+Config.RespawnTime = 180000
+Config.LocaleDead = "Vous êtes inconscient !"
+Config.RespawnPrice = 0
+Config.LocaleTimer = "Vous pourrez vous relever dans: "
+Config.PressRespawn = "Appuyer sur E pour vous relever"
 Config.Timecycle = "CrossLine01" --Set the timecycle effect for a death
 Config.TimecycleStrenght = 0.6
 Config.RespawnCommand = true
