@@ -87,8 +87,8 @@ Citizen.CreateThread(function()
         Wait(0)
         local ped = PlayerPedId()
         SetPedConfigFlag(ped,263,true) -- No Critical Hits
-        SetPedConfigFlag(ped,169,true) -- Disable Grapple
-        SetPedConfigFlag(ped,340,true)
+        -- SetPedConfigFlag(ped,169,true) -- Disable Grapple
+        SetPedConfigFlag(ped,340,true)  --- no melle finish
         if Config.WeaponRecoilSystem then
             if IsPedShooting(ped) then
                 local _,wep = GetCurrentPedWeapon(ped)
