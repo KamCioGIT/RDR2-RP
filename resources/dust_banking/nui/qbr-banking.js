@@ -277,6 +277,7 @@ function populateBanking(data)
             "order": [[ 0, "desc" ]],
             "pagingType": "simple",
             "lengthMenu": [[20, 35, 50, -1], [20, 35, 50, "All"]],
+            "search": "Recherche",
             "language": {"url": "nui/fr-FR.json"}
         });
     } );
