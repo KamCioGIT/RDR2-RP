@@ -242,7 +242,7 @@ function RemoveFromBank(accountid, amount)
     local bankbalance = MySQL.query('SELECT * FROM bank_accounts WHERE accountid = ?', {accountid})
     if tonumber(bankbalance) >= tonumber(amount) then
         local newbalance = tonumber(bankbalance) - tonumber(amount)
-        MySQL.query("UPDATE `bank_accounts` SET `amount` = ? WHERE `accountid` = ? ", { newbalance, accountid})
+        MySQL.query("UPDATE `bank_accounts` SET `balance` = ? WHERE `accountid` = ? ", { newbalance, accountid})
     end
 end
 
@@ -254,6 +254,6 @@ function AddToBank(accountid, amount)
         else
             newbalance = tonumber(bankbalance) + tonumber(amount)
         end
-        MySQL.query("UPDATE `bank_accounts` SET `amount` = ? WHERE `accountid` = ? ", { newbalance, accountid})
+        MySQL.query("UPDATE `bank_accounts` SET `balance` = ? WHERE `accountid` = ? ", { newbalance, accountid})
     end
 end
