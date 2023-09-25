@@ -25,7 +25,7 @@ Citizen.CreateThread(function()
     sav = #savings
     if savings[1] ~= nil then
         for k, v in pairs(savings) do
-            savingsAccounts[v.citizenid] = generateSavings(v.citizenid)
+            savingsAccounts[v.accountid] = generateSavings(v.accountid)
         end
     end
     ready = ready + 1
@@ -140,11 +140,15 @@ RedEM.RegisterCallback('qbr-banking:getBankingInformation', function(source, cb)
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
         if (xPlayer) then
+            local getSavingsAccount = MySQL.query.await('SELECT * FROM bank_accounts WHERE citizenid = ? AND account_type = ?', { xPlayer.citizenid, 'Savings' })
+            if getSavingsAccount[1] ~= nil then
+                accountid = getSavingsAccount[1].accountid
+            end
             local banking = {
                     ['name'] = xPlayer.firstname .. ' ' .. xPlayer.lastname,
                     ['bankbalance'] = '$'.. format_int(xPlayer.bankmoney),
                     ['cash'] = '$'.. format_int(xPlayer.money),
-                    ['accountinfo'] = 'N°'..tostring(xPlayer.pobox),
+                    ['accountinfo'] = 'N°'..tostring(accountid),
                 }
                 --[[
                 if savingsAccounts[xPlayer.PlayerData.citizenid] then
@@ -202,13 +206,14 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
     local currentCash = xPlayer.GetMoney()
 
     if tonumber(amount) <= currentCash then
-        local cash = xPlayer.RemoveMoney(tonumber(amount), 'banking-quick-depo')
-        local bank = xPlayer.AddBankMoney(tonumber(amount), 'banking-quick-depo')
-        if bank then
-            TriggerClientEvent('qbr-banking:openBankScreen', src)
-            TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash deposit of $'..amount..' successfully.')
-            -- TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', 'lightgreen', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a cash deposit of $"..amount.." successfully.")
+        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
+        if result[1] ~= nil then
+            accid = result[1].accountid
         end
+        xPlayer.RemoveMoney(tonumber(amount), 'banking-quick-depo')
+        AddToBank(acctid, tonumber(amount))
+        TriggerClientEvent('qbr-banking:openBankScreen', src)
+        TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash deposit of $'..amount..' successfully.')
     end
 end)
 
@@ -217,54 +222,19 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
-    local currentCash = xPlayer.GetBankMoney()
-
+    local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
+    if result[1] ~= nil then
+        accid = result[1].accountid
+        currentCash = result[1].amount
+    end
     if tonumber(amount) <= currentCash then
-        local cash = xPlayer.RemoveBankMoney(tonumber(amount), 'banking-quick-withdraw')
-        local bank = xPlayer.AddMoney(tonumber(amount), 'banking-quick-withdraw')
-        if cash then
-            TriggerClientEvent('qbr-banking:openBankScreen', src)
-            TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash withdrawal of $'..amount..' successfully.')
-            -- TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', 'red', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a cash withdrawal of $"..amount.." successfully.")
-        end
-    end
-end)
-
-RegisterServerEvent('qbr-banking:savingsDeposit')
-AddEventHandler('qbr-banking:savingsDeposit', function(amount)
-    local src = source
-    local xPlayer = RedEM.GetPlayer(src)
-    while xPlayer == nil do Wait(0) end
-    local currentBank = xPlayer.GetBankMoney
-
-    if tonumber(amount) <= currentBank then
-        local bank = xPlayer.RemoveBankMoney(tonumber(amount))
-        local savings = savingsAccounts[xPlayer.citizenid].AddMoney(tonumber(amount), 'Current Account to Savings Transfer')
-        while bank == nil do Wait(0) end
-        while savings == nil do Wait(0) end
+        RemoveFromBank(accid, tonumber(amount))
+        xPlayer.AddMoney(tonumber(amount), 'banking-quick-withdraw')
         TriggerClientEvent('qbr-banking:openBankScreen', src)
-        TriggerClientEvent('qbr-banking:successAlert', src, 'You made a savings deposit of $'..tostring(amount)..' successfully.')
-        -- TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', 'lightgreen', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a savings deposit of $"..tostring(amount).." successfully..")
+        TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash withdrawal of $'..amount..' successfully.')
     end
 end)
 
-RegisterServerEvent('qbr-banking:savingsWithdraw')
-AddEventHandler('qbr-banking:savingsWithdraw', function(amount)
-    local src = source
-    local xPlayer = RedEM.GetPlayer(src)
-    while xPlayer == nil do Wait(0) end
-    local currentSavings = savingsAccounts[xPlayer.citizenid].GetBalance()
-
-    if tonumber(amount) <= currentSavings then
-        local savings = savingsAccounts[xPlayer.citizenid].RemoveMoney(tonumber(amount), 'Savings to Current Account Transfer')
-        local bank = xPlayer.AddBankMoney(tonumber(amount), 'banking-quick-withdraw')
-        while bank == nil do Wait(0) end
-        while savings == nil do Wait(0) end
-        TriggerClientEvent('qbr-banking:openBankScreen', src)
-        TriggerClientEvent('qbr-banking:successAlert', src, 'You made a savings withdrawal of $'..tostring(amount)..' successfully.')
-        -- TriggerEvent('qbr-log:server:CreateLog', 'banking', 'Banking', 'red', "**"..GetPlayerName(xPlayer.PlayerData.source) .. " (citizenid: "..xPlayer.PlayerData.citizenid.." | id: "..xPlayer.PlayerData.source..")** made a savings withdrawal of $"..tostring(amount).." successfully.")
-    end
-end)
 
 RegisterServerEvent('qbr-banking:createSavingsAccount')
 AddEventHandler('qbr-banking:createSavingsAccount', function()
@@ -282,11 +252,36 @@ AddEventHandler('qbr-banking:createBusinessAccount', function()
     local xPlayer = RedEM.GetPlayer(src)
     local job = xPlayer.job
     local jobgrade = xPlayer.jobgrade
-    print 'create'
     if jobgrade == 3 then
         local success = createbusinessAccount(job)
         repeat Wait(0) until success ~= nil
         TriggerClientEvent('qbr-banking:openBankScreen', src)
+    end
+end)
+
+
+
+RegisterServerEvent('qbr-banking:initiateTransfer')
+AddEventHandler('qbr-banking:initiateTransfer', function(data)
+    local src = source
+    local xPlayer = RedEM.GetPlayer(src)
+    local amount = data.amount
+    local targetaccid = data.account
+    while xPlayer == nil do Wait(0) end
+    local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
+    if result[1] ~= nil then
+        accid = result[1].accountid
+        currentCash = result[1].amount
+    end
+    if tonumber(amount) <= currentCash then
+        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
+        if result[1] ~= nil then
+            accid = result[1].accountid
+        end
+        RemoveFromBank(accid, tonumber(amount))
+        AddToBank(targetaccid, tonumber(amount))
+        TriggerClientEvent('qbr-banking:openBankScreen', src)
+        TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash withdrawal of $'..amount..' successfully.')
     end
 end)
 
@@ -367,3 +362,21 @@ QBCore.Functions.CreateCallback("Renewed-Banking:server:transfer", function(sour
     local bankData = getBankData(source)
     cb(bankData)
 end)
+
+
+
+function RemoveFromBank(accountid, amount)
+    local bankbalance = MySQL.query('SELECT * FROM bank_accounts WHERE accountid = ?', {accountid})
+    if tonumber(bankbalance) >= tonumber(amount) then
+        local newbalance = bankbalance - amount
+        MySQL.query("UPDATE `bank_accounts` SET `amount` = ? WHERE `accountid` = ? ", { newbalance, accountid})
+    end
+end
+
+function AddToBank(accountid, amount)
+    local bankbalance = MySQL.query('SELECT * FROM bank_accounts WHERE accountid = ?', {accountid})
+    if tonumber(amount) >= 0 then
+        local newbalance = bankbalance + amount
+        MySQL.query("UPDATE `bank_accounts` SET `amount` = ? WHERE `accountid` = ? ", { newbalance, accountid})
+    end
+end
