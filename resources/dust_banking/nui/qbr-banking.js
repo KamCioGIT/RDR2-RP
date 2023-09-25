@@ -274,10 +274,33 @@ function populateBanking(data)
 
     $(document).ready(function() {
         $('#currentStatement').DataTable({
-            language: {url: "nui/fr-FR.json"},
             "order": [[ 0, "desc" ]],
             "pagingType": "simple",
-            "lengthMenu": [[20, 35, 50, -1], [20, 35, 50, "Tout"]]
+            "lengthMenu": [[20, 35, 50, -1], [20, 35, 50, "Tout"]],
+            "language": {
+                "sProcessing": "Traitement en cours...",
+                "sLengthMenu": "Afficher _MENU_ éléments",
+                "sZeroRecords": "Aucun résultat trouvé",
+                "sEmptyTable": "Aucune donnée disponible",
+                "sInfo": "Affichage de _START_ à _END_ sur _TOTAL_ éléments",
+                "sInfoEmpty": "Affichage de 0 à 0 sur 0 éléments",
+                "sInfoFiltered": "(filtré à partir de _MAX_ éléments au total)",
+                "sInfoPostFix": "",
+                "sSearch": "Rechercher :",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Chargement en cours...",
+                "oPaginate": {
+                    "sFirst": "Premier",
+                    "sLast": "Dernier",
+                    "sNext": "Suivant",
+                    "sPrevious": "Précédent"
+                },
+                "oAria": {
+                    "sSortAscending": ": activer pour trier la colonne par ordre croissant",
+                    "sSortDescending": ": activer pour trier la colonne par ordre décroissant"
+                }
+            }
             
         });
     } );
