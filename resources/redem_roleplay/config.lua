@@ -39,7 +39,7 @@ Config.WeaponRecoils = {
     [1845102363]                        = 0.7,          -- weapon_shotgun_doublebarrel
     [1402226560]                        = 0.7,          -- weapon_sniperrifle_carcano
     [3788682007]                        = 0.7,          -- weapon_sniperrifle_rollingblock
-    [2292731996]                        = 0.7,          -- bow
+    [-2002235300]                        = 0.7,          -- bow
 }
 
 Config.DamageModifier = {
