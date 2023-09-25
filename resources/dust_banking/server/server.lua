@@ -247,6 +247,7 @@ function RemoveFromBank(accountid, amount)
 end
 
 function AddToBank(accountid, amount)
+    print (accountid)
     local result = MySQL.query.await('SELECT * FROM bank_accounts accountid = ?', { accountid })
     if result[1] ~= nil then
         bankbalance = result[1].balance
