@@ -276,7 +276,9 @@ function populateBanking(data)
         $('#currentStatement').DataTable({
             "order": [[ 0, "desc" ]],
             "pagingType": "simple",
-            "lengthMenu": [[20, 35, 50, -1], [20, 35, 50, "All"]]
+            "lengthMenu": [[20, 35, 50, -1], [20, 35, 50, "Tout"]],
+            "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json" // Chemin vers le fichier de localisation en français
         });
     } );
     }
