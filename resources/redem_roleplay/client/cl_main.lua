@@ -92,6 +92,7 @@ Citizen.CreateThread(function()
         if Config.WeaponRecoilSystem then
             if IsPedShooting(ped) then
                 local _,wep = GetCurrentPedWeapon(ped)
+                print (wep)
                 Citizen.InvokeNative(0xD77AE48611B7B10A, ped, Config.DamageModifier[wep])
                 if Config.WeaponRecoils[wep] and Config.WeaponRecoils[wep] ~= 0 then
                     TimeValue = 0
