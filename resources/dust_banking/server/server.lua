@@ -177,7 +177,7 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
     local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
     if result[1] ~= nil then
         accid = result[1].accountid
-        currentCash = result[1].amount
+        currentCash = result[1].balance
     end
     if tonumber(amount) <= currentCash then
         RemoveFromBank(accid, tonumber(amount))
