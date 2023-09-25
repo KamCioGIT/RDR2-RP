@@ -249,7 +249,11 @@ end
 function AddToBank(accountid, amount)
     local bankbalance = MySQL.query('SELECT * FROM bank_accounts WHERE accountid = ?', {accountid})
     if tonumber(amount) >= 0 then
-        local newbalance = tonumber(bankbalance) + tonumber(amount)
+        if bankbalance == nil then
+            newbalance = tonumber(amount)
+        else
+            newbalance = tonumber(bankbalance) + tonumber(amount)
+        end
         MySQL.query("UPDATE `bank_accounts` SET `amount` = ? WHERE `accountid` = ? ", { newbalance, accountid})
     end
 end
