@@ -276,12 +276,11 @@ function populateBanking(data)
         $('#currentStatement').DataTable({
             "order": [[ 0, "desc" ]],
             "pagingType": "simple",
-            "lengthMenu": [[20, 35, 50, -1], [20, 35, 50, "Tout"]],
-            "language": {
-                "url": 'nui\fr-FR.json',
-            },
+            "lengthMenu": [[20, 35, 50, -1], [20, 35, 50, "All"]]
+            "language": {"url": "nui\fr-FR.json"}
         });
-    });
+    } );
+    }
 }
 
 function pad(n, width, z) {
