@@ -253,6 +253,7 @@ function AddToBank(accountid, amount)
             newbalance = tonumber(amount)
         else
             newbalance = tonumber(bankbalance) + tonumber(amount)
+            print (bankbalance, amount)
         end
         print (newbalance, type(newbalance), accountid)
         MySQL.query("UPDATE `bank_accounts` SET `balance` = ? WHERE `accountid` = ? ", { newbalance, accountid})
