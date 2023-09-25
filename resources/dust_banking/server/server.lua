@@ -163,20 +163,17 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
         local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
         if result[1] ~= nil then
             accid = result[1].accountid
+            bankbalance = result[1].balance
         end
         xPlayer.RemoveMoney(tonumber(amount))
         AddToBank(accid, tonumber(amount))
         local time = os.date("%d-%m")
-        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE accountid = ?', { accountid })
-        if result[1] ~= nil then
-            bankbalance = result[1].balance
-        end
         MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
             xPlayer.citizenid,
             accid,
             0,
             tonumber(amount),
-            bankbalance,
+            bankbalance + tonumber(amount),
             time,
             'Dépot'
         })
@@ -199,16 +196,12 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
         RemoveFromBank(accid, tonumber(amount))
         xPlayer.AddMoney(tonumber(amount))
         local time = os.date("%d-%m")
-        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE accountid = ?', { accountid })
-        if result[1] ~= nil then
-            bankbalance = result[1].balance
-        end
         MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
             xPlayer.citizenid,
             accid,
             tonumber(amount),
             0,
-            bankbalance,
+            currentCash - tonumber(amount),
             time,
             'Retrait'
         })
