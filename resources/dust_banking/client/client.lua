@@ -38,6 +38,7 @@ function openAccountScreen()
                 }
 
             })
+        end
     end)
 end
 
