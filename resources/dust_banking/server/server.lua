@@ -164,7 +164,16 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
         end
         xPlayer.RemoveMoney(tonumber(amount))
         AddToBank(accid, tonumber(amount))
-        xPlayer.DepositStatement(tonumber(amount))
+        local time = os.date("%Y-%m-%d %H:%M:%S")
+        MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+            self.charid,
+            self.aid,
+            0,
+            amt,
+            self.balance,
+            time,
+            'Dépot'
+        })
         TriggerClientEvent('qbr-banking:openBankScreen', src)
         TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez déposé $'..amount..' dans votre compte.')
     end
