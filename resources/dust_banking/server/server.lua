@@ -166,13 +166,17 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
         end
         xPlayer.RemoveMoney(tonumber(amount))
         AddToBank(accid, tonumber(amount))
-        local time = os.date("%Y-%m-%d %H:%M:%S")
+        local time = os.date("%d-%m")
+        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE accountid = ?', { accountid })
+        if result[1] ~= nil then
+            bankbalance = result[1].balance
+        end
         MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
             xPlayer.citizenid,
             accid,
             0,
-            amt,
-            10,
+            tonumber(amount),
+            bankbalance,
             time,
             'Dépot'
         })
@@ -194,7 +198,20 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
     if tonumber(amount) <= currentCash then
         RemoveFromBank(accid, tonumber(amount))
         xPlayer.AddMoney(tonumber(amount))
-        xPlayer.WithdrawStatement(tonumber(amount))
+        local time = os.date("%d-%m")
+        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE accountid = ?', { accountid })
+        if result[1] ~= nil then
+            bankbalance = result[1].balance
+        end
+        MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+            xPlayer.citizenid,
+            accid,
+            tonumber(amount),
+            0,
+            bankbalance,
+            time,
+            'Retrait'
+        })
         TriggerClientEvent('qbr-banking:openBankScreen', src)
         TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez retiré $'..amount..' de votre compte.')
     end
