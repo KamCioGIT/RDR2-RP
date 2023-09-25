@@ -110,7 +110,7 @@ RedEM.RegisterCallback('qbr-banking:getBankingInformation', function(source, cb)
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
         if (xPlayer) then
-            local getSavingsAccount = MySQL.query.await('SELECT * FROM bank_accounts WHERE citizenid = ? AND account_type = ?', { xPlayer.citizenid, 'Savings' })
+            local getSavingsAccount = MySQL.query('SELECT * FROM bank_accounts WHERE citizenid = ? AND account_type = ?', { xPlayer.citizenid, 'Savings' })
             if getSavingsAccount[1] ~= nil then
                 accountid = getSavingsAccount[1].accountid
             end
