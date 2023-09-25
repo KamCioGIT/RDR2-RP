@@ -278,8 +278,8 @@ function populateBanking(data)
             "pagingType": "simple",
             "lengthMenu": [[20, 35, 50, -1], [20, 35, 50, "Tout"]],
             "language": {
-                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json" // Chemin vers le fichier de localisation en français
-            }
+                "url": '//cdn.datatables.net/plug-ins/1.13.6/i18n/fr-FR.json',
+            },
         });
     });
 }
