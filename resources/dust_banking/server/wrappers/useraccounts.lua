@@ -173,7 +173,7 @@ function generateSavings(cid)
         self.aid = getSavingsAccount[1].record_id
         self.balance = getSavingsAccount[1].amount
     end
-    local stats = MySQL.query.await('SELECT * FROM bank_statements WHERE account = ? AND citizenid = ? ORDER BY record_id DESC LIMIT 30', { 'Savings', self.charid })
+    local stats = MySQL.query.await('SELECT * FROM bank_statements WHERE account_type = ? AND citizenid = ? ORDER BY record_id DESC LIMIT 30', { 'Savings', self.charid })
     self.bankStatement = stats
 
     self.saveAccount = function()
