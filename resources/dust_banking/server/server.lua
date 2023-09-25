@@ -43,91 +43,61 @@ Citizen.CreateThread(function()
     local totalAccounts = (buis + cur + sav + gang)
 end)
 
-exports('business', function(acctType, bid)
-    if businessAccounts[acctType] then
-        if businessAccounts[acctType][tonumber(bid)] then
-            return businessAccounts[acctType][tonumber(bid)]
-        end
-    end
-end)
 
-RegisterServerEvent('qbr-banking:server:modifyBank')
-AddEventHandler('qbr-banking:server:modifyBank', function(bank, k, v)
-    if banks[tonumber(bank)] then
-        banks[tonumber(bank)][k] = v
-        TriggerClientEvent('qbr-banking:client:syncBanks', -1, banks)
-    end
-end)
 
-exports('modifyBank', function(bank, k, v)
-    TriggerEvent('qbr-banking:server:modifyBank', bank, k, v)
-end)
+-- RegisterServerEvent('qbr-banking:server:modifyBank')
+-- AddEventHandler('qbr-banking:server:modifyBank', function(bank, k, v)
+--     if banks[tonumber(bank)] then
+--         banks[tonumber(bank)][k] = v
+--         TriggerClientEvent('qbr-banking:client:syncBanks', -1, banks)
+--     end
+-- end)
 
-exports('registerAccount', function(cid)
-    local _cid = tonumber(cid)
-    currentAccounts[_cid] = generateCurrent(_cid)
-end)
+-- exports('modifyBank', function(bank, k, v)
+--     TriggerEvent('qbr-banking:server:modifyBank', bank, k, v)
+-- end)
 
-exports('current', function(cid)
-    if currentAccounts[cid] then
-        return currentAccounts[cid]
-    end
-end)
+-- exports('registerAccount', function(cid)
+--     local _cid = tonumber(cid)
+--     currentAccounts[_cid] = generateCurrent(_cid)
+-- end)
 
-exports('savings', function(cid)
-    if savingsAccounts[cid] then
-        return savingsAccounts[cid]
-    end
-end)
+-- exports('business', function(acctType, bid)
+--     if businessAccounts[acctType] then
+--         if businessAccounts[acctType][tonumber(bid)] then
+--             return businessAccounts[acctType][tonumber(bid)]
+--         end
+--     end
+-- end)
 
-exports('gang', function(gid)
-    if gangAccounts[cid] then
-        return gangAccounts[cid]
-    end
-end)
 
-function checkAccountExists(acct, sc)
-    local success
-    local cid
-    local actype
-    local processed = false
-    local exists = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_number = ? AND sort_code = ?', { acct, sc })
-    if exists[1] ~= nil then
-        success = true
-        cid = exists[1].character_id
-        actype = exists[1].account_type
-    else
-        success = false
-        cid = false
-        actype = false
-    end
-    processed = true
-    repeat Wait(0) until processed == true
-    return success, cid, actype
-end
+-- exports('savings', function(cid)
+--     if savingsAccounts[cid] then
+--         return savingsAccounts[cid]
+--     end
+-- end)
 
-RegisterServerEvent('qbr-base:itemUsed')
-AddEventHandler('qbr-base:itemUsed', function(_src, data)
-    if data.item == "moneybag" then
-        TriggerClientEvent('qbr-banking:client:usedMoneyBag', _src, data)
-    end
-end)
 
-RegisterServerEvent('qbr-banking:server:unpackMoneyBag')
-AddEventHandler('qbr-banking:server:unpackMoneyBag', function(item)
-    local _src = source
-    if item ~= nil then
-        local xPlayer = RedEm.GetPlayer(_src)
-        local xPlayerCID = xPlayer.citizenid
-        local decode = json.decode(item.metapublic)
-    end
-end)
+-- function checkAccountExists(acct, sc)
+--     local success
+--     local cid
+--     local actype
+--     local processed = false
+--     local exists = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_number = ? AND sort_code = ?', { acct, sc })
+--     if exists[1] ~= nil then
+--         success = true
+--         cid = exists[1].character_id
+--         actype = exists[1].account_type
+--     else
+--         success = false
+--         cid = false
+--         actype = false
+--     end
+--     processed = true
+--     repeat Wait(0) until processed == true
+--     return success, cid, actype
+-- end
 
-function getCharacterName(cid)
-    local src = source
-    local player = RedEM.GetPlayer(src)
-    local name = player.name
-end
 
 function format_int(number)
     local i, j, minus, int, fraction = tostring(number):find('([-]?)(%d+)([.]?%d*)')

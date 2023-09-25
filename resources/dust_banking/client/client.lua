@@ -6,13 +6,13 @@ InBank = false
 blips = {}
 
 
-RegisterNetEvent('qbr-banking:client:syncBanks')
-AddEventHandler('qbr-banking:client:syncBanks', function(data)
-    banks = data
-    if showing then
-        showing = false
-    end
-end)
+-- RegisterNetEvent('qbr-banking:client:syncBanks')
+-- AddEventHandler('qbr-banking:client:syncBanks', function(data)
+--     banks = data
+--     if showing then
+--         showing = false
+--     end
+-- end)
 
 function openAccountScreen()
     RedEM.TriggerCallback('qbr-banking:getBankingInformation', function(banking)
