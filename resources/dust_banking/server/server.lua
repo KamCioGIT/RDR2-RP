@@ -162,8 +162,9 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
         if result[1] ~= nil then
             accid = result[1].accountid
         end
-        xPlayer.RemoveMoney(tonumber(amount), 'banking-quick-depo')
+        xPlayer.RemoveMoney(tonumber(amount))
         AddToBank(accid, tonumber(amount))
+        xPlayer.DepositStatement(tonumber(amount))
         TriggerClientEvent('qbr-banking:openBankScreen', src)
         TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez déposé $'..amount..' dans votre compte.')
     end
@@ -181,7 +182,8 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
     end
     if tonumber(amount) <= currentCash then
         RemoveFromBank(accid, tonumber(amount))
-        xPlayer.AddMoney(tonumber(amount), 'banking-quick-withdraw')
+        xPlayer.AddMoney(tonumber(amount))
+        xPlayer.WithdrawStatement(tonumber(amount))
         TriggerClientEvent('qbr-banking:openBankScreen', src)
         TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez retiré $'..amount..' de votre compte.')
     end
