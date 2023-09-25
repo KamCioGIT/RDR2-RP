@@ -248,7 +248,7 @@ end
 
 function AddToBank(accountid, amount)
     print (accountid)
-    local result = MySQL.query.await('SELECT * FROM bank_accounts accountid = ?', { accountid })
+    local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE accountid = ?', { accountid })
     if result[1] ~= nil then
         bankbalance = result[1].balance
     end
