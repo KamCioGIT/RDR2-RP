@@ -106,11 +106,13 @@ RedEM.RegisterCallback('qbr-banking:getBankingInformation', function(source, cb)
             if #result ~= 0 then
                 local accountid = result[1].accountid
                 local balance = result[1].balance
+                local stats = MySQL.query.await('SELECT * FROM bank_statements WHERE accountid = ? AND citizenid = ? ORDER BY record_id DESC LIMIT 30', { accountid, xPlayer.citizenid })
                 local banking = {
                     ['name'] = xPlayer.firstname .. ' ' .. xPlayer.lastname,
                     ['bankbalance'] = '$'.. format_int(balance),
                     ['cash'] = '$'.. format_int(xPlayer.money),
                     ['accountinfo'] = 'N°'..tostring(accountid),
+                    ['statement'] = stats
                 }
                 cb(banking)
             else
