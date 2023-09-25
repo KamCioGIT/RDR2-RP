@@ -166,11 +166,11 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
         AddToBank(accid, tonumber(amount))
         local time = os.date("%Y-%m-%d %H:%M:%S")
         MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
-            self.charid,
-            self.aid,
+            xPlayer.citizenid,
+            accid,
             0,
             amt,
-            self.balance,
+            10,
             time,
             'Dépot'
         })
