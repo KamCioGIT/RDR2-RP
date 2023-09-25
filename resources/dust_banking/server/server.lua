@@ -171,8 +171,8 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
         MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
             xPlayer.citizenid,
             accid,
-            0,
             tonumber(amount),
+            0,
             bankbalance + tonumber(amount),
             time,
             'Dépot'
@@ -199,8 +199,8 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
         MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
             xPlayer.citizenid,
             accid,
-            tonumber(amount),
             0,
+            tonumber(amount),
             currentCash - tonumber(amount),
             time,
             'Retrait'
@@ -250,10 +250,33 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
         currentCash = result[1].balance
     end
     if tonumber(amount) <= currentCash then
-        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE accountid = ?', { targetaccid })
-        if result[1] ~= nil then
+        local _result = MySQL.query.await('SELECT * FROM bank_accounts WHERE accountid = ?', { targetaccid })
+        if _result[1] ~= nil then
+            _currentcash = _result[1].balance
             RemoveFromBank(accid, tonumber(amount))
             AddToBank(targetaccid, tonumber(amount))
+            local time = os.date("%d-%m")
+            ---- Historique de l'envoyeur
+            MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+                xPlayer.citizenid,
+                accid,
+                0,
+                tonumber(amount),
+                currentCash - tonumber(amount),
+                time,
+                'Transfert sortant N° '..targetaccid..''
+            })
+
+            ---- historique du destinataire
+            MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+                xPlayer.citizenid,
+                accid,
+                tonumber(amount),
+                0,
+                _currentcash + tonumber(amount),
+                time,
+                'Transfert entrant N° '..accid..''
+            })
             TriggerClientEvent('qbr-banking:openBankScreen', src)
             TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez transféré $'..amount..' au compte N°'..targetaccid..'.')
         else
