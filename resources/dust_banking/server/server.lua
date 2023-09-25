@@ -253,6 +253,7 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
         local _result = MySQL.query.await('SELECT * FROM bank_accounts WHERE accountid = ?', { targetaccid })
         if _result[1] ~= nil then
             _currentcash = _result[1].balance
+            targetcid = _result[1].citizenid
             RemoveFromBank(accid, tonumber(amount))
             AddToBank(targetaccid, tonumber(amount))
             local time = os.date("%d-%m")
@@ -269,8 +270,8 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
 
             ---- historique du destinataire
             MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
-                xPlayer.citizenid,
-                accid,
+                targetcid,
+                targetaccid,
                 tonumber(amount),
                 0,
                 _currentcash + tonumber(amount),
