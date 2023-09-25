@@ -163,7 +163,7 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             accid = result[1].accountid
         end
         xPlayer.RemoveMoney(tonumber(amount), 'banking-quick-depo')
-        AddToBank(acctid, tonumber(amount))
+        AddToBank(accid, tonumber(amount))
         TriggerClientEvent('qbr-banking:openBankScreen', src)
         TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash deposit of $'..amount..' successfully.')
     end
