@@ -25,20 +25,22 @@ function openAccountScreen()
             })
 
             TriggerEvent("debug", 'Banking: Open UI', 2000, 0, 'hud_textures', 'check')
-        end
+        else
+            InBank = true
+            SetNuiFocus(true, true)
+            SendNUIMessage({
+                status = "openbank",
+                information = {
+                    ['name'] = 'Inconnu(e)',
+                    ['bankbalance'] = "Vous n'avez pas de compte",
+                    ['cash'] = "Vous n'avez pas de compte",
+                    ['accountinfo'] = "000000",
+                }
+
+            })
     end)
 end
 
-function atmRefresh()
-    RedEM.TriggerCallback('qbr-banking:getBankingInformation', function(infor)
-        InBank = true
-        SetNuiFocus(true, true)
-        SendNUIMessage({
-            status = "refreshatm",
-            information = infor
-        })
-    end)
-end
 
 RegisterNetEvent('qbr-banking:openBankScreen')
 AddEventHandler('qbr-banking:openBankScreen', function()
