@@ -18,7 +18,6 @@ shared_scripts {
 ui_page 'nui/index.html'
 
 files {
-    'fr-FR.json',
     'nui/images/*.png',
     'nui/scripting/jquery-ui.css',
     'nui/scripting/external/jquery/jquery.js',
