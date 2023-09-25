@@ -165,7 +165,7 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
         xPlayer.RemoveMoney(tonumber(amount), 'banking-quick-depo')
         AddToBank(accid, tonumber(amount))
         TriggerClientEvent('qbr-banking:openBankScreen', src)
-        TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash deposit of $'..amount..' successfully.')
+        TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez déposé $'..amount..' dans votre compte.')
     end
 end)
 
@@ -183,7 +183,7 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
         RemoveFromBank(accid, tonumber(amount))
         xPlayer.AddMoney(tonumber(amount), 'banking-quick-withdraw')
         TriggerClientEvent('qbr-banking:openBankScreen', src)
-        TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash withdrawal of $'..amount..' successfully.')
+        TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez retiré $'..amount..' de votre compte.')
     end
 end)
 
@@ -219,21 +219,24 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
     local xPlayer = RedEM.GetPlayer(src)
     local amount = data.amount
     local targetaccid = data.account
+    print (amount, targetaccid)
     while xPlayer == nil do Wait(0) end
-    local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
+    local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
     if result[1] ~= nil then
         accid = result[1].accountid
-        currentCash = result[1].amount
+        currentCash = result[1].balance
     end
     if tonumber(amount) <= currentCash then
-        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
+        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE accountid = ?', { targetaccid })
         if result[1] ~= nil then
-            accid = result[1].accountid
+            RemoveFromBank(accid, tonumber(amount))
+            AddToBank(targetaccid, tonumber(amount))
+            TriggerClientEvent('qbr-banking:openBankScreen', src)
+            TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez transféré $'..amount..' au compte N°'..targetaccid..'.')
+        else
+            TriggerClientEvent('qbr-banking:openBankScreen', src)
+            TriggerClientEvent('qbr-banking:successAlert', src, "Le numéro de compte indiqué n'existe pas.")
         end
-        RemoveFromBank(accid, tonumber(amount))
-        AddToBank(targetaccid, tonumber(amount))
-        TriggerClientEvent('qbr-banking:openBankScreen', src)
-        TriggerClientEvent('qbr-banking:successAlert', src, 'You made a cash withdrawal of $'..amount..' successfully.')
     end
 end)
 
