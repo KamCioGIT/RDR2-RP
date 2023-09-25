@@ -274,10 +274,11 @@ function populateBanking(data)
 
     $(document).ready(function() {
         $('#currentStatement').DataTable({
+            language: {url: "nui/fr-FR.json"},
             "order": [[ 0, "desc" ]],
             "pagingType": "simple",
-            "lengthMenu": [[20, 35, 50, -1], [20, 35, 50, "Tout"]],
-            "language": {"url": "nui/fr-FR.json"}
+            "lengthMenu": [[20, 35, 50, -1], [20, 35, 50, "Tout"]]
+            
         });
     } );
     }
