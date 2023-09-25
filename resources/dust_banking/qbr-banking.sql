@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS `bank_accounts` (
   `job` varchar(50) DEFAULT NULL,
   `accountid` int(11) DEFAULT NULL,
   `balance` bigint(255) NOT NULL DEFAULT 0,
-  `account_type` enum('Savings','Job') NOT NULL DEFAULT 'Savings',
+  `account_type` enum('Savings','Business') NOT NULL DEFAULT 'Savings',
   PRIMARY KEY (`record_id`),
   UNIQUE KEY `citizenid` (`citizenid`),
   UNIQUE KEY `accountid` (`accountid`),

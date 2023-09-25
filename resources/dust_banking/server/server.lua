@@ -30,14 +30,6 @@ Citizen.CreateThread(function()
     end
     ready = ready + 1
 
-    local gangs = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Gang' })
-    gang = #gangs
-    if gangs[1] ~= nil then
-        for k, v in pairs(gangs) do
-            gangAccounts[v.gangid] = loadGangAccount(v.gangid)
-        end
-    end
-    ready = ready + 1
 
     repeat Wait(0) until ready == 5
     local totalAccounts = (buis + cur + sav + gang)
@@ -109,63 +101,53 @@ RedEM.RegisterCallback('qbr-banking:getBankingInformation', function(source, cb)
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
-        if (xPlayer) then
-            local getSavingsAccount = MySQL.query('SELECT * FROM bank_accounts WHERE citizenid = ? AND account_type = ?', { xPlayer.citizenid, 'Savings' })
-            if getSavingsAccount[1] ~= nil then
-                accountid = getSavingsAccount[1].accountid
-            end
-            local banking = {
+    if (xPlayer) then
+        MySQL.query('SELECT * FROM bank_accounts WHERE citizenid = ? AND account_type = ?', { xPlayer.citizenid, 'Savings' }, function(result)
+            if #result ~= 0 then
+                local accountid = result[1].accountid
+                local balance = result[1].balance
+                local banking = {
                     ['name'] = xPlayer.firstname .. ' ' .. xPlayer.lastname,
-                    ['bankbalance'] = '$'.. format_int(xPlayer.bankmoney),
+                    ['bankbalance'] = '$'.. format_int(balance),
                     ['cash'] = '$'.. format_int(xPlayer.money),
                     ['accountinfo'] = 'N°'..tostring(accountid),
                 }
-                --[[
-                if savingsAccounts[xPlayer.PlayerData.citizenid] then
-                    local cid = xPlayer.PlayerData.citizenid
-                    banking['savings'] = {
-                        ['amount'] = savingsAccounts[cid].GetBalance(),
-                        ['details'] = savingsAccounts[cid].getAccount(),
-                        ['statement'] = savingsAccounts[cid].getStatement(),
-                    }
-                end
-                ]]
                 cb(banking)
-        else
-            cb(nil)
-        end
+            else
+                cb(nil)
+            end
+        end)
+    else
+        cb(nil)
+    end
 end)
 
 RedEM.RegisterCallback('qbr-banking:getBusinessInformation', function(source, cb)
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
-    local job = xPlayer.job
     while xPlayer == nil do Wait(0) end
-        local accts = MySQL.query.await('SELECT * FROM bank_accounts WHERE business = ?', { job })
-        buis = #accts
-        if accts[1] ~= nil then
-            for k, v in pairs(accts) do
-                local businessinfo = {
+    if (xPlayer) then
+        if xPlayer.jobgrade >= 3 then
+            MySQL.query('SELECT * FROM bank_accounts WHERE job = ? AND account_type = ?', { xPlayer.job, 'Business' }, function(result)
+                if #result ~= 0 then
+                    local accountid = result[1].accountid
+                    local banking = {
                         ['name'] = xPlayer.firstname .. ' ' .. xPlayer.lastname,
-                        ['bankbalance'] = '$'.. format_int(v.amount),
+                        ['bankbalance'] = '$'.. format_int(xPlayer.bankmoney),
                         ['cash'] = '$'.. format_int(xPlayer.money),
-                        ['accountinfo'] = 'N°'..tostring(xPlayer.businessid),
+                        ['accountinfo'] = 'N°'..tostring(accountid),
                     }
-                    --[[
-                    if savingsAccounts[xPlayer.PlayerData.citizenid] then
-                        local cid = xPlayer.PlayerData.citizenid
-                        banking['savings'] = {
-                            ['amount'] = savingsAccounts[cid].GetBalance(),
-                            ['details'] = savingsAccounts[cid].getAccount(),
-                            ['statement'] = savingsAccounts[cid].getStatement(),
-                        }
-                    end
-                    ]]
-                    cb(businessinfo)
-            end
+                    cb(banking)
+                else
+                    cb(nil)
+                end
+            end)
         else
             cb(nil)
         end
+    else
+        cb(nil)
+    end
 end)
 
 RegisterServerEvent('qbr-banking:doQuickDeposit')
@@ -176,7 +158,7 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
     local currentCash = xPlayer.GetMoney()
 
     if tonumber(amount) <= currentCash then
-        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
+        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
         if result[1] ~= nil then
             accid = result[1].accountid
         end
@@ -192,7 +174,7 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
-    local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
+    local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
     if result[1] ~= nil then
         accid = result[1].accountid
         currentCash = result[1].amount
