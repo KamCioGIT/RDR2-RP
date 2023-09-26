@@ -179,6 +179,8 @@ function populateBanking(data)
     $("#cardInactive").css({"display":"none"});
     $("#cardOrdering").css({"display":"none"});
     $('#withdrawAmount').val('');
+    $("#accid").html(data.accid);
+    $("#type").html(data.type);
     $("#customerName").html(data.name);
     $("#currentBalance").html(data.bankbalance);
     $("#currentCashBalance").html(data.cash);
