@@ -25,7 +25,6 @@ Citizen.CreateThread(function()
     sav = #savings
     if savings[1] ~= nil then
         for k, v in pairs(savings) do
-            print (v.citizenid)
             savingsAccounts[v.citizenid] = generateSavings(v.citizenid)
         end
     end
