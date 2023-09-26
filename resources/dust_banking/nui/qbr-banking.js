@@ -186,6 +186,8 @@ function populateBanking(data)
     $("#currentCashBalance1").html(data.cash);
     $("#currentBalance2").html(data.bankbalance);
     $("#currentCashBalance2").html(data.cash);
+    $("#type").html(data.type);
+    $("#accid").html(data.accid);
     $("#currentStatementContents").html('');
     if(data.cardInformation !== undefined) {
         if (data.cardInformation.cardLocked == true) {
@@ -322,16 +324,19 @@ $(function() {
 
     });
 
-    $("#initiateWithdraw").click(function(data) {
+    $("#initiateWithdraw").click(function() {
         var amount = $('#withdrawAmount').val();
+        var type = $('#type').val();
+        var accid = $('#accid').val();
+
 
         if(amount !== undefined && amount > 0) {
             $("#withdrawError").css({"display":"none"});
             $("#withdrawErrorMsg").html('');
             $.post('https://dust_banking/doWithdraw', JSON.stringify({ 
                 amount: parseInt(amount),
-                type: data.information.type,
-                accid: data.information.accid
+                type: type,
+                accid: accid
             }));
             $('#withdrawAmount').val('')
         } else {
