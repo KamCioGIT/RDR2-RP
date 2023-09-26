@@ -11,12 +11,7 @@ Citizen.CreateThread(function()
     buis = #accts
     if accts[1] ~= nil then
         for k, v in pairs(accts) do
-            local acctType = v.business
-            if businessAccounts[acctType] == nil then
-                businessAccounts[acctType] = {}
-            end
-            businessAccounts[acctType][tonumber(v.businessid)] = generatebusinessAccount(tonumber(v.business), tonumber(v.businessid))
-            while businessAccounts[acctType][tonumber(v.businessid)] == nil do Wait(0) end
+            businessAccounts[v.job] = generatebusiness(v.job)
         end
     end
     ready = ready + 1
