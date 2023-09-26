@@ -41,6 +41,7 @@ function openAccountScreen(type)
                 })
             end
         end)
+        TriggerServerEvent('banking:acctype', type)
     elseif type == "business" then
         RedEM.TriggerCallback('qbr-banking:getBusinessInformation', function(banking)
             if banking ~= nil then
@@ -67,6 +68,7 @@ function openAccountScreen(type)
                 })
             end
         end)
+        TriggerServerEvent('banking:acctype', type)
     end
 end
 

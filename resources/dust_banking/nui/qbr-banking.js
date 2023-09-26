@@ -324,18 +324,14 @@ $(function() {
 
     });
 
-    $("#initiateWithdraw").click(function(event) {
+    $("#initiateWithdraw").click(function() {
         var amount = $('#withdrawAmount').val();
-        var type =  $('#withdrawAmount').html(event.data.information.type);
-        var accid =  $('#withdrawAmount').html(event.data.information.accid);
 
         if(amount !== undefined && amount > 0) {
             $("#withdrawError").css({"display":"none"});
             $("#withdrawErrorMsg").html('');
             $.post('https://dust_banking/doWithdraw', JSON.stringify({ 
                 amount: parseInt(amount),
-                type: type,
-                accid: accid
             }));
             $('#withdrawAmount').val('')
         } else {
