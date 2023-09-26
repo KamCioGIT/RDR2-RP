@@ -1,19 +1,14 @@
 Config = {}
 
-Config.cardTypes = { "visa", "mastercard"}
-
-Config.ATMModels = {
-    -- "prop_atm_01",
-    -- "prop_atm_02",
-    -- "prop_atm_03",
-    -- "prop_fleeca_atm"
-}
 
 Config.BankLocations = {
-    {name = 'Bank of Rhodes',           bankType = "BANKS",     coords = vector3(1292.307, -1301.539, 77.04012),    showblip = true},
-    {name = 'Lemoyne National Bank',    bankType = "BANKS2",    coords = vector3(2644.579, -1292.313, 52.24956),    showblip = true},
-    {name = 'Valentine Savings Bank',   bankType = "BANKS3",    coords = vector3(-308.4189, 775.8842, 118.7017),    showblip = true},
-    {name = 'First National Bank',      bankType = "BANKS4",    coords = vector3(-813.1633, -1277.486, 43.63771),   showblip = true},
+    {name = 'Banque de Rhodes',           bankType = "BANKS",     coords = vector3(1292.307, -1301.539, 77.04012),    showblip = true},
+    {name = 'Banque de Saint-Denis',    bankType = "BANKS2",    coords = vector3(2644.579, -1292.313, 52.24956),    showblip = true},
+    -- {name = 'Valentine Savings Bank',   bankType = "BANKS3",    coords = vector3(-308.4189, 775.8842, 118.7017),    showblip = true},
+    {name = 'Banque de BlackWater',      bankType = "BANKS4",    coords = vector3(-813.1633, -1277.486, 43.63771),   showblip = true},
+	{name = "Banque d'Armadillo",      bankType = "BANKS5",    coords = vector3(-3665.306, -2626.248, -13.59207),   showblip = true},
+
+	
 }
 
 Config.BankDoors = { --Doors that will always be open unless robbery has started
