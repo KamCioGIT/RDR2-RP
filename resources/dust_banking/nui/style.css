@@ -114,9 +114,9 @@ button {
 }
 
 .title {
-    color: rgb(0, 0, 0);
-    border-left: 2px solid rgb(0, 0, 0);
-    font-family: 'Ewert', cursive;
+    color: #DC5858;
+    border-left: 2px solid #DC5858;
+    font-family: 'Milonga', cursive;
     
 }
 .col-3 {
