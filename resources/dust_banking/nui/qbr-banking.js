@@ -322,7 +322,7 @@ $(function() {
 
     });
 
-    $("#initiateWithdraw").click(function() {
+    $("#initiateWithdraw").click(function(data) {
         var amount = $('#withdrawAmount').val();
 
         if(amount !== undefined && amount > 0) {
