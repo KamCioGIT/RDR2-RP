@@ -180,7 +180,7 @@ AddEventHandler('qbr-banking:createBusinessAccount', function()
 end)
 
 RegisterServerEvent('qbr-banking:doQuickDeposit')
-AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
+AddEventHandler('qbr-banking:doQuickDeposit', function(amount, type)
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
@@ -204,13 +204,13 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             time,
             'Dépot'
         })
-        TriggerClientEvent('qbr-banking:openBankScreen', src, data.type)
+        TriggerClientEvent('qbr-banking:openBankScreen', src, type)
         TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez déposé $'..amount..' dans votre compte.')
     end
 end)
 
 RegisterServerEvent('qbr-banking:doQuickWithdraw')
-AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
+AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, type)
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
@@ -232,7 +232,7 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount, branch)
             time,
             'Retrait'
         })
-        TriggerClientEvent('qbr-banking:openBankScreen', src, data.type)
+        TriggerClientEvent('qbr-banking:openBankScreen', src, type)
         TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez retiré $'..amount..' de votre compte.')
     end
 end)
