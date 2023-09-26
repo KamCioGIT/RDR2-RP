@@ -209,12 +209,17 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             xPlayer.RemoveMoney(tonumber(amount))
             AddToBank(accid, tonumber(amount))
             local time = os.date("%d-%m")
+            if bankbalance then
+                newbal = bankbalance + tonumber(amount)
+            else
+                newbal = tonumber(amount)
+            end
             MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
                 xPlayer.citizenid,
                 accid,
                 tonumber(amount),
                 0,
-                bankbalance + tonumber(amount),
+                newbal,
                 time,
                 'Dépot'
             })
@@ -231,12 +236,17 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             xPlayer.RemoveMoney(tonumber(amount))
             AddToBank(accid, tonumber(amount))
             local time = os.date("%d-%m")
+            if bankbalance then
+                newbal = bankbalance + tonumber(amount)
+            else
+                newbal = tonumber(amount)
+            end
             MySQL.insert.await('INSERT INTO bank_statements (job, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
                 xPlayer.job,
                 accid,
                 tonumber(amount),
                 0,
-                bankbalance + tonumber(amount),
+                newbal,
                 time,
                 'Dépot'
             })
