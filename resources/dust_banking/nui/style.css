@@ -126,3 +126,9 @@ button {
     margin: 0px !important;
     padding: 0px !important;
 }
+
+#currentStatement {
+    background-color: #090909; /* Couleur de fond de la table */
+    color: #615C43; /* Couleur du texte de la table */
+    font-family: 'Milonga', cursive;
+}
