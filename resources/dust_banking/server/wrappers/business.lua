@@ -1,291 +1,150 @@
-businessAccounts = {}
-currentAccounts = {}
-savingsAccounts = {}
-gangAccounts = {}
-bankCards = {}
+RedEM = exports["redem_roleplay"]:RedEM()
 
--- function generatebusinessAccount(acc, sc, bid)
-
---     local self = {}
-
---     self.accountNumber = tonumber(acc)
---     self.sortCode = tonumber(sc)
---     self.bid = bid
-
---     local processed = false
---     local bankAccount = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_number = ? AND sort_code = ? AND businessid = ?', { self.accountNumber, self.sortCode, self.bid })
---     if bankAccount[1] ~= nil then
---         self.account_id = bankAccount[1].record_id
---         self.balance = bankAccount[1].amount
---         self.account_type = "business"
---         self.account_for = bankAccount[1].business
---         for k, v in pairs(Config.Businessaccount) do
---             if self.account_for == k then
---                 self.account_name = v
---             end
---         end
---     end
---         processed = true
---     repeat Wait(0) until processed == true
-
---     self.saveAccount = function()
---         MySQL.query("UPDATE `bank_accounts` SET `amount` = ? WHERE `record_id` = ?", { self.balance, self.account_id })
---     end
-
---     local rTable = {}
-
---     rTable.getName = function()
---         return self.account_name
---     end
-
---     rTable.getType = function()
---         return self.account_type
---     end
-
---     rTable.getEntity = function()
---         return self.account_for
---     end
-
---     rTable.getBalance = function()
---         return self.balance
---     end
-
---     rTable.getBankDetails = function()
---         return { ['number'] = self.accountNumber, ['sortcode'] = self.sortCode }
---     end
-
---     rTable.getBankStatement = function(limit)
---         local resLimit = limit or 30
---         local res = MySQL.query.await("SELECT * FROM `bank_statements` WHERE `account` = 'business' AND `business` = ? AND `account_number` = ? AND `sort_code` = ? AND `businessid` = ? LIMIT ?", {
---             bankAccount[1].business,
---             self.accountNumber,
---             self.sortCode,
---             self.bid,
---             resLimit
---         })
---         return res
---     end
-
---     -- Update Functions
-
---     rTable.deductBalance = function(amt, text)
---         if type(amt) == "number" and text then
---             if amt <= self.balance then
---                 self.balance = self.balance - amt
---                 MySQL.insert.await("INSERT INTO `bank_statements` (`account`, `business`, `businessid`, `account_number`, `sort_code`, `withdraw`, `balance`, `type`) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", {
---                     'business',
---                     self.account_for,
---                     self.bid,
---                     self.accountNumber,
---                     self.sortCode,
---                     amt,
---                     self.balance,
---                     text
---                 }, function(inserted)
---                     if inserted > 0 then
---                         self.saveAccount()
---                     end
---                 end)
---             end
---         end
---     end
-
---     rTable.addBalance = function(amt, text)
---         if type(amt) == "number" and text then
---             self.balance = self.balance + amt
---             MySQL.insert.await("INSERT INTO `bank_statements` (`account`, `business`, `businessid`, `account_number`, `sort_code`, `deposited`, `balance`, `type`) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", {
---                 'business',
---                 self.account_for,
---                 self.bid,
---                 self.accountNumber,
---                 self.sortCode,
---                 amt,
---                 self.balance,
---                 text
---             }, function(inserted)
---                 if inserted > 0 then
---                     self.saveAccount()
---                 end
---             end)
---         end
---     end
-
---     rTable.payWages = function()
---         -- Need to look into making at some point.Bala
---     end
-
---     return rTable
--- end
-
--- -------------------------------------
--- --- CREATE A NEW business ACCOUNT ---
--- -------------------------------------
-
--- function createbusinessAccount(accttype, bid, startingBalance)
---     if businessAccounts[accttype] == nil then
---         businessAccounts[accttype] = {}
---     end
-
---     local newBalance = tonumber(startingBalance) or 1000000
---     local checkExists = MySQL.query.await("SELECT * FROM `bank_accounts` WHERE `business` = ? AND `businessid` = ?", { accttype, bid })
---     if checkExists[1] == nil then
---         local sc = math.random(100000,999999)
---         local acct = math.random(10000000,99999999)
---         MySQL.insert.await("INSERT INTO `bank_accounts` (`business`, `businessid`, `account_number`, `sort_code`, `amount`, `account_type`) VALUES (?, ?, ?, ?, ?, ?)", {
---             accttype,
---             bid,
---             acct,
---             sc,
---             newBalance,
---             'business'
---         },
---         function(success)
---             if success > 0 then
---                 businessAccounts[accttype][tonumber(bid)] = generatebusinessAccount(acct, sc, bid)
---             end
---         end)
---     end
--- end
-
-exports('createbusinessAccount', function(accttype, bid, startingbalance)
-    createbusinessAccount(accttype, bid, startingbalance)
-end)
-
-
-
-function generatebusinessAccount(job, bid)
-
-    local self = {}
-
-    self.bid = bid
-
-    local processed = false
-    local bankAccount = MySQL.query.await('SELECT * FROM bank_accounts WHERE businessid = ?', { self.bid })
-    if bankAccount[1] ~= nil then
-        self.account_id = bankAccount[1].businessid
-        self.balance = bankAccount[1].amount
-        self.account_type = "business"
-        self.account_for = bankAccount[1].business
-        for k, v in pairs(Config.Businessaccount) do
-            if self.account_for == k then
-                self.account_name = v
-            end
-        end
+function generatebusiness(job)
+    local self  = {}
+    self.jobid = job
+    self.source = -1
+    local getbusinessAccount = MySQL.query.await('SELECT * FROM bank_accounts WHERE job = ? AND account_type = ?', { self.jobid, 'Business' })
+    if getbusinessAccount[1] ~= nil then
+        self.aid = getbusinessAccount[1].accountid
+        self.balance = getbusinessAccount[1].balance
     end
-        processed = true
-    repeat Wait(0) until processed == true
+    local stats = MySQL.query.await('SELECT * FROM bank_statements WHERE accountid = ? AND job = ? ORDER BY record_id DESC LIMIT 30', { self.aid, self.jobid })
+    self.bankStatement = stats
 
     self.saveAccount = function()
-        MySQL.query("UPDATE `bank_accounts` SET `amount` = ? WHERE businessid = ?", { self.balance, self.account_id })
+        MySQL.query('UPDATE bank_accounts SET balance = ? WHERE job = ? AND accountid = ?', { self.balance, self.jobid, self.aid }, function(success)
+            if success then
+                return true
+            else
+                return false
+            end
+        end)
     end
 
     local rTable = {}
 
-    rTable.getName = function()
-        return self.account_name
-    end
-
-    rTable.getType = function()
-        return self.account_type
-    end
-
-    rTable.getEntity = function()
-        return self.account_for
-    end
-
-    rTable.getBalance = function()
+    rTable.GetBalance = function()
         return self.balance
     end
 
-    rTable.getBankDetails = function()
-        return { ['number'] = self.account_id }
+    rTable.getStatement = function()
+        return self.bankStatement
     end
 
-    rTable.getBankStatement = function(limit)
-        local resLimit = limit or 30
-        local res = MySQL.query.await("SELECT * FROM `bank_statements` WHERE `account` = 'business' AND `business` = ? AND `account_number` = ? AND `sort_code` = ? AND `businessid` = ? LIMIT ?", {
-            bankAccount[1].business,
-            self.account_id,
-            self.bid,
-            resLimit
+    rTable.getAccount = function()
+        local returnTable = { ['account'] = self.accountid}
+        return returnTable
+    end
+
+    rTable.updateSource = function(src)
+        if src ~= nil and type(src) == "number" then
+            self.source = src
+        else
+            self.source = -1
+        end
+    end
+
+    -- rTable.AddMoney = function(amt, text)
+    --     if type(amt) == "number" and text then
+    --         self.balance = self.balance + amt
+    --         local success = self.saveAccount()
+    --         local time = os.date("%Y-%m-%d %H:%M:%S")
+    --         MySQL.insert.await('INSERT INTO bank_statements (job, account, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+    --             self.jobid,
+    --             'business',
+    --             amt,
+    --             0,
+    --             self.balance,
+    --             time,
+    --             text
+    --         })
+    --         local statementTable = {['withdraw'] = nil, ['deposited'] = amt, ['type'] = text,  ['date'] = time, ['balance'] = self.balance, ['account'] = "business", ['record_id'] = statementUpdate, ['character_id'] = self.jobid }
+    --         table.insert(self.bankStatement, statementTable)
+    --         return true
+    --     end
+    -- end
+
+    -- rTable.RemoveMoney = function(amt, text)
+    --     if type(amt) == "number" and text then
+    --         if amt <= self.balance then
+    --             self.balance = self.balance - amt
+    --             local success = self.saveAccount()
+    --             local time = os.date("%Y-%m-%d %H:%M:%S")
+    --             MySQL.insert.await('INSERT INTO bank_statements (job, account, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+    --                 self.jobid,
+    --                 'Saving',
+    --                 0,
+    --                 amt,
+    --                 self.balance,
+    --                 time,
+    --                 text
+    --             })
+    --             local statementTable = {['withdraw'] = amt, ['deposited'] = nil, ['type'] = text,  ['date'] = time, ['balance'] = self.balance, ['account'] = "business", ['record_id'] = statementUpdate, ['character_id'] = self.jobid }
+    --             table.insert(self.bankStatement, statementTable)
+    --             return true
+    --         end
+    --     end
+    -- end
+
+    rTable.WithdrawStatement = function(amt)
+        local time = os.date("%Y-%m-%d %H:%M:%S")
+        MySQL.insert.await('INSERT INTO bank_statements (job, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+            self.jobid,
+            self.aid,
+            amt,
+            0,
+            self.balance,
+            time,
+            'Retrait'
         })
-        return res
+        local statementTable = {['withdraw'] = amt, ['deposited'] = nil, ['type'] = 'Retrait',  ['date'] = time, ['balance'] = self.balance, ['accountid'] = self.aid, ['record_id'] = statementUpdate, ['job'] = self.jobid }
+        table.insert(self.bankStatement, statementTable)
+        return true
     end
 
-    -- Update Functions
-
-    rTable.deductBalance = function(amt, text)
-        if type(amt) == "number" and text then
-            if amt <= self.balance then
-                self.balance = self.balance - amt
-                MySQL.insert.await("INSERT INTO `bank_statements` (`account`, `business`, `businessid`, `account_number`, `sort_code`, `withdraw`, `balance`, `type`) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", {
-                    'business',
-                    self.account_for,
-                    self.bid,
-                    self.accountNumber,
-                    self.sortCode,
-                    amt,
-                    self.balance,
-                    text
-                }, function(inserted)
-                    if inserted > 0 then
-                        self.saveAccount()
-                    end
-                end)
-            end
-        end
-    end
-
-    rTable.addBalance = function(amt, text)
-        if type(amt) == "number" and text then
-            self.balance = self.balance + amt
-            MySQL.insert.await("INSERT INTO `bank_statements` (`account`, `business`, `businessid`, `account_number`, `sort_code`, `deposited`, `balance`, `type`) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", {
-                'business',
-                self.account_for,
-                self.bid,
-                self.accountNumber,
-                self.sortCode,
-                amt,
-                self.balance,
-                text
-            }, function(inserted)
-                if inserted > 0 then
-                    self.saveAccount()
-                end
-            end)
-        end
-    end
-
-    rTable.payWages = function()
-        -- Need to look into making at some point.Bala
+    rTable.DepositStatement = function(amt, text)
+        local time = os.date("%Y-%m-%d %H:%M:%S")
+        MySQL.insert.await('INSERT INTO bank_statements (job, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+            self.jobid,
+            self.aid,
+            0,
+            amt,
+            self.balance,
+            time,
+            'Dépot'
+        })
+        local statementTable = {['withdraw'] = nil, ['deposited'] = amt, ['type'] = 'Dépot',  ['date'] = time, ['balance'] = self.balance, ['accountid'] = self.aid, ['record_id'] = statementUpdate, ['job'] = self.jobid }
+        table.insert(self.bankStatement, statementTable)
+        return true
     end
 
     return rTable
 end
 
--------------------------------------
---- CREATE A NEW business ACCOUNT ---
--------------------------------------
+RegisterServerEvent('qbr-banking:server:registerbusinessAccount')
+AddEventHandler('qbr-banking:server:registerbusinessAccount', function(job)
+    if not businessAccounts[job] then
+        businessAccounts[job] = generatebusiness(job)
+    end
+end)
 
 function createbusinessAccount(job)
-    if businessAccounts[job] == nil then
-        businessAccounts[job] = {}
-    end
-
-    local newBalance = 0
-    local checkExists = MySQL.query.await("SELECT * FROM `bank_accounts` WHERE `business` = ?", { job })
-    if checkExists[1] == nil then
-        local acct = math.random(10000000,99999999)
-        MySQL.insert.await("INSERT INTO `bank_accounts` (`business`, `businessid`, `amount`, `account_type`) VALUES (?, ?, ?, ?, ?, ?)", {
-            job,
-            bid,
-            newBalance,
-            'business'
-        },
-        function(success)
-            if success > 0 then
-                businessAccounts[job][tonumber(bid)] = generatebusinessAccount(job, bid)
-            end
+    local completed = false
+    local success = false
+    local getbusinessAccount = MySQL.query.await('SELECT * FROM bank_accounts WHERE job = ? AND account_type = ? ', { job, "Business" })
+    if getbusinessAccount[1] == nil then
+        local accountno = math.random(100000, 999999)
+        MySQL.insert.await('INSERT INTO bank_accounts (job, balance, account_type, accountid) VALUES (?, ?, ?, ?)', { job, 0, 'Business', accountno}, function(result)
+            businessAccounts[job] = generatebusiness(job)
+            success = true
+            completed = true
         end)
+        repeat Wait(0) until completed == true
+        return success
     end
 end
+
+exports('createbusinessAccount', function(job)
+    return createbusinessAccount(job)
+end)

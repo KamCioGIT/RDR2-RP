@@ -61,51 +61,6 @@ window.addEventListener("message", function (event) {
         $("#bankingContainer").css({"display":"block"});
 
     }    
-    else if(event.data.status == "openbusiness") {
-        $("#savingsStatement").DataTable().destroy();
-        $("#currentStatement").DataTable().destroy();
-        $("#accountName").html(event.data.information.name)
-        $("#accountNumber").html(event.data.information.accountinfo);
-
-        $("#businessHome-tab").addClass('active');
-        $("#businessWithdraw-tab").removeClass('active');
-        $("#businessDeposit-tab").removeClass('active');
-        $("#businessTransfer-tab").removeClass('active');
-        $("#businessStatement-tab").removeClass('active');
-        $("#businessActions-tab").removeClass('active');
-        $("#businessSavings-tab").removeClass('active');
-        $("#businessHome").addClass('active').addClass('show');
-        $("#businessWithdraw").removeClass('active').removeClass('show');
-        $("#businessSavings").removeClass('active').removeClass('show');
-        $("#businessDeposit").removeClass('active').removeClass('show');
-        $("#businessTransfer").removeClass('active').removeClass('show');
-        $("#businessStatement").removeClass('active').removeClass('show');
-        $("#businessActions").removeClass('active').removeClass('show');
-
-        $("#savingsStatementContents").html('');
-        $("#savingsBalance").html('');
-        $("#accountName2").html('');
-        $("#saccountNumber").html('');
-        $("#savingAccountCreator").css({"display":"block"});
-        $("#savingsQuicky1").css({"display":"none"});
-        $("#bankingSavings-tab").css({"display":"none"});
-        $("#savingsQuicky2").css({"display":"none"});
-        if(event.data.information.savings !== undefined && event.data.information.savings !== null) {
-            setupSavingsMenu(event.data.information.savings, event.data.information.name);
-        } else {
-            enableSavingsCreator();
-        }
-        if(event.data.information.cardInformation !== undefined && event.data.information.cardInformation !== null) {
-            $('#cardType').html(event.data.information.cardInformation.type)
-            var str = ""+ event.data.information.cardInformation.cardNumber + "";
-            var res = str.slice(12);
-            var cardNumber = "************" + res;
-            $('#cardNumberShow').html(cardNumber)
-        }
-        populateBanking(event.data.information);
-        $("#bankingContainer").css({"display":"block"});
-
-    }
     else if (event.data.status == "updateCard") {
         $('#cardType').html(event.data.cardtype)
         var str = ""+ event.data.number + "";
@@ -374,7 +329,9 @@ $(function() {
             $("#withdrawError").css({"display":"none"});
             $("#withdrawErrorMsg").html('');
             $.post('https://dust_banking/doWithdraw', JSON.stringify({ 
-                amount: parseInt(amount)
+                amount: parseInt(amount),
+                type: data.information.type,
+                accid: data.information.accid
             }));
             $('#withdrawAmount').val('')
         } else {

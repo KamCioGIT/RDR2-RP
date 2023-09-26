@@ -14,58 +14,68 @@ blips = {}
 --     end
 -- end)
 
-function openAccountScreen()
-    RedEM.TriggerCallback('qbr-banking:getBankingInformation', function(banking)
-        if banking ~= nil then
-            InBank = true
-            SetNuiFocus(true, true)
-            SendNUIMessage({
-                status = "openbank",
-                information = banking
-            })
+function openAccountScreen(type)
+    if type == "savings" then
+        RedEM.TriggerCallback('qbr-banking:getBankingInformation', function(banking)
+            if banking ~= nil then
+                InBank = true
+                SetNuiFocus(true, true)
+                SendNUIMessage({
+                    status = "openbank",
+                    information = banking
+                })
 
-            TriggerEvent("debug", 'Banking: Open UI', 2000, 0, 'hud_textures', 'check')
-        else
-            InBank = true
-            SetNuiFocus(true, true)
-            SendNUIMessage({
-                status = "openbank",
-                information = {
-                    ['name'] = 'Inconnu(e)',
-                    ['bankbalance'] = "Vous n'avez pas de compte",
-                    ['cash'] = "Vous n'avez pas de compte",
-                    ['accountinfo'] = "000000",
-                }
+                TriggerEvent("debug", 'Banking: Open UI', 2000, 0, 'hud_textures', 'check')
+            else
+                InBank = true
+                SetNuiFocus(true, true)
+                SendNUIMessage({
+                    status = "openbank",
+                    information = {
+                        ['name'] = 'Inconnu(e)',
+                        ['bankbalance'] = "Vous n'avez pas de compte",
+                        ['cash'] = "Vous n'avez pas de compte",
+                        ['accountinfo'] = "000000",
+                    }
 
-            })
-        end
-    end)
+                })
+            end
+        end)
+    elseif type == "business" then
+        RedEM.TriggerCallback('qbr-banking:getBusinessInformation', function(banking)
+            if banking ~= nil then
+                InBank = true
+                SetNuiFocus(true, true)
+                SendNUIMessage({
+                    status = "openbank",
+                    information = banking
+                })
+
+                TriggerEvent("debug", 'Banking: Open UI', 2000, 0, 'hud_textures', 'check')
+            else
+                InBank = true
+                SetNuiFocus(true, true)
+                SendNUIMessage({
+                    status = "openbank",
+                    information = {
+                        ['name'] = 'Inconnu(e)',
+                        ['bankbalance'] = "Vous n'avez pas de compte",
+                        ['cash'] = "Vous n'avez pas de compte",
+                        ['accountinfo'] = "000000",
+                    }
+
+                })
+            end
+        end)
+    end
 end
 
 
 RegisterNetEvent('qbr-banking:openBankScreen')
-AddEventHandler('qbr-banking:openBankScreen', function()
-    openAccountScreen()
+AddEventHandler('qbr-banking:openBankScreen', function(type)
+    openAccountScreen(type)
 end)
 
-RegisterNetEvent('qbr-banking:openBusinessScreen')
-AddEventHandler('qbr-banking:openBusinessScreen', function()
-    openBusinessScreen()
-end)
-function openBusinessScreen()
-    RedEM.TriggerCallback('qbr-banking:getBusinessInformation', function(businessinfo)
-        if businessinfo ~= nil then
-            InBank = true
-            SetNuiFocus(true, true)
-            SendNUIMessage({
-                status = "openbusiness",
-                information = businessinfo
-            })
-
-            TriggerEvent("debug", 'Banking: Open UI', 2000, 0, 'hud_textures', 'check')
-        end
-    end)
-end
 
 local bankprompt = UipromptGroup:new("Banque")
 Uiprompt:new(0x760A9C6F, "Compte personnel", bankprompt)
@@ -92,10 +102,10 @@ Citizen.CreateThread(function()
             if #(playerpos - v.coords ) < 4 then
                 bankprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
-                    TriggerEvent("qbr-banking:openBankScreen")
+                    TriggerEvent("qbr-banking:openBankScreen", "savings")
                 end
                 if IsControlJustReleased(0, 0xF3830D8E) then
-                    TriggerEvent("qbr-banking:openBusinessScreen")
+                    TriggerEvent("qbr-banking:openBankScreen", "business")
                 end
             end 
         end
