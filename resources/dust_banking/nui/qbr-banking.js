@@ -326,8 +326,6 @@ $(function() {
 
     $("#initiateWithdraw").click(function() {
         var amount = $('#withdrawAmount').val();
-        var type = $("#type").html(data.type);
-        var accid = $('#accid');
 
 
         if(amount !== undefined && amount > 0) {
@@ -335,8 +333,6 @@ $(function() {
             $("#withdrawErrorMsg").html('');
             $.post('https://dust_banking/doWithdraw', JSON.stringify({ 
                 amount: parseInt(amount),
-                type: type,
-                accid: parseInt(accid)
             }));
             $('#withdrawAmount').val('')
         } else {
