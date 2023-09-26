@@ -228,7 +228,7 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
         end
     elseif info == "business" then
         if tonumber(amount) <= currentCash then
-            local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ? AND job = ?', { 'Savings', xPlayer.job })
+            local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ? AND job = ?', { 'Business', xPlayer.job })
             if result[1] ~= nil then
                 accid = result[1].accountid
                 bankbalance = result[1].balance
