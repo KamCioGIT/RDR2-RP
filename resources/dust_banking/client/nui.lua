@@ -38,7 +38,6 @@ end)
 
 RegisterNUICallback("doWithdraw", function(data, cb)
     if tonumber(data.amount) ~= nil and tonumber(data.amount) > 0 then
-        print (data.accid, data.type)
         TriggerEvent("debug", 'Banking: Withdraw $' .. data.amount, 2000, 0, 'hud_textures', 'check')
         TriggerServerEvent('qbr-banking:doQuickWithdraw', data.amount, true)
         openAccountScreen()
