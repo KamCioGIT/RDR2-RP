@@ -1,5 +1,11 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
+businessAccounts = {}
+currentAccounts = {}
+savingsAccounts = {}
+gangAccounts = {}
+bankCards = {}
+
 function generatebusiness(job)
     local self  = {}
     self.jobid = job
