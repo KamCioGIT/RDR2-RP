@@ -188,8 +188,6 @@ function populateBanking(data)
     $("#currentCashBalance1").html(data.cash);
     $("#currentBalance2").html(data.bankbalance);
     $("#currentCashBalance2").html(data.cash);
-    $("#type").html(data.type);
-    $("#accid").html(data.accid);
     $("#currentStatementContents").html('');
     if(data.cardInformation !== undefined) {
         if (data.cardInformation.cardLocked == true) {
@@ -328,8 +326,8 @@ $(function() {
 
     $("#initiateWithdraw").click(function() {
         var amount = $('#withdrawAmount').val();
-        var type = $('#type').val();
-        var accid = $('#accid').val();
+        var type = $("#type").html(data.type);
+        var accid = $('#accid');
 
 
         if(amount !== undefined && amount > 0) {
