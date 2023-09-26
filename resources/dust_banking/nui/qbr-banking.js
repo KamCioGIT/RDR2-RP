@@ -334,9 +334,7 @@ $(function() {
             $("#withdrawError").css({"display":"none"});
             $("#withdrawErrorMsg").html('');
             $.post('https://dust_banking/doWithdraw', JSON.stringify({ 
-                amount: parseInt(amount),
-                type: type,
-                accid: accid
+                amount: parseInt(amount)
             }));
             $('#withdrawAmount').val('')
         } else {

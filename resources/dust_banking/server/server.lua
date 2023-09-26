@@ -24,7 +24,7 @@ Citizen.CreateThread(function()
     local savings = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ?', { 'Savings' })
     sav = #savings
     if savings[1] ~= nil then
-        for k, v in pairs(savings) do$
+        for k, v in pairs(savings) do
             print (v.accountid)
             savingsAccounts[v.accountid] = generateSavings(v.accountid)
         end
