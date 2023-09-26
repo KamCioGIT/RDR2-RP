@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&family=Ewert&family=Great+Vibes&family=MedievalSharp&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap%27');
 
 
 @font-face {
@@ -52,7 +53,7 @@ button {
     font-weight: 900 !important;
 }
 .card-text{
-    font-family: 'Great Vibes', cursive !important;
+    font-family: 'Milonga', cursive !important;
     color: #000 !important;
     font-size: 20px !important;
     letter-spacing: 0.25em !important;
@@ -61,7 +62,7 @@ button {
 }
 
 .card-title{
-    font-family: 'Great Vibes', cursive !important;
+    font-family: 'Milonga', cursive !important;
     text-shadow: 2px;
     font-size: 20px !important;
     letter-spacing: 0.15em !important;
