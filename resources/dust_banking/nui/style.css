@@ -128,7 +128,7 @@ button {
 }
 
 #currentStatement {
-    background-color: #090909; /* Couleur de fond de la table */
-    color: #615C43; /* Couleur du texte de la table */
+    background-color: #090909 !important; /* Couleur de fond de la table */
+    color: #615C43 !important; /* Couleur du texte de la table */
     font-family: 'Milonga', cursive;
 }
