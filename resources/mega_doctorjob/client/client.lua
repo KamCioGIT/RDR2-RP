@@ -542,12 +542,12 @@ RegisterCommand(Config.clearAlertCommand, function ()
     end
 end)
 
-RegisterCommand(Config.alertCommand, function (source, args)
-    if IsPedDeadOrDying(PlayerPedId()) and not Config.allowDeadPlayers then
-        return
-    end
-    TriggerServerEvent('mega_doctorjob:createHelpRequest')
-end)
+-- RegisterCommand(Config.alertCommand, function (source, args)
+--     if IsPedDeadOrDying(PlayerPedId()) and not Config.allowDeadPlayers then
+--         return
+--     end
+--     TriggerServerEvent('mega_doctorjob:createHelpRequest')
+-- end)
 
 RegisterCommand(Config.respondCommand, function (source, args)
     if not Config.enableAlertResponse then return end

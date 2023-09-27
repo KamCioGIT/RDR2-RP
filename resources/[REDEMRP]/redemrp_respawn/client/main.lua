@@ -83,12 +83,6 @@ local Weapons = {
 
 }
 
-
-RegisterCommand("kys", function(source, args, rawCommand) -- KILL YOURSELF COMMAND
-    local _source = source
-    Citizen.InvokeNative(0x697157CED63F18D4, PlayerPedId(), 500000, false, true, true)
-end, false)
-
 RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
     DoScreenFadeOut(500)
     Wait(500)
@@ -169,16 +163,14 @@ Citizen.CreateThread(function()
                     ProcessCamControls()
                     DrawTxt(Config.LocaleTimer .. " " .. tonumber(string.format("%.0f", (((GetGameTimer() - timer) * -1)/1000))), 0.50, 0.80, 0.7, 0.7, true, 255, 255, 255, 255, true)
                     if not medicsAlerted then
-                        DrawTxt("[~pa~ENTER~q~] ALERT DOCTORS", 0.50, 0.85, 0.5, 0.5, true, 255, 255, 255, 255, true)
+                        DrawTxt("[~pa~ENTRÉE~q~] Crier à l'aide", 0.50, 0.85, 0.5, 0.5, true, 255, 255, 255, 255, true)
                     else
-                        DrawTxt("DOCTORS ALERTED", 0.50, 0.85, 0.5, 0.5, true, 255, 255, 255, 255, true)
+                        DrawTxt("Vous avez crier à l'aide", 0.50, 0.85, 0.5, 0.5, true, 255, 255, 255, 255, true)
                     end
 
                     if IsControlJustReleased(0, 0xC7B5340A) and not medicsAlerted then
                         medicsAlerted = true
-                        TriggerServerEvent("redemrp_doctorjob:server:AlertDead")
-                        TrackingDoctors = true
-                        TriggerServerEvent("redemrp_respawn:server:TrackDoctors")
+                        TriggerServerEvent('mega_doctorjob:createHelpRequest')
                     end
                 else
                     break
@@ -198,7 +190,8 @@ Citizen.CreateThread(function()
                     else
                         medicsAlerted = false
                         
-                        respawn()
+                        -- respawn()
+                        TriggerEvent("redemrp_respawn:respawnCoords", GetEntityCoords(PlayerPedId()))
                         revived = false
                         onPlayerDead = false
                         TriggerServerEvent("redemrp_respawn:DeadTable", "remove")
