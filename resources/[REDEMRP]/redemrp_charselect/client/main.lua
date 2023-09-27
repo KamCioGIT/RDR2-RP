@@ -441,8 +441,8 @@ RegisterCommand("logout", function(source, args)
     end)
 end)
 
-RegisterCommand("stuck", function(source)
-    PlaceEntityOnGroundProperly(PlayerPedId(), true)
+RegisterCommand("stuck", function()
+    TriggerEvent("redemrp_respawn:respawnCoords", GetEntityCoords(PlayerPedId()))
 end)
 
 RegisterNUICallback('selectCharacter', function(data, cb)
