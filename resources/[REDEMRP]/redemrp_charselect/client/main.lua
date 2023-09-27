@@ -441,6 +441,10 @@ RegisterCommand("logout", function(source, args)
     end)
 end)
 
+RegisterCommand("stuck", function(source)
+    PlaceEntityOnGroundProperly(PlayerPedId(), true)
+end)
+
 RegisterNUICallback('selectCharacter', function(data, cb)
     local cam
     local _ped = tonumber(data.pedid) + 1  
