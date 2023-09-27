@@ -116,7 +116,7 @@ DiseasesConfig = {
    },
    ['gunscratch'] = {
       name = 'gunscratch',
-      displayName = "Égratignure",
+      displayName = "Égratignure par balle",
       healthLossPerTick = 1,
       tickRate = 6000,
       effectRate = 5000,
@@ -164,7 +164,7 @@ DiseasesConfig = {
    },
    ['meleescratch'] = {
       name = 'meleescratch',
-      displayName = "Égratignure",
+      displayName = "Égratignure par arme blanche",
       healthLossPerTick = 1,
       tickRate = 6000,
       effectRate = 5000,

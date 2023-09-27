@@ -69,7 +69,7 @@ Config.ledgerTax = 0.10
 Config.taxJobId = 'state'
 
 Config.enableAlert = true
-Config.enableAlertResponse = true
+Config.enableAlertResponse = false
 Config.allowDeadPlayers = false
 Config.alertCommand = 'alertdoctor'
 Config.respondCommand = 'respond'
@@ -80,7 +80,7 @@ Config.showRadiusAroundBlip = true
 Config.blipRadius = 75.0
 Config.radiusStyle = -666422021
 -- seconds to wait before the alert blip will be removed from the map
-Config.alertTimeout = 300
+Config.alertTimeout = 720
 
 Config.medicalBeds = { 'p_medbed01x' }
 Config.jobs = { 'doctor' }
