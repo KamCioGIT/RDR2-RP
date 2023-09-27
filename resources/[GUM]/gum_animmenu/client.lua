@@ -480,7 +480,7 @@ if Config.AnimMenuKeyPress then
             end
             if not IsPedOnMount(PlayerPedId()) and not IsEntityDead(PlayerPedId()) then
                 if Config.NotHoldKeye then
-                    if IsControlPressed(0, Config.AnimMenuKey) then
+                    if IsControlJustReleased(0, Config.AnimMenuKey) then
                         if menu_opened == false then
                             for a,b in pairs(favoriteAnim) do
                                 if b ~= "" then

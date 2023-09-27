@@ -48,7 +48,7 @@ Config.Prop = {
 	[1] = {name="Sheriff Badge 1", prop= "p_deputybadge01x", bone=31201, parameter={0.038, -0.14, -0.242, 75.5, 6.2, 38.1}, jobLock={}},
 	[2] = {name="Sheriff Badge 2", prop= "p_deputybadge01x", bone=30226, parameter={0.058, 0.125, 0.036, -116.0, -5.0, -6.0}, jobLock={}},
 	[3] = {name="Sheriff Badge 3", prop= "p_deputybadge01x", bone=30226, parameter={0.058, 0.121, 0.036, -116.0, -5.0, -6.0}, jobLock={}},
-	[4] = {name="Marshall Badge 1", prop= "s_badgeusmarshal01x", bone=31201, parameter={0.08, 0.115, 0.04, 163.0, 0.0, 342.0}, jobLock={}},
+	[4] = {name="Marshall Badge 1", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.115, 0.04, 163.0, 0.0, 342.0}, jobLock={}},
 	[5] = {name="Marshall Badge 2", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.12, 0.04, 163.0, 0.0, 358.0}, jobLock={}},
 	[6] = {name="Marshall Badge 3", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.165, 0.06, 168.0, 0.0, -8.0}, jobLock={}},
 	[7] = {name="Bag 1", prop= "p_ambpack01x", bone=41232, parameter={0.33, -0.12, -0.19, 0.00, -56.0, 0.00}, jobLock={}},
