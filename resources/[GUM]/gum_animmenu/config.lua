@@ -3,10 +3,10 @@ Config = {}
 Config.AnimCallCommand = "a"
 
 
-Config.NotHoldKeye = false
+Config.NotHoldKeye = true
 
 Config.AnimMenuKeyPress = true
-Config.AnimMenuKey = 0xA8E3F467
+Config.AnimMenuKey = 0x0F39B3D4
 
 
 Config.OpenMenuCommandEnable = false
