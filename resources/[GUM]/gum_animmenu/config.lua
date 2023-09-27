@@ -6,13 +6,13 @@ Config.AnimCallCommand = "a"
 Config.NotHoldKeye = false
 
 Config.AnimMenuKeyPress = true
-Config.AnimMenuKey = 0x0F39B3D4
+Config.AnimMenuKey = 0xA8E3F467
 
 
 Config.OpenMenuCommandEnable = false
 Config.OpenMenuCommand = "animmenu"
 
-Config.AllowKeybind = false
+Config.AllowKeybind = true
 Config.Keybind = {
 	[1] = 0x52D29063,
 	[2] = 0x1CE6D9EB,
@@ -25,31 +25,31 @@ Config.Keybind = {
 }
 
 Config.Language = {
-	[1] = "Dou yo want delete : ",
+	[1] = "Voulez vous supprimer : ",
 	[2] = " animation?",
-	[3] = "Yes",
-	[4] = "No",
-	[5] = "Crawling",
-	[6] = "Lie",
-	[7] = "Crawling",
-	[8] = "Faster",
-	[9] = "Back",
-	[10] = "Crounch",
-	[11] = "Accept",
+	[3] = "Oui",
+	[4] = "Non",
+	[5] = "Ramper",
+	[6] = "Se coucher",
+	[7] = "Ramper",
+	[8] = "Plus vite",
+	[9] = "En Arrière",
+	[10] = "S'accroupir",
+	[11] = "Accepter",
 	[12] = "On number you need select anim : ",
-	[13] = "Call command ? /"..Config.AnimCallCommand.." XXXXX",
-	[14] = "Delete or add to favorite?",
-	[15] = "Delete",
-	[16] = "Favorite",
+	[13] = "Commande: /"..Config.AnimCallCommand.." XXXXX",
+	[14] = "Ajouter ou supprimer des favoris",
+	[15] = "Supprimer",
+	[16] = "Favori",
 	--All other translates for style is in "html/index.html"
 }
 
 Config.Prop = {
-	[1] = {name="Sheriff Badge 1", prop= "p_deputybadge01x", bone=31201, parameter={0.038, -0.14, -0.242, 75.5, 6.2, 38.1}, jobLock={"Sheriff_VL", "Sheriff_SD"}},
-	[2] = {name="Sheriff Badge 2", prop= "p_deputybadge01x", bone=30226, parameter={0.058, 0.125, 0.036, -116.0, -5.0, -6.0}, jobLock={"Sheriff_VL", "Sheriff_SD"}},
-	[3] = {name="Sheriff Badge 3", prop= "p_deputybadge01x", bone=30226, parameter={0.058, 0.121, 0.036, -116.0, -5.0, -6.0}, jobLock={"Sheriff_VL", "Sheriff_SD"}},
-	[4] = {name="Marshall Badge 1", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.115, 0.04, 163.0, 0.0, 342.0}, jobLock={"Sheriff_VL", "Sheriff_SD"}},
-	[5] = {name="Marshall Badge 2", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.12, 0.04, 163.0, 0.0, 358.0}, jobLock={"Sheriff_VL", "Sheriff_SD"}},
+	[1] = {name="Sheriff Badge 1", prop= "p_deputybadge01x", bone=31201, parameter={0.038, -0.14, -0.242, 75.5, 6.2, 38.1}, jobLock={}},
+	[2] = {name="Sheriff Badge 2", prop= "p_deputybadge01x", bone=30226, parameter={0.058, 0.125, 0.036, -116.0, -5.0, -6.0}, jobLock={}},
+	[3] = {name="Sheriff Badge 3", prop= "p_deputybadge01x", bone=30226, parameter={0.058, 0.121, 0.036, -116.0, -5.0, -6.0}, jobLock={}},
+	[4] = {name="Marshall Badge 1", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.115, 0.04, 163.0, 0.0, 342.0}, jobLock={}},
+	[5] = {name="Marshall Badge 2", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.12, 0.04, 163.0, 0.0, 358.0}, jobLock={}},
 	[6] = {name="Marshall Badge 3", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.165, 0.06, 168.0, 0.0, -8.0}, jobLock={"Sheriff_VL", "Sheriff_SD"}},
 	[7] = {name="Bag 1", prop= "p_ambpack01x", bone=41232, parameter={0.33, -0.12, -0.19, 0.00, -56.0, 0.00}, jobLock={}},
 	[8] = {name="Bag 2", prop= "p_ambpack02x", bone=41232, parameter={0.22, -0.1, -0.11, 6.0, -55.0, 0.0}, jobLock={}},
