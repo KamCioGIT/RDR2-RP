@@ -1,0 +1,79 @@
+<html>
+	<head>
+        <link rel="stylesheet" href="index.css" type="text/css">
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    </head>
+	<body>
+        <div id="propMenu">
+            <input type="text" id="propInput" onkeyup="searchFunctionProp()" placeholder="    Hledej propy">
+            <div id="item" onclick="createProp('clear')"><div id="text">Vyčistit postavu</div></div>
+            <ul id="propMenuCont">
+            </ul>
+        </div>
+		<div id="animMenu">
+            <input type="text" id="animInput" onkeyup="searchFunction()" placeholder="    Hledej interakce">
+            <div id="item" onclick="playAnim('clear')"><div id="text">Zrušit animaci</div></div>
+            <ul id="animMenuCont">
+            </ul>
+        </div>
+        <div id="bindMenu">
+            <div id="propInput">Nabindované animace</div>
+            <ul id="bindMenuCont">
+            </ul>
+        </div>
+        <div id="radialFavorite">
+            <div id="favorite1" onmousedown="useFavorite(event, 1)"><div id="textCenter">1</div></div>
+            <div id="favorite2" onmousedown="useFavorite(event, 2)"><div id="textCenter">2</div></div>
+            <div id="favorite3" onmousedown="useFavorite(event, 3)"><div id="textCenter">3</div></div>
+            <div id="favorite4" onmousedown="useFavorite(event, 4)"><div id="textCenter">4</div></div>
+            <div id="favorite5" onmousedown="useFavorite(event, 5)"><div id="textCenter">5</div></div>
+            <div id="favorite6" onmousedown="useFavorite(event, 6)"><div id="textCenter">6</div></div>
+            <div id="favorite7" onmousedown="useFavorite(event, 7)"><div id="textCenter">7</div></div>
+            <div id="favorite8" onmousedown="useFavorite(event, 8)"><div id="textCenter">8</div></div>
+            <div id="favorite9" onmousedown="useFavorite(event, 9)"><div id="textCenter">9</div></div>
+            <div id="favorite10" onmousedown="useFavorite(event, 10)"><div id="textCenter">10</div></div>
+            <div id="favorite11" onmousedown="useFavorite(event, 11)"><div id="textCenter">11</div></div>
+            <div id="favorite12" onmousedown="useFavorite(event, 12)"><div id="textCenter">12</div></div>
+
+            <div id="favorite13" onmousedown="useFavorite(event, 13)"><div id="textCenter">13</div></div>
+            <div id="favorite14" onmousedown="useFavorite(event, 14)"><div id="textCenter">14</div></div>
+            <div id="favorite15" onmousedown="useFavorite(event, 15)"><div id="textCenter">15</div></div>
+            <div id="favorite16" onmousedown="useFavorite(event, 16)"><div id="textCenter">16</div></div>
+        </div>
+        <script src="./index.js" type="text/javascript"></script>
+	</body>
+    <script>
+        function searchFunction() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("animInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("animMenuCont");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+        function searchFunctionProp() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("propInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("propMenuCont");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</html>
