@@ -154,8 +154,6 @@ DiseasesConfig = {
          ['weapon_sniperrifle_rollingblock'] = 1.0,
          ['weapon_rifle_elephant'] = 1.0,
          ['weapon_revolver_navy'] = 1.0,
-         ['weapon_bow'] = 1.0,
-         ['weapon_bow_improved'] = 1.0,
          ['weapon_repeater_henry'] = 1.0,
          ['weapon_repeater_winchester'] = 1.0,
          ['weapon_repeater_carbine'] = 1.0,
@@ -192,6 +190,52 @@ DiseasesConfig = {
          ['weapon_melee_knife_trader'] = 1.0,
          ['weapon_thrown_throwing_knives'] = 1.0,
       }
+   },
+   ['arrowscratch'] = {
+      name = 'arrowscratch',
+      displayName = "Égratignure de flèche",
+      healthLossPerTick = 1,
+      tickRate = 6000,
+      effectRate = 5000,
+      -- milliseconds, time it will take to apply the cure item
+      applyDuration = 10000,
+      -- time in milliseconds in which the disease will automatically stop, use -1 to make it last forever (until the player gets cured or bandaged)
+      autoHealTime = -1,
+      enableRagdoll = false,
+      language = {
+         started = "Une flèche vous a touché, vous avez une égratignure.",
+         autoHealed = "Le saignement s'est arrêté",
+      },
+      -- Firearms that can affect bleeding
+      -- [weaponHash] = bleedProbability (0.0 -> 1.0) }
+      -- https://github.com/femga/rdr3_discoveries/blob/master/weapons/weapons.lua
+      firearmsBleedProbability = {
+         ['weapon_bow'] = 1.0,
+         ['weapon_bow_improved'] = 1.0,
+      },
+   },
+   ['arrow'] = {
+      name = 'gun1',
+      displayName = "Flèche logée",
+      healthLossPerTick = 5,
+      tickRate = 6000,
+      effectRate = 5000,
+      -- milliseconds, time it will take to apply the cure item
+      applyDuration = 10000,
+      -- time in milliseconds in which the disease will automatically stop, use -1 to make it last forever (until the player gets cured or bandaged)
+      autoHealTime = -1,
+      enableRagdoll = false,
+      language = {
+         started = "Un morceau de flèche est coincé dans votre corps. Appliquez un bandage.",
+         autoHealed = "Le saignement s'est arrêté",
+      },
+      -- Firearms that can affect bleeding
+      -- [weaponHash] = bleedProbability (0.0 -> 1.0) }
+      -- https://github.com/femga/rdr3_discoveries/blob/master/weapons/weapons.lua
+      firearmsBleedProbability = {
+         ['weapon_bow'] = 0.15,
+         ['weapon_bow_improved'] = 0.15,
+      },
    },
    ['gun1'] = {
       name = 'gun1',
@@ -233,8 +277,6 @@ DiseasesConfig = {
          ['weapon_sniperrifle_rollingblock'] = 0.15,
          ['weapon_rifle_elephant'] = 0.15,
          ['weapon_revolver_navy'] = 0.15,
-         ['weapon_bow'] = 0.15,
-         ['weapon_bow_improved'] = 0.15,
          ['weapon_repeater_henry'] = 0.15,
          ['weapon_repeater_winchester'] = 0.15,
          ['weapon_repeater_carbine'] = 0.15,
@@ -281,8 +323,6 @@ DiseasesConfig = {
          ['weapon_sniperrifle_rollingblock'] = 0.15,
          ['weapon_rifle_elephant'] = 0.15,
          ['weapon_revolver_navy'] = 0.15,
-         ['weapon_bow'] = 0.15,
-         ['weapon_bow_improved'] = 0.15,
          ['weapon_repeater_henry'] = 0.15,
          ['weapon_repeater_winchester'] = 0.15,
          ['weapon_repeater_carbine'] = 0.15,
