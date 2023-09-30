@@ -272,7 +272,7 @@ function buycow(stable)
         
         function(data, menu)
             MenuData.CloseAll()
-            print 'yyy'
+            Wait(10)
             TriggerServerEvent("dust_ferme:createcattle", data.current.label, data.current.value, stable, data.current.label)
             isInteracting = false
         end,
@@ -481,6 +481,7 @@ function spawncow(model, name, id)
     initializing = true
     local spawnPosition = GetOffsetFromEntityInWorldCoords(ped, 0.0, 1.5, 0.0)
     local cow = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped) - 90.0, true, true)
+    Citizen.InvokeNative(0x283978A15512B2FE, cow, false)
     SetModelAsNoLongerNeeded(modelHash)
    
     SetAnimalTuningBoolParam(cow, 25, false)
