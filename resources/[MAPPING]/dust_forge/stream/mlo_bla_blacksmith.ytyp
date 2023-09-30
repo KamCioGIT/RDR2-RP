@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMapTypes>
+  <extensions />
+  <archetypes>
+  <Item type="CBaseArchetypeDef">
+    <guid value="0"/>
+    <lodDist value="147.00000000"/>
+    <flags value="0" />
+    <loadFlags value="0" />
+    <specialAttribute value="0" />
+    <bbMin x="-6.59765625" y="-6.14501953" z="-2.91552734" />
+    <bbMax x="6.59765625" y="6.14501953" z="2.91552734" />
+    <bsCentre x="0.0" y="0.0" z="0.0" />
+    <bsRadius value="9.475792" />
+    <hdTextureDist value="83.8283" />
+    <name>mlo_bla_blacksmith</name>
+    <textureDictionary>mlo_bla_blacksmith</textureDictionary>
+    <clipDictionary />
+    <drawableDictionary />
+    <physicsDictionary>mlo_bla_blacksmith</physicsDictionary>
+    <assetType>ASSET_TYPE_DRAWABLE</assetType>
+    <assetName>mlo_bla_blacksmith</assetName>
+    <extensions />
+    <redm_loves_you_a68fd88a5afa0b22>0xAD1EED63</redm_loves_you_a68fd88a5afa0b22>
+    </Item>	
+ </archetypes>
+ <name>mlo_bla_blacksmith</name>
+ <dependencies />
+ <compositeEntityTypes itemType="CCompositeEntityType" />
+</CMapTypes>
