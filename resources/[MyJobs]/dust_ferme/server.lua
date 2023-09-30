@@ -138,11 +138,26 @@ AddEventHandler("dust_ferme:server:stockcow", function(stable, cowid, entity)
 		end)
 end)
 
+--- achat 
 
--- prompt vache
+RegisterServerEvent("dust_ferme:createcattle", function(name, model, stable, race)
+	local _source = source     
+		local user = RedEM.GetPlayer(_source)
+		local job = user.job
+		local numBase0 = math.random(100, 999)
+    	local numBase1 = math.random(0, 999)
+    	local generetedcowid = string.format("%03d%04d", numBase0, numBase1)
+		local cowid = generetedcowid
+		MySQL.update(
+		'INSERT INTO stable (`job`, `cowid`, `stable`, `model`, `name`, `race`) VALUES (@job, @cowid, @stable, @model, @name, @race);',
+		{
+			job = job,
+			name = name,
+			cowid = cowid,
+			model = model,
+			stable = stable,
+			race = race
+		}, function(rowsChanged)
 
-
--- différentes zones de paturage
-
-
--- lait
+		end)
+end)
