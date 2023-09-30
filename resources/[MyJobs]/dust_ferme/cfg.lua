@@ -26,3 +26,36 @@ Config.RessourcesPoints =
     vector3(-2556.401, 556.0502, 141.0345),
     vector3(-2549.916, 560.5123, 140.7749)
 }
+
+Config.Buycattle = {
+	Blackwater = {
+		pos = vector3(-957.5659, -1324.978, 52.04538),
+		name = 'Achat',
+		stable= 'Blackwater',
+	},
+}
+
+Config.Cattle = {
+	bull= {
+		model = "a_c_bull_01",
+		name = "Taureau",
+		desc = "Un gros morceau de viande",
+    },
+	cow= {
+		model = "a_c_cow",
+		name = "Vache",
+		desc = "Pour faire du bon lait",
+    },
+}
+
+Config.FarmStables = {
+	Blackwater = {
+		pos = vector3(-977.5865, -1337.164, 52.59379),
+		name = 'Blackwater',
+    },
+	Pronghorn = {
+		pos = vector3(-2541.848, 409.8233, 148.3275),
+		name = 'Pronghorn',
+    },
+
+}
