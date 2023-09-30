@@ -524,7 +524,7 @@ Citizen.CreateThread(function ()
                 local playerCoords = GetEntityCoords(PlayerPedId())
                 local targetCoords = GetEntityCoords(entity)
                 for k, v in pairs(Config.FarmStables) do
-                    if #(playerpos - v.pos ) > 7 and not isInteracting then
+                    if #(playerCoords - v.pos ) > 7 and not isInteracting then
                         if #(playerCoords - targetCoords) <= 4.0 then
                             local id = Citizen.InvokeNative(0xB796970BD125FCE8, entity) -- UiPromptGetGroupIdForTargetEntity
                             if not cowPrompt then
