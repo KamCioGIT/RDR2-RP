@@ -530,9 +530,6 @@ Citizen.CreateThread(function ()
                 local targetCoords = GetEntityCoords(entity)
                 if #(playerCoords - targetCoords) <= 4.0 then
                     local id = Citizen.InvokeNative(0xB796970BD125FCE8, entity) -- UiPromptGetGroupIdForTargetEntity
-                    if not paitrePrompt then
-                        paitrePrompt = SetupPrompt(1, 0x156F7119, id, "Paître")
-                    end
                     if not guidePrompt then
                         guidePrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
                     end
@@ -542,9 +539,23 @@ Citizen.CreateThread(function ()
                         -- TaskGoToEntity(entity, PlayerPedId(), duration, 0.2, 2.0, 0, 0)
                         TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -1.5, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
                         -- guider
-                    elseif IsControlJustReleased(0, 0x156F7119) then
-                        -- paitre
-                        TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
+                    end
+                    for k, v in pairs(Config.Stables) do
+                        if #(targetCoords - v.pos ) > 7 then
+                            stablecowPrompt = SetupPrompt(1, 0x156F7119, id, "Mettre à l'étable")
+                            if IsControlJustReleased(0, 0x156F7119) then
+                                local cowid = Entity(entity).state.cowid
+                                TriggerServerEvent("dust_stable:server:stockhorse", v.name, cowid)
+                            end
+                        else
+                            if not paitrePrompt then
+                                paitrePrompt = SetupPrompt(1, 0x156F7119, id, "Paître")
+                            end
+                            if IsControlJustReleased(0, 0x156F7119) then
+                                -- paitre
+                                TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
+                            end
+                        end
                     end
                 else
                     if paitrePrompt then 
@@ -554,6 +565,10 @@ Citizen.CreateThread(function ()
                     if guidePrompt then 
                         PromptDelete(guidePrompt)
                         guidePrompt = nil
+                    end
+                    if stablecowPrompt then 
+                        PromptDelete(stablecowPrompt)
+                        stablecowPrompt = nil
                     end
                 end
             end
@@ -566,6 +581,10 @@ Citizen.CreateThread(function ()
             if guidePrompt then 
                 PromptDelete(guidePrompt)
                 guidePrompt = nil
+            end
+            if stablecowPrompt then 
+                PromptDelete(stablecowPrompt)
+                stablecowPrompt = nil
             end
         end
         Citizen.Wait(2)
