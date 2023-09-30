@@ -132,3 +132,7 @@ button {
     color: #615C43 !important; /* Couleur du texte de la table */
     font-family: 'Milonga', cursive;
 }
+
+.bg-light {
+    background-color: #090909 !important; /* Couleur de fond de la table */
+}
