@@ -547,8 +547,7 @@ Citizen.CreateThread(function ()
                         local cowid = Entity(entity).state.cowid
                         for k, v in pairs(Config.FarmStables) do
                             if #(targetCoords - v.pos ) < 7 then
-                                print'rrr'
-                                TriggerServerEvent("dust_stable:server:stockhorse", v.name, cowid)
+                                TriggerServerEvent("dust_ferme:server:stockcow", v.name, cowid, entity)
                             else
                                 TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
                             end
@@ -583,8 +582,8 @@ Citizen.CreateThread(function ()
 end)
 
 --- cow ranger
-RegisterNetEvent("dust_stable:server:horsestocked")
-AddEventHandler("dust_stable:server:horsestocked", function(entity)
+RegisterNetEvent("dust_ferme:cowstocked")
+AddEventHandler("dust_ferme:cowstocked", function(entity)
     TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_RESTING'), -1, true, false, false, false)
     Wait(2000)
     DeleteEntity(entity)
