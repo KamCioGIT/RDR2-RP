@@ -20,7 +20,6 @@ end)
 RegisterNetEvent("fermier:CheckPlayerJob", function(job, jobgrade)
     if job == "fermier" then
         startMission()
-        isFarmer = true
         if jobgrade >= 2 then
             contremaitre()
             if jobgrade == 3 then
@@ -516,7 +515,7 @@ end
 
 Citizen.CreateThread(function ()
     local cowPrompt
-    while isFarmer == true do
+    while true do
         local res, entity = GetPlayerTargetEntity(PlayerId()) 
         if entity ~= 0 then
             print 'ppppp'
