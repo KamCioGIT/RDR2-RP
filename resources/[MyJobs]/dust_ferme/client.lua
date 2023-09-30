@@ -520,6 +520,7 @@ Citizen.CreateThread(function ()
         local res, entity = GetPlayerTargetEntity(PlayerId()) 
         if entity ~= 0 then
             if Entity(entity).state.cowid then
+                print 'promp'
                 local playerCoords = GetEntityCoords(PlayerPedId())
                 local targetCoords = GetEntityCoords(entity)
                 for k, v in pairs(Config.FarmStables) do
