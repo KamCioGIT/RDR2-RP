@@ -555,9 +555,6 @@ Citizen.CreateThread(function ()
                         end
                         
                     end
-                    if IsControlJustReleased(0, 0x6319DB71) then
-
-                    end
 
                 else
                     if paitrePrompt then 
