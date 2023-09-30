@@ -173,7 +173,7 @@ end)
 end)
 
 RegisterServerEvent('dust_ferme:server:resetcow', function()
-	MySQL.query('SELECT * FROM stable WHERE `selected`=@selected;',
+	MySQL.query('SELECT * FROM cattle WHERE `selected`=@selected;',
 	{
 		selected = 1
 	}, function(result)
