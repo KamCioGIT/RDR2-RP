@@ -163,10 +163,10 @@ RegisterServerEvent("dust_ferme:createcattle", function(name, model, stable, rac
 end)
 
 RegisterServerEvent("dust_ferme:server:cowout", function(id)
-	print (id)
+	local cowid = id
 	MySQL.update('UPDATE cattle SET `selected`=@selected  WHERE `cowid`=@cowid;',
 	{
-		cowid = id,
+		cowid = cowid,
 		selected = 1
 	}, function(rowsChanged)
 end)     
