@@ -547,7 +547,7 @@ Citizen.CreateThread(function ()
                         TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
                     end
                     for k, v in pairs(Config.FarmStables) do
-                        if #(targetCoords - v.pos ) > 7 then
+                        if #(targetCoords - v.pos ) < 7 then
                             stablecowPrompt = SetupPrompt(1, 0x6319DB71, id, "Mettre à l'étable")
                             if IsControlJustReleased(0, 0x6319DB71) then
                                 local cowid = Entity(entity).state.cowid
