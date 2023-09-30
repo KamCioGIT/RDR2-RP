@@ -549,17 +549,22 @@ Citizen.CreateThread(function ()
                     elseif IsControlJustReleased(0, 0x156F7119) then
                         -- paitre
                         local cowid = Entity(entity).state.cowid
-                        for k, v in pairs(Config.FarmStables) do
-                            if #(targetCoords - v.pos) < 7 then
-                                TriggerServerEvent("dust_ferme:server:stockcow", v.name, cowid, entity)
+                        Citizen.CreateThread(function()
+                            while true do
+                                for k, v in pairs(Config.FarmStables) do
+                                    if #(targetCoords - v.pos) < 7 then
+                                        TriggerServerEvent("dust_ferme:server:stockcow", v.name, cowid, entity)
+                                        break
+                                    end
+                                end
+                                for k, v in pairs(Config.Paturages) do
+                                    if #(targetCoords - v.pos) < Config.blipRadius then
+                                        Graze(entity)
+                                        break
+                                    end
+                                end
                             end
-                        end
-                        for k, v in pairs(Config.Paturages) do
-                            if #(targetCoords - v.pos) < Config.blipRadius then
-                                Graze(entity)
-                                return
-                            end
-                        end
+                        end)
                     end
 
                 else
