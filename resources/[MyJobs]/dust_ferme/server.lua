@@ -180,7 +180,6 @@ RegisterServerEvent('dust_ferme:server:resetcow', function()
 		if #result ~= 0 then
 			for i = 1, #result do
 				local cowid = result[i].cowid
-				print 'test'
 				MySQL.update('UPDATE cattle SET `selected`=@selected WHERE `cowid`=@cowid;',
 					{
 						selected = 0,
