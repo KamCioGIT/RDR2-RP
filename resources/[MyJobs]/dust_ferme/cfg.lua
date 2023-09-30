@@ -59,3 +59,18 @@ Config.FarmStables = {
     },
 
 }
+
+
+Config.Paturages = {
+    [1] = {
+		pos = vector3(-977.5865, -1337.164, 52.59379),
+    },
+	[2] = {
+		pos = vector3(-2541.848, 409.8233, 148.3275),
+    },
+
+}
+
+Config.BlipSprite = -675651933
+Config.blipRadius = 50.0
+Config.radiusStyle = -666422021
