@@ -520,7 +520,8 @@ function SetupPrompt(promptID, key, group, text)
 end
 
 Citizen.CreateThread(function ()
-    local cowPrompt
+    local paitrePrompt
+    local guidePrompt
     while true do
         local res, entity = GetPlayerTargetEntity(PlayerId()) 
         if entity ~= 0 then
@@ -529,9 +530,11 @@ Citizen.CreateThread(function ()
                 local targetCoords = GetEntityCoords(entity)
                 if #(playerCoords - targetCoords) <= 4.0 then
                     local id = Citizen.InvokeNative(0xB796970BD125FCE8, entity) -- UiPromptGetGroupIdForTargetEntity
-                    if not cowPrompt then
-                        cowPrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
-                        cowPrompt = SetupPrompt(1, 0x156F7119, id, "Paître")
+                    if not paitrePrompt then
+                        paitrePrompt = SetupPrompt(1, 0x156F7119, id, "Paître")
+                    end
+                    if not guidePrompt then
+                        guidePrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
                     end
                     if IsControlJustReleased(0, 0x760A9C6F) then
                         ClearPedTasks(entity)
@@ -544,17 +547,25 @@ Citizen.CreateThread(function ()
                         TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
                     end
                 else
-                    if cowPrompt then 
-                        PromptDelete(cowPrompt)
-                        cowPrompt = nil
+                    if paitrePrompt then 
+                        PromptDelete(paitrePrompt)
+                        paitrePrompt = nil
+                    end
+                    if guidePrompt then 
+                        PromptDelete(guidePrompt)
+                        guidePrompt = nil
                     end
                 end
             end
                 
         else
-            if cowPrompt then 
-                PromptDelete(cowPrompt)
-                cowPrompt = nil
+            if paitrePrompt then 
+                PromptDelete(paitrePrompt)
+                paitrePrompt = nil
+            end
+            if guidePrompt then 
+                PromptDelete(guidePrompt)
+                guidePrompt = nil
             end
         end
         Citizen.Wait(2)
