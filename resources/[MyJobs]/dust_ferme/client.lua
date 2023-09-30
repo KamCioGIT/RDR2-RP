@@ -518,9 +518,7 @@ Citizen.CreateThread(function ()
     while true do
         local res, entity = GetPlayerTargetEntity(PlayerId()) 
         if entity ~= 0 then
-            print 'ppppp'
             if Entity(entity).state.cowid then
-                print 'promp'
                 local playerCoords = GetEntityCoords(PlayerPedId())
                 local targetCoords = GetEntityCoords(entity)
                 for k, v in pairs(Config.FarmStables) do
@@ -533,7 +531,7 @@ Citizen.CreateThread(function ()
                             end
                             if IsControlJustReleased(0, 0x760A9C6F) then
                                 local duration = math.random(15000, 120000)
-                                TaskGoToEntity(entity, PlayerPedId(), duration, 0.0, 100, 1073741824, 0)
+                                TaskGoToEntity(entity, PlayerPedId(), duration, 0.2, 100, 1073741824, 0)
                                 -- guider
                             elseif IsControlJustReleased(0, 0x156F7119) then
                                 -- paitre
@@ -555,7 +553,7 @@ Citizen.CreateThread(function ()
                             if IsControlJustReleased(0, 0x760A9C6F) then
                                 ClearPedTasks(entity)
                                 local duration = math.random(15000, 120000)
-                                TaskGoToEntity(entity, PlayerPedId(), duration, 0.0, 100, 1073741824, 0)
+                                TaskGoToEntity(entity, PlayerPedId(), duration, 0.2, 100, 1073741824, 0)
                                 -- guider
                             elseif IsControlJustReleased(0, 0x156F7119) then
                                 -- paitre
