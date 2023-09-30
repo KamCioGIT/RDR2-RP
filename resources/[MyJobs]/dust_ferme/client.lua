@@ -532,7 +532,6 @@ Citizen.CreateThread(function ()
                                 cowPrompt = SetupPrompt(1, 0x156F7119, id, "Mettre à l'étable")
                             end
                             if IsControlJustReleased(0, 0x760A9C6F) then
-                                ClearPedTasks(entity)
                                 local duration = math.random(15000, 120000)
                                 TaskGoToEntity(entity, PlayerPedId(), duration, 0.0, 100, 1073741824, 0)
                                 -- guider
