@@ -597,7 +597,7 @@ function Paturages()
     for k,v in pairs(Config.Paturages) do
         local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
         local radius = Citizen.InvokeNative(0x45F13B7E0A15C880, Config.radiusStyle, v.pos, Config.blipRadius)
-        SetBlipSprite(blip, Config.alertBlipSprite)
+        SetBlipSprite(blip, Config.BlipSprite)
         SetBlipScale(blip, 0.2)
         Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Pâturage"))
     end
