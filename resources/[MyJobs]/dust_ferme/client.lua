@@ -554,7 +554,7 @@ Citizen.CreateThread(function ()
                             if IsControlJustReleased(0, 0x760A9C6F) then
                                 ClearPedTasks(entity)
                                 local duration = math.random(15000, 120000)
-                                TaskGoToEntity(entity, PlayerPedId(), duration, 0.2, 100, 1073741824, 0)
+                                TaskGoToEntity(entity, PlayerPedId(), duration, 0.2, 2.0, 0, 0)
                                 -- guider
                             elseif IsControlJustReleased(0, 0x156F7119) then
                                 -- paitre
