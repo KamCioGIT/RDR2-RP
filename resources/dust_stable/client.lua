@@ -430,6 +430,7 @@ function spawnhorse(model, name, horseid, stashid, health, stamina)
     SetPedPromptName(horse, name)
     Entity(horse).state.horseid = horseid
     Entity(horse).state.name = name
+    SetEntityAsMissionEntity(horse, true, true)
     -- for _, component in pairs(selectedcomp) do
     --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, component, true, true, true)
     -- end

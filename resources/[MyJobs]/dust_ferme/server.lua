@@ -60,3 +60,25 @@ RegisterServerEvent("fermier:RequestBossMenu", function()
 		TriggerClientEvent("fermier:OpenBossMenu", _source)	
 	end
 end)
+
+
+------- ELEVAGE -------
+
+
+-- ask bétail
+
+
+-- save bétail
+
+
+-- menu base étable
+
+
+
+-- prompt vache
+
+
+-- différentes zones de paturage
+
+
+-- lait

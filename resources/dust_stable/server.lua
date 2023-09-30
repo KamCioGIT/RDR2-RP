@@ -429,3 +429,4 @@ end)
 AddEventHandler('txAdmin:events:serverShuttingDown', function()
     TriggerEvent('dust_stable:server:resethorse')
 end)
+
