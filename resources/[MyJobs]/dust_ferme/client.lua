@@ -513,6 +513,11 @@ function SetupPrompt(promptID, key, group, text)
     return promptID
 end
 
+local guideprompt = UipromptGroup:new("Bétail")
+Uiprompt:new(0x760A9C6F, "Guider", guideprompt)
+Uiprompt:new(0x156F7119, "Paitre", guideprompt):setHoldMode(true)
+guideprompt:setActive(false)
+
 Citizen.CreateThread(function ()
     local cowPrompt
     while true do
@@ -523,12 +528,7 @@ Citizen.CreateThread(function ()
                 local targetCoords = GetEntityCoords(entity)
                 for k, v in pairs(Config.FarmStables) do
                     if #(playerCoords - v.pos ) > 7 and not isInteracting then
-                        if #(playerCoords - targetCoords) <= 4.0 then
-                            local id = Citizen.InvokeNative(0xB796970BD125FCE8, entity) -- UiPromptGetGroupIdForTargetEntity
-                            if not cowPrompt then
-                                cowPrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
-                                cowPrompt = SetupPrompt(1, 0x156F7119, id, "Mettre à l'étable")
-                            end
+                        guideprompt:setActiveThisFrame(true)
                             if IsControlJustReleased(0, 0x760A9C6F) then
                                 local duration = math.random(15000, 120000)
                                 Wait(200)
@@ -538,19 +538,9 @@ Citizen.CreateThread(function ()
                                 -- paitre
                                 TriggerServerEvent("dust_ferme:server:stockcow", v.name, Entity(entity).state.cowid, entity)
                             end
-                        else
-                            if cowPrompt then 
-                                PromptDelete(cowPrompt)
-                                cowPrompt = nil
-                            end
-                        end
                     else
                         if #(playerCoords - targetCoords) <= 4.0 then
-                            local id = Citizen.InvokeNative(0xB796970BD125FCE8, entity) -- UiPromptGetGroupIdForTargetEntity
-                            if not cowPrompt then
-                                cowPrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
-                                cowPrompt = SetupPrompt(1, 0x156F7119, id, "Paître")
-                            end
+                            guideprompt:setActiveThisFrame(true)
                             if IsControlJustReleased(0, 0x760A9C6F) then
                                 ClearPedTasks(entity)
                                 local duration = math.random(15000, 120000)
@@ -560,20 +550,9 @@ Citizen.CreateThread(function ()
                                 -- paitre
                                 TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
                             end
-                        else
-                            if cowPrompt then 
-                                PromptDelete(cowPrompt)
-                                cowPrompt = nil
-                            end
-                        end
                     end
                 end
                 
-            end
-        else
-            if cowPrompt then 
-                PromptDelete(cowPrompt)
-                cowPrompt = nil
             end
         end
         Citizen.Wait(2)
