@@ -432,5 +432,5 @@ end)
 
 
 RegisterServerEvent("testpers", function(pos, head)
-	CreatePed(true, GetHashKey("A_C_Horse_Andalusian_Perlino"), pos, head, true, true )
+	CreatePed(1, GetHashKey("A_C_Horse_Andalusian_Perlino"), pos, head, true, true )
 end)
