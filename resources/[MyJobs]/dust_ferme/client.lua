@@ -594,3 +594,21 @@ end)
 
 
 -- lait
+
+
+
+
+--- reset vache
+
+AddEventHandler("onResourceStop", function(resourceName)
+    if resourceName ~= GetCurrentResourceName() then return end
+    TriggerServerEvent('dust_ferme:server:resetcow')
+end)
+
+AddEventHandler('txAdmin:events:scheduledRestart', function()
+    TriggerServerEvent('dust_ferme:server:resetcow')
+end)
+
+AddEventHandler('txAdmin:events:serverShuttingDown', function()
+    TriggerServerEvent('dust_ferme:server:resetcow')
+end)

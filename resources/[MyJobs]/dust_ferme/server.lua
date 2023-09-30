@@ -171,3 +171,36 @@ RegisterServerEvent("dust_ferme:server:cowout", function(id)
 	}, function(rowsChanged)
 end)     
 end)
+
+RegisterServerEvent('dust_ferme:server:resetcow', function()
+	MySQL.query('SELECT * FROM stable WHERE `selected`=@selected;',
+	{
+		selected = 1
+	}, function(result)
+		if #result ~= 0 then
+			for i = 1, #result do
+				local cowid = result[i].cowid
+				MySQL.update('UPDATE cattle SET `selected`=@selected WHERE `cowid`=@cowid;',
+					{
+						selected = 0,
+						cowid = cowid
+					}, function(rowsChanged)
+				end)  
+			end
+		end
+	end)        
+end)
+
+
+AddEventHandler("onResourceStop", function(resourceName)
+    if resourceName ~= GetCurrentResourceName() then return end
+    TriggerEvent('dust_ferme:server:resetcow')
+end)
+
+AddEventHandler('txAdmin:events:scheduledRestart', function()
+    TriggerEvent('dust_ferme:server:resetcow')
+end)
+
+AddEventHandler('txAdmin:events:serverShuttingDown', function()
+    TriggerEvent('dust_ferme:server:resetcow')
+end)
