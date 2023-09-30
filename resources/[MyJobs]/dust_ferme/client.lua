@@ -4,6 +4,7 @@ local isDeposit = false
 local ressourcePointIndexForMining = nil
 local isInBossMenu = false
 local showweath = false
+local isFarmer = false
 
 Citizen.CreateThread(function()
     while RedEM.GetPlayerData().isLoggedIn ~= true do 
@@ -19,6 +20,7 @@ end)
 RegisterNetEvent("fermier:CheckPlayerJob", function(job, jobgrade)
     if job == "fermier" then
         startMission()
+        isFarmer = true
         if jobgrade >= 2 then
             contremaitre()
             if jobgrade == 3 then
@@ -228,6 +230,58 @@ end)
 
 ------- ELEVAGE -------
 
+--- prompt achat
+local cattleprompt = UipromptGroup:new("Bétail")
+Uiprompt:new(0x760A9C6F, "Acheter", cattleprompt)
+cattleprompt:setActive(false)
+
+--- zone achat
+Citizen.CreateThread(function()
+    while true do
+        Wait(0)
+        local playerpos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.Buycattle) do
+            if #(playerpos - v.pos ) < 5 and not isInteracting then
+                cattleprompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x760A9C6F) then
+                    buycow(v.stable)
+                    isInteracting = true
+                end
+            end
+        end
+    end
+end)
+
+
+--- menu achat
+function buycow(stable)
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local elements = {}
+
+        for k, v in pairs(Config.Cattle) do
+            table.insert(elements, {label = v.name, value = v.model, desc = v.desc})
+        end
+        MenuData.Open('default', GetCurrentResourceName(), 'buycattle', {
+            title = "Acheter du bétail",
+            subtext = "Bétail",
+            align = 'top-right',
+            elements = elements,
+        },
+        
+        function(data, menu)
+            MenuData.CloseAll()
+            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label)
+            isInteracting = false
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end
 
 -- prompt étable
 local farmprompt = UipromptGroup:new("Étable")
@@ -242,7 +296,7 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.FarmStables) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
-                stableprompt:setActiveThisFrame(true)
+                farmprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     isInteracting = true
                     local menutype = "Ouvrir"
@@ -264,7 +318,7 @@ end)
 
 -- menu base étable
 local cowlist = {}
-RegisterNetEvent("dust_ferme::getcow")
+RegisterNetEvent("dust_ferme:getcow")
 AddEventHandler("dust_ferme:getcow", function(horseid, nom, model, pos, _race)
     cowlist = {}
     Wait(50)
@@ -299,7 +353,7 @@ function OpenFarmStable(menutype, stable)
             end
         end
         if _menutype == 'Bétail' then 
-            table.insert(elements, {label = "Certificat de vente", value = 'sell', desc = "Utile pour donner son bien à une personne"})
+            -- table.insert(elements, {label = "Certificat de vente", value = 'sell', desc = "Utile pour donner son bien à une personne"})
             table.insert(elements, {label = "Renommer", value = 'rename', desc = "Changer le nom de votre bien"})
         end
 
@@ -325,33 +379,33 @@ function OpenFarmStable(menutype, stable)
                     end
                 end
             end
-            if data.current.value == "sell" then
-                TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-                    MenuData.CloseAll()
-                    local elements = {}
-                    for k, v in pairs(cowlist) do
-                        if v.stable == stable then
-                            table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
-                        end
-                    end
-                    MenuData.Open('default', GetCurrentResourceName(), 'sell', {
-                        title = "Vendre",
-                        subtext = "Vos biens",
-                        align = 'top-right',
-                        elements = elements,
-                    },
-                    function(data, menu)
-                        MenuData.CloseAll()
-                        if data.current.value then
-                            TriggerServerEvent("dust_ferme:sellcow", data.current.value)
-                            for k, v in pairs(cowlist) do
-                                cowlist[k] = nil
-                            end
-                            isInteracting = false
-                        end
-                    end)
-                end)
-            end
+            -- if data.current.value == "sell" then
+            --     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+            --         MenuData.CloseAll()
+            --         local elements = {}
+            --         for k, v in pairs(cowlist) do
+            --             if v.stable == stable then
+            --                 table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
+            --             end
+            --         end
+            --         MenuData.Open('default', GetCurrentResourceName(), 'sell', {
+            --             title = "Vendre",
+            --             subtext = "Vos biens",
+            --             align = 'top-right',
+            --             elements = elements,
+            --         },
+            --         function(data, menu)
+            --             MenuData.CloseAll()
+            --             if data.current.value then
+            --                 TriggerServerEvent("dust_ferme:sellcow", data.current.value)
+            --                 for k, v in pairs(cowlist) do
+            --                     cowlist[k] = nil
+            --                 end
+            --                 isInteracting = false
+            --             end
+            --         end)
+            --     end)
+            -- end
             if data.current.value == "rename" then
                 TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                     MenuData.CloseAll()
@@ -406,7 +460,7 @@ end
 
 -- spawn vache
 local initializing = false
-function spawncow(race, name, id)
+function spawncow(model, name, id)
     if initializing then
         return
     end
@@ -425,25 +479,113 @@ function spawncow(race, name, id)
 
     initializing = true
     local spawnPosition = GetOffsetFromEntityInWorldCoords(ped, 0.0, 1.5, 0.0)
-    local horse = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped) - 90.0, true, true)
-    SetEntityAsMissionEntity(horse, true, true)
+    local cow = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped) - 90.0, true, true)
     SetModelAsNoLongerNeeded(modelHash)
    
-    SetAnimalTuningBoolParam(horse, 25, false)
-    SetAnimalTuningBoolParam(horse, 24, false)
+    SetAnimalTuningBoolParam(cow, 25, false)
+    SetAnimalTuningBoolParam(cow, 24, false)
 
-    TaskAnimalUnalerted(horse, -1, false, 0, 0)
+    TaskAnimalUnalerted(cow, -1, false, 0, 0)
 
-    SetPedPromptName(horse, name)
-    Entity(horse).state.horseid = horseid
-    Entity(horse).state.name = name
+    SetPedPromptName(cow, name)
+    Entity(cow).state.cowid = id
+    Entity(cow).state.name = name
 
-    SetPedConfigFlag(horse, 297, true)
-
+    SetPedConfigFlag(cow, 297, true)
+    SetEntityAsMissionEntity(cow, true, true)
     initializing = false
 end
 -- prompt vache
 
+function SetupPrompt(promptID, key, group, text)
+    if not PromptIsValid(promptID) then
+        promptID = PromptRegisterBegin()
+        PromptSetControlAction(promptID, key)
+        local str = CreateVarString(10, 'LITERAL_STRING', text)
+        PromptSetText(promptID, str)
+        PromptSetEnabled(promptID, 1)
+        PromptSetVisible(promptID, 1)
+        PromptSetStandardMode(promptID, 1)
+        PromptSetGroup(promptID, group)
+        PromptRegisterEnd(promptID)
+    end
+    return promptID
+end
+
+Citizen.CreateThread(function ()
+    local cowPrompt
+    while isFarmer == true do
+        local res, entity = GetPlayerTargetEntity(PlayerId()) 
+        if entity ~= 0 then
+            if Entity(entity).state.cowid then
+                local playerCoords = GetEntityCoords(PlayerPedId())
+                local targetCoords = GetEntityCoords(entity)
+                for k, v in pairs(Config.FarmStables) do
+                    if #(playerpos - v.pos ) > 7 and not isInteracting then
+                        if #(playerCoords - targetCoords) <= 4.0 then
+                            local id = Citizen.InvokeNative(0xB796970BD125FCE8, entity) -- UiPromptGetGroupIdForTargetEntity
+                            if not cowPrompt then
+                                cowPrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
+                                cowPrompt = SetupPrompt(1, 0x156F7119, id, "Mettre à l'étable")
+                            end
+                            if IsControlJustReleased(0, 0x760A9C6F) then
+                                ClearPedTasks(entity)
+                                local duration = math.random(15000, 120000)
+                                TaskGoToEntity(entity, PlayerPedId(), duration, 0.0, 100, 1073741824, 0)
+                                -- guider
+                            elseif IsControlJustReleased(0, 0x156F7119) then
+                                -- paitre
+                                TriggerServerEvent("dust_ferme:server:stockcow", v.name, Entity(entity).state.cowid, entity)
+                            end
+                        else
+                            if cowPrompt then 
+                                PromptDelete(cowPrompt)
+                                cowPrompt = nil
+                            end
+                        end
+                    else
+                        if #(playerCoords - targetCoords) <= 4.0 then
+                            local id = Citizen.InvokeNative(0xB796970BD125FCE8, entity) -- UiPromptGetGroupIdForTargetEntity
+                            if not cowPrompt then
+                                cowPrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
+                                cowPrompt = SetupPrompt(1, 0x156F7119, id, "Paître")
+                            end
+                            if IsControlJustReleased(0, 0x760A9C6F) then
+                                ClearPedTasks(entity)
+                                local duration = math.random(15000, 120000)
+                                TaskGoToEntity(entity, PlayerPedId(), duration, 0.0, 100, 1073741824, 0)
+                                -- guider
+                            elseif IsControlJustReleased(0, 0x156F7119) then
+                                -- paitre
+                                TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
+                            end
+                        else
+                            if cowPrompt then 
+                                PromptDelete(cowPrompt)
+                                cowPrompt = nil
+                            end
+                        end
+                    end
+                end
+                
+            end
+        else
+            if cowPrompt then 
+                PromptDelete(cowPrompt)
+                cowPrompt = nil
+            end
+        end
+        Citizen.Wait(2)
+    end
+end)
+
+--- cow ranger
+RegisterNetEvent("dust_stable:server:horsestocked")
+AddEventHandler("dust_stable:server:horsestocked", function(entity)
+    TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_RESTING'), -1, true, false, false, false)
+    Wait(2000)
+    DeleteEntity(entity)
+end)
 
 -- différentes zones de paturage
 

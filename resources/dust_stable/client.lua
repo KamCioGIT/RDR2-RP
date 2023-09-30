@@ -565,22 +565,9 @@ end)
 
 ------ ACHAT CHEVAL ------ 
 
-local AchatPromptGroup = GetRandomIntInRange(0, 0xffffff)
-local AchatPromptName = CreateVarString(10, "LITERAL_STRING", "Écurie")
-local AchatPrompt
-local AchatPromptShown = false
-Citizen.CreateThread(function()
-    local str = "Acheter un cheval"
-    AchatPrompt = PromptRegisterBegin()
-    PromptSetControlAction(AchatPrompt, 0x156F7119)
-    str = CreateVarString(10, 'LITERAL_STRING', str)
-    PromptSetText(AchatPrompt, str)
-    PromptSetEnabled(AchatPrompt, true)
-    PromptSetVisible(AchatPrompt, true)
-    PromptSetHoldMode(AchatPrompt, false)
-    PromptSetGroup(AchatPrompt, AchatPromptGroup)
-    PromptRegisterEnd(AchatPrompt)
-end)
+local AchatPrompt = UipromptGroup:new("Écurie")
+Uiprompt:new(0x156F7119, "Acheter", AchatPrompt)
+AchatPrompt:setActive(false)
 
 Citizen.CreateThread(function()
     while true do
@@ -588,7 +575,7 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Buyhorse) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
-                PromptSetActiveGroupThisFrame(AchatPromptGroup, AchatPromptName)
+                AchatPrompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x156F7119) then
                     buyhorse(v.stable)
                     isInteracting = true
@@ -597,7 +584,7 @@ Citizen.CreateThread(function()
         end
         for k, v in pairs(Config.Buycart) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
-                PromptSetActiveGroupThisFrame(AchatPromptGroup, AchatPromptName)
+                AchatPrompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x156F7119) then
                     buycart(v.stable)
                     isInteracting = true

@@ -66,13 +66,77 @@ end)
 
 
 -- ask bétail
+RegisterNetEvent("dust_ferme:server:askcow")
+AddEventHandler(
+    "dust_ferme:server:askcow",
+    function()
+        local _source = source     
+		local user = RedEM.GetPlayer(_source)
+		local job = user.job
+		MySQL.query('SELECT * FROM cattle WHERE (`selected`=@selected AND `job`=@job);',
+		{
+			job = job,
+			selected = 0
+
+		}, function(result)
+			if #result ~= 0 then
+				for i = 1, #result do
+					if result[i].selected == 0 then 
+						local cowid = result[i].cowid
+						local name = result[i].name
+						local model = result[i].model
+						local stable = result[i].stable
+						local race = result[i].race
+						TriggerClientEvent("dust_ferme:getcow", _source, cowid, name, model, stable, race)
+					end
+				end                    
+			end
+		end)
+end)
+
+-- rename bétail
+RegisterServerEvent("dust_ferme:server:rename")
+AddEventHandler(
+    "dust_ferme:server:rename",
+    function(name, cowid)
+		local _source = source     
+		local user = RedEM.GetPlayer(_source)
+		local job = user.job
+		MySQL.update('UPDATE cattle SET `name`=@name WHERE `job`=@job AND `cowid`=@cowid;',
+		{
+			name = name,
+			job = job,
+			cowid = cowid
+		}, function(rowsChanged)
+
+		end)
+end)
 
 
--- save bétail
 
-
--- menu base étable
-
+-- ranger le bétail
+RegisterServerEvent("dust_ferme:server:stockcow") 
+AddEventHandler("dust_ferme:server:stockcow", function(stable, cowid, entity)
+	local _source = source
+	local user = RedEM.GetPlayer(_source)
+	local job = user.job
+	MySQL.query('SELECT * FROM cattle WHERE `job`=@job AND `cowid`=@cowid;',
+		{
+			job = job,
+			cowid = cowid
+		}, function(result)
+			if #result ~= 0 then
+				MySQL.update('UPDATE cattle SET `stable`=@stable, `selected`=@selected WHERE `cowid`=@cowid;',
+					{
+						stable = stable,
+						selected = 0,
+						cowid = cowid
+					}, function(rowsChanged)
+						TriggerClientEvent("dust_ferme:cowstocked", _source, entity)
+				end)          
+			end
+		end)
+end)
 
 
 -- prompt vache
