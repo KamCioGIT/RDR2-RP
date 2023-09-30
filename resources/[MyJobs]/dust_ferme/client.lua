@@ -540,7 +540,7 @@ Citizen.CreateThread(function ()
                         TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -1.5, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
                         -- guider
                     end
-                    for k, v in pairs(Config.Stables) do
+                    for k, v in pairs(Config.FarmStables) do
                         if #(targetCoords - v.pos ) > 7 then
                             stablecowPrompt = SetupPrompt(1, 0x156F7119, id, "Mettre à l'étable")
                             if IsControlJustReleased(0, 0x156F7119) then
