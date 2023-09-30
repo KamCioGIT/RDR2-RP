@@ -536,9 +536,6 @@ Citizen.CreateThread(function ()
                     if not guidePrompt then
                         guidePrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
                     end
-                    if not stablecowPrompt then
-                        stablecowPrompt = SetupPrompt(1, 0x6319DB71, id, "Mettre à l'étable")
-                    end
                     if IsControlJustReleased(0, 0x760A9C6F) then
                         ClearPedTasks(entity)
                         local duration = math.random(15000, 120000)
@@ -547,15 +544,19 @@ Citizen.CreateThread(function ()
                         -- guider
                     elseif IsControlJustReleased(0, 0x156F7119) then
                         -- paitre
-                        TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
-                    end
-                    if IsControlJustReleased(0, 0x6319DB71) then
                         local cowid = Entity(entity).state.cowid
                         for k, v in pairs(Config.FarmStables) do
                             if #(targetCoords - v.pos ) < 7 then
+                                print'rrr'
                                 TriggerServerEvent("dust_stable:server:stockhorse", v.name, cowid)
+                            else
+                                TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
                             end
                         end
+                        
+                    end
+                    if IsControlJustReleased(0, 0x6319DB71) then
+
                     end
 
                 else
@@ -566,10 +567,6 @@ Citizen.CreateThread(function ()
                     if guidePrompt then 
                         PromptDelete(guidePrompt)
                         guidePrompt = nil
-                    end
-                    if stablecowPrompt then 
-                        PromptDelete(stablecowPrompt)
-                        stablecowPrompt = nil
                     end
                 end
             end
@@ -582,10 +579,6 @@ Citizen.CreateThread(function ()
             if guidePrompt then 
                 PromptDelete(guidePrompt)
                 guidePrompt = nil
-            end
-            if stablecowPrompt then 
-                PromptDelete(stablecowPrompt)
-                stablecowPrompt = nil
             end
         end
         Citizen.Wait(2)
