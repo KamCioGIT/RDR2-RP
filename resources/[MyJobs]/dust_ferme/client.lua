@@ -272,7 +272,8 @@ function buycow(stable)
         
         function(data, menu)
             MenuData.CloseAll()
-            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label)
+            print 'yyy'
+            TriggerServerEvent("dust_ferme:createcattle", data.current.label, data.current.value, stable, data.current.label)
             isInteracting = false
         end,
 
