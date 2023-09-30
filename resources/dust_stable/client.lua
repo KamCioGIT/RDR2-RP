@@ -376,7 +376,7 @@ end
 
 RegisterCommand("testpers", function()
     local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
-    local heading GetEntityHeading(ped) - 90.0
+    local heading  = GetEntityHeading(ped) - 90.0
     TriggerServerEvent("testpers", spawnPosition, heading)
 end)
 
