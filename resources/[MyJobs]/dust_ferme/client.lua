@@ -550,6 +550,7 @@ Citizen.CreateThread(function ()
                                 -- paitre
                                 TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
                             end
+                        end
                     end
                 end
                 
