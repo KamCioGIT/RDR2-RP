@@ -10,5 +10,5 @@ files {
 lua54 "yes"
 
 
--- data_file 'DLC_ITYP_REQUEST' 'stream/mlo_bla_blacksmith.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'stream/mlo_bla_blacksmith.ytyp'
 dependency '/assetpacks'
