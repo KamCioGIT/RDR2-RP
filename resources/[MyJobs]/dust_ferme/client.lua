@@ -485,6 +485,7 @@ function spawncow(model, name, id)
    
     SetAnimalTuningBoolParam(cow, 25, false)
     SetAnimalTuningBoolParam(cow, 24, false)
+    SetAnimalTuningBoolParam(cow, 9, false)
 
     TaskAnimalUnalerted(cow, -1, false, 0, 0)
 
@@ -493,6 +494,8 @@ function spawncow(model, name, id)
     Entity(cow).state.name = name
 
     SetPedConfigFlag(cow, 297, true)
+    SetPedConfigFlag(cow, 310, true)
+    SetPedConfigFlag(cow, 40, false)
     SetEntityAsMissionEntity(cow, true, true)
     initializing = false
 end
