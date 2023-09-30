@@ -149,7 +149,7 @@ RegisterServerEvent("dust_ferme:createcattle", function(name, model, stable, rac
     	local generetedcowid = string.format("%03d%04d", numBase0, numBase1)
 		local cowid = generetedcowid
 		MySQL.update(
-		'INSERT INTO stable (`job`, `cowid`, `stable`, `model`, `name`, `race`) VALUES (@job, @cowid, @stable, @model, @name, @race);',
+		'INSERT INTO cattle (`job`, `cowid`, `stable`, `model`, `name`, `race`) VALUES (@job, @cowid, @stable, @model, @name, @race);',
 		{
 			job = job,
 			name = name,
