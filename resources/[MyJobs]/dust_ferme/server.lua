@@ -144,6 +144,7 @@ RegisterServerEvent("dust_ferme:createcattle", function(name, model, stable, rac
 	local _source = source     
 		local user = RedEM.GetPlayer(_source)
 		local job = user.job
+		print (job)
 		local numBase0 = math.random(100, 999)
     	local numBase1 = math.random(0, 999)
     	local generetedcowid = string.format("%03d%04d", numBase0, numBase1)
