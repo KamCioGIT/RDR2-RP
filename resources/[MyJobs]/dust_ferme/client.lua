@@ -557,9 +557,9 @@ Citizen.CreateThread(function ()
                         for k, v in pairs(Config.Paturages) do
                             if #(targetCoords - v.pos) < Config.blipRadius then
                                 Graze(entity)
+                                return
                             end
                         end
-                        
                     end
 
                 else
