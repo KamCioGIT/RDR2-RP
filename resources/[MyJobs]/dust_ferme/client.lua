@@ -521,6 +521,7 @@ function SetupPrompt(promptID, key, group, text)
     return promptID
 end
 
+local grazing = false
 Citizen.CreateThread(function ()
     local paitrePrompt
     local guidePrompt
@@ -538,7 +539,7 @@ Citizen.CreateThread(function ()
                     if not guidePrompt then
                         guidePrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
                     end
-                    if IsControlJustReleased(0, 0x760A9C6F) then
+                    if IsControlJustReleased(0, 0x760A9C6F) and not grazing then
                         ClearPedTasks(entity)
                         local duration = math.random(15000, 120000)
                         -- TaskGoToEntity(entity, PlayerPedId(), duration, 0.2, 2.0, 0, 0)
@@ -554,9 +555,11 @@ Citizen.CreateThread(function ()
                         end
                         for k, v in pairs(Config.Paturages) do
                             if #(targetCoords - v.pos) < Config.blipRadius then
-                                TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
+                                TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), 120000, true, false, false, false)
+                                grazing = true
                                 Wait(120000)
                                 TriggerServerEvent("dust_ferme:cowup", Entity(entity).state.cowid)
+                                grazing = false
                             end
                         end
                         
