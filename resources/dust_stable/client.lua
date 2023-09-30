@@ -374,6 +374,12 @@ end
 
 ---- Get Horse ----
 
+RegisterCommand("testpers", function()
+    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
+    local heading GetEntityHeading(ped) - 90.0
+    TriggerServerEvent("testpers", spawnPosition, heading)
+end)
+
 local spawnedhorses = {}
 RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(components, _meta)
@@ -430,7 +436,6 @@ function spawnhorse(model, name, horseid, stashid, health, stamina)
     SetPedPromptName(horse, name)
     Entity(horse).state.horseid = horseid
     Entity(horse).state.name = name
-    SetEntityAsMissionEntity(horse, true, true)
     -- for _, component in pairs(selectedcomp) do
     --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, component, true, true, true)
     -- end
@@ -455,7 +460,7 @@ function spawnhorse(model, name, horseid, stashid, health, stamina)
     end
 
     TriggerServerEvent("dust_stable:server:horseout", horseid)
-
+    SetEntityAsMissionEntity(horse, true, true)
     table.insert(spawnedhorses, horse)
     initializing = false
 end

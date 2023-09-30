@@ -430,3 +430,8 @@ AddEventHandler('txAdmin:events:serverShuttingDown', function()
     TriggerEvent('dust_stable:server:resethorse')
 end)
 
+
+RegisterServerEvent("testpers", function(pos, head)
+	RequestModel(GetHashKey("A_C_Horse_Andalusian_Perlino"))
+	CreatePed(true, GetHashKey("A_C_Horse_Andalusian_Perlino"), pos, head, true, true )
+end)
