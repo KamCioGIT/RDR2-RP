@@ -304,7 +304,7 @@ Citizen.CreateThread(function()
                     Wait(200)
                     OpenFarmStable(menutype, v.name)
                 end
-                if stableprompt:hasHoldModeJustCompleted() then
+                if farmprompt:hasHoldModeJustCompleted() then
                     isInteracting = true
                     local menutype = "Bétail"
                     TriggerServerEvent("dust_ferme:server:askcow")
