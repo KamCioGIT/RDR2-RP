@@ -374,14 +374,6 @@ end
 
 ---- Get Horse ----
 
-RegisterCommand("testpers", function()
-    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
-    local heading  = GetEntityHeading(ped) - 90.0
-    RequestModel(GetHashKey("A_C_Horse_Andalusian_Perlino"))
-    Wait(200)
-    TriggerServerEvent("testpers", spawnPosition, heading)
-end)
-
 local spawnedhorses = {}
 RegisterNetEvent("dust_stable:server:getcomponents")
 AddEventHandler("dust_stable:server:getcomponents", function(components, _meta)
