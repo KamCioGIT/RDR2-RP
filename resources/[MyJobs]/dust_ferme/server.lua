@@ -192,6 +192,26 @@ RegisterServerEvent('dust_ferme:server:resetcow', function()
 end)
 
 
+RegisterServerEvent('dust_ferme:cowup', function(cowid)
+	MySQL.query('SELECT * FROM cattle WHERE `cowid`=@cowid;',
+	{
+		cowid = cowid
+	}, function(result)
+		if #result ~= 0 then
+			for i = 1, #result do
+				local level = result[i].level
+				local newlevel = level + 1
+				MySQL.update('UPDATE cattle SET `level`=@level WHERE `cowid`=@cowid;',
+					{
+						level = newlevel,
+						cowid = cowid
+					}, function(rowsChanged)
+				end)
+			end
+		end
+	end)
+end)
+
 AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
     TriggerEvent('dust_ferme:server:resetcow')

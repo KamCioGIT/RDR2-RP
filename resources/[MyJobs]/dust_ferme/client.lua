@@ -542,16 +542,25 @@ Citizen.CreateThread(function ()
                         ClearPedTasks(entity)
                         local duration = math.random(15000, 120000)
                         -- TaskGoToEntity(entity, PlayerPedId(), duration, 0.2, 2.0, 0, 0)
+                        grazing = false
                         TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -1.5, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
                         -- guider
                     elseif IsControlJustReleased(0, 0x156F7119) then
                         -- paitre
                         local cowid = Entity(entity).state.cowid
                         for k, v in pairs(Config.FarmStables) do
-                            if #(targetCoords - v.pos ) < 7 then
+                            if #(targetCoords - v.pos) < 7 then
                                 TriggerServerEvent("dust_ferme:server:stockcow", v.name, cowid, entity)
-                            else
+                            end
+                        end
+                        for k, v in pairs(Config.Paturages) do
+                            if #(targetCoords - v.pos) < Config.blipRadius then
                                 TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
+                                grazing = true
+                                while grazing do
+                                    Wait(120000)
+                                    TriggerServerEvent("dust_ferme:cowup", Entity(entity).state.cowid)
+                                end
                             end
                         end
                         

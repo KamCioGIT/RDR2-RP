@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS `cattle` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cowid` int(11) NOT NULL,
+  `level` int(11) NOT NULL DEFAULT 1,
   `selected` int(11) NOT NULL DEFAULT 0,
   `stable` varchar(50) NULL,
   `model` varchar(50) NULL,
