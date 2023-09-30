@@ -542,12 +542,22 @@ Citizen.CreateThread(function ()
                     end
                     for k, v in pairs(Config.FarmStables) do
                         if #(targetCoords - v.pos ) > 7 then
-                            stablecowPrompt = SetupPrompt(1, 0x156F7119, id, "Mettre à l'étable")
+                            if paitrePrompt then 
+                                PromptDelete(paitrePrompt)
+                                paitrePrompt = nil
+                            end
+                            if not stablecowPrompt then
+                                stablecowPrompt = SetupPrompt(1, 0x156F7119, id, "Mettre à l'étable")
+                            end
                             if IsControlJustReleased(0, 0x156F7119) then
                                 local cowid = Entity(entity).state.cowid
                                 TriggerServerEvent("dust_stable:server:stockhorse", v.name, cowid)
                             end
                         else
+                            if stablecowPrompt then 
+                                PromptDelete(stablecowPrompt)
+                                stablecowPrompt = nil
+                            end
                             if not paitrePrompt then
                                 paitrePrompt = SetupPrompt(1, 0x156F7119, id, "Paître")
                             end
