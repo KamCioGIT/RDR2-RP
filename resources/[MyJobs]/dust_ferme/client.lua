@@ -519,6 +519,7 @@ Citizen.CreateThread(function ()
     while isFarmer == true do
         local res, entity = GetPlayerTargetEntity(PlayerId()) 
         if entity ~= 0 then
+            print 'ppppp'
             if Entity(entity).state.cowid then
                 print 'promp'
                 local playerCoords = GetEntityCoords(PlayerPedId())
