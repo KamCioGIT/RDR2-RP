@@ -589,17 +589,16 @@ Citizen.CreateThread(function ()
                 guidePrompt = nil
             end
         end
-        Citizen.Wait(2)
+        Citizen.Wait(0)
     end
 end)
 
 function Graze(entity)
     TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), 120000, true, false, false, false)
     Entity(entity).state.grazing = true
-    Wait(120000)
+    Citizen.Wait(120000)
     TriggerServerEvent("dust_ferme:cowup", Entity(entity).state.cowid)
     Entity(entity).state.grazing = false
-    return
 end
 
 --- cow ranger
