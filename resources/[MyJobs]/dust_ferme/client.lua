@@ -542,9 +542,9 @@ Citizen.CreateThread(function ()
                         guidePrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
                     end
                     if not stopPrompt then
-                        stopPrompt = SetupPrompt(1, 0x8FD015D8, id, "S'arrêter")
+                        stopPrompt = SetupPrompt(1, 0x8CC9CD42, id, "S'arrêter")
                     end
-                    if IsControlJustReleased(0, 0x8FD015D8) and Entity(entity).state.grazing ~= true then
+                    if IsControlJustReleased(0, 0x8CC9CD42) and Entity(entity).state.grazing ~= true then
                         ClearPedTasks(entity)
                         TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, 200, 100, 1, 1, 0, 0, 1)
                     -- guider
