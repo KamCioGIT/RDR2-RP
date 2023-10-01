@@ -662,43 +662,6 @@ Uiprompt:new(0x760A9C6F, "Traire", laitprompt)
 laitprompt:setActive(false)
 
 function Laiterie()
-    while true do
-        Citizen.Wait(0)
-        for k, v in pairs(Config.Lait) do
-            local ped = PlayerPedId()
-            local playerpos = GetEntityCoords(PlayerPedId())
-            if #(playerpos - v.pos ) < 5 and not isInteracting then
-                local itemSet = CreateItemset(true)
-                local size = Citizen.InvokeNative(0x59B57C4B06531E1E, playerpos, 2.0, itemSet, 1, Citizen.ResultAsInteger())
-                if size > 0 then
-                    for index = 0, size - 1 do
-                        local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
-                        if Entity(entity).state.cowid then
-                            print 'uwuwuwuw'
-                            laitprompt:setActiveThisFrame(true)
-                            if IsControlJustReleased(0, 0x760A9C6F) then
-                                isInteracting = true
-                                RequestAnimDict(Config.PedMilkingDict)
-                                while not HasAnimDictLoaded(Config.PedMilkingDict) do
-                                    Wait(10)
-                                end
-                                TaskPlayAnim(playerPed, Config.PedMilkingDict, Config.PedMilkingAnim, 1.0, 1.0, -1, 0, 0, false, false, false)
-                                Wait(5000)
-                                ClearPedTasks(playerPed)
-                                TriggerServerEvent("dust_ferme:serveur:milking", Entity(entity).state.cowid)
-                                isInteracting = false
-                                return
-                            end
-                        end
-                    end
-                end
-            end
-        end
-
-        if IsItemsetValid(itemSet) then
-            DestroyItemset(itemSet)
-        end
-    end
 end
 
 
