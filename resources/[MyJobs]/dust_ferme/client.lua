@@ -549,8 +549,6 @@ Citizen.CreateThread(function ()
                             ClearPedTasks(entity)
                             local duration = math.random(30000, 120000)
                             TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
-                            Wait(duration)
-                            Entity(entity).state.follow = false
                         end
                         -- guider
                     end
