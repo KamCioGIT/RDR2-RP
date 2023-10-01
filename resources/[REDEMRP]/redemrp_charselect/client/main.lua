@@ -32,6 +32,7 @@ RegisterNetEvent('redemrp_charselect:SpawnCharacter', function(new)
     Citizen.Wait(1000)
     DestroyAllCams()
     TriggerServerEvent("redemrp_respawn:CheckPos")
+    TriggerServerEvent("contrat:checkjob")
 end)
 
 local isHidden = false
@@ -458,6 +459,7 @@ RegisterNetEvent("redemrp_charselect:client:FinishSelection", function(new)
     MenuData.CloseAll()
     if not new then
         TriggerEvent("redemrp_charselect:SpawnCharacter")
+        
         TriggerEvent('playerSpawned')
         TriggerServerEvent("RedEM:server:LoadSkin")
         LightOn = false
