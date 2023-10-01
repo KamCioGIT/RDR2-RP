@@ -565,6 +565,7 @@ Citizen.CreateThread(function ()
                             if #(targetCoords - v.pos) < Config.blipRadius then
                                 if Entity(entity).state.grazing == false then
                                     Graze(entity)
+                                    return
                                 end
                             end
                         end
