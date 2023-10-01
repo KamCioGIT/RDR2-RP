@@ -544,25 +544,24 @@ Citizen.CreateThread(function ()
                         ClearPedTasks(entity)
                         local duration = math.random(15000, 120000)
                         -- TaskGoToEntity(entity, PlayerPedId(), duration, 0.2, 2.0, 0, 0)
-                        TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -1.5, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
+                        TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
                         -- guider
-                    elseif IsControlJustReleased(0, 0x156F7119) then
+                    end
+                    if IsControlJustReleased(0, 0x156F7119) then
                         -- paitre
                         local cowid = Entity(entity).state.cowid
-                        Citizen.CreateThread(function()
-                            while true do
-                                for k, v in pairs(Config.FarmStables) do
-                                    if #(targetCoords - v.pos) < 7 then
-                                        TriggerServerEvent("dust_ferme:server:stockcow", v.name, cowid, entity)
-                                    end
-                                end
-                                for k, v in pairs(Config.Paturages) do
-                                    if #(targetCoords - v.pos) < Config.blipRadius then
-                                        Graze(entity)
-                                    end
+                        for k, v in pairs(Config.FarmStables) do
+                            if #(targetCoords - v.pos) < 7 then
+                                TriggerServerEvent("dust_ferme:server:stockcow", v.name, cowid, entity)
+                            end
+                        end
+                        for k, v in pairs(Config.Paturages) do
+                            if #(targetCoords - v.pos) < Config.blipRadius then
+                                if Entity(entity).state.grazing == false then
+                                    Graze(entity)
                                 end
                             end
-                        end)
+                        end
                     end
 
                 else
