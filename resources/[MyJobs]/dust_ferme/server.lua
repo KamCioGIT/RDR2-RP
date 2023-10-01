@@ -209,7 +209,7 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 				local currentTime = os.date("*t") -- Obtenir la date/heure actuelle sous forme de table Lua
 				local savedDateTimeStr = result[i].date -- Remplacez ceci par la date de votre base de données
 				local savedTime = parseDateTime(savedDateTimeStr) -- Convertir la date en table Lua
-				local timeDifference = calculateTimeDifference(currentTime, savedTime)
+				local timeDifference = os.difftime(cd, savedDateTimeStr)
 				print (timeDifference)
 				if timeDifference >= 86400 or lastup == nil then
 					if level < 5 then
@@ -256,7 +256,7 @@ function parseDateTime(dateTimeStr)
 end
 
 function calculateTimeDifference(currentTime, savedTime)
-    return os.time(currentTime) - os.time(savedTime)
+    return os.difftime(currentTime) - os.time(savedTime)
 end
 
 RegisterServerEvent("dust_ferme:serveur:milking")
