@@ -70,7 +70,10 @@ end)
 -- end)
 
 
-AddEventHandler("redemrp:selectCharacter", function(source, user)
-    TriggerClientEvent("global:CheckPlayerJob", source, user.getJob(), user.getJobgrade())
+AddEventHandler("redemrp:selectCharacter", function(source)
+    local user = RedEM.GetPlayer(source)
+    local job = user.job
+    local jobgrade = user.jobgrade
+    TriggerClientEvent("global:CheckPlayerJob", source, job, jobgrade)
 end)
 
