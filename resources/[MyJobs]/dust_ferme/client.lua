@@ -544,6 +544,7 @@ Citizen.CreateThread(function ()
                     if IsControlJustReleased(0, 0x760A9C6F) and Entity(entity).state.grazing ~= true then
                         if Entity(entity).state.follow == true then
                             TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, 1, 100, 1, 1, 0, 0, 1)
+                            Entity(entity).state.follow = false
                         else
                             Entity(entity).state.follow = true
                             ClearPedTasks(entity)
