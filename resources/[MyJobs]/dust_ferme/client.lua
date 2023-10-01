@@ -542,9 +542,16 @@ Citizen.CreateThread(function ()
                         guidePrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
                     end
                     if IsControlJustReleased(0, 0x760A9C6F) and Entity(entity).state.grazing ~= true then
-                        ClearPedTasks(entity)
-                        local duration = math.random(15000, 120000)
-                        TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
+                        if Entity(entity).state.follow == true then
+                            TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, 1, 100, 1, 1, 0, 0, 1)
+                        else
+                            Entity(entity).state.follow = true
+                            ClearPedTasks(entity)
+                            local duration = math.random(30000, 120000)
+                            TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
+                            Wait(duration)
+                            Entity(entity).state.follow = false
+                        end
                         -- guider
                     end
                     if IsControlJustReleased(0, 0x156F7119) then
