@@ -212,11 +212,10 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 					if level < 5 then
 						local newlevel = level + 1
 						local model = result[i].model
-						print (model)
 						if model == "a_c_cow" then
-							print 'pablocon'
 							local milk = result[i].milk
 							local newmilk = milk + 1
+							print (newlevel, cowid, newmilk, cd)
 							MySQL.update('UPDATE cattle SET `level`=@level AND `milk`=@milk AND `date`=@date WHERE `cowid`=@cowid;',
 								{
 									level = newlevel,
