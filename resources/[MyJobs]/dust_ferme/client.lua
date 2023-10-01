@@ -607,7 +607,7 @@ end)
 function Graze(entity)
     TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
     Entity(entity).state.grazing = true
-    Citizen.Wait(120000)
+    Wait(120000)
     ClearPedTasks(entity)
     TriggerServerEvent("dust_ferme:cowup", Entity(entity).state.cowid)
     Entity(entity).state.grazing = false
