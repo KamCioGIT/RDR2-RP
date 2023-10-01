@@ -89,7 +89,7 @@ Config.radiusStyle = 1673015813
 Config.Boucherie = vector3(2150.772, -1296.647, 42.75868)
 Config.Lait = {
 	[1] = {
-		pos = vector3(-2544.528, 399.478, 148.2214),
+		pos = vector3(-1601.758, -1412.182, 81.94898),
     },
 }
 
