@@ -55,9 +55,9 @@ Config.FarmStables = {
 		pos = vector3(-977.5865, -1337.164, 52.59379),
 		name = 'Blackwater',
     },
-	Pronghorn = {
-		pos = vector3(-2519.732, 424.9185, 147.9969),
-		name = 'Pronghorn',
+	Ferme = {
+		pos = vector3(-1587.07, -1424.411, 81.33995),
+		name = 'Ferme',
     },
 	Boucherie = {
 		pos = vector3(2162.463, -1307.915, 42.45642),
