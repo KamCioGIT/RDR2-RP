@@ -204,12 +204,12 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 	}, function(result)
 		if #result ~= 0 then
 			for i = 1, #result do
-				local lastup = result[i].date
 				local cd = os.time()
-				local cooldown = 24 * 60 * 60
-				local timeDifference = cd - lastup
 				local level = result[i].level
-				print (tonumber(timeDifference))
+				local currentTime = os.date("*t") -- Obtenir la date/heure actuelle sous forme de table Lua
+				local savedDateTimeStr = result[i].date -- Remplacez ceci par la date de votre base de données
+				local savedTime = parseDateTime(savedDateTimeStr) -- Convertir la date en table Lua
+				local timeDifference = calculateTimeDifference(currentTime, savedTime)
 				if timeDifference >= 86400 or lastup == nil then
 					if level < 5 then
 						local newlevel = level + 1
@@ -242,7 +242,21 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 	end)
 end)
 
+function parseDateTime(dateTimeStr)
+    local year, month, day, hour, min, sec = dateTimeStr:match("(%d+)-(%d+)-(%d+) (%d+):(%d+):(%d+)")
+    return {
+        year = tonumber(year),
+        month = tonumber(month),
+        day = tonumber(day),
+        hour = tonumber(hour),
+        min = tonumber(min),
+        sec = tonumber(sec)
+    }
+end
 
+function calculateTimeDifference(currentTime, savedTime)
+    return os.time(currentTime) - os.time(savedTime)
+end
 
 RegisterServerEvent("dust_ferme:serveur:milking")
 AddEventHandler("dust_ferme:serveur:milking", function(cowid)
