@@ -261,7 +261,7 @@ function buycow(stable)
         local elements = {}
 
         for k, v in pairs(Config.Cattle) do
-            table.insert(elements, {label = v.name, value = v.model, desc = v.desc, price = v.price})
+            table.insert(elements, {label = ""..v.price.." - " ..v.name, value = v.model, desc = v.desc, price = v.price})
         end
         MenuData.Open('default', GetCurrentResourceName(), 'buycattle', {
             title = "Acheter du bétail",
