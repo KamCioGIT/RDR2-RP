@@ -523,7 +523,6 @@ function SetupPrompt(promptID, key, group, text)
     return promptID
 end
 
-local grazing = false
 Citizen.CreateThread(function ()
     local paitrePrompt
     local guidePrompt
@@ -606,7 +605,7 @@ Citizen.CreateThread(function ()
 end)
 
 function Graze(entity)
-    TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), 120000, true, false, false, false)
+    TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
     Entity(entity).state.grazing = true
     Citizen.Wait(120000)
     TriggerServerEvent("dust_ferme:cowup", Entity(entity).state.cowid)

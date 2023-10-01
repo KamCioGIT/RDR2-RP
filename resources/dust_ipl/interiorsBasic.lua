@@ -771,9 +771,10 @@ RemoveImap(1864768904) -- beechers field crops in middle
 RemoveImap(938290967)  -- beechers field crops in middle
 RemoveImap(1169279648) -- beechers field crops in middle
 RemoveImap(-284612948) -- beechers field tilled field
-RequestImap(-1765152778) -- beechers field logs laying in 
-RequestImap(-2072231077) -- beechers field plants over area
+RemoveImap(-1765152778) -- beechers field logs laying in 
+RemoveImap(-2072231077) -- beechers field plants over area
 RequestImap(-1253110600) -- beechers field hole in ground fix
+RemoveImap(-1402083909)
 ------------------------------------- #### END OF BEECHERS FIELD ####
 
 ----------------------- hole at -1627.81, 224.5, 106.45
@@ -2543,7 +2544,6 @@ RemoveImap(1977031606)
 RemoveImap(-2021605623)
 RequestImap(1191890045)
 RequestImap(19217583)
-RequestImap(-284612948)
 RequestImap(-846230557)
 RemoveImap(-1614141377)---Dakota River Coach Crash
 RemoveImap(-926795318)
