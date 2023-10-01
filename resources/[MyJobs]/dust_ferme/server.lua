@@ -251,16 +251,22 @@ AddEventHandler("dust_ferme:serveur:milking", function(cowid)
 		if #result ~= 0 then
 			for i = 1, #result do
 				local milk = result[i].milk
-				if milk >= 1 then
-					local newmilk = milk - 1
-					local ItemData = data.getItem(_source, "sceaulait")
-					ItemData.AddItem(1)    
-					MySQL.update('UPDATE cattle SET `milk`=@milk WHERE `cowid`=@cowid;',
-						{
-							milk = newmilk,
-							cowid = cowid
-						}, function(rowsChanged)
-					end)  
+				local model = result[i].model
+				if model == "a_c_cow" then
+					if milk >= 1 then
+						local newmilk = milk - 1
+						local ItemData = data.getItem(_source, "sceaulait")
+						ItemData.AddItem(1)    
+						MySQL.update('UPDATE cattle SET `milk`=@milk WHERE `cowid`=@cowid;',
+							{
+								milk = newmilk,
+								cowid = cowid
+							}, function(rowsChanged)
+						end)  
+					end
+				elseif model == "a_c_bull_01" then
+					local ItemData = data.getItem(_source, "foutrebovin")
+					ItemData.AddItem(1)
 				end
 			end
 		end
@@ -268,12 +274,6 @@ AddEventHandler("dust_ferme:serveur:milking", function(cowid)
 
 end)
 
-RegisterServerEvent("boucher:serveur:giveitem")
-AddEventHandler("boucher:serveur:giveitem", function(item, amount)
-	local _source = source
-	local ItemData = data.getItem(_source, item)
-    ItemData.AddItem(amount)               
-end)
 
 AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
