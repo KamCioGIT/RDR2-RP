@@ -631,10 +631,10 @@ function Laiterie()
         Citizen.Wait(0)
         for k, v in pairs(Config.Lait) do
             local ped = PlayerPedId()
-            local playercoord = GetEntityCoords(ped)
-            if #(playercoord - v.pos ) < 5 and not isInteracting then
+            local playerpos = GetEntityCoords(PlayerPedId())
+            if #(playerpos - v.pos ) < 5 and not isInteracting then
                 local itemSet = CreateItemset(true)
-                local size = Citizen.InvokeNative(0x59B57C4B06531E1E, playercoord, 2.0, itemSet, 1, Citizen.ResultAsInteger())
+                local size = Citizen.InvokeNative(0x59B57C4B06531E1E, playerpos, 2.0, itemSet, 1, Citizen.ResultAsInteger())
                 if size > 0 then
                     for index = 0, size - 1 do
                         local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
