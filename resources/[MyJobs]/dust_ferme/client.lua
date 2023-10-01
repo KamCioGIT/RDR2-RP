@@ -554,13 +554,11 @@ Citizen.CreateThread(function ()
                                 for k, v in pairs(Config.FarmStables) do
                                     if #(targetCoords - v.pos) < 7 then
                                         TriggerServerEvent("dust_ferme:server:stockcow", v.name, cowid, entity)
-                                        break
                                     end
                                 end
                                 for k, v in pairs(Config.Paturages) do
                                     if #(targetCoords - v.pos) < Config.blipRadius then
                                         Graze(entity)
-                                        break
                                     end
                                 end
                             end
