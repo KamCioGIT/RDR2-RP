@@ -38,14 +38,14 @@ Config.Buycattle = {
 Config.Cattle = {
 	bull= {
 		model = "a_c_bull_01",
-		name = "Taureau - $15",
-		desc = "Un gros morceau de viande",
+		name = "Taureau",
+		desc = "$15 - Un gros morceau de viande",
 		price = 15,
     },
 	cow= {
 		model = "a_c_cow",
-		name = "Vache - $5",
-		desc = "Pour faire du bon lait",
+		name = "Vache",
+		desc = "$5 - Pour faire du bon lait",
 		price = 5,
     },
 }
