@@ -548,9 +548,10 @@ Citizen.CreateThread(function ()
                         else
                             Entity(entity).state.follow = true
                             ClearPedTasks(entity)
-                            local duration = math.random(30000, 120000)
+                            local duration = 5000
+                            -- math.random(30000, 120000)
                             Follow(entity, duration)
-                            return
+                            TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
                         end
                         -- guider
                     end
@@ -560,7 +561,7 @@ Citizen.CreateThread(function ()
                         for k, v in pairs(Config.FarmStables) do
                             if #(targetCoords - v.pos) < 7 then
                                 TriggerServerEvent("dust_ferme:server:stockcow", v.name, cowid, entity)
-                                return
+                                break
                             end
                         end
                         for k, v in pairs(Config.Paturages) do
@@ -598,12 +599,6 @@ Citizen.CreateThread(function ()
         Citizen.Wait(0)
     end
 end)
-
-function Follow(entity, duration)
-    TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, 5000, 100, 1, 1, 0, 0, 1)
-    Wait(5000)
-    Entity(entity).state.follow = false
-end
 
 function Graze(entity)
     TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), 120000, true, false, false, false)
