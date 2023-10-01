@@ -45,6 +45,7 @@ end)
 
 RegisterNetEvent("dust_mineur:client:ReceiveJob", function(job, grade)
     if job == "mineur" then
+        print 'rrrrrr'
         startMission()
         if grade == 2 then
             if grade == 3 then
