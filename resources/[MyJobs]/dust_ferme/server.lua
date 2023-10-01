@@ -209,7 +209,7 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 				local cooldown = 24 * 60 * 60
 				local timeDifference = cd - lastup
 				local level = result[i].level
-				print (type(timeDifference))
+				print (tonumber(timeDifference))
 				if timeDifference >= 86400 or lastup == nil then
 					if level < 5 then
 						local newlevel = level + 1
