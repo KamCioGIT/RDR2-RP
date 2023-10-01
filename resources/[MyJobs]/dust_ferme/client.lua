@@ -652,6 +652,7 @@ function Laiterie()
                     for index = 0, size - 1 do
                         local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                         if Entity(entity).state.cowid then
+                            print 'uwuwuwuw'
                             laitprompt:setActiveThisFrame(true)
                             if IsControlJustReleased(0, 0x760A9C6F) then
                                 isInteracting = true
