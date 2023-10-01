@@ -541,18 +541,18 @@ Citizen.CreateThread(function ()
                     if not guidePrompt then
                         guidePrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
                     end
+                    if not stopPrompt then
+                        stopPrompt = SetupPrompt(1, 0x8FD015D8, id, "S'arrêter")
+                    end
+                    if IsControlJustReleased(0, 0x8FD015D8) and Entity(entity).state.grazing ~= true then
+                        ClearPedTasks(entity)
+                        TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, 200, 100, 1, 1, 0, 0, 1)
+                    -- guider
+                end
                     if IsControlJustReleased(0, 0x760A9C6F) and Entity(entity).state.grazing ~= true then
-                        if Entity(entity).state.follow == true then
-                            TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, 1, 100, 1, 1, 0, 0, 1)
-                            Entity(entity).state.follow = false
-                        else
-                            Entity(entity).state.follow = true
                             ClearPedTasks(entity)
-                            local duration = 5000
-                            -- math.random(30000, 120000)
-                            Follow(entity, duration)
+                            local duration = math.random(30000, 120000)
                             TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
-                        end
                         -- guider
                     end
                     if IsControlJustReleased(0, 0x156F7119) then
@@ -583,6 +583,10 @@ Citizen.CreateThread(function ()
                         PromptDelete(guidePrompt)
                         guidePrompt = nil
                     end
+                    if stopPrompt then 
+                        PromptDelete(stopPrompt)
+                        stopPrompt = nil
+                    end
                 end
             end
                 
@@ -594,6 +598,10 @@ Citizen.CreateThread(function ()
             if guidePrompt then 
                 PromptDelete(guidePrompt)
                 guidePrompt = nil
+            end
+            if stopPrompt then 
+                PromptDelete(stopPrompt)
+                stopPrompt = nil
             end
         end
         Citizen.Wait(0)
