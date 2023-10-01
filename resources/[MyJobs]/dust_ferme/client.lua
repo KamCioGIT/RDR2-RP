@@ -287,7 +287,7 @@ end
 
 -- prompt étable
 local farmprompt = UipromptGroup:new("Étable")
-Uiprompt:new(0xC7B5340A, "Ouvrir", farmprompt)
+Uiprompt:new(0xF1301666, "Ouvrir", farmprompt)
 Uiprompt:new(0x156F7119, "Gérer", farmprompt):setHoldMode(true)
 farmprompt:setActive(false)
 
@@ -299,7 +299,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.FarmStables) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 farmprompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, 0xC7B5340A) then
+                if IsControlJustReleased(0, 0xF1301666) then
                     isInteracting = true
                     local menutype = "Ouvrir"
                     TriggerServerEvent("dust_ferme:server:askcow")
