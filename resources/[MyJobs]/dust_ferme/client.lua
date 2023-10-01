@@ -547,8 +547,7 @@ Citizen.CreateThread(function ()
                     if IsControlJustReleased(0, 0x8CC9CD42) and Entity(entity).state.grazing ~= true then
                         ClearPedTasks(entity)
                         TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, 200, 100, 1, 1, 0, 0, 1)
-                    -- guider
-                end
+                    end
                     if IsControlJustReleased(0, 0x760A9C6F) and Entity(entity).state.grazing ~= true then
                             ClearPedTasks(entity)
                             local duration = math.random(30000, 120000)
@@ -561,14 +560,12 @@ Citizen.CreateThread(function ()
                         for k, v in pairs(Config.FarmStables) do
                             if #(targetCoords - v.pos) < 7 then
                                 TriggerServerEvent("dust_ferme:server:stockcow", v.name, cowid, entity)
-                                return
                             end
                         end
                         for k, v in pairs(Config.Paturages) do
                             if #(targetCoords - v.pos) < Config.blipRadius then
                                 if Entity(entity).state.grazing == false then
                                     Graze(entity)
-                                    return
                                 end
                             end
                         end
