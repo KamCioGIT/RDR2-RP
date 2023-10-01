@@ -208,7 +208,7 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 				local cd = os.time()
 				local cooldown = 24 * 60 * 60
 				local level = result[i].level
-				if cd - lastup >= cooldown then
+				if cd - lastup >= cooldown or lastup == nil then
 					if level < 5 then
 						local newlevel = level + 1
 						local model = result[i].model
