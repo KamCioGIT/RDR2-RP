@@ -207,7 +207,7 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 				local cd = os.time()
 				local level = result[i].level
 				local savedDate = result[i].date / 1000 -- Remplacez ceci par la date de votre base de données
-				local timeDifference = os.difftime(savedDate, cd)
+				local timeDifference = os.difftime(cd, savedDate)
 				print (timeDifference)
 				if timeDifference >= 86400 or lastup == nil then
 					if level < 5 then
