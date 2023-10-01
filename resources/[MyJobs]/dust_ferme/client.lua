@@ -576,16 +576,18 @@ Citizen.CreateThread(function ()
                     if IsControlJustReleased(0, 0x80F28E95) then
                         for k, v in pairs(Config.Lait) do
                             if #(targetCoords - v.pos) < 7 then
-                                isInteracting = true
-                                RequestAnimDict(Config.PedMilkingDict)
-                                while not HasAnimDictLoaded(Config.PedMilkingDict) do
-                                    Wait(10)
+                                if  #(targetCoords - playerCoords) < 1.0 then
+                                    isInteracting = true
+                                    RequestAnimDict(Config.PedMilkingDict)
+                                    while not HasAnimDictLoaded(Config.PedMilkingDict) do
+                                        Wait(10)
+                                    end
+                                    TaskPlayAnim(PlayerPedId(), Config.PedMilkingDict, Config.PedMilkingAnim, 1.0, 1.0, -1, 0, 0, false, false, false)
+                                    Wait(5000)
+                                    ClearPedTasks(PlayerPedId())
+                                    TriggerServerEvent("dust_ferme:serveur:milking", Entity(entity).state.cowid)
+                                    isInteracting = false
                                 end
-                                TaskPlayAnim(PlayerPedId(), Config.PedMilkingDict, Config.PedMilkingAnim, 1.0, 1.0, -1, 0, 0, false, false, false)
-                                Wait(5000)
-                                ClearPedTasks(PlayerPedId())
-                                TriggerServerEvent("dust_ferme:serveur:milking", Entity(entity).state.cowid)
-                                isInteracting = false
                             end
                         end
 
