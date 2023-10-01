@@ -627,10 +627,10 @@ Uiprompt:new(0x760A9C6F, "Traire", laitprompt)
 laitprompt:setActive(false)
 
 function Laiterie()
-    local ped = PlayerPedId()
     while true do
         Citizen.Wait(0)
         for k, v in pairs(Config.Lait) do
+            local ped = PlayerPedId()
             local playercoord = GetEntityCoords(ped)
             if #(playercoord - v.pos ) < 5 and not isInteracting then
                 local itemSet = CreateItemset(true)
