@@ -69,11 +69,13 @@ end)
 --     TriggerClientEvent("global:CheckPlayerJob", source, user.getJob(), user.getJobgrade())
 -- end)
 
-
-AddEventHandler("redemrp:selectCharacter", function(source)
-    local user = RedEM.GetPlayer(source)
-    local job = user.job
-    local jobgrade = user.jobgrade
-    TriggerClientEvent("global:CheckPlayerJob", source, job, jobgrade)
+RegisterServerEvent("contrat:checkjob", function(source)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    if user then
+        local job = user.job
+        local jobgrade = user.jobgrade
+        TriggerClientEvent("global:CheckPlayerJob", _source, job, jobgrade)
+    end
 end)
 
