@@ -650,8 +650,6 @@ function Laiterie()
                                 isInteracting = false
                                 return
                             end
-
-                            
                         end
                     end
                 end
