@@ -140,7 +140,7 @@ end)
 
 --- achat 
 
-RegisterServerEvent("dust_ferme:createcattle", function(name, model, stable, race)
+RegisterServerEvent("dust_ferme:createcattle", function(name, model, stable, race, price)
 	local _source = source     
 		local user = RedEM.GetPlayer(_source)
 		local job = user.job
@@ -148,18 +148,22 @@ RegisterServerEvent("dust_ferme:createcattle", function(name, model, stable, rac
     	local numBase1 = math.random(0, 999)
     	local generetedcowid = string.format("%03d%04d", numBase0, numBase1)
 		local cowid = generetedcowid
-		MySQL.update(
-		'INSERT INTO cattle (`job`, `cowid`, `stable`, `model`, `name`, `race`) VALUES (@job, @cowid, @stable, @model, @name, @race);',
-		{
-			job = job,
-			name = name,
-			cowid = cowid,
-			model = model,
-			stable = stable,
-			race = race
-		}, function(rowsChanged)
+		local money = user.money
+		if money >= price then
+			user.RemoveMoney(price)
+			MySQL.update(
+			'INSERT INTO cattle (`job`, `cowid`, `stable`, `model`, `name`, `race`) VALUES (@job, @cowid, @stable, @model, @name, @race);',
+			{
+				job = job,
+				name = name,
+				cowid = cowid,
+				model = model,
+				stable = stable,
+				race = race
+			}, function(rowsChanged)
 
-		end)
+			end)
+		end
 end)
 
 RegisterServerEvent("dust_ferme:server:cowout", function(id)

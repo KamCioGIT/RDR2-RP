@@ -261,7 +261,7 @@ function buycow(stable)
         local elements = {}
 
         for k, v in pairs(Config.Cattle) do
-            table.insert(elements, {label = v.name, value = v.model, desc = v.desc})
+            table.insert(elements, {label = v.name, value = v.model, desc = v.desc, price = v.price})
         end
         MenuData.Open('default', GetCurrentResourceName(), 'buycattle', {
             title = "Acheter du bétail",
@@ -273,7 +273,7 @@ function buycow(stable)
         function(data, menu)
             MenuData.CloseAll()
             Wait(10)
-            TriggerServerEvent("dust_ferme:createcattle", data.current.label, data.current.value, stable, data.current.label)
+            TriggerServerEvent("dust_ferme:createcattle", data.current.label, data.current.value, stable, data.current.label, data.current.price) 
             isInteracting = false
         end,
 
