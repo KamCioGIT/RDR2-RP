@@ -533,7 +533,7 @@ Citizen.CreateThread(function ()
             if Entity(entity).state.cowid then
                 local playerCoords = GetEntityCoords(PlayerPedId())
                 local targetCoords = GetEntityCoords(entity)
-                if #(playerCoords - targetCoords) <= 4.0 then
+                if #(playerCoords - targetCoords) <= 7.0 then
                     local id = Citizen.InvokeNative(0xB796970BD125FCE8, entity) -- UiPromptGetGroupIdForTargetEntity
                     if not paitrePrompt then
                         paitrePrompt = SetupPrompt(1, 0x156F7119, id, "Paître")
