@@ -543,6 +543,9 @@ Citizen.CreateThread(function ()
                     if not stopPrompt then
                         stopPrompt = SetupPrompt(1, 0x8CC9CD42, id, "S'arrêter")
                     end
+                    if not laitPrompt then
+                        laitPrompt = SetupPrompt(1, 0x80F28E95, id, "Traire")
+                    end
                     if IsControlJustReleased(0, 0x8CC9CD42) and Entity(entity).state.grazing ~= true then
                         ClearPedTasks(entity)
                         TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, 200, 100, 1, 1, 0, 0, 1)
@@ -569,6 +572,23 @@ Citizen.CreateThread(function ()
                                 end
                             end
                         end
+                    end
+                    if IsControlJustReleased(0, 0x80F28E95) then
+                        for k, v in pairs(Config.Lait) do
+                            if #(targetCoords - v.pos) < 7 then
+                                isInteracting = true
+                                RequestAnimDict(Config.PedMilkingDict)
+                                while not HasAnimDictLoaded(Config.PedMilkingDict) do
+                                    Wait(10)
+                                end
+                                TaskPlayAnim(PlayerPedId(), Config.PedMilkingDict, Config.PedMilkingAnim, 1.0, 1.0, -1, 0, 0, false, false, false)
+                                Wait(5000)
+                                ClearPedTasks(PlayerPedId())
+                                TriggerServerEvent("dust_ferme:serveur:milking", Entity(entity).state.cowid)
+                                isInteracting = false
+                            end
+                        end
+
                     end
 
                 else
