@@ -7,6 +7,7 @@ local isInBossMenu = false
 --- Définir si le joueur est mineur 
 AddEventHandler("global:CheckPlayerJob", function(job, jobgrade)
     Citizen.CreateThread(function()
+        print (job, jobgrade)
         local PlayerData = RedEM.GetPlayerData()
         while RedEM.GetPlayerData().isLoggedIn ~= true do 
             Wait(1000)
