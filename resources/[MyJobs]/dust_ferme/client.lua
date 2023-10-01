@@ -605,6 +605,10 @@ Citizen.CreateThread(function ()
                         PromptDelete(stopPrompt)
                         stopPrompt = nil
                     end
+                    if laitPrompt then 
+                        PromptDelete(laitPrompt)
+                        laitPrompt = nil
+                    end
                 end
             end
                 
@@ -620,6 +624,10 @@ Citizen.CreateThread(function ()
             if stopPrompt then 
                 PromptDelete(stopPrompt)
                 stopPrompt = nil
+            end
+            if laitPrompt then 
+                PromptDelete(laitPrompt)
+                laitPrompt = nil
             end
         end
         Citizen.Wait(0)
