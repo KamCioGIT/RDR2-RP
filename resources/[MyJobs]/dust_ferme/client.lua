@@ -541,7 +541,7 @@ Citizen.CreateThread(function ()
                     if not guidePrompt then
                         guidePrompt = SetupPrompt(1, 0x760A9C6F, id, "Guider")
                     end
-                    if IsControlJustReleased(0, 0x760A9C6F) and Entity(entity).state.grazing == false then
+                    if IsControlJustReleased(0, 0x760A9C6F) and Entity(entity).state.grazing ~= true then
                         ClearPedTasks(entity)
                         local duration = math.random(15000, 120000)
                         -- TaskGoToEntity(entity, PlayerPedId(), duration, 0.2, 2.0, 0, 0)
