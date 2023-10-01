@@ -65,9 +65,7 @@ AddEventHandler("dust_contract:AddJobContrat", function(job, name)
     itemData.AddItem(1)
 end)
 
--- AddEventHandler("redemrp:playerLoaded", function(source, user)
---     TriggerClientEvent("global:CheckPlayerJob", source, user.getJob(), user.getJobgrade())
--- end)
+
 
 RegisterServerEvent("contrat:checkjob", function(source)
     local _source = source
