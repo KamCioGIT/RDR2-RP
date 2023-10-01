@@ -152,14 +152,15 @@ RegisterServerEvent("dust_ferme:createcattle", function(name, model, stable, rac
 		if money >= price then
 			user.RemoveMoney(price)
 			MySQL.update(
-			'INSERT INTO cattle (`job`, `cowid`, `stable`, `model`, `name`, `race`) VALUES (@job, @cowid, @stable, @model, @name, @race);',
+			'INSERT INTO cattle (`job`, `cowid`, `stable`, `model`, `name`, `race`, `milk`) VALUES (@job, @cowid, @stable, @model, @name, @race, @milk);',
 			{
 				job = job,
 				name = name,
 				cowid = cowid,
 				model = model,
 				stable = stable,
-				race = race
+				race = race,
+				milk = 0
 			}, function(rowsChanged)
 
 			end)
@@ -203,17 +204,75 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 	}, function(result)
 		if #result ~= 0 then
 			for i = 1, #result do
+				local lastup = result[i].date
+				local cd = os.time()
+				local cooldown = 24 * 60 * 60
 				local level = result[i].level
-				local newlevel = level + 1
-				MySQL.update('UPDATE cattle SET `level`=@level WHERE `cowid`=@cowid;',
-					{
-						level = newlevel,
-						cowid = cowid
-					}, function(rowsChanged)
-				end)
+				if cd - lastup >= cooldown then
+					if level < 5 then
+						local newlevel = level + 1
+						local model = result[i].model
+						if model == "a_c_cow" then
+							local milk = result[i].milk
+							local newmilk = milk + 1
+							MySQL.update('UPDATE cattle SET `level`=@level AND `milk`=@milk AND `date`=@date WHERE `cowid`=@cowid;',
+								{
+									level = newlevel,
+									cowid = cowid,
+									milk = newmilk,
+									date = cd
+								}, function(rowsChanged)
+							end)
+						else
+							MySQL.update('UPDATE cattle SET `level`=@level AND `date`=@date WHERE `cowid`=@cowid;',
+							{
+								level = newlevel,
+								cowid = cowid,
+								date = cd
+							}, function(rowsChanged)
+							end)
+						end
+					end
+				end
 			end
 		end
 	end)
+end)
+
+
+
+RegisterServerEvent("dust_ferme:serveur:milking")
+AddEventHandler("dust_ferme:serveur:milking", function(cowid)
+	local _source = source
+	MySQL.query('SELECT * FROM cattle WHERE `cowid`=@cowid;',
+	{
+		cowid = cowid
+	}, function(result)
+		if #result ~= 0 then
+			for i = 1, #result do
+				local milk = result[i].milk
+				if milk >= 1 then
+					local newmilk = milk - 1
+					local ItemData = data.getItem(_source, "sceaulait")
+					ItemData.AddItem(1)    
+					MySQL.update('UPDATE cattle SET `milk`=@milk WHERE `cowid`=@cowid;',
+						{
+							milk = newmilk,
+							cowid = cowid
+						}, function(rowsChanged)
+					end)  
+				end
+			end
+		end
+	end)  
+
+end)
+
+RegisterServerEvent("boucher:serveur:giveitem")
+AddEventHandler("boucher:serveur:giveitem", function(item, amount)
+	local _source = source
+	local ItemData = data.getItem(_source, item)
+    ItemData.AddItem(amount)               
 end)
 
 AddEventHandler("onResourceStop", function(resourceName)

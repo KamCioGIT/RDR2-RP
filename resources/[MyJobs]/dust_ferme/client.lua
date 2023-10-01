@@ -21,6 +21,7 @@ RegisterNetEvent("fermier:CheckPlayerJob", function(job, jobgrade)
     if job == "fermier" then
         startMission()
         Paturages()
+        Laiterie()
         if jobgrade >= 2 then
             contremaitre()
             if jobgrade == 3 then
@@ -619,7 +620,44 @@ function Paturages()
 end
 
 -- lait
+local laitprompt = UipromptGroup:new("Vache")
+Uiprompt:new(0x760A9C6F, "Traire", laitprompt)
+laitprompt:setActive(false)
 
+function Laiterie()
+    local ped = PlayerPedId()
+    while true do
+        Citizen.Wait(0)
+        local itemSet = CreateItemset(true)
+        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(ped), 2.0, itemSet, 1, Citizen.ResultAsInteger())
+        if size > 0 then
+            for index = 0, size - 1 do
+                local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
+                if Entity(entity).state.cowid then
+                    laitprompt:setActiveThisFrame(true)
+                    if IsControlJustReleased(0, 0x760A9C6F) then
+                        local dict = "amb_work@prop_human_tanning_rack_fleshing@male_a@base"
+                        RequestAnimDict(Config.PedMilkingDict)
+                        while not HasAnimDictLoaded(Config.PedMilkingDict) do
+                            Wait(10)
+                        end
+                        TaskPlayAnim(playerPed, Config.PedMilkingDict, Config.PedMilkingAnim, 1.0, 1.0, -1, 0, 0, false, false, false)
+                        Wait(5000)
+                        ClearPedTasks(playerPed)
+                        TriggerServerEvent("dust_ferme:serveur:milking", Entity(entity).state.cowid)
+                        return
+                    end
+
+                    
+                end
+            end
+        end
+
+        if IsItemsetValid(itemSet) then
+            DestroyItemset(itemSet)
+        end
+    end
+end
 
 
 

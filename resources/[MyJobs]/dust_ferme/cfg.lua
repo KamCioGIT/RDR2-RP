@@ -56,8 +56,12 @@ Config.FarmStables = {
 		name = 'Blackwater',
     },
 	Pronghorn = {
-		pos = vector3(-2541.848, 409.8233, 148.3275),
+		pos = vector3(-2519.732, 424.9185, 147.9969),
 		name = 'Pronghorn',
+    },
+	Boucherie = {
+		pos = vector3(2162.463, -1307.915, 42.45642),
+		name = 'Boucherie',
     },
 
 }
@@ -79,3 +83,12 @@ Config.Paturages = {
 Config.BlipSprite = -675651933
 Config.blipRadius = 50.0
 Config.radiusStyle = 1673015813
+
+
+
+Config.Boucherie = vector3(2150.772, -1296.647, 42.75868)
+Config.Lait = vector3(-2544.528, 399.478, 148.2214)
+
+Config.PedMilkingDict = "mech_milking"
+Config.PedMilkingAnim = "milking_loop_player"
+
