@@ -204,6 +204,7 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 	}, function(result)
 		if #result ~= 0 then
 			for i = 1, #result do
+				print 'test'
 				local lastup = result[i].date
 				local cd = os.time()
 				local cooldown = 24 * 60 * 60
