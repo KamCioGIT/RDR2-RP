@@ -207,7 +207,7 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 				local cd = os.date()
 				local level = result[i].level
 				local savedDateTimeStr = result[i].date -- Remplacez ceci par la date de votre base de données
-				local savedDate = os.time(savedDateTimeStr)
+				print (savedDateTimeStr)
 				local timeDifference = os.difftime(cd, savedDate)
 
 				print (type(savedDateTimeStr))
