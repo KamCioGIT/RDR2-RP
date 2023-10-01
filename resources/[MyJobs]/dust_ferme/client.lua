@@ -581,7 +581,7 @@ Citizen.CreateThread(function ()
                                     while not HasAnimDictLoaded(Config.PedMilkingDict) do
                                         Wait(10)
                                     end
-                                    TaskPlayAnim(PlayerPedId(), Config.PedMilkingDict, Config.PedMilkingAnim, 1.0, 1.0, -1, -1, 0, false, false, false)
+                                    TaskPlayAnim(PlayerPedId(), Config.PedMilkingDict, Config.PedMilkingAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
                                     Wait(5000)
                                     ClearPedTasks(PlayerPedId())
                                     TriggerServerEvent("dust_ferme:serveur:milking", Entity(entity).state.cowid)
