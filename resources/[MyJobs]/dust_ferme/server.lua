@@ -222,7 +222,7 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 									level = newlevel,
 									cowid = cowid,
 									milk = newmilk,
-									date = cd
+									date = os.date("%Y-%m-%d %H:%M:%S")
 								}, function(rowsChanged)
 							end)
 						else
