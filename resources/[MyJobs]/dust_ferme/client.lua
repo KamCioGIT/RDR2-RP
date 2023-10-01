@@ -600,8 +600,8 @@ Citizen.CreateThread(function ()
 end)
 
 function Follow(entity, duration)
-    TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
-    Wait(duration)
+    TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, 5000, 100, 1, 1, 0, 0, 1)
+    Wait(5000)
     Entity(entity).state.follow = false
 end
 
