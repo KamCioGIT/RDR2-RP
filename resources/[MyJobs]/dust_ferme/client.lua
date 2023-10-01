@@ -564,8 +564,8 @@ Citizen.CreateThread(function ()
                         for k, v in pairs(Config.Paturages) do
                             if #(targetCoords - v.pos) < Config.blipRadius then
                                 if Entity(entity).state.grazing == false then
-                                    Graze(entity)
-                                    return
+                                    TriggerServerEvent("dust_ferme:cowup", Entity(entity).state.cowid)
+                                    TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), 12000, true, false, false, false)
                                 end
                             end
                         end
@@ -606,11 +606,11 @@ Citizen.CreateThread(function ()
 end)
 
 function Graze(entity)
-    TaskStartScenarioInPlace(entity, GetHashKey('WORLD_ANIMAL_COW_GRAZING'), -1, true, false, false, false)
+    
     Entity(entity).state.grazing = true
     Wait(120000)
     ClearPedTasks(entity)
-    TriggerServerEvent("dust_ferme:cowup", Entity(entity).state.cowid)
+    
     Entity(entity).state.grazing = false
 end
 
