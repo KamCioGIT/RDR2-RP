@@ -84,7 +84,7 @@ Config.Paturages = {
 
 Config.BlipSprite = -675651933
 Config.blipRadius = 50.0
-Config.radiusStyle = -678244495
+Config.radiusStyle = -1559907306
 
 
 
