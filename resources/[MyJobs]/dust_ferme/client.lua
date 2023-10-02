@@ -316,7 +316,7 @@ function cattle()
             end 
         end
     end
-end)
+end
 
 -- menu base étable
 local cowlist = {}
