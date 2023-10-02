@@ -555,7 +555,7 @@ Citizen.CreateThread(function ()
                     if IsControlJustReleased(0, 0x760A9C6F) and Entity(entity).state.grazing ~= true then
                             print('guider')
                             ClearPedTasks(entity)
-                            local duration = math.random(30000, 120000)
+                            local duration = math.random(60000, 120000)
                             TaskGoToEntity(entity, PlayerPedId(), duration, 0.2, 2.0, 0, 0)
                             -- TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
                         -- guider
