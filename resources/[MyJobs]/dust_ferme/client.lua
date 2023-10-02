@@ -682,7 +682,7 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Boucherie) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
-                farmprompt:setActiveThisFrame(true)
+                boucherieprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x6319DB71) then
                     isInteracting = true
                     TriggerServerEvent("dust_ferme:server:askcowboucherie")
