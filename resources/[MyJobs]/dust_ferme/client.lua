@@ -492,10 +492,8 @@ function spawncow(model, name, id)
     TaskAnimalUnalerted(cow, -1, false, 0, 0)
 
     SetPedPromptName(cow, name)
-    
-    Entity(cow).state.cowid = id
-    Entity(cow).state.name = name
-    Entity(cow).state.grazing = false
+    TriggerServerEvent('cowstatebag', cow)
+
 
     SetPedConfigFlag(cow, 297, true)
     SetRelationshipBetweenGroups(1, GetPedRelationshipGroupHash(cow), GetHashKey('PLAYER'))

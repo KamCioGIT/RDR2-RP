@@ -742,25 +742,25 @@ Citizen.CreateThread(function()
     end
 end)
 
--- local saddleprompt = UipromptGroup:new("Charrette")
--- Uiprompt:new(0x760A9C6F, "Ouvrir", saddleprompt)
--- saddleprompt:setActive(false)
+local charretteprompt = UipromptGroup:new("Charrette")
+Uiprompt:new(0x760A9C6F, "Ouvrir", charretteprompt)
+charretteprompt:setActive(false)
 
--- Citizen.CreateThread(function()
---     while true do
---         Citizen.Wait(0)
---         local coords = GetEntityCoords(PlayerPedId())
---         local cart = lib.getClosestVehicle(coords, 3.0, false)
---         if cart then
---             if Entity(cart).state.stashid then
---                 saddleprompt:setActiveThisFrame(true)
---                 if IsControlJustReleased(0, 0x760A9C6F) then
---                     TriggerEvent("redemrp_inventory:OpenStash", Entity(cart).state.stashid, Entity(cart).state.stashweight)
---                 end
---             end
---         end
---     end
--- end)
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        local coords = GetEntityCoords(PlayerPedId())
+        local cart = lib.getClosestVehicle(coords, 3.0, false)
+        if cart then
+            if Entity(cart).state.stashid then
+                charretteprompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x760A9C6F) then
+                    TriggerEvent("redemrp_inventory:OpenStash", Entity(cart).state.stashid, Entity(cart).state.stashweight)
+                end
+            end
+        end
+    end
+end)
 
 
 ------- META/STATUS CHEVAUX -----
