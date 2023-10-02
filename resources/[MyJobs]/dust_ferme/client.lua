@@ -492,7 +492,7 @@ function spawncow(model, name, id)
     TaskAnimalUnalerted(cow, -1, false, 0, 0)
 
     SetPedPromptName(cow, name)
-    TriggerServerEvent('cowstatebag', cow)
+    TriggerServerEvent('cowstatebag', cow, id, name)
 
 
     SetPedConfigFlag(cow, 297, true)
