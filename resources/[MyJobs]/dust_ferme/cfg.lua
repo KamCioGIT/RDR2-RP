@@ -87,7 +87,7 @@ Config.radiusStyle = 1673015813
 
 
 Config.Boucherie = {
-	[1] = {pos= vector3(2150.772, -1296.647, 42.75868)},
+	[1] = {pos= vector3(2150.772, -1296.647, 42.75868), blip = -1665418949},
 }
 
 Config.RewardBoucherie = {
