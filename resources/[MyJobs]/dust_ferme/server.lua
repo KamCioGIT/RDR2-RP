@@ -348,9 +348,15 @@ AddEventHandler(
 								local ItemData1 = data.getItem(_source, typeviande)
 								local ItemData2 = data.getItem(_source, typecuir)
 								local ItemData3 = data.getItem(_source, 'graisse')
-
-								if ItemData1.AddItem(amountviande) and ItemData2.AddItem(amountcuir) and ItemData3.AddItem(amountgraisse) then
-									MySQL.query('DELETE FROM cattle WHERE `cowid` = @cowid;', {cowid = cowid})
+								local weight1 = ItemData1.ItemInfo.weight * amountviande
+								local weight2 = ItemData2.ItemInfo.weight * amountcuir
+								local weight3 = ItemData3.ItemInfo.weight * amountgraisse
+								local totalweight = weight1 + weight2 + weight3
+								local weight = exports.redemrp_inventory.checkuserweight(_source, identifier, charid)
+								if 45 - weight >= totalweight then
+									if ItemData1.AddItem(amountviande) and ItemData2.AddItem(amountcuir) and ItemData3.AddItem(amountgraisse) then
+										MySQL.query('DELETE FROM cattle WHERE `cowid` = @cowid;', {cowid = cowid})
+									else return end
 								else return end
 							end
 						end
