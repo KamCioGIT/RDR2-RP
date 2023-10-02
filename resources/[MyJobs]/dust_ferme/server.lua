@@ -291,6 +291,72 @@ AddEventHandler("dust_ferme:serveur:milking", function(cowid)
 end)
 
 
+------ ask cow boucherie ------ 
+RegisterNetEvent("dust_ferme:server:askcowboucherie")
+AddEventHandler(
+    "dust_ferme:server:askcowboucherie",
+    function()
+        local _source = source     
+		local user = RedEM.GetPlayer(_source)
+		local job = user.job
+		MySQL.query('SELECT * FROM cattle WHERE (`selected`=@selected AND `job`=@job AND `stable`=@stable);',
+		{
+			job = job,
+			selected = 0,
+			stable = 'boucherie'
+
+		}, function(result)
+			if #result ~= 0 then
+				for i = 1, #result do
+					if result[i].selected == 0 then 
+						local cowid = result[i].cowid
+						local name = result[i].name
+						local model = result[i].model
+						local stable = result[i].stable
+						local race = result[i].race
+						TriggerClientEvent("dust_ferme:getcowboucherie", _source, cowid, name, model, stable, race)
+					end
+				end                    
+			end
+		end)
+end)
+
+RegisterNetEvent("dust_ferme:server:killcow")
+AddEventHandler(
+    "dust_ferme:server:killcow",
+    function(cowid)
+        local _source = source     
+		local user = RedEM.GetPlayer(_source)
+		local job = user.job
+		MySQL.query('SELECT * FROM cattle WHERE (`cowid`=@cowid);',
+		{
+			cowid = cowid
+
+		}, function(result)
+			if #result ~= 0 then
+				for i = 1, #result do
+					if result[i].selected == 0 then 
+						local model = result[i].model
+						local level = result[i].level
+						for k, v in pairs(Config.RewardBoucherie[model]) do
+							if k == level then
+								local typeviande = v.viande
+								local amountviande = v.viandeamount
+								local typecuir = v.cuir
+								local amountcuir = v.cuiramount
+								local ItemData1 = data.getItem(_source, typeviande)
+								local ItemData2 = data.getItem(_source, typecuir)
+								if ItemData1.AddItem(amountviande) and ItemData2.AddItem(amountcuir) then
+									MySQL.query('DELETE FROM cattle WHERE `cowid` = @cowid;', {cowid = cowid})
+								else return end
+							end
+						end
+					end
+				end                    
+			end
+		end)
+end)
+
 AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
     TriggerEvent('dust_ferme:server:resetcow')

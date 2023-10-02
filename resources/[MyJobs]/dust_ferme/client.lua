@@ -296,7 +296,7 @@ Citizen.CreateThread(function()
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.FarmStables) do
-            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+            if #(playerpos - v.pos ) < 7 and not isInteracting then
                 farmprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x6319DB71) then
                     isInteracting = true
@@ -479,7 +479,7 @@ function spawncow(model, name, id)
     end
 
     initializing = true
-    local spawnPosition = GetOffsetFromEntityInWorldCoords(ped, 0.0, 1.5, 0.0)
+    local spawnPosition = GetOffsetFromEntityInWorldCoords(ped, 0.0, 3.0, 0.0)
     local cow = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped) - 90.0, true, true)
     Citizen.InvokeNative(0x283978A15512B2FE, cow, false)
     SetModelAsNoLongerNeeded(modelHash)
@@ -668,6 +668,94 @@ local laitprompt = UipromptGroup:new("Bétail")
 Uiprompt:new(0x760A9C6F, "Traire", laitprompt)
 laitprompt:setActive(false)
 
+----------------------- boucherie --------------------
+
+-- prompt boucherie
+local boucherieprompt = UipromptGroup:new("Abattoir")
+Uiprompt:new(0x6319DB71, "Ouvrir", boucherieprompt)
+boucherieprompt:setActive(false)
+
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(0)
+        local playerpos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.Boucherie) do
+            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+                farmprompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x6319DB71) then
+                    isInteracting = true
+                    TriggerServerEvent("dust_ferme:server:askcowboucherie")
+                    Wait(200)
+                    OpenBoucherie()
+                end
+            end 
+        end
+    end
+end)
+
+-- menu pour vendre connecté à l'étable
+local boucherielist = {}
+RegisterNetEvent("dust_ferme:getcowboucherie")
+AddEventHandler("dust_ferme:getcowboucherie", function(horseid, nom, model, pos, _race)
+    boucherielist = {}
+    Wait(50)
+    table.insert(boucherielist, {id = horseid, name = nom, race = model, stable = pos, lib = _race})
+end)
+
+function OpenBoucherie()
+    local playerPed = PlayerPedId()
+    local Position = GetEntityCoords(playerPed)
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        local elements = {}
+
+        for k, v in pairs(boucherielist) do
+            if v.stable == stable then
+                table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
+            end
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'boucherie', {
+            title = "Abattoir",
+            subtext = "Abattre du bétail",
+            align = 'top-right',
+            elements = elements,
+        },
+        
+        function(data, menu)
+            MenuData.CloseAll()
+            if data.current.value then
+                Wait(500)
+                for k, v in pairs(boucherielist) do
+                    if v.id == data.current.value then
+                        --- delete et giveitem
+                        TriggerServerEvent('dust_ferme:server:killcow', data.current.value)
+                    end
+                    Wait(100)
+                    boucherielist[k] = nil
+                    isInteracting = false
+                end
+            end
+        end,
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end
 
 --- reset vache
 

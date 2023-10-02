@@ -86,7 +86,30 @@ Config.radiusStyle = 1673015813
 
 
 
-Config.Boucherie = vector3(2150.772, -1296.647, 42.75868)
+Config.Boucherie = {
+	[1] = {pos= vector3(2150.772, -1296.647, 42.75868)},
+}
+
+Config.RewardBoucherie = {
+	["a_c_cow"] = {
+		[0] = {viande = 'viandebovine', viandeamount = 1, cuir = 'cuirbovin', cuiramount = 4},
+		[1] = {viande = 'viandebovine', viandeamount = 2, cuir = 'cuirbovin', cuiramount = 8},
+		[2] = {viande = 'viandebovine', viandeamount = 3, cuir = 'cuirbovin', cuiramount = 12},
+		[3] = {viande = 'viandebovine', viandeamount = 4, cuir = 'cuirbovin', cuiramount = 16},
+		[4] = {viande = 'viandebovine', viandeamount = 5, cuir = 'cuirbovin', cuiramount = 20},
+		[5] = {viande = 'viandebovine', viandeamount = 6, cuir = 'cuirbovin', cuiramount = 24},
+	},
+	["a_c_bull_01"] = {
+		[0] = {viande = 'viandebovine', viandeamount = 2, cuir = 'cuirbovin',  cuiramount = 4},
+		[1] = {viande = 'viandebovine', viandeamount = 4, cuir = 'cuirbovin',  cuiramount = 8},
+		[2] = {viande = 'viandebovine', viandeamount = 6, cuir = 'cuirbovin',  cuiramount = 12},
+		[3] = {viande = 'viandebovine', viandeamount = 8, cuir = 'cuirbovin',  cuiramount = 16},
+		[4] = {viande = 'viandebovine', viandeamount = 10, cuir = 'cuirbovin',  cuiramount = 20},
+		[5] = {viande = 'viandebovine', viandeamount = 12, cuir = 'cuirbovin',  cuiramount = 24},
+	},
+
+}
+
 Config.Lait = {
 	[1] = {
 		pos = vector3(-1601.804, -1411.454, 81.94773),
