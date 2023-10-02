@@ -698,6 +698,7 @@ end)
 local boucherielist = {}
 RegisterNetEvent("dust_ferme:getcowboucherie")
 AddEventHandler("dust_ferme:getcowboucherie", function(horseid, nom, model, pos, _race)
+    print 'mmmm'
     boucherielist = {}
     Wait(50)
     table.insert(boucherielist, {id = horseid, name = nom, race = model, stable = pos, lib = _race})
