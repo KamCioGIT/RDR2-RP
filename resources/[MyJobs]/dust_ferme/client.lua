@@ -495,6 +495,7 @@ function spawncow(model, name, id)
     -- TriggerServerEvent('cowstatebag', cow, id, name)
 	Entity(cow).state:set('cowid', id, true)
 	Entity(cow).state:set('name', name, true)
+    Entity(cow).state:set('grazing', false, true)
 
     SetPedConfigFlag(cow, 297, true)
     SetRelationshipBetweenGroups(1, GetPedRelationshipGroupHash(cow), GetHashKey('PLAYER'))
@@ -638,11 +639,11 @@ end)
 
 function Graze(entity)
     
-    Entity(entity).state.grazing = true
+    Entity(cow).state:set('grazing', true, true)
     Wait(120000)
     ClearPedTasks(entity)
     
-    Entity(entity).state.grazing = false
+    Entity(cow).state:set('grazing', false, true)
 end
 
 --- cow ranger
