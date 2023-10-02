@@ -32,6 +32,7 @@ Config.Buycattle = {
 		pos = vector3(-957.5659, -1324.978, 52.04538),
 		name = 'Achat',
 		stable= 'Blackwater',
+		blip= 423351566,
 	},
 }
 
