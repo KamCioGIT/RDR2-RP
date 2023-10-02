@@ -194,7 +194,7 @@ AddEventHandler("gum_farming:getBase", function(farm, steam, char, jobPlayer)
     end
     for a,b in pairs(farmData) do
         if tonumber(b.charid) == tonumber(charId) and b.steam == steamId then
-            myFarmBlip = Citizen.InvokeNative(0x45f13b7e0a15c880, 1247852480, json.decode(b.plant_center).x, json.decode(b.plant_center).y, json.decode(b.plant_center).z, 50.0)
+            myFarmBlip = Citizen.InvokeNative(0x45f13b7e0a15c880, 1247852480, json.decode(b.plant_center).x, json.decode(b.plant_center).y, json.decode(b.plant_center).z, 20.0)
 			Citizen.InvokeNative(0x9CB1A1623062F402, myFarmBlip, ""..Config.Language[7].."")
 			SetBlipSprite(myFarmBlip, 2350572198)
         end
@@ -238,7 +238,7 @@ AddEventHandler("gum_farming:sendToClient", function(farm, id)
     end
     for a,b in pairs(farmData) do
         if tonumber(b.charid) == tonumber(charId) and b.steam == steamId then
-            myFarmBlip = Citizen.InvokeNative(0x45f13b7e0a15c880, 1247852480, json.decode(b.plant_center).x, json.decode(b.plant_center).y, json.decode(b.plant_center).z, 50.0)
+            myFarmBlip = Citizen.InvokeNative(0x45f13b7e0a15c880, 1247852480, json.decode(b.plant_center).x, json.decode(b.plant_center).y, json.decode(b.plant_center).z, 20.0)
 			Citizen.InvokeNative(0x9CB1A1623062F402, myFarmBlip, ""..Config.Language[7].."")
 			SetBlipSprite(myFarmBlip, 2350572198)
         end
@@ -295,7 +295,7 @@ AddEventHandler("gum_farming:sendToClientMake", function(farm, id, pos)
     end
     for a,b in pairs(farmData) do
         if tonumber(b.charid) == tonumber(charId) and b.steam == steamId then
-            myFarmBlip = Citizen.InvokeNative(0x45f13b7e0a15c880, 1247852480, json.decode(b.plant_center).x, json.decode(b.plant_center).y, json.decode(b.plant_center).z, 50.0)
+            myFarmBlip = Citizen.InvokeNative(0x45f13b7e0a15c880, 1247852480, json.decode(b.plant_center).x, json.decode(b.plant_center).y, json.decode(b.plant_center).z, 20.0)
             Citizen.InvokeNative(0x9CB1A1623062F402, myFarmBlip, ""..Config.Language[7].."")
             SetBlipSprite(myFarmBlip, 2350572198)
         end
@@ -323,7 +323,7 @@ AddEventHandler("gum_farming:sendToClientClean", function(farm, id, pos)
     end
     for a,b in pairs(farmData) do
         if tonumber(b.charid) == tonumber(charId) and b.steam == steamId then
-            myFarmBlip = Citizen.InvokeNative(0x45f13b7e0a15c880, 1247852480, json.decode(b.plant_center).x, json.decode(b.plant_center).y, json.decode(b.plant_center).z, 50.0)
+            myFarmBlip = Citizen.InvokeNative(0x45f13b7e0a15c880, 1247852480, json.decode(b.plant_center).x, json.decode(b.plant_center).y, json.decode(b.plant_center).z, 20.0)
 			Citizen.InvokeNative(0x9CB1A1623062F402, myFarmBlip, ""..Config.Language[7].."")
 			SetBlipSprite(myFarmBlip, 2350572198)
         end
@@ -355,7 +355,7 @@ AddEventHandler("gum_farming:sendToClientDelete", function(farm, id, pos)
     end
     for a,b in pairs(farmData) do
         if tonumber(b.charid) == tonumber(charId) and b.steam == steamId then
-            myFarmBlip = Citizen.InvokeNative(0x45f13b7e0a15c880, 1247852480, json.decode(b.plant_center).x, json.decode(b.plant_center).y, json.decode(b.plant_center).z, 50.0)
+            myFarmBlip = Citizen.InvokeNative(0x45f13b7e0a15c880, 1247852480, json.decode(b.plant_center).x, json.decode(b.plant_center).y, json.decode(b.plant_center).z, 20.0)
 			Citizen.InvokeNative(0x9CB1A1623062F402, myFarmBlip, ""..Config.Language[7].."")
 			SetBlipSprite(myFarmBlip, 2350572198)
         end
