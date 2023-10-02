@@ -327,7 +327,8 @@ AddEventHandler(
     function(cowid)
         local _source = source     
 		local user = RedEM.GetPlayer(_source)
-		local job = user.job
+		local identifier = user.identifier
+		local charid = user.charid
 		MySQL.query('SELECT * FROM cattle WHERE (`cowid`=@cowid);',
 		{
 			cowid = cowid
