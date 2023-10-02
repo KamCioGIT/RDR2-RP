@@ -502,7 +502,7 @@ function spawncow(model, name, id)
     SetPedConfigFlag(cow, 40, false)
     Citizen.InvokeNative(0xAE6004120C18DF97, cow, 5, false)
     Citizen.InvokeNative(0xAE6004120C18DF97, cow, 6, false) --- lasso
-    SetEntityAsMissionEntity(cow, true, true)
+    -- SetEntityAsMissionEntity(cow, true, true)
     TriggerServerEvent("dust_ferme:server:cowout", id)
     initializing = false
 end
