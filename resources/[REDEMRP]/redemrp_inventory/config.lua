@@ -1208,6 +1208,18 @@ Config.Items = {
         imgsrc = "items/consumable_herb_wild_carrots.png",
         type = "item_standard",
     },
+    ----- BETAIL -----
+    ["sceaulait"] = {
+        label = "Bidon de lait",
+        description = "Les os sont solides",
+        weight = 1.0,
+        canBeDropped = true,
+        canBeUsed = false,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/consumable_herb_wild_carrots.png",
+        type = "item_standard",
+    },
 }
 
 exports("GetItemsList", function()
