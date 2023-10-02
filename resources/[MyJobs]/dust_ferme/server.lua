@@ -303,7 +303,7 @@ AddEventHandler(
 		{
 			job = job,
 			selected = 0,
-			stable = 'boucherie'
+			stable = 'Boucherie'
 
 		}, function(result)
 			if #result ~= 0 then
