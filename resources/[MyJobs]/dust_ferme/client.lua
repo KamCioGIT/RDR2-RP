@@ -698,7 +698,6 @@ end)
 local boucherielist = {}
 RegisterNetEvent("dust_ferme:getcowboucherie")
 AddEventHandler("dust_ferme:getcowboucherie", function(horseid, nom, model, pos, _race)
-    print 'mmmm'
     boucherielist = {}
     Wait(50)
     table.insert(boucherielist, {id = horseid, name = nom, race = model, stable = pos, lib = _race})
@@ -724,9 +723,7 @@ function OpenBoucherie()
         local elements = {}
 
         for k, v in pairs(boucherielist) do
-            if v.stable == stable then
                 table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
-            end
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'boucherie', {
