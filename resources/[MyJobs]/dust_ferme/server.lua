@@ -367,6 +367,11 @@ AddEventHandler(
 		end)
 end)
 
+RegisterServerEvent('cowstatebag', function(cow)
+	Entity(cow).state.cowid = id
+	Entity(cow).state.name = name
+	Entity(cow).state.grazing = false
+end) 
 AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
     TriggerEvent('dust_ferme:server:resetcow')
