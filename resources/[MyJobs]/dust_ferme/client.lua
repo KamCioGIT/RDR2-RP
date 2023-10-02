@@ -21,6 +21,7 @@ RegisterNetEvent("fermier:CheckPlayerJob", function(job, jobgrade)
     if job == "fermier" then
         startMission()
         Paturages()
+        cattle()
         if jobgrade >= 2 then
             contremaitre()
             if jobgrade == 3 then
@@ -291,7 +292,7 @@ Uiprompt:new(0x05CA7C52, "Gérer", farmprompt):setHoldMode(true)
 farmprompt:setActive(false)
 
 -- zone étable
-Citizen.CreateThread(function()
+function cattle()
     while true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
