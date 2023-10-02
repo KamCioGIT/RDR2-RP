@@ -368,8 +368,8 @@ AddEventHandler(
 end)
 
 RegisterServerEvent('cowstatebag', function(cow, id, name)
-	Entity(cow).state:set('cowid', id)
-	Entity(cow).state:set('name', name)
+	Entity(cow).state:set('cowid', id, true)
+	Entity(cow).state:set('name', name, true)
 end) 
 AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end

@@ -531,7 +531,6 @@ Citizen.CreateThread(function ()
         local res, entity = GetPlayerTargetEntity(PlayerId()) 
         if entity ~= 0 then
             if Entity(entity).state.cowid then
-                print ('getcow')
                 local playerCoords = GetEntityCoords(PlayerPedId())
                 local targetCoords = GetEntityCoords(entity)
                 if #(playerCoords - targetCoords) <= 7.0 then
