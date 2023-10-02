@@ -654,6 +654,16 @@ Config.Items = {
 
     
     -- CHASSE
+    ["graisse"] = {
+        label = "Morceau de gras",
+        description = "Du bon gras",
+        weight = 0.05,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/generic_animal_fat.png",
+        type = "item_standard"
+    },
     ["grossteak"] = {
         label = "Gros Steak",
         description = "Un énorme bout de viande",
@@ -661,7 +671,7 @@ Config.Items = {
         canBeDropped = true,
         canBeUsed = false,
         limit = 2000,
-        imgsrc = "items/provision_meat_prime_beef.png",
+        imgsrc = "items/provision_meat_mature_venison.png",
         type = "item_standard"
     },
     ["volaille"] = {
@@ -1217,9 +1227,44 @@ Config.Items = {
         canBeUsed = false,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/consumable_herb_wild_carrots.png",
+        imgsrc = "items/moonshine_pot.png",
         type = "item_standard",
     },
+    ["foutrebovin"] = {
+        label = "Foutre de taurreau",
+        description = "Bizarre d'avoir eu l'idée...",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = false,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/flask.png",
+        type = "item_standard",
+    },
+    ["cuirbovin"] = {
+        label = "Cuir de Bovin",
+        description = "Du cuir solide",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = false,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/provision_iguana_skin.png",
+        type = "item_standard",
+    },
+    ["viandebovine"] = {
+        label = "Viande bovine",
+        description = "Pour préparer des bons petits plats",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/provision_meat_prime_beef.png",
+        type = "item_standard",
+    },
+
+
 }
 
 exports("GetItemsList", function()

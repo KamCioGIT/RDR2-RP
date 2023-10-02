@@ -344,9 +344,12 @@ AddEventHandler(
 								local amountviande = v.viandeamount
 								local typecuir = v.cuir
 								local amountcuir = v.cuiramount
+								local amountgraisse = v.graisseamount
 								local ItemData1 = data.getItem(_source, typeviande)
 								local ItemData2 = data.getItem(_source, typecuir)
-								if ItemData1.AddItem(amountviande) and ItemData2.AddItem(amountcuir) then
+								local ItemData3 = data.getItem(_source, 'graisse')
+
+								if ItemData1.AddItem(amountviande) and ItemData2.AddItem(amountcuir) and ItemData3.AddItem(amountgraisse) then
 									MySQL.query('DELETE FROM cattle WHERE `cowid` = @cowid;', {cowid = cowid})
 								else return end
 							end
