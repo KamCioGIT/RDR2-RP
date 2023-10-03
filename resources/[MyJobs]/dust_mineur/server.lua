@@ -95,5 +95,5 @@ RegisterServerEvent("dust_mineur:server:RequestJob", function()
 end)
 
 AddEventHandler("redemrp:playerLoaded", function(source, user)
-    TriggerClientEvent("dust_mineur:client:ReceiveJob", _source, user.getJob(), user.getJobgrade())
+    TriggerClientEvent("dust_mineur:client:ReceiveJob", source, user.getJob(), user.getJobgrade())
 end)
