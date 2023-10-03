@@ -47,9 +47,9 @@ RegisterNetEvent("dust_mineur:client:ReceiveJob", function(job, grade)
     print (job, grade)
     if job == "mineur" then
         startMission()
-        if grade == 2 then
+        if grade >= 2 then
             contremaitre()
-            if grade == 3 then
+            if grade >= 3 then
                 patronUpdate() 
             end 
         end
