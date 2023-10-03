@@ -56,6 +56,14 @@ end)
 
 
 -- VA MINER   
+local mineraiprompt = UipromptGroup:new("Minerai")
+Uiprompt:new(0x760A9C6F, "Miner", mineraiprompt)
+mineraiprompt:setActive(false)
+
+local depprompt = UipromptGroup:new("Tapis")
+Uiprompt:new(0x760A9C6F, "Déposer", depprompt)
+depprompt:setActive(false)
+
 function startMission()
     GetRandomRessourcePoint()
     Citizen.CreateThread(function() --- MINERAI
@@ -63,28 +71,11 @@ function startMission()
             Wait(0)
             local playerPos = GetEntityCoords(PlayerPedId())
             if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isMining then
-                DrawTxt(Config.MsgGathering, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
-                if IsControlJustPressed(2, 0x4AF4D473) and not isMining then 
+                mineraiprompt:setActiveThisFrame(true)
+                if IsControlJustPressed(0, 0x760A9C6F) and not isMining then 
                     StartMining()
                 end
             else end
-        end
-    end)
-    Citizen.CreateThread(function() --- CHARBON
-        while true do
-            Wait(0)
-            local playerPos = GetEntityCoords(PlayerPedId())
-            for k, v in ipairs(Config.MinerJobCoalPos) do
-                if #(playerPos - v) < 6.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - v) < Config.DistanceToInteract and not isMining then
-                    DrawTxt(Config.MsgGathering, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
-                    if IsControlJustPressed(2, 0x4AF4D473) and not isMining then 
-                        StartMiningCoal()
-                    end
-                else end
-            end
         end
     end)
     Citizen.CreateThread(function() --- DEPOT
@@ -96,8 +87,8 @@ function startMission()
                     Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - v) < Config.DistanceToInteract then
-                    DrawTxt(Config.MsgDeposit, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
-                    if IsControlJustPressed(2, 0x4AF4D473) then 
+                    depprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(2, 0x760A9C6F) then 
                         TriggerServerEvent('mineur:server:mineur:depStash')
                     end
                 else end
@@ -105,6 +96,10 @@ function startMission()
         end
     end)
 end
+
+local retprompt = UipromptGroup:new("Tapis")
+Uiprompt:new(0x760A9C6F, "Récupérer", retprompt)
+retprompt:setActive(false)
 
 function contremaitre() --- RETRAIT
     while true do    
@@ -115,8 +110,8 @@ function contremaitre() --- RETRAIT
                 Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
             end
             if #(playerPos - v) < Config.DistanceToInteract then
-                DrawTxt(Config.MsgRetrieve, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
-                if IsControlJustPressed(2, 0x4AF4D473) then 
+                retprompt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) then 
                     TriggerServerEvent('mineur:server:mineur:retStash')
                 end
             else end
