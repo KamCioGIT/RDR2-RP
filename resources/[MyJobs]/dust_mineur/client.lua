@@ -161,6 +161,7 @@ function GetRandomRessourcePoint()
                 DeleteEntity(tempweath)
                 tempweath = CreateObject(GetHashKey("old_hen_rock_02"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
                 PlaceObjectOnGroundProperly(tempweath)
+                FreezeEntityPosition(tempweath, true)
                 break
             end
         end
