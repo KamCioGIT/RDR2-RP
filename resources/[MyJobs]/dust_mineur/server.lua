@@ -88,6 +88,7 @@ end)
 RegisterServerEvent("dust_mineur:server:RequestJob", function()
     local _source = source
     local user = RedEM.GetPlayer(_source)
+	print(user.getJob(), user.getJobgrade())
     if user then
         TriggerClientEvent("dust_mineur:client:ReceiveJob", _source, user.getJob(), user.getJobgrade())
     end

@@ -156,10 +156,13 @@ function GetRandomRessourcePoint()
     blip = Citizen.InvokeNative(0x554d9d53f696d002, Config.PointSprite, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z)
     Citizen.CreateThread(function()
         while true do
-            local playerPos = GetEntityCoords(PlayerPedId())
+            Wait(50)
+            local playerPos = GetEntityCoords(PlayerPedId())    
             if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 100 then
-                temprock = CreateObject(GetHashKey("old_hen_rock_02"), playerpos.x, playerpos.y, playerpos.z, false, true, true)
-                PlaceObjectOnGroundProperly(temprock)
+                
+                DeleteEntity(tempweath)
+                tempweath = CreateObject(GetHashKey("old_hen_rock_02"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
+                PlaceObjectOnGroundProperly(tempweath)
                 break
             end
         end
