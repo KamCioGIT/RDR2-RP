@@ -432,7 +432,7 @@ DiseasesConfig = {
       -- Mandatory symptoms for the dashboard.
       -- Those are basically hints for the doctor to understand which cure has do be administered to the patient.
       symptoms = {
-         heartRate = 'Extreme',
+         heartRate = 'Très rapide',
          -- min and max values, body temps will be randomized between those values
          bodyTemperatureRange = { 40.0, 41.0 }
       }
