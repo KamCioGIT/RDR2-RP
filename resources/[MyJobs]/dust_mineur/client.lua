@@ -103,6 +103,7 @@ Uiprompt:new(0x760A9C6F, "Récupérer", retprompt)
 retprompt:setActive(false)
 
 function contremaitre() --- RETRAIT
+    print 'daddy'
     while true do    
         Wait(0)
         local playerPos = GetEntityCoords(PlayerPedId())
