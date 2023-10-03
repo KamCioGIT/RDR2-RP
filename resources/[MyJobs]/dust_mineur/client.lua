@@ -44,6 +44,7 @@ Citizen.CreateThread(function()
 end)
 
 RegisterNetEvent("dust_mineur:client:ReceiveJob", function(job, grade)
+    print (job, grade)
     if job == "mineur" then
         startMission()
         if grade == 2 then
