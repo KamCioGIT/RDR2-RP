@@ -175,7 +175,11 @@ function SouffreRecolt()
     local playerPed = PlayerPedId()
     local playerPos = GetEntityCoords(playerPed)
     FreezeEntityPosition(playerPed, true)
-    TaskStartScenarioInPlace(playerPed, GetHashKey(Config.RecolteSouffre), Config.WorkingTime, true, false, false, false)
+    RequestAnimDict(Config.RecolteSouffreDict)
+    while not HasAnimDictLoaded(Config.RecolteSouffreDict) do
+        Citizen.Wait(100)
+    end
+    TaskPlayAnim(PlayerPedId(), Config.RecolteSouffreDict, Config.RecolteSouffreAnim, 1.0, 1.0, -1, 0, 0, true, 0, false, 0, false)
     local timer = GetGameTimer() + Config.WorkingTime
     isInteracting = true
     Citizen.CreateThread(function()

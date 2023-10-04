@@ -16,7 +16,10 @@ Config.CraftAnim = {
     "base_trans_base",
 }
 
-Config.RecolteSouffreAnim = 'WORLD_HUMAN_HAMMER_TABLE' -- A CHANGER
+Config.RecolteSouffreDict = 'amb_camp@prop_camp_butcher@working@deer@male_a@meat_drop@stand_exit'
+Config.RecolteSouffreAnim = 'exit_front' -- A CHANGER
+
+
 
 Config.CraftingsReceipe = {
     ['douille'] = {
