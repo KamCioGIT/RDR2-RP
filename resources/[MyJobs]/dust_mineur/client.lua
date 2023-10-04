@@ -44,7 +44,6 @@ Citizen.CreateThread(function()
 end)
 
 RegisterNetEvent("dust_mineur:client:ReceiveJob", function(job, grade)
-    print (job, grade)
     if job == "mineur" then
         startMission()
         if grade >= 2 then
@@ -104,7 +103,6 @@ Uiprompt:new(0x760A9C6F, "Récupérer", retprompt)
 retprompt:setActive(false)
 
 function contremaitre() --- RETRAIT
-    print 'daddy'
     while true do    
         Wait(0)
         local playerPos = GetEntityCoords(PlayerPedId())
@@ -180,7 +178,7 @@ function StartMining()
         while GetGameTimer() < timer do
             Wait(0)
         end
-        ClearPedTasksImmediately(PlayerPedId())
+        ClearPedTasks(PlayerPedId())
 		FreezeEntityPosition(playerPed, false)
         isMining = false
         GivePlayerRessource()
@@ -193,7 +191,7 @@ end
 
 function GivePlayerRessource()
     local rand = math.random(1,100)
-    for item, entry in ipairs(Config.Loottable) do
+    for item, entry in pairs(Config.Loottable) do
         if rand <= entry.chance then
             selectedItem = entry.item
             TriggerServerEvent('mineur:additem', item)
