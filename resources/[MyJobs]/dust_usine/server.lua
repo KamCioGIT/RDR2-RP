@@ -26,7 +26,6 @@ AddEventHandler('usine:CraftItem', function(itemNameStr, menu, amount)
 
 		Citizen.Wait(Config.WorkingTime)
 	end
-	end)
 end)
 
 RegisterServerEvent('usine:AddItem')
