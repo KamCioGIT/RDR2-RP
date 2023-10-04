@@ -38,7 +38,7 @@ end)
 -- end)
 
 AddEventHandler("redemrp:playerLoaded", function(source, user)
-    TriggerClientEvent("redemrp_bossmenu:client:ReceiveJob", source, user.getJob(), user.getJobgrade())
+    TriggerClientEvent("redemrp_bossmenu:client:ReceiveJob", source, user.GetJob(), user.GetJobGrade())
 end)
 
 function DoPay()
@@ -161,7 +161,7 @@ RegisterServerEvent("redemrp_bossmenu:server:RequestJob", function()
     local _source = source
     local user = RedEM.GetPlayer(_source)
     if user then
-        TriggerClientEvent("redemrp_bossmenu:client:ReceiveJob", _source, user.getJob(), user.getJobgrade())
+        TriggerClientEvent("redemrp_bossmenu:client:ReceiveJob", _source, user.GetJob(), user.GetJobGrade())
     end
 end)
 
