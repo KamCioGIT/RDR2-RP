@@ -18,10 +18,6 @@ RegisterNetEvent("redemrp_bossmenu:client:ReceiveJob", function(job, grade)
     PlayerJob, PlayerJobgrade = job, grade
 end)
 
-RegisterNetEvent("redem_roleplay:JobChange", function(job)
-    TriggerServerEvent("redemrp_bossmenu:server:RequestJob")
-end)
-
 Citizen.CreateThread(function()
     BossMenuPrompt = PromptRegisterBegin()
     PromptSetActiveGroupThisFrame(promptGroup, varString)

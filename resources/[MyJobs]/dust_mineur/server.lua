@@ -65,16 +65,3 @@ RegisterServerEvent("mineur:RequestBossMenu", function()
 		RedEM.Functions.NotifyRight( _source, "Your job rank is too low!", 3000)
 	end
 end)
-
-RegisterServerEvent("dust_mineur:server:RequestJob", function()
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-	print(user.getJob(), user.getJobgrade())
-    if user then
-        TriggerClientEvent("dust_mineur:client:ReceiveJob", _source, user.getJob(), user.getJobgrade())
-    end
-end)
-
-AddEventHandler("redemrp:playerLoaded", function(source, user)
-    TriggerClientEvent("dust_mineur:client:ReceiveJob", source, user.getJob(), user.getJobgrade())
-end)

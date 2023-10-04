@@ -43,8 +43,7 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent("dust_mineur:client:ReceiveJob", function(job, grade)
-    print (job, grade)
+AddEventHandler("redemrp:client:ReceiveJob", function(job, grade)
     if job == "mineur" then
         startMission()
         if grade >= 2 then

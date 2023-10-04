@@ -112,3 +112,11 @@ Citizen.CreateThread(function()
         end
     end
 end)
+
+
+RegisterNetEvent("redem_roleplay:JobChange", function(job)
+    TriggerServerEvent("redemrp:server:RequestJob")
+end)
+
+RegisterNetEvent("redemrp:client:ReceiveJob", function(job, grade)
+end)
