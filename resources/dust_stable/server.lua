@@ -5,18 +5,19 @@ TriggerEvent("redemrp_inventory:getData",function(call)
         data = call
 end)
 ------ JOB ET GANG -----
-RegisterNetEvent("dust_stable:server:askjob")
-AddEventHandler(
-    "dust_stable:server:askjob",
-    function()
-	local _source = source     
-	local user = RedEM.GetPlayer(_source)
-	local job = user.job
-	local jobgrade = user.jobrade
-	local gang = user.gang
-	local ganggrade = user.ganggrade
-	TriggerClientEvent("dust_stable:server:getjob", _source, job, jobgrade, gang, ganggrade)
+
+RegisterServerEvent("dust_stable:server:RequestJob", function()
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    if user then
+        TriggerClientEvent("dust_stable:client:ReceiveJob", _source, user.getJob(), user.getJobgrade(), user.getGang(), user.getGangGrade())
+    end
 end)
+
+AddEventHandler("redemrp:playerLoaded", function(source, user)
+    TriggerClientEvent("dust_stable:client:ReceiveJob", source, user.getJob(), user.getJobgrade(), user.getGang(), user.getGangGrade())
+end)
+
 
 ----- Get Horse -----
 

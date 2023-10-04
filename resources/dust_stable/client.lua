@@ -1,25 +1,19 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
+Citizen.CreateThread(function()
+    Wait(1000)
+    if RedEM.GetPlayerData().isLoggedIn then
+        TriggerServerEvent("dust_mineur:server:RequestJob")
+    end
+end)
 
-
-
-
-RegisterNetEvent("dust_stable:server:getjob", function (_job, _jobgrade, _gang, _ganggrade)
+RegisterNetEvent("dust_stable:client:ReceiveJob", function(_job, _jobgrade, _gang, _ganggrade)
     playerjob = _job
     playerjobgrade = _jobgrade
     playergang = _gang
     playerganggrade = _ganggrade
 end)
 
-Citizen.CreateThread(function()
-    while RedEM.GetPlayerData().isLoggedIn do
-        Wait(1000)
-        TriggerServerEvent("dust_stable:server:askjob")
-    end
-    if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_stable:server:askjob")
-    end
-end)
 
 ----- INTERACT WITH STABLE ----
 
