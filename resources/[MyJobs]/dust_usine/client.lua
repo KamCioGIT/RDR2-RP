@@ -66,11 +66,11 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
 
             if jobgrade > 1 then
                 if _menutype == 'atelier' then 
-                    table.insert(elements, {label = "AMMO_REVOLVER", value = 'ammo_revolver', desc = "Transformation > 10 GunPowder + 10 Douilles"})
-                    table.insert(elements, {label = "AMMO_PISTOL", value = 'ammo_pistol', desc = "Transformation > 10 GunPowder + 10 Douilles"})
-                    table.insert(elements, {label = "AMMO_REPEATER", value = 'ammo_repeater', desc = "Transformation > 15 GunPowder + 10 Douilles"})
-                    table.insert(elements, {label = "AMMO_RIFLE", value = 'ammo_rifle', desc = "Transformation > 20 GunPowder + 10 Douilles"})
-                    table.insert(elements, {label = "AMMO_SHOTGUN", value = 'ammo_shotgun', desc = "Transformation > 15 GunPowder + 10 Douilles"})
+                    table.insert(elements, {label = "Munitions de Revolver", value = 'ammo_revolver', desc = "Transformation > 10 GunPowder + 10 Douilles"})
+                    table.insert(elements, {label = "Munitions de Pistolet", value = 'ammo_pistol', desc = "Transformation > 10 GunPowder + 10 Douilles"})
+                    table.insert(elements, {label = "Munitions de Carabine", value = 'ammo_repeater', desc = "Transformation > 15 GunPowder + 10 Douilles"})
+                    table.insert(elements, {label = "Munitions de Fusil", value = 'ammo_rifle', desc = "Transformation > 20 GunPowder + 10 Douilles"})
+                    table.insert(elements, {label = "Chevrotines", value = 'ammo_shotgun', desc = "Transformation > 15 GunPowder + 10 Douilles"})
                 end
             end
 
@@ -79,8 +79,8 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
-            title = "Craft Usine Menu",
-            subtext = "Job Interaction for Usine",
+            title = "Atelier",
+            subtext = "Fabrication de munitions",
             align = 'top-right',
             elements = elements,
         },
@@ -218,7 +218,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
 
 
     local elements = {
-        { label = "Crafting Amount", 
+        { label = "Quantité", 
         value = 0, 
         desc = "Se mettre au travail",
         type = 'slider',
@@ -228,8 +228,8 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     }
 
     menuData.Open('default', GetCurrentResourceName(), 'craft', {
-        title = "Craft Usine Menu",
-        subtext = "Select how much ".. dataType .. " craft",
+        title = "Atelier",
+        subtext = "Choisir la quantité",
         align = 'top-right',
         elements = elements,
     },
