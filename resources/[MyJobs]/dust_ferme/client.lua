@@ -6,18 +6,17 @@ local isInBossMenu = false
 local showweath = false
 local isFarmer = false
 
+
+--- Définir si le joueur est fermier 
+
 Citizen.CreateThread(function()
-    while RedEM.GetPlayerData().isLoggedIn ~= true do 
-        Wait(5000)
-        TriggerServerEvent("fermier:askjob")
-    end
+    Wait(1000)
     if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("fermier:askjob")
+        TriggerServerEvent("dust_ferme:server:RequestJob")
     end
 end)
 
---- Définir si le joueur est fermier 
-RegisterNetEvent("fermier:CheckPlayerJob", function(job, jobgrade)
+RegisterNetEvent("dust_ferme:client:ReceiveJob", function(job, grade)
     if job == "fermier" then
         startMission()
         Paturages()
@@ -30,6 +29,7 @@ RegisterNetEvent("fermier:CheckPlayerJob", function(job, jobgrade)
         end
     end
 end)
+
 
 
 -- VA MINER   

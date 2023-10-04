@@ -6,14 +6,6 @@ TriggerEvent("redemrp_inventory:getData",function(call)
     data = call
 end)
 
-RegisterServerEvent('fermier:askjob')
-AddEventHandler('fermier:askjob', function()
-	local _source = source
-	local job = RedEM.GetPlayer(_source).job
-	local jobgrade = RedEM.GetPlayer(_source).jobgrade
-	TriggerClientEvent("fermier:CheckPlayerJob", _source, job, jobgrade)
-end)
-
 RegisterServerEvent('fermier:addble')
 AddEventHandler('fermier:addble', function() 
 	local _source = source
@@ -382,4 +374,18 @@ end)
 
 AddEventHandler('txAdmin:events:serverShuttingDown', function()
     TriggerEvent('dust_ferme:server:resetcow')
+end)
+
+
+RegisterServerEvent("dust_ferme:server:RequestJob", function()
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+	print(user.getJob(), user.getJobgrade())
+    if user then
+        TriggerClientEvent("dust_ferme:client:ReceiveJob", _source, user.GetJob(), user.GetJobGrade())
+    end
+end)
+
+AddEventHandler("redemrp:playerLoaded", function(source, user)
+    TriggerClientEvent("dust_ferme:client:ReceiveJob", source, user.GetJob(), user.GetJobGrade())
 end)
