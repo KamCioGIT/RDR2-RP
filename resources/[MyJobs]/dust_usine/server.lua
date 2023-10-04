@@ -32,6 +32,7 @@ end)
 
 RegisterServerEvent('usine:AddItem')
 AddEventHandler('usine:AddItem', function(item, amount)
+	print (item, amount)
 	local _source = tonumber(source)
 	local ItemData = Inventory.getItem(_source, item)
 	ItemData.AddItem(amount)
