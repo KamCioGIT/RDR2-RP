@@ -30,6 +30,15 @@ AddEventHandler('usine:CraftItem', function(itemNameStr, menu, amount)
 	end)
 end)
 
+RegisterServerEvent('usine:AddItem')
+AddEventHandler('usine:AddItem', function(item, amount)
+	local _source = tonumber(source)
+	local ItemData = Inventory.getItem(_source, item)
+	ItemData.AddItem(amount)
+
+end)
+
+
 RegisterServerEvent("usine:RequestBossMenu", function(menutype)
     local _source = source
     local user = RedEM.GetPlayer(_source)

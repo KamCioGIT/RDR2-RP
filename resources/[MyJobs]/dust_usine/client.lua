@@ -185,7 +185,7 @@ function SouffreRecolt()
         ClearPedTasksImmediately(playerPed)
 		FreezeEntityPosition(playerPed, false)
         isInteracting = false
-        TriggerServerEvent('usine:AddItem', 'Souffre', 1)
+        TriggerServerEvent('usine:AddItem', 'souffre', 1)
     end)
 end
 
