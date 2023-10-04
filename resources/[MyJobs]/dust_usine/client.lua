@@ -112,7 +112,7 @@ AddEventHandler("usine:CraftingAction", function()
     end
 
     for k,v in pairs(Config.CraftAnim) do
-        TaskPlayAnim(playerPed, Config.AnimDict, v, 8.0, -8.0, -1, 1, 0, true)
+        TaskPlayAnim(playerPed, Config.AnimDict, v, 1.0, 1.0, -1, 1, 0, true)
     end
 
     local timer = GetGameTimer() + Config.WorkingTime
@@ -122,7 +122,7 @@ AddEventHandler("usine:CraftingAction", function()
         while GetGameTimer() < timer do 
             Wait(0)
         end
-        ClearPedTasksImmediately(PlayerPedId())
+        ClearPedTasks(PlayerPedId())
         FreezeEntityPosition(playerPed, false)
         isInteracting = false
     end)    
