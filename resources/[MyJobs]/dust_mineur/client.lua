@@ -44,6 +44,7 @@ Citizen.CreateThread(function()
 end)
 
 AddEventHandler("redemrp:client:ReceiveJob", function(job, grade)
+    print 'getevent'
     if job == "mineur" then
         startMission()
         if grade >= 2 then
