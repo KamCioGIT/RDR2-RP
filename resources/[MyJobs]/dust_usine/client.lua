@@ -186,7 +186,7 @@ function SouffreRecolt()
         while GetGameTimer() < timer do 
             Wait(0)
         end
-        ClearPedTasksImmediately(playerPed)
+        ClearPedTasks(playerPed)
 		FreezeEntityPosition(playerPed, false)
         isInteracting = false
         TriggerServerEvent('usine:AddItem', 'souffre', 1)
