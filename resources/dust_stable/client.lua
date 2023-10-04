@@ -428,8 +428,8 @@ function spawnhorse(model, name, horseid, stashid, health, stamina)
     TaskAnimalUnalerted(horse, -1, false, 0, 0)
 
     SetPedPromptName(horse, name)
-    Entity(horse).state.horseid = horseid
-    Entity(horse).state.name = name
+    Entity(horse).state:set('horseid', horseid, true)
+    Entity(horse).state:set('name', name, true)
     -- for _, component in pairs(selectedcomp) do
     --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, component, true, true, true)
     -- end
@@ -440,9 +440,8 @@ function spawnhorse(model, name, horseid, stashid, health, stamina)
         Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, CompCache[k].hash, true, true, true)
     end
     if CompCache["HORSE_SADDLEBAGS"].hash ~= nil then
-        Entity(horse).state.saddle = "true"
-        Entity(horse).state.stashid = stashid
-        print (stashid)
+        Entity(horse).state:set('saddle', "true", true)
+        Entity(horse).state:set('stashid', stashid, true)
     end
     SetPedConfigFlag(horse, 297, true)
     if  health and stamina then
@@ -482,7 +481,7 @@ function spawncart(model, name, horseid, stashid)
     SetModelAsNoLongerNeeded(modelHash)
 
     SetPedPromptName(cart, name)
-    Entity(cart).state.horseid = horseid
+    Entity(cart).state:set('horseid', horseid, true)
     -- for _, component in pairs(selectedcomp) do
     --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, component, true, true, true)
     -- end
@@ -503,11 +502,11 @@ function spawncart(model, name, horseid, stashid)
           
         end 
     end
-    Entity(cart).state.stashid = stashid
+    Entity(cart).state:set('stashid', stashid, true)
     
     for k, v in pairs(Config.StashWeight) do
         if k == model then
-            Entity(cart).state.stashweight = v
+            Entity(cart).state:set('stashweight', v, true)
         end
     end
 
