@@ -10,12 +10,12 @@ RegisterServerEvent("dust_stable:server:RequestJob", function()
     local _source = source
     local user = RedEM.GetPlayer(_source)
     if user then
-        TriggerClientEvent("dust_stable:client:ReceiveJob", _source, user.getJob(), user.getJobgrade(), user.getGang(), user.getGangGrade())
+        TriggerClientEvent("dust_stable:client:ReceiveJob", _source, user.GetJob(), user.GetJobGrade(), user.GetGang(), user.GetGangGrade())
     end
 end)
 
 AddEventHandler("redemrp:playerLoaded", function(source, user)
-    TriggerClientEvent("dust_stable:client:ReceiveJob", source, user.getJob(), user.getJobgrade(), user.getGang(), user.getGangGrade())
+    TriggerClientEvent("dust_stable:client:ReceiveJob", source, user.GetJob(), user.GetJobGrade(), user.GetGang(), user.GetGangGrade())
 end)
 
 
