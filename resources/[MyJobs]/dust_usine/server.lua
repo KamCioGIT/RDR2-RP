@@ -8,9 +8,8 @@ end)
 RegisterServerEvent('usine:CraftItem')
 AddEventHandler('usine:CraftItem', function(itemNameStr, menu, amount)
 	local _source = tonumber(source)
-	TriggerEvent("redemrp_inventory:getData", function(Inventory)
-	local ItemData = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name)
-	local ItemData2 = Inventory.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name)
+	local ItemData = data.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe1Name)
+	local ItemData2 = data.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemReceipe2Name)
 	
 	for i = 1, amount, 1
 	do
@@ -34,7 +33,7 @@ RegisterServerEvent('usine:AddItem')
 AddEventHandler('usine:AddItem', function(item, amount)
 	print (item, amount)
 	local _source = tonumber(source)
-	local ItemData = Inventory.getItem(_source, item)
+	local ItemData = data.getItem(_source, item)
 	ItemData.AddItem(amount)
 
 end)
