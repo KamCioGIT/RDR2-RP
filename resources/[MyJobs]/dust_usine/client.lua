@@ -112,7 +112,7 @@ AddEventHandler("usine:CraftingAction", function()
     end
 
     for k,v in pairs(Config.CraftAnim) do
-        TaskPlayAnim(playerPed, Config.AnimDict, v, 1.0, 1.0, -1, 1, 0, true)
+        TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 1, 0, true)
     end
 
     local timer = GetGameTimer() + Config.WorkingTime
