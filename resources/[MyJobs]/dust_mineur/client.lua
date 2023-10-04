@@ -190,35 +190,17 @@ function StartMining()
 end
 
 ---- RECOLTE CHARBON
-function StartMiningCoal()
-    local playerPed = PlayerPedId()
-    local coords = GetEntityCoords(playerPed)
-    started = false
-    pressing = false
-    FreezeEntityPosition(playerPed, true)
-    TaskStartScenarioInPlace(playerPed, GetHashKey(Config.MiningAnim), Config.WorkingTimeCoal, true, false, false, false)
-    local timer = GetGameTimer() + Config.WorkingTimeCoal
-    isMining = true
-    Citizen.CreateThread(function()
-        while GetGameTimer() < timer do 
-            Wait(0)
-        end
-        ClearPedTasksImmediately(PlayerPedId())
-		FreezeEntityPosition(playerPed, false)
-        isMining = false
-        GivePlayerCharbon()
-    end)
-end
-
 
 function GivePlayerRessource()
     local rand = math.random(1,100)
-    if rand > 70 then
-        TriggerServerEvent('mineur:addferbrut')
-    elseif rand <= 35 then
-        TriggerServerEvent('mineur:addcuivrebrut')
-    else
-        TriggerServerEvent('mineur:addplombbrut')
+    for item, entry in ipairs(Config.Loottable) do
+        if rand <= entry.chance then
+            selectedItem = entry.item
+            TriggerServerEvent('mineur:additem', item)
+            break
+        else
+            rand = rand - entry.chance
+        end
     end
 end
 

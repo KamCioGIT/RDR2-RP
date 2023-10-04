@@ -560,6 +560,16 @@ Config.Items = {
         imgsrc = "items/copper_ore.png",
         type = "item_standard"
     },
+    ["zincbrut"] = {
+        label = "Zinc brut",
+        description = "Minerai de Zinc",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 1000,
+        imgsrc = "items/collector_fossil_pet_wood.png",
+        type = "item_standard"
+    },
     ["charbon"] = {
         label = "Charbon",
         description = "La base de toute industrie",
@@ -598,6 +608,16 @@ Config.Items = {
         canBeUsed = false,
         limit = 2000,
         imgsrc = "items/cannabis.png",
+        type = "item_standard"
+    },
+    ["zincpepite"] = {
+        label = "Pépite de zinc",
+        description = "La base de toute industrie",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/sharp_rock.png",
         type = "item_standard"
     },
     ["souffre"] = {

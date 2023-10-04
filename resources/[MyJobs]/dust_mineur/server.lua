@@ -6,34 +6,13 @@ TriggerEvent("redemrp_inventory:getData",function(call)
     data = call
 end)
 
-RegisterServerEvent('mineur:addferbrut')
-AddEventHandler('mineur:addferbrut', function() 
+RegisterServerEvent('mineur:additem')
+AddEventHandler('mineur:additem', function(item) 
 	local _source = source
-	local ItemData = data.getItem(_source, 'ferbrut')
+	local ItemData = data.getItem(_source, item)
 	ItemData.AddItem(1)
 end)
 
-
-RegisterServerEvent('mineur:addplombbrut')
-AddEventHandler('mineur:addplombbrut', function() 
-	local _source = source
-	local ItemData = data.getItem(_source, 'plombbrut')
-	ItemData.AddItem(1)
-end)
-
-RegisterServerEvent('mineur:addcuivrebrut')
-AddEventHandler('mineur:addcuivrebrut', function() 
-	local _source = source
-	local ItemData = data.getItem(_source, 'cuivrebrut')
-	ItemData.AddItem(1)
-end)
-
-RegisterServerEvent('mineur:addcharbon')
-AddEventHandler('mineur:addcharbon', function() 
-	local _source = source
-	local ItemData = data.getItem(_source, 'charbon')
-	ItemData.AddItem(1)
-end)
 
 RegisterServerEvent("mineur:server:mineur:depStash", function()
     local _source = source
@@ -69,6 +48,8 @@ Citizen.CreateThread(function()
 		TriggerEvent("redemrp_inventory:server:removeitemstash", "plombbrut", 2, {}, "dep_mineur","plombpepite", 1, {}, "ret_mineur")
 		Citizen.Wait(2000)
 		TriggerEvent("redemrp_inventory:server:removeItemStash", "cuivrebrut", 2, {}, "dep_mineur","cuivrepepite", 1, {}, "ret_mineur")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeItemStash", "zincbrut", 2, {}, "dep_mineur","zincpepite", 1, {}, "ret_mineur")
 	end
 end)
 
