@@ -178,7 +178,7 @@ function StartMining()
         while GetGameTimer() < timer do
             Wait(0)
         end
-        ClearPedTasks(PlayerPedId())
+        ClearPedTasksImmediately(PlayerPedId())
 		FreezeEntityPosition(playerPed, false)
         isMining = false
         GivePlayerRessource()
@@ -193,7 +193,7 @@ function GivePlayerRessource()
     local rand = math.random(1,100)
     for item, entry in pairs(Config.Loottable) do
         if rand <= entry.chance then
-            print 'getitem'
+            Wait(200)
             selectedItem = entry.item
             TriggerServerEvent('mineur:additem', item)
             break
