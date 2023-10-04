@@ -2,47 +2,35 @@ RedEM = exports["redem_roleplay"]:RedEM()
 
 local isInteracting = false
 
-local CraftMenuPrompt = nil
-local CraftMenuPromptShown = false
-local promptGroup
 
-local varString = CreateVarString(10, "LITERAL_STRING", "Craft Menu")
 local maxCraftAmountUsine = 0
 
+local souffreprompt = UipromptGroup:new("Souffre")
+Uiprompt:new(0x760A9C6F, "Récolter", souffreprompt)
+souffreprompt:setActive(false)
+
+local craftprompt = UipromptGroup:new("Atelier")
+Uiprompt:new(0x760A9C6F, "Fabriquer", craftprompt)
+craftprompt:setActive(false)
+
 Citizen.CreateThread(function()
-    Wait(10)
-    CraftMenuPrompt = PromptRegisterBegin()
-    PromptSetActiveGroupThisFrame(promptGroup, varString)
-    PromptSetControlAction(CraftMenuPrompt, 0xE8342FF2) -- LEFT ALT
-    PromptSetText(CraftMenuPrompt, CreateVarString(10, "LITERAL_STRING", "CRAFT"))
-    PromptSetStandardMode(CraftMenuPrompt, true)
-    PromptSetEnabled(CraftMenuPrompt, false)
-    PromptSetVisible(CraftMenuPrompt, false)
-    Citizen.InvokeNative(0x94073D5CA3F16B7B, CraftMenuPrompt, 1000)
-    N_0x0c718001b77ca468(CraftMenuPrompt, 2.0)
-    PromptSetGroup(CraftMenuPrompt, promptGroup)
-    PromptRegisterEnd(CraftMenuPrompt)
+    Wait(1000)
+    if RedEM.GetPlayerData().isLoggedIn then
+        TriggerServerEvent("dust_usine:server:RequestJob")
+    end
 end)
 
+RegisterNetEvent("dust_usine:client:ReceiveJob", function(job, grade)
+    if job == "usine" then
+        StartMission()
+        -- if grade >= 2 then
+        --     if grade >= 3 then
 
-
---- Définir si le joueur est ouvrier
-RegisterNetEvent("global:CheckPlayerJob", function(job, jobgrade)
-    Citizen.CreateThread(function()
-        local PlayerData = RedEM.GetPlayerData()
-        while RedEM.GetPlayerData().isLoggedIn ~= true do 
-            Wait(750)
-            if job == "usine" then 
-                StartMission()
-            end
-        end
-        if RedEM.GetPlayerData().isLoggedIn then
-            if job == "usine" then
-                StartMission()
-            end
-        end
-    end)
+        --     end
+        -- end
+    end
 end)
+
 
 RegisterNetEvent("usine:OpenBossMenu", function(menutype)
     local Position = GetEntityCoords(PlayerPedId())
@@ -54,7 +42,7 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
             if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
                 TriggerEvent("redemrp_menu_base:getData", function(call)
                     call.CloseAll()
-                    CraftMenuPromptShown = false
+                    isInteracting = false
                 end)
                 return
             end
@@ -107,7 +95,7 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
 
         function(data, menu)
             menu.close()
-            CraftMenuPromptShown = false
+            isInteracting = false
         end)
     end)
 end)
@@ -142,9 +130,6 @@ end)
 
 
 function StartMission()
-    PromptSetEnabled(CraftMenuPrompt, false)
-    PromptSetVisible(CraftMenuPrompt, false)
-    CraftMenuPromptShown = false
     Citizen.CreateThread(function()
         while true do 
             Wait(2)
@@ -153,8 +138,9 @@ function StartMission()
                 Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.RessourcesPointPos.x, Config.RessourcesPointPos.y, Config.RessourcesPointPos.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
             end
             if #(playerPos - Config.RessourcesPointPos) < Config.DistanceToInteract and not isInteracting then
-                DrawTxt(Config.MsgWorking, 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
-                if IsControlJustPressed(2, 0x4AF4D473) and not isInteracting then 
+                souffreprompt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    isInteracting = true
                     SouffreRecolt()
                 end
             end
@@ -164,15 +150,10 @@ function StartMission()
                 Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.CreateGunPowerPos.x, Config.CreateGunPowerPos.y, Config.CreateGunPowerPos.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
             end
             if #(playerPos - Config.CreateGunPowerPos) < Config.DistanceToInteract and not isInteracting then
-                if CraftMenuPromptShown == false then
-                    PromptSetEnabled(CraftMenuPrompt, true)
-                    PromptSetVisible(CraftMenuPrompt, true)
-                    CraftMenuPromptShown = true
-                end
-                if PromptHasHoldModeCompleted(CraftMenuPrompt) then
+                craftprompt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then
+                    isInteracting = true
                     TriggerServerEvent("usine:RequestBossMenu", 'gunpowder')
-                    PromptSetEnabled(CraftMenuPrompt, false)
-                    PromptSetVisible(CraftMenuPrompt, false)
                 end
             end
 
@@ -181,15 +162,9 @@ function StartMission()
                 Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier.x, Config.Atelier.y, Config.Atelier.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
             end
             if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
-                if CraftMenuPromptShown == false then
-                    PromptSetEnabled(CraftMenuPrompt, true)
-                    PromptSetVisible(CraftMenuPrompt, true)
-                    CraftMenuPromptShown = true
-                end
-                if PromptHasHoldModeCompleted(CraftMenuPrompt) then
+                craftprompt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     TriggerServerEvent("usine:RequestBossMenu", 'atelier')
-                    PromptSetEnabled(CraftMenuPrompt, false)
-                    PromptSetVisible(CraftMenuPrompt, false)
                 end
             end
         end
@@ -199,7 +174,6 @@ end
 function SouffreRecolt()
     local playerPed = PlayerPedId()
     local playerPos = GetEntityCoords(playerPed)
-    isInteracting = true
     FreezeEntityPosition(playerPed, true)
     TaskStartScenarioInPlace(playerPed, GetHashKey(Config.RecolteSouffre), Config.WorkingTime, true, false, false, false)
     local timer = GetGameTimer() + Config.WorkingTime
@@ -215,27 +189,6 @@ function SouffreRecolt()
     end)
 end
 
--- DRAW TEXT ON SCREEEN w/ BACKGROUND
-function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
-    local str = CreateVarString(10, "LITERAL_STRING", str)
-    SetTextScale(w, h)
-    SetTextColor(math.floor(col1), math.floor(col2), math.floor(col3), math.floor(a))
-	SetTextCentre(centre)
-    if enableShadow then SetTextDropshadow(1, 0, 0, 0, 255) end
-	Citizen.InvokeNative(0xADA9255D, 1); -- Font
-    DisplayText(str, x, y)
-
-    local lineLength = string.len(str) / 100 * 0.70
-    DrawTexture("boot_flow", "selection_box_bg_1d", x, y + 0.018, lineLength, 0.07, 0, 0, 0, 0, 200)
-end
-
-function DrawTexture(textureStreamed,textureName,x, y, width, height,rotation,r, g, b, a, p11)
-    if not HasStreamedTextureDictLoaded(textureStreamed) then
-       RequestStreamedTextureDict(textureStreamed, false);
-    else
-        DrawSprite(textureStreamed, textureName, x, y, width, height, rotation, r, g, b, a, p11);
-    end
-end
 
 AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
@@ -252,7 +205,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
             if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
                 TriggerEvent("redemrp_menu_base:getData", function(call)
                     call.CloseAll()
-                    CraftMenuPromptShown = false
+                    isInteracting = false
                 end)
                 return
             end
@@ -282,7 +235,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
             print("Start crafting" .. dataType .. " " .. data.current.value .. " times")
             TriggerServerEvent("usine:CraftItem", dataType, menu, data.current.value)
             menu.close()
-            CraftMenuPromptShown = false
+            isInteracting = false
         else
             RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
         end 
@@ -290,7 +243,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
 
     function(data, menu)
         menu.close()
-        CraftMenuPromptShown = false
+        isInteracting = false
     end)
 end)
 
