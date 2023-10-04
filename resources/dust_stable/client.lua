@@ -477,8 +477,8 @@ function spawncart(model, name, horseid, stashid)
     end
 
     initializing = true
-    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.0)
-    local cart = CreateVehicle(modelHash, spawnPosition, GetEntityHeading(ped) - 90.0, true, true)
+    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 3.0, 0.0)
+    local cart = CreateVehicle(modelHash, spawnPosition, GetEntityHeading(ped), true, true)
     SetModelAsNoLongerNeeded(modelHash)
 
     SetPedPromptName(cart, name)
