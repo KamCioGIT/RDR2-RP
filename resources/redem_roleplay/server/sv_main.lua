@@ -252,16 +252,3 @@ function CharacterExist (id)
     end
     return (test)
 end	
-
-AddEventHandler("redemrp:playerLoaded", function(source, user)
-    TriggerClientEvent("redemrp:client:ReceiveJob", source, user.getJob(), user.getJobgrade())
-end)
-
-RegisterServerEvent("redemrp:server:RequestJob", function()
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-	print(user.getJob(), user.getJobgrade())
-    if user then
-        TriggerClientEvent("redemprp:client:ReceiveJob", _source, user.getJob(), user.getJobgrade())
-    end
-end)
