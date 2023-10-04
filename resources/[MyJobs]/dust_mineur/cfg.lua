@@ -42,3 +42,12 @@ Config.p2 = { x = 2753.534, y = 1367.671, z = 67.804 }
 Config.p3 = { x = 2758.344, y = 1371.043, z = 68.042 }
 Config.p4 = { x = 2767.227, y = 1371.093, z = 67.987 }
 Config.p5 = { x = 2767.958, y = 1382.240, z = 67.929 }
+
+Config.Loottable = {
+    ["charbon"] = {amount = 1, chance = 0.25},
+    ["cuivre"] = {amount = 1, chance = 0.25},
+    ["zinc"] = {amount = 1, chance = 0.25},
+    ["fer"] = {amount = 1, chance = 0.25},
+    ["plomb"] = {amount = 1, chance = 0.25},
+
+}
