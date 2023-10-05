@@ -245,12 +245,12 @@ function populateBanking(data)
         } else {
             balance = '<span class="text-danger">$' + statement.balance + '</span>';
         }
-        $("#currentStatementContents").append('<tr class="statement"><td><small>' + Date(statement.date) + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>$' + withdraw + '</small></td><td class="text-center text-success"><small>$' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
+        var isoDate = new Date(statement.date).toISOString();
+        $("#currentStatementContents").append('<tr class="statement"><td><small>' + isoDate + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>$' + withdraw + '</small></td><td class="text-center text-success"><small>$' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
 
     });
 
     $(document).ready(function() {
-        $.fn.dataTable.moment('YYYY-MM-DD');
         $('#currentStatement').DataTable({
             "order": [[ 0, "desc" ]],
             "pagingType": "simple",
