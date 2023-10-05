@@ -254,6 +254,7 @@ function populateBanking(data)
             "order": [[ 0, "desc" ]],
             "pagingType": "simple",
             "sInfoEmpty": false,
+            "sInfo": false,
             "lengthChange": false,
             "lengthMenu": [[12], [12]],
             "language": {
