@@ -16,6 +16,7 @@
 body {
     background: transparent !important;
     margin-top: 80px;
+    box-shadow: 0px 0px 10px 8px #00000080;
 }
 
 .active.m-1 {
