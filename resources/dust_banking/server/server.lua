@@ -145,7 +145,7 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
             targetcid = _result[1].citizenid
             RemoveFromBank(accid, tonumber(amount))
             AddToBank(targetaccid, tonumber(amount))
-            local time = os.date("%d-%m-1885")
+            local time = os.date("1885-%m-%d")
             ---- Historique de l'envoyeur
             MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
                 xPlayer.citizenid,
