@@ -208,7 +208,7 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             end
             xPlayer.RemoveMoney(tonumber(amount))
             AddToBank(accid, tonumber(amount))
-            local time = os.date("*t")
+            local time = os.date("%Y-%m-%d")
             if bankbalance then
                 newbal = bankbalance + tonumber(amount)
             else
