@@ -145,7 +145,7 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
             targetcid = _result[1].citizenid
             RemoveFromBank(accid, tonumber(amount))
             AddToBank(targetaccid, tonumber(amount))
-            local time = os.date("1885-%m-%d")
+            local time = os.date("%d.%m")
             ---- Historique de l'envoyeur
             MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
                 xPlayer.citizenid,
@@ -208,7 +208,7 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             end
             xPlayer.RemoveMoney(tonumber(amount))
             AddToBank(accid, tonumber(amount))
-            local time = os.date("%d-%m")
+            local time = os.date("%d.%m")
             if bankbalance then
                 newbal = bankbalance + tonumber(amount)
             else
@@ -235,7 +235,7 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             end
             xPlayer.RemoveMoney(tonumber(amount))
             AddToBank(accid, tonumber(amount))
-            local time = os.date("%d-%m")
+            local time = os.date("%d.%m")
             if bankbalance then
                 newbal = bankbalance + tonumber(amount)
             else
@@ -270,7 +270,7 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount)
         if tonumber(amount) <= currentCash then
             RemoveFromBank(accid, tonumber(amount))
             xPlayer.AddMoney(tonumber(amount))
-            local time = os.date("%d-%m")
+            local time = os.date("%d.%m")
             MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
                 xPlayer.citizenid,
                 accid,
@@ -292,7 +292,7 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount)
         if tonumber(amount) <= currentCash then
             RemoveFromBank(accid, tonumber(amount))
             xPlayer.AddMoney(tonumber(amount))
-            local time = os.date("%d-%m")
+            local time = os.date("%d.%m")
             MySQL.insert.await('INSERT INTO bank_statements (job, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
                 xPlayer.job,
                 accid,
