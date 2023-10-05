@@ -250,7 +250,7 @@ function populateBanking(data)
     });
 
     $(document).ready(function() {
-        $('#currentStatement').DataTable.moment('YYYY-MM-DD');
+        $.fn.dataTable.moment('YYYY-MM-DD');
         $('#currentStatement').DataTable({
             "order": [[ 0, "desc" ]],
             "pagingType": "simple",
