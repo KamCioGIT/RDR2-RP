@@ -253,7 +253,7 @@ function populateBanking(data)
         $('#currentStatement').DataTable({
             "order": [[ 0, "desc" ]],
             "pagingType": "simple",
-            "lengthMenu": [[20, 35, 50, -1], [20, 35, 50, "Tout"]],
+            "lengthMenu": [[15], [15]],
             "language": {
                 "sProcessing": "Traitement en cours...",
                 "sLengthMenu": "Afficher _MENU_ éléments",
