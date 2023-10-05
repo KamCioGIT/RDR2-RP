@@ -253,6 +253,7 @@ function populateBanking(data)
         $('#currentStatement').DataTable({
             "order": [[ 0, "desc" ]],
             "pagingType": "simple",
+            "sInfoEmpty": false,
             "lengthChange": false,
             "lengthMenu": [[12], [12]],
             "language": {
