@@ -92,7 +92,6 @@ button:hover
     background-image: url(./images/bkg.png);
     letter-spacing: 0.25em;
     display: none;
-    box-shadow: 0px 0px 10px 8px #00000080;
 }
 
 #bankingContainer2 {
