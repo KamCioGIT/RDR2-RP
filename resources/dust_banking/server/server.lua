@@ -145,7 +145,7 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
             targetcid = _result[1].citizenid
             RemoveFromBank(accid, tonumber(amount))
             AddToBank(targetaccid, tonumber(amount))
-            local time = os.date("%d %m")
+            local time = os.date("%Y-%m-%d")
             ---- Historique de l'envoyeur
             MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
                 xPlayer.citizenid,
@@ -154,7 +154,7 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
                 tonumber(amount),
                 currentCash - tonumber(amount),
                 time,
-                'Vir. vers N° '..targetaccid..''
+                'Transfert Sortant N° '..targetaccid..''
             })
 
             ---- historique du destinataire
@@ -165,7 +165,7 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
                 0,
                 _currentcash + tonumber(amount),
                 time,
-                'Vir. de N° '..accid..''
+                'Transfert Entrant N° '..accid..''
             })
             TriggerClientEvent('qbr-banking:openBankScreen', src, info)
             TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez transféré $'..amount..' au compte N°'..targetaccid..'.')
@@ -235,7 +235,7 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             end
             xPlayer.RemoveMoney(tonumber(amount))
             AddToBank(accid, tonumber(amount))
-            local time = os.date("%d %m")
+            local time = os.date("%Y-%m-%d")
             if bankbalance then
                 newbal = bankbalance + tonumber(amount)
             else
@@ -270,7 +270,7 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount)
         if tonumber(amount) <= currentCash then
             RemoveFromBank(accid, tonumber(amount))
             xPlayer.AddMoney(tonumber(amount))
-            local time = os.date("%d %m")
+            local time = os.date("%Y-%m-%d")
             MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
                 xPlayer.citizenid,
                 accid,
@@ -292,7 +292,7 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount)
         if tonumber(amount) <= currentCash then
             RemoveFromBank(accid, tonumber(amount))
             xPlayer.AddMoney(tonumber(amount))
-            local time = os.date("%d %m")
+            local time = os.date("%Y-%m-%d")
             MySQL.insert.await('INSERT INTO bank_statements (job, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
                 xPlayer.job,
                 accid,
