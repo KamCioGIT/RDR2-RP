@@ -154,7 +154,7 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
                 tonumber(amount),
                 currentCash - tonumber(amount),
                 time,
-                'Transfert sortant N° '..targetaccid..''
+                'Vir. vers N° '..targetaccid..''
             })
 
             ---- historique du destinataire
@@ -165,7 +165,7 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
                 0,
                 _currentcash + tonumber(amount),
                 time,
-                'Transfert entrant N° '..accid..''
+                'Vir. de N° '..accid..''
             })
             TriggerClientEvent('qbr-banking:openBankScreen', src, info)
             TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez transféré $'..amount..' au compte N°'..targetaccid..'.')
