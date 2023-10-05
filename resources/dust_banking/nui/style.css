@@ -91,7 +91,7 @@ button:hover
 
     background-image: url(./images/bkg_all.png);
     letter-spacing: 0.25em;
-    display: block;
+    display: none;
     box-shadow: 0px 0px 10px 8px #00000080;
 }
 
