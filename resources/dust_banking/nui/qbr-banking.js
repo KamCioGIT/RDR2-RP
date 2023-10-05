@@ -4,6 +4,26 @@ Config.ATMTransLimit = 5000;
 var currentLimit = null;
 var clientPin = null;
 
+
+function openWithdraw()
+{
+    $("#bankingHome-tab").removeClass('active');
+    $("#bankingWithdraw-tab").addClass('active');
+    $("#bankingDeposit-tab").removeClass('active');
+    $("#bankingTransfer-tab").removeClass('active');
+    $("#bankingStatement-tab").removeClass('active');
+    $("#bankingActions-tab").removeClass('active');
+    $("#bankingSavings-tab").removeClass('active');
+
+    $("#bankingWithdraw").addClass('active').addClass('show');
+    $("#bankingSavings").removeClass('active').removeClass('show');
+    $("#bankingDeposit").removeClass('active').removeClass('show');
+    $("#bankingTransfer").removeClass('active').removeClass('show');
+    $("#bankingStatement").removeClass('active').removeClass('show');
+    $("#bankingActions").removeClass('active').removeClass('show');
+}
+
+
 window.addEventListener("message", function (event) {    
     if(event.data.status == "openbank") {
         /*$("#cardDetails").css({"display":"none"});*/

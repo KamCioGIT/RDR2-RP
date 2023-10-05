@@ -21,6 +21,7 @@ body {
 .active.m-1 {
     text-decoration: underline;
     text-underline-offset: 5px;
+    color: #DC5858 !important;
 }
 .p-2{    
     padding: 0px !important;
@@ -31,10 +32,10 @@ body {
     border-color: rgba(0, 0, 0, 0) !important;
 }
 input {
-    border-bottom: 2px solid #000 !important;
+    border-bottom: 2px solid #615C43 !important;
     font-size: 20px !important; 
-    font-family: 'Beau Rivage', cursive;
-    color: #000 !important;
+    font-family: 'Milonga', cursive;
+    color: #565656  !important;
     letter-spacing: 0.25em !important;
     font-weight: 900 !important;
 
@@ -45,12 +46,17 @@ input {
     padding-bottom: 0px !important;
 }
 button {
-    border-bottom: 2px solid #000 !important;
+    border-bottom: 2px solid #ffffff !important;
     font-size: 20px !important; 
     font-family: 'Beau Rivage', cursive;
-    color: #000 !important;
+    color: #ffffff !important;
     letter-spacing: 0.25em !important;
     font-weight: 900 !important;
+}
+button:hover
+{
+    color: #DC5858 !important;
+    border-bottom: 2px solid #DC5858 !important;
 }
 .card-text{
     font-family: 'Milonga', cursive !important;
@@ -73,14 +79,14 @@ button {
 
 #bankingContainer {
     padding-top: 55px;
-    padding-left: 125px;
-    padding-right: 125px;
+    padding-left: 80px;
+    padding-right: 80px;
     padding-bottom: 75px;
     background-size: cover;
     background-size: 100% 100% !important;
     width: 1100px !important;
     height: 1000px !important;
-    font-family: 'Milonga', cursive;
+    font-family: 'Beau Rivage', cursive;
     font-weight: 900;
 
     background-image: url(./images/bkg.png);
@@ -133,6 +139,62 @@ button {
     font-family: 'Milonga', cursive;
 }
 
-.bg-light {
-    background-color: #090909 !important; /* Couleur de fond de la table */
+
+#navbar_elem
+{
+    justify-content: space-between;
+    width: 100%;
+}
+
+#navbar_title
+{
+    color: #f3f3f3;
+    text-align: center;
+    font-family: 'milonga';
+    margin-bottom: 2vh;
+    height: 5vh;
+    font-size: 40px;
+    letter-spacing: 0.25vw;
+
+
+}
+
+#navbar_line
+{
+    max-width: 100%;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.nav-pills .nav-link {
+    border-radius: .25rem;
+    font-size: 20px;
+    font-family: 'milonga';
+
+    letter-spacing: 0.5px;
+
+}
+
+
+#info_elem
+{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+    flex-direction: row;
+    flex-grow: 1;
+
+    color: #565656 !important;
+    margin-top: 35px;
+}
+
+#info_elem p
+{
+    letter-spacing: 0.2vw;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto
+{
+    padding: 0 !important;
 }
