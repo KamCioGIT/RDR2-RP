@@ -245,8 +245,10 @@ function populateBanking(data)
         } else {
             balance = '<span class="text-danger">$' + statement.balance + '</span>';
         }
-        var isoDate = new Date(statement.date).toISOString().split('T')[0];;
-        $("#currentStatementContents").append('<tr class="statement"><td><small>' + isoDate + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>$' + withdraw + '</small></td><td class="text-center text-success"><small>$' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
+        var isoDate = new Date(statement.date).toISOString().split('T')[0];
+        isoDatestr = isoDate.replace("2023","1885");
+        isoDatenew = isoDatestr.replace("2024","1886");
+        $("#currentStatementContents").append('<tr class="statement"><td><small>' + isoDatenew + '</small></td><td><small>' + statement.type + '</small></td><td class="text-center text-danger"><small>$' + withdraw + '</small></td><td class="text-center text-success"><small>$' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
 
     });
 
