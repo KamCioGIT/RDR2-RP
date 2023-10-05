@@ -252,9 +252,7 @@ function populateBanking(data)
     $(document).ready(function() {
         $('#currentStatement').DataTable({
             "order": [[ 0, "desc" ]],
-            "pagingType": "simple",
-            "sInfoEmpty": false,
-            "sInfo": false,
+            "pagingType": "simple_numbers",
             "lengthChange": false,
             "lengthMenu": [[12], [12]],
             "language": {
@@ -266,7 +264,7 @@ function populateBanking(data)
                 "sInfoEmpty": "Affichage de 0 à 0 sur 0 éléments",
                 "sInfoFiltered": "(filtré à partir de _MAX_ éléments au total)",
                 "sInfoPostFix": "",
-                "sSearch": "Rechercher :",
+                "sSearch": "",
                 "sUrl": "",
                 "sInfoThousands": ",",
                 "sLoadingRecords": "Chargement en cours...",
