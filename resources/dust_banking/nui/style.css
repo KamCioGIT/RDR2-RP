@@ -84,14 +84,15 @@ button:hover
     padding-bottom: 75px;
     background-size: cover;
     background-size: 100% 100% !important;
-    width: 1100px !important;
-    height: 1000px !important;
+    width: 1000px !important;
+    height: 800px !important;
     font-family: 'Beau Rivage', cursive;
     font-weight: 900;
 
-    background-image: url(./images/bkg.png);
+    background-image: url(./images/bkg_all.png);
     letter-spacing: 0.25em;
-    display: none;
+    display: block;
+    box-shadow: 0px 0px 10px 8px #00000080;
 }
 
 #bankingContainer2 {
