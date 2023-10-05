@@ -254,7 +254,7 @@ function populateBanking(data)
             "order": [[ 0, "desc" ]],
             "pagingType": "simple",
             "lengthChange": false,
-            "lengthMenu": [[5, 10], [5, 10]],
+            "lengthMenu": [[10], [10]],
             "language": {
                 "sProcessing": "Traitement en cours...",
                 "sLengthMenu": "Afficher _MENU_ éléments",
