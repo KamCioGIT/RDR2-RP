@@ -172,7 +172,7 @@ function setupSavingsMenu(data, name)
         } else {
             balance = '<span class="text-danger">$' + statement.balance + '</span>';
         }
-        $("#savingsStatementContents").append('<tr class="statement"><td><small>' + statement.date + '</small></td><td><small style="letter-spacing:1px">' + statement.type + '</small></td><td class="text-center text-danger"><small>$' + withdraw + '</small></td><td class="text-center text-success"><small>$' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
+        $("#savingsStatementContents").append('<tr class="statement"><td><small>' + Date(statement.date) + '</small></td><td><small style="letter-spacing:1px">' + statement.type + '</small></td><td class="text-center text-danger"><small>$' + withdraw + '</small></td><td class="text-center text-success"><small>$' + deposit + '</small></td><td class="text-center"><small>' + balance + '</small></td></tr>');
 
     });
 
