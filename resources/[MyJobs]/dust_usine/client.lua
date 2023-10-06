@@ -66,11 +66,11 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
 
             if jobgrade > 1 then
                 if _menutype == 'atelier' then 
-                    table.insert(elements, {label = "Munitions de Revolver", value = 'ammo_revolver', desc = "Transformation > 10 GunPowder + 10 Douilles"})
-                    table.insert(elements, {label = "Munitions de Pistolet", value = 'ammo_pistol', desc = "Transformation > 10 GunPowder + 10 Douilles"})
-                    table.insert(elements, {label = "Munitions de Carabine", value = 'ammo_repeater', desc = "Transformation > 15 GunPowder + 10 Douilles"})
-                    table.insert(elements, {label = "Munitions de Fusil", value = 'ammo_rifle', desc = "Transformation > 20 GunPowder + 10 Douilles"})
-                    table.insert(elements, {label = "Chevrotines", value = 'ammo_shotgun', desc = "Transformation > 15 GunPowder + 10 Douilles"})
+                    table.insert(elements, {label = "Munitions de Revolver", value = 'ammo_revolver', desc = "Transformation > 10 Poudre à canon + 10 Douilles"})
+                    table.insert(elements, {label = "Munitions de Pistolet", value = 'ammo_pistol', desc = "Transformation > 10 Poudre à canon + 10 Douilles"})
+                    table.insert(elements, {label = "Munitions de Carabine", value = 'ammo_repeater', desc = "Transformation > 15 Poudre à canon + 10 Douilles"})
+                    table.insert(elements, {label = "Munitions de Fusil", value = 'ammo_rifle', desc = "Transformation > 20 Poudre à canon + 10 Douilles"})
+                    table.insert(elements, {label = "Chevrotines", value = 'ammo_shotgun', desc = "Transformation > 15 Poudre à canon + 10 Douilles"})
                 end
             end
 
