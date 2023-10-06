@@ -647,7 +647,7 @@ Config.Items = {
         canBeDropped = true,
         canBeUsed = false,
         limit = 2000,
-        imgsrc = "",
+        imgsrc = "items/upgrade_pouch_ammo.png",
         type = "item_standard"
     },
     ["gunpowder"] = {
