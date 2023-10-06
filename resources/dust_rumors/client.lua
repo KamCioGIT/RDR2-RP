@@ -53,6 +53,7 @@ isInteracting = false;
 
 -- Ecrire Nv Rumeur
 Citizen.CreateThread(function()
+    print(Config.RumorPrice)
     while true do
         Citizen.Wait(0)
         local playerPosition = GetEntityCoords(PlayerPedId())
