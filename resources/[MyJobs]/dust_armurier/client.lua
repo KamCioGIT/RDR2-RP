@@ -258,18 +258,18 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
     }, function(data, menu)
         if data.current.value ~= "save" then
             OpenCategoryWeapon(data.current.value, wepHash, Weapontype, ped)
-            Citizen.InvokeNative(0x72F52AA2D2B172CC,  ped, wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_EXIT"), 0, 0, -1.0)
+            ClearPedTasks(PlayerPedId())
         else
             menu.close()
             TriggerEvent("weapons:savecomp", NewCompCache, wep_uid)
-            Citizen.InvokeNative(0x72F52AA2D2B172CC,  ped, wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_EXIT"), 0, 0, -1.0)
+            ClearPedTasks(PlayerPedId())
             isInteracting = false
 
         end
 
     end, function(data, menu)
         menu.close()
-        Citizen.InvokeNative(0x72F52AA2D2B172CC,  ped, wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_EXIT"), 0, 0, -1.0)
+        ClearPedTasks(PlayerPedId())
         isInteracting = false
         --- reset skin de base
     end)
@@ -377,7 +377,7 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped, menu_catagory)
         NewCompCache["commun"][data.current.category] = model
     end
     local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
-    Citizen.InvokeNative(0x72F52AA2D2B172CC,  ped, wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD"), 0, 0, -1.0)
+    Citizen.InvokeNative(0x72F52AA2D2B172CC,  PlayerPedId(), wepHash, wep, 0, GetHashKey(WeaponType.."_HOLD_ENTER"), 0, 0, -1.0)
 end
 
 
