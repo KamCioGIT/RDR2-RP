@@ -532,7 +532,7 @@ Config.Items = {
     },
     ["ferbrut"] = {
         label = "Fer brut",
-        description = "Minerai de Fer ",
+        description = "Minerai de Fer",
         weight = 0.5,
         canBeDropped = true,
         canBeUsed = false,
@@ -542,7 +542,7 @@ Config.Items = {
     },
     ["plombbrut"] = {
         label = "Plomb brut",
-        description = "Minerai de Plomb ",
+        description = "Minerai de Plomb",
         weight = 0.5,
         canBeDropped = true,
         canBeUsed = false,
