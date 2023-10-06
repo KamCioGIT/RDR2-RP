@@ -70,7 +70,7 @@ Config.Anim = {
 	[5] = 		{female=true, 	name="Camp Management", 		itsAnimation="command", 		command="camp_manage"},
 	[6] = 		{female=true, 	name="Load Camp", 				itsAnimation="command", 		command="camp_load"},
 	[7] = 		{female=true, 	name="Ranch Management", 		itsAnimation="command", 		command="ranch_manage"},
-	[8] = 		{female=true, 	name="Ranch Load", 				itsAnimation="command", 		command="ranch_load"},
+	[8] = 		{female=true, 	name="Inspecter l'arme", 				itsAnimation="command", 		command="inspect"},
 	[9] = 		{female=true, 	name="Undress", 				itsAnimation="command", 		command="undress"},
 	[10] = 		{female=true, 	name="Dress", 					itsAnimation="command", 		command="dress"},
 	[11] = 		{female=true, 	name="S/N Bandana", 			itsAnimation="command", 		command="bandana"},
