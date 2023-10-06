@@ -959,8 +959,8 @@ end)
 RegisterNetEvent('redemrp_inventory:compweapon', function (WeaponHash, wepcomp, wepobj)
     local ped = PlayerPedId()
     for k, v in pairs(wepcomp) do
+        Citizen.InvokeNative(0x19F70C4D80494FF8, ped, v, WeaponHash)
         RequestModel(v)
-        print (k, v)
         Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, v, WeaponHash, true)
     end
 end)

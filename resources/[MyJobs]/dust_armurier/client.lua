@@ -363,7 +363,6 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped, menu_catagory)
         model = GetHashKey(weapon_comp["model_specific_components"][wepHash][data.current.category][data.current.value])
         -- weapon_component_model_hash = Citizen.InvokeNative(0x59DE03442B6C9598, model )
         Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, model, wepHash, true)
-        print (data.current.category, model)
         NewCompCache[data.current.category] = model
     else
         for _, comp in pairs(weapon_comp["shared_components"][Weapontype][data.current.category]) do
