@@ -363,7 +363,7 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped, menu_catagory)
         model = GetHashKey(weapon_comp["model_specific_components"][wepHash][data.current.category][data.current.value])
         -- weapon_component_model_hash = Citizen.InvokeNative(0x59DE03442B6C9598, model )
         Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, model, wepHash, true)
-        NewCompCache[data.current.category]["specific"] = model
+        NewCompCache["specific"][data.current.category] = model
     else
         for _, comp in pairs(weapon_comp["shared_components"][Weapontype][data.current.category]) do
             Citizen.InvokeNative(0x19F70C4D80494FF8, ped, GetHashKey(comp), wepHash)
@@ -371,7 +371,7 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped, menu_catagory)
         model = GetHashKey(weapon_comp["shared_components"][Weapontype][data.current.category][data.current.value])
         -- weapon_component_model_hash =  Citizen.InvokeNative(0x59DE03442B6C9598, model)
         Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, model, wepHash, true)
-        NewCompCache[data.current.category]["commun"] = model
+        NewCompCache["commun"][data.current.category] = model
     end
 end
 
@@ -421,15 +421,15 @@ RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped
     _wephash = GetHashKey(name)
     if NewCompCache then
         for k, v in pairs(weapon_comp["shared_components"][WeapType]) do
-            if NewCompCache[k]["commun"] == nil then
-                NewCompCache[k]["commun"] = {}
-                NewCompCache[k]["commun"] = 0
+            if NewCompCache["commun"][k] == nil then
+                NewCompCache["commun"][k] = {}
+                NewCompCache["commun"][k] = 0
             end
         end
         for k, v in pairs(weapon_comp["model_specific_components"][_wephash]) do
-            if NewCompCache[k]["specific"] == nil then
-                NewCompCache[k]["specific"] = {}
-                NewCompCache[k]["specific"] = 0
+            if NewCompCache["specific"][k] == nil then
+                NewCompCache["specific"][k] = {}
+                NewCompCache["specific"][k] = 0
             end
         end
     else
