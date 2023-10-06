@@ -58,7 +58,7 @@ Citizen.CreateThread(function()
         local playerPosition = GetEntityCoords(PlayerPedId())
         for k,v in pairs(Config.ShareRumorSpot) do 
             if #(playerPosition - v.pos) < 2 and not isInteracting then 
-                rumorPrompt::setActiveThisFrame(true)
+                rumorPrompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     isInteracting = true
                     TrySendRumor()
