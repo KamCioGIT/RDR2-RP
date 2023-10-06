@@ -81,7 +81,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Amount = 20,
         ItemReceipe2Name = 'douille',
         ItemReceipe2Amount = 10,
-        ItemToGive = 'AMMO_RIFLE',
+        ItemToGive = 'ammo_rifle',
         Amount = 10,
         WorkingTime = 5,
     },
