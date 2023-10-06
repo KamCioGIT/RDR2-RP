@@ -87,8 +87,17 @@ function TrySendRumor()
 
         local elements = {}
 
-        table.insert(elements, {label = "Lancer une rumeur", value = 'TrySendRumor', desc = "Dites nous vos ragots et nous nous occuperons de les faires circuler. Mais attention, ce n'est pas gratuit. \n Price : " Config.RumorPrice})
-        table.insert(elements, {label = "S'en aller", value = 'Exit', desc = "Finalement, je préfère faire demi-tour."})
+        table.insert(elements, {
+            label = "Lancer une rumeur", 
+            value = 'TrySendRumor', 
+            desc = "Dites nous vos ragots et nous nous occuperons de les faires circuler. Mais attention, ce n'est pas gratuit. Price " .. Config.RumorPrice
+        })
+
+        table.insert(elements, {
+            label = "S'en aller", 
+            value = 'Exit', 
+            desc = "Finalement, je préfère faire demi-tour."
+        })
 
         MenuData.Open('default', GetCurrentResourceName(), 'rumor', {
             title = "Passeur d'information",
