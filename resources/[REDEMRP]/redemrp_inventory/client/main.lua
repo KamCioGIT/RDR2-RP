@@ -266,8 +266,14 @@ function ReloadWeapons()
             PistolsEquipping = PistolsEquipping + 1
             if PistolsEquipping == 1 then
                 givePlayerWeapon(k.WeaponHash, 2)
+                if k.meta.components ~= nil then
+                    TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components, wepobj)
+                end
             elseif PistolsEquipping == 2 then
                 givePlayerWeapon(k.WeaponHash, 3)
+                if k.meta.components ~= nil then
+                    TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components, wepobj)
+                end
             else
                 local wepobj = Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
                 SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
