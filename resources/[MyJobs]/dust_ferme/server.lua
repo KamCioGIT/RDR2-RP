@@ -200,7 +200,6 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 				local level = result[i].level
 				local savedDate = result[i].date / 1000 -- Remplacez ceci par la date de votre base de données
 				local timeDifference = os.difftime(cd, savedDate)
-				print (timeDifference)
 				if timeDifference >= 86400 then
 					if level < 5 then
 						local newlevel = level + 1
@@ -208,7 +207,6 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 						if model == "a_c_cow" then
 							local milk = result[i].milk
 							local newmilk = milk + 1
-							print (newlevel, cowid, newmilk, cd)
 							MySQL.update('UPDATE cattle SET `level`=@level, `milk`=@milk, `date`=@date WHERE `cowid`=@cowid;',
 								{
 									level = newlevel,
