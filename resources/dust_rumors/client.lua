@@ -1,6 +1,14 @@
 showOnPed = false
 
+--- prompt achat
+local rumorPrompt = UipromptGroup:new("ShareRumor")
+Uiprompt:new(0x760A9C6F, "Lancer une Rumeur", rumorPrompt)
+rumorPrompt:setActive(false)
+
+isInteracting = false;
+
 Citizen.CreateThread(function()
+    return -- A ENLEVER
     while true do
         Citizen.Wait(0)
         local itemSet = CreateItemset(true)
@@ -44,6 +52,23 @@ Citizen.CreateThread(function()
     end
 end)
 
+-- Ecrire Nv Rumeur
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        local playerPosition = GetEntityCoords(PlayerPedId())
+        for k,v in pairs(Config.ShareRumorSpot) do 
+            if #(playerPosition - v.pos) < 2 and not isInteracting then 
+                rumorPrompt::setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x760A9C6F) then
+                    isInteracting = true
+                    TrySendRumor()
+                end
+            end
+        end
+    end
+end)
+
 function DrawText3D(x, y, z, text)
     local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z)
     local px, py, pz = table.unpack(GetGameplayCamCoord())
@@ -56,3 +81,59 @@ function DrawText3D(x, y, z, text)
     local factor = (string.len(text)) / 150
     DrawSprite("generic_textures", "selection_box_bg_1d", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 100, 1, 1, 190, 0)
 end
+
+function TrySendRumor()
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local elements = {}
+
+        table.insert(elements, {label = "Lancer une rumeur", value = 'TrySendRumor', desc = "Dites nous vos ragots et nous nous occuperons de les faires circuler. Mais attention, ce n'est pas gratuit. \n Price : " Config.RumorPrice})
+        table.insert(elements, {label = "S'en aller", value = 'Exit', desc = "Finalement, je préfère faire demi-tour."})
+
+        MenuData.Open('default', GetCurrentResourceName(), 'rumor', {
+            title = "Passeur d'information",
+            subtext = "Qu'avez vous de si important à nous dire ?",
+            align = 'top-right',
+            elements = elements,
+        },
+    
+        function(data, menu)
+            Wait(5)
+            if data.current.value == 'TrySendRumor' then 
+                TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+                    MenuData.CloseAll()
+                    AddTextEntry("FMMC_MPM_TYP86", "Votre Rumeur / Limite de 250 caractères")
+                    DisplayOnscreenKeyboard(4, "FMMC_MPM_TYP86", "", "", "", "", "", 250) -- KTEXTTYPE_ALPHABET
+                    while (UpdateOnscreenKeyboard() == 0) do
+                        DisableAllControlActions(0)
+                        Citizen.Wait(0)
+                    end
+                    if (GetOnscreenKeyboardResult()) then
+                        local rumeurTextString = GetOnscreenKeyboardResult()
+                        TriggerServerEvent("dust_rumors:server:SendRumors", os.date("%Y-%m-%d %H:%M:%S"), PlayerPedId().name, rumeurTextString)
+                        isInteracting = false
+                    else
+                        menu.close()
+                        isInteracting = false
+                    return
+                    end
+                end)
+            else 
+                MenuData.CloseAll()
+                menu.close()
+                isInteracting = false
+            end
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end
+
+RegisterNetEvent("dust_rumors:ReceiveRumor")
+AddEventHandler("dust_rumors:ReceiveRumor", function(rumorText)
+
+end)
