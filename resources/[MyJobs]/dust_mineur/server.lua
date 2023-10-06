@@ -44,6 +44,8 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(2000)
 		TriggerEvent("redemrp_inventory:server:removeitemstash", "ferbrut", 2, {}, "dep_mineur","ferpepite", 1, {}, "ret_mineur")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeItemStash", "cuivrebrut", 2, {}, "dep_mineur","cuivrepepite", 1, {}, "ret_mineur")
 	end
 end)
 
@@ -54,12 +56,6 @@ Citizen.CreateThread(function()
 	end
 end)
 
-Citizen.CreateThread(function()
-	while true do
-		Citizen.Wait(2000)
-		TriggerEvent("redemrp_inventory:server:removeItemStash", "cuivrebrut", 2, {}, "dep_mineur","cuivrepepite", 1, {}, "ret_mineur")
-	end
-end)
 
 Citizen.CreateThread(function()
 	while true do
