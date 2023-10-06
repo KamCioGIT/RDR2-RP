@@ -627,7 +627,7 @@ Config.Items = {
         canBeDropped = true,
         canBeUsed = false,
         limit = 2000,
-        imgsrc = "items/Souffre.png",
+        imgsrc = "items/collector_fossil_stone.png",
         type = "item_standard"
     },
     ["lingotfer"] = {
@@ -657,7 +657,7 @@ Config.Items = {
         canBeDropped = true,
         canBeUsed = false,
         limit = 2000,
-        imgsrc = "",
+        imgsrc = "items/cocaine.png",
         type = "item_standard"
     },
     ["piecearme"] = {
