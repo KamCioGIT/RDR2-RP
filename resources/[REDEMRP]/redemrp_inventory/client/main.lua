@@ -958,6 +958,7 @@ end)
 
 RegisterNetEvent('redemrp_inventory:compweapon', function (WeaponHash, wepcomp, wepobj)
     local ped = PlayerPedId()
+    print 'tttt'
     local WeaponType = GetWeaponType(WeaponHash)
     print (WeaponType)
     for k, v in pairs(wepcomp["specific"]) do
