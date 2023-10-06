@@ -6,6 +6,7 @@ shared_script 'cfg.lua'
 
 client_scripts {
 	'client.lua',
+	"@uiprompt/uiprompt.lua",
 	'@mysql-async/lib/MySQL.lua'
 }
 
