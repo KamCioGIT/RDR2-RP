@@ -202,6 +202,7 @@ end)
 RegisterNetEvent("usine:SelectCraftingAmount")
 AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
 
     Citizen.CreateThread(function()
         while true do
