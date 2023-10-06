@@ -1,3 +1,5 @@
+RedEM = exports["redem_roleplay"]:RedEM()
+
 showOnPed = false
 
 --- prompt achat
