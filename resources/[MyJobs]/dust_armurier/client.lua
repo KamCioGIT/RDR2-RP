@@ -433,6 +433,7 @@ RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped
             end
         end
     else
+        NewCompCache = {}
         NewCompCache["commun"] = {}
         NewCompCache["specific"] = {}
     end
