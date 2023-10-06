@@ -1197,12 +1197,11 @@ AddEventHandler("redemrp_inventory:server:removeitemstash", function(name, amoun
                             table.remove(stash, id)
                         end
                         output = true
-                    end
+                    else return end
                 end
             end
-        end
+        else return end
     end
-    Citizen.Wait(1000)
     if output then
         local _name2 = name2
         local _amount2 = tonumber(amount2)
