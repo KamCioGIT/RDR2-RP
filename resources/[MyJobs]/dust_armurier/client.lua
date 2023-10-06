@@ -75,7 +75,7 @@ function GetWeaponType(hash)
 		return "LONGARM"
 	elseif  Citizen.InvokeNative(0xC75386174ECE95D5, hash) then
 		return "SHOTGUN"
-	elseif  Citizen.InvokeNative(0xDDC64F5E31EEDAB6, hash) or Citizen.InvokeNative(0xC212F1D05A8232BB, hash) then
+	elseif  Citizen.InvokeNative(0xDDC64F5E31EEDAB6, hash) or Citizen.InvokeNative(0xC212F1D05A8232BB, hash) or Citizen.InvokeNative(0xC4DEC3CA8C365A5D, hash)then
 		return "SHORTARM"
 	end
 	return false
