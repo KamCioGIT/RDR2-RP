@@ -959,6 +959,7 @@ end)
 RegisterNetEvent('redemrp_inventory:compweapon', function (WeaponHash, wepcomp, wepobj)
     local ped = PlayerPedId()
     local WeaponType = GetWeaponType(WeaponHash)
+    print (WeaponType)
     for k, v in pairs(wepcomp["specific"]) do
         for _, comp in pairs(weapon_comp["model_specific_components"][WeaponHash][k]) do
             Citizen.InvokeNative(0x19F70C4D80494FF8, ped, GetHashKey(comp), WeaponHash)
