@@ -474,9 +474,9 @@ RegisterCommand("testclothe", function()
     local normal = `dress_fr1_002_c1_000_nm`
     local material = `dress_fr1_002_c1_000_m`
     local palette = `metaped_tint_generic_clean`
-    local tint0 = 50
+    local tint0 = 0
     local tint1 = 255
-    local tint2 = 255
+    local tint2 = 0
     while not IsPedReadyToRender(playerPed) do
         Wait(0)
     end
