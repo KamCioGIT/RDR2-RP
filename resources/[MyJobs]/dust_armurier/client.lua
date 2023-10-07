@@ -469,14 +469,14 @@ end
 
 RegisterCommand("testclothe", function()
     local playerPed = PlayerPedId()
-    local drawable = `dress_fr1_002`
-    local albedo = `dress_fr1_002_c1_999_ab`
-    local normal = `dress_fr1_002_c1_000_nm`
-    local material = `dress_fr1_002_c1_000_m`
-    local palette = `metaped_tint_generic_clean`
-    local tint0 = 0
-    local tint1 = 255
-    local tint2 = 0
+    local drawable = `shawl_fr1_002`
+    local albedo = `ejbtbgqb_0xb56bf958`
+    local normal = `lekgpjfa_0xb6f23ea5`
+    local material = `fxxmresa_0x5c1cf0ec`
+    local palette = `sbzopvra_0x4101ed87`
+    local tint0 = 123
+    local tint1 = 53
+    local tint2 = 141
     while not IsPedReadyToRender(playerPed) do
         Wait(0)
     end
