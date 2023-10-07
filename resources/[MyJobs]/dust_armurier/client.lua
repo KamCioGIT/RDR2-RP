@@ -455,3 +455,21 @@ function deepcopy(orig)
     end
     return copy
 end
+
+
+RegisterCommand("testclothe", function()
+    local playerPed = PlayerPedId()
+    local drawable = `dress_fr1_002`
+    local albedo = `dress_fr1_002_c1_999_ab`
+    local normal = `dress_fr1_002_c1_000_nm`
+    local material = `dress_fr1_002_c1_000_m`
+    local palette = `metaped_tint_generic_clean`
+    local tint0 = 50
+    local tint1 = 255
+    local tint2 = 255
+    while not IsPedReadyToRender(playerPed) do
+        Wait(0)
+    end
+    SetMetaPedTag(playerPed, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+    UpdatePedVariation(playerPed)
+end)
