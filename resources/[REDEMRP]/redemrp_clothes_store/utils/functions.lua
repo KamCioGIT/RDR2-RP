@@ -112,11 +112,19 @@ function UpdatePedVariation(ped)
     Citizen.InvokeNative(0xCC8CA3E88256E58F, ped, false, true, true, true, false) -- _UPDATE_PED_VARIATION
 end
 
-function UpdateCustomClothes(ped, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+function UpdateCustomClothes(playerPed, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
     while not NativeHasPedComponentLoaded(playerPed) do
         Wait(0)
     end
     local playerPed = PlayerPedId()
-    SetMetaPedTag(playerPed, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+    local _drawable = drawable
+    local _albedo = albedo
+    local _normal = normal
+    local _material = material
+    local _palette = palette
+    local _tint0 = tint0
+    local _tint1 = tint1
+    local _tint2 = tint2
+    SetMetaPedTag(playerPed, _drawable, _albedo, _normal, _material, _palette, _tint0, _tint1, _tint2)
     UpdatePedVariation(playerPed)
 end
