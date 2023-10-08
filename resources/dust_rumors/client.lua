@@ -124,7 +124,7 @@ function TrySendRumor()
                     end
                     if (GetOnscreenKeyboardResult()) then
                         local rumeurTextString = GetOnscreenKeyboardResult()
-                        TriggerServerEvent("dust_rumors:server:SendRumors", PlayerPedId().name, rumeurTextString)
+                        TriggerServerEvent("dust_rumors:server:SendRumor", PlayerPedId().name, rumeurTextString)
                         isInteracting = false
                     else
                         menu.close()
