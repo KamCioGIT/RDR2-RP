@@ -158,8 +158,8 @@ function GivePlayerRessource()
         if rand >= entry.chance then
             Wait(200)
             print (rand, entry.item)
-            TriggerServerEvent('mineur:additem', entry.item)
-            break
+            TriggerServerEvent('mineur:additem', item)
+            return
         else
             rand = rand + entry.chance
         end
