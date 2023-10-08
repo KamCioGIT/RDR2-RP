@@ -150,7 +150,7 @@ function OpenCateogry(menu_catagory)
                 change_type = "model",
                 id = a,
                 options = options,
-                is_mp = v.is_multiplayer
+                is_mp = k.is_multiplayer
             })
             a = a + 1
             options = {}
