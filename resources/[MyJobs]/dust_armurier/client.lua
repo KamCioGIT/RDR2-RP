@@ -31,8 +31,9 @@ RegisterNetEvent("dust_armurier:client:ReceiveJob", function(job, grade)
     end
 end)
 
-AddEventHandler("redem_roleplay:getjob", function (job)
-    print (job)
+RegisterNetEvent("redem_roleplay:getjob")
+AddEventHandler("redem_roleplay:getjob", function(job)
+    print(job)
 end)
 
 RegisterCommand("testjob", function()

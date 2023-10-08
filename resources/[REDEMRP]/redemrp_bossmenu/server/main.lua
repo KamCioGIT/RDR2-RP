@@ -570,7 +570,8 @@ AddEventHandler(
 )
 
 
-RegisterServerEvent("testjob", function()
+RegisterServerEvent("testjob")
+AddEventHandler("testjob", function()
     local _source = source
     local user = RedEM.GetPlayer(_source)
     if user then
