@@ -351,12 +351,12 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMember", function(targetId)
             local targetJob = targetUser.GetJob()
             if targetUser.identifier == user.identifier then
                 TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
-                return RedEM.Functions.NotifyLeft(_source, "Error", "You can't fire yourself!", "menu_textures", "menu_icon_alert", 3000)
+                return
             end
             if targetJob == job then
                 if targetUser.jobgrade >= grade then
                     TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
-                    return RedEM.Functions.NotifyLeft(_source, "Error", "You can't fire a higher or equal rank!", "menu_textures", "menu_icon_alert", 3000)
+                    return
                 end
                 targetUser.SetJob("unemployed")
                 targetUser.SetJobGrade(0)
@@ -366,11 +366,7 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMember", function(targetId)
                         "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " fired "..
                         "["..targetId.."] **"..targetUser.GetFirstName().." "..targetUser.GetLastName().. "** (serverid: "..targetId.." | name: ".. GetPlayerName(targetId).." | steamid: "..targetUser.GetIdentifier().." | characterid: "..targetUser.GetActiveCharacter()..") from job "..job)
                 TriggerClientEvent("redemrp_bossmenu:client:ViewGradeList", _source, GradeList)
-            else
-                RedEM.Functions.NotifyLeft(_source, "Not your employee!", "This player doesn't work for you!", "menu_textures", "menu_icon_alert", 3000)
             end
-        else
-            RedEM.Functions.NotifyLeft(_source, "No access!", "You don't have personnel access!", "menu_textures", "menu_icon_alert", 3000)
         end
     end
 end)
@@ -387,11 +383,7 @@ RegisterServerEvent("redemrp_bossmenu:server:TrySetGrade", function(targetId)
             if targetJob == job and targetGrade <= grade then
                 TriggerClientEvent("redemrp_bossmenu:client:FinishSetGrade", _source)
                 SettingGrade[_source] = targetId
-            else
-                RedEM.Functions.NotifyLeft(_source, "Not your employee!", "This player doesn't work for you!", "menu_textures", "menu_icon_alert", 3000)
             end
-        else
-            RedEM.Functions.NotifyLeft(_source, "No access!", "You don't have personnel access!", "menu_textures", "menu_icon_alert", 3000)
         end
     end
 end)
@@ -401,7 +393,7 @@ RegisterNetEvent("redemrp_bossmenu:server:SetGrade", function(targetId, gradeId)
     local user = RedEM.GetPlayer(_source)
     local job, grade = user.GetJob(), user.GetJobGrade()
     if tonumber(targetId) == tonumber(_source) then
-        return RedEM.Functions.NotifyLeft(_source, "Error", "You can't set your own grade!", "menu_textures", "menu_icon_alert", 3000)
+        return
     end
     if Config.Jobs[job] then
         if Config.Jobs[job].Grades[grade].Personnel then
