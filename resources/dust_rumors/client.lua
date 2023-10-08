@@ -20,12 +20,12 @@ Citizen.CreateThread(function()
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 local model = GetEntityModel(entity)
 
-                local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
+                local isAnimal = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
               
                 if PlayerPedId() ~= entity then 
                     if IsPedAPlayer(entity) ~= true then
                         if IsEntityDead(entity) == false then
-                            if boolA ~= nil and boolA == false then
+                            if isAnimal ~= nil and isAnimal == false then
                                 showOnPed = true
                             end
                         end
@@ -34,9 +34,10 @@ Citizen.CreateThread(function()
 
                 if showOnPed then
                     local entityPos = GetEntityCoords(entity) 
+                    local textToPrint = TriggerEvent("dust_rumors:ReceiveRumor")
                     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                     coords = entityPos + boneCoord
-                    DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
+                    DrawText3D(coords.x, coords.y, coords.z + 1, textToPrint)
                 end
 
                 showOnPed = false
@@ -143,8 +144,3 @@ function TrySendRumor()
         end)
     end)
 end
-
-RegisterNetEvent("dust_rumors:ReceiveRumor")
-AddEventHandler("dust_rumors:ReceiveRumor", function(rumorText)
-
-end)
