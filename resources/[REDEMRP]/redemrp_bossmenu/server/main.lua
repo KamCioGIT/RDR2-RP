@@ -431,7 +431,7 @@ RegisterServerEvent("redemrp_bossmenu:server:RequestBossStash", function()
     local job, grade = user.GetJob(), user.GetJobGrade()
     if Config.Jobs[job] then
         if Config.Jobs[job].Grades[grade].StorageAccess then
-            TriggerClientEvent("redemrp_inventory:OpenStash", _source, "bossstash_"..job, 3000.0)
+            TriggerClientEvent("redemrp_inventory:OpenStash", _source, "bossstash_"..job, 100.0)
         else
             RedEM.Functions.NotifyLeft(_source, "No access!", "You don't have storage access!", "menu_textures", "menu_icon_alert", 3000)
         end
