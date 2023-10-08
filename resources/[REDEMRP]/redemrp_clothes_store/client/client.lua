@@ -150,7 +150,7 @@ function OpenCateogry(menu_catagory)
                 change_type = "model",
                 id = a,
                 options = options,
-                is_mp = v.is_multiplayer
+                is_mp = k.is_multiplayer
             })
             a = a + 1
             options = {}
@@ -355,6 +355,7 @@ AddEventHandler('rdr_clothes_store:OpenClothingMenu', function(ClothesComponents
 end)
 
 function Change(id, category, change_type, is_mp)
+    print (is_mp)
     if is_mp == true then
         if id < 1 then
             Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
