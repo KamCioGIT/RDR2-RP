@@ -1,3 +1,5 @@
+RedEM = exports["redem_roleplay"]:RedEM()
+
 RegisterNetEvent("dust_rumors:server:SendRumor")
 AddEventHandler("dust_rumors:server:SendRumor", function(rumorText)
     local _source = source
@@ -14,7 +16,5 @@ AddEventHandler("dust_rumors:server:SendRumor", function(rumorText)
             date = os.time(),
         },
         function(rowsChanged)
-        end
-    )
-
+    end)
 end)

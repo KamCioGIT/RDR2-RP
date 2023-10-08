@@ -127,15 +127,18 @@ function TrySendRumor()
                         print(rumeurTextString)
                         TriggerServerEvent("dust_rumors:server:SendRumor", rumeurTextString)
                         isInteracting = false
+                        FreezeEntityPosition(PlayerPedId(), false)
                     else
                         menu.close()
                         isInteracting = false
+                        FreezeEntityPosition(PlayerPedId(), false)
                     end
                 end)
             else 
                 MenuData.CloseAll()
                 menu.close()
                 isInteracting = false
+                FreezeEntityPosition(PlayerPedId(), false)
             end
         end,
 
