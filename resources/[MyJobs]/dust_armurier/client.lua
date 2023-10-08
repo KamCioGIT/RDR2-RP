@@ -24,6 +24,7 @@ local getjob = false
 local getgrade = 0
 RegisterNetEvent("redem_roleplay:JobChange")
 AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+    print(job)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             getjob = true
