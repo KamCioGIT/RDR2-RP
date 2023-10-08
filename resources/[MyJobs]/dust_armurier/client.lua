@@ -31,10 +31,13 @@ RegisterNetEvent("dust_armurier:client:ReceiveJob", function(job, grade)
     end
 end)
 
-AddEventHandler("redem_roleplay:JobChange", function (job)
-    print ('migrant')
+AddEventHandler("redem_roleplay:JobChange", function (id, job)
+    print (id, job)
 end)
 
+RegisterCommand("testjob", function())
+    TriggerEvent("redem_roleplay:JobChange", 1, 2)
+end
 
 ---- Prompt ----
 
