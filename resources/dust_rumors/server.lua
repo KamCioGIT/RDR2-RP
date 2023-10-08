@@ -5,7 +5,7 @@ AddEventHandler("dust_rumors:server:SendRumor", function(rumorText)
     local _source = source
     print(rumorText)
     local user = RedEM.GetPlayer(_source)
-    local nameStr = user.firstname .. user.lastname
+    local nameStr = user.firstname .. " " .. user.lastname
     print(nameStr)
 
     MySQL.update(
@@ -13,8 +13,7 @@ AddEventHandler("dust_rumors:server:SendRumor", function(rumorText)
         {
             name = nameStr,
             rumorText = rumorText,
-            date = os.time(),
-        },
-        function(rowsChanged)
+            date = os.date("%Y-%m-%d %H:%M:%S")
+        }, function(rowsChanged)
     end)
 end)
