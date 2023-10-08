@@ -95,6 +95,10 @@ function NativeHasPedComponentLoaded(ped)
     return Citizen.InvokeNative(0xA0BC8FAED8CFEB3C, ped)
 end
 
+function SetMetaPedTag(ped, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+    Citizen.InvokeNative(0xBC6DF00D7A4A6819, ped, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+end
+
 function NativeUpdatePedVariation(ped)
     Citizen.InvokeNative(0x704C908E9C405136, ped)
     Citizen.InvokeNative(0xCC8CA3E88256E58F, ped, false, true, true, true, false)

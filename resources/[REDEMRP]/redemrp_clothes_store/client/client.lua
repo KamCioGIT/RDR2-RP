@@ -149,7 +149,8 @@ function OpenCateogry(menu_catagory)
                 max = #category,
                 change_type = "model",
                 id = a,
-                options = options
+                options = options,
+                is_mp = v.is_multiplayer
             })
             a = a + 1
             options = {}
@@ -234,14 +235,14 @@ function MenuUpdateClothes(data, menu)
                 Citizen.InvokeNative(0xFA233F8FE190514C, str)
                 Citizen.InvokeNative(0xE9990552DEC71600)
             end
-            Change(data.current.value, data.current.category, data.current.change_type)
+            Change(data.current.value, data.current.category, data.current.change_type, data.current.is_mp)
         end
     end
     if data.current.change_type == "texture" then
         print(ClothesCache[data.current.category].texture)
         if ClothesCache[data.current.category].texture ~= data.current.value then
             ClothesCache[data.current.category].texture = data.current.value
-            Change(data.current.value, data.current.category, data.current.change_type)
+            Change(data.current.value, data.current.category, data.current.change_type, data.current.is_mp)
         end
     end
 
@@ -353,7 +354,7 @@ AddEventHandler('rdr_clothes_store:OpenClothingMenu', function(ClothesComponents
     OpenClothingMenu()
 end)
 
-function Change(id, category, change_type)
+function Change(id, category, change_type, is_mp)
     if id < 1 then
         Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
         NativeUpdatePedVariation(PlayerPedId())
