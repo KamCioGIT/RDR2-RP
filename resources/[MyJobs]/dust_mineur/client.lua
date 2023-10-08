@@ -155,10 +155,10 @@ end
 function GivePlayerRessource()
     local rand = math.random(1,100)
     for item, entry in pairs(Config.Loottable) do
-        if rand <= entry.chance then
+        if rand >= entry.chance then
             Wait(200)
-            print (rand, item)
-            TriggerServerEvent('mineur:additem', item)
+            print (rand, entry.item)
+            TriggerServerEvent('mineur:additem', entry.item)
             break
         else
             rand = rand + entry.chance
