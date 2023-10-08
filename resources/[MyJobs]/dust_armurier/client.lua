@@ -32,7 +32,7 @@ RegisterNetEvent("dust_armurier:client:ReceiveJob", function(job, grade)
 end)
 
 AddEventHandler("redem_roleplay:JobChange", function (job)
-    print (job)
+    print ('migrant')
 end)
 
 
