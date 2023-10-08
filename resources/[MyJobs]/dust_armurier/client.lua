@@ -39,7 +39,7 @@ customwprompt:setActive(false)
 
 ----- Open Menu ----
 Citizen.CreateThread(function()
-    while getjob do
+    while getjob == true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Atelier) do
