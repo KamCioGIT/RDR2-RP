@@ -9,49 +9,48 @@ rumorPrompt:setActive(false)
 
 isInteracting = false;
 
--- Citizen.CreateThread(function()
---     while true do
---         Citizen.Wait(0)
---         local itemSet = CreateItemset(true)
---         local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 7.0, itemSet, 1, Citizen.ResultAsInteger())
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        local itemSet = CreateItemset(true)
+        local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 7.0, itemSet, 1, Citizen.ResultAsInteger())
       
---         if size > 0 then
---             for index = 0, size - 1 do
---                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
---                 local model = GetEntityModel(entity)
+        if size > 0 then
+            for index = 0, size - 1 do
+                local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
+                local model = GetEntityModel(entity)
 
---                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
---                 if boolA ~= nil then
---                     print(boolA)
---                 end
+                local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
+                if boolA ~= nil then
+                    print(boolA)
+                end
 
---                 if PlayerPedId() ~= entity then 
---                     if IsPedAPlayer(entity) ~= true then
---                         if IsEntityDead(entity) == false then
---                             if 
---                                 -- Pas d'animaux
---                                 showOnPed = true
---                             end
---                         end
---                     end
---                 end
+                print(GetMetaPedType(entity))
 
---                 if showOnPed then
---                     local entityPos = GetEntityCoords(entity) 
---                     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
---                     coords = entityPos + boneCoord
---                     DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
---                 end
+                if PlayerPedId() ~= entity then 
+                    if IsPedAPlayer(entity) ~= true then
+                        if IsEntityDead(entity) == false then
+                            showOnPed = true
+                        end
+                    end
+                end
 
---                 showOnPed = false
---             end
---         end
+                if showOnPed then
+                    local entityPos = GetEntityCoords(entity) 
+                    boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
+                    coords = entityPos + boneCoord
+                    DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
+                end
 
---         if IsItemsetValid(itemSet) then
---             DestroyItemset(itemSet)
---         end
---     end
--- end)
+                showOnPed = false
+            end
+        end
+
+        if IsItemsetValid(itemSet) then
+            DestroyItemset(itemSet)
+        end
+    end
+end)
 
 -- Ecrire Nv Rumeur
 Citizen.CreateThread(function()
