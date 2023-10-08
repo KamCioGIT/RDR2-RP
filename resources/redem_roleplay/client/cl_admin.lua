@@ -172,3 +172,9 @@ GetClosestVehicleEx = function(coords)
     end
     return closestVehicle, closestDistance
 end
+
+
+RegisterClientEvent("redem_roleplay:JobChange", function(id, job)
+    
+end)
+

@@ -293,6 +293,7 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                     if not JobLedgers[job] then
                         JobLedgers[job] = 0
                     end
+                    TriggerClientEvent("redem_roleplay:JobChange", _source, "unemployed")
                     TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
                 end
             end
