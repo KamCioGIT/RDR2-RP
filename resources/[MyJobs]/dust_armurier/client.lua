@@ -35,9 +35,9 @@ AddEventHandler("redem_roleplay:JobChange", function (id, job)
     print (id, job)
 end)
 
-RegisterCommand("testjob", function())
+RegisterCommand("testjob", function()
     TriggerEvent("redem_roleplay:JobChange", 1, 2)
-end
+end)
 
 ---- Prompt ----
 
