@@ -234,14 +234,14 @@ function MenuUpdateClothes(data, menu)
                 Citizen.InvokeNative(0xFA233F8FE190514C, str)
                 Citizen.InvokeNative(0xE9990552DEC71600)
             end
-            Change(data.current.value, data.current.category, data.current.change_type, data.current.is_mp)
+            Change(data.current.value, data.current.category, data.current.change_type)
         end
     end
     if data.current.change_type == "texture" then
         print(ClothesCache[data.current.category].texture)
         if ClothesCache[data.current.category].texture ~= data.current.value then
             ClothesCache[data.current.category].texture = data.current.value
-            Change(data.current.value, data.current.category, data.current.change_type, data.current.is_mp)
+            Change(data.current.value, data.current.category, data.current.change_type)
         end
     end
 
@@ -354,91 +354,85 @@ AddEventHandler('rdr_clothes_store:OpenClothingMenu', function(ClothesComponents
 end)
 
 function Change(id, category, change_type)
-    if IsPedMale(PlayerPedId()) then
-        is_mp = clothes_list["male"][category][id][1].is_multiplayer
+    if id < 1 then
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
+        NativeUpdatePedVariation(PlayerPedId())
+        if category == "pants" or category == "boots" then
+            NativeSetPedComponentEnabled(PlayerPedId(), exports.rdr_creator:GetBodyCurrentComponentHash("BODIES_LOWER"),
+                false, true, true)
+        end
+        if category == "shirts_full" then
+            NativeSetPedComponentEnabled(PlayerPedId(), exports.rdr_creator:GetBodyCurrentComponentHash("BODIES_UPPER"),
+                false, true, true)
+        end
     else
-        is_mp = clothes_list["female"][category][id][1].is_multiplayer
+        if IsPedMale(PlayerPedId()) then
+            if change_type == "model" then
+                NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"][category][id][1].hash, false, true,
+                    true)
+            else
+                NativeSetPedComponentEnabled(PlayerPedId(),
+                    clothes_list["male"][category][ClothesCache[category].model][id].hash, false, true, true)
+            end
+
+        else
+            if change_type == "model" then
+                print (clothes_list["female"][category][id][1]['is_multiplayer'])
+                NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"][category][id][1].hash, false, true,
+                    true)
+            else
+                NativeSetPedComponentEnabled(PlayerPedId(),
+                    clothes_list["female"][category][ClothesCache[category].model][id].hash, false, true, true)
+            end
+        end
+
     end
-    print (is_mp)
-    if is_mp == true then
-        if id < 1 then
-            Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
-            NativeUpdatePedVariation(PlayerPedId())
-            if category == "pants" or category == "boots" then
-                NativeSetPedComponentEnabled(PlayerPedId(), exports.rdr_creator:GetBodyCurrentComponentHash("BODIES_LOWER"),
-                    false, true, true)
-            end
-            if category == "shirts_full" then
-                NativeSetPedComponentEnabled(PlayerPedId(), exports.rdr_creator:GetBodyCurrentComponentHash("BODIES_UPPER"),
-                    false, true, true)
-            end
-        else
-            if IsPedMale(PlayerPedId()) then
-                if change_type == "model" then
-                    NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"][category][id][1].hash, false, true,
-                        true)
-                else
-                    NativeSetPedComponentEnabled(PlayerPedId(),
-                        clothes_list["male"][category][ClothesCache[category].model][id].hash, false, true, true)
-                end
+    -- elseif is_mp == false then
+    --     if id < 1 then
+    --         if IsPedMale(PlayerPedId()) then
+    --             local drawable = clothes_list["male"][category][ClothesCache[category].model][id].drawable
+    --             local albedo = clothes_list["male"][category][ClothesCache[category].model][id].albedo
+    --             local normal = clothes_list["male"][category][ClothesCache[category].model][id].normal
+    --             local material = clothes_list["male"][category][ClothesCache[category].model][id].material
+    --             local palette = clothes_list["male"][category][ClothesCache[category].model][id].palette
+    --             local tint0 = clothes_list["male"][category][ClothesCache[category].model][id].tint0
+    --             local tint1 = clothes_list["male"][category][ClothesCache[category].model][id].tint1
+    --             local tint2 = clothes_list["male"][category][ClothesCache[category].model][id].tint2
+    --             UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+    --         else
+    --             local drawable = clothes_list["female"][category][ClothesCache[category].model][id].drawable
+    --             local albedo = clothes_list["female"][category][ClothesCache[category].model][id].albedo
+    --             local normal = clothes_list["female"][category][ClothesCache[category].model][id].normal
+    --             local material = clothes_list["female"][category][ClothesCache[category].model][id].material
+    --             local palette = clothes_list["female"][category][ClothesCache[category].model][id].palette
+    --             local tint0 = clothes_list["female"][category][ClothesCache[category].model][id].tint0
+    --             local tint1 = clothes_list["female"][category][ClothesCache[category].model][id].tint1
+    --             local tint2 = clothes_list["female"][category][ClothesCache[category].model][id].tint2
+    --             UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+    --         end
+    --     else
+    --         if IsPedMale(PlayerPedId()) then
+    --             if change_type == "model" then
+    --                 NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"][category][id][1].hash, false, true,
+    --                     true)
+    --             else
+    --                 NativeSetPedComponentEnabled(PlayerPedId(),
+    --                     clothes_list["male"][category][ClothesCache[category].model][id].hash, false, true, true)
+    --             end
 
-            else
-                if change_type == "model" then
-                    NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"][category][id][1].hash, false, true,
-                        true)
-                else
-                    NativeSetPedComponentEnabled(PlayerPedId(),
-                        clothes_list["female"][category][ClothesCache[category].model][id].hash, false, true, true)
-                end
-            end
+    --         else
+    --             if change_type == "model" then
+    --                 NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"][category][id][1].hash, false, true,
+    --                     true)
+    --             else
+    --                 NativeSetPedComponentEnabled(PlayerPedId(),
+    --                     clothes_list["female"][category][ClothesCache[category].model][id].hash, false, true, true)
+    --             end
+    --         end
 
-        end
-    elseif is_mp == false then
-        if id < 1 then
-            if IsPedMale(PlayerPedId()) then
-                local drawable = clothes_list["male"][category][ClothesCache[category].model][id].drawable
-                local albedo = clothes_list["male"][category][ClothesCache[category].model][id].albedo
-                local normal = clothes_list["male"][category][ClothesCache[category].model][id].normal
-                local material = clothes_list["male"][category][ClothesCache[category].model][id].material
-                local palette = clothes_list["male"][category][ClothesCache[category].model][id].palette
-                local tint0 = clothes_list["male"][category][ClothesCache[category].model][id].tint0
-                local tint1 = clothes_list["male"][category][ClothesCache[category].model][id].tint1
-                local tint2 = clothes_list["male"][category][ClothesCache[category].model][id].tint2
-                UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
-            else
-                local drawable = clothes_list["female"][category][ClothesCache[category].model][id].drawable
-                local albedo = clothes_list["female"][category][ClothesCache[category].model][id].albedo
-                local normal = clothes_list["female"][category][ClothesCache[category].model][id].normal
-                local material = clothes_list["female"][category][ClothesCache[category].model][id].material
-                local palette = clothes_list["female"][category][ClothesCache[category].model][id].palette
-                local tint0 = clothes_list["female"][category][ClothesCache[category].model][id].tint0
-                local tint1 = clothes_list["female"][category][ClothesCache[category].model][id].tint1
-                local tint2 = clothes_list["female"][category][ClothesCache[category].model][id].tint2
-                UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
-            end
-        else
-            if IsPedMale(PlayerPedId()) then
-                if change_type == "model" then
-                    NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"][category][id][1].hash, false, true,
-                        true)
-                else
-                    NativeSetPedComponentEnabled(PlayerPedId(),
-                        clothes_list["male"][category][ClothesCache[category].model][id].hash, false, true, true)
-                end
-
-            else
-                if change_type == "model" then
-                    NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"][category][id][1].hash, false, true,
-                        true)
-                else
-                    NativeSetPedComponentEnabled(PlayerPedId(),
-                        clothes_list["female"][category][ClothesCache[category].model][id].hash, false, true, true)
-                end
-            end
-
-        end
+    --     end
     
-    end
+    -- end
     
 end
 

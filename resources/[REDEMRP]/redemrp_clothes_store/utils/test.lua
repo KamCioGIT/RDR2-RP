@@ -13083,8 +13083,8 @@ clothes_list = {
 					['category_hash'] = 1008366797,
 					['category_hash_dec_signed'] = 1008366797,
 					['category_hashname'] = 'cloaks',
-					['hashname'] = 'CLOTHING_ITEM_F_SEASONAL_005_PONCHO_VAR_001',
-					['is_multiplayer'] = 'custom',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
 					['ped_type'] = 'female',
 					['drawable'] = 'cloak_fr1_000',
 					['albedo'] = 'rxeonbaa_0xa27c83f4',
@@ -13093,7 +13093,7 @@ clothes_list = {
 					['palette'] = 'dsvkmzra_0xf509c745',
 					['tint0'] = 96,
 					['tint1'] = 29,
-					['tint2'] = 9,
+					['tint2'] = 9
 
 				}
 			},
