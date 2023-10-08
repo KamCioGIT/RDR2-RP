@@ -117,16 +117,15 @@ function UpdateCustomClothes(playerPed, drawable, albedo, normal, material, pale
         Wait(0)
     end
     local playerPed = PlayerPedId()
-    local _drawable = tostring(drawable)
-    local _albedo = tostring(albedo)
-    local _normal = tostring(normal)
-    local _material = tostring(material)
-    local _palette = tostring(palette)
+    local _drawable = drawable
+    local _albedo = albedo
+    local _normal = normal
+    local _material = material
+    local _palette = palette
     local _tint0 = tonumber(tint0)
     local _tint1 = tonumber(tint1)
     local _tint2 = tonumber(tint2)
-    
-    Wait(100)
+
     SetMetaPedTag(playerPed, _drawable, _albedo, _normal, _material, _palette, _tint0, _tint1, _tint2)
     UpdatePedVariation(playerPed)
 end
