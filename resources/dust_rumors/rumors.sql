@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `rumors` (
-  `rumorId` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` datetime NULL,
   `name` varchar(50) NULL,
   `rumorText` varchar(250) NOT NULL,
