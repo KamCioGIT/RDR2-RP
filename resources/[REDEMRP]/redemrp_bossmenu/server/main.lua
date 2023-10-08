@@ -286,14 +286,27 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                 Employee = Employee[1]
                 if Employee.identifier == id and Employee.characterid == charid then
                     MySQL.query.await("UPDATE characters SET job = 'unemployed', jobgrade = 0 WHERE identifier = :identifier AND characterid = :charid", { identifier = id, charid = charid })
-                    RedEM.Functions.NotifyLeft(_source, "Employee fired!", "You fired "..Employee.firstname.." "..Employee.lastname.. "!", "menu_textures", "menu_icon_tick", 3000)
+                    -- RedEM.Functions.NotifyLeft(_source, "Employee fired!", "You fired "..Employee.firstname.." "..Employee.lastname.. "!", "menu_textures", "menu_icon_tick", 3000)
                     -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Fired Employee', 'red', 
                     --         "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().."** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " fired "..
                     --         "[OFFLINE] **"..Employee.firstname.." "..Employee.lastname.. "** (name: OFFLINE | steamid: "..Employee.identifier.." | characterid: "..Employee.characterid..") from job "..job)
                     if not JobLedgers[job] then
                         JobLedgers[job] = 0
                     end
-                    TriggerClientEvent("redem_roleplay:JobChange", _source, "unemployed")
+                    local OnlineIds = {}
+                    for k,v in ipairs(GetPlayers()) do
+                        local targetUser = RedEM.GetPlayer(v)
+                        if targetUser then
+                            table.insert(OnlineIds, {no = k, id = targetUser.GetIdentifier(), charid = targetUser.GetActiveCharacter()})
+                        end
+                    end
+
+                    for k,v in pairs(OnlineIds) do
+                        if v.id == Employee.identifier and tonumber(v.characterid) == tonumber(Employee.characterid) then
+                            TriggerClientEvent("redem_roleplay:JobChange", v.no, "unemployed")
+                        end
+                    end
+
                     TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
                 end
             end
