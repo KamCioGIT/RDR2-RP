@@ -116,7 +116,15 @@ function UpdateCustomClothes(playerPed, drawable, albedo, normal, material, pale
     while not NativeHasPedComponentLoaded(playerPed) do
         Wait(0)
     end
-    print (playerPed, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+    local playerPed = PlayerPedId()
+    local drawable = `cloak_fr1_000`
+    local albedo = `rxeonbaa_0xa27c83f4`
+    local normal = `jbcenhqa_0x761e354e`
+    local material = `jgqpesaa_0x8fc6aeb3`
+    local palette = `dsvkmzra_0xf509c745`
+    local tint0 = 96
+    local tint1 = 29
+    local tint2 = 9
     SetMetaPedTag(playerPed, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
     UpdatePedVariation(playerPed)
 end
