@@ -28,7 +28,7 @@ RegisterServerEvent("mineur:server:mineur:retStash", function()
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local job = RedEM.GetPlayer(_source).job
-	if RedEM.GetPlayer(source).jobgrade > 1 then
+	if tonumber(RedEM.GetPlayer(source).jobgrade) > 1 then
         TriggerClientEvent("redemrp_inventory:OpenStash", _source, "ret_"..job, 3000.0)
     end
 end)
@@ -72,8 +72,4 @@ RegisterServerEvent("dust_armurier:server:RequestJob", function()
     if user then
 		TriggerClientEvent("redem_roleplay:JobChange", source, user.GetJob(), user.GetJobGrade())
     end
-end)
-
-AddEventHandler("redemrp:playerLoaded", function(source, user)
-	TriggerClientEvent("redem_roleplay:JobChange", source, user.GetJob(), user.GetJobGrade())
 end)
