@@ -355,9 +355,9 @@ end)
 
 function Change(id, category, change_type)
     if IsPedMale(PlayerPedId()) then
-        is_mp = clothes_list["male"][category][id].is_multiplayer
+        is_mp = clothes_list["male"][category][id][1].is_multiplayer
     else
-        is_mp = clothes_list["female"][category][id].is_multiplayer
+        is_mp = clothes_list["female"][category][id][1].is_multiplayer
     end
     print (is_mp)
     if is_mp == true then
