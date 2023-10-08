@@ -154,14 +154,21 @@ end
 
 function GivePlayerRessource()
     local rand = math.random(100)
-    for item, entry in pairs(Config.Loottable) do
-        if rand <= entry.chance then
-            Wait(200)
-            print (rand, item)
-            TriggerServerEvent('mineur:additem', item)
-            return
-        else
-            rand = rand + entry.chance
-        end
+    print (rand)
+    if rand <= 25 then
+        Wait(200)
+        TriggerServerEvent('mineur:additem', "charbon")
+    elseif rand > 25 and rand <= 50 then
+        Wait(200)
+        TriggerServerEvent('mineur:additem', "ferbrut")
+    elseif rand > 50 and rand <= 70 then
+        Wait(200)
+        TriggerServerEvent('mineur:additem', "cuivrebrut")
+    elseif rand > 70 and rand <= 85 then
+        Wait(200)
+        TriggerServerEvent('mineur:additem', "zincbrut")
+    elseif rand > 85 and rand <= 100 then
+        Wait(200)
+        TriggerServerEvent('mineur:additem', "plombbrut")
     end
 end
