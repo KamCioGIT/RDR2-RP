@@ -354,7 +354,11 @@ AddEventHandler('rdr_clothes_store:OpenClothingMenu', function(ClothesComponents
 end)
 
 function Change(id, category, change_type)
-    local is_mp = clothes_list["male"][category][ClothesCache[category].model][id].is_multiplayer
+    if IsPedMale(PlayerPedId()) then
+        is_mp = clothes_list["male"][category][ClothesCache[category].model][id].is_multiplayer
+    else
+        is_mp = clothes_list["female"][category][ClothesCache[category].model][id].is_multiplayer
+    end
     print (is_mp)
     if is_mp == true then
         if id < 1 then
