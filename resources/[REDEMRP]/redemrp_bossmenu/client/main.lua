@@ -490,7 +490,7 @@ Citizen.CreateThread(function()
                     end
                     if showPrompt then
                         if #(PlayerPos - v) < 6.0 then
-                            Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                            Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)--DrawMarker
                         end
                         if #(PlayerPos - v) < 1.0 then
                             NearAnything = true
