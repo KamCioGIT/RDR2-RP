@@ -25,7 +25,7 @@ Citizen.CreateThread(function()
                     print(boolA)
                 end
 
-                print(GetMetaPedType(entity))
+                --print(GetMetaPedType(entity))
 
                 if PlayerPedId() ~= entity then 
                     if IsPedAPlayer(entity) ~= true then
