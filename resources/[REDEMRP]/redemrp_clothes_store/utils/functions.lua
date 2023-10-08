@@ -125,6 +125,7 @@ function UpdateCustomClothes(playerPed, drawable, albedo, normal, material, pale
     local _tint0 = tint0
     local _tint1 = tint1
     local _tint2 = tint2
+    Wait(100)
     SetMetaPedTag(playerPed, _drawable, _albedo, _normal, _material, _palette, _tint0, _tint1, _tint2)
     UpdatePedVariation(playerPed)
 end
