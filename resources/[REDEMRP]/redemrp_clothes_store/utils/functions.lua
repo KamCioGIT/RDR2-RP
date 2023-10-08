@@ -116,7 +116,7 @@ function UpdateCustomClothes(playerPed, drawable, albedo, normal, material, pale
     while not NativeHasPedComponentLoaded(playerPed) do
         Wait(0)
     end
-    print 'get'
+    print (playerPed, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
     SetMetaPedTag(playerPed, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
     UpdatePedVariation(playerPed)
 end
