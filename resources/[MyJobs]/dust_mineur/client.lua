@@ -153,11 +153,11 @@ end
 ---- RECOLTE CHARBON
 
 function GivePlayerRessource()
-    local rand = math.random(1,100)
+    local rand = math.random(100)
     for item, entry in pairs(Config.Loottable) do
         if rand >= entry.chance then
             Wait(200)
-            print (rand, entry.item)
+            print (rand, item)
             TriggerServerEvent('mineur:additem', item)
             return
         else
