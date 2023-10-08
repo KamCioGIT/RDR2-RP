@@ -509,14 +509,14 @@ AddEventHandler('rdr_clothes_store:ApplyClothes', function(ClothesComponents, Ta
                                             clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].hash), false,
                                             true, true)
                                     elseif clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)]["is_multiplayer"] == false then
-                                        local drawable = clothes_list["male"][category][id][1].drawable
-                                        local albedo = clothes_list["male"][category][id][1].albedo
-                                        local normal = clothes_list["male"][category][id][1].normal
-                                        local material = clothes_list["male"][category][id][1].material
-                                        local palette = clothes_list["male"][category][id][1].palette
-                                        local tint0 = clothes_list["male"][category][id][1].tint0
-                                        local tint1 = clothes_list["male"][category][id][1].tint1
-                                        local tint2 = clothes_list["male"][category][id][1].tint2
+                                        local drawable = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].drawable
+                                        local albedo = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].albedo
+                                        local normal = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].normal
+                                        local material = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].material
+                                        local palette = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].palette
+                                        local tint0 = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].tint0
+                                        local tint1 = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].tint1
+                                        local tint2 = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].tint2
                                         UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                                     end
                                 end
@@ -531,14 +531,14 @@ AddEventHandler('rdr_clothes_store:ApplyClothes', function(ClothesComponents, Ta
                                         clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].hash), false,
                                         true, true)
                                     elseif clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)]["is_multiplayer"] == false then
-                                        local drawable = clothes_list["female"][category][id][1].drawable
-                                        local albedo = clothes_list["female"][category][id][1].albedo
-                                        local normal = clothes_list["female"][category][id][1].normal
-                                        local material = clothes_list["female"][category][id][1].material
-                                        local palette = clothes_list["female"][category][id][1].palette
-                                        local tint0 = clothes_list["female"][category][id][1].tint0
-                                        local tint1 = clothes_list["female"][category][id][1].tint1
-                                        local tint2 = clothes_list["female"][category][id][1].tint2
+                                        local drawable = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].drawable
+                                        local albedo = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].albedo
+                                        local normal = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].normal
+                                        local material = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].material
+                                        local palette = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].palette
+                                        local tint0 = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].tint0
+                                        local tint1 = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].tint1
+                                        local tint2 = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].tint2
                                         UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                                     end
                                 end
