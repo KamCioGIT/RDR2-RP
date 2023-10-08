@@ -48,7 +48,7 @@ if Config.interaction then
                 loop = api.fpsTimer()
                 local x,y,z = mousePosition()
                 SetEntityCoords(propPlace, x,y,z)
-                Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, x,y,z, 0, 0, 0, 0, 0, 0, 0.2, 0.2, 1.0, 0, 255, 0, 5, 0, 0, 2, 0, 0, 0, 0)
+                Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, x,y,z, 0, 0, 0, 0, 0, 0, 0.2, 0.2, 0.1, 0, 255, 0, 5, 0, 0, 2, 0, 0, 0, 0)
                 SetEntityCollision(propPlace, false)
                 FreezeEntityPosition(PlayerPedId(), true)
             end
@@ -746,9 +746,9 @@ Citizen.CreateThread(function()
                                     if GetDistanceBetweenCoords(herbCoord.x, herbCoord.y, herbCoord.z, playCoords.x, playCoords.y, playCoords.z, false) < 3.5 then
                                         optimalization = api.fpsTimer()
                                         if compareTable[farmId][a].planted == false then
-                                            Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, herbCoord.x,herbCoord.y, herbCoord.z, 0, 0, 0, 0, 0, 0, 0.2, 0.2, 1.0, 0, 0, 255, 15, 0, 0, 2, 0, 0, 0, 0)--
+                                            Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, herbCoord.x,herbCoord.y, herbCoord.z, 0, 0, 0, 0, 0, 0, 0.2, 0.2, 0.1, 0, 0, 255, 15, 0, 0, 2, 0, 0, 0, 0)--
                                         else
-                                            Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, herbCoord.x,herbCoord.y, herbCoord.z, 0, 0, 0, 0, 0, 0, 0.2, 0.2, 1.0, 0, 255, 0, 5, 0, 0, 2, 0, 0, 0, 0)--
+                                            Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, herbCoord.x,herbCoord.y, herbCoord.z, 0, 0, 0, 0, 0, 0, 0.2, 0.2, 0.1, 0, 255, 0, 5, 0, 0, 2, 0, 0, 0, 0)--
                                         end
                                         if GetDistanceBetweenCoords(herbCoord.x, herbCoord.y, herbCoord.z, playCoords.x, playCoords.y, playCoords.z, false) < 0.5 then
                                             DrawText3D(herbCoord.x,herbCoord.y,herbCoord.z+0.2, "↓")
