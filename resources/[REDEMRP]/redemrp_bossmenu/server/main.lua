@@ -568,13 +568,3 @@ AddEventHandler(
         end
     end
 )
-
-
-RegisterServerEvent("testjob")
-AddEventHandler("testjob", function()
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-    if user then
-        TriggerClientEvent("redem_roleplay:getjob", _source, 1)
-    end
-end)

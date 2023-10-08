@@ -1,5 +1,10 @@
 Config = {}
 
+Config.Jobs = {
+    [1] = "armurier_rhodes",
+    [2] = "armurier_strawberry",
+}
+
 Config.Atelier = {
     vector3(1327.263, -1321.737, 77.88863), -- Rhodes
     vector3(-1846.091, -419.7523, 162.4211) --- straw

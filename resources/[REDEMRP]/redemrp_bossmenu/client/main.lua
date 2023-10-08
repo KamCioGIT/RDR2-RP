@@ -70,7 +70,7 @@ RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function(ledgerAmt)
             table.insert(elements, {label = "Access Ledger", value = 'ledger', desc = 'Ledger Balance:<br/><span style="color:limegreen;font-size:18pt">$'..ledgerAmt..'</span>'})
         end
         if Config.Jobs[PlayerJob].Grades[PlayerJobgrade].StorageAccess then
-            table.insert(elements, {label = "Access Stash", value = 'stash', desc = "Access stash"})
+            table.insert(elements, {label = "Stockage", value = 'stash', desc = "Accéder au stockage"})
         end
 
         if #elements == 0 then
@@ -378,8 +378,8 @@ RegisterNetEvent("redemrp_bossmenu:client:ViewOfflineFireList", function(FireLis
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'bossmenu_ofirelist', {
-            title = "Fire Employee",
-            subtext = "List of <span style=\"color:red\">OFFLINE</span> Employees",
+            title = "Renvoyer un employé",
+            subtext = "Liste du personnel",
             align = 'top-right',
             elements = elements,
         },
@@ -389,13 +389,13 @@ RegisterNetEvent("redemrp_bossmenu:client:ViewOfflineFireList", function(FireLis
             FiringName = data.current.label
 
             local elements = {
-                {label = "<span style=\"color:#FF2D2D\">Confirm</span>", value = 'confirm', desc = "Fire "..FiringName.."?"},
-                {label = "Cancel", value = 'cancel', desc = "Cancel this action."},
+                {label = "Valider", value = 'confirm', desc = "Renvoyer "..FiringName.."?"},
+                {label = "Annuler", value = 'cancel', desc = "Annuler"},
             }
 
             MenuData.Open('default', GetCurrentResourceName(), 'bossmenu_ofirelistconfirm', {
-                title = "Fire Employee",
-                subtext = "Are you sure?",
+                title = "Renvoyer un employé",
+                subtext = "Confirmation",
                 align = 'top-right',
                 elements = elements,
             },
@@ -425,12 +425,12 @@ RegisterNetEvent("redemrp_bossmenu:client:ViewGradeList", function(FireList)
         MenuData.CloseAll()
         local elements = {}
         for k,v in ipairs(FireList) do
-            table.insert(elements, {label = v.char .. " ("..v.name..")", value = v.id, desc = "Change the grade of "..v.name.."?"})
+            table.insert(elements, {label = v.char .. " ("..v.name..")", value = v.id, desc = "Changer le grade de "..v.name.."?"})
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'bossmenu_gradelist', {
-            title = "Set Employee Grade",
-            subtext = "List of <span style=\"color:lightgreen\">ONLINE</span> Employees",
+            title = "Changer le grade",
+            subtext = "Liste des employés",
             align = 'top-right',
             elements = elements,
         },
@@ -440,14 +440,14 @@ RegisterNetEvent("redemrp_bossmenu:client:ViewGradeList", function(FireList)
 
             local elements = {}
             for k,v in ipairs(Config.Jobs[PlayerJob].Grades) do
-                table.insert(elements, {label = "[Rank "..k.."] "..v.Name, value = k, desc = "Set<br/><span style=\"color:orange\">"..SetGradeName.."</span><br/> grade to:<br/>"..v.Name})
+                table.insert(elements, {label = v.Name, value = k, desc = "Changer le grade"})
             end
 
-            table.insert(elements, {label = "Cancel", value = 'cancel', desc = "Cancel this action."})
+            table.insert(elements, {label = "Annuler", value = 'cancel', desc = "Annuler"})
 
             MenuData.Open('default', GetCurrentResourceName(), 'bossmenu_gradelistconfirm', {
-                title = "Set Employee Grade",
-                subtext = "Are you sure?",
+                title = "Changer le grade",
+                subtext = "Confirmation",
                 align = 'top-right',
                 elements = elements,
             },

@@ -20,25 +20,18 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent("dust_armurier:client:ReceiveJob", function(job, grade)
-    if job == "armurier_rhodes" or job == "armurier_strawberry" then
-        CustomWeapon()
-        if jobgrade >= 2 then
-            if jobgrade == 3 then
-                patronUpdate(job)  
-            end 
+local getjob = false
+local getgrade = 0
+RegisterNetEvent("redem_roleplay:JobChange")
+AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+    for k, v in pairs(Config.Jobs) do
+        if job == v then
+            getjob = true
+            getgrade = grade
         end
     end
 end)
 
-RegisterNetEvent("redem_roleplay:getjob")
-AddEventHandler("redem_roleplay:getjob", function(job)
-    print(job)
-end)
-
-RegisterCommand("testjob", function()
-    TriggerServerEvent("testjob")
-end)
 
 ---- Prompt ----
 
@@ -48,8 +41,8 @@ customwprompt:setActive(false)
 
 
 ----- Open Menu ----
-function CustomWeapon()
-    while true do
+Citizen.CreateThread(function()
+    while getjob == true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Atelier) do
@@ -63,7 +56,7 @@ function CustomWeapon()
             end
         end
     end
-end
+end)
 
 function inspectcustom()
     local ped = PlayerPedId()
