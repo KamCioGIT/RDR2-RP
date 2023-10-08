@@ -386,6 +386,7 @@ function Change(id, category, change_type)
                     local tint0 = clothes_list["female"][category][id][1].tint0
                     local tint1 = clothes_list["female"][category][id][1].tint1
                     local tint2 = clothes_list["female"][category][id][1].tint2
+                    print (drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                     UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 else
                     NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"][category][id][1].hash, false, true,
