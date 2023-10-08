@@ -30,7 +30,9 @@ RegisterNetEvent("dust_ferme:client:ReceiveJob", function(job, grade)
     end
 end)
 
-
+AddEventHandler("redem_roleplay:getjob", function(job)
+    print(2)
+end)
 
 -- VA MINER   
 local bleprompt = UipromptGroup:new("Blé")
