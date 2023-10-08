@@ -574,6 +574,6 @@ RegisterServerEvent("testjob", function()
     local _source = source
     local user = PlayerId()
     if user then
-        TriggerClientEvent("redem_roleplay:getjob", user, 1)
+        TriggerClientEvent("redem_roleplay:getjob", _source, 1)
     end
 end)
