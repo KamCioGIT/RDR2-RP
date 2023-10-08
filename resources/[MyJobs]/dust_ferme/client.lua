@@ -30,6 +30,7 @@ RegisterNetEvent("dust_ferme:client:ReceiveJob", function(job, grade)
     end
 end)
 
+RegisterNetEvent("redem_roleplay:getjob")
 AddEventHandler("redem_roleplay:getjob", function(job)
     print(2)
 end)
