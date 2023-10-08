@@ -150,7 +150,6 @@ function OpenCateogry(menu_catagory)
                 change_type = "model",
                 id = a,
                 options = options,
-                is_mp = k.is_multiplayer
             })
             a = a + 1
             options = {}
@@ -354,7 +353,8 @@ AddEventHandler('rdr_clothes_store:OpenClothingMenu', function(ClothesComponents
     OpenClothingMenu()
 end)
 
-function Change(id, category, change_type, is_mp)
+function Change(id, category, change_type)
+    local is_mp = clothes_list["male"][category][ClothesCache[category].model][id].is_multiplayer
     print (is_mp)
     if is_mp == true then
         if id < 1 then
