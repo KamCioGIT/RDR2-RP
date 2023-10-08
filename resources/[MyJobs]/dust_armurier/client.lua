@@ -45,7 +45,7 @@ customwprompt:setActive(false)
 Citizen.CreateThread(function()
     while true do
         Wait(0)
-        if  getjob = true
+        if  getjob == true then
             local playerpos = GetEntityCoords(PlayerPedId())
             for k, v in pairs(Config.Atelier) do
                 if #(playerpos - v ) < 1.5 and not isInteracting then
