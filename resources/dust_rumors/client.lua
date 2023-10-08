@@ -22,8 +22,6 @@ Citizen.CreateThread(function()
 
                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
               
-                --print(GetMetaPedType(entity))
-
                 if PlayerPedId() ~= entity then 
                     if IsPedAPlayer(entity) ~= true then
                         if IsEntityDead(entity) == false then
@@ -53,8 +51,6 @@ end)
 
 -- Ecrire Nv Rumeur
 Citizen.CreateThread(function()
-    local price = Config.RumorPrice
-    print(price)
     while true do
         Citizen.Wait(0)
         local playerPosition = GetEntityCoords(PlayerPedId())
