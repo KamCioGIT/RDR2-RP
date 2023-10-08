@@ -43,16 +43,18 @@ customwprompt:setActive(false)
 
 ----- Open Menu ----
 Citizen.CreateThread(function()
-    while getjob do
+    while true do
         Wait(0)
-        local playerpos = GetEntityCoords(PlayerPedId())
-        for k, v in pairs(Config.Atelier) do
-            if #(playerpos - v ) < 1.5 and not isInteracting then
-                customwprompt:setActiveThisFrame(true)
-                if customwprompt:hasHoldModeJustCompleted()then
-                    isInteracting = true
-                    Wait(200)
-                    inspectcustom()
+        if  getjob = true
+            local playerpos = GetEntityCoords(PlayerPedId())
+            for k, v in pairs(Config.Atelier) do
+                if #(playerpos - v ) < 1.5 and not isInteracting then
+                    customwprompt:setActiveThisFrame(true)
+                    if customwprompt:hasHoldModeJustCompleted()then
+                        isInteracting = true
+                        Wait(200)
+                        inspectcustom()
+                    end
                 end
             end
         end
