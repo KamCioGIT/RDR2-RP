@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timecycle_modifier_data version="1.000000">
+    <modifier name="test_timecycle_bla" description="" numMods="1" userFlags="0">
+        <local_atmosphere_voxel_distribution_blend>1.050 0.000</local_atmosphere_voxel_distribution_blend>
+  </modifier>
+</timecycle_modifier_data>
