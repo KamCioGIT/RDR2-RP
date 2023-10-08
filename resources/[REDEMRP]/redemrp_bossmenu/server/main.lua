@@ -287,9 +287,9 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                 if Employee.identifier == id and Employee.characterid == charid then
                     MySQL.query.await("UPDATE characters SET job = 'unemployed', jobgrade = 0 WHERE identifier = :identifier AND characterid = :charid", { identifier = id, charid = charid })
                     RedEM.Functions.NotifyLeft(_source, "Employee fired!", "You fired "..Employee.firstname.." "..Employee.lastname.. "!", "menu_textures", "menu_icon_tick", 3000)
-                    TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Fired Employee', 'red', 
-                            "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().."** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " fired "..
-                            "[OFFLINE] **"..Employee.firstname.." "..Employee.lastname.. "** (name: OFFLINE | steamid: "..Employee.identifier.." | characterid: "..Employee.characterid..") from job "..job)
+                    -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Fired Employee', 'red', 
+                    --         "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().."** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " fired "..
+                    --         "[OFFLINE] **"..Employee.firstname.." "..Employee.lastname.. "** (name: OFFLINE | steamid: "..Employee.identifier.." | characterid: "..Employee.characterid..") from job "..job)
                     if not JobLedgers[job] then
                         JobLedgers[job] = 0
                     end
