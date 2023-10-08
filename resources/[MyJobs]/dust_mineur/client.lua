@@ -21,6 +21,7 @@ AddEventHandler("redem_roleplay:JobChange", function(job, grade)
             getjob = true
             getgrade = grade
             startMission()
+            print (job, grade)
             if getgrade >= 2 then
                 contremaitre()
             end
