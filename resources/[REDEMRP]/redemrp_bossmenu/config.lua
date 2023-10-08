@@ -85,6 +85,90 @@ Config.Jobs = {
             },
         }
     },
+    ["armurier_strawberry"] = {
+        Name = "Armurerie de Strawberry",
+        MenuLocations = {
+            vector3(-1843.087, -413.7095, 162.3547)
+        },
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["usine"] = {
+        Name = "Usine",
+        MenuLocations = {
+            vector3(2324.79, -1456.619, 46.00994)
+        },
+        Grades = {
+            [1] = {
+                Name = "Ouvrier",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Contremaître",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["mineur"] = {
+        Name = "Usine",
+        MenuLocations = {
+            vector3(2957.164, 1377.683, 56.3044)
+        },
+        Grades = {
+            [1] = {
+                Name = "Ouvrier",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Contremaître",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["fermier"] = {
+        Name = "Usine",
+        MenuLocations = {
+            vector3(-1643.433, -1355.236, 84.45272)
+        },
+        Grades = {
+            [1] = {
+                Name = "Ouvrier",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Contremaître",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
 
 
 }
