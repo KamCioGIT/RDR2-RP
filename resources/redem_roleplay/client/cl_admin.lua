@@ -174,9 +174,3 @@ GetClosestVehicleEx = function(coords)
 end
 
 
-RegisterNetEvent("redem_roleplay:JobChange")
-    AddEventHandler("redem_roleplay:JobChange",  function(id, job)
-        if job == unemployed then
-        return end
-end)
-
