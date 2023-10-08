@@ -11,6 +11,27 @@ end)
 
 
 
+--- Définir si le joueur est armurier
+
+Citizen.CreateThread(function()
+    Wait(1000)
+    if RedEM.GetPlayerData().isLoggedIn then
+        TriggerServerEvent("dust_armurier:server:RequestJob")
+    end
+end)
+
+RegisterNetEvent("dust_armurier:client:ReceiveJob", function(job, grade)
+    if job == "armurier_rhodes" or job == "armurier_strawberry" then
+        CustomWeapon()
+        if jobgrade >= 2 then
+            if jobgrade == 3 then
+                patronUpdate(job)  
+            end 
+        end
+    end
+end)
+
+
 ---- Prompt ----
 
 local customwprompt = UipromptGroup:new("Armurier Atelier")
@@ -19,7 +40,7 @@ customwprompt:setActive(false)
 
 
 ----- Open Menu ----
-Citizen.CreateThread(function()
+function CustomWeapon()
     while true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
@@ -34,7 +55,7 @@ Citizen.CreateThread(function()
             end
         end
     end
-end)
+end
 
 function inspectcustom()
     local ped = PlayerPedId()
@@ -60,7 +81,6 @@ function inspectcustom()
     end)
     TriggerEvent("redemrp_inventory:askuid", wepHash, WeapType, ped)
     Wait(1000)
-    print(wepHash)
     OpenCustomWMenu(wepHash, WeapType, ped)
 end
 
@@ -377,44 +397,6 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped, menu_catagory)
     end
 end
 
-
-
---- AFFICHAGE STATS ARMES ----
--- function getWeaponStats(weaponHash)
---     local emptyStruct = {} -- Create an empty table
-
---     local charStruct = {} -- Create another empty table
---     Citizen.InvokeNative("0x886DFD3E185C8A89", 1, emptyStruct, GetHashKey("CHARACTER"), -1591664384, charStruct)
-        
---     local unkStruct = {} -- Create another empty table
---     Citizen.InvokeNative("0x886DFD3E185C8A89", 1, charStruct, 923904168, -740156546, unkStruct)
-
---     local weaponStruct = {} -- Create another empty table
---     Citizen.InvokeNative("0x886DFD3E185C8A89", 1, unkStruct, weaponHash, -1591664384, weaponStruct)
-
---     return weaponStruct
--- end
-
--- function showWeaponStats()
---     local weapon = GetCurrentPedWeapon(PlayerPedId(), true, 0, true)
---     if weapon[1] then
---         local uiFlowBlock = RequestFlowBlock(GetHashKey("PM_FLOW_WEAPON_INSPECT"))
-
---         local uiContainer = DatabindingAddDataContainerFromPath("", "ItemInspection")
---         Citizen.InvokeNative("0x46DB71883EE9D5AF", uiContainer, "stats", getWeaponStats(weapon[1]), PlayerPedId())
---         DatabindingAddDataString(uiContainer, "tipText", GetLabelTextByHash(-54957657))
---         DatabindingAddDataHash(uiContainer, "itemLabel", weapon[1])
---         DatabindingAddDataBool(uiContainer, "Visible", true)
-
---         Citizen.InvokeNative("0x10A93C057B6BD944", uiFlowBlock)
---         Citizen.InvokeNative("0x3B7519720C9DCB45", uiFlowBlock, 0)
---         Citizen.InvokeNative("0x4C6F2C4B7A03A266", -813354801, uiFlowBlock)
-        
---         Citizen.SetTimeout(function()
---             Citizen.InvokeNative("0x4EB122210A90E2D8", -813354801)
---         end, 5000)
---     end
--- end
 
 RegisterNetEvent("dust_armurier:getuid", function(name, uid, comp, WeapType, ped)
     wep_name = name

@@ -58,13 +58,13 @@ RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function(ledgerAmt)
         MenuData.CloseAll()
         local elements = {}
         if Config.Jobs[PlayerJob].HasDuty then
-            table.insert(elements, {label = "Toggle Duty", value = 'duty', desc = "Go on/off duty."})
+            table.insert(elements, {label = "Service", value = 'duty', desc = "Prendre/Quitter son service."})
         end
         if Config.Jobs[PlayerJob].HasLockers then
             table.insert(elements, {label = "Access Locker #", value = 'locker', desc = "Access Locker by #"})
         end
         if Config.Jobs[PlayerJob].Grades[PlayerJobgrade].Personnel then
-            table.insert(elements, {label = "Manage Personnel", value = 'personnel', desc = "Manage Personnel"})
+            table.insert(elements, {label = "Employés", value = 'personnel', desc = "Gérer vos employés"})
         end
         if Config.Jobs[PlayerJob].Grades[PlayerJobgrade].Ledger then
             table.insert(elements, {label = "Access Ledger", value = 'ledger', desc = 'Ledger Balance:<br/><span style="color:limegreen;font-size:18pt">$'..ledgerAmt..'</span>'})
@@ -78,8 +78,8 @@ RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function(ledgerAmt)
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'bossmenu', {
-            title = "Boss Menu",
-            subtext = "Job Interaction for Bosses",
+            title = "Entreprise",
+            subtext = "Gérer l'entreprise",
             align = 'top-right',
             elements = elements,
         },
@@ -93,7 +93,7 @@ RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function(ledgerAmt)
                         onCooldown = false
                     end)
                 else
-                    RedEM.Functions.NotifyRight( "You can only use this command once every 3 seconds!", 3000)
+                    RedEM.Functions.NotifyRight( "Attendez quelques secondes !", 3000)
                     menu.close()
                 end
             elseif data.current.value == 'locker' then
@@ -179,46 +179,30 @@ RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function(ledgerAmt)
                 end)
             elseif data.current.value == 'personnel' then
                 local elements = {
-                    {label = "Hire Employee", value = 'hire', desc = "<span style=\"color:limegreen\">Hire someone</span>"},
-                    {label = "Set Employee Grade", value = 'setgrade', desc = "Set someone's grade"},
-                    {label = "Fire Online Employee", value = 'fire', desc = "<span style=\"color:#fc1c1c\">Fire someone</span>"},
-                    {label = "Fire Offline Employee", value = 'fireo', desc = "<span style=\"color:#fc1c1c\">Fire someone who's offline</span>"},
+                    {label = "Recruter", value = 'hire', desc = "Recruter la personne à côté de vous"},
+                    {label = "Gérer les grades", value = 'setgrade', desc = "Promouvoir/Dégrader un employé"},
+                    {label = "Renvoyer un employé", value = 'fireo', desc = "Renvoyer un employé"},
                 }
                 MenuData.Open('default', GetCurrentResourceName(), 'bossmenu_personnelmenu', {
-                    title = "Personnel Management",
-                    subtext = "Manage Employees",
+                    title = "Entreprise",
+                    subtext = "Gestion du personnel",
                     align = 'top-right',
                     elements = elements,
                 },
                 function(data, menu)
                     if data.current.value == 'hire' then
-                        MenuData.CloseAll()
-                        AddTextEntry("FMMC_MPM_TYP5", "New Member ID#:")
-                        DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP5", "", "", "", "", "", 30)
-                        while (UpdateOnscreenKeyboard() == 0) do
-                            DisableAllControlActions(0)
-                            Citizen.Wait(0)
-                        end
-                        if (GetOnscreenKeyboardResult()) then
-                            kbdRes = GetOnscreenKeyboardResult()
-                        else
-                            TriggerServerEvent("redemrp_bossmenu:server:RequestBossMenu")
-                            return
-                        end
-                        
-                        if #(kbdRes) >= 1 then
-                            TriggerServerEvent("redemrp_bossmenu:server:HireMember", kbdRes)
+                        local closestPlayer, closestDistance = GetClosestPlayer()
+
+                        if closestPlayer ~= -1 and closestDistance <= 1.5 then
+                            TriggerServerEvent("redemrp_bossmenu:server:HireMember", GetPlayerServerId(closestPlayer))
                             TriggerServerEvent("redemrp_bossmenu:server:RequestBossMenu")
                         else
-                            RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid Player ID.", "menu_textures", "menu_icon_alert", 4000)
+                            RedEM.Functions.NotifyLeft("Introuvable", "Il n'y a personne devant vous !", "menu_textures", "menu_icon_alert", 4000)
                             TriggerServerEvent("redemrp_bossmenu:server:RequestBossMenu")
                         end
                     elseif data.current.value == 'setgrade' then
                         MenuData.CloseAll()
                         TriggerServerEvent("redemrp_bossmenu:server:GetGradeList")
-                    elseif data.current.value == 'fire' then
-                        MenuData.CloseAll()
-                        TriggerServerEvent("redemrp_bossmenu:server:GetFireList")
                     elseif data.current.value == 'fireo' then
                         MenuData.CloseAll()
                         TriggerServerEvent("redemrp_bossmenu:server:GetOfflineFireList")
@@ -512,7 +496,6 @@ Citizen.CreateThread(function()
                             NearAnything = true
                             FoundSomething = true
                             if not BossMenuPromptShown then
-                                print("Showing boss menu prompt")
                                 PromptSetEnabled(BossMenuPrompt, true)
                                 PromptSetVisible(BossMenuPrompt, true)
                                 BossMenuPromptShown = true

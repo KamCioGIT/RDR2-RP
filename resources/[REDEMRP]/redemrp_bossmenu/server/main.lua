@@ -19,24 +19,6 @@ Citizen.CreateThread(function()
     end
 end)
 
-Citizen.CreateThread(function()
-    while true do
-        Wait(900000 * 4) -- 15 minutes * 4 = 1 Hour
-        DoPublicPay()
-    end
-end)
-
--- RegisterCommand("quitjob", function(source, args)
---     local Player = RedEM.GetPlayer(source)
---     if Player then
---         if Player.job ~= "unemployed" then
---             Player.SetJob("unemployed")
---             Player.SetJobGrade(0)
---             RedEM.Functions.NotifyRight(source, "You are now unemployed!", 5000)
---         end
---     end
--- end)
-
 AddEventHandler("redemrp:playerLoaded", function(source, user)
     TriggerClientEvent("redemrp_bossmenu:client:ReceiveJob", source, user.GetJob(), user.GetJobGrade())
 end)
@@ -57,27 +39,12 @@ function DoPay()
                             user.AddMoney(pay)
                         end
                     end
-                else
-                    local pay = 2
-                    RedEM.Functions.NotifyRight(id, "You received <strong style=\"color:lime\">$"..RedEM.Functions.CommaValue(string.format("%.2f", pay)).."</strong> from the government!", 10000)
-                    TriggerClientEvent("RedEM:client:PlaySound", id, 1)
-                    user.AddMoney(pay) -- If player doesn't have a job, give them universal basic income
                 end
             end
         end
     end
 end
 
-function DoPublicPay()
-    for _,playerId in ipairs(GetPlayers()) do
-        local id = tonumber(playerId)
-        local user = RedEM.GetPlayer(id)
-        if user then
-            TriggerClientEvent("RedEM:client:PlaySound", id, 1)
-            user.AddMoney(2.5)
-        end
-    end
-end
 
 AddEventHandler('playerDropped', function(reason)
     local _source = source
@@ -127,35 +94,35 @@ function GetJobDuty(playerId)
 end
 exports("GetJobDuty", GetJobDuty)
 
-RegisterCommand("job", function(source, args)
-    local user = RedEM.GetPlayer(source)
-    local job = user.job
-    if job == "unemployed" then
-        RedEM.Functions.NotifyRight( source, "You are unemployed!", 3000)
-    else
-        local gradename = "Rank UNKNOWN (".. user.jobgrade..")"
-        if type(grade) == "string" then grade = tonumber(grade) end
-        if Config.Jobs[user.job] then
-            if Config.Jobs[user.job].Grades[user.jobgrade] then
-                if Config.Jobs[user.job].Grades[user.jobgrade].Name then
-                    gradename = Config.Jobs[user.job].Grades[user.jobgrade].Name .. " ("..user.jobgrade..")"
-                end
-            end
-        end
+-- RegisterCommand("job", function(source, args)
+--     local user = RedEM.GetPlayer(source)
+--     local job = user.job
+--     if job == "unemployed" then
+--         RedEM.Functions.NotifyRight( source, "You are unemployed!", 3000)
+--     else
+--         local gradename = "Rank UNKNOWN (".. user.jobgrade..")"
+--         if type(grade) == "string" then grade = tonumber(grade) end
+--         if Config.Jobs[user.job] then
+--             if Config.Jobs[user.job].Grades[user.jobgrade] then
+--                 if Config.Jobs[user.job].Grades[user.jobgrade].Name then
+--                     gradename = Config.Jobs[user.job].Grades[user.jobgrade].Name .. " ("..user.jobgrade..")"
+--                 end
+--             end
+--         end
 
-        local jobname = user.job
-        if Config.Jobs[user.job] then
-            if Config.Jobs[user.job].Name then
-                jobname = Config.Jobs[user.job].Name
-            end
-        end
-        if Duty[source] then
-            RedEM.Functions.NotifyRight( source, "<br/><strong>Current Job</strong><br/>"..jobname.." ("..user.job..")<br/>"..gradename.." [ON DUTY]", 5000)
-        else
-            RedEM.Functions.NotifyRight( source, "<br/><strong>Current Job</strong><br/>"..jobname.." ("..user.job..")<br/>"..gradename.." [OFF DUTY]", 5000)
-        end
-    end
-end)
+--         local jobname = user.job
+--         if Config.Jobs[user.job] then
+--             if Config.Jobs[user.job].Name then
+--                 jobname = Config.Jobs[user.job].Name
+--             end
+--         end
+--         if Duty[source] then
+--             RedEM.Functions.NotifyRight( source, "<br/><strong>Current Job</strong><br/>"..jobname.." ("..user.job..")<br/>"..gradename.." [ON DUTY]", 5000)
+--         else
+--             RedEM.Functions.NotifyRight( source, "<br/><strong>Current Job</strong><br/>"..jobname.." ("..user.job..")<br/>"..gradename.." [OFF DUTY]", 5000)
+--         end
+--     end
+-- end)
 
 RegisterServerEvent("redemrp_bossmenu:server:RequestJob", function()
     local _source = source
@@ -183,17 +150,17 @@ RegisterServerEvent("redemrp_bossmenu:server:ToggleDuty", function()
     local job = user.GetJob()
     if not Duty[_source] then
         Duty[_source] = true
-        TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Job Duty', 'lightgreen', 
-                "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " went **ON** duty for job "..user.getJob())
-        RedEM.Functions.NotifyRight( source, "You are now on duty!", 3000)
+        -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Job Duty', 'lightgreen', 
+        --         "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " went **ON** duty for job "..user.getJob())
+        RedEM.Functions.NotifyRight( source, "Vous êtes en service!", 3000)
         if job == "police" or job == "police2" or job == "police3" or job == "police4" or job == "police5" or job == "marshal" or job == "court" or job == "ranger" then
             TriggerEvent("redemrp_dutybot:server:toggleDuty", _source)
         end
     else
-        TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Job Duty', 'red', 
-            "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " went **OFF** duty for job "..user.getJob())
+        -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Job Duty', 'red', 
+        --     "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " went **OFF** duty for job "..user.getJob())
         Duty[_source] = false
-        RedEM.Functions.NotifyRight( source, "You are now off duty!", 3000)
+        RedEM.Functions.NotifyRight( source, "Vous n'êtes plus en service!", 3000)
         if job == "police" or job == "police2" or job == "police3" or job == "police4" or job == "police5" or job == "marshal" or job == "court" or job == "ranger" then
             TriggerEvent("redemrp_dutybot:server:toggleDuty", _source)
         end
@@ -208,7 +175,7 @@ RegisterServerEvent("redemrp_bossmenu:server:RequestBossMenu", function()
         if Config.Jobs[job].Grades[grade] then
             TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
         else
-            RedEM.Functions.NotifyRight( _source, "Your job rank is invalid, contact staff!", 3000)
+            -- RedEM.Functions.NotifyRight( _source, "Your job rank is invalid, contact staff!", 3000)
         end
     end
 end)
@@ -222,24 +189,18 @@ RegisterServerEvent("redemrp_bossmenu:server:HireMember", function(targetId)
             local targetUser = RedEM.GetPlayer(targetId)
             if targetUser then
                 local targetJob = targetUser.GetJob()
-                if targetJob == "unemployed" then
-                    targetUser.SetJob(job)
-                    targetUser.SetJobGrade(1)
-                    TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Hired Employee', 'lightgreen', 
-                        "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " hired "..
-                        "["..targetId.."] **"..targetUser.GetFirstName().." "..targetUser.GetLastName().. "** (serverid: "..targetId.." | name: ".. GetPlayerName(targetId).." | steamid: "..targetUser.GetIdentifier().." | characterid: "..targetUser.GetActiveCharacter()..") into job "..job)
-                    TriggerClientEvent("redem_roleplay:JobChange", _source, job)
-                    RedEM.Functions.NotifyLeft(_source, "Employee hired!", "You hired "..targetUser.GetFirstName().." "..targetUser.GetLastName().."!", "menu_textures", "menu_icon_tick", 3000)
-                    if not JobLedgers[job] then
-                        JobLedgers[job] = 0
-                    end
-                    TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
-                else
-                    RedEM.Functions.NotifyLeft(_source, "Already employed!", "This player has a job already!", "menu_textures", "menu_icon_alert", 3000)
+                targetUser.SetJob(job)
+                targetUser.SetJobGrade(1)
+                -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Hired Employee', 'lightgreen', 
+                --     "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " hired "..
+                --     "["..targetId.."] **"..targetUser.GetFirstName().." "..targetUser.GetLastName().. "** (serverid: "..targetId.." | name: ".. GetPlayerName(targetId).." | steamid: "..targetUser.GetIdentifier().." | characterid: "..targetUser.GetActiveCharacter()..") into job "..job)
+                TriggerClientEvent("redem_roleplay:JobChange", _source, job)
+                RedEM.Functions.NotifyLeft(_source, "Employé embauché!", "menu_icon_tick", 3000)
+                if not JobLedgers[job] then
+                    JobLedgers[job] = 0
                 end
+                TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
             end
-        else
-            RedEM.Functions.NotifyLeft(_source, "No access!", "You don't have personnel access!", "menu_textures", "menu_icon_alert", 3000)
         end
     end
 end)
@@ -299,28 +260,13 @@ RegisterServerEvent("redemrp_bossmenu:server:GetOfflineFireList", function()
     local user = RedEM.GetPlayer(_source)
     local job, grade = user.GetJob(), user.GetJobGrade()
 
-    local OnlineIds = {}
-    for k,v in ipairs(GetPlayers()) do
-        local targetUser = RedEM.GetPlayer(v)
-        if targetUser then
-            table.insert(OnlineIds, {id = targetUser.GetIdentifier(), charid = targetUser.GetActiveCharacter()})
-        end
-    end
 
     if Config.Jobs[job] then
         if Config.Jobs[job].Grades[grade].Personnel then
             local FireList = {}
             local Employees = MySQL.query.await("SELECT * FROM characters WHERE job = :job", { job = job })
             for _,Employee in pairs(Employees) do
-                local continue = true
-                for k,v in pairs(OnlineIds) do
-                    if v.id == Employee.identifier and tonumber(v.characterid) == tonumber(Employee.charid) then
-                        continue = false
-                    end
-                end
-                if continue then
-                    table.insert(FireList, {char = Employee.firstname.." "..Employee.lastname, name = "OFFLINE", id = Employee.identifier, charid = Employee.characterid})
-                end
+                table.insert(FireList, {char = Employee.firstname.." "..Employee.lastname, name = "OFFLINE", id = Employee.identifier, charid = Employee.characterid})
             end
             TriggerClientEvent("redemrp_bossmenu:client:ViewOfflineFireList", _source, FireList)
         else

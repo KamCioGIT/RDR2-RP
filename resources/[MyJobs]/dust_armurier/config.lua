@@ -6,6 +6,7 @@ Config.Atelier = {
 
 }
 
+
 Config.CraftingsReceipe = {
     ['douille'] = {
         ItemReceipe1Name = 'cuivrepepite',

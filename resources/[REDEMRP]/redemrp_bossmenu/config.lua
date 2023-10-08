@@ -64,4 +64,27 @@ Config.Jobs = {
             },
         }
     },
+    ["armurier_rhodes"] = {
+        Name = "Armurerie de Rhodes",
+        MenuLocations = {
+            vector3(1328.648, -1325.286, 77.94454)
+        },
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+
+
 }
