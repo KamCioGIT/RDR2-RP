@@ -105,8 +105,8 @@ function TrySendRumor()
         })
 
         MenuData.Open('default', GetCurrentResourceName(), 'rumor', {
-            title = "Passeur d'information",
-            subtext = "Qu'avez vous de si important à nous dire ?",
+            title = "Passeur de rumeur",
+            subtext = "Qu'avez vous de si important à transmettre ?",
             align = 'top-right',
             elements = elements,
         },
@@ -116,8 +116,8 @@ function TrySendRumor()
             if data.current.value == 'TrySendRumor' then 
                 TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                     MenuData.CloseAll()
-                    AddTextEntry("FMMC_MPM_TYP86", "Votre Rumeur / Limite de 250 caractères")
-                    DisplayOnscreenKeyboard(4, "FMMC_MPM_TYP86", "", "", "", "", "", 250) -- KTEXTTYPE_ALPHABET
+                    AddTextEntry("FMMC_MPM_TYP86", "Votre Rumeur / Limite de 100 caractères")
+                    DisplayOnscreenKeyboard(4, "FMMC_MPM_TYP86", "", "", "", "", "", 100) -- KTEXTTYPE_ALPHABET
                     while (UpdateOnscreenKeyboard() == 0) do
                         DisableAllControlActions(0)
                         Citizen.Wait(0)
@@ -125,8 +125,7 @@ function TrySendRumor()
                     if (GetOnscreenKeyboardResult()) then
                         local rumeurTextString = GetOnscreenKeyboardResult()
                         print(rumeurTextString)
-                        print(PlayerPedId().name)
-                        TriggerServerEvent("dust_rumors:server:SendRumor", PlayerPedId().name, rumeurTextString)
+                        TriggerServerEvent("dust_rumors:server:SendRumor", rumeurTextString)
                         isInteracting = false
                     else
                         menu.close()
