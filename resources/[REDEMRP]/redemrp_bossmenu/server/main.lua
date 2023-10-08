@@ -568,3 +568,12 @@ AddEventHandler(
         end
     end
 )
+
+
+RegisterServerEvent("testjob", function()
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    if user then
+        TriggerClientEvent("redem_roleplay:JobChange", _source, 1)
+    end
+end)
