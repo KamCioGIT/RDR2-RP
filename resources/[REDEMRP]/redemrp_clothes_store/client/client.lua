@@ -377,9 +377,20 @@ function Change(id, category, change_type)
 
         else
             if change_type == "model" then
-                print (clothes_list["female"][category][id][1]['is_multiplayer'])
-                NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"][category][id][1].hash, false, true,
-                    true)
+                if clothes_list["female"][category][id][1]['is_multiplayer'] == false then
+                    local drawable = clothes_list["female"][category][ClothesCache[category].model][id].drawable
+                    local albedo = clothes_list["female"][category][ClothesCache[category].model][id].albedo
+                    local normal = clothes_list["female"][category][ClothesCache[category].model][id].normal
+                    local material = clothes_list["female"][category][ClothesCache[category].model][id].material
+                    local palette = clothes_list["female"][category][ClothesCache[category].model][id].palette
+                    local tint0 = clothes_list["female"][category][ClothesCache[category].model][id].tint0
+                    local tint1 = clothes_list["female"][category][ClothesCache[category].model][id].tint1
+                    local tint2 = clothes_list["female"][category][ClothesCache[category].model][id].tint2
+                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                    NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"][category][id][1].hash, false, true,
+                        true)
+                end
             else
                 NativeSetPedComponentEnabled(PlayerPedId(),
                     clothes_list["female"][category][ClothesCache[category].model][id].hash, false, true, true)
