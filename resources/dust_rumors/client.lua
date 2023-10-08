@@ -65,6 +65,7 @@ Citizen.CreateThread(function()
                 rumorPrompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     isInteracting = true
+                    FreezeEntityPosition(PlayerPedId(), true)
                     TrySendRumor()
                 end
             end
@@ -104,8 +105,8 @@ function TrySendRumor()
         })
 
         MenuData.Open('default', GetCurrentResourceName(), 'rumor', {
-            title = "Passeur d'information",
-            subtext = "Qu'avez vous de si important à nous dire ?",
+            title = "Passeur de rumeur",
+            subtext = "Qu'avez vous de si important à transmettre ?",
             align = 'top-right',
             elements = elements,
         },
@@ -115,32 +116,36 @@ function TrySendRumor()
             if data.current.value == 'TrySendRumor' then 
                 TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                     MenuData.CloseAll()
-                    AddTextEntry("FMMC_MPM_TYP86", "Votre Rumeur / Limite de 250 caractères")
-                    DisplayOnscreenKeyboard(4, "FMMC_MPM_TYP86", "", "", "", "", "", 250) -- KTEXTTYPE_ALPHABET
+                    AddTextEntry("FMMC_MPM_TYP86", "Votre Rumeur / Limite de 100 caractères")
+                    DisplayOnscreenKeyboard(4, "FMMC_MPM_TYP86", "", "", "", "", "", 100) -- KTEXTTYPE_ALPHABET
                     while (UpdateOnscreenKeyboard() == 0) do
                         DisableAllControlActions(0)
                         Citizen.Wait(0)
                     end
                     if (GetOnscreenKeyboardResult()) then
                         local rumeurTextString = GetOnscreenKeyboardResult()
-                        TriggerServerEvent("dust_rumors:server:SendRumors", os.date("%Y-%m-%d %H:%M:%S"), PlayerPedId().name, rumeurTextString)
+                        print(rumeurTextString)
+                        TriggerServerEvent("dust_rumors:server:SendRumor", rumeurTextString)
                         isInteracting = false
+                        FreezeEntityPosition(PlayerPedId(), false)
                     else
                         menu.close()
                         isInteracting = false
-                    return
+                        FreezeEntityPosition(PlayerPedId(), false)
                     end
                 end)
             else 
                 MenuData.CloseAll()
                 menu.close()
                 isInteracting = false
+                FreezeEntityPosition(PlayerPedId(), false)
             end
         end,
 
         function(data, menu)
             menu.close()
             isInteracting = false
+            FreezeEntityPosition(PlayerPedId(), false)
         end)
     end)
 end
