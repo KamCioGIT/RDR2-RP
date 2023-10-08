@@ -95,9 +95,6 @@ function NativeHasPedComponentLoaded(ped)
     return Citizen.InvokeNative(0xA0BC8FAED8CFEB3C, ped)
 end
 
-function SetMetaPedTag(ped, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
-    Citizen.InvokeNative(0xBC6DF00D7A4A6819, ped, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
-end
 
 function NativeUpdatePedVariation(ped)
     Citizen.InvokeNative(0x704C908E9C405136, ped)
@@ -105,4 +102,20 @@ function NativeUpdatePedVariation(ped)
     while not NativeHasPedComponentLoaded(ped) do
         Wait(1)
     end
+end
+
+function SetMetaPedTag(ped, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+    Citizen.InvokeNative(0xBC6DF00D7A4A6819, ped, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+end
+function UpdatePedVariation(ped)
+    Citizen.InvokeNative(0xAAB86462966168CE, ped, true) -- UNKNOWN "Fixes outfit"- always paired with _UPDATE_PED_VARIATION
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, ped, false, true, true, true, false) -- _UPDATE_PED_VARIATION
+end
+
+function UpdateCustomClothes(playerPed, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+    while not NativeHasPedComponentLoaded(playerPed) do
+        Wait(0)
+    end
+    SetMetaPedTag(playerPed, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+    UpdatePedVariation(playerPed)
 end
