@@ -109,7 +109,7 @@ Config.Jobs = {
     ["marechal_bla"] = {
         Name = "Écurie de Blackwater",
         MenuLocations = {
-            vector4(-878.4421, -1361.514, 43.57775)
+            vector3(-878.4421, -1361.514, 43.57775)
         },
         Grades = {
             [1] = {
