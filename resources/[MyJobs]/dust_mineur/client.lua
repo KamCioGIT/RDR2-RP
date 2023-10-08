@@ -157,8 +157,7 @@ function GivePlayerRessource()
     for item, entry in pairs(Config.Loottable) do
         if rand <= entry.chance then
             Wait(200)
-            selectedItem = entry.item
-            print (rand, selectedItem)
+            print (rand, item)
             TriggerServerEvent('mineur:additem', item)
             break
         else
