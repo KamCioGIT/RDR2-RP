@@ -21,16 +21,15 @@ Citizen.CreateThread(function()
                 local model = GetEntityModel(entity)
 
                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
-                if boolA ~= nil then
-                    print(boolA)
-                end
-
+              
                 --print(GetMetaPedType(entity))
 
                 if PlayerPedId() ~= entity then 
                     if IsPedAPlayer(entity) ~= true then
                         if IsEntityDead(entity) == false then
-                            showOnPed = true
+                            if boolA ~= nil and boolA == false then
+                                showOnPed = true
+                            end
                         end
                     end
                 end
