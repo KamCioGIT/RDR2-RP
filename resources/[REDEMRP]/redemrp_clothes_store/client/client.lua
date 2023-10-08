@@ -429,6 +429,7 @@ function Change(id, category, change_type)
                 else
                 NativeSetPedComponentEnabled(PlayerPedId(),
                     clothes_list["female"][category][ClothesCache[category].model][id].hash, false, true, true)
+                end
             end
         end
 
