@@ -13092,7 +13092,7 @@ clothes_list = {
 					['material'] = 'jgqpesaa_0x8fc6aeb3',
 					['palette'] = 'dsvkmzra_0xf509c745',
 					['tint0'] = 96,
-					['tint1'] = 29
+					['tint1'] = 29,
 					['tint2'] = 9,
 
 				}
