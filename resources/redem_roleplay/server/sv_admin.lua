@@ -459,3 +459,4 @@ RegisterCommand("removebankmoney", function(source, args, rawCommand)
         end
     end
 end)
+

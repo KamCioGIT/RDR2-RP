@@ -1,5 +1,10 @@
 Config = {}
 
+Config.Jobs = {
+    [1] = "usine",
+}
+
+
 Config.MsgWorking = "Appuie sur Del" -- Message de récolte
 Config.MsgOpenMenu = "Appuie sur Entrer" -- Message de traitement
 

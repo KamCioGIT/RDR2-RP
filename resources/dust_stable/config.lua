@@ -22,7 +22,13 @@ Config.Buyhorse = {
 		stable= 'buyhorse',
 	},
 }
-
+Config.Buycart = {
+	Saint_Denis = {
+		pos = vector3(2502.023, -1487.874, 45.9691),
+		name = 'Achat',
+		stable= 'buyhorse',
+	},
+}
 Config.WarHorses = {
 	AndalouNoir= {
 		model = "A_C_Horse_Andalusian_DarkBay",
@@ -36,13 +42,7 @@ Config.WarHorses = {
     },
 }
 
-Config.Buycart = {
-	Saint_Denis = {
-		pos = vector3(2502.023, -1487.874, 45.9691),
-		name = 'Achat',
-		stable= 'buyhorse',
-	},
-}
+
 
 Config.Cart = {
 	gatchuck= {

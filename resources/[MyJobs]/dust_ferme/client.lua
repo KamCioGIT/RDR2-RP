@@ -12,27 +12,29 @@ local isFarmer = false
 Citizen.CreateThread(function()
     Wait(1000)
     if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_ferme:server:RequestJob")
+        TriggerServerEvent("dust_armurier:server:RequestJob")
     end
 end)
 
-RegisterNetEvent("dust_ferme:client:ReceiveJob", function(job, grade)
-    if job == "fermier" then
-        startMission()
-        Paturages()
-        cattle()
-        if jobgrade >= 2 then
-            contremaitre()
-            if jobgrade == 3 then
-                patronUpdate()  
-            end 
+local getjob = false
+local getgrade = 0
+RegisterNetEvent("redem_roleplay:JobChange")
+AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+    for k, v in pairs(Config.Jobs) do
+        if job == v then
+            getjob = true
+            getgrade = grade
+            startMission()
+            cattle()
+            Paturages()
+            if getgrade >= 2 then
+                contremaitre()
+            end
+        else
+            getjob = false
+            getgrade = 0
         end
     end
-end)
-
-RegisterNetEvent("redem_roleplay:getjob")
-AddEventHandler("redem_roleplay:getjob", function(job)
-    print(2)
 end)
 
 -- VA MINER   
@@ -45,33 +47,41 @@ Uiprompt:new(0x760A9C6F, "Déposer", depprompt)
 depprompt:setActive(false)
 
 function startMission()
+    RequestModel(GetHashKey("crp_wheat_dry_aa_sim"))
+    if HasModelLoaded(GetHashKey("crp_wheat_dry_aa_sim")) then
+        Wait(10)
+    end
     GetRandomRessourcePoint()
     Citizen.CreateThread(function() --- MINERAI
         while true do
-            Wait(0)
-            local playerPos = GetEntityCoords(PlayerPedId())
-            if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isInteracting then
-                bleprompt:setActiveThisFrame(true)
-                if IsControlJustPressed(0, 0x760A9C6F) and not isInteracting then 
-                    StartMining()
-                end
-            else end
+            if getjob then
+                Wait(0)
+                local playerPos = GetEntityCoords(PlayerPedId())
+                if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isInteracting then
+                    bleprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(0, 0x760A9C6F) and not isInteracting then 
+                        StartMining()
+                    end
+                else end
+            end
         end
     end)
     Citizen.CreateThread(function() --- DEPOT
         while true do
-            Wait(0)
-            local playerPos = GetEntityCoords(PlayerPedId())
-            for k, v in ipairs(Config.FarmerDepositPos) do
-                if #(playerPos - v) < 6.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
-                    depprompt:setActiveThisFrame(true)
-                    if IsControlJustPressed(2, 0x760A9C6F) then 
-                        TriggerServerEvent('fermier:depStash')
+            if getjob then
+                Wait(0)
+                local playerPos = GetEntityCoords(PlayerPedId())
+                for k, v in ipairs(Config.FarmerDepositPos) do
+                    if #(playerPos - v) < 6.0 then
+                        Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                     end
-                else end
+                    if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                        depprompt:setActiveThisFrame(true)
+                        if IsControlJustPressed(2, 0x760A9C6F) then 
+                            TriggerServerEvent('fermier:depStash')
+                        end
+                    else end
+                end
             end
         end
     end)
@@ -82,52 +92,25 @@ Uiprompt:new(0x760A9C6F, "Récupérer", retprompt)
 retprompt:setActive(false)
 
 function contremaitre() --- RETRAIT
-    while true do    
-        Wait(0)
-        local playerPos = GetEntityCoords(PlayerPedId())
-        for k, v in ipairs(Config.FarmerWithdrawalPos) do
-            if #(playerPos - v) < 6.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-            end
-            if #(playerPos - v) < Config.DistanceToInteract then
-                retprompt:setActiveThisFrame(true)
-                if IsControlJustPressed(2, 0x760A9C6F) then 
-                    TriggerServerEvent('fermier:retStash')
-                end
-            else end
-        end
-    end
-end
-
-local patronprompt = UipromptGroup:new("Patron")
-Uiprompt:new(0x760A9C6F, "Gérer", patronprompt)
-patronprompt:setActive(false)
-function patronUpdate()
     while true do
-        Wait(0)
-        local playerPos = GetEntityCoords(PlayerPedId())    
-        for k, v in ipairs(Config.GetVirginContractPos) do
-            if #(playerPos - v) < 6.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-            end
-            if #(playerPos - v) < Config.DistanceToInteract and not isInBossMenu then
-                patronprompt:setActiveThisFrame(true)
-                if IsControlJustPressed(2, 0x760A9C6F) then 
-                    TriggerServerEvent('fermier:RequestBossMenu')
-                    isInBossMenu = true
+        if getjob then
+            Wait(0)
+            local playerPos = GetEntityCoords(PlayerPedId())
+            for k, v in ipairs(Config.FarmerWithdrawalPos) do
+                if #(playerPos - v) < 6.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
-            else end
+                if #(playerPos - v) < Config.DistanceToInteract then
+                    retprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(2, 0x760A9C6F) then 
+                        TriggerServerEvent('fermier:retStash')
+                    end
+                else end
+            end
         end
     end
 end
 
-
-Citizen.CreateThread(function()
-    RequestModel(GetHashKey("crp_wheat_dry_aa_sim"))
-    if HasModelLoaded(GetHashKey("crp_wheat_dry_aa_sim")) then
-        Wait(10)
-    end
-end)
 
 local blip
 function GetRandomRessourcePoint()
@@ -180,55 +163,6 @@ end
 function GivePlayerRessource()
     TriggerServerEvent('fermier:addble')
 end
-
-
-
-RegisterNetEvent("fermier:OpenBossMenu", function()
-    local Position = GetEntityCoords(PlayerPedId())
-
-    Citizen.CreateThread(function()
-        while true do
-            Wait(250)
-            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
-                TriggerEvent("redemrp_menu_base:getData", function(call)
-                    call.CloseAll()
-                    isInBossMenu = false
-                end)
-                return
-            end
-        end
-    end)
-
-    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-        MenuData.CloseAll()
-
-        local jobgrade = RedEM.GetPlayerData().jobgrade
-
-        local elements = {}
-
-        if jobgrade > 2 then
-            table.insert(elements, {label = "Contrat pour fermier", value = 'virginFarmerContrat', desc = "Retirer un contrat vierge de fermier"})
-        else
-            return RedEM.Functions.NotifyRight("You don't have any options here.", 3000)
-        end
-
-        MenuData.Open('default', GetCurrentResourceName(), 'farmerrecrutement', {
-            title = "Fermier",
-            subtext = "Recruter des fermiers",
-            align = 'top-left',
-            elements = elements,
-        },
-
-        function(data, menu)
-            MenuData.CloseAll()
-            TriggerServerEvent('dust_contract:AddVirginContrat')
-        end,
-
-        function(data, menu)
-            menu.close()
-        end)
-    end)
-end)
 
 
 

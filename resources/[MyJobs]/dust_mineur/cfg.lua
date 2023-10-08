@@ -1,7 +1,9 @@
 Config = {}
 
-Config.MinerJobCoalPos = { vector3(2797.434, 1395.36, 70.32012)} -- Pos du charbon
-Config.MinerJobRubblePos = {x = 2791.935, y = 1337.352, z = 71.329} -- Pos des gravats
+Config.Jobs = {
+    [1] = "mineur",
+}
+
 Config.MinerJobDepositPos = { vector3(2880.175, 1401.344, 68.70103)} -- 
 Config.MinerJobWithdrawalPos = { vector3(2954.671, 1374.939, 51.32298)}
 Config.GetVirginContractPos = { vector3(2917.933, 1381.086, 56.22201)}

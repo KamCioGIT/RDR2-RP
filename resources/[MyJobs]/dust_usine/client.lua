@@ -16,18 +16,23 @@ craftprompt:setActive(false)
 Citizen.CreateThread(function()
     Wait(1000)
     if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_usine:server:RequestJob")
+        TriggerServerEvent("dust_armurier:server:RequestJob")
     end
 end)
 
-RegisterNetEvent("dust_usine:client:ReceiveJob", function(job, grade)
-    if job == "usine" then
-        StartMission()
-        -- if grade >= 2 then
-        --     if grade >= 3 then
-
-        --     end
-        -- end
+local getjob = false
+local getgrade = 0
+RegisterNetEvent("redem_roleplay:JobChange")
+AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+    for k, v in pairs(Config.Jobs) do
+        if job == v then
+            getjob = true
+            getgrade = grade
+            startMission()
+        else
+            getjob = false
+            getgrade = 0
+        end
     end
 end)
 
@@ -131,40 +136,42 @@ end)
 
 function StartMission()
     Citizen.CreateThread(function()
-        while true do 
-            Wait(2)
-            local playerPos = GetEntityCoords(PlayerPedId())
-            if #(playerPos - Config.RessourcesPointPos) < 6.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.RessourcesPointPos.x, Config.RessourcesPointPos.y, Config.RessourcesPointPos.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-            end
-            if #(playerPos - Config.RessourcesPointPos) < Config.DistanceToInteract and not isInteracting then
-                souffreprompt:setActiveThisFrame(true)
-                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                    isInteracting = true
-                    SouffreRecolt()
+        while true do
+            if getjob then
+                Wait(2)
+                local playerPos = GetEntityCoords(PlayerPedId())
+                if #(playerPos - Config.RessourcesPointPos) < 6.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.RessourcesPointPos.x, Config.RessourcesPointPos.y, Config.RessourcesPointPos.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
-            end
-
-            -- CREATE GUNPOWDER
-            if #(playerPos - Config.CreateGunPowerPos) < 10.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.CreateGunPowerPos.x, Config.CreateGunPowerPos.y, Config.CreateGunPowerPos.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-            end
-            if #(playerPos - Config.CreateGunPowerPos) < Config.DistanceToInteract and not isInteracting then
-                craftprompt:setActiveThisFrame(true)
-                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then
-                    isInteracting = true
-                    TriggerServerEvent("usine:RequestBossMenu", 'gunpowder')
+                if #(playerPos - Config.RessourcesPointPos) < Config.DistanceToInteract and not isInteracting then
+                    souffreprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        isInteracting = true
+                        SouffreRecolt()
+                    end
                 end
-            end
 
-            -- CREATE GUNPOWDER
-            if #(playerPos - Config.Atelier) < 10.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier.x, Config.Atelier.y, Config.Atelier.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-            end
-            if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
-                craftprompt:setActiveThisFrame(true)
-                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                    TriggerServerEvent("usine:RequestBossMenu", 'atelier')
+                -- CREATE GUNPOWDER
+                if #(playerPos - Config.CreateGunPowerPos) < 10.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.CreateGunPowerPos.x, Config.CreateGunPowerPos.y, Config.CreateGunPowerPos.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                end
+                if #(playerPos - Config.CreateGunPowerPos) < Config.DistanceToInteract and not isInteracting then
+                    craftprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then
+                        isInteracting = true
+                        TriggerServerEvent("usine:RequestBossMenu", 'gunpowder')
+                    end
+                end
+
+                -- CREATE GUNPOWDER
+                if #(playerPos - Config.Atelier) < 10.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier.x, Config.Atelier.y, Config.Atelier.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                end
+                if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
+                    craftprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        TriggerServerEvent("usine:RequestBossMenu", 'atelier')
+                    end
                 end
             end
         end

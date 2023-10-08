@@ -1,5 +1,9 @@
 Config = {}
 
+Config.Jobs = {
+    [1] = "fermier",
+}
+
 Config.FarmerDepositPos = { vector3(-2584.335, 415.2029, 148.965)} -- 
 Config.FarmerWithdrawalPos = { vector3(-2588.564, 417.783, 149.0052)}
 Config.GetVirginContractPos = { vector3(-2592.237, 455.9889, 146.9973)}

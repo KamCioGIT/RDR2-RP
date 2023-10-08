@@ -8,18 +8,25 @@ local isInBossMenu = false
 Citizen.CreateThread(function()
     Wait(1000)
     if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_mineur:server:RequestJob")
+        TriggerServerEvent("dust_armurier:server:RequestJob")
     end
 end)
 
-RegisterNetEvent("dust_mineur:client:ReceiveJob", function(job, grade)
-    if job == "mineur" then
-        startMission()
-        if grade >= 2 then
-            contremaitre()
-            if grade >= 3 then
-                patronUpdate() 
-            end 
+local getjob = false
+local getgrade = 0
+RegisterNetEvent("redem_roleplay:JobChange")
+AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+    for k, v in pairs(Config.Jobs) do
+        if job == v then
+            getjob = true
+            getgrade = grade
+            startMission()
+            if getgrade >= 2 then
+                contremaitre()
+            end
+        else
+            getjob = false
+            getgrade = 0
         end
     end
 end)
@@ -38,30 +45,34 @@ function startMission()
     GetRandomRessourcePoint()
     Citizen.CreateThread(function() --- MINERAI
         while true do
-            Wait(0)
-            local playerPos = GetEntityCoords(PlayerPedId())
-            if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isMining then
-                mineraiprompt:setActiveThisFrame(true)
-                if IsControlJustPressed(0, 0x760A9C6F) and not isMining then 
-                    StartMining()
-                end
-            else end
+            if getjob then
+                Wait(0)
+                local playerPos = GetEntityCoords(PlayerPedId())
+                if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isMining then
+                    mineraiprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(0, 0x760A9C6F) and not isMining then 
+                        StartMining()
+                    end
+                else end
+            end
         end
     end)
     Citizen.CreateThread(function() --- DEPOT
         while true do
-            Wait(0)
-            local playerPos = GetEntityCoords(PlayerPedId())
-            for k, v in ipairs(Config.MinerJobDepositPos) do
-                if #(playerPos - v) < 6.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - v) < Config.DistanceToInteract then
-                    depprompt:setActiveThisFrame(true)
-                    if IsControlJustPressed(2, 0x760A9C6F) then 
-                        TriggerServerEvent('mineur:server:mineur:depStash')
+            if getjob then
+                Wait(0)
+                local playerPos = GetEntityCoords(PlayerPedId())
+                for k, v in ipairs(Config.MinerJobDepositPos) do
+                    if #(playerPos - v) < 6.0 then
+                        Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                     end
-                else end
+                    if #(playerPos - v) < Config.DistanceToInteract then
+                        depprompt:setActiveThisFrame(true)
+                        if IsControlJustPressed(2, 0x760A9C6F) then 
+                            TriggerServerEvent('mineur:server:mineur:depStash')
+                        end
+                    else end
+                end
             end
         end
     end)
@@ -73,41 +84,24 @@ retprompt:setActive(false)
 
 function contremaitre() --- RETRAIT
     while true do    
-        Wait(0)
-        local playerPos = GetEntityCoords(PlayerPedId())
-        for k, v in ipairs(Config.MinerJobWithdrawalPos) do
-            if #(playerPos - v) < 6.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-            end
-            if #(playerPos - v) < Config.DistanceToInteract then
-                retprompt:setActiveThisFrame(true)
-                if IsControlJustPressed(2, 0x760A9C6F) then 
-                    TriggerServerEvent('mineur:server:mineur:retStash')
+        if getjob then
+            Wait(0)
+            local playerPos = GetEntityCoords(PlayerPedId())
+            for k, v in ipairs(Config.MinerJobWithdrawalPos) do
+                if #(playerPos - v) < 6.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
-            else end
+                if #(playerPos - v) < Config.DistanceToInteract then
+                    retprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(2, 0x760A9C6F) then 
+                        TriggerServerEvent('mineur:server:mineur:retStash')
+                    end
+                else end
+            end
         end
     end
 end
 
-
-function patronUpdate()
-    while true do
-        Wait(0)
-        local playerPos = GetEntityCoords(PlayerPedId())    
-        for k, v in ipairs(Config.GetVirginContractPos) do
-            if #(playerPos - v) < 6.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.5, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-            end
-            if #(playerPos - v) < Config.DistanceToInteract and not isInBossMenu then
-                DrawTxt("Press suppr to acces Bossmenu", 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
-                if IsControlJustPressed(2, 0x4AF4D473) then 
-                    TriggerServerEvent('mineur:RequestBossMenu')
-                    isInBossMenu = true
-                end
-            else end
-        end
-    end
-end
 
 local blip
 function GetRandomRessourcePoint()
@@ -171,80 +165,3 @@ function GivePlayerRessource()
         end
     end
 end
-
-function GivePlayerCharbon()
-    TriggerServerEvent('mineur:addcharbon')
-end
-
--- DRAW TEXT ON SCREEEN w/ BACKGROUND
-function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
-    local str = CreateVarString(10, "LITERAL_STRING", str)
-    SetTextScale(w, h)
-    SetTextColor(math.floor(col1), math.floor(col2), math.floor(col3), math.floor(a))
-	SetTextCentre(centre)
-    if enableShadow then SetTextDropshadow(1, 0, 0, 0, 255) end
-	Citizen.InvokeNative(0xADA9255D, 1); -- Font
-    DisplayText(str, x, y)
-
-    local lineLength = string.len(str) / 100 * 0.70
-    DrawTexture("boot_flow", "selection_box_bg_1d", x, y + 0.018, lineLength, 0.07, 0, 0, 0, 0, 200)
-end
-
-
-function DrawTexture(textureStreamed,textureName,x, y, width, height,rotation,r, g, b, a, p11)
-    if not HasStreamedTextureDictLoaded(textureStreamed) then
-       RequestStreamedTextureDict(textureStreamed, false);
-    else
-        DrawSprite(textureStreamed, textureName, x, y, width, height, rotation, r, g, b, a, p11);
-    end
-end
-
-RegisterNetEvent("mineur:OpenBossMenu", function()
-    local Position = GetEntityCoords(PlayerPedId())
-    print("mineur:OpenBossMenu triggered")
-
-    Citizen.CreateThread(function()
-        while true do
-            Wait(250)
-            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
-                TriggerEvent("redemrp_menu_base:getData", function(call)
-                    call.CloseAll()
-                    isInBossMenu = false
-                end)
-                return
-            end
-        end
-    end)
-
-    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
-        MenuData.CloseAll()
-
-        local jobgrade = RedEM.GetPlayerData().jobgrade
-
-        local elements = {}
-
-        if jobgrade > 2 then
-            table.insert(elements, {label = "Contrat pour mineur", value = 'virginMineurContrat', desc = "Retirer un contrat vierge de mineur"})
-        else
-            return RedEM.Functions.NotifyRight("You don't have any options here.", 3000)
-        end
-
-        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
-            title = "Mineur Bossmenu",
-            subtext = "Job Interaction for Mineur",
-            align = 'top-left',
-            elements = elements,
-        },
-
-        function(data, menu)
-            MenuData.CloseAll()
-            -- Fonction pour retirer un contrat
-            print('Call fonction pour contrat vierge')
-            TriggerServerEvent('dust_contract:AddVirginContrat')
-        end,
-
-        function(data, menu)
-            menu.close()
-        end)
-    end)
-end)

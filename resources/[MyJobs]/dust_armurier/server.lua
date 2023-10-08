@@ -20,18 +20,11 @@ RegisterServerEvent("dust_armurier:server:RequestJob", function()
     local _source = source
     local user = RedEM.GetPlayer(_source)
     if user then
-        TriggerClientEvent("dust_armurier:client:ReceiveJob", _source, user.GetJob(), user.GetJobGrade())
+		TriggerClientEvent("redem_roleplay:JobChange", source, user.GetJob(), user.GetJobGrade())
     end
 end)
 
 AddEventHandler("redemrp:playerLoaded", function(source, user)
-    TriggerClientEvent("dust_armurier:client:ReceiveJob", source, user.GetJob(), user.GetJobGrade())
+	TriggerClientEvent("redem_roleplay:JobChange", source, user.GetJob(), user.GetJobGrade())
 end)
 
-RegisterServerEvent("testjob", function()
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-    if user then
-        TriggerClientEvent("dust_armurier:client:ReceiveJob", _source, user.GetJob(), user.GetJobGrade())
-    end
-end)
