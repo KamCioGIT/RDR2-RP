@@ -242,6 +242,17 @@ Citizen.CreateThread(function()
                 --("Interior Activated")
             end
         end
+
+        local interior = GetInteriorAtCoords(2886.0627441406,1397.3687744141, 63.939102172852)
+        local isValid = IsValidInterior(interior)
+        if isValid then
+            if IsInteriorEntitySetActive(interior, "ann_coalbreaker_int_main")then
+                --("Interior Already Active")
+            else
+                ActivateInteriorEntitySet(interior, "ann_coalbreaker_int_main")
+                --("Interior Activated")
+            end
+        end
         
         isLoaded = true
     end
