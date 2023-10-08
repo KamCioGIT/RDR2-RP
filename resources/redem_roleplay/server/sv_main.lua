@@ -252,3 +252,7 @@ function CharacterExist (id)
     end
     return (test)
 end	
+
+AddEventHandler("redemrp:playerLoaded", function(source, user)
+	TriggerClientEvent("redem_roleplay:JobChange", source, user.GetJob(), user.GetJobGrade())
+end)

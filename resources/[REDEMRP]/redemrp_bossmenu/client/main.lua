@@ -374,7 +374,7 @@ RegisterNetEvent("redemrp_bossmenu:client:ViewOfflineFireList", function(FireLis
         MenuData.CloseAll()
         local elements = {}
         for k,v in ipairs(FireList) do
-            table.insert(elements, {label = v.char .. " ("..v.name..")", id = v.id, charid = v.charid, desc = "Fire "..v.name.."?"})
+            table.insert(elements, {label = v.char, id = v.id, charid = v.charid, desc = "Renvoyer "..v.char.."?"})
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'bossmenu_ofirelist', {
@@ -425,7 +425,7 @@ RegisterNetEvent("redemrp_bossmenu:client:ViewGradeList", function(FireList)
         MenuData.CloseAll()
         local elements = {}
         for k,v in ipairs(FireList) do
-            table.insert(elements, {label = v.char .. " ("..v.name..")", value = v.id, desc = "Changer le grade de "..v.name.."?"})
+            table.insert(elements, {label = v.char, value = v.id, desc = "Changer le grade de "..v.char.."?"})
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'bossmenu_gradelist', {
