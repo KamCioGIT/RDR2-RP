@@ -127,5 +127,10 @@ function UpdateCustomClothes(playerPed, drawable, albedo, normal, material, pale
     local _tint2 = tonumber(tint2)
 
     SetMetaPedTag(playerPed, _drawable, _albedo, _normal, _material, _palette, _tint0, _tint1, _tint2)
+    UpdateShopItemWearableState(playerPed, _drawable, `chemise`, true)
     UpdatePedVariation(playerPed)
+end
+
+function UpdateShopItemWearableState(ped, shopItemHash, wearableStateHash, isMultiplayer)
+    Citizen.InvokeNative(0x66B957AAC2EAAEAB, ped, shopItemHash, wearableStateHash, 0, isMultiplayer, 1)
 end
