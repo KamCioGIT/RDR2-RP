@@ -65,6 +65,7 @@ Citizen.CreateThread(function()
                 rumorPrompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     isInteracting = true
+                    FreezeEntityPosition(PlayerPedId(), true)
                     TrySendRumor()
                 end
             end
@@ -123,12 +124,11 @@ function TrySendRumor()
                     end
                     if (GetOnscreenKeyboardResult()) then
                         local rumeurTextString = GetOnscreenKeyboardResult()
-                        TriggerServerEvent("dust_rumors:server:SendRumors", os.date("%Y-%m-%d %H:%M:%S"), PlayerPedId().name, rumeurTextString)
+                        TriggerServerEvent("dust_rumors:server:SendRumors", PlayerPedId().name, rumeurTextString)
                         isInteracting = false
                     else
                         menu.close()
                         isInteracting = false
-                    return
                     end
                 end)
             else 
@@ -141,6 +141,7 @@ function TrySendRumor()
         function(data, menu)
             menu.close()
             isInteracting = false
+            FreezeEntityPosition(PlayerPedId(), false)
         end)
     end)
 end

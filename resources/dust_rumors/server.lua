@@ -1,7 +1,17 @@
 RegisterNetEvent("dust_rumors:server:SendRumor")
-AddEventHandler("dust_rumors:server:SendRumor", function(date, name, rumorText)
-    print(date)
+AddEventHandler("dust_rumors:server:SendRumor", function(name, rumorText)
     print(name)
     print(rumorText)
-    -- Save rumor in DB
+
+    MySQL.update(
+        'INSERT INTO rumors (name, rumorText, date) VALUES (@name, @rumorText, @date);',
+        {
+            name = name,
+            rumorText = rumorText,
+            date = os.time(),
+        },
+        function(rowsChanged)
+        end
+    )
+
 end)
