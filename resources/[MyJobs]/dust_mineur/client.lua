@@ -19,9 +19,8 @@ AddEventHandler("redem_roleplay:JobChange", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             getjob = true
-            getgrade = grade
+            getgrade = tonumber(grade)
             startMission()
-            print (job, grade)
             if getgrade >= 2 then
                 contremaitre()
             end
