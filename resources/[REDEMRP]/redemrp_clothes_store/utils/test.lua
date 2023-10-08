@@ -13077,16 +13077,6 @@ clothes_list = {
 					['is_multiplayer'] = true,
 					['ped_type'] = 'female'
 				},
-				[13] = {
-					['category_hash'] = 1008366797,
-					['category_hash_dec_signed'] = 1008366797,
-					['category_hashname'] = 'cloaks',
-					['hash'] = 3241955202,
-					['hash_dec_signed'] = -78253665,
-					['hashname'] = 'cloak_fr1_000',
-					['is_multiplayer'] = true,
-					['ped_type'] = 'female'
-				}
 			}
 		},
 		['coats'] = {

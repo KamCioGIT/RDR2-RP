@@ -458,14 +458,14 @@ end
 
 RegisterCommand("testclothe", function()
     local playerPed = PlayerPedId()
-    local drawable = `shawl_fr1_002`
-    local albedo = `ejbtbgqb_0xb56bf958`
-    local normal = `lekgpjfa_0xb6f23ea5`
-    local material = `fxxmresa_0x5c1cf0ec`
-    local palette = `sbzopvra_0x4101ed87`
-    local tint0 = 123
-    local tint1 = 53
-    local tint2 = 141
+    local drawable = `cloak_fr1_000`
+    local albedo = `rxeonbaa_0xa27c83f4`
+    local normal = `jbcenhqa_0x761e354e`
+    local material = `jgqpesaa_0x8fc6aeb3`
+    local palette = `dsvkmzra_0xf509c745`
+    local tint0 = 96
+    local tint1 = 29
+    local tint2 = 9
     while not IsPedReadyToRender(playerPed) do
         Wait(0)
     end
