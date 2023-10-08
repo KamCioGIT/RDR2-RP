@@ -22,7 +22,7 @@ end)
 
 local getjob = false
 local getgrade = 0
-AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+AddEventHandler("redem_roleplay:JobChange", function(job)
     print (job)
     if job == "armurier_rhodes" or job == "armurier_strawberry" then
         getjob = true
