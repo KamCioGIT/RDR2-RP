@@ -106,6 +106,48 @@ Config.Jobs = {
             },
         }
     },
+    ["marechal_bla"] = {
+        Name = "Écurie de Blackwater",
+        MenuLocations = {
+            vector4(-878.4421, -1361.514, 43.57775)
+        },
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["marechal_stdenis"] = {
+        Name = "Écurie de Saint-Denis",
+        MenuLocations = {
+            vector3(2513.883, -1459.578, 46.36203)
+        },
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
     ["usine"] = {
         Name = "Usine",
         MenuLocations = {

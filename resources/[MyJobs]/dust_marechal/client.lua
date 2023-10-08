@@ -6,6 +6,31 @@ TriggerEvent("redemrp_menu_base:getData", function(call)
 end)
 
 
+
+Citizen.CreateThread(function()
+    Wait(1000)
+    if RedEM.GetPlayerData().isLoggedIn then
+        TriggerServerEvent("dust_armurier:server:RequestJob")
+    end
+end)
+
+local getjob = false
+local getgrade = 0
+RegisterNetEvent("redem_roleplay:JobChange")
+AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+    for k, v in pairs(Config.Jobs) do
+        if job == v then
+            getjob = true
+            getgrade = grade
+            Customzones()
+        else
+            getjob = false
+            getgrade = 0
+        end
+    end
+end)
+
+
 ------ PROMPT ------ 
 
 local customprompt = UipromptGroup:new("Maréchal Ferrant")
@@ -14,36 +39,38 @@ customprompt:setActive(false)
 
 
 ----- Open Menu ----
-Citizen.CreateThread(function()
-    while true do
-        Wait(0)
-        local playerpos = GetEntityCoords(PlayerPedId())
-        for k, v in pairs(Config.Customzone) do
-            if #(playerpos - v ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
-                customprompt:setActiveThisFrame(true)
-                if customprompt:hasHoldModeJustCompleted()then
-                    isInteracting = true
-                    local horse = GetMount(PlayerPedId())
-                    local horseid = Entity(horse).state.horseid
-                    Wait(200)
-                    TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
+function Customzones()
+    if getjob then
+        while true do
+            Wait(0)
+            local playerpos = GetEntityCoords(PlayerPedId())
+            for k, v in pairs(Config.Customzone) do
+                if #(playerpos - v ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
+                    customprompt:setActiveThisFrame(true)
+                    if customprompt:hasHoldModeJustCompleted()then
+                        isInteracting = true
+                        local horse = GetMount(PlayerPedId())
+                        local horseid = Entity(horse).state.horseid
+                        Wait(200)
+                        TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
+                    end
                 end
             end
-        end
-        for k, v in pairs(Config.Customcart) do
-            if #(playerpos - v ) < 7 and IsPedInAnyVehicle(PlayerPedId(), 0) then
-                customprompt:setActiveThisFrame(true)
-                if customprompt:hasHoldModeJustCompleted()then
-                    isInteracting = true
-                    local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
-                    local cartid = Entity(cart).state.horseid
-                    Wait(200)
-                    TriggerServerEvent('rdr_marechal:loadcomp', 1, cartid, cart)
+            for k, v in pairs(Config.Customcart) do
+                if #(playerpos - v ) < 7 and IsPedInAnyVehicle(PlayerPedId(), 0) then
+                    customprompt:setActiveThisFrame(true)
+                    if customprompt:hasHoldModeJustCompleted()then
+                        isInteracting = true
+                        local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
+                        local cartid = Entity(cart).state.horseid
+                        Wait(200)
+                        TriggerServerEvent('rdr_marechal:loadcomp', 1, cartid, cart)
+                    end
                 end
             end
         end
     end
-end)
+end
 
 function OpenCustomMenu(horse, horseid)
     MenuData.CloseAll()

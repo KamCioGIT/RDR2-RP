@@ -1,5 +1,12 @@
 Config = {}
 
+
+Config.Jobs = {
+    [1] = "marechal_stdenis",
+	[2] = "marechal_bla",
+}
+
+
 Config.MenuElements = {
 	["équipement"] = {
 		label = "Selle",
