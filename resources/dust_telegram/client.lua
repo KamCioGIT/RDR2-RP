@@ -1,184 +1,99 @@
-local telegrams = {}
-local index = 1
-local menu = false
 
-MenuData = {}
-TriggerEvent("redemrp_menu_base:getData",function(call)
-    MenuData = call
+local prompts = GetRandomIntInRange(0, 0xffffff)
+
+function TogglePost(name)
+    InMenu = true
+    SetNuiFocus(true, true)
+    SendNUIMessage({ type = 'openGeneral', postname = name })
+    TriggerServerEvent('scf_telegram:check_inbox', GetPlayers())
+end
+
+Citizen.CreateThread(function()
+    Citizen.Wait(5000)
+    local str = Config.OpenPost
+    OpenPost = PromptRegisterBegin()
+    PromptSetControlAction(OpenPost, Config.keys.G)
+    str = CreateVarString(10, 'LITERAL_STRING', str)
+    PromptSetText(OpenPost, str)
+    PromptSetEnabled(OpenPost, 1)
+    PromptSetVisible(OpenPost, 1)
+    PromptSetStandardMode(OpenPost, 1)
+    PromptSetHoldMode(OpenPost, 1)
+    PromptSetGroup(OpenPost, prompts)
+    Citizen.InvokeNative(0xC5F428EE08FA7F2C, OpenPost, true)
+    PromptRegisterEnd(OpenPost)
 end)
 
 
-RegisterNetEvent("Telegram:ReturnMessages")
-AddEventHandler("Telegram:ReturnMessages", function(data)
-    index = 1
-    telegrams = data
-
-    if next(telegrams) == nil then
-        SetNuiFocus(true, true)
-        SendNUIMessage({ message = "No telegrams to display." })
-    else
-        SetNuiFocus(true, true)
-        SendNUIMessage({ sender = telegrams[index].sender, message = telegrams[index].message })
+Citizen.CreateThread(function()
+    if Config.postoffice then
+        for k, v in pairs(Config.postoffice) do
+            local blip = Citizen.InvokeNative(0x554d9d53f696d002, 1664425300, v.coords)
+            SetBlipSprite(blip, v.blip, 1)
+            Citizen.InvokeNative(0x9CB1A1623062F402, blip, "Post Office")
+        end
     end
 end)
 
 
 
-local postprompt = UipromptGroup:new("Poste")
-Uiprompt:new(0x6319DB71, "Prendre son courrier", postprompt)
-Uiprompt:new(0x05CA7C52, "Envoyer un télégramme", postprompt):setHoldMode(true)
-postprompt:setActive(false)
 
 Citizen.CreateThread(function()
     while true do
-        Wait(0)
-        local playerpos = GetEntityCoords(PlayerPedId())
-        for k, v in pairs(Config.Posts) do
-            if #(playerpos - v.pos ) < 7 and not menu then
-                postprompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, 0x6319DB71) then
-                    TriggerServerEvent("Telegram:GetMessages")
-                end
-                if postprompt:hasHoldModeJustCompleted() then
-                    MenuSend()
-                end
-            end 
-        end
-    end
-end)
+        Citizen.Wait(1)
+        local pcoords = GetEntityCoords(PlayerPedId())
+        for k, v in ipairs(Config.postoffice) do
+            if Vdist(pcoords, v.coords) < 1.5 then
 
-function MenuSend()
-    local playerPed = PlayerPedId()
-    local Position = GetEntityCoords(playerPed)
-    Citizen.CreateThread(function()
-        while true do
-            Wait(100)
-            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
-                TriggerEvent("redemrp_menu_base:getData", function(call)
-                    call.CloseAll()
-                    isInteracting = false
-                end)
-                return
+                local label = CreateVarString(10, 'LITERAL_STRING', Config.post)
+                PromptSetActiveGroupThisFrame(prompts, label)
+                if Citizen.InvokeNative(0xC92AC953F0A982AE, OpenPost) then
+
+                    TogglePost(v.name)
+                end
             end
         end
-    end)
-    MenuData.CloseAll()
-    local elements = {
-        {
-         label = "Écrire un télégramme",
-         value = 'send' ,
-         desc = "Le destinataire saura votre Nom et Prénom",
-         image="items/weapon_melee_hammer.png",
-            },
-        {
-         label = "Écrire en anonyme",
-         value = 'anno' ,
-         desc = "Le destinataire ne saura pas qui lui a envoyé le courrier",
-         image="items/weapon_melee_hammer.png",
-            },
-        }
+    end
+end)
 
-    MenuData.Open('default', GetCurrentResourceName(), 'post', {
-        title = "Télégramme",
-        subtext = "Envoyer du courrier",
-        align = 'top-right',
-        elements = elements,
-    },
-    function(data, menu)
-        MenuData.CloseAll()
-        if data.current.value == "send" then
-            
-        end
-    end,
-    function(data, menu)
-        menu.close()
-        isInteracting = false
-    end)
+function GetPlayers()
+	local players = {}
 
-    
+	for _, player in ipairs(GetActivePlayers()) do
+		if NetworkIsPlayerActive(player) then
+			table.insert(players, player)
+		end
+	end
+
+	return players
 end
 
-function CloseTelegram()
-    index = 1
-    menu = false
+
+RegisterNUICallback('getview', function(data)
+    TriggerServerEvent('scf_telegram:getTelegram', tonumber(data.id))
+end)
+
+RegisterNUICallback('sendTelegram', function(data)
+    TriggerServerEvent('scf_telegram:SendTelegram', data)
+end)
+
+RegisterNUICallback('delete', function(data)
+    TriggerServerEvent("scf_telegram:DeleteTelegram", tonumber(data.id))
+end)
+
+RegisterNetEvent('messageData')
+AddEventHandler('messageData', function(tele)
+    SendNUIMessage({ type = 'view', telegram = tele })
+end)
+
+RegisterNetEvent('inboxlist')
+AddEventHandler('inboxlist', function(data)
+    SendNUIMessage({ type = 'inboxlist', response = data })
+end)
+
+RegisterNUICallback('NUIFocusOff', function()
+    InMenu = false
     SetNuiFocus(false, false)
-    SendNUIMessage({})
-end
+    SendNUIMessage({ type = 'closeAll' })
 
-RegisterNUICallback('back', function()
-    if index > 1 then
-        index = index - 1
-        SendNUIMessage({ sender = telegrams[index].sender, message = telegrams[index].message })
-    end
 end)
-
-RegisterNUICallback('next', function()
-    if index < #telegrams then
-        index = index + 1
-        SendNUIMessage({ sender = telegrams[index].sender, message = telegrams[index].message })
-    end
-end)
-
-RegisterNUICallback('close', function()
-    CloseTelegram()
-end)
-
-RegisterNUICallback('new', function()
-    CloseTelegram()
-    Getpobox()
-end)
-
-RegisterNUICallback('delete', function()
-    TriggerServerEvent("Telegram:DeleteMessage", telegrams[index].id)
-end)
-
-
-function Getpobox(post)
-    AddTextEntry("FMMC_KEY_TIP8", "Recipient's Lastname: ")
-    DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP8", "", "", "", "", "", 30)
-
-    while (UpdateOnscreenKeyboard() == 0) do
-        Wait(0);
-    end
-
-    while (UpdateOnscreenKeyboard() == 2) do
-        Wait(0);
-        break
-    end
-
-    while (UpdateOnscreenKeyboard() == 1) do
-        Wait(0)
-        if (GetOnscreenKeyboardResult()) then
-            local pobox = GetOnscreenKeyboardResult()
-
-            GetMessage(pobox, post)
-
-            break
-        end
-    end
-end
-
-function GetMessage(pobox, post)
-    AddTextEntry("FMMC_KEY_TIP8", "Message: ")
-    DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP8", "", "", "", "", "", 150)
-
-    while (UpdateOnscreenKeyboard() == 0) do
-        Wait(0);
-    end
-
-    while (UpdateOnscreenKeyboard() == 2) do
-        Wait(0);
-        break
-    end
-
-    while (UpdateOnscreenKeyboard() == 1) do
-        Wait(0)
-        if (GetOnscreenKeyboardResult()) then
-            local message = GetOnscreenKeyboardResult()
-            
-            TriggerServerEvent("Telegram:SendMessage", pobox, message, post)
-           
-            break
-        end
-    end
-end

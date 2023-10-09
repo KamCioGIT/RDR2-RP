@@ -5,73 +5,96 @@ TriggerEvent("redemrp_inventory:getData",function(call)
         data = call
 end)
 
-RegisterServerEvent("Telegram:GetMessages")
-AddEventHandler("Telegram:GetMessages", function(src)
-	local _source
-	
-	if not src then 
-		_source = source
-	else 
-		_source = src
-	end
-	local user = RedEM.GetPlayer(_source)
-	local recipient = user.pobox
-	
-	MySQL.query("SELECT * FROM telegrams WHERE recipient=@recipient ORDER BY id DESC", { recipient = recipient }, function(result)
-		TriggerClientEvent("Telegram:ReturnMessages", _source, result)
-	end)
+
+RegisterServerEvent("scf_telegram:check_inbox")
+AddEventHandler("scf_telegram:check_inbox", function()
+    local _source = source
+    local User = RedEM.GetPlayer(_source)
+    local postbox = User.pobox
+    local firstname = User.firstname
+    local lastname = User.lastname
+    MySQL.query("SELECT * FROM telegrams WHERE recipient = @reci ORDER BY id DESC", { ['@reci'] = postbox }, function(result)
+        local res = {}
+        res['box'] = lastname
+        res['firstname'] = firstname
+        res['list'] = result
+        if result ~= nil then
+            TriggerClientEvent("inboxlist", _source, res)
+        end
+    end)
 end)
 
-RegisterServerEvent("Telegram:SendMessage")
-AddEventHandler("Telegram:SendMessage", function(pobox, message, post)
-	local _source = source
-	local _pobox = pobox
-	local _message = message
-	local _post = post
+RegisterServerEvent("scf_telegram:SendTelegram")
+AddEventHandler("scf_telegram:SendTelegram", function(data)
+    local _source = source
+    local User = RedEM.GetPlayer(_source)
+    local currentMoney = User.money
+    local removeMoney = Config.Pay
 
-	local user = RedEM.GetPlayer(_source)
-	local sender = user.pobox
+    local sender = data.sender
+    local recipientlastname = data.recipientlastname
+    local recipientfirstname = data.recipientfirstname
+    local recipient = recipientfirstname .. " " .. recipientlastname
+    local subject = data.subject
+    local message = data.message
+    local postoffice = data.postoffice
 
-	-- get the steam and character id of the recipient
-	MySQL.query("SELECT * FROM characters WHERE pobox=@pobox", { pobox = pobox}, function(result)
-		if result[1] then 
-			MySQL.update("INSERT INTO telegrams (sender, recipient, message, date, selected, post) VALUES (@sender, @recipient, @message, @date, @selected, @post)",
-			{
-				sender = sender,
-				recipient = _pobox,
-				message = _message,
-				date = os.date("%Y-%m-%d %H:%M:%S"),
-				selected = 0,
-				post = _post
-			}, function(count)
-				----- Notif
-				-- if count > 0 then 
-				-- 	for k, v in pairs(players) do
-				-- 		TriggerEvent('redemrp:getPlayerFromId', v, function(user)
-				-- 			if user.getName() == firstname .. " " .. lastname then 
-				-- 				TriggerClientEvent("redemrp_notification:start", v, "You've received a telegram.", 3)
-				-- 			end
-				-- 		end)
-				-- 	end
-				-- end
-			end)
 
-			TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Votre télégramme va être envoyé !", "scoretimer_textures", "scoretimer_generic_tick", 4000)
-		else 
-			TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Cette adresse postale n'existe pas !", "scoretimer_textures", "scoretimer_generic_cross", 4000)
-		end
-	end)
+    if currentMoney >= removeMoney then
+        local sentDate = os.date("%x")
+        MySQL.query("SELECT * FROM characters WHERE lastname = @lastname AND firstname = @firstname",{firstname = recipientfirstname, lastname = recipientlastname}, function(result)
+            if result[1] ~= nil then
+                if recipientfirstname == nil or recipientfirstname == '' and recipientlastname == nil or recipientlastname == '' and subject == nil or subject == '' and sender == nil or sender == '' then
+                    TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Veuillez fournir toutes les informations !", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+                else
+                    local Parameters = { ['recipient'] = recipient, ['sender'] = sender, ['subject'] = subject, ['sentTime'] = sentDate, ['message'] = message, ['postoffice'] = postoffice }
+                    MySQL.update("INSERT INTO telegrams ( `recipient`,`sender`,`subject`,`sentTime`,`message`,`postoffice`) VALUES ( @recipient,@sender, @subject,@sentTime,@message,@postoffice )", Parameters)
+                    User.removeMoney(removeMoney)
+                    TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Vous avez payé $" .. removeMoney .. "pour envoyer le télégramme", "scoretimer_textures", "scoretimer_generic_tick", 4000)
+                end
+            else
+                TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Le destinataire n'a pas été trouvé !", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+            end
+        end)
+    else
+        TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Vous n'avez pas assez d'argent !", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+    end
 end)
 
-RegisterServerEvent("Telegram:DeleteMessage")
-AddEventHandler("Telegram:DeleteMessage", function(id)
+RegisterServerEvent("scf_telegram:getTelegram")
+AddEventHandler("scf_telegram:getTelegram", function(tid)
+    local _source = source
+    local User = RedEM.GetPlayer(_source)
+    local telegram = {}
+    Citizen.Wait(0)
+    MySQL.query("SELECT * FROM telegrams WHERE id = @id", { ['@id'] = tid }, function(result)
+
+        if result[1] ~= nil then
+            telegram['recipient'] = User.firstname .. " " .. User.lastname
+            telegram['sender'] = result[1]['sender']
+            telegram['sentTime'] = result[1]['sentTime']
+            telegram['subject'] = result[1]['subject']
+            telegram['message'] = result[1]['message']
+            MySQL.update("UPDATE telegrams SET status = '1' WHERE id = @id", { ["@id"] = tid })
+            TriggerClientEvent("messageData", _source, telegram)
+        end
+    end)
+end)
+
+RegisterServerEvent("scf_telegram:DeleteTelegram")
+AddEventHandler("scf_telegram:DeleteTelegram", function(tid)
 	local _source = source
 
-	MySQL.update("DELETE FROM telegrams WHERE id=@id",  { ['@id'] = id }, function(count)
-		if count > 0 then 
-			TriggerEvent("Telegram:GetMessages", _source)
-		else
-			TriggerClientEvent("redemrp_notification:start", _source, "We're unable to delete your Telegram right now. Please try again later.", 3)
-		end
-	end)
+    Citizen.Wait(0)
+   
+    MySQL.query("SELECT * FROM telegrams WHERE id = @id", { ['@id'] = tid }, function(result)
+        if result[1] ~= nil then
+            MySQL.update("DELETE FROM telegrams WHERE id = @id", { ["@id"] = tid })
+            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Télégramme supprimé !", "scoretimer_textures", "scoretimer_generic_tick", 4000)
+
+        else
+            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Impossible de supprimer", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+        end
+    end)
+    
 end)
