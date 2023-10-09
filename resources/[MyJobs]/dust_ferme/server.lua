@@ -382,7 +382,3 @@ RegisterServerEvent("dust_armurier:server:RequestJob", function()
 		TriggerClientEvent("redem_roleplay:JobChange", source, user.GetJob(), user.GetJobGrade())
     end
 end)
-
-AddEventHandler("redemrp:playerLoaded", function(source, user)
-	TriggerClientEvent("redem_roleplay:JobChange", source, user.GetJob(), user.GetJobGrade())
-end)
