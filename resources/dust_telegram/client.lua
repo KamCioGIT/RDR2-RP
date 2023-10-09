@@ -67,39 +67,15 @@ end)
 
 RegisterNUICallback('new', function()
     CloseTelegram()
-    GetFirstname()
+    Getpobox()
 end)
 
 RegisterNUICallback('delete', function()
     TriggerServerEvent("Telegram:DeleteMessage", telegrams[index].id)
 end)
 
-function GetFirstname()
-    AddTextEntry("FMMC_KEY_TIP8", "Recipient's Firstname: ")
-    DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP8", "", "", "", "", "", 30)
 
-    while (UpdateOnscreenKeyboard() == 0) do
-        Wait(0);
-    end
-
-    while (UpdateOnscreenKeyboard() == 2) do
-        Wait(0);
-        break
-    end
-
-    while (UpdateOnscreenKeyboard() == 1) do
-        Wait(0)
-        if (GetOnscreenKeyboardResult()) then
-            local firstname = GetOnscreenKeyboardResult()
-
-            GetLastname(firstname)
-
-            break
-        end
-    end
-end
-
-function GetLastname(firstname)
+function Getpobox(post)
     AddTextEntry("FMMC_KEY_TIP8", "Recipient's Lastname: ")
     DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP8", "", "", "", "", "", 30)
 
@@ -115,16 +91,16 @@ function GetLastname(firstname)
     while (UpdateOnscreenKeyboard() == 1) do
         Wait(0)
         if (GetOnscreenKeyboardResult()) then
-            local lastname = GetOnscreenKeyboardResult()
+            local pobox = GetOnscreenKeyboardResult()
 
-            GetMessage(firstname, lastname)
+            GetMessage(pobox, post)
 
             break
         end
     end
 end
 
-function GetMessage(firstname, lastname)
+function GetMessage(pobox, post)
     AddTextEntry("FMMC_KEY_TIP8", "Message: ")
     DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP8", "", "", "", "", "", 150)
 
@@ -141,24 +117,10 @@ function GetMessage(firstname, lastname)
         Wait(0)
         if (GetOnscreenKeyboardResult()) then
             local message = GetOnscreenKeyboardResult()
-
-            print(firstname, lastname, message)
             
-            TriggerServerEvent("Telegram:SendMessage", firstname, lastname, message, GetPlayerServerIds())
+            TriggerServerEvent("Telegram:SendMessage", pobox, message, post)
            
             break
         end
     end
-end
-
-function GetPlayerServerIds()
-    local players = {}
-
-    for i = 0, 31 do
-        if NetworkIsPlayerActive(i) then
-            table.insert(players, GetPlayerServerId(i))
-        end
-    end
-
-    return players
 end

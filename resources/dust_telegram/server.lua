@@ -14,49 +14,52 @@ AddEventHandler("Telegram:GetMessages", function(src)
 	else 
 		_source = src
 	end
-		local user = RedEM.GetPlayer(_source)
-		local recipient = user.identifer
-		local recipientid = user.characterid
-		
-		MySQL.query("SELECT * FROM telegrams WHERE recipient=@recipient AND recipientid=@recipientid ORDER BY id DESC", { ['@recipient'] = recipient, ['@recipientid'] = recipientid }, function(result)
-			TriggerClientEvent("Telegram:ReturnMessages", _source, result)
-		end)
+	local user = RedEM.GetPlayer(_source)
+	local recipient = user.pobox
+	
+	MySQL.query("SELECT * FROM telegrams WHERE recipient=@recipient ORDER BY id DESC", { recipient = recipient }, function(result)
+		TriggerClientEvent("Telegram:ReturnMessages", _source, result)
+	end)
 end)
 
 RegisterServerEvent("Telegram:SendMessage")
-AddEventHandler("Telegram:SendMessage", function(firstname, lastname, message, players)
+AddEventHandler("Telegram:SendMessage", function(pobox, message, post)
 	local _source = source
+	local _pobox = pobox
+	local _message = message
+	local _post = post
 
-	TriggerEvent("redemrp:getPlayerFromId", _source, function(user)
-		local sender = user.getName()
+	local user = RedEM.GetPlayer(_source)
+	local sender = user.pobox
 
-		-- get the steam and character id of the recipient
-		MySQL.Async.fetchAll("SELECT identifier, characterid FROM characters WHERE firstname=@firstname AND lastname=@lastname", { ['@firstname'] = firstname, ['@lastname'] = lastname}, function(result)
-			if result[1] then 
-				local recipient = result[1].identifier 
-				local recipientid = result[1].characterid
+	-- get the steam and character id of the recipient
+	MySQL.query("SELECT * FROM characters WHERE pobox=@pobox", { pobox = pobox}, function(result)
+		if result[1] then 
+			MySQL.update("INSERT INTO telegrams (sender, recipient, message, date, selected, post) VALUES (@sender, @recipient, @message, @date, @selected, @post)",
+			{
+				sender = sender,
+				recipient = _pobox,
+				message = _message,
+				date = os.date("%Y-%m-%d %H:%M:%S"),
+				selected = 0,
+				post = _post
+			}, function(count)
+				----- Notif
+				-- if count > 0 then 
+				-- 	for k, v in pairs(players) do
+				-- 		TriggerEvent('redemrp:getPlayerFromId', v, function(user)
+				-- 			if user.getName() == firstname .. " " .. lastname then 
+				-- 				TriggerClientEvent("redemrp_notification:start", v, "You've received a telegram.", 3)
+				-- 			end
+				-- 		end)
+				-- 	end
+				-- end
+			end)
 
-				local paramaters = { ['@sender'] = sender, ['@recipient'] = recipient, ['@recipientid'] = recipientid, ['@message'] = message }
-
-				MySQL.Async.execute("INSERT INTO telegrams (sender, recipient, recipientid, message) VALUES (@sender, @recipient, @recipientid, @message)",  paramaters, function(count)
-					if count > 0 then 
-						for k, v in pairs(players) do
-							TriggerEvent('redemrp:getPlayerFromId', v, function(user)
-								if user.getName() == firstname .. " " .. lastname then 
-									TriggerClientEvent("redemrp_notification:start", v, "You've received a telegram.", 3)
-								end
-							end)
-						end
-					else 
-						TriggerClientEvent("redemrp_notification:start", _source, "We're unable to process your Telegram right now. Please try again later.", 3)
-					end
-				end)
-
-				TriggerClientEvent("redemrp_notification:start", _source, "Your telegram has been posted", 3)
-			else 
-				TriggerClientEvent("redemrp_notification:start", _source, "Unable to process Telegram. Invalid first or lastname.", 3)
-			end
-		end)
+			TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Votre télégramme va être envoyé !", "menu_textures", "scoretimer_generic_tick", 4000)
+		else 
+			TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Cette adresse postale n'existe pas !", "menu_textures", "scoretimer_generic_cross", 4000)
+		end
 	end)
 end)
 
@@ -64,7 +67,7 @@ RegisterServerEvent("Telegram:DeleteMessage")
 AddEventHandler("Telegram:DeleteMessage", function(id)
 	local _source = source
 
-	MySQL.Async.execute("DELETE FROM telegrams WHERE id=@id",  { ['@id'] = id }, function(count)
+	MySQL.update("DELETE FROM telegrams WHERE id=@id",  { ['@id'] = id }, function(count)
 		if count > 0 then 
 			TriggerEvent("Telegram:GetMessages", _source)
 		else
