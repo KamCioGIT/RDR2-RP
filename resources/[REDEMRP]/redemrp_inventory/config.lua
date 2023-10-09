@@ -1283,6 +1283,19 @@ Config.Items = {
         imgsrc = "items/provision_meat_prime_beef.png",
         type = "item_standard",
     },
+    ----- telegram
+    ["télégramme"] = {
+        label = "Télégramme",
+        description = "La communication est la clef",
+        weight = 0,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/document_cloud_drop_letter.png",
+        type = "item_standard",
+    },
+
 
 
 }

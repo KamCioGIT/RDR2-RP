@@ -2274,3 +2274,30 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
         end
     end
 end)
+
+---- telegram
+
+RegisterServerEvent("redemrp_inventory:createtelegram", function(source, message, date, sender)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local itemData = SharedInventoryFunctions.getItem(_source, "télégramme")
+    local _meta = meta or {}
+    _meta.message = message
+    _meta.date = date
+    _meta.sender = sender
+    local item, id = getInventoryItemFromName("télégramme", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("télégramme", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)
