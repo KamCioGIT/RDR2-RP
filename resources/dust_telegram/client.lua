@@ -124,7 +124,7 @@ RegisterCommand("test6", function()
 end)
 
 RegisterCommand("test7", function()
-    TriggerEvent('redem_roleplay:ShowAdvancedRightNotification', "Vous avez reçu $50", "itemtype_textures" , "itemtype_cash_arthur" , "COLOR_ORANGE", 4000)
+    TriggerEvent('redem_roleplay:ShowAdvancedRightNotification', "Vous avez reçu $50", "itemtype_textures" , "itemtype_cash_arthur" , "COLOR_OTHER_SESSION_PLAYER", 4000)
 end)
 RegisterCommand("test8", function()
     TriggerEvent('redem_roleplay:ShowBasicTopNotification', "your text", 4000)
