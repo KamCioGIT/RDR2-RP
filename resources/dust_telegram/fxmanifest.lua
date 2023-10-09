@@ -5,9 +5,10 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 ui_page "html/index.html"
 
 client_script {
-   'client.lua',
-   "@uiprompt/uiprompt.lua",
-   'config.lua'
+    '@uiprompt/uiprompt.lua',
+    'client.lua',
+
+    'config.lua'
 }
 
 server_scripts {
