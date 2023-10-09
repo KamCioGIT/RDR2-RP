@@ -17,27 +17,27 @@ window.addEventListener('message', (event) => {
 	}
 
 	$(".telegram_back_button").unbind().click(function(){
-		$.post('http://telegram/back', JSON.stringify({})
+		$.post('http://dust_telegram/back', JSON.stringify({})
 	  );
 	});
 
 	$(".telegram_next_button").unbind().click(function(){
-		$.post('http://telegram/next', JSON.stringify({})
+		$.post('http://dust_telegram/next', JSON.stringify({})
 	  );
 	});
 
 	$(".telegram_new_button").unbind().click(function(){
-		$.post('http://telegram/new', JSON.stringify({})
+		$.post('http://dust_telegram/new', JSON.stringify({})
 	  );
 	});
 
 	$(".telegram_close_button").unbind().click(function(){
-		$.post('http://telegram/close', JSON.stringify({})
+		$.post('http://dust_telegram/close', JSON.stringify({})
 	  );
 	});
 	
 	$(".telegram_delete_button").unbind().click(function(){
-		$.post('http://telegram/delete', JSON.stringify({})
+		$.post('http://dust_telegram/delete', JSON.stringify({})
 	  );
 	});
 });
