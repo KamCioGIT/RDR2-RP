@@ -2,15 +2,6 @@ local telegrams = {}
 local index = 1
 local menu = false
 
-------------------------------------
---- ADD YOUR OWN LOCATIONS BELOW ---
-------------------------------------
-
-local locations = {
-    { x=-178.90, y=626.71, z=114.09 }, -- Valentine train station
-    { x=1225.57, y=-1293.87, z=76.91 }, -- Rhodes train station
-    { x=2731.55, y=-1402.37, z=46.18 }, -- Saint Denis train station
-}
 
 RegisterNetEvent("Telegram:ReturnMessages")
 AddEventHandler("Telegram:ReturnMessages", function(data)
@@ -26,41 +17,28 @@ AddEventHandler("Telegram:ReturnMessages", function(data)
     end
 end)
 
+
+
+local postprompt = UipromptGroup:new("Poste")
+Uiprompt:new(0x6319DB71, "Ouvrir", postprompt)
+postprompt:setActive(false)
+
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(1)
-
-        for key, value in pairs(locations) do
-           if IsPlayerNearCoords(value.x, value.y, value.z) then
-                if not menu then
-                    DrawText("Press G to view your telegrams.", 0.5, 0.88)
-                    if IsControlJustReleased(0, 0x760A9C6F) then
-                        menu = true
-                        TriggerServerEvent("Telegram:GetMessages")
-                    end
+        Wait(0)
+        local playerpos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.Posts) do
+            if #(playerpos - v.pos ) < 7 and not menu then
+                postprompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x6319DB71) then
+                    TriggerServerEvent("Telegram:GetMessages")
                 end
-            end
+            end 
         end
     end
 end)
 
-function IsPlayerNearCoords(x, y, z)
-    local playerx, playery, playerz = table.unpack(GetEntityCoords(GetPlayerPed(), 0))
-    local distance = GetDistanceBetweenCoords(playerx, playery, playerz, x, y, z, true)
 
-    if distance < 1 then
-        return true
-    end
-end
-
-function DrawText(text,x,y)
-    SetTextScale(0.35,0.35)
-    SetTextColor(255,255,255,255)--r,g,b,a
-    SetTextCentre(true)--true,false
-    SetTextDropshadow(1,0,0,0,200)--distance,r,g,b,a
-    SetTextFontForCurrentCommand(0)
-    DisplayText(CreateVarString(10, "LITERAL_STRING", text), x, y)
-end
 
 function CloseTelegram()
     index = 1
