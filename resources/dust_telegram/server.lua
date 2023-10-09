@@ -56,9 +56,9 @@ AddEventHandler("Telegram:SendMessage", function(pobox, message, post)
 				-- end
 			end)
 
-			TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Votre télégramme va être envoyé !", "menu_textures", "scoretimer_generic_tick", 4000)
+			TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Votre télégramme va être envoyé !", "scoretimer_textures", "scoretimer_generic_tick", 4000)
 		else 
-			TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Cette adresse postale n'existe pas !", "menu_textures", "scoretimer_generic_cross", 4000)
+			TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Cette adresse postale n'existe pas !", "scoretimer_textures", "scoretimer_generic_cross", 4000)
 		end
 	end)
 end)
