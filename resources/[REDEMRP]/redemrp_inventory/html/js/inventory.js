@@ -207,7 +207,11 @@ function createObjectBox(object) {
     } else if(object.name == "newspaper") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `A newspaper (edition " + object.meta.edition + ")`)    ");
     } else if(object.name == "télégramme") {
-        boxContent.setAttribute('onmouseover', "Over(`Télégramme de " + object.meta.sender + "`, `Reçu le " + object.meta.date + "`)    ");   
+        if (object.meta.sender == "Anonyme") {
+            boxContent.setAttribute('onmouseover', "Over(`Télégramme Anonyme`, `Reçu le " + object.meta.date + "`)    ");   
+        } else {
+            boxContent.setAttribute('onmouseover', "Over(`Télégramme de " + object.meta.sender + "`, `Reçu le " + object.meta.date + "`)    ");   
+        }
     } else if(object.name == "contratsigne") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Contrat de travail de " + object.meta.job + " de " + object.meta.name + "`)    ");
     } else if(object.name == "transferhorse") {
