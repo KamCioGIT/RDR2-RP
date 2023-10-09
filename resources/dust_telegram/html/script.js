@@ -28,7 +28,7 @@ $(".composetelegram").on("click",function(){
 });
 //Close post office
 $(".closePostoffice").on("click",function(){
-    $.post('http://scf_telegram/NUIFocusOff', JSON.stringify({}));
+    $.post('http://dust_telegram/NUIFocusOff', JSON.stringify({}));
 });
 //Form 
 $("#composeForm").submit(function(e){
@@ -40,7 +40,7 @@ $("#composeForm").submit(function(e){
     var subject =  $("#subject").val();
     var message = $("#message").val();
     
-    $.post('http://scf_telegram/sendTelegram', JSON.stringify({sender:sender,recipientlastname:recipientlastname,recipientfirstname:recipientfirstname,subject:subject,message:message,postoffice:postname}));
+    $.post('http://dust_telegram/sendTelegram', JSON.stringify({sender:sender,recipientlastname:recipientlastname,recipientfirstname:recipientfirstname,subject:subject,message:message,postoffice:postname}));
     //Reset form
     $("#sender").val('');
     $("#recipientlastname").val('');
@@ -89,20 +89,20 @@ $(function () {
 $(document).ready(function(){
     $("#inboxList").on("click",'li',function(event){
         itemToDel = $(this).data('id');
-        $.post('http://scf_telegram/getview', JSON.stringify({id: $(this).data('id')}));
+        $.post('http://dust_telegram/getview', JSON.stringify({id: $(this).data('id')}));
        $(".inbox").fadeOut().hide();
        $(".view").fadeIn().show();
     });
 });
 
 $(".telegram_delete_button").click(function(event){
-    $.post('http://scf_telegram/delete', JSON.stringify({id: itemToDel}));
+    $.post('http://dust_telegram/delete', JSON.stringify({id: itemToDel}));
     $(".inbox").fadeIn().show();
     $(".view").fadeOut().hide();
 });
 
 document.keyup = function (data) {
     if (data.which == 27) {
-        $.post('http://scf_telegram/NUIFocusOff', JSON.stringify({}));
+        $.post('http://dust_telegram/NUIFocusOff', JSON.stringify({}));
     }
 }
