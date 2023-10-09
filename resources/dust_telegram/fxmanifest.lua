@@ -4,10 +4,13 @@ game "rdr3"
 
 ui_page('html/ui.html') 
 client_scripts {
+    "@uiprompt/uiprompt.lua",
+	'@ox_lib/init.lua',
     'config.lua',
     'client.lua'
 }
 server_scripts {
+    '@oxmysql/lib/MySQL.lua',
     'config.lua',
     'server.lua'
 }
