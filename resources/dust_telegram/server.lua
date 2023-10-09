@@ -10,9 +10,9 @@ RegisterServerEvent("scf_telegram:check_inbox")
 AddEventHandler("scf_telegram:check_inbox", function()
     local _source = source
     local User = RedEM.GetPlayer(_source)
-    local postbox = User.pobox
     local firstname = User.firstname
     local lastname = User.lastname
+	local postbox = firstname .. " " .. lastname
     MySQL.query("SELECT * FROM telegrams WHERE recipient = @reci ORDER BY id DESC", { ['@reci'] = postbox }, function(result)
         local res = {}
         res['box'] = lastname
