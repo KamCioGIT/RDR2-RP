@@ -97,3 +97,45 @@ RegisterNUICallback('NUIFocusOff', function()
     SendNUIMessage({ type = 'closeAll' })
 
 end)
+
+
+RegisterCommand("test1", function()
+    TriggerEvent('redem_roleplay:NotifyLeft', "first text", "second text", "generic_textures", "tick", 4000)
+end)
+
+RegisterCommand("test2", function()
+    TriggerEvent('redem_roleplay:Tip', "your text", 4000)
+end)
+
+RegisterCommand("test3", function()
+    TriggerEvent('redem_roleplay:NotifyTop', "your text", "TOWN_ARMADILLO", 4000)
+end)
+
+RegisterCommand("test4", function()
+    TriggerEvent('redem_roleplay:ShowSimpleRightText', "your text",  4000)
+end)
+
+RegisterCommand("test5", function()
+    TriggerEvent('redem_roleplay:ShowObjective', "your text", 4000)
+end)
+
+RegisterCommand("test6", function()
+    TriggerEvent('redem_roleplay:ShowTopNotification', "your text", "your text", 4000)
+end)
+
+RegisterCommand("test7", function()
+    TriggerEvent('redem_roleplay:ShowAdvancedRightNotification', "your text", "generic_textures" , "tick" , "COLOR_PURE_WHITE", 4000)
+end)
+RegisterCommand("test8", function()
+    TriggerEvent('redem_roleplay:ShowBasicTopNotification', "your text", 4000)
+end)
+RegisterCommand("test9", function()
+    TriggerEvent('redem_roleplay:ShowSimpleCenterText', "your text", 4000)
+end)
+
+
+
+
+
+
+
