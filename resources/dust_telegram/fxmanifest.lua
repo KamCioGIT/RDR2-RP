@@ -20,3 +20,5 @@ files {
     'html/script.js',
     'html/bg.png'
 }
+
+lua54 'yes'
