@@ -186,7 +186,8 @@ button:focus {
     color: #fafafa;
     font-family: 'Milonga';
     font-size: 24px;
-    width: 30vw;
+    width: 10vw;
+    max-width: 100%;
     height: 80px;
     margin: 5px 0;
     transition: all .15s ease-out;
