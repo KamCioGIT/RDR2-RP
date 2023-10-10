@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+
 @font-face {
     font-family: 'RDR Lino Regular';
     src: url("../fonts/RDR_Lino_Regular.ttf") format("truetype");
@@ -49,15 +51,15 @@ h1, h2, h3, h4, h5, h6, hr, p {
 }
 
 h1 {
-    font-family: 'Chinese Rocks';
+    font-family: 'Milonga';
 }
 
 h2, h3, h4, h5, h6 {
-    font-family: 'RDR Lino Regular';
+    font-family: 'Milonga';
 }
 
 p {
-    font-family: 'Hapna Slab Serif';
+    font-family: 'Milonga';
 }
 
 button:focus {
@@ -70,19 +72,19 @@ button:focus {
   
 /* Track */
 ::-webkit-scrollbar-track {
-    background: rgba(92, 92, 92, 0.3); 
+    background: #2c2a21; 
     border-radius: 5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: rgba(178, 18, 20, 0.3); 
+    background: #615C43; 
     border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #B62A2A; 
+    background: #C1B681; 
 }
 
 #app {
@@ -96,7 +98,7 @@ button:focus {
 }
 
 .patient, .notes {
-    width: 100%;
+    width: 28vw;
     height: 100%;
     max-height: calc(100vh - 200px);
     background: url('../img/bg.png');
@@ -106,9 +108,15 @@ button:focus {
 }
 
 .notes {
-    width: 100%;
     grid-column: 1/2;
     padding: 50px 80px;
+
+    width: 48vw;
+    max-height: calc(100vh - 200px);
+    background: url('../img/bgdeux.png');
+    background-size: 100% 100%;
+    margin: 0 25px;
+    padding: 50px;
 }
 
 .notes .scrollable {
@@ -125,8 +133,8 @@ button:focus {
 }
 
 .header-group hr {
-    border-color: #B62A2A;
-    border: 2px solid #B62A2A;
+    border-color: #615C43;
+    border: 2px solid #615C43;
 }
 
 .patient-info {

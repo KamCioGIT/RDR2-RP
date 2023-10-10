@@ -30,14 +30,14 @@
                     </div>
                 </div>
                 <button class="rdr-button" id="add-note" @click="openNoteModal()">
-                    Add Note
+                    Ajouter une note
                 </button>
             </div>
         </div>
         <div class="patient" style="display: none;">
             <div class="header-group">
                 <h1 v-if="!this.inspectMode">Patient</h1>
-                <h1 v-else>Dead Body</h1>
+                <h1 v-else>Cadavre</h1>
                 <hr>
             </div>
             <div class="patient-info">
@@ -80,14 +80,14 @@
                 <div class="patient-parameters" v-if="patient.diseases">
                     <div class="parameter">
                         <div class="header-group">
-                            <h1>Heart Rate</h1>
+                            <h1>Battements Cardiaques</h1>
                             <hr>
                         </div>
                         <p>{{heartRate}}</p>
                     </div>
                     <div class="parameter">
                         <div class="header-group">
-                            <h1>Body Temperature</h1>
+                            <h1>Temperature du corps</h1>
                             <hr>
                         </div>
                         <p>{{bodyTemperature}}</p>
@@ -115,7 +115,7 @@
         </div>
     </script>
     <script type="text/template" id="addNoteModalContent">
-        <h1>Add Note</h1>
+        <h1>Ajouter une note</h1>
         <form class="modal-form" id="addNoteForm">
             <textarea id="noteText"></textarea>
         </form>
