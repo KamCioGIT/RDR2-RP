@@ -28,7 +28,7 @@ AddEventHandler("redem_roleplay:JobChange", function(job, grade)
         if job == v then
             getjob = true
             getgrade = grade
-            startMission()
+            StartMission()
         else
             getjob = false
             getgrade = 0
