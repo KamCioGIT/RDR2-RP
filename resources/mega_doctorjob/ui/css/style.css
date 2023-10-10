@@ -131,7 +131,13 @@ button:focus {
 .title_lm {
     text-align: center;
     margin: auto;
+    margin-top: -2vh;
 }
+
+.title_lm img {
+    width: 100%;
+}
+
 
 .header-group {
     width: fit-content;
@@ -251,7 +257,7 @@ button:focus {
 
 .note {
     border: 2px solid #615C43;
-    padding: 23px;
+    padding: 20px;
     display: grid;
     grid-template-rows: fit-content auto;
     font-size: 18px;
