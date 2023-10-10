@@ -189,7 +189,7 @@ button:focus {
 .parameter p {
     font-size: 24px;
     margin-top: 5px;
-    font-family: 'Chinese Rocks';
+    font-family: 'Milonga';
 }
 
 .rdr-button {
@@ -236,7 +236,7 @@ button:focus {
     padding: 5px;
     width: fit-content;
     color: #fafafa;
-    font-family: "Milonga";
+    font-family: "Milonga" !important;
 }
 
 .curable:hover {
