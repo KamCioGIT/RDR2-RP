@@ -14,7 +14,7 @@ Config.OpenMenuCommand = "animmenu"
 
 Config.AllowKeybind = true
 Config.Keybind = {
-	[1] = 0x52D29063,
+	[1] = 0xE6F612E4,
 	[2] = 0x1CE6D9EB,
 	[3] = 0x4F49CC4C,
 	[4] = 0x8F9F9E58,
