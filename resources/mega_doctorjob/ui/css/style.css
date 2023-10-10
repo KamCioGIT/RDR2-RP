@@ -286,7 +286,7 @@ button:focus {
 }
 
 .note-content {
-    color: rgba(255, 255, 255, 0.7);
+    color: #cacaca;
 }
 
 .header-right {
@@ -324,11 +324,11 @@ button:focus {
     margin: 15px 0;
     background: #333333;
     border-radius: 5px;
-    color: #fafafa;
+    color: #cacaca;
     border: 0;
     padding: 10px 10px;
-    font-size: 20px;
-    font-family: 'Hapna Slab Serif';
+    font-size: 16px;
+    font-family: 'Hapna Slab Serif' !important;
 }
 
 .custom-modal label {
