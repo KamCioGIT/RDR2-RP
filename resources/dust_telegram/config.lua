@@ -19,4 +19,4 @@ Config.keys = {
 }
 
 -- CHARGE PER TELEGRAM SENT
-Config.Pay = 0.50 --cents
+Config.Pay = 0.20 --cents

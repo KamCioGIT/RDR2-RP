@@ -57,60 +57,7 @@ Config.CraftingsReceipe = {
         label = 'Gros Steak aux Carottes Sauvages',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_carrots.png', text = "Carotte Sauvage",count = "x2"}},
     },
-    ['gunpowder'] = {
-        ItemReceipe1Name = 'souffre',
-        ItemReceipe1Amount = 5,
-        ItemReceipe2Name = 'charbon',
-        ItemReceipe2Amount = 10,
-        ItemToGive = 'gunpowder',
-        Amount = 10,
-        WorkingTime = 5,
-    },
-    ['ammo_revolver'] = {
-        ItemReceipe1Name = 'gunpowder',
-        ItemReceipe1Amount = 10,
-        ItemReceipe2Name = 'douille',
-        ItemReceipe2Amount = 10,
-        ItemToGive = 'AMMO_REVOLVER',
-        Amount = 10,
-        WorkingTime = 5,
-    },
-    ['ammo_pistol'] = {
-        ItemReceipe1Name = 'gunpowder',
-        ItemReceipe1Amount = 10,
-        ItemReceipe2Name = 'douille',
-        ItemReceipe2Amount = 10,
-        ItemToGive = 'AMMO_PISTOL',
-        Amount = 10,
-        WorkingTime = 5,
-    },
-    ['ammo_repeater'] = {
-        ItemReceipe1Name = 'gunpowder',
-        ItemReceipe1Amount = 15,
-        ItemReceipe2Name = 'douille',
-        ItemReceipe2Amount = 10,
-        ItemToGive = 'AMMO_REPEATER',
-        Amount = 10,
-        WorkingTime = 5,
-    },
-    ['ammo_rifle'] = {
-        ItemReceipe1Name = 'gunpowder',
-        ItemReceipe1Amount = 20,
-        ItemReceipe2Name = 'douille',
-        ItemReceipe2Amount = 10,
-        ItemToGive = 'AMMO_RIFLE',
-        Amount = 10,
-        WorkingTime = 5,
-    },
-    ['ammo_shotgun'] = {
-        ItemReceipe1Name = 'gunpowder',
-        ItemReceipe1Amount = 15,
-        ItemReceipe2Name = 'douille',
-        ItemReceipe2Amount = 10,
-        ItemToGive = 'AMMO_SHOTGUN',
-        Amount = 10,
-        WorkingTime = 5,
-    }
+   
 }
 
 
