@@ -137,10 +137,11 @@ button:focus {
 .pb_un {
     width: 10vw;
     margin-top: 0.5vh;
+    height: 1vh;
 }
 
 .pb_deux {
-    width: 22vw;
+    width: 27vw;
     margin-top: 0.5vh;
 }
 
