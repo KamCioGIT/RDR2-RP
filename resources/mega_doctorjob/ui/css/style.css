@@ -128,10 +128,13 @@ button:focus {
     grid-column: 2/3;
 }
 
-.header-group {
-    width: fit-content;
+.title_lm {
     text-align: center;
     margin: auto;
+}
+
+.header-group {
+    width: fit-content;
 }
 
 .header-group hr {
