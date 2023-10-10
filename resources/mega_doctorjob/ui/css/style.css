@@ -111,7 +111,7 @@ button:focus {
     grid-column: 1/2;
     padding: 50px 80px;
 
-    width: 55vw;
+    width: 51vw;
     max-height: calc(100vh - 200px);
     background: url('../img/bgdeux.png');
     background-size: 100% 100%;
@@ -179,9 +179,9 @@ button:focus {
     border: 0px;
     background-size: 100% 100%;
     color: #fafafa;
-    font-family: 'Chinese Rocks';
+    font-family: 'Milonga';
     font-size: 24px;
-    width: 100%;
+    width: 30vw;
     height: 80px;
     margin: 5px 0;
     transition: all .15s ease-out;
@@ -244,8 +244,7 @@ button:focus {
 }
 
 .note {
-    background: url('../img/box.png');
-    background-size: 100% 100%;
+    border: 2px solid #615C43;
     padding: 25px;
     display: grid;
     grid-template-rows: fit-content auto;
