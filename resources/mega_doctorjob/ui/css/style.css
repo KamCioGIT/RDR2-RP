@@ -192,7 +192,7 @@ button:focus {
     color: #fafafa;
     font-family: 'Milonga';
     font-size: 24px;
-    width: 10vw;
+    width: 15vw;
     max-width: 100%;
     height: 80px;
     margin: auto;
@@ -228,12 +228,12 @@ button:focus {
 .curable {
     padding: 5px;
     width: fit-content;
+    color: #fafafa;
+    font-family: "Milonga";
 }
 
 .curable:hover {
-    background: url('../img/box-red.png');
-    background-size: 100% 100%;
-    color: #fafafa;
+    color: #DC5757;
 }
 
 .text-warning {
@@ -242,13 +242,13 @@ button:focus {
 
 @keyframes dangerPulse {
     0% {
-        fill: rgba(182, 42, 42, 0.7);
+        fill: #5e2525;
     } 
     50% {
-        fill: #B62A2A;
+        fill: #a03d3d;
     }
     100% {
-        fill: rgba(182, 42, 42, 0.7);
+        fill: #DC5757;
     }
 }
 
@@ -258,6 +258,8 @@ button:focus {
 
 .note {
     border: 2px solid #615C43;
+    padding: 20px;
+    margin-right: 5px;
     display: grid;
     grid-template-rows: fit-content auto;
     font-size: 18px;
