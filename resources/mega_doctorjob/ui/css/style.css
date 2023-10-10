@@ -131,15 +131,17 @@ button:focus {
 .title_lm {
     text-align: center;
     margin: auto;
-    margin-top: -2vh;
+    margin-top: -3vh;
 }
 
 .pb_un {
     width: 5vw;
+    margin-top: 1vh;
 }
 
 .pb_deux {
     width: 12vw;
+    margin-top: 1vh;
 }
 
 
