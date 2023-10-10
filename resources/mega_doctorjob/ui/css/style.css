@@ -134,8 +134,12 @@ button:focus {
     margin-top: -2vh;
 }
 
-.title_lm img {
-    width: 100%;
+.pb_un {
+    width: 5vw;
+}
+
+.pb_deux {
+    width: 12vw;
 }
 
 
@@ -242,10 +246,10 @@ button:focus {
 
 @keyframes dangerPulse {
     0% {
-        fill: #5e2525;
+        fill: #DC5757;
     } 
     50% {
-        fill: #a03d3d;
+        fill: #B62A2A;
     }
     100% {
         fill: #DC5757;

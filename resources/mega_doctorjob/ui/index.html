@@ -14,7 +14,7 @@
             {{note}}
             <div class="title_lm">
                 <h1>Patient Notes - {{hospital}}</h1>
-                <img src="./img/petite_barre.png">
+                <img src="./img/petite_barre.png" class="pb_deux">
             </div>
             <div class="scrollable">
                 <div class="note" v-for="note of notes">
@@ -38,7 +38,7 @@
             <div class="title_lm">
                 <h1 v-if="!this.inspectMode">Patient</h1>
                 <h1 v-else>Cadavre</h1>
-                <img src="./img/petite_barre.png">
+                <img src="./img/petite_barre.png" class="pb_un">
             </div>
             <div class="patient-info">
                 <div class="silhouette">
