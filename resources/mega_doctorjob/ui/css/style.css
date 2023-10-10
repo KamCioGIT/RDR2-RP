@@ -237,7 +237,7 @@ button:focus {
     padding: 5px;
     width: fit-content;
     color: #fafafa;
-    font-family: "Milonga" !important;
+    font-family: 'Beau Rivage', cursive !important;
 }
 
 .curable:hover {
