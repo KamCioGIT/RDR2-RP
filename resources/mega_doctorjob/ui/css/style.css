@@ -294,6 +294,7 @@ button:focus {
 
 .note-content {
     color: #cacaca;
+    max-width: 80%;
 }
 
 .header-right {
