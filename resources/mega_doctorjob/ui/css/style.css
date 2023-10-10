@@ -113,7 +113,7 @@ button:focus {
     grid-column: 1/2;
     padding: 50px 80px;
 
-    width: 51vw;
+    width: 53vw;
     max-height: calc(100vh - 200px);
     background: url('../img/bgdeux.png');
     background-size: 100% 100%;
