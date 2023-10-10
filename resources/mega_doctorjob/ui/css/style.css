@@ -324,10 +324,10 @@ button:focus {
     margin: 15px 0;
     background: #333333;
     border-radius: 5px;
-    color: #cacaca;
+    color: #cacaca !important;
     border: 0;
     padding: 10px 10px;
-    font-size: 16px;
+    font-size: 16px !important;
     font-family: 'Hapna Slab Serif' !important;
 }
 
