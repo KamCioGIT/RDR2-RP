@@ -12,9 +12,9 @@
     <div id="app">
         <div class="notes" v-if="hospital" style="display: none;">
             {{note}}
-            <div class="header-group">
+            <div class="title_lm">
                 <h1>Patient Notes - {{hospital}}</h1>
-                <hr>
+                <img src="./img/petite_barre.png">
             </div>
             <div class="scrollable">
                 <div class="note" v-for="note of notes">
