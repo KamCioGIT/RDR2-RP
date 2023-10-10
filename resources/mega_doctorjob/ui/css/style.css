@@ -251,7 +251,7 @@ button:focus {
 
 .note {
     border: 2px solid #615C43;
-    padding: 25px;
+    padding: 23px;
     display: grid;
     grid-template-rows: fit-content auto;
     font-size: 18px;
