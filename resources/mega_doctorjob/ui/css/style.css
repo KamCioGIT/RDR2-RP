@@ -136,6 +136,12 @@ button:focus {
     margin-top: -2.5vh;
 }
 
+.title_lm_notes {
+    text-align: center;
+    margin: auto;
+    margin-top: -1.5vh;
+}
+
 .pb_un {
     width: 15vw;
     margin-top: 0.5vh;
