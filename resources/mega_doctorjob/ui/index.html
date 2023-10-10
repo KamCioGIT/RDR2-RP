@@ -13,7 +13,7 @@
         <div class="notes" v-if="hospital" style="display: none;">
             {{note}}
             <div class="title_lm">
-                <h1>Patient Notes - {{hospital}}</h1>
+                <h1> Antécédents - {{hospital}}</h1>
                 <img src="./img/petite_barre.png" class="pb_deux">
             </div>
             <div class="scrollable">
@@ -36,7 +36,7 @@
         </div>
         <div class="patient" style="display: none;">
             <div class="title_lm">
-                <h1 v-if="!this.inspectMode">Patient</h1>
+                <h1 v-if="!this.inspectMode">Symptômes</h1>
                 <h1 v-else>Cadavre</h1>
                 <img src="./img/petite_barre.png" class="pb_un">
             </div>
