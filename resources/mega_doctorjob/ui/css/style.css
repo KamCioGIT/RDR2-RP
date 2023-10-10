@@ -130,6 +130,8 @@ button:focus {
 
 .header-group {
     width: fit-content;
+    text-align: center;
+    margin: auto;
 }
 
 .header-group hr {
