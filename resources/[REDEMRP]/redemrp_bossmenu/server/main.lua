@@ -241,7 +241,7 @@ RegisterServerEvent("redemrp_bossmenu:server:GetGradeList", function()
                 if targetUser then
                     local targetJob = targetUser.GetJob()
                     local targetGrade = targetUser.GetJobGrade()
-                    if targetJob == job and targetGrade < grade then
+                    if targetJob == job and tonumber(targetGrade) < tonumber(grade) then
                         local targetName = targetUser.GetFirstName() .. " " .. targetUser.GetLastName()
                         local serverName = GetPlayerName(tonumber(targetId))
                         table.insert(GradeList, {char = targetName, name = serverName, id = tonumber(targetId)})
