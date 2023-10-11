@@ -294,6 +294,7 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                 end
                 for k, v in pairs(FireList) do
                     if v.steam == id and v.charid == charid then
+                        print ('ouais frr')
                         local trgtuser = RedEM.GetPlayer(v.id)
                         trgtuser.SetJob("unemployed")
                         trgtuser.SetJobGrade(0)
