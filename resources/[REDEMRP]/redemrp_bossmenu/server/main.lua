@@ -277,7 +277,7 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
             if targetJob == job then
                 local targetName = targetUser.GetFirstName() .. " " .. targetUser.GetLastName()
                 local serverName = GetPlayerName(tonumber(targetId))
-                local characterid = targetUser.characterid
+                local characterid = targetUser.charid
                 local identifier = targetUser.identifier
                 table.insert(FireList, {char = targetName,  charid = characterid , steam = identifier, id = tonumber(targetId)})
             end
