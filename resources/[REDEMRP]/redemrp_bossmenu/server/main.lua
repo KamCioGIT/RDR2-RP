@@ -316,30 +316,6 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
     end
 end)
 
-RegisterServerEvent("redemrp_bossmenu:server:GetGradeList", function()
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-    local job, grade = user.GetJob(), user.GetJobGrade()
-    if Config.Jobs[job] then
-        if Config.Jobs[job].Grades[grade].Personnel then
-            local GradeList = {}
-            for _,targetId in ipairs(GetPlayers()) do
-                local targetUser = RedEM.GetPlayer(targetId)
-                if targetUser then
-                    local targetJob = targetUser.GetJob()
-                    if targetJob == job then
-                        local targetName = targetUser.GetFirstName() .. " " .. targetUser.GetLastName()
-                        local serverName = GetPlayerName(tonumber(targetId))
-                        table.insert(GradeList, {char = targetName, name = serverName, id = tonumber(targetId)})
-                    end
-                end
-            end
-            TriggerClientEvent("redemrp_bossmenu:client:ViewGradeList", _source, GradeList)
-        else
-            RedEM.Functions.NotifyLeft(_source, "No access!", "You don't have personnel access!", "menu_textures", "menu_icon_alert", 3000)
-        end
-    end
-end)
 
 RegisterServerEvent("redemrp_bossmenu:server:FireMember", function(targetId)
     local _source = source
