@@ -456,16 +456,16 @@ function UpdatePedVariation(ped)
     Citizen.InvokeNative(0xCC8CA3E88256E58F, ped, false, true, true, true, false) -- _UPDATE_PED_VARIATION
 end
 
-RegisterCommand("testclothe", function()
+RegisterCommand("testclothe", function(args)
     local playerPed = PlayerPedId()
-    local drawable = `cloak_fr1_000`
-    local albedo = `rxeonbaa_0xa27c83f4`
-    local normal = `jbcenhqa_0x761e354e`
-    local material = `jgqpesaa_0x8fc6aeb3`
-    local palette = `dsvkmzra_0xf509c745`
-    local tint0 = 96
-    local tint1 = 29
-    local tint2 = 9
+    local drawable = args[1]
+    local albedo = args[2]
+    local normal = args[3]
+    local material = args[4]
+    local palette = args[5]
+    local tint0 = args[6]
+    local tint1 = args[7]
+    local tint2 = args[8]
     while not IsPedReadyToRender(playerPed) do
         Wait(0)
     end
