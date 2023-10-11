@@ -304,9 +304,10 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                     for k,v in pairs(OnlineIds) do
                         if v.id == Employee.identifier and tonumber(v.charid) == tonumber(Employee.characterid) then
                             Wait(500)
+                            local target = v.no
                             -- TriggerClientEvent("redem_roleplay:JobChange", v.no, "unemployed", 0)
-                            v.no.SetJob("unemployed")
-                            v.no.SetJobGrade(0)
+                            target.SetJob("unemployed")
+                            target.SetJobGrade(0)
                         end
                     end
                     TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
