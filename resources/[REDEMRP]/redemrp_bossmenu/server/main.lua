@@ -303,7 +303,6 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
 
                     for k,v in pairs(OnlineIds) do
                         if v.id == Employee.identifier and tonumber(v.charid) == tonumber(Employee.characterid) then
-                            print ("oust")
                             TriggerClientEvent("redem_roleplay:JobChange", v.no, "unemployed", 0)
                         end
                     end

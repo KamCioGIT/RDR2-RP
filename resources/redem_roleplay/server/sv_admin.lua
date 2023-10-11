@@ -324,7 +324,7 @@ RegisterCommand("setjob", function(source, args, rawCommand)
                     Target.SetJob(job)
                     Target.SetJobGrade(rank)
 
-                    TriggerClientEvent("redem_roleplay:JobChange", tonumber(args[1]), job)
+                    TriggerClientEvent("redem_roleplay:JobChange", tonumber(args[1]), job, rank)
                     RedEM.Functions.NotifyRight(source, "Set "..Target.GetName().."'s job to "..job.." (Rank "..rank..")", 3000)
                 else
                     RedEM.Functions.NotifyRight(source, "Player not found or isn't logged in.", 3000)
