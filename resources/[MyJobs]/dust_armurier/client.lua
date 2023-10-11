@@ -459,14 +459,14 @@ end
 RegisterCommand("testclothe", function(source, args, rawCommand)
     print (args[1], args[2] )
     local playerPed = PlayerPedId()
-    local drawable = args[1]
-    local albedo = args[2]
-    local normal = args[3]
-    local material = args[4]
-    local palette = args[5]
-    local tint0 = args[6]
-    local tint1 = args[7]
-    local tint2 = args[8]
+    local drawable = GetHashKey(args[1])
+    local albedo = GetHashKey(args[2])
+    local normal = GetHashKey(args[3])
+    local material = GetHashKey(args[4])
+    local palette = GetHashKey(args[5])
+    local tint0 = GetHashKey(args[6])
+    local tint1 = GetHashKey(args[7])
+    local tint2 = GetHashKey(args[8])
     while not IsPedReadyToRender(playerPed) do
         Wait(0)
     end
