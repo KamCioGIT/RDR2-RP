@@ -297,7 +297,7 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                     for k,v in ipairs(GetPlayers()) do
                         local targetUser = RedEM.GetPlayer(v)
                         if targetUser then
-                            table.insert(OnlineIds, {no = k, id = targetUser.GetIdentifier(), charid = targetUser.GetActiveCharacter()})
+                            table.insert(OnlineIds, {no = tonumber(v), id = targetUser.GetIdentifier(), charid = targetUser.GetActiveCharacter()})
                         end
                     end
 
@@ -306,7 +306,7 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                             TriggerClientEvent("redem_roleplay:JobChange", v.no, "unemployed")
                         end
                     end
-
+                    TriggerClientEvent("redem_roleplay:JobChange", tonumber(targetId), job, gradeId)
                     TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
                 end
             end
