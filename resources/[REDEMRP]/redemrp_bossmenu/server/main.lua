@@ -304,17 +304,6 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                             end
                         end
                     end
-
-                    for k,v in pairs(OnlineIds) do
-                        if v.id == Employee.identifier and tonumber(v.charid) == tonumber(Employee.characterid) then
-                            targetUser.SetJob(job)
-                            targetUser.SetJobGrade(1)
-                            -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Hired Employee', 'lightgreen', 
-                            --     "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " hired "..
-                            --     "["..targetId.."] **"..targetUser.GetFirstName().." "..targetUser.GetLastName().. "** (serverid: "..targetId.." | name: ".. GetPlayerName(targetId).." | steamid: "..targetUser.GetIdentifier().." | characterid: "..targetUser.GetActiveCharacter()..") into job "..job)
-                            TriggerClientEvent("redem_roleplay:JobChange", targetId, job, 3)
-                        end
-                    end
                     TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
                 end
             end
