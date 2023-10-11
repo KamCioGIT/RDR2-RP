@@ -297,17 +297,22 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                     for k,v in ipairs(GetPlayers()) do
                         local targetUser = RedEM.GetPlayer(v)
                         if targetUser then
-                            table.insert(OnlineIds, {no = tonumber(v), id = targetUser.GetIdentifier(), charid = targetUser.GetActiveCharacter()})
+                            if targetUser.GetIdentifier() == Employee.identifier and tonumber(targetUser.GetActiveCharacter()) == tonumber(Employee.characterid) then
+                                targetUser.SetJob("unemployed")
+                                targetUser.SetJobGrade(0)
+                                TriggerClientEvent("redem_roleplay:JobChange", v, "unemployed", 0)
+                            end
                         end
                     end
 
                     for k,v in pairs(OnlineIds) do
                         if v.id == Employee.identifier and tonumber(v.charid) == tonumber(Employee.characterid) then
-                            Wait(500)
-                            local target = v.no
-                            target.SetJob("unemployed")
-                            target.SetJobGrade(0)
-                            TriggerClientEvent("redem_roleplay:JobChange", v.no, "unemployed", 0)
+                            targetUser.SetJob(job)
+                            targetUser.SetJobGrade(1)
+                            -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Hired Employee', 'lightgreen', 
+                            --     "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " hired "..
+                            --     "["..targetId.."] **"..targetUser.GetFirstName().." "..targetUser.GetLastName().. "** (serverid: "..targetId.." | name: ".. GetPlayerName(targetId).." | steamid: "..targetUser.GetIdentifier().." | characterid: "..targetUser.GetActiveCharacter()..") into job "..job)
+                            TriggerClientEvent("redem_roleplay:JobChange", targetId, job, 3)
                         end
                     end
                     TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
