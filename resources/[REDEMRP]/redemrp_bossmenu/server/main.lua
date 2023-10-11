@@ -284,7 +284,7 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
             local Employee = MySQL.query.await("SELECT * FROM characters WHERE identifier = :identifier AND characterid = :charid", { identifier = id, charid = charid })
             if Employee[1] then
                 Employee = Employee[1]
-                if Employee.identifier == id and Employee.charid == charid then
+                if Employee.identifier == id and Employee.characterid == charid then
                     MySQL.query.await("UPDATE characters SET job = 'unemployed', jobgrade = 0 WHERE identifier = :identifier AND characterid = :charid", { identifier = id, charid = charid })
                     -- RedEM.Functions.NotifyLeft(_source, "Employee fired!", "You fired "..Employee.firstname.." "..Employee.lastname.. "!", "menu_textures", "menu_icon_tick", 3000)
                     -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Fired Employee', 'red', 
@@ -302,7 +302,7 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                     end
 
                     for k,v in pairs(OnlineIds) do
-                        if v.id == Employee.identifier and tonumber(v.charid) == tonumber(Employee.charid) then
+                        if v.id == Employee.identifier and tonumber(v.charid) == tonumber(Employee.characterid) then
                             print ("oust")
                             TriggerClientEvent("redem_roleplay:JobChange", v.no, "unemployed", 0)
                         end
