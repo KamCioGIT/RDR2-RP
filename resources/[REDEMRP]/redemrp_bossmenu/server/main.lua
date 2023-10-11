@@ -294,9 +294,10 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                 end
                 for k, v in pairs(FireList) do
                     if v.steam == id and v.charid == charid then
-                        print ('ouais frr')
                         local trgtuser = RedEM.GetPlayer(v.id)
-                        TriggerClientEvent("redem_roleplay:JobChange", trgtuser, "unemployed", 0)
+                        trgtuser.SetJob("unemployed")
+                        trgtuser.SetJobGrade(0)
+                        TriggerClientEvent("redem_roleplay:JobChange", v.id, "unemployed", 0)
                     end
                 end
             end

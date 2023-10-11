@@ -10,6 +10,14 @@ local FoundSomething = false
 local varString = CreateVarString(10, "LITERAL_STRING", "Boss Menu")
 local Timeout = nil
 
+RegisterNetEvent("redem_roleplay:JobChange")
+AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+    if job == 'unemployed' then
+        return
+    end
+end)
+
+
 
 RegisterNetEvent("redemrp_bossmenu:client:ReceiveJob", function(job, grade)
     PromptSetEnabled(BossMenuPrompt, false)
@@ -131,26 +139,6 @@ RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function()
     end)
 end)
 
-RegisterNetEvent("redemrp_bossmenu:client:FinishSetGrade", function()
-    AddTextEntry("FMMC_MPM_TYP8", "Rank #:")
-    DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP8", "", "", "", "", "", 30)
-    while (UpdateOnscreenKeyboard() == 0) do
-        DisableAllControlActions(0)
-        Citizen.Wait(0)
-    end
-    if (GetOnscreenKeyboardResult()) then
-        kbdRes = GetOnscreenKeyboardResult()
-    else
-        return
-    end
-    
-    if #(kbdRes) >= 1 then
-        TriggerServerEvent("redemrp_bossmenu:server:SetGrade", kbdRes)
-    else
-        RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid Player ID.", "menu_textures", "menu_icon_alert", 4000)
-        TriggerServerEvent("redemrp_bossmenu:server:RequestBossMenu")
-    end
-end)
 
 FiringPlayer = nil
 FiringIdentifier = nil
