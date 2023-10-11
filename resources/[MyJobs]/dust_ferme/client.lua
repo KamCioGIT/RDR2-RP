@@ -26,7 +26,6 @@ AddEventHandler("redem_roleplay:JobChange", function(job, grade)
             getgrade = grade
             startMission()
             cattle()
-            Paturages()
             if getgrade >= 2 then
                 contremaitre()
             end
@@ -231,12 +230,10 @@ farmprompt:setActive(false)
 -- zone étable
 function cattle()
     for k,v in pairs(Config.Buycattle) do
-        print (v.pos)
         local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
         SetBlipSprite(blip, v.blip)
         SetBlipScale(blip, 0.2)
         Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Marché aux bestiaux"))
-        print 'mama'
     end
     for k,v in pairs(Config.Paturages) do
         local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
@@ -607,25 +604,6 @@ AddEventHandler("dust_ferme:cowstocked", function(entity)
     DeleteEntity(entity)
 end)
 
--- différentes zones de paturage
-
-function Paturages()
-    for k,v in pairs(Config.Buycattle) do
-        print (v.pos)
-        local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
-        SetBlipSprite(blip, v.blip)
-        SetBlipScale(blip, 0.2)
-        Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Marché aux bestiaux"))
-        print 'mama'
-    end
-    for k,v in pairs(Config.Paturages) do
-        local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
-        local radius = Citizen.InvokeNative(0x45F13B7E0A15C880, Config.radiusStyle, v.pos, Config.blipRadius)
-        SetBlipSprite(blip, Config.BlipSprite)
-        SetBlipScale(blip, 0.2)
-        Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Pâturage"))
-    end
-end
 
 -- lait
 local laitprompt = UipromptGroup:new("Bétail")
