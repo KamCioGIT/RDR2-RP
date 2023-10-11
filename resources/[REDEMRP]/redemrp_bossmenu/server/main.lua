@@ -300,7 +300,8 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                             if targetUser.GetIdentifier() == Employee.identifier and tonumber(targetUser.GetActiveCharacter()) == tonumber(Employee.characterid) then
                                 targetUser.SetJob("unemployed")
                                 targetUser.SetJobGrade(0)
-                                TriggerClientEvent("redem_roleplay:JobChange", v, "unemployed", 0)
+                                TriggerClientEvent("redem_roleplay:JobChange", tonumber(v), "unemployed", 0)
+                                return
                             end
                         end
                     end
