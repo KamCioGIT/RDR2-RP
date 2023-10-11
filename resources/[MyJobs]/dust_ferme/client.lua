@@ -596,6 +596,7 @@ end)
 
 function Paturages()
     for k,v in pairs(Config.Buycattle) do
+        print (v.pos)
         local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
         SetBlipSprite(blip, v.blip)
         SetBlipScale(blip, 0.2)
