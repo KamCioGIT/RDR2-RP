@@ -388,6 +388,7 @@ RegisterNetEvent("redemrp_bossmenu:server:SetGrade", function(targetId, gradeId)
                             JobLedgers[job] = 0
                         end
                         TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
+                        TriggerClientEvent("redem_roleplay:JobChange", tonumber(targetId), job, gradeId)
                     else
                         RedEM.Functions.NotifyLeft(_source, "Invalid grade!", "That grade doesn't exist!", "menu_textures", "menu_icon_alert", 3000)
                     end
