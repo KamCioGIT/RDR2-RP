@@ -286,21 +286,16 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                 Employee = Employee[1]
                 if Employee.identifier == id and Employee.characterid == charid then
                     MySQL.query.await("UPDATE characters SET job = 'unemployed', jobgrade = 0 WHERE identifier = :identifier AND characterid = :charid", { identifier = id, charid = charid })
-                    -- RedEM.Functions.NotifyLeft(_source, "Employee fired!", "You fired "..Employee.firstname.." "..Employee.lastname.. "!", "menu_textures", "menu_icon_tick", 3000)
-                    -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Fired Employee', 'red', 
-                    --         "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().."** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " fired "..
-                    --         "[OFFLINE] **"..Employee.firstname.." "..Employee.lastname.. "** (name: OFFLINE | steamid: "..Employee.identifier.." | characterid: "..Employee.characterid..") from job "..job)
                     if not JobLedgers[job] then
                         JobLedgers[job] = 0
                     end
-                    local OnlineIds = {}
                     for k,v in ipairs(GetPlayers()) do
                         local targetUser = RedEM.GetPlayer(v)
                         if targetUser then
                             if targetUser.GetIdentifier() == Employee.identifier and tonumber(targetUser.GetActiveCharacter()) == tonumber(Employee.characterid) then
                                 targetUser.SetJob("unemployed")
                                 targetUser.SetJobGrade(0)
-                                TriggerClientEvent("redem_roleplay:JobChange", tonumber(v), "unemployed", 0)
+                                TriggerClientEvent("redem_roleplay:JobChange", tonumber(v), "x", 0)
                                 return
                             end
                         end
