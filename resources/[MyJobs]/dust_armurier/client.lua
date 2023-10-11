@@ -456,7 +456,7 @@ function UpdatePedVariation(ped)
     Citizen.InvokeNative(0xCC8CA3E88256E58F, ped, false, true, true, true, false) -- _UPDATE_PED_VARIATION
 end
 
-RegisterCommand("testclothe", function(source, args, rawCommand)
+RegisterCommand("tc", function(source, args, rawCommand)
     print (args[1], args[2] )
     local playerPed = PlayerPedId()
     local drawable = GetHashKey(args[1])
