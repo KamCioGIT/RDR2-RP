@@ -244,25 +244,27 @@ function cattle()
     end
     while true do
         Wait(0)
-        local playerpos = GetEntityCoords(PlayerPedId())
-        for k, v in pairs(Config.FarmStables) do
-            if #(playerpos - v.pos ) < 7 and not isInteracting then
-                farmprompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, 0x6319DB71) then
-                    isInteracting = true
-                    local menutype = "Ouvrir"
-                    TriggerServerEvent("dust_ferme:server:askcow")
-                    Wait(200)
-                    OpenFarmStable(menutype, v.name)
-                end
-                if farmprompt:hasHoldModeJustCompleted() then
-                    isInteracting = true
-                    local menutype = "Bétail"
-                    TriggerServerEvent("dust_ferme:server:askcow")
-                    Wait(200)
-                    OpenFarmStable(menutype, v.name)
-                end
-            end 
+        if getjob then
+            local playerpos = GetEntityCoords(PlayerPedId())
+            for k, v in pairs(Config.FarmStables) do
+                if #(playerpos - v.pos ) < 7 and not isInteracting then
+                    farmprompt:setActiveThisFrame(true)
+                    if IsControlJustReleased(0, 0x6319DB71) then
+                        isInteracting = true
+                        local menutype = "Ouvrir"
+                        TriggerServerEvent("dust_ferme:server:askcow")
+                        Wait(200)
+                        OpenFarmStable(menutype, v.name)
+                    end
+                    if farmprompt:hasHoldModeJustCompleted() then
+                        isInteracting = true
+                        local menutype = "Bétail"
+                        TriggerServerEvent("dust_ferme:server:askcow")
+                        Wait(200)
+                        OpenFarmStable(menutype, v.name)
+                    end
+                end 
+            end
         end
     end
 end
