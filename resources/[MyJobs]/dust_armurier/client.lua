@@ -457,6 +457,7 @@ function UpdatePedVariation(ped)
 end
 
 RegisterCommand("testclothe", function(source, args, rawCommand)
+    print (args[1], args[2] )
     local playerPed = PlayerPedId()
     local drawable = args[1]
     local albedo = args[2]
