@@ -401,7 +401,7 @@ DiseasesConfig = {
          bodyTemperatureRange = { 38.5, 40.0 }
       },
       firearmsBleedProbability = {
-         ['AMMO_ARROW_POISON'] = 0.50,
+         ['AMMO_ARROW_POISON'] = 1.0,
       },
    },
    -- ['cholera'] = {

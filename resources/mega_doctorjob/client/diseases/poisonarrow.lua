@@ -1,7 +1,7 @@
-if DiseasesConfig['gun1'] then
-    local gun1 = Disease:new(DiseasesConfig['gun1'])
+if DiseasesConfig['poisonarrow'] then
+    local poisonarrow = Disease:new(DiseasesConfig['poisonarrow'])
 
-    function gun1:init()
+    function poisonarrow:init()
         Citizen.CreateThread(function()
             EventManager:on(GetHashKey('EVENT_NETWORK_DAMAGE_ENTITY'), function(data)
                 local entityDamaged = data:GetInt32(0)
@@ -10,6 +10,7 @@ if DiseasesConfig['gun1'] then
                 local isMelee = data:GetInt32(8 * 12)
                 if entityDamaged == PlayerPedId() and not self._data.active then
                     if isMelee == 0 then
+                        print (ammoUsed)
                         for k, prob in pairs(self.config.firearmsBleedProbability) do
                             if GetHashKey(k) == ammoUsed then
                                 local random = math.random()
@@ -57,58 +58,61 @@ if DiseasesConfig['gun1'] then
         end)
     end
 
-    function gun1:startEffect()
-            self._data.paused = false
-            TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle, self.config.language.started, 5000,
-                'health')
-            -- Start timer
-            if self.config.autoHealTime ~= -1 then
-                Citizen.CreateThread(function()
-                    Citizen.Wait(self.config.autoHealTime)
-                    if self._data.active then
-                        TriggerServerEvent('mega_doctorjob:autoHealDiseaseWebhook', self.config.displayName)
-                        TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle,
-                            self.config.language.autoHealed, 5000, 'health')
-                        self:stopEffect()
-                        self:setActive(false)
-                    end
-                end)
+    function poisonarrow:startEffect()
+        self._data.paused = false
+        TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle, self.config.language.started, 5000,
+            'health')
+        -- SetStaminaDepletionMultiplier
+        Citizen.InvokeNative(0xEF5A3D2285D8924B, PlayerPedId(), 4.0)
+        -- SetStaminaRechargeMultiplier
+        Citizen.InvokeNative(0x345C9F993A8AB4A4, PlayerPedId(), 0.2)
+        Citizen.InvokeNative(0x923583741DC87BCE, PlayerPedId(), 'default')
+        Citizen.InvokeNative(0x89F5E7ADECCCB49C, PlayerPedId(), 'injured_general')
+        TriggerServerEvent('mega_doctorjob:newDiseaseWebhook', self.config.displayName, self.data)
+        -- Start timer
+        if self.config.autoHealTime ~= -1 then
+            Citizen.CreateThread(function()
+                Citizen.Wait(self.config.autoHealTime)
+                if self._data.active then
+                    TriggerServerEvent('mega_doctorjob:autoHealDiseaseWebhook', self.config.displayName)
+                    TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle,
+                        self.config.language.autoHealed, 5000, 'health')
+                    self:stopEffect()
+                    self:setActive(false)
+                end
+            end)
+        end
+        while self._data.active do
+            Wait(self.config.effectRate)
+            if self._data.active and not self._data.paused then
+                PlayAnimation(PlayerPedId(), self.config.vomitAnimationDict, self.config.vomitAnimation, -1, 28)
+                Citizen.InvokeNative(0xD9B31B4650520529, 'MEDIUM_EXPLOSION_SHAKE', 0.1)
+                local health = GetEntityHealth(PlayerPedId()) - self.config.healthLossPerTick
+                Citizen.InvokeNative(0xA9A41C1E940FB0E8, PlayerPedId(), true)
+                SetEntityHealth(PlayerPedId(), health)
+                if health <= 0 then
+                    SetEntityHealth(PlayerPedId(), 0)
+                end
+                Citizen.InvokeNative(0xA9A41C1E940FB0E8, PlayerPedId(), false)
             end
-            -- Set Walkanim
-            if not self._data.bone then
-                local hit, bone = GetPedLastDamageBone(PlayerPedId())
-                self._data.bone = bone
-            end
-            if not self._data.damageType then
-                self._data.damageType = 'projectile'
-            end
-            TriggerServerEvent('mega_doctorjob:newDiseaseWebhook', self.config.displayName, self.data)
-            -- Start blood fountain
+        end
     end
 
-    function gun1:stopEffect()
-        -- Set locomotion
+    function poisonarrow:stopEffect()
+        -- SetStaminaDepletionMultiplier
+        Citizen.InvokeNative(0xEF5A3D2285D8924B, PlayerPedId(), 1.0)
+        -- SetStaminaRechargeMultiplier
+        Citizen.InvokeNative(0x345C9F993A8AB4A4, PlayerPedId(), 1.0)
         Citizen.InvokeNative(0x923583741DC87BCE, PlayerPedId(), 'arthur_healthy') -- SetPedDesiredLocoForModel
         Citizen.InvokeNative(0x89F5E7ADECCCB49C, PlayerPedId(), 'default')    -- SetPedDesiredLocoMotionType
         Citizen.InvokeNative(0x4FD80C3DD84B817B, PlayerPedId())               -- ClearPedDesiredLocoForModel
         Citizen.InvokeNative(0x58F7DB5BD8FA2288, PlayerPedId())               -- ClearPedDesiredLocoMotionType
-        -- Clear wound effects
-        Citizen.InvokeNative(0x66B1CB778D911F49, PlayerPedId(), 0.0)
-        self._data.bone = nil
+        infectionLevel = 0
     end
 
-    function gun1:setPaused(paused)
+    function poisonarrow:setPaused(paused)
         self._data.paused = paused
-        if paused then
-            -- Set locomotion
-            Citizen.InvokeNative(0x923583741DC87BCE, PlayerPedId(), 'arthur_healthy') -- SetPedDesiredLocoForModel
-            Citizen.InvokeNative(0x89F5E7ADECCCB49C, PlayerPedId(), 'default')    -- SetPedDesiredLocoMotionType
-            Citizen.InvokeNative(0x4FD80C3DD84B817B, PlayerPedId())               -- ClearPedDesiredLocoForModel
-            Citizen.InvokeNative(0x58F7DB5BD8FA2288, PlayerPedId())               -- ClearPedDesiredLocoMotionType
-            -- Clear wound effects
-            Citizen.InvokeNative(0x66B1CB778D911F49, PlayerPedId(), 0.0)
-        end
     end
 
-    DiseasesManager:loadDisease(gun1)
+    DiseasesManager:loadDisease(poisonarrow)
 end
