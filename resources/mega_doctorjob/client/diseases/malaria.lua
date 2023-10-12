@@ -1,11 +1,11 @@
-if DiseasesConfig['malaria'] then
-    local Malaria = Disease:new(DiseasesConfig['malaria'])
+if DiseasesConfig['dysentrie'] then
+    local dysentrie = Disease:new(DiseasesConfig['dysentrie'])
 
     local infectionLevel = 0
     local croupie = false
 
 
-    function Malaria:init()
+    function dysentrie:init()
         Citizen.CreateThread(function()
             local sleep = false
             RegisterNetEvent("dust_maladie:dysentrie", function()
@@ -45,7 +45,7 @@ if DiseasesConfig['malaria'] then
         end)
     end
 
-    function Malaria:startEffect()
+    function dysentrie:startEffect()
         self._data.paused = false
         TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle, self.config.language.started, 5000,
             'health')
@@ -85,7 +85,7 @@ if DiseasesConfig['malaria'] then
         end
     end
 
-    function Malaria:stopEffect()
+    function dysentrie:stopEffect()
         -- SetStaminaDepletionMultiplier
         Citizen.InvokeNative(0xEF5A3D2285D8924B, PlayerPedId(), 1.0)
         -- SetStaminaRechargeMultiplier
@@ -97,9 +97,9 @@ if DiseasesConfig['malaria'] then
         infectionLevel = 0
     end
 
-    function Malaria:setPaused(paused)
+    function dysentrie:setPaused(paused)
         self._data.paused = paused
     end
 
-    DiseasesManager:loadDisease(Malaria)
+    DiseasesManager:loadDisease(dysentrie)
 end
