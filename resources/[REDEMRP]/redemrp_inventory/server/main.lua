@@ -2243,7 +2243,6 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
             end
             if type == "boire" then
                 local meta = item.getMeta()
-                print (meta)
                 if meta["water"] then
                     if tonumber(meta["water"]) >= 20 then
                         newwater = tonumber(meta["water"]) - 20
@@ -2303,7 +2302,24 @@ RegisterServerEvent("redemrp_inventory:createtelegram", function(source, message
 end)
 
 
-
-RegisterServerEvent("RegisterUsableItem:poison", function()
-    TriggerClientEvent("dust_maladie:poison")
+RegisterServerEvent("redemrp_inventory:checkpoison")
+AddEventHandler("redemrp_inventory:checkpoison", function(name)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    if Player then
+        local identifier = Player.GetIdentifier()
+        local charid = Player.GetActiveCharacter()
+        local player_inventory = Inventory[identifier .. "_" .. charid]
+        local item, id = getInventoryItemFromName(name, player_inventory, {})
+        if item then
+            local meta = item.getMeta()
+            if meta["poison"] then
+                qual = meta["poison"]
+                if qual == true then
+                    TriggerClientEvent("dust_maladie:poison", _source)
+                end
+            end
+        end
+    end
 end)
+
