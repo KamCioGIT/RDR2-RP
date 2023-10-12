@@ -82,14 +82,14 @@ Config.radiusStyle = -666422021
 -- seconds to wait before the alert blip will be removed from the map
 Config.alertTimeout = 720
 
-Config.medicalBeds = { 'p_medbed01x', 'p_bed09x' }
-Config.jobs = { 'doctor' }
+Config.medicalBeds = { 'p_medbed01x', 'p_bed03x' }
+Config.jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla'}
 Config.allowPlayerTargeting = true
 Config.playerTargetRange = 1.5
 
 -- jobs that can inspect a dead body
 Config.inspectCommand = 'analyse'
-Config.inspectJobs = { 'doctor', 'police' } 
+Config.inspectJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis' } 
 Config.allowPlayerInspecting = true
 Config.playerInspectRange = 1.5
 
@@ -107,7 +107,7 @@ Config.removeDiseaseOnRevive = false
 -- Hospitals are just used for patient notes.
 -- When a doctor saves a note for a patient it will be shared within the hospital structure.
 Config.hospitals = {
-    ['Cabinet de Médecin'] = {
+    ['Cabinet de Saint-Denis'] = {
         showBlip = true,
         blipSprite = -1739686743,
         coords = vector3(2725.86, -1227.72, 50.36),
@@ -117,7 +117,7 @@ Config.hospitals = {
             -- the jobs to check the players count
             -- if a player with one of these jobs is online
             -- the function will be disabled
-            jobs = { 'doctor' },
+            jobs = { 'doctor_stdenis' },
             healCost = 5.0,
             reviveCost = 5.0,
             reviveTime = 30,
@@ -126,7 +126,28 @@ Config.hospitals = {
             heading = 90.0,
             range = 2.0
         },
-        jobId = 'doctor' -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it
+        jobId = nil -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it
+    },
+    ['Cabinet de Blackwater'] = {
+        showBlip = true,
+        blipSprite = -1739686743,
+        coords = vector3(-784.4287, -1304.812, 43.84615),
+        radius = 20.0,
+        npc = {
+            enabled = true,
+            -- the jobs to check the players count
+            -- if a player with one of these jobs is online
+            -- the function will be disabled
+            jobs = { 'doctor_bla' },
+            healCost = 5.0,
+            reviveCost = 5.0,
+            reviveTime = 30,
+            npcModel = 'cs_crackpotinventor',
+            coords = vector3(-787.2531, -1302.362, 43.84615),
+            heading = 90.0,
+            range = 2.0
+        },
+        jobId = nil -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it
     }
 }
 
