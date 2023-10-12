@@ -40,8 +40,8 @@ MedicineItems = {
         -- inner core health added from 0 to 100
         innerCoreHealth = 20,
         language = {
-            applying = "Drinking antibiotic...",
-            applied = "The effect of the antibiotics makes you feel better.",
+            applying = "Ingestion de l'antibiotique...",
+            applied = "Le médicament commence à faire effet, vous vous sentez mieux.",
             --cureExpired = "" -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
@@ -50,7 +50,7 @@ MedicineItems = {
         -- if you don't want to use scenario set it to nil
         scenario = nil,
     },
-    ['antipoison'] = {
+    ['antivenin'] = {
         healProbability = {
             ['snakeBite'] = 1.0 
         },
@@ -64,8 +64,8 @@ MedicineItems = {
         -- inner core health added from 0 to 100
         innerCoreHealth = 0,
         language = {
-            applying = "Drinking anti-poison remedy...",
-            applied = "The effect of the remedy makes you feel better.",
+            applying = "Ingestion de l'antivenin...",
+            applied = "Le médicament commence à faire effet, vous vous sentez mieux.",
             --cureExpired = "" -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
@@ -73,7 +73,56 @@ MedicineItems = {
         animation = "idle_a",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
-    }
+    },
+    ['antidote'] = {
+        healProbability = {
+            ['poison'] = 1.0,
+            ['poisonarrow'] = 1.0 
+        },
+        -- milliseconds, time after the cure will stop working
+        -- (-1 for complete cure)
+        cureDuration = -1,
+        -- milliseconds, time it takes to apply medication (progressbar)
+        applyDuration = 5000,
+        -- health to add when used
+        healthAmount = 0,
+        -- inner core health added from 0 to 100
+        innerCoreHealth = 0,
+        language = {
+            applying = "Ingestion de l'antivenin...",
+            applied = "Le médicament commence à faire effet, vous vous sentez mieux.",
+            --cureExpired = "" -- no need for that if cureDuration is -1
+        },
+        -- if you don't want to use animation set those to nil and set scenario instead
+        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
+        animation = "idle_a",
+        -- if you don't want to use scenario set it to nil
+        scenario = nil,
+    },
+    ['antidysentrie'] = {
+        healProbability = {
+            ['dysentrie'] = 1.0 
+        },
+        -- milliseconds, time after the cure will stop working
+        -- (-1 for complete cure)
+        cureDuration = -1,
+        -- milliseconds, time it takes to apply medication (progressbar)
+        applyDuration = 5000,
+        -- health to add when used
+        healthAmount = 200,
+        -- inner core health added from 0 to 100
+        innerCoreHealth = 20,
+        language = {
+            applying = "Ingestion de la concoction...",
+            applied = "Le médicament commence à faire effet, vous vous sentez mieux.",
+            --cureExpired = "" -- no need for that if cureDuration is -1
+        },
+        -- if you don't want to use animation set those to nil and set scenario instead
+        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
+        animation = "idle_a",
+        -- if you don't want to use scenario set it to nil
+        scenario = nil,
+    },
 }
 
 -- Items for reviving unconscious people
@@ -92,7 +141,7 @@ ReviveItems = {
         -- if you don't want to use scenario set it to nil
         scenario = nil,
         language = {
-            applying = "Injecting syringe...",
+            applying = "Injection de la seringue...",
         },
         -- allowed jobs to use it, if you want it to be usable for anyone just leave it empty
         allowedJobs = { 'doctor' }
