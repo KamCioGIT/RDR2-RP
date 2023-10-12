@@ -139,16 +139,6 @@ Config.Items = {
             Coffe()
         end
     },
-    ["bandage"] = {
-        hunger = 0,
-        thirst = 0,
-        action = function(source, name)
-            TriggerClientEvent('redemrp_status:Action-' .. name, source)
-        end,
-        ClientAction = function()
-            Bandage()
-        end
-    },
     ["mbandage"] = {
         hunger = 0,
         thirst = 0,

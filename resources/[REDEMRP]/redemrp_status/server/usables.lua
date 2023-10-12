@@ -19,6 +19,13 @@ Citizen.CreateThread(function()
 
                 local ItemData = Inventory.getItem(source, name)
                 ItemData.RemoveItem(1)
+                local meta = ItemData.getMeta()
+                if meta["poison"] then
+                    qual = meta["poison"]
+                    if qual == true then
+                        TriggerClientEvent("dust_maladie:poison", _source)
+                    end
+                end
                 TriggerClientEvent('redemrp_status:UpdateStatus', source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress)
                 info.action(source, name)
             end)
