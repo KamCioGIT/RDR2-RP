@@ -324,7 +324,7 @@ AddEventHandler('mega_doctorjob:healItemUsed', function (healItem)
         if itemConfig.scenario then
             TaskStartScenarioInPlace(PlayerPedId(), GetHashKey(itemConfig.scenario), -1, true, false, false, false)
         else 
-            PlayAnimation(PlayerPedId(), itemConfig.animationDict, itemConfig.animation, itemConfig.applyDuration, 0)
+            PlayAnimation(PlayerPedId(), itemConfig.animationDict, itemConfig.animation, itemConfig.applyDuration, 31)
         end
         FreezeEntityPosition(PlayerPedId(), true)
         exports['mega_progressbars']:DisplayProgressBar(itemConfig.applyDuration, itemConfig.language.applying)
@@ -343,6 +343,9 @@ AddEventHandler('mega_doctorjob:healItemUsed', function (healItem)
                     local initialDamageType = disease._data.damageType
                     if itemConfig.damageType then
                         disease._data.damageType = itemConfig.damageType
+                    end
+                    if itemConfig.antidouleur then
+                        disease._data.antidouleur = itemConfig.antidouleur
                     end
                     if itemConfig.cureDuration ~= -1 then
                         Citizen.CreateThread(function ()
