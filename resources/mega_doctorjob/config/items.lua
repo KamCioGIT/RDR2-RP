@@ -295,7 +295,6 @@ MedicineItems = {
         animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
         animation = "idle_a",
         -- the next damage type, used for the bandaged state
-        damageType = 'bandaged'
     },
     ['remedeinfectiondeux'] = {
         healProbability = {
@@ -317,7 +316,48 @@ MedicineItems = {
         animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
         animation = "idle_a",
         -- the next damage type, used for the bandaged state
-        damageType = 'bandaged'
+    },
+    ['remedeantidouleurun'] = {
+        healProbability = {
+        },
+        -- milliseconds, time after the cure will stop working
+        -- (-1 for complete cure)
+        cureDuration = -1,
+        -- milliseconds, time it takes to apply medication (progressbar)
+        applyDuration = 10000,
+        -- health to add when used
+        healthAmount = 200,
+        -- inner core health added from 0 to 100
+        innerCoreHealth = 100,
+        language = {
+            applying = "Ingestion du remède ...",
+            applied = "Vous vous sentez mieux.",
+        },
+        -- if you don't want to use animation set those to nil and set scenario instead
+        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
+        animation = "idle_a",
+        -- the next damage type, used for the bandaged state
+    },
+    ['remedeantidouleurdeux'] = {
+        healProbability = {
+        },
+        -- milliseconds, time after the cure will stop working
+        -- (-1 for complete cure)
+        cureDuration = -1,
+        -- milliseconds, time it takes to apply medication (progressbar)
+        applyDuration = 10000,
+        -- health to add when used
+        healthAmount = 200,
+        -- inner core health added from 0 to 100
+        innerCoreHealth = 100,
+        language = {
+            applying = "Ingestion du remède ...",
+            applied = "Vous vous sentez mieux.",
+        },
+        -- if you don't want to use animation set those to nil and set scenario instead
+        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
+        animation = "idle_a",
+        -- the next damage type, used for the bandaged state
     },
 }
 
