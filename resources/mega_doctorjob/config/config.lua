@@ -143,7 +143,7 @@ Config.hospitals = {
             reviveCost = 5.0,
             reviveTime = 30,
             npcModel = 'cs_crackpotinventor',
-            coords = vector3(-787.2587, -1302.713, 43.84616),
+            coords = vector3(-783.6359, -1305.177, 43.84618),
             heading = 90.0,
             range = 2.0
         },
