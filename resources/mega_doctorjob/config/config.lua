@@ -131,7 +131,7 @@ Config.hospitals = {
     ['Cabinet de Blackwater'] = {
         showBlip = true,
         blipSprite = -1739686743,
-        coords = vector3(-784.4287, -1304.812, 43.84615),
+        coords = vector3(-784.4287, -1304.812, 42.50),
         radius = 20.0,
         npc = {
             enabled = true,
@@ -143,7 +143,7 @@ Config.hospitals = {
             reviveCost = 5.0,
             reviveTime = 30,
             npcModel = 'cs_crackpotinventor',
-            coords = vector3(-787.2531, -1302.362, 43.84615),
+            coords = vector3(-787.2587, -1302.713, 43.84616),
             heading = 90.0,
             range = 2.0
         },
