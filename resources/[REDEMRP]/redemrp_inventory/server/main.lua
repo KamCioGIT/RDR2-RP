@@ -2301,3 +2301,9 @@ RegisterServerEvent("redemrp_inventory:createtelegram", function(source, message
         )
     end
 end)
+
+
+
+RegisterServerEvent("RegisterUsableItem:poison", function()
+    TriggerClientEvent("dust_maladie:poison")
+end)
