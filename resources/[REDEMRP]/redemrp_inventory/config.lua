@@ -1060,6 +1060,18 @@ Config.Items = {
         type = "item_ammo",
         ammoType = GetHashKey("AMMO_ARROW"),
     },
+    ["ammo_arrow_poison"] = {
+        label = "Flèche",
+        description = "Une flèche, un mort",
+        weight = 0.01,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/ammo_arrow_poison.png",
+        type = "item_ammo",
+        ammoType = GetHashKey("AMMO_ARROW_POISON"),
+    },
     ["ammo_revolver"] = {
         label = "Balles de Revolver",
         description = "Une balle, un mort",
