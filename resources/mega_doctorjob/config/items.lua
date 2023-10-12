@@ -89,7 +89,7 @@ MedicineItems = {
         -- inner core health added from 0 to 100
         innerCoreHealth = 0,
         language = {
-            applying = "Ingestion de l'antivenin...",
+            applying = "Ingestion de l'antidote...",
             applied = "Le médicament commence à faire effet, vous vous sentez mieux.",
             --cureExpired = "" -- no need for that if cureDuration is -1
         },

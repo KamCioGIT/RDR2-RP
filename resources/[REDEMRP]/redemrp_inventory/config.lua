@@ -1061,7 +1061,7 @@ Config.Items = {
         ammoType = GetHashKey("AMMO_ARROW"),
     },
     ["ammo_arrow_poison"] = {
-        label = "Flèche",
+        label = "Flèche empoisonnée",
         description = "Une flèche, un mort",
         weight = 0.01,
         canBeDropped = true,

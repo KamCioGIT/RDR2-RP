@@ -143,8 +143,8 @@ Config.hospitals = {
             reviveCost = 5.0,
             reviveTime = 30,
             npcModel = 'cs_crackpotinventor',
-            coords = vector3(-783.6359, -1305.177, 43.84618),
-            heading = 90.0,
+            coords = vector3(-789.4224, -1301.978, 43.8528),
+            heading = 0,
             range = 2.0
         },
         jobId = nil -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it
