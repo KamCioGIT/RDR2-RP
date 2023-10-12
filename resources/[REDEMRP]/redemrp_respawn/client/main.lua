@@ -94,6 +94,7 @@ RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
     DestroyAllCams(true)
     Wait(1000)
     TriggerEvent("redemrp_respawn:respawnCoords", GetEntityCoords(PlayerPedId()))
+    TriggerEvent("RedEM:server:LoadSkin")
 end)
 
 RegisterCommand("revive", function(source, args, rawCommand)
