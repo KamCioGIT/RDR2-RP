@@ -187,7 +187,7 @@ RegisterServerEvent("redemrp_bossmenu:server:HireMember", function(targetId)
                 -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Hired Employee', 'lightgreen', 
                 --     "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " hired "..
                 --     "["..targetId.."] **"..targetUser.GetFirstName().." "..targetUser.GetLastName().. "** (serverid: "..targetId.." | name: ".. GetPlayerName(targetId).." | steamid: "..targetUser.GetIdentifier().." | characterid: "..targetUser.GetActiveCharacter()..") into job "..job)
-                TriggerClientEvent("redem_roleplay:JobChange", targetId, job, 3)
+                TriggerClientEvent("redem_roleplay:JobChange", targetId, targetUser.job, targetUser.jobgrade)
                 -- RedEM.Functions.NotifyLeft(_source, "Employé embauché!", "menu_icon_tick", 3000)
                 TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
             end
