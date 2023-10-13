@@ -108,6 +108,7 @@ function LayOnBed(ped)
 
     FreezeEntityPosition(ped, true)
     TaskStartScenarioAtPosition(ped, GetHashKey('PROP_HUMAN_SLEEP_BED_PILLOW'), x, y, z, h, -1, false, true)
+    PlaceEntityOnGroundProperly(ped, true)
 end
 
 function GetNearestHospital(coords) 
