@@ -85,7 +85,13 @@ function LayOnBed(ped)
         local temp = GetClosestObjectOfType(coords.x, coords.y, coords.z, 1.0, GetHashKey(v), 0)
         if temp ~= 0 then
             object = temp
-            break
+            if v == "p_medbed01x" then
+                bedz = 0.85
+                break
+            else
+                bedz = 0.30
+                break
+            end
         end
     end
     if not object then
@@ -95,7 +101,6 @@ function LayOnBed(ped)
     local objectHeading = GetEntityHeading(object)
     local bedx = 0.1
     local bedy = 0.0
-    local bedz = 0.85
     local heading = 270.0
 
     local r = math.rad(objectHeading)
@@ -108,7 +113,6 @@ function LayOnBed(ped)
 
     FreezeEntityPosition(ped, true)
     TaskStartScenarioAtPosition(ped, GetHashKey('PROP_HUMAN_SLEEP_BED_PILLOW'), x, y, z, h, -1, false, true)
-    PlaceEntityOnGroundProperly(ped, true)
 end
 
 function GetNearestHospital(coords) 
