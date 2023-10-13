@@ -375,7 +375,7 @@ AddEventHandler('txAdmin:events:serverShuttingDown', function()
 end)
 
 
-RegisterServerEvent("dust_armurier:server:RequestJob", function()
+RegisterServerEvent("dust_ferme:server:RequestJob", function()
     local _source = source
     local user = RedEM.GetPlayer(_source)
     if user then

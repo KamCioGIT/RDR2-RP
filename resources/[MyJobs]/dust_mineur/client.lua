@@ -8,7 +8,7 @@ local isInBossMenu = false
 Citizen.CreateThread(function()
     Wait(1000)
     if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_armurier:server:RequestJob")
+        TriggerServerEvent("dust_mineur:server:RequestJob")
     end
 end)
 

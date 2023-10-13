@@ -12,7 +12,7 @@ local isFarmer = false
 Citizen.CreateThread(function()
     Wait(1000)
     if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_armurier:server:RequestJob")
+        TriggerServerEvent("dust_ferme:server:RequestJob")
     end
 end)
 
