@@ -89,7 +89,7 @@ function LayOnBed(ped)
                 bedz = 0.85
                 break
             else
-                bedz = 0.30
+                bedz = 0.33
                 break
             end
         end
