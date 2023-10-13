@@ -82,7 +82,7 @@ Config.radiusStyle = -666422021
 -- seconds to wait before the alert blip will be removed from the map
 Config.alertTimeout = 720
 
-Config.medicalBeds = { 'p_medbed01x', 'p_bed08x' }
+Config.medicalBeds = { 'p_medbed01x', 'p_bed09x' }
 Config.jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla'}
 Config.allowPlayerTargeting = true
 Config.playerTargetRange = 1.5
@@ -143,8 +143,8 @@ Config.hospitals = {
             reviveCost = 5.0,
             reviveTime = 30,
             npcModel = 'cs_crackpotinventor',
-            coords = vector3(-789.4224, -1301.978, 43.8528),
-            heading = 0,
+            coords = vector3(-789.4224, -1301.978, 42.0),
+            heading = -180.0,
             range = 2.0
         },
         jobId = nil -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it

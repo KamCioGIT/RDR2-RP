@@ -1506,7 +1506,7 @@
 			<kXvVXMA_0x540CA436 value="255"/>
 		</Item>
 		<Item type="CEntityDef">
-			<archetypeName>p_bed08x</archetypeName>
+			<archetypeName>p_bed09x</archetypeName>
 			<flags value="1572897"/>
 			<position x="5.465210" y="-2.519165" z="-4.838898"/>
 			<rotation w="0.716525" x="-0.000000" y="0.000000" z="0.697561"/>
