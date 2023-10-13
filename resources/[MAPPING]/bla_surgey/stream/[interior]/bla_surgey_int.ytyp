@@ -1509,7 +1509,7 @@
 			<archetypeName>p_bed03x</archetypeName>
 			<flags value="1572897"/>
 			<position x="5.465210" y="-3.519165" z="-4.838898"/>
-			<rotation w="0.709070" x="-0.000000" y="0.000000" z="0.705138"/>
+			<rotation w="0.709070" x="-0.000000" y="0.000000" z="0.0"/>
 			<scaleXY value="1"/>
 			<scaleZ value="1"/>
 			<parentIndex value="-1"/>
