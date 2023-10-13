@@ -1506,10 +1506,11 @@
 			<kXvVXMA_0x540CA436 value="255"/>
 		</Item>
 		<Item type="CEntityDef">
-			<archetypeName>p_bed09x</archetypeName>
+			<archetypeName>p_bed03x</archetypeName>
+			-781.7474975585938, -1303.525634765625, 42.80447387695312
 			<flags value="1572897"/>
-			<position x="5.465210" y="-2.519165" z="-4.838898"/>
-			<rotation w="0.716525" x="-0.000000" y="0.000000" z="0.697561"/>
+			<position x="7.0" y="-4.0" z="-4.838898"/>
+			<rotation w="0.716525" x="-0.000000" y="0.000000" z="180.0"/>
 			<scaleXY value="1"/>
 			<scaleZ value="1"/>
 			<parentIndex value="-1"/>

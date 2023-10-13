@@ -82,7 +82,7 @@ Config.radiusStyle = -666422021
 -- seconds to wait before the alert blip will be removed from the map
 Config.alertTimeout = 720
 
-Config.medicalBeds = { 'p_medbed01x', 'p_bed09x' }
+Config.medicalBeds = { 'p_medbed01x', 'p_bed03x' }
 Config.jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla'}
 Config.allowPlayerTargeting = true
 Config.playerTargetRange = 1.5
