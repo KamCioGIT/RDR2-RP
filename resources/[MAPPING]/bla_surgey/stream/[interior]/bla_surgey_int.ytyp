@@ -1508,7 +1508,7 @@
 		<Item type="CEntityDef">
 			<archetypeName>p_bed03x</archetypeName>
 			<flags value="1572897"/>
-			<position x="4.845210" y="-3.11345" z="-4.838898"/>
+			<position x="4.745210" y="-3.11345" z="-4.838898"/>
 			<rotation w="0.002799" x="-0.000000" y="0.000000" z="0.999996"/>
 			<scaleXY value="1"/>
 			<scaleZ value="1"/>
