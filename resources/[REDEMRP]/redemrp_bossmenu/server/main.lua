@@ -27,7 +27,6 @@ function DoPay()
                     if Config.Jobs[job].Grades[grade] then
                         if Config.Jobs[job].Grades[grade].Pay then
                             local pay = Config.Jobs[job].Grades[grade].Pay
-                            RedEM.Functions.NotifyRight(id, "You received <strong style=\"color:lime\">$"..RedEM.Functions.CommaValue(string.format("%.2f", pay)).."</strong> from your government job!", 10000)
                             TriggerClientEvent("RedEM:client:PlaySound", id, 1)
                             user.AddMoney(pay)
                         end

@@ -16,13 +16,12 @@ Citizen.CreateThread(function()
     end
 end)
 
-local getjob = false
 local getgrade = 0
 RegisterNetEvent("redem_roleplay:JobChange")
 AddEventHandler("redem_roleplay:JobChange", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
-            getjob = true
+            isFarmer = true
             getgrade = grade
             startMission()
             cattle()
@@ -30,7 +29,7 @@ AddEventHandler("redem_roleplay:JobChange", function(job, grade)
                 contremaitre()
             end
         else
-            getjob = false
+            isFarmer = false
             getgrade = 0
         end
     end
@@ -53,7 +52,7 @@ function startMission()
     GetRandomRessourcePoint()
     Citizen.CreateThread(function() --- MINERAI
         while true do
-            if getjob then
+            if isFarmer then
                 Wait(0)
                 local playerPos = GetEntityCoords(PlayerPedId())
                 if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isInteracting then
@@ -67,7 +66,7 @@ function startMission()
     end)
     Citizen.CreateThread(function() --- DEPOT
         while true do
-            if getjob then
+            if isFarmer then
                 Wait(0)
                 local playerPos = GetEntityCoords(PlayerPedId())
                 for k, v in ipairs(Config.FarmerDepositPos) do
@@ -92,7 +91,7 @@ retprompt:setActive(false)
 
 function contremaitre() --- RETRAIT
     while true do
-        if getjob then
+        if isFarmer then
             Wait(0)
             local playerPos = GetEntityCoords(PlayerPedId())
             for k, v in ipairs(Config.FarmerWithdrawalPos) do
@@ -244,7 +243,7 @@ function cattle()
     end
     while true do
         Wait(0)
-        if getjob then
+        if isFarmer then
             local playerpos = GetEntityCoords(PlayerPedId())
             for k, v in pairs(Config.FarmStables) do
                 if #(playerpos - v.pos ) < 7 and not isInteracting then

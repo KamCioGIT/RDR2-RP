@@ -65,6 +65,7 @@ Config.Jobs = {
         }
     },
     ["armurier_rhodes"] = {
+        bigjob = "armurier",
         Name = "Armurerie de Rhodes",
         MenuLocations = {
             vector3(1328.648, -1325.286, 77.94454)
@@ -86,6 +87,7 @@ Config.Jobs = {
         }
     },
     ["armurier_strawberry"] = {
+        bigjob = "armurier",
         Name = "Armurerie de Strawberry",
         MenuLocations = {
             vector3(-1843.087, -413.7095, 162.3547)
@@ -107,6 +109,7 @@ Config.Jobs = {
         }
     },
     ["marechal_bla"] = {
+        bigjob = "marechal",
         Name = "Écurie de Blackwater",
         MenuLocations = {
             vector3(-878.4421, -1361.514, 43.57775)
@@ -128,6 +131,7 @@ Config.Jobs = {
         }
     },
     ["marechal_stdenis"] = {
+        bigjob = "marechal",
         Name = "Écurie de Saint-Denis",
         MenuLocations = {
             vector3(2513.883, -1459.578, 46.36203)
@@ -149,6 +153,7 @@ Config.Jobs = {
         }
     },
     ["usine"] = {
+        bigjob = "usine",
         Name = "Usine",
         MenuLocations = {
             vector3(2324.79, -1456.619, 46.00994)
@@ -170,6 +175,7 @@ Config.Jobs = {
         }
     },
     ["mineur"] = {
+        bigjob = "mineur",
         Name = "Usine",
         MenuLocations = {
             vector3(2957.164, 1377.683, 56.3044)
@@ -191,6 +197,7 @@ Config.Jobs = {
         }
     },
     ["fermier"] = {
+        bigjob = "fermier",
         Name = "Usine",
         MenuLocations = {
             vector3(-1643.433, -1355.236, 84.45272)

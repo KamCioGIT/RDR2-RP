@@ -13,7 +13,7 @@ Citizen.CreateThread(function()
 end)
 
 local getjob = false
-local getgrade = 0
+local getgrade = tonumber(0)
 RegisterNetEvent("redem_roleplay:JobChange")
 AddEventHandler("redem_roleplay:JobChange", function(job, grade)
     for k, v in pairs(Config.Jobs) do

@@ -10,12 +10,6 @@ local FoundSomething = false
 local varString = CreateVarString(10, "LITERAL_STRING", "Boss Menu")
 local Timeout = nil
 
-RegisterNetEvent("redem_roleplay:JobChange")
-AddEventHandler("redem_roleplay:JobChange", function(job, grade)
-    if job == 'unemployed' then
-        return
-    end
-end)
 
 
 
