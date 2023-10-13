@@ -16,7 +16,7 @@ if DiseasesConfig['gun1'] then
                                 if random <= prob then
                                     self:setPaused(false)
                                     self:setActive(true)
-                                    self._data.damageType = 'projectile'
+                                    self._data.damageType = 'cut'
                                     self:startEffect()
                                 end
                             end
@@ -81,7 +81,7 @@ if DiseasesConfig['gun1'] then
                 self._data.bone = bone
             end
             if not self._data.damageType then
-                self._data.damageType = 'projectile'
+                self._data.damageType = 'cut'
             end
             TriggerServerEvent('mega_doctorjob:newDiseaseWebhook', self.config.displayName, self.data)
             -- Start blood fountain

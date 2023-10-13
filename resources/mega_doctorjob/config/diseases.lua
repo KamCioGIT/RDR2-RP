@@ -249,7 +249,7 @@ DiseasesConfig = {
       autoHealTime = -1,
       enableRagdoll = false,
       language = {
-         started = "Une balle vous a touché, elle n'est pas ressorti. Appliquez un bandage.",
+         started = "Une balle vous a touché, elle n'est pas ressortie.",
          autoHealed = "Le saignement s'est arrêté",
       },
       -- Firearms that can affect bleeding
@@ -295,7 +295,7 @@ DiseasesConfig = {
       autoHealTime = -1,
       enableRagdoll = false,
       language = {
-         started = "Une balle vous a touché, elle est ressortie. Appliquez un bandage.",
+         started = "Une balle vous a touché, elle est ressortie.",
          autoHealed = "Le saignement s'est arrêté",
       },
       -- Firearms that can affect bleeding
