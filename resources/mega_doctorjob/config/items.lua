@@ -5,7 +5,7 @@ MedicineItems = {
         },
         -- milliseconds, time after the cure will stop working
         -- (-1 for complete cure)
-        cureDuration = 60000,
+        cureDuration = 180000,
         -- milliseconds, time it takes to apply medication (progressbar)
         applyDuration = 10000,
         -- health to add when used
@@ -203,7 +203,7 @@ MedicineItems = {
         },
         -- milliseconds, time after the cure will stop working
         -- (-1 for complete cure)
-        cureDuration = 180000,
+        cureDuration = 300000,
         -- milliseconds, time it takes to apply medication (progressbar)
         applyDuration = 10000,
         -- health to add when used
@@ -229,7 +229,7 @@ MedicineItems = {
         },
         -- milliseconds, time after the cure will stop working
         -- (-1 for complete cure)
-        cureDuration = 180000,
+        cureDuration = 300000,
         -- milliseconds, time it takes to apply medication (progressbar)
         applyDuration = 10000,
         -- health to add when used
@@ -255,7 +255,7 @@ MedicineItems = {
         },
         -- milliseconds, time after the cure will stop working
         -- (-1 for complete cure)
-        cureDuration = 180000,
+        cureDuration = 300000,
         -- milliseconds, time it takes to apply medication (progressbar)
         applyDuration = 10000,
         -- health to add when used
