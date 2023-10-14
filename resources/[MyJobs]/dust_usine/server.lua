@@ -75,11 +75,3 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
 	end
 end)
 
-
-RegisterServerEvent("dust_usine:server:RequestJob", function()
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-    if user then
-		TriggerClientEvent("redem_roleplay:JobChange", source, user.GetJob(), user.GetJobGrade())
-    end
-end)

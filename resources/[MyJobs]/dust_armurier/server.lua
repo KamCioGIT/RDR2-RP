@@ -15,13 +15,3 @@ AddEventHandler("RegisterUsableItem:repairkitweapon", function(source)
 end)
 
 
-
-RegisterServerEvent("dust_armurier:server:RequestJob", function()
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-    if user then
-		TriggerClientEvent("redem_roleplay:JobChange", source, user.GetJob(), user.GetJobGrade())
-    end
-end)
-
-

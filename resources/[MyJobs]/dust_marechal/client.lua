@@ -6,18 +6,10 @@ TriggerEvent("redemrp_menu_base:getData", function(call)
 end)
 
 
-
-Citizen.CreateThread(function()
-    Wait(1000)
-    if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_armurier:server:RequestJob")
-    end
-end)
-
 local getjob = false
 local getgrade = 0
-RegisterNetEvent("redem_roleplay:JobChange")
-AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+RegisterNetEvent("dust_job:marechal")
+AddEventHandler("dust_job:marechal", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             getjob = true

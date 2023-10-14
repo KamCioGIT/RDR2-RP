@@ -8,17 +8,9 @@ local isFarmer = false
 
 
 --- Définir si le joueur est fermier 
-
-Citizen.CreateThread(function()
-    Wait(1000)
-    if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_ferme:server:RequestJob")
-    end
-end)
-
 local getgrade = 0
-RegisterNetEvent("redem_roleplay:JobChange")
-AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+RegisterNetEvent("dust_job:fermier")
+AddEventHandler("dust_job:fermier", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             isFarmer = true

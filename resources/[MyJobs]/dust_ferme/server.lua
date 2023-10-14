@@ -374,11 +374,3 @@ AddEventHandler('txAdmin:events:serverShuttingDown', function()
     TriggerEvent('dust_ferme:server:resetcow')
 end)
 
-
-RegisterServerEvent("dust_ferme:server:RequestJob", function()
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-    if user then
-		TriggerClientEvent("redem_roleplay:JobChange", source, user.GetJob(), user.GetJobGrade())
-    end
-end)

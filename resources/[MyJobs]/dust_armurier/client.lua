@@ -13,17 +13,11 @@ end)
 
 --- Définir si le joueur est armurier
 
-Citizen.CreateThread(function()
-    Wait(1000)
-    if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_armurier:server:RequestJob")
-    end
-end)
-
 local getjob = false
 local getgrade = 0
-RegisterNetEvent("redem_roleplay:JobChange")
-AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+
+RegisterNetEvent("dust_job:armurier")
+AddEventHandler("dust_job:armurier", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             getjob = true

@@ -11,13 +11,24 @@ local varString = CreateVarString(10, "LITERAL_STRING", "Boss Menu")
 local Timeout = nil
 
 
-
+Citizen.CreateThread(function()
+    Wait(1000)
+    if RedEM.GetPlayerData().isLoggedIn then
+        TriggerServerEvent("redemrp_bossmenu:server:RequestJob")
+    end
+end)
 
 RegisterNetEvent("redemrp_bossmenu:client:ReceiveJob", function(job, grade)
     PromptSetEnabled(BossMenuPrompt, false)
     PromptSetVisible(BossMenuPrompt, false)
     BossMenuPromptShown = false
     PlayerJob, PlayerJobgrade = job, grade
+    if Config.Jobs[job] then
+        if Config.Jobs[job].bigjob then
+            local bigjob = Config.Jobs[job].bigjob
+            TriggerEvent("dust_job:"..bigjob, PlayerJob, PlayerJobgrade)
+        end
+    end
 end)
 
 Citizen.CreateThread(function()

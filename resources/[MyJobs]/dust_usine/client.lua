@@ -13,17 +13,11 @@ local craftprompt = UipromptGroup:new("Atelier")
 Uiprompt:new(0x760A9C6F, "Fabriquer", craftprompt)
 craftprompt:setActive(false)
 
-Citizen.CreateThread(function()
-    Wait(1000)
-    if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_usine:server:RequestJob")
-    end
-end)
 
 local getjob = false
 local getgrade = 0
-RegisterNetEvent("redem_roleplay:JobChange")
-AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+RegisterNetEvent("dust_job:usine")
+AddEventHandler("dust_job:usine", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             getjob = true
