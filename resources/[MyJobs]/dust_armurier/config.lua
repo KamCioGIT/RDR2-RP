@@ -222,10 +222,12 @@ Config.DamageModifier = {
     -- [1534638301]                        = 0.5,          -- weapon_pistol_m1899
     -- [1701864918]                        = 0.5,          -- weapon_pistol_semiauto
     -- [2239809086]                        = 0.5,          -- weapon_pistol_mauser
-    [1905553950]                        = 0.5,          -- weapon_repeater_evans
-    [2511488402]                        = 0.5,          -- weapon_repeater_henry
-    [2823250668]                        = 0.5,          -- weapon_repeater_winchester
-    [4111948705]                        = 0.5,          -- weapon_repeater_carbine
+
+    [1905553950]                        = 1.0,          -- weapon_repeater_evans = evans
+    [-1783478894]                        = 1.0,          -- weapon_repeater_henry = litchfield
+    [-1471716628]                        = 1.0,          -- weapon_repeater_winchester = lancaster
+    [-183018591]                        = 1.0,          -- weapon_repeater_carbine = carbine
+
     [127400949]                         = 1.2,          -- weapon_revolver_doubleaction 9 balles
     [2212320791]                        = 1.2,          -- weapon_revolver_doubleaction_gambler
     [379542007]                         = 0.7,          -- weapon_revolver_cattleman
@@ -233,16 +235,20 @@ Config.DamageModifier = {
     [1529685685]                        = 0.7,          -- weapon_revolver_lemat 9 balles
     [132728264]                        = 1.0,          -- weapon_revolver_navy  6 balles
     [2075992054]                        = 0.67,          -- weapon_revolver_schofield
+
     [1676963302]                        = 0.5,          -- weapon_rifle_springfield
     [1999408598]                        = 0.5,          -- weapon_rifle_boltaction
     [3724000286]                        = 0.5,          -- weapon_rifle_varmint
+
     [392538360]                         = 0.5,          -- weapon_shotgun_sawedoff
     [575725904]                         = 0.5,          -- weapon_shotgun_doublebarrel_exotic
     [834124286]                         = 0.5,          -- weapon_shotgun_pump
     [1674213418]                        = 0.5,          -- weapon_shotgun_repeating
     [1838922096]                        = 0.5,          -- weapon_shotgun_semiauto
     [1845102363]                        = 0.5,          -- weapon_shotgun_doublebarrel
+
     [1402226560]                        = 0.5,          -- weapon_sniperrifle_carcano
     [3788682007]                        = 0.5,          -- weapon_sniperrifle_rollingblock
+    
     [-2002235300]                        = 0.7,          -- bow
 }
