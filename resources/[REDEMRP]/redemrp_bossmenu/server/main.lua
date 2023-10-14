@@ -187,7 +187,7 @@ RegisterServerEvent("redemrp_bossmenu:server:HireMember", function(targetId)
                 -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Hired Employee', 'lightgreen', 
                 --     "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " hired "..
                 --     "["..targetId.."] **"..targetUser.GetFirstName().." "..targetUser.GetLastName().. "** (serverid: "..targetId.." | name: ".. GetPlayerName(targetId).." | steamid: "..targetUser.GetIdentifier().." | characterid: "..targetUser.GetActiveCharacter()..") into job "..job)
-                TriggerServerEvent("redemrp_bossmenu:server:RequestJob", _target)
+                TriggerEvent("redemrp_bossmenu:server:RequestJob", _target)
                 -- RedEM.Functions.NotifyLeft(_source, "Employé embauché!", "menu_icon_tick", 3000)
                 TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
             end
@@ -298,7 +298,7 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                         local sourcetrgt = v.id
                         trgtuser.SetJob("unemployed")
                         trgtuser.SetJobGrade(0)
-                        TriggerServerEvent("redemrp_bossmenu:server:RequestJob", sourcetrgt)
+                        TriggerEvent("redemrp_bossmenu:server:RequestJob", sourcetrgt)
                     end
                 end
             end
@@ -328,7 +328,7 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMember", function(targetId)
                 end
                 targetUser.SetJob("unemployed")
                 targetUser.SetJobGrade(0)
-                TriggerServerEvent("redemrp_bossmenu:server:RequestJob", _source)
+                TriggerEvent("redemrp_bossmenu:server:RequestJob", _source)
                 RedEM.Functions.NotifyLeft(_source, "Employee fired!", "You fired "..targetUser.GetFirstName().." "..targetUser.GetLastName().."!", "menu_textures", "menu_icon_tick", 3000)
                 TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Fired Employee', 'red', 
                         "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " fired "..
