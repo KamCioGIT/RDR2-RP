@@ -200,7 +200,7 @@ Config.WeaponRecoils = {
     [383145463]                         = 0.7,          -- weapon_revolver_cattleman_mexican
     [1529685685]                        = 0.7,          -- weapon_revolver_lemat
     [2075992054]                        = 0.7,          -- weapon_revolver_schofield
-    [132728264]                        = 2.0,          -- weapon_revolver_navy  
+    [132728264]                        = 0.7,          -- weapon_revolver_navy  
     [2212320791]                        = 0.7,          -- weapon_revolver_doubleaction_gambler
     [1676963302]                        = 0.7,          -- weapon_rifle_springfield
     [1999408598]                        = 0.7,          -- weapon_rifle_boltaction
@@ -228,10 +228,10 @@ Config.DamageModifier = {
     [-1471716628]                        = 0.70,          -- weapon_repeater_winchester = lancaster 8 balles
     [-183018591]                        = 0.8,          -- weapon_repeater_carbine = carbine 8 balles
 
-    [127400949]                         = 1.2,          -- weapon_revolver_doubleaction 9 balles
+    [127400949]                         = 1.3,          -- weapon_revolver_doubleaction 9 balles
     [2212320791]                        = 1.2,          -- weapon_revolver_doubleaction_gambler
-    [379542007]                         = 0.7,          -- weapon_revolver_cattleman
-    [383145463]                         = 0.7,          -- weapon_revolver_cattleman_mexican
+    [379542007]                         = 0.6,          -- weapon_revolver_cattleman
+    [383145463]                         = 0.6,          -- weapon_revolver_cattleman_mexican
     [1529685685]                        = 0.7,          -- weapon_revolver_lemat 9 balles
     [132728264]                        = 1.0,          -- weapon_revolver_navy  6 balles
     [2075992054]                        = 0.67,          -- weapon_revolver_schofield
