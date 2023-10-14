@@ -116,11 +116,11 @@ exports("GetJobDuty", GetJobDuty)
 --     end
 -- end)
 
-RegisterServerEvent("redemrp_bossmenu:server:RequestJob", function()
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
+RegisterServerEvent("redemrp_bossmenu:server:RequestJob", function(trgt)
+    local _trgt = trgt
+    local user = RedEM.GetPlayer(_trgt)
     if user then
-        TriggerClientEvent("redemrp_bossmenu:client:ReceiveJob", _source, user.GetJob(), user.GetJobGrade())
+        TriggerClientEvent("redemrp_bossmenu:client:ReceiveJob", _trgt, user.GetJob(), user.GetJobGrade())
     end
 end)
 
