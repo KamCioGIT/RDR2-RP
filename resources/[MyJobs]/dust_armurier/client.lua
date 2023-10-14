@@ -478,23 +478,22 @@ Citizen.CreateThread(function()
         Wait(500)
 
         if Config.WeaponRecoilSystem then
-                local _,wep = GetCurrentPedWeapon(ped)
-                print (wep)
-                Citizen.InvokeNative(0xD77AE48611B7B10A, ped, Config.DamageModifier[wep])
-                if Config.WeaponRecoils[wep] and Config.WeaponRecoils[wep] ~= 0 then
-                    TimeValue = 0
-                    repeat
-                        Wait(0)
-                        GameplayCamPitch = GetGameplayCamRelativePitch()
-                        if Config.WeaponRecoils[wep] > 0.1 then
-                            SetGameplayCamRelativePitch(GameplayCamPitch+0.6, 1.2)
-                            TimeValue = TimeValue+0.6
-                        else
-                            SetGameplayCamRelativePitch(GameplayCamPitch+0.016, 0.333)
-                            TimeValue = TimeValue+0.1
-                        end
-                    until TimeValue >= Config.WeaponRecoils[wep]
-                end
+            local _,wep = GetCurrentPedWeapon(ped)
+            print (wep)
+            Citizen.InvokeNative(0xD77AE48611B7B10A, ped, Config.DamageModifier[wep])
+            if Config.WeaponRecoils[wep] and Config.WeaponRecoils[wep] ~= 0 then
+                TimeValue = 0
+                repeat
+                    Wait(0)
+                    GameplayCamPitch = GetGameplayCamRelativePitch()
+                    if Config.WeaponRecoils[wep] > 0.1 then
+                        SetGameplayCamRelativePitch(GameplayCamPitch+0.6, 1.2)
+                        TimeValue = TimeValue+0.6
+                    else
+                        SetGameplayCamRelativePitch(GameplayCamPitch+0.016, 0.333)
+                        TimeValue = TimeValue+0.1
+                    end
+                until TimeValue >= Config.WeaponRecoils[wep]
             end
         end
     end
