@@ -489,6 +489,7 @@ Citizen.CreateThread(function()
         local ped = PlayerPedId()
         wait(0)
         if IsPedShooting(ped) then
+            local _,wep = GetCurrentPedWeapon(ped)
             if Config.WeaponRecoils[wep] and Config.WeaponRecoils[wep] ~= 0 then
                 TimeValue =     0
                 repeat
