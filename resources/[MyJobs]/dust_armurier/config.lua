@@ -223,10 +223,10 @@ Config.DamageModifier = {
     -- [1701864918]                        = 0.5,          -- weapon_pistol_semiauto
     -- [2239809086]                        = 0.5,          -- weapon_pistol_mauser
 
-    [1905553950]                        = 0.6,          -- weapon_repeater_evans = evans
-    [-1783478894]                        = 0.7,          -- weapon_repeater_henry = litchfield
-    [-1471716628]                        = 0.7,          -- weapon_repeater_winchester = lancaster
-    [-183018591]                        = 0.6,          -- weapon_repeater_carbine = carbine
+    [1905553950]                        = 0.6,          -- weapon_repeater_evans = evans 12 balles
+    [-1783478894]                        = 0.8,          -- weapon_repeater_henry = litchfield 8 balles
+    [-1471716628]                        = 0.8,          -- weapon_repeater_winchester = lancaster 8 balles
+    [-183018591]                        = 0.8,          -- weapon_repeater_carbine = carbine 8 balles
 
     [127400949]                         = 1.2,          -- weapon_revolver_doubleaction 9 balles
     [2212320791]                        = 1.2,          -- weapon_revolver_doubleaction_gambler
