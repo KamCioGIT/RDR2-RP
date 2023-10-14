@@ -82,33 +82,4 @@ Citizen.CreateThread(function()
 end)
 
 
-Citizen.CreateThread(function()
-    while true do
-        Wait(0)
-        local ped = PlayerPedId()
-        SetPedConfigFlag(ped,263,true) -- No Critical Hits
-        -- SetPedConfigFlag(ped,169,true) -- Disable Grapple
-        SetPedConfigFlag(ped,340,true)  --- no melle finish
-        if Config.WeaponRecoilSystem then
-            if IsPedShooting(ped) then
-                local _,wep = GetCurrentPedWeapon(ped)
-                print (wep)
-                Citizen.InvokeNative(0xD77AE48611B7B10A, ped, Config.DamageModifier[wep])
-                if Config.WeaponRecoils[wep] and Config.WeaponRecoils[wep] ~= 0 then
-                    TimeValue = 0
-                    repeat
-                        Wait(0)
-                        GameplayCamPitch = GetGameplayCamRelativePitch()
-                        if Config.WeaponRecoils[wep] > 0.1 then
-                            SetGameplayCamRelativePitch(GameplayCamPitch+0.6, 1.2)
-                            TimeValue = TimeValue+0.6
-                        else
-                            SetGameplayCamRelativePitch(GameplayCamPitch+0.016, 0.333)
-                            TimeValue = TimeValue+0.1
-                        end
-                    until TimeValue >= Config.WeaponRecoils[wep]
-                end
-            end
-        end
-    end
-end)
+
