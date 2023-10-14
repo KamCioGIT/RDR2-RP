@@ -330,9 +330,6 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMember", function(targetId)
                 targetUser.SetJobGrade(0)
                 TriggerEvent("redemrp_bossmenu:server:RequestJob", _source)
                 RedEM.Functions.NotifyLeft(_source, "Employee fired!", "You fired "..targetUser.GetFirstName().." "..targetUser.GetLastName().."!", "menu_textures", "menu_icon_tick", 3000)
-                TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Fired Employee', 'red', 
-                        "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " fired "..
-                        "["..targetId.."] **"..targetUser.GetFirstName().." "..targetUser.GetLastName().. "** (serverid: "..targetId.." | name: ".. GetPlayerName(targetId).." | steamid: "..targetUser.GetIdentifier().." | characterid: "..targetUser.GetActiveCharacter()..") from job "..job)
                 TriggerClientEvent("redemrp_bossmenu:client:ViewGradeList", _source, GradeList)
             end
         end

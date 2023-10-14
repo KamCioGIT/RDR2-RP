@@ -73,7 +73,7 @@ Config.DamageModifier = {
 }
 
 
-Config.MaxHealthCore =  5 -- 50% max health core
-Config.MaxStaminaCore = 5 -- 50% max stamina core
+Config.MaxHealthCore =  4 -- 50% max health core
+Config.MaxStaminaCore = 4 -- 50% max stamina core
 
 Config.HSModifier = 0.3 --- modifie les dégats du headshot

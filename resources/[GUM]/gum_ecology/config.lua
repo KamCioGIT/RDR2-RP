@@ -335,7 +335,7 @@ Config.Herbs = {
         },
         maxSpawn = 10,--How much props is cached
         propMax = 10,--Spawn max props on limit
-        canGatherMore = 2,--How much you can gather 1 entity
+        canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
         randomized = false,--If you enable Randomized you get 1 from list
