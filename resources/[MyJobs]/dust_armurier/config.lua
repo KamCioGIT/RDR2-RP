@@ -243,11 +243,11 @@ Config.DamageModifier = {
     -- [3724000286]                        = 0.5,          -- weapon_rifle_varmint
 
     [392538360]                         = 0.5,          -- weapon_shotgun_sawedoff
-    [575725904]                         = 0.5,          -- weapon_shotgun_doublebarrel_exotic
-    [834124286]                         = 0.5,          -- weapon_shotgun_pump
-    [1674213418]                        = 0.5,          -- weapon_shotgun_repeating
-    [1838922096]                        = 0.5,          -- weapon_shotgun_semiauto
-    [1845102363]                        = 0.5,          -- weapon_shotgun_doublebarrel
+    [575725904]                         = 0.7,          -- weapon_shotgun_doublebarrel_exotic
+    -- [834124286]                         = 0.5,          -- weapon_shotgun_pump
+    -- [1674213418]                        = 0.5,          -- weapon_shotgun_repeating
+    -- [1838922096]                        = 0.5,          -- weapon_shotgun_semiauto
+    [1845102363]                        = 0.7,          -- weapon_shotgun_doublebarrel
 
 
 
