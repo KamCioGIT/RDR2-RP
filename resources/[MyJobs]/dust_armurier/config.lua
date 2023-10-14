@@ -239,7 +239,7 @@ Config.DamageModifier = {
     [1676963302]                        = 1.0,          -- weapon_rifle_springfield 4 balles
     -- [1999408598]                        = 1.0,          -- weapon_rifle_boltaction
     -- [1402226560]                        = 0.5,          -- weapon_sniperrifle_carcano
-    [-506285289]                        = 0.40,          -- weapon_sniperrifle_rollingblock
+    [-506285289]                        = 0.35,          -- weapon_sniperrifle_rollingblock
     -- [3724000286]                        = 0.5,          -- weapon_rifle_varmint
 
     [392538360]                         = 0.5,          -- weapon_shotgun_sawedoff
