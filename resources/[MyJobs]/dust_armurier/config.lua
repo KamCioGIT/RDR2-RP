@@ -236,8 +236,10 @@ Config.DamageModifier = {
     [132728264]                        = 1.0,          -- weapon_revolver_navy  6 balles
     [2075992054]                        = 0.67,          -- weapon_revolver_schofield
 
-    [1676963302]                        = 1.0,          -- weapon_rifle_springfield
-    [1999408598]                        = 1.0,          -- weapon_rifle_boltaction
+    [1676963302]                        = 1.0,          -- weapon_rifle_springfield 4 balles
+    -- [1999408598]                        = 1.0,          -- weapon_rifle_boltaction
+    -- [1402226560]                        = 0.5,          -- weapon_sniperrifle_carcano
+    [-506285289]                        = 0.5,          -- weapon_sniperrifle_rollingblock
     -- [3724000286]                        = 0.5,          -- weapon_rifle_varmint
 
     [392538360]                         = 0.5,          -- weapon_shotgun_sawedoff
@@ -247,8 +249,8 @@ Config.DamageModifier = {
     [1838922096]                        = 0.5,          -- weapon_shotgun_semiauto
     [1845102363]                        = 0.5,          -- weapon_shotgun_doublebarrel
 
-    [1402226560]                        = 0.5,          -- weapon_sniperrifle_carcano
-    [3788682007]                        = 0.5,          -- weapon_sniperrifle_rollingblock
+
+
 
     [-2002235300]                        = 0.7,          -- bow
 }
