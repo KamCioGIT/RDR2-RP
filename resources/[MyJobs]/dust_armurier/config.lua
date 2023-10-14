@@ -217,7 +217,7 @@ Config.WeaponRecoils = {
 }
 
 Config.DamageModifier = {
-    [34411519]                          = 0.8,          -- weapon_pistol_volcanic
+    [34411519]                          = 0.8,          -- weapon_pistol_volcanic 6 balles
     -- [1252941818]                        = 0.5,          -- weapon_pistol_mauser_drunk
     -- [1534638301]                        = 0.5,          -- weapon_pistol_m1899
     -- [1701864918]                        = 0.5,          -- weapon_pistol_semiauto
@@ -226,11 +226,11 @@ Config.DamageModifier = {
     [2511488402]                        = 0.5,          -- weapon_repeater_henry
     [2823250668]                        = 0.5,          -- weapon_repeater_winchester
     [4111948705]                        = 0.5,          -- weapon_repeater_carbine
-    [127400949]                         = 0.5,          -- weapon_revolver_doubleaction
-    [379542007]                         = 0.5,          -- weapon_revolver_cattleman
-    [383145463]                         = 0.5,          -- weapon_revolver_cattleman_mexican
-    [1529685685]                        = 0.7,          -- weapon_revolver_lemat
-    [132728264]                        = 0.9,          -- weapon_revolver_navy  
+    [127400949]                         = 1.0,          -- weapon_revolver_doubleaction
+    [379542007]                         = 1.0,          -- weapon_revolver_cattleman
+    [383145463]                         = 1.0,          -- weapon_revolver_cattleman_mexican
+    [1529685685]                        = 0.7,          -- weapon_revolver_lemat 9 balles
+    [132728264]                        = 1.0,          -- weapon_revolver_navy  6 balles
     [2075992054]                        = 1.0,          -- weapon_revolver_schofield
     [2212320791]                        = 0.5,          -- weapon_revolver_doubleaction_gambler
     [1676963302]                        = 0.5,          -- weapon_rifle_springfield
