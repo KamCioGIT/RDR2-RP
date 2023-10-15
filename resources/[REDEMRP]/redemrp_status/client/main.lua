@@ -263,8 +263,11 @@ end
 
 local TimecycOn = false
 
-RegisterNetEvent('redemrp_status:UpdateStatus', function(thrist, hunger, stress)
+RegisterNetEvent('redemrp_status:UpdateStatus', function(thrist, hunger, stress, vocal)
     Wait(1000)
+    if vocal ~= 0 then
+        voice = vocal
+    end
     local shownotifiaction1 = false
     local shownotifiaction2 = false
     if hunger <= 10 and not shownotifiaction2 then
@@ -314,7 +317,8 @@ RegisterNetEvent('redemrp_status:UpdateStatus', function(thrist, hunger, stress)
         thrist = thrist,
         hunger = hunger,
         stress = stress,
-        temp = GetCurrentTemperature()
+        temp = GetCurrentTemperature(),
+        vocal = voice 
     })
 end)
 
@@ -404,7 +408,5 @@ end
 
 
 RegisterNetEvent("redemrp_status:client:getvoice", function(info)
-    SendNUIMessage({
-      vocal = info
-    })
+    
 end)
