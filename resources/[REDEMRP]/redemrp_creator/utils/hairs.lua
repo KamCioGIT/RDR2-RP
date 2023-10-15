@@ -17143,6 +17143,22 @@ hairs_list = {
 					['tint1'] = 50,
 					['tint2'] = 19
 				},
+				[2] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `gtfywofa_0x85749702`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 243,
+					['tint1'] = 245,
+					['tint2'] = 254
+				},
 			},
 	}
 }
