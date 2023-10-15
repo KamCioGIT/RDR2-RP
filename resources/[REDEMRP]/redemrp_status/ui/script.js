@@ -4,6 +4,7 @@ $(document).ready(function () {
   var hunger = 0;
   var temp = 0;
   var stress = 0;
+  var vocal = "Normal";
   var show = false;
   window.addEventListener("message", function (event) {
     if (event.data.showhud == undefined) {
