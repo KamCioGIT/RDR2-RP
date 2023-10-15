@@ -9545,7 +9545,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[33] = {
+			[31] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9563,7 +9563,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[34] = {
+			[32] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9581,7 +9581,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[35] = {
+			[33] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9599,7 +9599,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[36] = {
+			[34] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9617,7 +9617,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[37] = {
+			[35] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9635,7 +9635,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[38] = {
+			[36] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9653,7 +9653,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[39] = {
+			[37] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9671,7 +9671,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[40] = {
+			[38] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9689,7 +9689,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[41] = {
+			[39] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9707,7 +9707,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[42] = {
+			[40] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9725,7 +9725,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[43] = {
+			[41] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9743,7 +9743,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[44] = {
+			[42] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9761,7 +9761,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[46] = {
+			[43] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9779,7 +9779,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[47] = {
+			[44] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9797,7 +9797,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[48] = {
+			[45] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9815,7 +9815,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[49] = {
+			[46] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9833,7 +9833,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[50] = {
+			[47] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9851,7 +9851,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[51] = {
+			[48] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9869,7 +9869,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[52] = {
+			[49] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9887,7 +9887,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[55] = {
+			[50] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9905,7 +9905,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[56] = {
+			[51] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9923,7 +9923,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[57] = {
+			[52] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9941,7 +9941,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[58] = {
+			[53] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9959,7 +9959,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[59] = {
+			[54] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9977,7 +9977,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[60] = {
+			[55] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -9995,7 +9995,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[61] = {
+			[56] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10013,7 +10013,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[62] = {
+			[57] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10031,7 +10031,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[63] = {
+			[58] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10049,7 +10049,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[64] = {
+			[59] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10067,7 +10067,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[65] = {
+			[60] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10085,7 +10085,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[66] = {
+			[61] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10103,7 +10103,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[67] = {
+			[62] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10121,7 +10121,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[68] = {
+			[63] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10139,7 +10139,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[69] = {
+			[64] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10157,7 +10157,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[70] = {
+			[65] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10175,7 +10175,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[71] = {
+			[66] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10193,7 +10193,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[72] = {
+			[67] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10211,7 +10211,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[73] = {
+			[68] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10229,7 +10229,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[74] = {
+			[69] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10247,7 +10247,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[75] = {
+			[70] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -10265,7 +10265,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[76] = {
+			[71] = {
 				[1] = {
 					['category_hash'] = 4160842698,
 					['category_hash_dec_signed'] = -134124598,
@@ -15163,7 +15163,25 @@ hairs_list = {
 					['is_multiplayer'] = true,
 					['ped_type'] = 'male'
 				},
-			}
+			},
+			[30] = {
+				[1] = {
+					['category_hash'] = 4160842698,
+					['category_hash_dec_signed'] = -134124598,
+					['category_hashname'] = 'beard',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `beard_mr1_046`,
+					['albedo'] = `rncoeraa_0xf8af92e5`,
+					['normal'] = `vfiqflna_0x7e6e8df9`,
+					['material'] = `bpvkokra_0xf4fd0d09`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+			},
 		}
 	}
 }
