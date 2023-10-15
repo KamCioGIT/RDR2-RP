@@ -150,20 +150,23 @@ $(document).ready(function () {
     html.text(Math.round(percent));
   }
 
-  function setProgressVocal(percent, element) {
+  function setProgressVocal(info, element) {
     var circle = document.querySelector(element);
     var radius = circle.r.baseVal.value;
     var circumference = radius * 2 * Math.PI;
     var html = $(element).parent().parent().find('span');
     var x = document.getElementById("test5");
-    if (percent > 20) {
+    if (info = "Normal") {
       x.style.stroke = "#fff";
+      percent = 66;
     }
-    if (percent <= 20) {
+    if (info = "Whispering") {
       x.style.stroke = "#ffaf02";
+      percent = 33;
     }
-    if (percent <= 10) {
+    if (info = "Shouting") {
       x.style.stroke = " #FF0245";
+      percent = 100;
     }
 
     circle.style.strokeDasharray = `${circumference} ${circumference}`;
