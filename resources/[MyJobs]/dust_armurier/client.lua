@@ -478,7 +478,6 @@ Citizen.CreateThread(function()
         SetPedConfigFlag(ped,340,true)  --- no melle finish
         Wait(500)
         local _,wep = GetCurrentPedWeapon(ped)
-        print (wep)
         Citizen.InvokeNative(0xD77AE48611B7B10A, ped, Config.DamageModifier[wep])
 
     end
