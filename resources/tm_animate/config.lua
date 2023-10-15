@@ -54,7 +54,7 @@ AnimConfig.Animations = {
     },
     ["p_gunsmithtrapdoor01x"] = {
         dict = "script_proc@robberies@shop@rhodes@gunsmith@inside_upstairs", 
-        anim = "base_trapdoor",
+        anim = "open_trap_p1p2_trapdoor",
         model = "p_gunsmithtrapdoor01x",
     },
 }
