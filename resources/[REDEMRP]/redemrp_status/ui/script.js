@@ -60,31 +60,6 @@ $(document).ready(function () {
     html.text(Math.round(percent));
   }
 
-  function setProgressStress(percent, element) {
-    var circle = document.querySelector(element);
-    var radius = circle.r.baseVal.value;
-    var circumference = radius * 2 * Math.PI;
-    var html = $(element).parent().parent().find('span');
-    var x4 = document.getElementById("test4");
-    if (percent < 60) {
-      x4.style.stroke = "#fff";
-    }
-    if (percent >= 60) {
-      x4.style.stroke = "#ffaf02";
-    }
-    if (percent >= 80) {
-      x4.style.stroke = " #FF0245";
-    }
-
-    circle.style.strokeDasharray = `${circumference} ${circumference}`;
-    circle.style.strokeDashoffset = `${circumference}`;
-
-    const offset = circumference - ((-percent * 100) / 100) / 100 * circumference;
-    circle.style.strokeDashoffset = -offset;
-
-    html.text(Math.round(percent));
-  }
-
   function setProgressHunger(percent, element) {
     var circle = document.querySelector(element);
     var radius = circle.r.baseVal.value;
