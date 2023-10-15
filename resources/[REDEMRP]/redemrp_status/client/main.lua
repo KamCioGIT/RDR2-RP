@@ -404,9 +404,3 @@ function startCooldown()
         end
     end)
 end
-
-
-
-RegisterNetEvent("redemrp_status:client:getvoice", function(info)
-    
-end)

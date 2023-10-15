@@ -206,6 +206,48 @@ body {
 	transform: translate(13px, 7px);
 }
 
+.huds .hud.vocal {
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	transform: scale(0.9);
+	position: absolute;
+	bottom: -6.5vmin;
+	right: 6.3vmax;
+	position: absolute;
+	text-align: center;
+	margin: 15px 0;
+}
+
+.huds .hud.vocal span {
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 12px;
+	display: block;
+	margin-top: 0px;
+}
+
+.huds .hud.vocal svg {
+	opacity: 1 !important;
+}
+
+.hud.vocal span {
+	opacity: 0;
+	margin-top: -4px;
+}
+
+.hud.vocal span:after {
+	position: absolute;
+	content: '%';
+	top: 1px;
+	right: 4px;
+	font-size: 7px;
+}
+
+.hud.vocal g {
+	-webkit-transform: translate(13px, 7px);
+	-ms-transform: translate(13px, 7px);
+	transform: translate(13px, 7px);
+}
+
 .huds .hud.stress {
 	visibility: hidden;
 	-webkit-transform: scale(0.9);
