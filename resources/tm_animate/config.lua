@@ -54,7 +54,7 @@ AnimConfig.Animations = {
     },
     ["trapdoor-strgen"] = {
         dict = "script_proc@robberies@shop@strgen@player_open_trapdoor", 
-        anim = "trapdoor_base",
+        anim = "trapdoor_base_trapdoor",
         model = "p_trapdoor01x",
     },
 }
