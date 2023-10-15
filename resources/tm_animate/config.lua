@@ -51,5 +51,10 @@ AnimConfig.Animations = {
         anim = "loop",
         model = "p_churchbell01x",
         bell = true
-    }
+    },
+    ["p_gunsmithtrapdoor01x"] = {
+        dict = "script_proc@robberies@shop@rhodes@gunsmith@player_open_trapdoor", 
+        anim = "base_trapdoor",
+        model = "p_gunsmithtrapdoor01x",
+    },
 }
