@@ -91,9 +91,6 @@ function NativeFixMeshIssues(ped, categoryHash)
     Citizen.InvokeNative(0x59BD177A1A48600A, ped, categoryHash)
 end
 
-function NativeHasPedComponentLoaded(ped)
-    return Citizen.InvokeNative(0xA0BC8FAED8CFEB3C, ped)
-end
 
 
 function NativeUpdatePedVariation(ped)
@@ -102,6 +99,10 @@ function NativeUpdatePedVariation(ped)
     while not NativeHasPedComponentLoaded(ped) do
         Wait(1)
     end
+end
+
+function NativeHasPedComponentLoaded(ped)
+    return Citizen.InvokeNative(0xA0BC8FAED8CFEB3C, ped)
 end
 
 function SetMetaPedTag(ped, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
