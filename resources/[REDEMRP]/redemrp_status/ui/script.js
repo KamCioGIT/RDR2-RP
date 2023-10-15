@@ -16,7 +16,6 @@ $(document).ready(function () {
       setProgressThrist(thrist, '.progress-thrist');
       setProgressHunger(hunger, '.progress-hunger');
       setProgressTemp(temp, '.progress-temp');
-      setProgressStress(stress, '.progress-stress');
       setProgressVocal(vocal, '.progress-vocal');
     }
     if (event.data.showhud == true || event.data.showhud == false) {
@@ -27,7 +26,6 @@ $(document).ready(function () {
       setProgressThrist(thrist, '.progress-thrist');
       setProgressHunger(hunger, '.progress-hunger');
       setProgressTemp(temp, '.progress-temp');
-      setProgressStress(stress, '.progress-stress');
       setProgressVocal(vocal, '.progress-vocal');
     } else {
       $('#huds').hide();
