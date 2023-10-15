@@ -11,10 +11,12 @@ $(document).ready(function () {
       hunger = event.data.hunger;
       temp = event.data.temp;
       stress = event.data.stress;
+      vocal = event.data.vocal;
       setProgressThrist(thrist, '.progress-thrist');
       setProgressHunger(hunger, '.progress-hunger');
       setProgressTemp(temp, '.progress-temp');
       setProgressStress(stress, '.progress-stress');
+      setProgressVocal(vocal, '.progress-vocal');
     }
     if (event.data.showhud == true || event.data.showhud == false) {
       show = event.data.showhud;
@@ -25,6 +27,7 @@ $(document).ready(function () {
       setProgressHunger(hunger, '.progress-hunger');
       setProgressTemp(temp, '.progress-temp');
       setProgressStress(stress, '.progress-stress');
+      setProgressVocal(vocal, '.progress-vocal');
     } else {
       $('#huds').hide();
     }
@@ -147,4 +150,28 @@ $(document).ready(function () {
     html.text(Math.round(percent));
   }
 
+  function setProgressVocal(percent, element) {
+    var circle = document.querySelector(element);
+    var radius = circle.r.baseVal.value;
+    var circumference = radius * 2 * Math.PI;
+    var html = $(element).parent().parent().find('span');
+    var x = document.getElementById("test5");
+    if (percent > 20) {
+      x.style.stroke = "#fff";
+    }
+    if (percent <= 20) {
+      x.style.stroke = "#ffaf02";
+    }
+    if (percent <= 10) {
+      x.style.stroke = " #FF0245";
+    }
+
+    circle.style.strokeDasharray = `${circumference} ${circumference}`;
+    circle.style.strokeDashoffset = `${circumference}`;
+
+    const offset = circumference - ((-percent * 100) / 100) / 100 * circumference;
+    circle.style.strokeDashoffset = -offset;
+
+    html.text(Math.round(percent));
+  }
 });

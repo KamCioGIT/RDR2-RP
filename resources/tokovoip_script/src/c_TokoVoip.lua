@@ -79,10 +79,11 @@ function TokoVoip.updateTokoVoipInfo(self, forceUpdate) -- Update the top-left i
 	if (info == self.screenInfo and not forceUpdate) then return end
 	self.screenInfo = info;
 	self:updatePlugin("updateTokovoipInfo", "" .. info);
+	TriggerClientEvent("redemrp_status:client:getvoice", info)
 end
 
 function TokoVoip.updatePlugin(self, event, payload)
-	--exports.tokovoip_script:doSendNuiMessage(event, payload);
+	-- exports.tokovoip_script:doSendNuiMessage(event, payload);
 	SendNUIMessage({
 			type = event,
 			payload = payload

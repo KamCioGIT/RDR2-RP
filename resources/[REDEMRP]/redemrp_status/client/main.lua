@@ -401,3 +401,8 @@ function startCooldown()
     end)
 end
 
+
+
+RegisterNetEvent("redemrp_status:client:getvoice", function(info)
+    print(info)
+end)
