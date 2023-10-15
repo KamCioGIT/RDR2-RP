@@ -27,6 +27,7 @@ ensure chat
 ensure ipl_tool
 exec resources/weathersync/permissions.cfg
 start weathersync
+start tokovoip_script
 
 # Spooner
 start uiprompt
