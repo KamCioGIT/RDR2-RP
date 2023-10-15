@@ -497,20 +497,48 @@ function LoadHair(target, data)
             if data.hair.model ~= nil then
                 if tonumber(data.hair.model) > 0 then
                     if IsPedMale(target) then
-                        if hairs_list["male"]["hair"][tonumber(data.hair.model)] ~= nil then
-                            if hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~= nil then       
-                                local hair = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
-                                NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
-                            end
+                        if hairs_list["male"]["hair"][tonumber(data.hair.model)]['is_multiplayer'] == false then
+                            if hairs_list["male"]["hair"][tonumber(data.hair.model)] ~= nil then
+                                if hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~= nil then       
+                                    local hair = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
+                                    NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
+                                end
 
+                            end
+                        else
+                            if hairs_list["male"]["hair"][tonumber(data.beard.model)] ~= nil then
+                                local drawable = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].drawable
+                                local albedo = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].albedo
+                                local normal = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].normal
+                                local material = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].material
+                                local palette = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].palette
+                                local tint0 = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint0
+                                local tint1 = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint1
+                                local tint2 = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint2
+                                UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                            end
                         end
 
                     else
-                        if hairs_list["female"]["hair"][tonumber(data.hair.model)] ~= nil then
-                            if hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~=
-                                nil then
-                                    local hair = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
-                                NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
+                        if hairs_list["female"]["hair"][tonumber(data.hair.model)]['is_multiplayer'] == false then
+                            if hairs_list["female"]["hair"][tonumber(data.hair.model)] ~= nil then
+                                if hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~=
+                                    nil then
+                                        local hair = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
+                                    NativeSetPedComponentEnabled(target, tonumber(hair), false, true, true)
+                                end
+                            end
+                        else
+                            if hairs_list["female"]["hair"][tonumber(data.beard.model)] ~= nil then
+                                local drawable = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].drawable
+                                local albedo = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].albedo
+                                local normal = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].normal
+                                local material = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].material
+                                local palette = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].palette
+                                local tint0 = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint0
+                                local tint1 = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint1
+                                local tint2 = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint2
+                                UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                             end
                         end
                     end
@@ -529,13 +557,27 @@ function LoadBeard(target, data)
             if data.beard.model ~= nil then
                 if tonumber(data.beard.model) > 0 then
                     if IsPedMale(target) then
-                        if hairs_list["male"]["beard"][tonumber(data.beard.model)] ~= nil then
-                            if hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)] ~=
-                                nil then
-                                    local beard = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].hash
-                                NativeSetPedComponentEnabled(target, tonumber(beard), false, true, true)
-                            end
+                        if hairs_list["male"]["beard"][tonumber(data.beard.model)]['is_multiplayer'] == false then
+                            if hairs_list["male"]["beard"][tonumber(data.beard.model)] ~= nil then
+                                if hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)] ~=
+                                    nil then
+                                        local beard = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].hash
+                                    NativeSetPedComponentEnabled(target, tonumber(beard), false, true, true)
+                                end
 
+                            end
+                        else
+                            if hairs_list["male"]["beard"][tonumber(data.beard.model)] ~= nil then
+                                local drawable = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].drawable
+                                local albedo = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].albedo
+                                local normal = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].normal
+                                local material = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].material
+                                local palette = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].palette
+                                local tint0 = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint0
+                                local tint1 = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint1
+                                local tint2 = hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint2
+                                UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                            end
                         end
                     end
                 else
