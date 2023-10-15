@@ -9436,6 +9436,24 @@ hairs_list = {
 					['is_multiplayer'] = true,
 					['ped_type'] = 'male'
 				},
+			},
+			[25] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `beard_mr1_007`,
+					['albedo'] = `rncoeraa_0xf8af92e5`,
+					['normal'] = `vfiqflna_0x7e6e8df9`,
+					['material'] = `bpvkokra_0xf4fd0d09`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 87,
+					['tint2'] = 57
+				},
 			}
 	
 		},
