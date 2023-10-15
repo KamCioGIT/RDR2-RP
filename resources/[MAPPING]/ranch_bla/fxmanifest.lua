@@ -4,6 +4,6 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 
 dependency 'objectloader'
 
-file 'test.xml'
+file 'ranch_bla.xml'
 
-objectloader_map 'test.xml'
+objectloader_map 'ranch_bla.xml'
