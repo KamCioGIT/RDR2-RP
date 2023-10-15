@@ -214,6 +214,7 @@ Config.WeaponRecoils = {
     [1402226560]                        = 0.7,          -- weapon_sniperrifle_carcano
     [3788682007]                        = 0.7,          -- weapon_sniperrifle_rollingblock
     [-2002235300]                        = 0.7,          -- bow
+    [115405099]                        = 0.7,          -- bow improved
 }
 
 Config.DamageModifier = {
@@ -230,7 +231,7 @@ Config.DamageModifier = {
 
     [127400949]                         = 1.3,          -- weapon_revolver_doubleaction 9 balles
     [2212320791]                        = 1.2,          -- weapon_revolver_doubleaction_gambler
-    [379542007]                         = 0.6,          -- weapon_revolver_cattleman
+    [379542007]                         = 0.6,          -- weapon_revolver_cattleman 10 balles
     [383145463]                         = 0.6,          -- weapon_revolver_cattleman_mexican
     [1529685685]                        = 0.7,          -- weapon_revolver_lemat 9 balles
     [132728264]                        = 1.0,          -- weapon_revolver_navy  6 balles
