@@ -506,15 +506,15 @@ function LoadHair(target, data)
 
                             end
                         else
-                            if hairs_list["male"]["hair"][tonumber(data.beard.model)] ~= nil then
-                                local drawable = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].drawable
-                                local albedo = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].albedo
-                                local normal = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].normal
-                                local material = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].material
-                                local palette = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].palette
-                                local tint0 = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint0
-                                local tint1 = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint1
-                                local tint2 = hairs_list["male"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint2
+                            if hairs_list["male"]["hair"][tonumber(data.hair.model)] ~= nil then
+                                local drawable = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].drawable
+                                local albedo = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].albedo
+                                local normal = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].normal
+                                local material = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].material
+                                local palette = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].palette
+                                local tint0 = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].tint0
+                                local tint1 = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].tint1
+                                local tint2 = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].tint2
                                 UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                             end
                         end
@@ -529,15 +529,15 @@ function LoadHair(target, data)
                                 end
                             end
                         else
-                            if hairs_list["female"]["hair"][tonumber(data.beard.model)] ~= nil then
-                                local drawable = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].drawable
-                                local albedo = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].albedo
-                                local normal = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].normal
-                                local material = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].material
-                                local palette = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].palette
-                                local tint0 = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint0
-                                local tint1 = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint1
-                                local tint2 = hairs_list["female"]["hair"][tonumber(data.beard.model)][tonumber(data.beard.texture)].tint2
+                            if hairs_list["female"]["hair"][tonumber(data.hair.model)] ~= nil then
+                                local drawable = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].drawable
+                                local albedo = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].albedo
+                                local normal = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].normal
+                                local material = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].material
+                                local palette = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].palette
+                                local tint0 = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].tint0
+                                local tint1 = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].tint1
+                                local tint2 = hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].tint2
                                 UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                             end
                         end
@@ -801,4 +801,34 @@ function GetPedModel(sex)
         model = "mp_female"
     end
     return model
+end
+
+function NativeHasPedComponentLoaded(ped)
+    return Citizen.InvokeNative(0xA0BC8FAED8CFEB3C, ped)
+end
+
+function SetMetaPedTag(ped, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+    Citizen.InvokeNative(0xBC6DF00D7A4A6819, ped, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+end
+function UpdatePedVariation(ped)
+    Citizen.InvokeNative(0xAAB86462966168CE, ped, true) -- UNKNOWN "Fixes outfit"- always paired with _UPDATE_PED_VARIATION
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, ped, false, true, true, true, false) -- _UPDATE_PED_VARIATION
+end
+
+function UpdateCustomClothes(playerPed, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+    while not NativeHasPedComponentLoaded(playerPed) do
+        Wait(0)
+    end
+    local playerPed = PlayerPedId()
+    local _drawable = drawable
+    local _albedo = albedo
+    local _normal = normal
+    local _material = material
+    local _palette = palette
+    local _tint0 = tonumber(tint0)
+    local _tint1 = tonumber(tint1)
+    local _tint2 = tonumber(tint2)
+
+    SetMetaPedTag(playerPed, _drawable, _albedo, _normal, _material, _palette, _tint0, _tint1, _tint2)
+    UpdatePedVariation(playerPed)
 end
