@@ -5228,461 +5228,6 @@ hairs_list = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
 					['category_hashname'] = 'hair',
-					['hash'] = 0x2A640582,
-					['hash_dec_signed'] = 711198082,
-					['hashname'] = '',
-					['is_multiplayer'] = true,
-					['ped_type'] = 'female'
-				},
-				[2] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hash'] = 0x71BF8D56,
-					['hash_dec_signed'] = 1908378966,
-					['hashname'] = '',
-					['is_multiplayer'] = true,
-					['ped_type'] = 'female'
-				},
-				[3] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hash'] = 0x8F4328D0,
-					['hash_dec_signed'] = -1891424048,
-					['hashname'] = '',
-					['is_multiplayer'] = true,
-					['ped_type'] = 'female'
-				},
-				[4] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hash'] = 0xB7772FA8,
-					['hash_dec_signed'] = -1216925784,
-					['hashname'] = '',
-					['is_multiplayer'] = true,
-					['ped_type'] = 'female'
-				},
-			},
-			[33] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_002`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[34] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_002_alt01`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[35] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_003`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[36] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_004`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[37] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_005`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[38] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_006`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[39] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_007`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[40] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_008`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[41] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_009`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[42] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_010`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[43] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_011`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[44] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_012`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[45] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_013`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[46] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_014`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[47] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_015`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[48] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_016`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[49] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_017`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[50] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_018`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[51] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_019`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[52] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_020`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[53] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_021`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[54] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_022`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[55] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_023`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},[56] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
 					['hashname'] = '',
 					['is_multiplayer'] = false,
 					['ped_type'] = 'female',
@@ -5696,25 +5241,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[57] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_025`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[58] = {
+			[33] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5732,7 +5259,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[59] = {
+			[34] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5750,7 +5277,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[60] = {
+			[35] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5768,7 +5295,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[61] = {
+			[36] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5786,7 +5313,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[62] = {
+			[37] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5804,7 +5331,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[63] = {
+			[38] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5822,7 +5349,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[64] = {
+			[39] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5840,7 +5367,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[65] = {
+			[40] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5858,25 +5385,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[66] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_034`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[67] = {
+			[41] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5894,7 +5403,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[68] = {
+			[42] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5912,7 +5421,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[69] = {
+			[43] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5930,7 +5439,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[70] = {
+			[44] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5948,7 +5457,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[71] = {
+			[45] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -5966,25 +5475,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[72] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_040`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[73] = {
+			[46] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6002,7 +5493,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[74] = {
+			[47] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6020,7 +5511,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[75] = {
+			[48] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6038,7 +5529,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[76] = {
+			[49] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6056,7 +5547,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[77] = {
+			[50] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6074,7 +5565,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[78] = {
+			[51] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6092,7 +5583,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[79] = {
+			[52] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6110,7 +5601,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[80] = {
+			[53] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6128,7 +5619,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[81] = {
+			[54] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6146,7 +5637,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[82] = {
+			[55] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6164,7 +5655,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[83] = {
+			[56] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6182,7 +5673,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[84] = {
+			[57] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6200,7 +5691,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[85] = {
+			[58] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6218,7 +5709,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[86] = {
+			[59] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6236,7 +5727,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[87] = {
+			[60] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6254,7 +5745,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[88] = {
+			[61] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6272,7 +5763,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[89] = {
+			[62] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6289,62 +5780,8 @@ hairs_list = {
 					['tint1'] = 50,
 					['tint2'] = 19
 				},
-			},
-			[90] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_058`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[91] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_059`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[92] = {
-				[1] = {
-					['category_hash'] = 2253063086,
-					['category_hash_dec_signed'] = -2041904210,
-					['category_hashname'] = 'hair',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'female',
-					['drawable'] = `hair_fr1_060`,
-					['albedo'] = `hair_gen_999_c0_999_ab`,
-					['normal'] = `hair_gen_999_c0_999_nm`,
-					['material'] = `hair_gen_999_c0_999_m`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[93] = {
+			},	
+			[63] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6362,7 +5799,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[94] = {
+			[64] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6380,7 +5817,7 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[95] = {
+			[65] = {
 				[1] = {
 					['category_hash'] = 2253063086,
 					['category_hash_dec_signed'] = -2041904210,
@@ -6389,6 +5826,60 @@ hairs_list = {
 					['is_multiplayer'] = false,
 					['ped_type'] = 'female',
 					['drawable'] = `hair_fr1_063`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+			},
+			[66] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'female',
+					['drawable'] = `cs_mp_jessica_fs1_hair_000`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+			},
+			[67] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'female',
+					['drawable'] = `jlvqhhea_0xc008bedd`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+			},
+			[68] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'female',
+					['drawable'] = `rwkkhvab_0x9d2d45b8`,
 					['albedo'] = `hair_gen_999_c0_999_ab`,
 					['normal'] = `hair_gen_999_c0_999_nm`,
 					['material'] = `hair_gen_999_c0_999_m`,
@@ -17922,9 +17413,168 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			
-			
-			
-		}
+			[120] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `nbilxmsa_0x74afb90e`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+			},
+			[121] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `ibycahpa_0xc4843e21`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+				
+			},
+			[122] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `uipfpxha_0x9cebd033`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+			},
+			[123] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `ldvamaea_0x1c68f2fb`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+			},
+			[124] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `cs_mp_alfredo_montez_ms1_hair_000`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+			},
+			[125] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `cs_mp_oldman_jones_ms1_hair_000`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+			},
+			[126] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `pnaehdqa_0x14b18253`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+			},
+			[127] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `sshaziia_0x3ea3c927`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+			},
+			[128] = {
+				[1] = {
+					['category_hash'] = 2253063086,
+					['category_hash_dec_signed'] = -2041904210,
+					['category_hashname'] = 'hair',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `gtfywofa_0x85749702`,
+					['albedo'] = `hair_gen_999_c0_999_ab`,
+					['normal'] = `hair_gen_999_c0_999_nm`,
+					['material'] = `hair_gen_999_c0_999_m`,
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 23,
+					['tint1'] = 50,
+					['tint2'] = 19
+				},
+			},
 	}
 }
