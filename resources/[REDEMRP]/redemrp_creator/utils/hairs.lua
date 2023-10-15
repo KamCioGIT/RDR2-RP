@@ -9545,24 +9545,6 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[32] = {
-				[1] = {
-					['category_hash'] = 4160842698,
-					['category_hash_dec_signed'] = -134124598,
-					['category_hashname'] = 'beard',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'male',
-					['drawable'] = `beard_mr1_002`,
-					['albedo'] = `rncoeraa_0xf8af92e5`,
-					['normal'] = `vfiqflna_0x7e6e8df9`,
-					['material'] = `bpvkokra_0xf4fd0d09`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
 			[33] = {
 				[1] = {
 					['category_hash'] = 4160842698,
@@ -9779,24 +9761,6 @@ hairs_list = {
 					['tint2'] = 19
 				},
 			},
-			[45] = {
-				[1] = {
-					['category_hash'] = 4160842698,
-					['category_hash_dec_signed'] = -134124598,
-					['category_hashname'] = 'beard',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'male',
-					['drawable'] = `beard_mr1_013`,
-					['albedo'] = `rncoeraa_0xf8af92e5`,
-					['normal'] = `vfiqflna_0x7e6e8df9`,
-					['material'] = `bpvkokra_0xf4fd0d09`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
 			[46] = {
 				[1] = {
 					['category_hash'] = 4160842698,
@@ -9914,42 +9878,6 @@ hairs_list = {
 					['is_multiplayer'] = false,
 					['ped_type'] = 'male',
 					['drawable'] = `beard_mr1_020`,
-					['albedo'] = `rncoeraa_0xf8af92e5`,
-					['normal'] = `vfiqflna_0x7e6e8df9`,
-					['material'] = `bpvkokra_0xf4fd0d09`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[53] = {
-				[1] = {
-					['category_hash'] = 4160842698,
-					['category_hash_dec_signed'] = -134124598,
-					['category_hashname'] = 'beard',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'male',
-					['drawable'] = `beard_mr1_021`,
-					['albedo'] = `rncoeraa_0xf8af92e5`,
-					['normal'] = `vfiqflna_0x7e6e8df9`,
-					['material'] = `bpvkokra_0xf4fd0d09`,
-					['palette'] = `sgxurdka_0xdfb1f64c`,
-					['tint0'] = 23,
-					['tint1'] = 50,
-					['tint2'] = 19
-				},
-			},
-			[54] = {
-				[1] = {
-					['category_hash'] = 4160842698,
-					['category_hash_dec_signed'] = -134124598,
-					['category_hashname'] = 'beard',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'male',
-					['drawable'] = `beard_mr1_022`,
 					['albedo'] = `rncoeraa_0xf8af92e5`,
 					['normal'] = `vfiqflna_0x7e6e8df9`,
 					['material'] = `bpvkokra_0xf4fd0d09`,

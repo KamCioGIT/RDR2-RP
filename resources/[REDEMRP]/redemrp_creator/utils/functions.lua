@@ -497,7 +497,7 @@ function LoadHair(target, data)
             if data.hair.model ~= nil then
                 if tonumber(data.hair.model) > 0 then
                     if IsPedMale(target) then
-                        if hairs_list["male"]["hair"][tonumber(data.hair.model)]['is_multiplayer'] == false then
+                        if hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)]['is_multiplayer'] == true then
                             if hairs_list["male"]["hair"][tonumber(data.hair.model)] ~= nil then
                                 if hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~= nil then       
                                     local hair = hairs_list["male"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)].hash
@@ -520,7 +520,7 @@ function LoadHair(target, data)
                         end
 
                     else
-                        if hairs_list["female"]["hair"][tonumber(data.hair.model)]['is_multiplayer'] == false then
+                        if hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)]['is_multiplayer'] == true then
                             if hairs_list["female"]["hair"][tonumber(data.hair.model)] ~= nil then
                                 if hairs_list["female"]["hair"][tonumber(data.hair.model)][tonumber(data.hair.texture)] ~=
                                     nil then
@@ -557,7 +557,7 @@ function LoadBeard(target, data)
             if data.beard.model ~= nil then
                 if tonumber(data.beard.model) > 0 then
                     if IsPedMale(target) then
-                        if hairs_list["male"]["beard"][tonumber(data.beard.model)]['is_multiplayer'] == false then
+                        if hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)]['is_multiplayer'] == true then
                             if hairs_list["male"]["beard"][tonumber(data.beard.model)] ~= nil then
                                 if hairs_list["male"]["beard"][tonumber(data.beard.model)][tonumber(data.beard.texture)] ~=
                                     nil then
