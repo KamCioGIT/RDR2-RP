@@ -267,6 +267,8 @@ RegisterNetEvent('redemrp_status:UpdateStatus', function(thrist, hunger, stress,
     Wait(1000)
     if vocal ~= 0 then
         voice = vocal
+    else
+        voice = oldvocal
     end
     local shownotifiaction1 = false
     local shownotifiaction2 = false
@@ -313,6 +315,7 @@ RegisterNetEvent('redemrp_status:UpdateStatus', function(thrist, hunger, stress,
             TimecycOn = false
         end
     end
+    oldvocal = voice
     SendNUIMessage({
         thrist = thrist,
         hunger = hunger,
