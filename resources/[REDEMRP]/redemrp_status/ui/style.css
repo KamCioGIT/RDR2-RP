@@ -248,6 +248,8 @@ body {
 	-webkit-transform: translate(3px, 3px) scale(0.9);
 	-ms-transform: translate(3px, 3px)  scale(0.9);
 	transform: translate(3px, 3px) scale(0.9);
+	margin-left: 2vh;
+	margin-top: 1vh;
 }
 
 .huds .hud.hunger {
