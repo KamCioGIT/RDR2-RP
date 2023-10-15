@@ -58,16 +58,3 @@ AnimConfig.Animations = {
         model = "p_trapdoor01x",
     },
 }
-
-
--- ["script_proc@robberies@shop@strgen@player_open_trapdoor"] = {
---     "trapdoor_base_floorboard",
---     "trapdoor_base_trapdoor",
---     "enter_lf",
---     "enter_rf_trapdoor",
---     "enter_rf",
---     "trapdoor_base",
---     "enter_lf_trapdoor",
---     "enter_rf_floorboard",
---     "enter_lf_floorboard",
--- },
