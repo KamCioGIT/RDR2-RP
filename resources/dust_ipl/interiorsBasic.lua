@@ -71,8 +71,8 @@ Citizen.CreateThread(function()
                 --("Beechers Interior Already Active")
             else
                 ActivateInteriorEntitySet(interior, "bee_01_masterBR_bed01")
-                ActivateInteriorEntitySet(interior, "Beechers_after_2.2")
-                ActivateInteriorEntitySet(interior, "IntGrp_livingrm_furniture_fancy")
+                ActivateInteriorEntitySet(interior, "Beechers_fully_decorated_finale")
+                ActivateInteriorEntitySet(interior, "IntGrp_livingrm_furniture_basic")
                 ActivateInteriorEntitySet(interior, "bee_01_house_fireplace_on")
                 --("Beechers Interior Activated")
             end
