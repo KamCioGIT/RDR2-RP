@@ -157,17 +157,20 @@ $(document).ready(function () {
     var circumference = radius * 2 * Math.PI;
     var html = $(element).parent().parent().find('span');
     var x = document.getElementById("test5");
-    if (info = "Normal") {
+    if (info == "Normal") {
       x.style.stroke = "#fff";
       percent = 66;
+      iner.innerHTML = parseInt(percent);
     }
-    if (info = "Whispering") {
+    if (info == "Whispering") {
       x.style.stroke = "#ffaf02";
       percent = 33;
+      iner.innerHTML = parseInt(percent);
     }
-    if (info = "Shouting") {
+    if (info == "Shouting") {
       x.style.stroke = " #FF0245";
       percent = 100;
+      iner.innerHTML = parseInt(percent);
     }
 
     circle.style.strokeDasharray = `${circumference} ${circumference}`;
