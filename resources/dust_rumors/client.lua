@@ -89,7 +89,7 @@ function TrySendRumor()
         table.insert(elements, {
             label = "Lancer une rumeur", 
             value = 'TrySendRumor', 
-            desc = "Dites nous vos ragots et nous nous occuperons de les faires circuler. Mais attention, ce n'est pas gratuit. Price " .. Config.RumorPrice
+            desc = "Dites nous vos ragots et nous nous occuperons de les faires circuler pour $" .. Config.RumorPrice
         })
 
         table.insert(elements, {
