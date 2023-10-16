@@ -30,7 +30,7 @@ AddEventHandler("dust_rumors:server:askRumor", function()
                 local savedDate = result[i].date / 1000
                 local timeDifference = os.difftime(cd, savedDate)
                 local dateisvalid = tonumber(60 * Config.Rumorstime)
-                print(itmeDifference)
+                print(timeDifference)
                 if timeDifference >= dateisvalid then
                     table.insert(rumorsTable, rumorText)
                     print ('ouaislazone')
