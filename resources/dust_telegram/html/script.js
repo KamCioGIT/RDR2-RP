@@ -64,14 +64,20 @@ $(function () {
             $('.inbox').css('display', 'block');
             $('#postname').text(postname)
         
-            let today = new Date().toLocaleDateString();
-            $('#today').text(today);
+            var isoDatesend = new Date().toISOString().split('T')[0];
+            isoDatestrsend = isoDatesend.replace("2023","1885");
+            isoDatenewsend = isoDatestrsend.replace("2024","1886");
+            
+            $('#today').text(isoDatenewsend);
         
         }
+        var isoDateview = new Date(event.data.telegram.sentTime).toISOString().split('T')[0];
+        isoDatestrview = isoDateview.replace("2023","1885");
+        isoDatenewview = isoDatestrview.replace("2024","1886");
         if(event.data.type === "view"){
             $("#view_recipient").text(event.data.telegram.recipient)
             $("#view_sender").text(event.data.telegram.sender)
-            $("#view_date").text(event.data.telegram.sentTime)
+            $("#view_date").text(isoDatenewview)
             $("#view_subject").text(event.data.telegram.subject)
             $("#view_message").text(event.data.telegram.message)
         }
