@@ -3,6 +3,9 @@
     src: url(koala.ttf);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+
+
 * {
     overflow-y: hidden;
     overflow-x: hidden;
@@ -41,11 +44,14 @@
     overflow-y: hidden;
     overflow-x: hidden;
     position: absolute;
-	width: 220px;
-	height: 450px;
-	top: 40%;
-    left: 63%;
+    width: 300px;
+    height: 450px;
+    top: 50%;
+    left: 70%;
+    transform: translate(0px, -50%);
+    /*background-color: #0a0a0acf;*/
     background-image: url('itemlist.png');
+    border-radius: 0px;
     background-size: 100% 100%;
 } 
 
@@ -53,10 +59,11 @@
     overflow-y: hidden;
     overflow-x: hidden;
     position: absolute;
-	width: 220px;
-	height: 450px;
-	top: 40%;
-    left: 20%;
+	width: 300px;
+    height: 450px;
+	top: 50%;
+    transform: translate(0px, -50%);
+    left: 14%;
     background-image: url('itemlist.png');
     background-size: 100% 100%;
 } 
@@ -81,6 +88,7 @@
     left: 15px;
     color: white;
     text-align: center;
+    font-family: 'milonga';
 }
 #favorite1 {
     overflow-y: hidden;
@@ -281,11 +289,13 @@
     overflow-y: hidden;
     overflow-x: hidden;
     position: absolute;
-	width: 220px;
-	height: 220px;
-	top: 80%;
-    left: 42%;
-    background-image: url('itemlist.png');
+    width: 400px;
+    height: 280px;
+    top: 75%;
+    left: 47.5%;
+    transform: translate(-50%);
+    background-image: url(
+    'itemlist_large.png');
     background-size: 100% 100%;
 } 
 #bindMenuCont li a {
@@ -302,10 +312,10 @@
     overflow-x: hidden;
     overflow-y: scroll;
     position: absolute;
-	width: 180px;
+	width: 90%;
     left: -15px;
-	height: 180px;
-	top: 15px;
+	height: 70%;
+	top: 40px;
 } 
 
 #favorite {
@@ -331,16 +341,19 @@
 } 
 
 #animInput {
-    position:absolute;
-    background-color: transparent;
+    position: absolute;
+    background-color: black;
     background-repeat: no-repeat;
-    width: 80%;
+    width: 85%;
     height: 25px;
     font-size: 22px;
-    left:20px;
-    top:10px;
+    left: 20px;
+    top: 20px;
     margin-bottom: 12px;
-    color:white;
+    color: white;
+    font-family: 'milonga';
+    border: none;
+    font-size: 15px;
   }
   #animMenuCont li a {
     position: absolute;
@@ -356,21 +369,26 @@
     overflow-x: hidden;
     overflow-y: scroll;
     position: absolute;
-	width: 180px;
+    width: 85%;
     left: -15px;
-	height: 350px;
-	top: 60px;
+    height: 320px;
+    top: 90px;
 } 
 
 .item {
     display: block;
     position: relative;
-    width: 160px;
+    width: 75%;
     height: 30px;
     margin: 5px;
-    color:white;
-    background-image: url('button.png');
-    background-size: 100% 100%;
+    top: 50px;
+    left: 30px;
+    color: white;
+    background-color: #1f1f1f;
+    /* background-image: url('button.png'); */
+    /* background-size: 100% 100%; */
+    text-decoration: none;
+    font-family: 'milonga' !important;
 }
 .item:hover {
     display: block;
@@ -379,8 +397,8 @@
     height: 30px;
     margin: 5px;
     color:white;
-    background-image: url('sbutton.png');
-    background-size: 100% 100%;
+    background-color: #DC5858;
+    
 }
 .item:active {
     display: block;
@@ -396,47 +414,36 @@
 #item {
     display: block;
     position: relative;
-    width: 160px;
-    height: 30px;
+    width: 75%;
+    height: 40px;
     margin: 5px;
-    top:38px;
-    left:30px;
-    color:white;
-    background-image: url('button.png');
-    background-size: 100% 100%;
+    top: 38px;
+    left: 30px;
+    color: white;
+    background-color: #1f1f1f;
     text-decoration: none;
+    font-family: 'milonga' !important;
+    margin-top: 1.5vh;
 }
 #item:hover {
-    display: block;
-    position: relative;
-    width: 160px;
-    height: 30px;
-    margin: 5px;
-    color:white;
-    background-image: url('sbutton.png');
-    background-size: 100% 100%;
-    text-decoration: none;
+    background-color: #DC5858;
+    cursor: pointer;
 }
 #item:active {
-    display: block;
-    position: relative;
-    width: 160px;
-    height: 30px;
-    margin: 5px;
-    color:white;
-    background-image: url('button.png');
-    background-size: 100% 100%;
-    text-decoration: none;
+    background-color: #DC5858;
+
 }
 
 
 #text {
     position: absolute;
-    bottom: 1px;
-    text-align:left;
-    left: 30px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align:center;
 	width: 190px;
-    font-size: 10px;
+    font-family: 'milonga' !important;
+    font-size: 15px !important;
 }
 
 input, span{
@@ -481,17 +488,34 @@ input{
 
 
 #propInput {
-    position:absolute;
-    background-color: transparent;
+    position: absolute;
+    background-color: black;
     background-repeat: no-repeat;
-    width: 80%;
+    width: 85%;
     height: 25px;
     font-size: 22px;
-    left:20px;
-    top:10px;
+    left: 20px;
+    top: 20px;
     margin-bottom: 12px;
-    color:white;
+    color: white;
+    font-family: 'milonga';
+    border: none;
+    font-size: 15px;
   }
+
+  #propInput p {
+
+    color: #757575 !important;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-family: 'milonga';
+  }
+
 #propMenuCont li a {
     position: absolute;
     bottom: 9px;
@@ -506,10 +530,10 @@ input{
     overflow-x: hidden;
     overflow-y: scroll;
     position: absolute;
-	width: 180px;
+    width: 85%;
     left: -15px;
-	height: 350px;
-	top: 60px;
+    height: 320px;
+    top: 90px;
 } 
 
 .item.muuri-item-dragging {
