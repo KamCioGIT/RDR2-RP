@@ -74,7 +74,7 @@ end)
 
 
 
-
+local isEventRunning = {}
 RegisterNetEvent("rumors:DrawText3D",function(ent)
     if not isEventRunning[ent] then
         isEventRunning[ent] = true
