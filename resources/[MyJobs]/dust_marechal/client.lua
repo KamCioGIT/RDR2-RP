@@ -153,7 +153,7 @@ function OpenCategory(menu_catagory, horse, horseid)
             category = k,
             desc = "Changer l'équipement",
             type = "slider",
-            min = 0,
+            min = -1,
             max = #category,
             change_type = "model",
             id = a,
