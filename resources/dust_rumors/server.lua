@@ -35,7 +35,7 @@ AddEventHandler("dust_rumors:server:askRumor", function()
                     table.insert(rumorsTable, tostring(rumorText))
                 else
                     print (rumorText, formatdate)
-                    MySQL.query('DELETE FROM rumors WHERE `rumorText` = @rumorText AND `date` = @date;', {rumorText = rumorText, date = formatdate})
+                    MySQL.query('DELETE FROM rumors WHERE `rumorText` = @rumorText AND `date` = @date;', {rumorText = rumorText, date = os.date("%Y-%m-%d %H:%M:%S", formatdate)})
                 end
 			end
             TriggerClientEvent("dust_rumors:client:getRumor", _source, rumorsTable)
