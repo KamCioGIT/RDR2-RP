@@ -64,7 +64,7 @@ $(function () {
             $('.inbox').css('display', 'block');
             $('#postname').text(postname)
         
-            var isoDate = new Date().toISOString().[0];
+            var isoDate = new Date().toISOString();
             isoDatestr = isoDate.replace("2023","1885");
             isoDatenew = isoDatestr.replace("2024","1886");
             $('#today').text(isoDatenew);
