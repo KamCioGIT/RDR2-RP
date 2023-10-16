@@ -5,10 +5,10 @@ AddEventHandler("dust_rumors:server:SendRumor", function(rumorText)
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local nameStr = user.firstname .. " " .. user.lastname
-    local currentMoney = User.money
+    local currentMoney = user.money
     local removeMoney = Config.RumorPrice
     if currentMoney >= removeMoney then
-        User.removeMoney(removeMoney)
+        user.removeMoney(removeMoney)
         MySQL.update(
             'INSERT INTO rumors (name, rumorText, date) VALUES (@name, @rumorText, @date);',
             {

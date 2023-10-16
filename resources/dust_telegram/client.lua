@@ -88,11 +88,6 @@ RegisterNUICallback('NUIFocusOff', function()
 end)
 
 
-RegisterCommand("test7", function()
-    TriggerEvent('redem_roleplay:ShowAdvancedRightNotification', "Vous avez reçu $50", "itemtype_textures" , "itemtype_cash_arthur" , "COLOR_OTHER_SESSION_PLAYER", 4000)
-end)
-
-
 
 
 
