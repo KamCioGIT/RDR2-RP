@@ -49,11 +49,11 @@ Citizen.CreateThread(function()
                     local entityPos = GetEntityCoords(entity) 
                     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                     coords = entityPos + boneCoord
-                    if currentRumors ~= nil then
+                    if currentrumors ~= nil then
                         print("getrumors")
-                        print(tostring(currentRumors[randomrumor]))
-                        randomrumor = math.random(1, #currentRumors)
-                        DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentRumors[randomrumor]))
+                        print(tostring(currentrumors[randomrumor]))
+                        randomrumor = math.random(1, #currentrumors)
+                        DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
                     end
                 end
 
@@ -136,7 +136,6 @@ function TrySendRumor()
                     end
                     if (GetOnscreenKeyboardResult()) then
                         local rumeurTextString = GetOnscreenKeyboardResult()
-                        print(rumeurTextString)
                         TriggerServerEvent("dust_rumors:server:SendRumor", rumeurTextString)
                         isInteracting = false
                         FreezeEntityPosition(PlayerPedId(), false)
