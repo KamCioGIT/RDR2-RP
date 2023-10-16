@@ -2276,7 +2276,7 @@ end)
 
 ---- telegram
 
-RegisterServerEvent("redemrp_inventory:createtelegram", function(telegram)
+RegisterServerEvent("redemrp_inventory:createtelegram", function(source, telegram)
     local _source = source
     print(source, telegram)
     local Player = RedEM.GetPlayer(_source)
