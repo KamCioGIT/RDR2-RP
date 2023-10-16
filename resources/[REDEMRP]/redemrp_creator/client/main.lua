@@ -101,7 +101,13 @@ local HairFunctions = {
     end,
     ["beard"] = function(target, data)
         LoadBeard(target, data)
-    end
+    end,
+    ["beardstabble_t"] = function(target, data)
+        LoadOverlays(target, data)
+    end,
+    ["beardstabble_op"] = function(target, data)
+        LoadOverlays(target, data)
+    end,
 
 }
 
@@ -863,6 +869,28 @@ function OpenHairMenu()
 
             options = {}
             a = a + 1
+
+            table.insert(elements, {
+                label = "Rasage",
+                value = CreatorCache["beardstabble_t"] or 1,
+                category = "beardstabble_t",
+                desc = "Change le rasage",
+                change_type = "overlays",
+                type = "slider",
+                min = 1,
+                max = 2
+            }),
+            table.insert(elements{
+                label = "Rasage: Opacité",
+                value = CreatorCache["beardstabble_op"] or 0,
+                category = "beardstabble_op",
+                desc = "Change le rasage",
+                type = "slider",
+                change_type = "overlays",
+                min = 0,
+                max = 100,
+                hop = 5
+            }),
     else
         local a = 1
         local category = hairs_list["female"]["hair"]
@@ -910,7 +938,7 @@ function OpenHairMenu()
         a = a + 1
     end
     MenuData.Open('default', GetCurrentResourceName(), 'hair_main_character_creator_menu', {
-        title = 'Cheuveux',
+        title = 'Cheveux',
         subtext = 'Options',
         align = 'top-left',
         elements = elements
@@ -958,6 +986,11 @@ function OpenHairMenu()
             if CreatorCache[data.current.category].texture ~= data.current.value then
                 CreatorCache[data.current.category].texture = data.current.value
                 HairFunctions[data.current.category](PlayerPedId(), CreatorCache)
+            end
+        elseif data.current.change_type == "overlays" then
+            if CreatorCache[data.current.category] ~= data.current.value then
+                CreatorCache[data.current.category] = data.current.value
+                LoadOverlays(PlayerPedId(), CreatorCache)
             end
         else
             if CreatorCache[data.current.category] ~= data.current.value then
