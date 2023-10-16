@@ -1974,6 +1974,12 @@ Uiprompt:new(0x760A9C6F, "Ouvrir", barberprompt)
 barberprompt:setActive(false)
 
 Citizen.CreateThread(function()
+    for name,pos in pairs(Config.Barber) do
+        local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, pos)
+        SetBlipSprite(blip, Config.BlipSprite)
+        SetBlipScale(blip, 0.2)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format(name))
+    end
     while true do
         Wait(2)
         local playerPos = GetEntityCoords(PlayerPedId())
