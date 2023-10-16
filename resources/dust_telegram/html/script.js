@@ -8,7 +8,7 @@ function loadInbox(list){
             var isoDate = new Date(letter.sentTime).toISOString().slice(0, -8);
             isoDatestr = isoDate.replace("2023","1885");
             isoDatenew = isoDatestr.replace("2024","1886");
-            isoDategood = isoDatenew.replace("T"," À ");
+            isoDategood = isoDatenew.replace("T"," / ");
             if(letter.status == 1){
                 $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope-open"></i><p> `+letter.subject+`</p></div><div class="inbox_sender">`+letter.sender+`</div><div class="inbox_date">`+isoDategood+`</div></li>`);
             }else{
@@ -75,7 +75,7 @@ $(function () {
             var isoDate = new Date(event.data.telegram.sentTime).toISOString().slice(0, -8);
             isoDatestr = isoDate.replace("2023","1885");
             isoDatenew = isoDatestr.replace("2024","1886");
-            isoDategood = isoDatenew.replace("T"," À ");
+            isoDategood = isoDatenew.replace("T","  / ");
             $("#view_recipient").text(event.data.telegram.recipient)
             $("#view_sender").text(event.data.telegram.sender)
             $("#view_date").text(isoDategood)
