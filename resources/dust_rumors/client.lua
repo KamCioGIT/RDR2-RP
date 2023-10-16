@@ -77,9 +77,10 @@ end)
 
 RegisterNetEvent("rumors:DrawText3D",function(text, ent)
     local timer = GetGameTimer() + Config.RefreshRumors
---         print (tostring(currentrumors[randomrumor]))
+
     local px, py, pz = table.unpack(GetGameplayCamCoord())
     randomrumor = math.random(1, #currentrumors)
+    print (tostring(currentrumors[randomrumor]))
     while GetGameTimer() < timer do
         Wait(0)
         local entityPos = GetEntityCoords(ent) 
