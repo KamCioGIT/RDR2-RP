@@ -52,7 +52,7 @@ Citizen.CreateThread(function()
                 local model = GetEntityModel(entity)
 
                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
-                if IsPedAPlayer(entity) ~= true then
+                if IsEntityAPed(entity) and not IsPedAPlayer(entity) and not Citizen.InvokeNative(0x9A100F1CF4546629, entity) then
                     if PlayerPedId() ~= entity then 
                         if IsEntityDead(entity) == false then
                             if boolA ~= nil and boolA == false then
