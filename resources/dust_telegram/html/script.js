@@ -64,8 +64,10 @@ $(function () {
             $('.inbox').css('display', 'block');
             $('#postname').text(postname)
         
-            let today = new Date().toLocaleDateString();
-            $('#today').text(today);
+            var isoDate = new Date().toISOString().split('T')[0];
+            isoDatestr = isoDate.replace("2023","1885");
+            isoDatenew = isoDatestr.replace("2024","1886");
+            $('#today').text(isoDatenew);
         
         }
         if(event.data.type === "view"){
