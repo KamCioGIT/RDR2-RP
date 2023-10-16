@@ -355,16 +355,9 @@ function MenuUpdateCart(data, menu, horse, model)
 end
 
 function MenuUpdateComp(data, menu, horse)
-    if data.current.id > 1 then
-        NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
-        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
-            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
-        end
-    else
-        NativeSetPedComponentEnabled(horse, comp_list[data.current.category][1].hash)
-        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
-            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
-        end
+    NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
+    if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
+        CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
     end
 end
 
