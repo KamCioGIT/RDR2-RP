@@ -30,7 +30,7 @@ function showOnPed(entity)
     Citizen.CreateThread(function()
         while GetGameTimer() < timer do
             Wait(0)
-            local entityPos = GetEntityCoords(entity)
+            local entityPos = GetEntityCoords(entity) 
             boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
             coords = entityPos + boneCoord
             DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
