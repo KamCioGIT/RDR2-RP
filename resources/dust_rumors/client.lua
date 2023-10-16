@@ -41,7 +41,6 @@ Citizen.CreateThread(function()
                         if IsEntityDead(entity) == false then
                             if boolA ~= nil and boolA == false then
                                 showOnPed = true
-                                Entity(entity).state.display = false
                             end
                         end
                     end
@@ -52,11 +51,10 @@ Citizen.CreateThread(function()
                     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                     coords = entityPos + boneCoord
                     if currentrumors ~= nil and #currentrumors > 0 then
-                        if Entity(entity).state.display == false then
-                            randomrumor = math.random(1, #currentrumors)
-                            DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
-                            Entity(entity).state.display = true
-                        end
+                        randomrumor = math.random(1, #currentrumors)
+                        DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
+                        Entity(entity).state.display = 1
+                        return
                     end
                 end
 
