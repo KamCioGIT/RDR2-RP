@@ -33,7 +33,7 @@ ul {
     display: none;
     color: white;
     margin: auto;
-    background-image: url(back_gen.png);
+    background-image: url("back_gen.png");
     background-size: cover;
     background-position: center;
     width: 850px;
@@ -186,7 +186,7 @@ ul {
 .closePostoffice
 {
     position: absolute;
-    background-image: url(close.png);
+    background-image: url("close.png");
     top: 1.8vw;
     right: 2vw;
     width: 35px;
@@ -205,7 +205,7 @@ ul {
 
 .closePostoffice:hover
 {
-    background-image: url(close_select.png);
+    background-image: url("close_select.png");
 }
 
 .composetelegram
@@ -217,14 +217,14 @@ ul {
     width: 300px;
     color: #D7D7D7;
     right: 1.5vw;
-    background-image: url(btn.png);
+    background-image: url("btn.png");
     background-position: center;
     background-size: cover;
 }
 
 .composetelegram:hover
 {
-    background-image: url(btn_select.png);
+    background-image: url("btn_select.png");
 }
 
 .telegram_header {
