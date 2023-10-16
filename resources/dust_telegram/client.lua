@@ -71,6 +71,8 @@ end
 
 
 RegisterNUICallback('getview', function(data)
+    InMenu = false
+    SetNuiFocus(false, false)
     TriggerServerEvent('scf_telegram:getTelegram', tonumber(data.id))
     TriggerServerEvent("scf_telegram:DeleteTelegram", tonumber(data.id))
 end)
