@@ -85,6 +85,7 @@ end)
 
 RegisterServerEvent("RegisterUsableItem:télégramme")
 AddEventHandler("RegisterUsableItem:télégramme", function(source, _data)
+    local _source = source
     local data = _data
     TriggerClientEvent("messageData", _source, data)
 end)
