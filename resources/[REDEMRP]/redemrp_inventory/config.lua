@@ -694,16 +694,6 @@ Config.Items = {
         imgsrc = "items/provision_meat_mature_venison.png",
         type = "item_standard"
     },
-    ["volaille"] = {
-        label = "Volaille",
-        description = "Prête à être cuisinée",
-        weight = 0.4,
-        canBeDropped = true,
-        canBeUsed = false,
-        limit = 2000,
-        imgsrc = "items/consumable_meat_plump_bird_cooked.png",
-        type = "item_standard"
-    },
     ["petitsteak"] = {
         label = "Petit Steak",
         description = "Un petit bout de viande",
@@ -1386,6 +1376,17 @@ Config.Items = {
         imgsrc = "items/provision_alligator_skin.png",
         type = "item_standard",
     },
+    ["viandereptile"] = {
+        label = "Viande de reptile",
+        description = "",
+        weight = 0.3,
+        canBeDropped = true,
+        canBeUsed = false,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/provision_meat_stringy.png",
+        type = "item_standard",
+    },
     ["plume"] = {
         label = "Plume",
         description = "",
@@ -1452,7 +1453,7 @@ Config.Items = {
         imgsrc = "items/provision_meat_crustacean.png",
         type = "item_standard",
     },
-    ["viande volaille"] = {
+    ["viandevolaille"] = {
         label = "Volaille",
         description = "",
         weight = 0.2,
