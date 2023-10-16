@@ -18,7 +18,15 @@ files {
 	'html/ui.html', 
     'html/style.css',
     'html/script.js',
-    'html/bg.png'
+    'html/bg.png',
+    'html/back_gen.png',
+    'html/barre_elem.png',
+    'html/btn_select.png',
+    'html/btn.png',
+    'html/close_select.png',
+    'html/close.png',
+    'html/machine.ttf',
+    'html/script.ttf',
 }
 
 lua54 'yes'
