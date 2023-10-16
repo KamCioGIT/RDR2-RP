@@ -2,10 +2,11 @@
 local prompts = GetRandomIntInRange(0, 0xffffff)
 
 function TogglePost(name)
+    TriggerServerEvent('scf_telegram:check_inbox')
+    Wait(100)
     InMenu = true
     SetNuiFocus(true, true)
     SendNUIMessage({ type = 'openGeneral', postname = name })
-    TriggerServerEvent('scf_telegram:check_inbox')
 end
 
 Citizen.CreateThread(function()
