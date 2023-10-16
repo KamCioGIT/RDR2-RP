@@ -27,7 +27,7 @@ AddEventHandler("dust_rumors:server:askRumor", function()
             for i = 1, #result do
                 local rumorText = result[i].rumorText
                 local cd = os.time()
-                local savedDate = result[i].date / 1000
+                local savedDate = tonumber(result[i].date / 1000)
                 local timeDifference = os.difftime(cd, savedDate)
                 local dateisvalid = tonumber(60 * Config.Rumorstime)
                 if timeDifference >= dateisvalid then
