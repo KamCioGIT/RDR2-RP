@@ -108,7 +108,7 @@ end)
 
 -- Ecrire Nv Rumeur
 
-local rumorPrompt = UipromptGroup:new("ShareRumor")
+local rumorPrompt = UipromptGroup:new("Crieur")
 Uiprompt:new(0x760A9C6F, "Lancer une Rumeur", rumorPrompt)
 rumorPrompt:setActive(false)
 
