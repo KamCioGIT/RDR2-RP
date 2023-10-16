@@ -20,6 +20,7 @@ AddEventHandler("scf_telegram:check_inbox", function()
         res['list'] = result
         if result ~= nil then
             TriggerClientEvent("inboxlist", _source, res)
+            res = {}
         end
     end)
 end)
