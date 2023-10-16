@@ -102,7 +102,6 @@ $(document).ready(function(){
         itemToDel = $(this).data('id');
         $.post('http://dust_telegram/getview', JSON.stringify({id: $(this).data('id')}));
        $(".inbox").fadeOut().hide();
-       $(".view").fadeIn().show();
     });
 });
 
