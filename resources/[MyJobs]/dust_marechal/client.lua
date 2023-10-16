@@ -279,7 +279,7 @@ end
 function OpenCategoryCart(menu_catagory, horse, horseid, model)
     MenuData.CloseAll()
     local elements = {}
-    local a = 1
+    local a = 0
     for v, k in pairs(Config.MenuCart[menu_catagory].category) do
         if menu_catagory ~= "propsets" then
             category = comp_cart[k]
@@ -355,15 +355,22 @@ function MenuUpdateCart(data, menu, horse, model)
 end
 
 function MenuUpdateComp(data, menu, horse)
-    NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
-    if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
-        CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+    if data.current.id > 1 then
+        NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
+        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
+            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+        end
+    else
+        NativeSetPedComponentEnabled(horse, comp_list[data.current.category][1].hash)
+        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
+            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+        end
     end
 end
 
-function Change(horse, componentHash)
-    Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash, true, true, true)
-end
+-- function Change(horse, componentHash)
+--     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash, true, true, true)
+-- end
 function NativeSetPedComponentEnabled(ped, component)
     Citizen.InvokeNative(0xD3A7B003ED343FD9, ped, component, true, true, true)
 end
