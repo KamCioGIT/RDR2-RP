@@ -24,6 +24,7 @@ RegisterNetEvent("dust_rumors:client:getRumor", function(rumorsTable)
 end)
 
 function showOnPed(entity)
+    print "'oouaizs "
     if currentrumors ~= nil and #currentrumors > 0 then
         randomrumor = math.random(1, #currentrumors)
         local timer = GetGameTimer() + Config.RefreshRumors
