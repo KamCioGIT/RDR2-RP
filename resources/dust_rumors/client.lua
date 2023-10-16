@@ -9,6 +9,19 @@ rumorPrompt:setActive(false)
 
 isInteracting = false;
 
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(Config.RefreshRumors)
+        TriggerServerEvent("dust_rumors:server:askRumor")
+    end
+end)
+
+
+RegisterNetEvent("dust_rumors:client:getRumor", function(rumorsTable)
+    currentrumors = rumorsTable
+end)
+
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
@@ -36,7 +49,8 @@ Citizen.CreateThread(function()
                     local entityPos = GetEntityCoords(entity) 
                     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                     coords = entityPos + boneCoord
-                    DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
+                    randomrumor = math.random(1, #currentRumors)
+                    DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentRumors[randomrumor]))
                 end
 
                 showOnPed = false
