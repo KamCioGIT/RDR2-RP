@@ -101,7 +101,9 @@ $(document).ready(function(){
     $("#inboxList").on("click",'li',function(event){
         itemToDel = $(this).data('id');
         $.post('http://dust_telegram/getview', JSON.stringify({id: $(this).data('id')}));
-       $(".inbox").fadeOut().hide();
+        $('.inbox').css('display', 'none')
+        $('.compose').css('display', 'none')
+        $('.view').css('display', 'none')
     });
 });
 
