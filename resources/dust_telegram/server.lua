@@ -75,6 +75,7 @@ AddEventHandler("scf_telegram:getTelegram", function(tid)
             telegram['sentTime'] = result[1]['sentTime']
             telegram['subject'] = result[1]['subject']
             telegram['message'] = result[1]['message']
+            telegram['postoffice'] = result[1]['postoffice']
             MySQL.update("UPDATE telegrams SET status = '1' WHERE id = @id", { ["@id"] = tid })
             TriggerClientEvent("messageData", _source, telegram)
         end

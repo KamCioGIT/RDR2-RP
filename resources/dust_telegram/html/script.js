@@ -81,6 +81,7 @@ $(function () {
             $("#view_date").text(isoDategood)
             $("#view_subject").text(event.data.telegram.subject)
             $("#view_message").text(event.data.telegram.message)
+            $("#view_id").text(event.data.telegram.postoffice)
         }
         if(event.data.type === "inboxlist"){
             loadInbox(event.data.response.list);
