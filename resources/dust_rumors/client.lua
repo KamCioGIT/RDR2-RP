@@ -87,18 +87,21 @@ RegisterNetEvent("rumors:DrawText3D",function(ent)
         while GetGameTimer() < timer do
             Wait(0)
             if chance >= 33 then
+                local playerPosition = GetEntityCoords(PlayerPedId())
                 local entityPos = GetEntityCoords(ent) 
                 boneCoord = GetWorldPositionOfEntityBone(ent, 31086)
                 coords = entityPos + boneCoord
-                local onScreen, _x, _y = GetScreenCoordFromWorldCoord(coords.x, coords.y, coords.z + 1)
-                SetTextScale(0.25, 0.25)
-                SetTextFontForCurrentCommand(25)
-                SetTextColor(255, 255, 255, 200)
-                local str = CreateVarString(10, "LITERAL_STRING", tostring(entityRandomRumors[ent]), Citizen.ResultAsLong())
-                SetTextCentre(1)
-                DisplayText(str, _x, _y)
-                local factor = (string.len(tostring(entityRandomRumors[ent]))) / 250
-                DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
+                if #(playerPosition - entityPos) < 10 then 
+                    local onScreen, _x, _y = GetScreenCoordFromWorldCoord(coords.x, coords.y, coords.z + 1)
+                    SetTextScale(0.25, 0.25)
+                    SetTextFontForCurrentCommand(25)
+                    SetTextColor(255, 255, 255, 200)
+                    local str = CreateVarString(10, "LITERAL_STRING", tostring(entityRandomRumors[ent]), Citizen.ResultAsLong())
+                    SetTextCentre(1)
+                    DisplayText(str, _x, _y)
+                    local factor = (string.len(tostring(entityRandomRumors[ent]))) / 250
+                    DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
+                end
             end
         end
         isEventRunning[ent] = false
@@ -187,8 +190,3 @@ function TrySendRumor()
         end)
     end)
 end
-
-RegisterNetEvent("dust_rumors:ReceiveRumor")
-AddEventHandler("dust_rumors:ReceiveRumor", function(rumorText)
-
-end)
