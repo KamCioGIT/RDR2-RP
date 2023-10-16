@@ -23,6 +23,22 @@ RegisterNetEvent("dust_rumors:client:getRumor", function(rumorsTable)
     print(#rumorsTable)
 end)
 
+function showOnPed(entity)
+    if currentrumors ~= nil and #currentrumors > 0 then
+        randomrumor = math.random(1, #currentrumors)
+    end
+    local timer = GetGameTimer() + Config.RefreshRumors
+    Citizen.CreateThread(function()
+        while GetGameTimer() < timer do
+            Wait(0)
+            local entityPos = GetEntityCoords(entity) 
+            boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
+            coords = entityPos + boneCoord
+            DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
+        end
+    end)
+end
+
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
@@ -36,29 +52,26 @@ Citizen.CreateThread(function()
 
                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
                 if IsPedAPlayer(entity) ~= true then
-                    local isDisplaying = Entity(entity).state.display
-                    print (isDisplaying)
                     if PlayerPedId() ~= entity and isDisplaying == nil then 
                         if IsEntityDead(entity) == false then
                             if boolA ~= nil and boolA == false then
-                                showOnPed = true
+                                showOnPed(entity)
                             end
                         end
                     end
                 end
 
-                if showOnPed then
-                    local entityPos = GetEntityCoords(entity) 
-                    boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
-                    coords = entityPos + boneCoord
-                    if currentrumors ~= nil and #currentrumors > 0 then
-                        randomrumor = math.random(1, #currentrumors)
-                        DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
-                        Entity(entity).state.display = true
-                    end
-                end
+                -- if showOnPed then
+                --     local entityPos = GetEntityCoords(entity) 
+                --     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
+                --     coords = entityPos + boneCoord
+                --     if currentrumors ~= nil and #currentrumors > 0 then
+                --         randomrumor = math.random(1, #currentrumors)
+                --         DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
+                --     end
+                -- end
 
-                showOnPed = false
+                -- showOnPed = false
             end
         end
 
