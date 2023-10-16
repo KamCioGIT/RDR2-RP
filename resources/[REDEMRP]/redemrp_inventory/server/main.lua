@@ -2282,7 +2282,7 @@ RegisterServerEvent("redemrp_inventory:createtelegram", function(source, telegra
     local Player = RedEM.GetPlayer(_source)
     local identifier = Player.GetIdentifier()
     local charid = Player.GetActiveCharacter()
-    local itemData = SharedInventoryFunctions.getItem(_source, "télégramme")
+    local itemData = Config.Items["transferhorse"]
     local _meta = meta or {}
     _meta.data = telegram
     local item, id = getInventoryItemFromName("télégramme", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
