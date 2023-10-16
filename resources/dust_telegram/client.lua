@@ -9,22 +9,6 @@ function TogglePost(name)
     SendNUIMessage({ type = 'openGeneral', postname = name })
 end
 
-Citizen.CreateThread(function()
-    Citizen.Wait(5000)
-    local str = Config.OpenPost
-    OpenPost = PromptRegisterBegin()
-    PromptSetControlAction(OpenPost, Config.keys.G)
-    str = CreateVarString(10, 'LITERAL_STRING', str)
-    PromptSetText(OpenPost, str)
-    PromptSetEnabled(OpenPost, 1)
-    PromptSetVisible(OpenPost, 1)
-    PromptSetStandardMode(OpenPost, 1)
-    PromptSetHoldMode(OpenPost, 1)
-    PromptSetGroup(OpenPost, prompts)
-    Citizen.InvokeNative(0xC5F428EE08FA7F2C, OpenPost, true)
-    PromptRegisterEnd(OpenPost)
-end)
-
 
 Citizen.CreateThread(function()
     if Config.postoffice then
@@ -36,7 +20,9 @@ Citizen.CreateThread(function()
     end
 end)
 
-
+local postPrompt = UipromptGroup:new("Lafayette Express Wire")
+Uiprompt:new(0x760A9C6F, "Consulter ses télégrammes", postPrompt)
+postPrompt:setActive(false)
 
 
 Citizen.CreateThread(function()
@@ -45,11 +31,8 @@ Citizen.CreateThread(function()
         local pcoords = GetEntityCoords(PlayerPedId())
         for k, v in ipairs(Config.postoffice) do
             if Vdist(pcoords, v.coords) < 1.5 then
-
-                local label = CreateVarString(10, 'LITERAL_STRING', Config.post)
-                PromptSetActiveGroupThisFrame(prompts, label)
-                if Citizen.InvokeNative(0xC92AC953F0A982AE, OpenPost) then
-
+                postPrompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x760A9C6F) then
                     TogglePost(v.name)
                 end
             end
