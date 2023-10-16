@@ -14,7 +14,7 @@ AddEventHandler("scf_telegram:check_inbox", function()
     local lastname = User.lastname
 	local postbox = firstname .. " " .. lastname
     MySQL.query("SELECT * FROM telegrams WHERE recipient = @reci ORDER BY id DESC", { ['@reci'] = postbox }, function(result)
-        local res = {}
+        res = {}
         res['box'] = postbox
         res['firstname'] = firstname
         res['list'] = result

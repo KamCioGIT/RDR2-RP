@@ -5,7 +5,7 @@ function TogglePost(name)
     InMenu = true
     SetNuiFocus(true, true)
     SendNUIMessage({ type = 'openGeneral', postname = name })
-    TriggerServerEvent('scf_telegram:check_inbox', GetPlayers())
+    TriggerServerEvent('scf_telegram:check_inbox')
 end
 
 Citizen.CreateThread(function()
