@@ -77,7 +77,7 @@ function DrawText3D(x, y, z, text)
     SetTextCentre(1)
     DisplayText(str, _x, _y)
     local factor = (string.len(text)) / 150
-    DrawSprite("generic_textures", "selection_box_bg_1d", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 100, 1, 1, 190, 0)
+    DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 0, 0, 0, 40, 0)
 end
 
 function TrySendRumor()
