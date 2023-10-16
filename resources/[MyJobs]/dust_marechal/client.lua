@@ -140,7 +140,7 @@ end
 function OpenCategory(menu_catagory, horse, horseid)
     MenuData.CloseAll()
     local elements = {}
-    local a = 1
+    local a = 0
     for v, k in pairs(Config.MenuElements[menu_catagory].category) do
         local category = comp_list[k]
         local options = {}
@@ -153,7 +153,7 @@ function OpenCategory(menu_catagory, horse, horseid)
             category = k,
             desc = "Changer l'équipement",
             type = "slider",
-            min = -1,
+            min = 0,
             max = #category,
             change_type = "model",
             id = a,
