@@ -68,10 +68,13 @@ $(function () {
             $('#today').text(today);
         
         }
+        var isoDate = new Date(event.data.telegram.sentTime).toISOString().split('T')[0];
+        isoDatestr = isoDate.replace("2023","1885");
+        isoDatenew = isoDatestr.replace("2024","1886");
         if(event.data.type === "view"){
             $("#view_recipient").text(event.data.telegram.recipient)
             $("#view_sender").text(event.data.telegram.sender)
-            $("#view_date").text(event.data.telegram.sentTime)
+            $("#view_date").text(isoDatenew)
             $("#view_subject").text(event.data.telegram.subject)
             $("#view_message").text(event.data.telegram.message)
         }
