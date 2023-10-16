@@ -109,7 +109,7 @@ ul {
 
 .inbox ul {
     overflow-x: scroll;
-    height: 360px;
+    height: 100%;
 }
 
 .inbox_row {
