@@ -2276,16 +2276,14 @@ end)
 
 ---- telegram
 
-RegisterServerEvent("redemrp_inventory:createtelegram", function(source, message, date, sender)
+RegisterServerEvent("redemrp_inventory:createtelegram", function(telegram)
     local _source = source
     local Player = RedEM.GetPlayer(_source)
     local identifier = Player.GetIdentifier()
     local charid = Player.GetActiveCharacter()
     local itemData = SharedInventoryFunctions.getItem(_source, "télégramme")
     local _meta = meta or {}
-    _meta.message = message
-    _meta.date = date
-    _meta.sender = sender
+    _meta.data = telegram
     local item, id = getInventoryItemFromName("télégramme", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
     if not item then
         table.insert(Inventory[identifier .. "_" .. charid], CreateItem("télégramme", 1, _meta))
