@@ -81,6 +81,7 @@ end)
 
 
 
+
 function DrawText3D(text, ent)
     local timer = GetGameTimer() + Config.RefreshRumors
 --         print (tostring(currentrumors[randomrumor]))
