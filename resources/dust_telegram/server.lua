@@ -13,12 +13,13 @@ AddEventHandler("scf_telegram:check_inbox", function()
     local firstname = User.firstname
     local lastname = User.lastname
 	local postbox = firstname .. " " .. lastname
-    MySQL.query("SELECT * FROM telegrams WHERE `recipient` = @reci", { reci = postbox }, function(result)
+    MySQL.query("SELECT * FROM telegrams WHERE recipient = @reci", { reci = postbox }, function(result)
         res = {}
         res['box'] = postbox
         res['firstname'] = firstname
         res['list'] = result
         if result ~= nil then
+            print "get"
             TriggerClientEvent("inboxlist", _source, res)
             res = {}
         end
