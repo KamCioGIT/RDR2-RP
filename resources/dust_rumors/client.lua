@@ -57,8 +57,7 @@ Citizen.CreateThread(function()
                         if IsEntityDead(entity) == false then
                             if boolA ~= nil and boolA == false then
                                 if currentrumors ~= nil and #currentrumors > 0 then
-                                    randomrumor = math.random(1, #currentrumors)
-                                    TriggerEvent("rumors:DrawText3D", tostring(currentrumors[randomrumor]), entity)
+                                    TriggerEvent("rumors:DrawText3D", entity)
                                 end
                             end
                         end
@@ -80,6 +79,7 @@ RegisterNetEvent("rumors:DrawText3D",function(text, ent)
     local timer = GetGameTimer() + Config.RefreshRumors
 --         print (tostring(currentrumors[randomrumor]))
     local px, py, pz = table.unpack(GetGameplayCamCoord())
+    randomrumor = math.random(1, #currentrumors)
     while GetGameTimer() < timer do
         Wait(0)
         local entityPos = GetEntityCoords(ent) 
@@ -89,10 +89,10 @@ RegisterNetEvent("rumors:DrawText3D",function(text, ent)
         SetTextScale(0.25, 0.25)
         SetTextFontForCurrentCommand(25)
         SetTextColor(255, 255, 255, 200)
-        local str = CreateVarString(10, "LITERAL_STRING", text, Citizen.ResultAsLong())
+        local str = CreateVarString(10, "LITERAL_STRING", tostring(currentrumors[randomrumor]), Citizen.ResultAsLong())
         SetTextCentre(1)
         DisplayText(str, _x, _y)
-        local factor = (string.len(text)) / 150
+        local factor = (string.len(tostring(currentrumors[randomrumor]))) / 150
         DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.03 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
     end
 end)
