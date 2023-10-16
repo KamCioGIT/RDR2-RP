@@ -135,6 +135,12 @@ ul {
     overflow-x: auto;
 }
 
+.inbox_subject p {
+    max-width: 40%;
+    padding: 0;
+    overflow-x: auto;
+}
+
 .inbox_sender {
     width: 30%;
 }
