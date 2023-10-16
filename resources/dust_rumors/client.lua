@@ -36,7 +36,7 @@ Citizen.CreateThread(function()
                     local entityPos = GetEntityCoords(entity) 
                     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                     coords = entityPos + boneCoord
-                    DrawText3D(coords.x, coords.y, coords.z + 1, "MONSTRE")
+                    DrawText3D(coords.x, coords.y, coords.z + 1, "Tu me rends fou, NE CRIE PAS SUR LE CHIEN ! ?.")
                 end
 
                 showOnPed = false
@@ -70,14 +70,14 @@ end)
 function DrawText3D(x, y, z, text)
     local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z)
     local px, py, pz = table.unpack(GetGameplayCamCoord())
-    SetTextScale(0.35, 0.35)
-    SetTextFontForCurrentCommand(2)
-    SetTextColor(255, 255, 255, 215)
+    SetTextScale(0.25, 0.25)
+    SetTextFontForCurrentCommand(25)
+    SetTextColor(255, 255, 255, 200)
     local str = CreateVarString(10, "LITERAL_STRING", text, Citizen.ResultAsLong())
     SetTextCentre(1)
     DisplayText(str, _x, _y)
     local factor = (string.len(text)) / 150
-    DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
+    DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.03 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
 end
 
 function TrySendRumor()

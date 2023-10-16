@@ -51,6 +51,7 @@ ensure redemrp_charselect
 ensure [REDEMRP]
 ensure gumApi
 ensure gtp_safecracking
+ensure objectloader
 
 # Dust Resources
 ensure dust_stable
