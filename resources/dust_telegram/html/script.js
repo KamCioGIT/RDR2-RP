@@ -5,7 +5,7 @@ function loadInbox(list){
     $('#inboxList').empty();
     if(list.length > 0) {
         list.forEach(function(letter){
-            var isoDate = new Date(statement.date).toISOString().split('T')[0];
+            var isoDate = new Date(letter.sentTime).toISOString().split('T')[0];
             isoDatestr = isoDate.replace("2023","1885");
             isoDatenew = isoDatestr.replace("2024","1886");
             if(letter.status == 1){
