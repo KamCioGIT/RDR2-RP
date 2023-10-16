@@ -359,6 +359,7 @@ a {
     top: 260px;
     left: 150px;
     font-family: 'machine';
+    font-weight: 700;
     max-height: 40px;
     overflow: auto;
     width:70%;
@@ -374,6 +375,7 @@ a {
     top: 320px;
     left: 150px;
     font-family: 'machine';
+    font-weight: 400;
     max-height: 200px;
     overflow: auto;
     width: 80%;
