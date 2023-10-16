@@ -75,14 +75,15 @@ end)
 
 
 local isEventRunning = {}
+local entityRandomRumors = {}
 RegisterNetEvent("rumors:DrawText3D",function(ent)
     if not isEventRunning[ent] then
         isEventRunning[ent] = true
         local timer = GetGameTimer() + Config.RefreshRumors
+        if not entityRandomRumors[ent] then
+            entityRandomRumors[ent] = math.random(1, #currentrumors)
+        end
 
-        local px, py, pz = table.unpack(GetGameplayCamCoord())
-        randomrumor = math.random(1, #currentrumors)
-        print (tostring(currentrumors[randomrumor]))
         while GetGameTimer() < timer do
             Wait(0)
             local entityPos = GetEntityCoords(ent) 
@@ -92,13 +93,14 @@ RegisterNetEvent("rumors:DrawText3D",function(ent)
             SetTextScale(0.25, 0.25)
             SetTextFontForCurrentCommand(25)
             SetTextColor(255, 255, 255, 200)
-            local str = CreateVarString(10, "LITERAL_STRING", tostring(currentrumors[randomrumor]), Citizen.ResultAsLong())
+            local str = CreateVarString(10, "LITERAL_STRING", tostring(entityRandomRumors[ent]), Citizen.ResultAsLong())
             SetTextCentre(1)
             DisplayText(str, _x, _y)
             local factor = (string.len(tostring(currentrumors[randomrumor]))) / 150
             DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.03 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
         end
         isEventRunning[ent] = false
+        entityRandomRumors[ent] = nil
     end
 end)
 
