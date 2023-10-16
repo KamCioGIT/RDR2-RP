@@ -52,12 +52,18 @@ Citizen.CreateThread(function()
                 local model = GetEntityModel(entity)
 
                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
-                if IsEntityAPed(entity) and not IsPedAPlayer(entity) and not Citizen.InvokeNative(0x9A100F1CF4546629, entity) then
-                    if PlayerPedId() ~= entity then 
-                        if IsEntityDead(entity) == false then
-                            if boolA ~= nil and boolA == false then
-                                if currentrumors ~= nil and #currentrumors > 0 then
-                                    TriggerEvent("rumors:DrawText3D", entity)
+                if IsEntityAPed(entity) and not Citizen.InvokeNative(0x9A100F1CF4546629, entity) then
+                    local networkId = NetworkGetNetworkIdFromEntity(entity)
+                    if networkId then
+                        local player = NetworkGetPlayerIndexFromPed(entity)
+                        if player == -1 then
+                            if PlayerPedId() ~= entity then 
+                                if IsEntityDead(entity) == false then
+                                    if boolA ~= nil and boolA == false then
+                                        if currentrumors ~= nil and #currentrumors > 0 then
+                                            TriggerEvent("rumors:DrawText3D", entity)
+                                        end
+                                    end
                                 end
                             end
                         end
