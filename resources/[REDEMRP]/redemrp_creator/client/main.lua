@@ -872,7 +872,7 @@ function OpenHairMenu()
 
             table.insert(elements, {
                 label = "Rasage",
-                value =  1,
+                value = CreatorCache["beardstabble_t"] or 1,
                 category = "beardstabble_t",
                 desc = "Change le rasage",
                 change_type = "overlays",
@@ -880,9 +880,9 @@ function OpenHairMenu()
                 min = 1,
                 max = 2
             })
-            table.insert(elements{
+            table.insert(elements, {
                 label = "Rasage: Opacité",
-                value =  0,
+                value = CreatorCache["beardstabble_op"] or 0,
                 category = "beardstabble_op",
                 desc = "Change le rasage",
                 type = "slider",
