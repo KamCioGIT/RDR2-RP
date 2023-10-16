@@ -35,7 +35,7 @@ Citizen.CreateThread(function()
                 local model = GetEntityModel(entity)
 
                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
-                if IsPedAPlayer(entity) ~= true  and not Entity(entity).state.display then
+                if IsPedAPlayer(entity) ~= true then
                     if PlayerPedId() ~= entity then 
                     
                         if IsEntityDead(entity) == false then
@@ -53,7 +53,7 @@ Citizen.CreateThread(function()
                     if currentrumors ~= nil and #currentrumors > 0 then
                         randomrumor = math.random(1, #currentrumors)
                         DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
-                        Entity(entity).state.display = true
+                        showOnPed = false
                     end
                 end
 
