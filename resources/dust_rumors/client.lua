@@ -50,10 +50,10 @@ Citizen.CreateThread(function()
                     local entityPos = GetEntityCoords(entity) 
                     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                     coords = entityPos + boneCoord
-                    if currentrumors ~= nil and #currentrumors > 0 then
+                    if currentrumors ~= nil and #currentrumors > 0 and Entity(entity).state.display == nil then
                         randomrumor = math.random(1, #currentrumors)
                         DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
-                        showOnPed = false
+                        Entity(entity).state.display = true
                     end
                 end
 
