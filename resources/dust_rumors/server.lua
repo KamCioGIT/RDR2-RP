@@ -32,10 +32,9 @@ AddEventHandler("dust_rumors:server:askRumor", function()
                 local dateisvalid = tonumber(60 * Config.Rumorstime)
                 print(timeDifference)
                 if timeDifference <= dateisvalid then
-                    table.insert(rumorsTable, rumorText)
-                    print ('ouaislazone')
+                    table.insert(rumorsTable, tostring(rumorText))
                 else
-                    MySQL.query('DELETE FROM rumors WHERE `rumorText` = @rumorText AND `date`=@date;', {rumorText = rumorText, date = result[i].date})
+                    MySQL.query('DELETE FROM rumors WHERE `rumorText`= @rumorText AND `date`=@date;', {rumorText = rumorText, date = result[i].date})
                 end
 			end
         end
