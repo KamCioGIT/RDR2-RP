@@ -33,7 +33,7 @@ AddEventHandler("dust_rumors:server:askRumor", function()
                 if timeDifference <= dateisvalid then
                     table.insert(rumorsTable, tostring(rumorText))
                 else
-                    MySQL.query('DELETE FROM rumors WHERE `rumorText`= @rumorText AND `date`=@date;', {rumorText = result[i].rumorText, date = result[i].date})
+                    MySQL.update('DELETE FROM rumors WHERE `rumorText`= @rumorText AND `date`=@date;', {rumorText = result[i].rumorText, date = result[i].date})
                 end
 			end
             TriggerClientEvent("dust_rumors:client:getRumor", _source, rumorsTable)
