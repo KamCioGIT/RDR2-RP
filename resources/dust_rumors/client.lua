@@ -73,12 +73,11 @@ Citizen.CreateThread(function()
 end)
 
 
-local isEventRunning = {}
+
 
 RegisterNetEvent("rumors:DrawText3D",function(ent)
     if not isEventRunning[ent] then
         isEventRunning[ent] = true
-
         local timer = GetGameTimer() + Config.RefreshRumors
 
         local px, py, pz = table.unpack(GetGameplayCamCoord())
@@ -96,11 +95,10 @@ RegisterNetEvent("rumors:DrawText3D",function(ent)
             local str = CreateVarString(10, "LITERAL_STRING", tostring(currentrumors[randomrumor]), Citizen.ResultAsLong())
             SetTextCentre(1)
             DisplayText(str, _x, _y)
-            local factor = (string.len(tostring(currentrumors[randomrumor])) / 150
+            local factor = (string.len(tostring(currentrumors[randomrumor]))) / 150
             DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.03 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
         end
-
-        isEventRunning[ent] = false  -- Remettre le drapeau à false après avoir terminé l'événement
+        isEventRunning[ent] = false
     end
 end)
 
