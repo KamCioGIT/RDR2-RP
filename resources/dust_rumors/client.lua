@@ -56,20 +56,14 @@ Citizen.CreateThread(function()
                     if PlayerPedId() ~= entity and isDisplaying == nil then 
                         if IsEntityDead(entity) == false then
                             if boolA ~= nil and boolA == false then
-                                showOnPed = true
+                                if currentrumors ~= nil and #currentrumors > 0 then
+                                    randomrumor = math.random(1, #currentrumors)
+                                    TriggerEvent("rumors:DrawText3D", (tostring(currentrumors[randomrumor]), entity)
+                                end
                             end
                         end
                     end
                 end
-
-                if showOnPed then
-                    if currentrumors ~= nil and #currentrumors > 0 then
-                        randomrumor = math.random(1, #currentrumors)
-                        DrawText3D(tostring(currentrumors[randomrumor]), entity)
-                    end
-                end
-
-                showOnPed = false
             end
         end
 
@@ -82,7 +76,7 @@ end)
 
 
 
-function DrawText3D(text, ent)
+RegisterNetEvent("rumors:DrawText3D",function(text, ent)
     local timer = GetGameTimer() + Config.RefreshRumors
 --         print (tostring(currentrumors[randomrumor]))
     local px, py, pz = table.unpack(GetGameplayCamCoord())
@@ -101,7 +95,7 @@ function DrawText3D(text, ent)
         local factor = (string.len(text)) / 150
         DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.03 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
     end
-end
+end)
 
 -- Ecrire Nv Rumeur
 Citizen.CreateThread(function()
