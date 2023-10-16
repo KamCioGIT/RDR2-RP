@@ -62,12 +62,9 @@ Citizen.CreateThread(function()
                 end
 
                 if showOnPed then
-                    local entityPos = GetEntityCoords(entity) 
-                    boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
-                    coords = entityPos + boneCoord
                     if currentrumors ~= nil and #currentrumors > 0 then
                         randomrumor = math.random(1, #currentrumors)
-                        DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]), entity)
+                        DrawText3D(tostring(currentrumors[randomrumor]), entity)
                     end
                 end
 
@@ -99,13 +96,16 @@ Citizen.CreateThread(function()
     end
 end)
 
-function DrawText3D(x, y, z, text, ent)
+function DrawText3D(text, ent)
     local timer = GetGameTimer() + Config.RefreshRumors
 --         print (tostring(currentrumors[randomrumor]))
     local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z)
     local px, py, pz = table.unpack(GetGameplayCamCoord())
     while GetGameTimer() < timer do
         Wait(0)
+        local entityPos = GetEntityCoords(ent) 
+        boneCoord = GetWorldPositionOfEntityBone(ent, 31086)
+        coords = entityPos + boneCoord
         SetTextScale(0.25, 0.25)
         SetTextFontForCurrentCommand(25)
         SetTextColor(255, 255, 255, 200)
