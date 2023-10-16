@@ -83,10 +83,10 @@ RegisterNetEvent("rumors:DrawText3D",function(ent)
         if not entityRandomRumors[ent] then
             entityRandomRumors[ent] = currentrumors[math.random(1, #currentrumors)]
         end
-        local chance = math.random(3)
+        local chance = math.random(0, 100)
         while GetGameTimer() < timer do
             Wait(0)
-            if chance >= 1 then
+            if chance >= 33 then
                 local entityPos = GetEntityCoords(ent) 
                 boneCoord = GetWorldPositionOfEntityBone(ent, 31086)
                 coords = entityPos + boneCoord
