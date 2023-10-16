@@ -9,9 +9,9 @@ function loadInbox(list){
             isoDatestr = isoDate.replace("2023","1885");
             isoDatenew = isoDatestr.replace("2024","1886");
             if(letter.status == 1){
-                $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope-open"></i><p> `+letter.subject+`</p></div><div class="inbox_sender">`+letter.sender+`</div><div class="inbox_date">`+letter.sentTime+`</div></li>`);
+                $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope-open"></i><p> `+letter.subject+`</p></div><div class="inbox_sender">`+isoDatenew+`</div><div class="inbox_date">`+letter.sentTime+`</div></li>`);
             }else{
-                $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope"></i> <p><b>`+letter.subject+`</b></p></div><div class="inbox_sender">`+letter.sender+`</div><div class="inbox_date">`+letter.sentTime+`</div></li>`);
+                $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope"></i> <p><b>`+letter.subject+`</b></p></div><div class="inbox_sender">`+isoDatenew+`</div><div class="inbox_date">`+letter.sentTime+`</div></li>`);
             }
         });
     }else{
