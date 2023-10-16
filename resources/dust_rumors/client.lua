@@ -23,21 +23,21 @@ RegisterNetEvent("dust_rumors:client:getRumor", function(rumorsTable)
     print(#currentrumors)
 end)
 
-function showOnPed(entity)
-    print "'oouaizs "
-    if currentrumors ~= nil and #currentrumors > 0 then
-        randomrumor = math.random(1, #currentrumors)
-        local timer = GetGameTimer() + Config.RefreshRumors
-        print (tostring(currentrumors[randomrumor]))
-        while GetGameTimer() < timer do
-            Wait(0)
-            local entityPos = GetEntityCoords(entity) 
-            boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
-            coords = entityPos + boneCoord
-            DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
-        end
-    end
-end
+-- function showOnPed(entity)
+--     print "'oouaizs "
+--     if currentrumors ~= nil and #currentrumors > 0 then
+--         randomrumor = math.random(1, #currentrumors)
+--         local timer = GetGameTimer() + Config.RefreshRumors
+--         print (tostring(currentrumors[randomrumor]))
+--         while GetGameTimer() < timer do
+--             Wait(0)
+--             local entityPos = GetEntityCoords(entity) 
+--             boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
+--             coords = entityPos + boneCoord
+--             DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
+--         end
+--     end
+-- end
 
 Citizen.CreateThread(function()
     while true do
@@ -55,22 +55,21 @@ Citizen.CreateThread(function()
                     if PlayerPedId() ~= entity and isDisplaying == nil then 
                         if IsEntityDead(entity) == false then
                             if boolA ~= nil and boolA == false then
-                                showOnPed(entity)
-                                return
+                                showOnPed = true
                             end
                         end
                     end
                 end
 
-                -- if showOnPed then
-                --     local entityPos = GetEntityCoords(entity) 
-                --     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
-                --     coords = entityPos + boneCoord
-                --     if currentrumors ~= nil and #currentrumors > 0 then
-                --         randomrumor = math.random(1, #currentrumors)
-                --         DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
-                --     end
-                -- end
+                if showOnPed then
+                    local entityPos = GetEntityCoords(entity) 
+                    boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
+                    coords = entityPos + boneCoord
+                    if currentrumors ~= nil and #currentrumors > 0 then
+                        randomrumor = math.random(1, #currentrumors)
+                        DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]), entity)
+                    end
+                end
 
                 showOnPed = false
             end
@@ -100,17 +99,22 @@ Citizen.CreateThread(function()
     end
 end)
 
-function DrawText3D(x, y, z, text)
+function DrawText3D(x, y, z, text, ent)
+    local timer = GetGameTimer() + Config.RefreshRumors
+--         print (tostring(currentrumors[randomrumor]))
     local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z)
     local px, py, pz = table.unpack(GetGameplayCamCoord())
-    SetTextScale(0.25, 0.25)
-    SetTextFontForCurrentCommand(25)
-    SetTextColor(255, 255, 255, 200)
-    local str = CreateVarString(10, "LITERAL_STRING", text, Citizen.ResultAsLong())
-    SetTextCentre(1)
-    DisplayText(str, _x, _y)
-    local factor = (string.len(text)) / 150
-    DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.03 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
+    while GetGameTimer() < timer do
+        Wait(0)
+        SetTextScale(0.25, 0.25)
+        SetTextFontForCurrentCommand(25)
+        SetTextColor(255, 255, 255, 200)
+        local str = CreateVarString(10, "LITERAL_STRING", text, Citizen.ResultAsLong())
+        SetTextCentre(1)
+        DisplayText(str, _x, _y)
+        local factor = (string.len(text)) / 150
+        DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.03 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
+    end
 end
 
 function TrySendRumor()
