@@ -155,7 +155,7 @@ function TrySendRumor()
             if data.current.value == 'TrySendRumor' then 
                 TriggerEvent("redemrp_menu_base:getData", function(MenuData)
                     MenuData.CloseAll()
-                    AddTextEntry("FMMC_MPM_TYP86", "Votre Rumeur / Limite de 100 caractères")
+                    AddTextEntry("FMMC_KEY_TIP8", "Votre Rumeur")
                     DisplayOnscreenKeyboard(0, "FMMC_KEY_TIP8", "", "", "", "", "", 100) -- KTEXTTYPE_ALPHABET
                     while (UpdateOnscreenKeyboard() == 0) do
                         DisableAllControlActions(0)
