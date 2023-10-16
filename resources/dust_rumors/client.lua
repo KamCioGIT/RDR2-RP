@@ -52,8 +52,9 @@ Citizen.CreateThread(function()
                 local model = GetEntityModel(entity)
 
                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
+                print (Entity(entity).state.isDisplayings)
                 if IsPedAPlayer(entity) ~= true then
-                    if PlayerPedId() ~= entity and isDisplaying == nil then 
+                    if PlayerPedId() ~= entity then 
                         if IsEntityDead(entity) == false then
                             if boolA ~= nil and boolA == false then
                                 if currentrumors ~= nil and #currentrumors > 0 then
@@ -75,7 +76,8 @@ end)
 
 
 
-RegisterNetEvent("rumors:DrawText3D",function(text, ent)
+RegisterNetEvent("rumors:DrawText3D",function(ent)
+    Entity(ent).state.isDisplaying = true
     local timer = GetGameTimer() + Config.RefreshRumors
 
     local px, py, pz = table.unpack(GetGameplayCamCoord())
@@ -96,6 +98,7 @@ RegisterNetEvent("rumors:DrawText3D",function(text, ent)
         local factor = (string.len(tostring(currentrumors[randomrumor]))) / 150
         DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.03 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
     end
+    Entity(ent).state.isDisplaying = false
 end)
 
 -- Ecrire Nv Rumeur
