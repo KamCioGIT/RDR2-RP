@@ -879,7 +879,7 @@ function OpenHairMenu()
                 type = "slider",
                 min = 1,
                 max = 2
-            }),
+            })
             table.insert(elements{
                 label = "Rasage: Opacité",
                 value = CreatorCache["beardstabble_op"] or 0,
