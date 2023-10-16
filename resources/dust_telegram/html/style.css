@@ -139,9 +139,9 @@ ul {
 
 .inbox_subject p {
     max-width: 75%;
-    margin-left: 15%;
     padding: 0;
     margin: 0;
+    margin-left: 15%;
     overflow-x: auto;
 }
 
