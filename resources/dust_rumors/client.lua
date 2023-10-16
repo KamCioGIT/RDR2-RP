@@ -24,14 +24,14 @@ RegisterNetEvent("dust_rumors:client:getRumor", function(rumorsTable)
 end)
 
 function showOnPed(entity)
-    if currentrumors ~= nil and #currentrumors > 0 then
-        randomrumor = math.random(1, #currentrumors)
-    end
-    local timer = GetGameTimer() + Config.RefreshRumors
     Citizen.CreateThread(function()
+        if currentrumors ~= nil and #currentrumors > 0 then
+            randomrumor = math.random(1, #currentrumors)
+        end
+        local timer = GetGameTimer() + Config.RefreshRumors
         while GetGameTimer() < timer do
             Wait(0)
-            local entityPos = GetEntityCoords(entity) 
+            local entityPos = GetEntityCoords(entity)
             boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
             coords = entityPos + boneCoord
             DrawText3D(coords.x, coords.y, coords.z + 1, tostring(currentrumors[randomrumor]))
