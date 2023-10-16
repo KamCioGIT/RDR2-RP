@@ -37,6 +37,7 @@ Citizen.CreateThread(function()
                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
                 if IsPedAPlayer(entity) ~= true then
                     local isDisplaying = Entity(entity).state.display
+                    print (isDisplaying)
                     if PlayerPedId() ~= entity and isDisplaying == nil then 
                         if IsEntityDead(entity) == false then
                             if boolA ~= nil and boolA == false then
