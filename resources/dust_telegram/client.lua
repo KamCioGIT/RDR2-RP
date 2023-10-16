@@ -2,7 +2,7 @@
 local prompts = GetRandomIntInRange(0, 0xffffff)
 
 function TogglePost(name)
-    TriggerServerEvent('scf_telegram:check_inbox')
+    TriggerServerEvent('dust_telegram:check_inbox')
     Wait(100)
     InMenu = true
     SetNuiFocus(true, true)
@@ -73,12 +73,12 @@ end
 RegisterNUICallback('getview', function(data)
     InMenu = false
     SetNuiFocus(false, false)
-    TriggerServerEvent('scf_telegram:getTelegram', tonumber(data.id))
-    TriggerServerEvent("scf_telegram:DeleteTelegram", tonumber(data.id))
+    TriggerServerEvent('dust_telegram:getTelegram', tonumber(data.id))
+    TriggerServerEvent("dust_telegram:DeleteTelegram", tonumber(data.id))
 end)
 
 RegisterNUICallback('sendTelegram', function(data)
-    TriggerServerEvent('scf_telegram:SendTelegram', data)
+    TriggerServerEvent('dust_telegram:SendTelegram', data)
 end)
 
 RegisterNUICallback('delete', function(data)
@@ -89,8 +89,8 @@ AddEventHandler('messageData', function(tele)
     SendNUIMessage({ type = 'view', telegram = tele })
 end)
 
-RegisterNetEvent('inboxlist')
-AddEventHandler('inboxlist', function(data)
+RegisterNetEvent('dust_telegram:inboxlist')
+AddEventHandler('dust_telegram:inboxlist', function(data)
     SendNUIMessage({ type = 'inboxlist', response = data })
 end)
 
