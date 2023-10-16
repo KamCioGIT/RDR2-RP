@@ -136,7 +136,7 @@ ul {
 }
 
 .inbox_sender {
-    padding-right: 20px;
+    width: 45%;
 }
 
 .inbox_date {
