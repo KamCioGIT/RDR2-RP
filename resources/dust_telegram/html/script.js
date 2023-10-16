@@ -20,8 +20,7 @@ function loadInbox(list){
 //Close view Or compose
 $(".close_view").on("click", function () {
     $(".view").fadeOut().hide();
-    $(".compose").fadeOut().hide();
-    $(".inbox").fadeIn().show();
+    $('.view').css('display', 'none')
 });
 //Compose button
 $(".composetelegram").on("click",function(){
