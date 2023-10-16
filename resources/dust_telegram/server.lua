@@ -78,7 +78,7 @@ AddEventHandler("scf_telegram:getTelegram", function(tid)
             telegram['message'] = result[1]['message']
             telegram['postoffice'] = result[1]['postoffice']
             MySQL.update("UPDATE telegrams SET status = '1' WHERE id = @id", { ["@id"] = tid })
-            TriggerEvent("redemrp_inventory:createtelegram", telegram)
+            TriggerEvent("redemrp_inventory:createtelegram", _source, telegram)
         end
     end)
 end)
