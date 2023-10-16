@@ -6,9 +6,9 @@ function loadInbox(list){
     if(list.length > 0) {
         list.forEach(function(letter){
             if(letter.status == 1){
-                $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope-open"></i> `+letter.subject+`</div><div class="inbox_sender">`+letter.sender+`</div><div class="inbox_date">`+letter.sentTime+`</div></li>`);
+                $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope-open"></i><p> `+letter.subject+`</p></div><div class="inbox_sender">`+letter.sender+`</div><div class="inbox_date">`+letter.sentTime+`</div></li>`);
             }else{
-                $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope"></i> <b>`+letter.subject+`</b></div><div class="inbox_sender">`+letter.sender+`</div><div class="inbox_date">`+letter.sentTime+`</div></li>`);
+                $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope"></i> <p><b>`+letter.subject+`</b></p></div><div class="inbox_sender">`+letter.sender+`</div><div class="inbox_date">`+letter.sentTime+`</div></li>`);
             }
         });
     }else{
