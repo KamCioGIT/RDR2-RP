@@ -2278,6 +2278,7 @@ end)
 
 RegisterServerEvent("redemrp_inventory:createtelegram", function(telegram)
     local _source = source
+    print(source, telegram)
     local Player = RedEM.GetPlayer(_source)
     local identifier = Player.GetIdentifier()
     local charid = Player.GetActiveCharacter()
