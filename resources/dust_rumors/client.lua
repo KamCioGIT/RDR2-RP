@@ -99,7 +99,7 @@ end)
 function DrawText3D(text, ent)
     local timer = GetGameTimer() + Config.RefreshRumors
 --         print (tostring(currentrumors[randomrumor]))
-    local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z)
+    local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z + 1)
     local px, py, pz = table.unpack(GetGameplayCamCoord())
     while GetGameTimer() < timer do
         Wait(0)
