@@ -5,7 +5,7 @@ function loadInbox(list){
     $('#inboxList').empty();
     if(list.length > 0) {
         list.forEach(function(letter){
-            var isoDate = new Date(letter.sentTime).toISOString().slice(0, -3);
+            var isoDate = new Date(letter.sentTime).toISOString().slice(0, -8);
             isoDatestr = isoDate.replace("2023","1885");
             isoDatenew = isoDatestr.replace("2024","1886");
             if(letter.status == 1){
@@ -71,7 +71,7 @@ $(function () {
         
         }
         if(event.data.type === "view"){
-            var isoDate = new Date(event.data.telegram.sentTime).toISOString().slice(0, -3);
+            var isoDate = new Date(event.data.telegram.sentTime).toISOString().slice(0, -8);
             isoDatestr = isoDate.replace("2023","1885");
             isoDatenew = isoDatestr.replace("2024","1886");
             $("#view_recipient").text(event.data.telegram.recipient)
