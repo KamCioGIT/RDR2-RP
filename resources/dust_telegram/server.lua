@@ -41,7 +41,7 @@ AddEventHandler("scf_telegram:SendTelegram", function(data)
 
 
     if currentMoney >= removeMoney then
-        local sentDate = os.date("%d/%m/%Y %H:%M")
+        local sentDate = os.date("%Y-%m-%d %H:%M:%S")
         MySQL.query("SELECT * FROM characters WHERE lastname = @lastname AND firstname = @firstname",{firstname = recipientfirstname, lastname = recipientlastname}, function(result)
             if result[1] ~= nil then
                 if recipientfirstname == nil or recipientfirstname == '' and recipientlastname == nil or recipientlastname == '' and subject == nil or subject == '' and sender == nil or sender == '' then
