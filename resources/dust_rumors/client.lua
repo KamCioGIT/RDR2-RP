@@ -52,7 +52,6 @@ Citizen.CreateThread(function()
                 local model = GetEntityModel(entity)
 
                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
-                print (Entity(entity).state.isDisplayings)
                 if IsPedAPlayer(entity) ~= true then
                     if PlayerPedId() ~= entity then 
                         if IsEntityDead(entity) == false then
@@ -77,29 +76,34 @@ end)
 
 
 RegisterNetEvent("rumors:DrawText3D",function(ent)
-    Entity(ent).state.isDisplaying = true
-    local timer = GetGameTimer() + Config.RefreshRumors
+    if not isEventRunning[ent] then
+        isEventRunning[ent] = true
 
-    local px, py, pz = table.unpack(GetGameplayCamCoord())
-    randomrumor = math.random(1, #currentrumors)
-    print (tostring(currentrumors[randomrumor]))
-    while GetGameTimer() < timer do
-        Wait(0)
-        local entityPos = GetEntityCoords(ent) 
-        boneCoord = GetWorldPositionOfEntityBone(ent, 31086)
-        coords = entityPos + boneCoord
-        local onScreen, _x, _y = GetScreenCoordFromWorldCoord(coords.x, coords.y, coords.z + 1)
-        SetTextScale(0.25, 0.25)
-        SetTextFontForCurrentCommand(25)
-        SetTextColor(255, 255, 255, 200)
-        local str = CreateVarString(10, "LITERAL_STRING", tostring(currentrumors[randomrumor]), Citizen.ResultAsLong())
-        SetTextCentre(1)
-        DisplayText(str, _x, _y)
-        local factor = (string.len(tostring(currentrumors[randomrumor]))) / 150
-        DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.03 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
+        local timer = GetGameTimer() + Config.RefreshRumors
+
+        local px, py, pz = table.unpack(GetGameplayCamCoord())
+        randomrumor = math.random(1, #currentrumors)
+        print (tostring(currentrumors[randomrumor]))
+        while GetGameTimer() < timer do
+            Wait(0)
+            local entityPos = GetEntityCoords(ent) 
+            boneCoord = GetWorldPositionOfEntityBone(ent, 31086)
+            coords = entityPos + boneCoord
+            local onScreen, _x, _y = GetScreenCoordFromWorldCoord(coords.x, coords.y, coords.z + 1)
+            SetTextScale(0.25, 0.25)
+            SetTextFontForCurrentCommand(25)
+            SetTextColor(255, 255, 255, 200)
+            local str = CreateVarString(10, "LITERAL_STRING", tostring(currentrumors[randomrumor]), Citizen.ResultAsLong())
+            SetTextCentre(1)
+            DisplayText(str, _x, _y)
+            local factor = (string.len(tostring(currentrumors[randomrumor))) / 150
+            DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.03 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
+        end
+
+        isEventRunning[ent] = false  -- Remettre le drapeau à false après avoir terminé l'événement
     end
-    Entity(ent).state.isDisplaying = false
 end)
+
 
 -- Ecrire Nv Rumeur
 Citizen.CreateThread(function()
