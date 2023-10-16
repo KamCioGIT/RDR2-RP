@@ -52,7 +52,7 @@ Citizen.CreateThread(function()
                 local model = GetEntityModel(entity)
 
                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
-                if IsEntityAPed(entity) and not Citizen.InvokeNative(0x9A100F1CF4546629, entity) then
+                if IsEntityAPed(entity) then
                     local networkId = NetworkGetNetworkIdFromEntity(entity)
                     if networkId then
                         local player = NetworkGetPlayerIndexFromPed(entity)
