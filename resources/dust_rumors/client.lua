@@ -3,9 +3,6 @@ RedEM = exports["redem_roleplay"]:RedEM()
 showOnPed = false
 
 --- prompt achat
-local rumorPrompt = UipromptGroup:new("ShareRumor")
-Uiprompt:new(0x760A9C6F, "Lancer une Rumeur", rumorPrompt)
-rumorPrompt:setActive(false)
 
 isInteracting = false;
 
@@ -110,6 +107,11 @@ end)
 
 
 -- Ecrire Nv Rumeur
+
+local rumorPrompt = UipromptGroup:new("ShareRumor")
+Uiprompt:new(0x760A9C6F, "Lancer une Rumeur", rumorPrompt)
+rumorPrompt:setActive(false)
+
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
@@ -136,7 +138,7 @@ function TrySendRumor()
         table.insert(elements, {
             label = "Lancer une rumeur", 
             value = 'TrySendRumor', 
-            desc = "Dites nous vos ragots et nous nous occuperons de les faires circuler pour $" .. Config.RumorPrice
+            desc = "Faites propager vos ragots pour $" .. Config.RumorPrice
         })
 
         table.insert(elements, {

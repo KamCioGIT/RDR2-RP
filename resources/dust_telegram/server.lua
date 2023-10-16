@@ -19,7 +19,6 @@ AddEventHandler("dust_telegram:check_inbox", function()
         res['firstname'] = firstname
         res['list'] = result
         if result ~= nil then
-            print "get"
             TriggerClientEvent("dust_telegram:inboxlist", _source, res)
             res = {}
         end
