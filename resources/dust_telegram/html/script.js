@@ -15,7 +15,7 @@ function loadInbox(list){
             }
         });
     }else{
-        $(".inboxContainer").text("No telegram")
+        $(".inboxContainer").text("Pas de télégramme")
     }
 }
 //Close view Or compose
