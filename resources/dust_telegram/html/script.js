@@ -15,8 +15,6 @@ function loadInbox(list){
                 $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope"></i> <p><b>`+letter.subject+`</b></p></div><div class="inbox_sender">`+letter.sender+`</div><div class="inbox_date">`+isoDategood+`</div></li>`);
             }
         });
-    }else{
-        $(".inboxContainer").text("No telegram")
     }
 }
 //Close view Or compose
