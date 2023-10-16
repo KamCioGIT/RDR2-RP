@@ -49,7 +49,7 @@ Citizen.CreateThread(function()
                     local entityPos = GetEntityCoords(entity) 
                     boneCoord = GetWorldPositionOfEntityBone(entity, 31086)
                     coords = entityPos + boneCoord
-                    if currentrumors ~= nil then
+                    if currentrumors ~= nil and #currentrumors > 0 then
                         print("getrumors")
                         print(tostring(currentrumors[randomrumor]))
                         randomrumor = math.random(1, #currentrumors)
