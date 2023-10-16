@@ -21,6 +21,7 @@ function loadInbox(list){
 $(".close_view").on("click", function () {
     $(".view").fadeOut().hide();
     $('.view').css('display', 'none')
+    $.post('http://dust_telegram/NUIFocusOff', JSON.stringify({}));
 });
 //Compose button
 $(".composetelegram").on("click",function(){

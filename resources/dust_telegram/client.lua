@@ -86,6 +86,8 @@ end)
 
 RegisterNetEvent('messageData')
 AddEventHandler('messageData', function(tele)
+    InMenu = true
+    SetNuiFocus(true, true)
     SendNUIMessage({ type = 'view', telegram = tele })
 end)
 
