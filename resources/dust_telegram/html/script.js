@@ -5,17 +5,15 @@ function loadInbox(list){
     $('#inboxList').empty();
     if(list.length > 0) {
         list.forEach(function(letter){
-            var isoDate = new Date(letter.sentTime).toISOString().split('T')[0];
-            isoDatestr = isoDate.replace("2023","1885");
-            isoDatenew = isoDatestr.replace("2024","1886");
+            
             if(letter.status == 1){
-                $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope-open"></i><p> `+letter.subject+`</p></div><div class="inbox_sender">`+letter.sender+`</div><div class="inbox_date">`+isoDatenew+`</div></li>`);
+                $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope-open"></i><p> `+letter.subject+`</p></div><div class="inbox_sender">`+letter.sender+`</div><div class="inbox_date">`+letter.sentTime+`</div></li>`);
             }else{
-                $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope"></i> <p><b>`+letter.subject+`</b></p></div><div class="inbox_sender">`+letter.sender+`</div><div class="inbox_date">`+isoDatenew+`</div></li>`);
+                $("#inboxList").append(`<li class="inbox_row" data-id="`+letter.id+`"><div class="inbox_subject"><i class="fa fa-envelope"></i> <p><b>`+letter.subject+`</b></p></div><div class="inbox_sender">`+letter.sender+`</div><div class="inbox_date">`+letter.sentTime+`</div></li>`);
             }
         });
     }else{
-        $(".inboxContainer").text("Pas de télégramme")
+        $(".inboxContainer").text("No telegram")
     }
 }
 //Close view Or compose
@@ -64,20 +62,14 @@ $(function () {
             $('.inbox').css('display', 'block');
             $('#postname').text(postname)
         
-            var isoDatesend = new Date().toISOString().split('T')[0];
-            isoDatestrsend = isoDatesend.replace("2023","1885");
-            isoDatenewsend = isoDatestrsend.replace("2024","1886");
-            
-            $('#today').text(isoDatenewsend);
+            let today = new Date().toLocaleDateString();
+            $('#today').text(today);
         
         }
-        var isoDateview = new Date(event.data.telegram.sentTime).toISOString().split('T')[0];
-        isoDatestrview = isoDateview.replace("2023","1885");
-        isoDatenewview = isoDatestrview.replace("2024","1886");
         if(event.data.type === "view"){
             $("#view_recipient").text(event.data.telegram.recipient)
             $("#view_sender").text(event.data.telegram.sender)
-            $("#view_date").text(isoDatenewview)
+            $("#view_date").text(event.data.telegram.sentTime)
             $("#view_subject").text(event.data.telegram.subject)
             $("#view_message").text(event.data.telegram.message)
         }
