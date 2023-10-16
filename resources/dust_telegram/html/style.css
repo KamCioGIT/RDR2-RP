@@ -130,8 +130,8 @@ ul {
 }
 
 .inbox_subject {
-    width: 60%;
-    max-width: 60%;
+    width: 45%;
+    max-width: 45%;
     overflow-x: auto;
 }
 
