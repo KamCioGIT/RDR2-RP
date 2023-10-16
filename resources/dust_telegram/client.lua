@@ -71,6 +71,7 @@ end
 
 RegisterNUICallback('getview', function(data)
     TriggerServerEvent('scf_telegram:getTelegram', tonumber(data.id))
+    TriggerServerEvent("scf_telegram:DeleteTelegram", tonumber(data.id))
 end)
 
 RegisterNUICallback('sendTelegram', function(data)
@@ -78,7 +79,6 @@ RegisterNUICallback('sendTelegram', function(data)
 end)
 
 RegisterNUICallback('delete', function(data)
-    TriggerServerEvent("scf_telegram:DeleteTelegram", tonumber(data.id))
 end)
 
 RegisterNetEvent('messageData')
