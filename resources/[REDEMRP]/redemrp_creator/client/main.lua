@@ -890,7 +890,7 @@ function OpenHairMenu()
                 min = 0,
                 max = 100,
                 hop = 5
-            }),
+            })
     else
         local a = 1
         local category = hairs_list["female"]["hair"]
