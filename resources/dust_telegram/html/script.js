@@ -70,6 +70,7 @@ $(function () {
         
         }
         if(event.data.type === "view"){
+            $('.view').css('display', 'block')
             var isoDate = new Date(event.data.telegram.sentTime).toISOString().slice(0, -8);
             isoDatestr = isoDate.replace("2023","1885");
             isoDatenew = isoDatestr.replace("2024","1886");
