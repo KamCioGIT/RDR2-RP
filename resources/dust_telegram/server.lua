@@ -87,7 +87,8 @@ RegisterServerEvent("RegisterUsableItem:télégramme")
 AddEventHandler("RegisterUsableItem:télégramme", function(source, _data)
     local _source = source
     local data = _data
-    TriggerClientEvent("messageData", _source, data)
+    local contenu = data.meta.data
+    TriggerClientEvent("messageData", _source, contenu)
 end)
 
 RegisterServerEvent("dust_telegram:DeleteTelegram")
