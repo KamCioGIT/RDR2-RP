@@ -16,13 +16,6 @@ Citizen.CreateThread(function()
         TriggerServerEvent("dust_rumors:server:askRumor")
     end
 end)
-
-
-RegisterNetEvent("dust_rumors:client:getRumor", function(rumorsTable)
-    currentrumors = rumorsTable
-    print(#currentrumors)
-end)
-
 -- function showOnPed(entity)
 --     print "'oouaizs "
 --     if currentrumors ~= nil and #currentrumors > 0 then
@@ -38,6 +31,14 @@ end)
 --         end
 --     end
 -- end
+
+
+RegisterNetEvent("dust_rumors:client:getRumor", function(rumorsTable)
+    currentrumors = rumorsTable
+    print(#currentrumors)
+end)
+
+
 
 Citizen.CreateThread(function()
     while true do
@@ -78,23 +79,7 @@ Citizen.CreateThread(function()
     end
 end)
 
--- Ecrire Nv Rumeur
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-        local playerPosition = GetEntityCoords(PlayerPedId())
-        for k,v in pairs(Config.ShareRumorSpot) do 
-            if #(playerPosition - v) < 2 and not isInteracting then 
-                rumorPrompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, 0x760A9C6F) then
-                    isInteracting = true
-                    FreezeEntityPosition(PlayerPedId(), true)
-                    TrySendRumor()
-                end
-            end
-        end
-    end
-end)
+
 
 function DrawText3D(text, ent)
     local timer = GetGameTimer() + Config.RefreshRumors
@@ -116,6 +101,24 @@ function DrawText3D(text, ent)
         DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.03 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
     end
 end
+
+-- Ecrire Nv Rumeur
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        local playerPosition = GetEntityCoords(PlayerPedId())
+        for k,v in pairs(Config.ShareRumorSpot) do 
+            if #(playerPosition - v) < 2 and not isInteracting then 
+                rumorPrompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x760A9C6F) then
+                    isInteracting = true
+                    FreezeEntityPosition(PlayerPedId(), true)
+                    TrySendRumor()
+                end
+            end
+        end
+    end
+end)
 
 function TrySendRumor()
     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
