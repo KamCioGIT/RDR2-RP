@@ -6,8 +6,8 @@ TriggerEvent("redemrp_inventory:getData",function(call)
 end)
 
 
-RegisterServerEvent("scf_telegram:check_inbox")
-AddEventHandler("scf_telegram:check_inbox", function()
+RegisterServerEvent("dust_telegram:check_inbox")
+AddEventHandler("dust_telegram:check_inbox", function()
     local _source = source
     local User = RedEM.GetPlayer(_source)
     local firstname = User.firstname
@@ -20,14 +20,14 @@ AddEventHandler("scf_telegram:check_inbox", function()
         res['list'] = result
         if result ~= nil then
             print "get"
-            TriggerClientEvent("inboxlist", _source, res)
+            TriggerClientEvent("dust_telegram:inboxlist", _source, res)
             res = {}
         end
     end)
 end)
 
-RegisterServerEvent("scf_telegram:SendTelegram")
-AddEventHandler("scf_telegram:SendTelegram", function(data)
+RegisterServerEvent("dust_telegram:SendTelegram")
+AddEventHandler("dust_telegram:SendTelegram", function(data)
     local _source = source
     local User = RedEM.GetPlayer(_source)
     local currentMoney = User.money
@@ -63,8 +63,8 @@ AddEventHandler("scf_telegram:SendTelegram", function(data)
     end
 end)
 
-RegisterServerEvent("scf_telegram:getTelegram")
-AddEventHandler("scf_telegram:getTelegram", function(tid)
+RegisterServerEvent("dust_telegram:getTelegram")
+AddEventHandler("dust_telegram:getTelegram", function(tid)
     local _source = source
     local User = RedEM.GetPlayer(_source)
     local telegram = {}
@@ -89,8 +89,8 @@ AddEventHandler("RegisterUsableItem:télégramme", function(source, _data)
     TriggerClientEvent("messageData", _source, data)
 end)
 
-RegisterServerEvent("scf_telegram:DeleteTelegram")
-AddEventHandler("scf_telegram:DeleteTelegram", function(tid)
+RegisterServerEvent("dust_telegram:DeleteTelegram")
+AddEventHandler("dust_telegram:DeleteTelegram", function(tid)
 	local _source = source
 
     Citizen.Wait(0)
