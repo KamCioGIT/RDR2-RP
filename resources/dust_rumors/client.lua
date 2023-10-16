@@ -81,7 +81,7 @@ RegisterNetEvent("rumors:DrawText3D",function(ent)
         isEventRunning[ent] = true
         local timer = GetGameTimer() + Config.RefreshRumors
         if not entityRandomRumors[ent] then
-            entityRandomRumors[ent] = math.random(1, #currentrumors)
+            entityRandomRumors[ent] = currentrumors[math.random(1, #currentrumors)]
         end
 
         while GetGameTimer() < timer do
