@@ -20,6 +20,7 @@ end)
 
 RegisterNetEvent("dust_rumors:client:getRumor", function(rumorsTable)
     currentrumors = rumorsTable
+    print(#rumorsTable)
 end)
 
 Citizen.CreateThread(function()
