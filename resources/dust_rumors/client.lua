@@ -27,6 +27,7 @@ function showOnPed(entity)
     if currentrumors ~= nil and #currentrumors > 0 then
         randomrumor = math.random(1, #currentrumors)
         local timer = GetGameTimer() + Config.RefreshRumors
+        print (tostring(currentrumors[randomrumor]))
         while GetGameTimer() < timer do
             Wait(0)
             local entityPos = GetEntityCoords(entity) 
