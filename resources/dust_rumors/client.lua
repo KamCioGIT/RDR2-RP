@@ -56,6 +56,7 @@ Citizen.CreateThread(function()
                         if IsEntityDead(entity) == false then
                             if boolA ~= nil and boolA == false then
                                 showOnPed(entity)
+                                return
                             end
                         end
                     end
