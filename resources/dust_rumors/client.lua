@@ -99,13 +99,13 @@ end)
 function DrawText3D(text, ent)
     local timer = GetGameTimer() + Config.RefreshRumors
 --         print (tostring(currentrumors[randomrumor]))
-    local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z + 1)
     local px, py, pz = table.unpack(GetGameplayCamCoord())
     while GetGameTimer() < timer do
         Wait(0)
         local entityPos = GetEntityCoords(ent) 
         boneCoord = GetWorldPositionOfEntityBone(ent, 31086)
         coords = entityPos + boneCoord
+        local onScreen, _x, _y = GetScreenCoordFromWorldCoord(coords.x, coords.y, coords.z + 1)
         SetTextScale(0.25, 0.25)
         SetTextFontForCurrentCommand(25)
         SetTextColor(255, 255, 255, 200)
