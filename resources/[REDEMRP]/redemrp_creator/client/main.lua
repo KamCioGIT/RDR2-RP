@@ -36,6 +36,20 @@ local MainMenus = {
         TriggerEvent("redemrp_respawn:respawn", true)
     end
 }
+
+local BarberMenus = {
+    ["hair"] = function()
+        OpenHairMenu()
+    end,
+    ["makeup"] = function()
+        OpenMakeupMenu()
+    end,
+    ["save"] = function()
+        MenuData.CloseAll()
+        LoadedComponents = CreatorCache
+        TriggerServerEvent("rdr_creator:SaveSkin", CreatorCache)
+    end
+}
 local BodyFunctions = {
     ["head"] = function(target, data)
         -- print("test")
@@ -407,6 +421,8 @@ function MainMenu()
     end, function(data, menu)
     end)
 end
+
+
 
 function OpenBodyMenu()
     MenuData.CloseAll()
@@ -1933,3 +1949,73 @@ end)
 exports('GetMaxTexturesForModel', function(category , model)
     return GetMaxTexturesForModel(category,model)
 end)
+
+
+
+
+
+---- barber
+local BarberMenus = {
+    ["hair"] = function()
+        OpenHairMenu()
+    end,
+    ["makeup"] = function()
+        OpenMakeupMenu()
+    end,
+    ["save"] = function()
+        MenuData.CloseAll()
+        LoadedComponents = CreatorCache
+        TriggerServerEvent("rdr_creator:SaveSkin", CreatorCache)
+    end
+}
+
+local barberprompt = UipromptGroup:new("Coiffeur")
+Uiprompt:new(0x760A9C6F, "Ouvrir", barberprompt)
+barberprompt:setActive(false)
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(2)
+        local playerPos = GetEntityCoords(PlayerPedId())
+        for city, pos in pairs(Config.Barber) do
+            if #(playerPos - pos) < 6.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, pos, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if #(playerPos - pos) < Config.DistanceToInteract and not isInteracting then
+                barberprompt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    isInteracting = true
+                    BarberMenu()
+                end
+            end
+        end
+    end
+end)
+
+function BarberMenu()
+    MenuData.CloseAll()
+    local elements = { {
+        label = "Cheveux / Barbe",
+        value = 'hair',
+        desc = "Changer votre pilosité"
+    }, {
+        label = "Maquillage",
+        value = 'makeup',
+        desc = "Changer votre maquillage"
+    }, {
+        label = "Valider",
+        value = 'save',
+        desc = "Valider votre personnage"
+    }}
+
+    MenuData.Open('default', GetCurrentResourceName(), 'main_character_creator_menu', {
+        title = 'Coiffeur',
+        subtext = 'Options',
+        align = 'top-left',
+        elements = elements
+    }, function(data, menu)
+        BarberMenus[data.current.value]()
+    end, function(data, menu)
+    end)
+end
+
