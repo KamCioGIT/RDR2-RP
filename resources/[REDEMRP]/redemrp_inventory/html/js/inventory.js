@@ -208,9 +208,9 @@ function createObjectBox(object) {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `A newspaper (edition " + object.meta.edition + ")`)    ");
     } else if(object.name == "télégramme") {
         if (object.meta.sender == "Anonyme") {
-            boxContent.setAttribute('onmouseover', "Over(`Télégramme Anonyme`, `Reçu le " + object.meta.date + "`)    ");   
+            boxContent.setAttribute('onmouseover', "Over(`Télégramme Anonyme`, `Reçu le " + object.meta.data.date + "`)    ");   
         } else {
-            boxContent.setAttribute('onmouseover', "Over(`Télégramme de " + object.meta.sender + "`, `Reçu le " + object.meta.date + "`)    ");   
+            boxContent.setAttribute('onmouseover', "Over(`" + object.meta.data.subject + "`, `Télégramme de " + object.meta.data.sender + " le " + object.meta.data.date + "`)    ");   
         }
     } else if(object.name == "contratsigne") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Contrat de travail de " + object.meta.job + " de " + object.meta.name + "`)    ");

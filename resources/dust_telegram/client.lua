@@ -86,6 +86,7 @@ end)
 
 RegisterNetEvent('messageData')
 AddEventHandler('messageData', function(tele)
+    TriggerEvent("redemrp_inventory:closeinv")
     InMenu = true
     SetNuiFocus(true, true)
     SendNUIMessage({ type = 'view', telegram = tele })
