@@ -58,7 +58,7 @@ Citizen.CreateThread(function()
                             if boolA ~= nil and boolA == false then
                                 if currentrumors ~= nil and #currentrumors > 0 then
                                     randomrumor = math.random(1, #currentrumors)
-                                    TriggerEvent("rumors:DrawText3D", (tostring(currentrumors[randomrumor]), entity)
+                                    TriggerEvent("rumors:DrawText3D", tostring(currentrumors[randomrumor]), entity)
                                 end
                             end
                         end
