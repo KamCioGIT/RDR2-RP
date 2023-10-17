@@ -21,21 +21,21 @@ function OpenClothingMenu()
             label = k.label or v,
             value = v,
             category = v,
-            desc = "Change component"
+            desc = "Se changer"
         })
     end
 
     table.insert(elements, {
         label = Config.Label["save"] or "Save",
         value = "save",
-        desc = "Save Clothes"
+        desc = "Valider"
     })
 
     MenuData.Open('default', GetCurrentResourceName(), 'clothing_store_menu', {
 
-        title = 'Clothes',
+        title = 'Tailleur',
 
-        subtext = 'Change Clothes',
+        subtext = 'Se Changer',
 
         align = 'top-left',
 
@@ -93,7 +93,7 @@ function OpenCateogry(menu_catagory)
                 label = Config.Label[k].. " ($" .. Config.Price[k]..")" or v,
                 value = ClothesCache[k].model or 0,
                 category = k,
-                desc = "Change component",
+                desc = "Changer le modèle",
                 type = "slider",
                 min = 0,
                 max = #category,
@@ -111,7 +111,7 @@ function OpenCateogry(menu_catagory)
                 label = Config.Label[k] .. " Color" or v,
                 value = ClothesCache[k].texture or 1,
                 category = k,
-                desc = "Change the color",
+                desc = "Changer la couleur",
                 type = "slider",
                 min = 1,
                 max = GetMaxTexturesForModel(k, ClothesCache[k].model or 1),
@@ -143,7 +143,7 @@ function OpenCateogry(menu_catagory)
                 label = Config.Label[k].. " ($" .. Config.Price[k]..")" or v,
                 value = ClothesCache[k].model or 0,
                 category = k,
-                desc = "Change component",
+                desc = "Changer le modèle",
                 type = "slider",
                 min = 0,
                 max = #category,
@@ -161,7 +161,7 @@ function OpenCateogry(menu_catagory)
                 label = Config.Label[k] .. " Color" or v,
                 value = ClothesCache[k].texture or 1,
                 category = k,
-                desc = "Change the color",
+                desc = "Changer la couleur",
                 type = "slider",
                 min = 1,
                 max = GetMaxTexturesForModel(k, ClothesCache[k].model or 1),
@@ -178,7 +178,7 @@ function OpenCateogry(menu_catagory)
     end
     MenuData.Open('default', GetCurrentResourceName(), 'clothing_store_menu_category', {
 
-        title = 'Clothes',
+        title = 'Tailleur',
 
         subtext = 'Options',
 
@@ -644,7 +644,7 @@ function Outfits()
             table.insert(elements_outfits, {
                 label = Outfits_tab[j].name,
                 value = Outfits_tab[j].name,
-                desc = "Choose your outfit"
+                desc = "Choisir sa tenue"
             })
         end
     end
@@ -653,9 +653,9 @@ function Outfits()
 
     MenuData.Open('default', GetCurrentResourceName(), 'outfits_menu', {
 
-        title = 'Wardrobe',
+        title = 'Tailleur',
 
-        subtext = 'Choose your outfit',
+        subtext = 'Garde-robe',
 
         align = 'top-left',
 
@@ -671,22 +671,22 @@ function Outfits()
 
 end
 local elements_outfits_manage = {{
-    label = "Put on outfit",
+    label = "Enfiler cette tenue",
     value = "SetOutfits",
-    desc = "Put on your outfit"
+    desc = "La classe"
 }, {
-    label = "Remove the outfit",
+    label = "Retirer cette tenue",
     value = "DeleteOutfit",
-    desc = "Remove your outfit"
+    desc = "Moins classe"
 }}
 function OutfitsManage(outfit)
 
     MenuData.CloseAll()
     MenuData.Open('default', GetCurrentResourceName(), 'outfits_menu_manage', {
 
-        title = 'Wardrobe',
+        title = 'Tailleur',
 
-        subtext = 'Actions',
+        subtext = 'Se Changer',
 
         align = 'top-left',
 
@@ -706,6 +706,10 @@ end
 local active = false
 local target
 
+local clothesprompt = UipromptGroup:new("Tailleur")
+Uiprompt:new(Config.OpenKey, "Acheter des vêtements", clothesprompt)
+clothesprompt:setActive(false)
+
 Citizen.CreateThread(function()
     while true do
         Wait(1)
@@ -724,21 +728,10 @@ Citizen.CreateThread(function()
                 if not active then
                     active = true
                     target = k
-                    local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", Config.Shoptext,
-                        Citizen.ResultAsLong())
-                    Citizen.InvokeNative(0xFA233F8FE190514C, str)
-                    Citizen.InvokeNative(0xE9990552DEC71600)
+                    clothesprompt:setActiveThisFrame(true)
                 end
                 if IsControlJustReleased(0, Config.OpenKey) then
                     TriggerServerEvent("rdr_clothes_store:LoadClothes", 2)
-                end
-            else
-                if active and k == target then
-                    local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", " ",
-                        Citizen.ResultAsLong())
-                    Citizen.InvokeNative(0xFA233F8FE190514C, str)
-                    Citizen.InvokeNative(0xE9990552DEC71600)
-                    active = false
                 end
             end
         end
@@ -751,6 +744,10 @@ end)
 
  local active2 = false
  local target2
+
+ local cloakprompt = UipromptGroup:new("Tailleur")
+Uiprompt:new(Config.OpenKey, "Changer de tenue", cloakprompt)
+cloakprompt:setActive(false)
  Citizen.CreateThread(function()
      while true do
          Wait(1)
@@ -766,19 +763,10 @@ end)
                  if not active2 then
                      active2 = true
                      target2 = k
-                     local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", Config.Cloakroomtext, Citizen.ResultAsLong())
-                     Citizen.InvokeNative(0xFA233F8FE190514C, str)
-                     Citizen.InvokeNative(0xE9990552DEC71600)
+                     cloakprompt:setActiveThisFrame(true)
                  end
                  if IsControlJustReleased(0, Config.OpenKey) or IsDisabledControlJustReleased(0, Config.OpenKey) then
                      TriggerEvent('rdr_clothes_store:OpenOutfits')
-                 end
-             else
-                 if active2 and k == target2 then
-                     local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING", " ", Citizen.ResultAsLong())
-                     Citizen.InvokeNative(0xFA233F8FE190514C, str)
-                     Citizen.InvokeNative(0xE9990552DEC71600)
-                     active2 = false
                  end
              end
          end

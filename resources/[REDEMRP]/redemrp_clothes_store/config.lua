@@ -7,7 +7,7 @@ Config.EnableCommand = false -- Enable/Disable /clothing command
 Config.BlipSprite = 1195729388	 -- Clothing shop sprite
 Config.BlipSpriteCloakRoom = 1496995379	 -- Clothing shop sprite
 Config.BlipScale = 0.2 -- Blip scale
-Config.OpenKey = 0xD9D0E1C0 -- Opening key hash
+Config.OpenKey = 0x760A9C6F -- Opening key hash
 Config.Zones = {
 	vector3(-181.8676, 624.49322, 114.08956), -- VALENTINE
 	vector3(1323.6649, -1288.453, 77.020866), -- RHODES
@@ -32,47 +32,47 @@ Config.Cloakroom = {
 }
 
 Config.Label = {
-	["boot_accessories"] = "Boot Accessories",
-	["pants"] = "Pants",            	
-	["cloaks"] = "Cloak",            	
-	["hats"] = "Hat",             	
-	["vests"] = "Vest",            	
+	["boot_accessories"] = "Accessoire de bottes",
+	["pants"] = "Pantalon",            	
+	["cloaks"] = "Cape",            	
+	["hats"] = "Chapeau",             	
+	["vests"] = "Veste",            	
 	["chaps"] = "Chaps",             	
-	["shirts_full"] = "Shirt",       	
+	["shirts_full"] = "Chemise",       	
 	["badges"] = "Badge",           	
-	["masks"] = "Mask",            	
-	["spats"] = "Spats",           	
-	["neckwear"] = "Neck",         	
-	["boots"] = "Boots",            	
-	["accessories"] = "Accessories",      	
-	["jewelry_rings_right"] = "Jewelry Right",
-	["jewelry_rings_left"]	= "Jewelry Left",
+	["masks"] = "Masque",            	
+	["spats"] = "Guêtres",           	
+	["neckwear"] = "Cou",         	
+	["boots"] = "Bottes",            	
+	["accessories"] = "Accessoires",      	
+	["jewelry_rings_right"] = "Anneau droit",
+	["jewelry_rings_left"]	= "Anneau gauche",
 	["jewelry_bracelets"] = "Bracelets",	
-	["gauntlets"] = "Gauntlets",        	
-	["neckties"] = "Necktie",        	
-	["holsters_knife"] = "Knife Holster",   	
-	["talisman_holster"] = "Talisman Holster",
-	["loadouts"] = "Loadouts",          	
-	["suspenders"] = "Suspenders",      	
-	["talisman_satchel"] = "Talisman Satchel", 	
-	["satchels"] = "Satchel",         	
-	["gunbelts"] = "Gunbelt",          	
-	["belts"] = "Belt",            	
-	["belt_buckles"] = "Belt Buckle",     	
-	["holsters_left"] = "Holster Left",    	
-	["holsters_right"] = "Holster Right",   	
-	["talisman_wrist"] = "Wrist Talisman",   	
-	["coats"] = "Coat",            	
-	["coats_closed"] = "Coat Closed",     	
+	["gauntlets"] = "Gantelets",        	
+	["neckties"] = "Cravates",        	
+	["holsters_knife"] = "Étui à couteau",   	
+	["talisman_holster"] = "Porte talisman",
+	["loadouts"] = "Cartouchière",          	
+	["suspenders"] = "Bretelles",      	
+	["talisman_satchel"] = "Sacoche - Talisman", 	
+	["satchels"] = "Sacoches",         	
+	["gunbelts"] = "Holster",          	
+	["belts"] = "Ceinture",            	
+	["belt_buckles"] = "Boucle de ceinture",     	
+	["holsters_left"] = "Holster Gauche",    	
+	["holsters_right"] = "Holster Droite",   	
+	["talisman_wrist"] = "Talisman Poignée",   	
+	["coats"] = "Manteau",            	
+	["coats_closed"] = "Manteau fermé",     	
 	["ponchos"] = "Poncho",           	
-	["eyewear"] = "Eyewear",          	
-	["gloves"] = "Gloves",           	
-	["holsters_crossdraw"] = "Crossdraw Holster", 	
-	["aprons"] = "Aprons",			
-	["skirts"] = "Skirts",
-	["hair_accessories"] = "Hair Accessories",
-	["dresses"] = "Dresses",  
-	["armor"] = "Armor",    	
+	["eyewear"] = "Lunettes",          	
+	["gloves"] = "Gants",           	
+	["holsters_crossdraw"] = "Holster main faible", 	
+	["aprons"] = "Tablier",			
+	["skirts"] = "Jupe",
+	["hair_accessories"] = "Accessoire tête",
+	["dresses"] = "Robe",  
+	["armor"] = "Armure",    	
 }
 
 
@@ -122,7 +122,7 @@ Config.Price = {
 
 Config.MenuElements = {
 	["head"] = {
-		label = "Head",
+		label = "Tête",
 		category = {
 			"hats",
 			"eyewear",
@@ -132,7 +132,7 @@ Config.MenuElements = {
 		}
 	},
 	["torso"] = {
-		label = "Torso",
+		label = "Torse",
 		category = {
 			"cloaks",
 			"vests",
@@ -151,7 +151,7 @@ Config.MenuElements = {
 		}
 	},
 	["legs"] = {
-		label = "Legs",
+		label = "Jambes",
 		category = {
 			"pants",
 			"chaps",
@@ -159,7 +159,7 @@ Config.MenuElements = {
 		}
 	},
 	["foot"] = {
-		label = "Boots",
+		label = "Bottes",
 		category = {
 			"boots",
 			"spats",
@@ -167,7 +167,7 @@ Config.MenuElements = {
 		}
 	},
 	["hands"] = {
-		label = "Hands",
+		label = "Mains",
 		category = {
 			"jewelry_rings_right",
 			"jewelry_rings_left",
@@ -177,7 +177,7 @@ Config.MenuElements = {
 		}
 	},
 	["accessories"] = {
-		label = "Accessories",
+		label = "Accessoires",
 		category = {
 			"accessories",
 			"talisman_wrist",
