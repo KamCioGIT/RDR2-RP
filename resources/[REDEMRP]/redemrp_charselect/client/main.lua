@@ -67,15 +67,15 @@ OpenCharacterMenu = function()
     for k,v in ipairs(CharsList) do
         if v.citizenid then
             if #v.citizenid ~= 7 then
-                table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, image="items/clothing_generic_outfit.png", value = v.characterid})
+                table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, image="nui://redemrp_menu_base/html/items/clothing_generic_outfit.png", value = v.characterid})
             else
-                table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, image="items/clothing_generic_outfit.png", value = v.characterid})
+                table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, image="nui://redemrp_menu_base/html/items/clothing_generic_outfit.png", value = v.characterid})
             end
         else
-            table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, image="items/clothing_generic_outfit.png", value = v.characterid})
+            table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, image="nui://redemrp_menu_base/html/items/clothing_generic_outfit.png", value = v.characterid})
         end
     end
-    table.insert(elements, {label = "<strong>Nouveau Personnages</strong>", desc = "Créer un nouveau personnage", image="items/clothing_generic_outfit.png", value = "new"})
+    table.insert(elements, {label = "<strong>Nouveau Personnages</strong>", desc = "Créer un nouveau personnage", image="nui://redemrp_menu_base/html/items/clothing_generic_outfit.png", value = "new"})
     MenuData.Open('default', GetCurrentResourceName(), 'charselect', {
         title    = "DUST",
         subtext  = "Vos personnages",
