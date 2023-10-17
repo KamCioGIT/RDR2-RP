@@ -76,9 +76,9 @@ local BodyFunctions = {
     ["body_waist"] = function(target, data)
         LoadBodyWaist(target, data)
     end,
-    ["height"] = function(target, data)
-        LoadHeight(target, data)
-    end,
+    -- ["height"] = function(target, data)
+    --     LoadHeight(target, data)
+    -- end,
 }
 
 local FaceFunctions = {
@@ -230,7 +230,7 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
         print("Loading...")
         -- print(_Target, PlayerPedId())
         FixIssues(_Target, _SkinData)
-        LoadHeight(_Target, _SkinData)
+        -- LoadHeight(_Target, _SkinData)
         LoadBody(_Target, _SkinData)
         LoadHead(_Target, _SkinData)
         LoadHair(_Target, _SkinData)
@@ -291,7 +291,7 @@ RegisterNetEvent('RedEM:client:ApplySkinCommand', function(SkinData, Target, Clo
             print("Loading...")
             -- print(_Target, PlayerPedId())
             FixIssues(_Target, _SkinData)
-            LoadHeight(_Target, _SkinData)
+            -- LoadHeight(_Target, _SkinData)
             LoadBody(_Target, _SkinData)
             LoadHead(_Target, _SkinData)
             LoadHair(_Target, _SkinData)
@@ -488,15 +488,17 @@ function OpenBodyMenu()
         min = 1,
         max = 21,
         options = BodyWaistOptions
-    }, {
-        label = "Taille",
-        value = CreatorCache["height"] or 95,
-        category = "height",
-        desc = "Ajuster votre taille",
-        type = "slider",
-        min = 95,
-        max = 105,
-    }}
+    }, 
+    --{
+    --     label = "Taille",
+    --     value = CreatorCache["height"] or 95,
+    --     category = "height",
+    --     desc = "Ajuster votre taille",
+    --     type = "slider",
+    --     min = 95,
+    --     max = 105,
+    -- }
+    }
 
     MenuData.Open('default', GetCurrentResourceName(), 'body_character_creator_menu', {
         title = 'Apparence de base',
