@@ -234,18 +234,18 @@ end)
 
 local PistolsEquipping = 0
 
-RegisterCommand("lanternbelt", function()
-    for i, k in pairs(UsedWeapons) do
-        if k.name == "WEAPON_MELEE_LANTERN" then
-            SetCurrentPedWeapon(PlayerPedId(), `WEAPON_MELEE_LANTERN`, true, 12, false, false)
-            if IsPedMale(PlayerPedId()) then
-                TriggerServerEvent('3dme:shareDisplay', "ATTACHES HIS LANTERN TO HIS BELT")
-            else
-                TriggerServerEvent('3dme:shareDisplay', "ATTACHES HER LANTERN TO HER BELT")
-            end
-        end
-    end
-end)
+-- RegisterCommand("lanternbelt", function()
+--     for i, k in pairs(UsedWeapons) do
+--         if k.name == "WEAPON_MELEE_LANTERN" then
+--             SetCurrentPedWeapon(PlayerPedId(), `WEAPON_MELEE_LANTERN`, true, 12, false, false)
+--             if IsPedMale(PlayerPedId()) then
+--                 TriggerServerEvent('3dme:shareDisplay', "ATTACHES HIS LANTERN TO HIS BELT")
+--             else
+--                 TriggerServerEvent('3dme:shareDisplay', "ATTACHES HER LANTERN TO HER BELT")
+--             end
+--         end
+--     end
+-- end)
 
 function ReloadWeapons()
     Citizen.InvokeNative(0x1B83C0DEEBCBB214, PlayerPedId())

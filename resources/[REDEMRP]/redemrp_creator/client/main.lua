@@ -351,9 +351,9 @@ AddEventHandler('redemrp_skin:LoadSkinClient', function()
     TriggerServerEvent("RedEM:server:LoadSkin")
 end)
 
-RegisterCommand('loadskin', function(source, args, raw)
-    TriggerServerEvent("RedEM:server:LoadSkin", true)
-end)
+-- RegisterCommand('loadskin', function(source, args, raw)
+--     TriggerServerEvent("RedEM:server:LoadSkin", true)
+-- end)
 
 function StartCreator()
     TriggerServerEvent("rdr_creator:SetPlayerBucket" , BucketId)
