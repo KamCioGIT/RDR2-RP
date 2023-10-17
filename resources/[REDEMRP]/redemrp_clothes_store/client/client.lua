@@ -707,7 +707,7 @@ local active = false
 local target
 
 local clothesprompt = UipromptGroup:new("Tailleur")
-Uiprompt:new(Config.OpenKey, "Acheter des vêtements", clothesprompt)
+Uiprompt:new(0x760A9C6F, "Acheter des vêtements", clothesprompt)
 clothesprompt:setActive(false)
 
 Citizen.CreateThread(function()
@@ -723,7 +723,7 @@ Citizen.CreateThread(function()
             local dist = Vdist(coords, v)
             if dist < 2 then
                 clothesprompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, Config.OpenKey) then
+                if IsControlJustReleased(0, 0x760A9C6F) then
                     TriggerServerEvent("rdr_clothes_store:LoadClothes", 2)
                 end
             end
@@ -739,7 +739,7 @@ end)
  local target2
 
  local cloakprompt = UipromptGroup:new("Tailleur")
-Uiprompt:new(Config.OpenKey, "Changer de tenue", cloakprompt)
+Uiprompt:new(0x760A9C6F, "Changer de tenue", cloakprompt)
 cloakprompt:setActive(false)
  Citizen.CreateThread(function()
      while true do
@@ -751,7 +751,7 @@ cloakprompt:setActive(false)
              local dist =  Vdist(coords, v)
             if dist < 2 then
                 cloakprompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, Config.OpenKey) or IsDisabledControlJustReleased(0, Config.OpenKey) then
+                if IsControlJustReleased(0, 0x760A9C6F) or IsDisabledControlJustReleased(0, Config.OpenKey) then
                     TriggerEvent('rdr_clothes_store:OpenOutfits')
                 end
             end
