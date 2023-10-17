@@ -126,7 +126,8 @@ RegisterServerEvent("redemrp_status:server:voice", function(info)
     if _source then
         local Player = RedEM.GetPlayer(_source)
         voice = info
-
-        TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress, voice)
+        if Player then
+            TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress, voice)
+        end
     end
 end)
