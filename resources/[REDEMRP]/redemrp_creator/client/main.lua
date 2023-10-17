@@ -600,7 +600,7 @@ function OpenHairMenu2(cb)
             end
             local options = {}
             for k, v in pairs(category) do
-                table.insert(options, "Styl " .. k)
+                table.insert(options, k)
             end
             table.insert(elements, {
                 label = "Cheveux",
@@ -639,7 +639,7 @@ function OpenHairMenu2(cb)
 
             local category = hairs_list["male"]["beard"]
             for k, v in pairs(category) do
-                table.insert(options, "Styl " .. k)
+                table.insert(options, k)
             end
             table.insert(elements, {
                 label = "Barbe",
@@ -657,7 +657,7 @@ function OpenHairMenu2(cb)
             options = {}
 
             for i = 1, GetMaxTexturesForModel("beard", CreatorCache["beard"].model or 1), 1 do
-                table.insert(options, "Color " .. i)
+                table.insert(options, "Couleur " .. i)
             end
             table.insert(elements, {
                 label = "Couleur de barbe",
@@ -684,7 +684,7 @@ function OpenHairMenu2(cb)
         end
         local options = {}
         for k, v in pairs(category) do
-            table.insert(options, k .. " Style")
+            table.insert(options, k)
         end
         table.insert(elements, {
             label = "Cheveux",
@@ -702,7 +702,7 @@ function OpenHairMenu2(cb)
         options = {}
 
         for i = 1, GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1), 1 do
-            table.insert(options, i .. " Color")
+            table.insert(options, i .. " Couleur")
         end
         table.insert(elements, {
             label = "Coouleur de cheveux",
@@ -755,10 +755,10 @@ function OpenHairMenu2(cb)
                     -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
                     if GetMaxTexturesForModel(data.current.category, data.current.value) > 1 then
                         for i = 1, GetMaxTexturesForModel(data.current.category, data.current.value), 1 do
-                            table.insert(options, "Color " .. i)
+                            table.insert(options, "Couleur " .. i)
                         end
                     else
-                        table.insert(options, "None")
+                        table.insert(options, "Sans")
     
                     end
                     menu.setElement(data.current.id + 1, "options", options)
@@ -817,7 +817,7 @@ function OpenHairMenu()
             end
             local options = {}
             for k, v in pairs(category) do
-                table.insert(options, "Styl " .. k)
+                table.insert(options, k)
             end
             table.insert(elements, {
                 label = "Cheveux",
@@ -835,7 +835,7 @@ function OpenHairMenu()
             options = {}
 
             for i = 1, GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1), 1 do
-                table.insert(options,i.." Color")
+                table.insert(options,i.." Couleur")
             end
             table.insert(elements, {
                 label = "Couleur de cheveux",
@@ -856,7 +856,7 @@ function OpenHairMenu()
 
             local category = hairs_list["male"]["beard"]
             for k, v in pairs(category) do
-                table.insert(options, k.." Style")
+                table.insert(options, k)
             end
             table.insert(elements, {
                 label = "Barbe",
@@ -874,7 +874,7 @@ function OpenHairMenu()
             options = {}
 
             for i = 1, GetMaxTexturesForModel("beard", CreatorCache["beard"].model or 1), 1 do
-                table.insert(options, "Color " .. i)
+                table.insert(options, "Couleur " .. i)
             end
             table.insert(elements, {
                 label = "Couleur de barbe",
@@ -923,7 +923,7 @@ function OpenHairMenu()
         end
         local options = {}
         for k, v in pairs(category) do
-            table.insert(options, "Styl " .. k)
+            table.insert(options, k)
         end
         table.insert(elements, {
             label = "Cheveux",
@@ -981,10 +981,10 @@ function OpenHairMenu()
                     -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
                     if GetMaxTexturesForModel(data.current.category, data.current.value) > 1 then
                         for i = 1, GetMaxTexturesForModel(data.current.category, data.current.value), 1 do
-                            table.insert(options, "Color " .. i)
+                            table.insert(options, "Couleur " .. i)
                         end
                     else
-                        table.insert(options, "None")
+                        table.insert(options, "Sans")
     
                     end
                     menu.setElement(data.current.id + 1, "options", options)
@@ -2054,7 +2054,7 @@ function OpenHairMenu2()
             end
             local options = {}
             for k, v in pairs(category) do
-                table.insert(options, "Styl " .. k)
+                table.insert(options, k)
             end
             table.insert(elements, {
                 label = "Cheveux",
@@ -2072,7 +2072,7 @@ function OpenHairMenu2()
             options = {}
 
             for i = 1, GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1), 1 do
-                table.insert(options,i.." Color")
+                table.insert(options,i.." Couleur")
             end
             table.insert(elements, {
                 label = "Couleur de cheveux",
@@ -2093,7 +2093,7 @@ function OpenHairMenu2()
 
             local category = hairs_list["male"]["beard"]
             for k, v in pairs(category) do
-                table.insert(options, k.." Style")
+                table.insert(options, k)
             end
             table.insert(elements, {
                 label = "Barbe",
@@ -2111,7 +2111,7 @@ function OpenHairMenu2()
             options = {}
 
             for i = 1, GetMaxTexturesForModel("beard", CreatorCache["beard"].model or 1), 1 do
-                table.insert(options, "Color " .. i)
+                table.insert(options, "Couleur " .. i)
             end
             table.insert(elements, {
                 label = "Couleur de barbe",
@@ -2160,7 +2160,7 @@ function OpenHairMenu2()
         end
         local options = {}
         for k, v in pairs(category) do
-            table.insert(options, "Styl " .. k)
+            table.insert(options, k)
         end
         table.insert(elements, {
             label = "Cheveux",
@@ -2217,10 +2217,10 @@ function OpenHairMenu2()
                     -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
                     if GetMaxTexturesForModel(data.current.category, data.current.value) > 1 then
                         for i = 1, GetMaxTexturesForModel(data.current.category, data.current.value), 1 do
-                            table.insert(options, "Color " .. i)
+                            table.insert(options, "Couleur " .. i)
                         end
                     else
-                        table.insert(options, "None")
+                        table.insert(options, "Sans")
     
                     end
                     menu.setElement(data.current.id + 1, "options", options)
