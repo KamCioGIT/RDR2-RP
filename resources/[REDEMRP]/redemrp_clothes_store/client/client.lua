@@ -713,7 +713,6 @@ clothesprompt:setActive(false)
 Citizen.CreateThread(function()
     while true do
         Wait(1)
-        local canwait = true
         local playerPed = PlayerPedId()
         local coords = GetEntityCoords(playerPed)
         if isCreatorOpened then
@@ -722,9 +721,6 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Zones) do
             local dist = Vdist(coords, v)
             if dist < 2 then
-                if dist < 20 then
-                    canwait = false
-                end
                 if not active then
                     active = true
                     target = k
@@ -734,9 +730,6 @@ Citizen.CreateThread(function()
                     TriggerServerEvent("rdr_clothes_store:LoadClothes", 2)
                 end
             end
-        end
-        if canwait then
-            Wait(1000)
         end
 
     end
@@ -751,7 +744,6 @@ cloakprompt:setActive(false)
  Citizen.CreateThread(function()
      while true do
          Wait(1)
-         local canwait = true
          local playerPed = PlayerPedId()
          local coords = GetEntityCoords(playerPed)
          for k,v in pairs(Config.Cloakroom) do
@@ -766,9 +758,6 @@ cloakprompt:setActive(false)
                      TriggerEvent('rdr_clothes_store:OpenOutfits')
                  end
              end
-         end
-         if canwait then
-             Wait(1000)
          end
      end
 end)
