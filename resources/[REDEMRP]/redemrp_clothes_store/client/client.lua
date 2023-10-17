@@ -721,11 +721,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Zones) do
             local dist = Vdist(coords, v)
             if dist < 2 then
-                if not active then
-                    active = true
-                    target = k
-                    clothesprompt:setActiveThisFrame(true)
-                end
+                clothesprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     TriggerServerEvent("rdr_clothes_store:LoadClothes", 2)
                 end
@@ -749,14 +745,11 @@ cloakprompt:setActive(false)
          for k,v in pairs(Config.Cloakroom) do
              local dist =  Vdist(coords, v)
              if dist < 2 then
-                 if not active2 then
-                     active2 = true
-                     target2 = k
-                     cloakprompt:setActiveThisFrame(true)
-                 end
-                 if IsControlJustReleased(0, 0x760A9C6F) then
+                cloakprompt:setActiveThisFrame(true)
+
+                if IsControlJustReleased(0, 0x760A9C6F) then
                      TriggerEvent('rdr_clothes_store:OpenOutfits')
-                 end
+                end
              end
          end
      end
