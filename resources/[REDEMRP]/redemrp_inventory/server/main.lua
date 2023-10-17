@@ -103,7 +103,6 @@ AddEventHandler(
                         retVal = addItemStash(_source, data.name, data.amount, data.meta, stashId)
                         if retVal == false then
                             addItem(data.name, data.amount, data.meta, identifier, charid, lvl)
-                            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Pas assez de place !", "Cet inventaire est plein.", "menu_textures", "menu_icon_alert", 3000)
                         end
                     end
                     if itemData.type == "item_weapon" then
@@ -625,7 +624,6 @@ AddEventHandler(
         if itemData.canBeUsed then
             TriggerEvent("RegisterUsableItem:" .. data.name, _source, data)
             --TriggerClientEvent("ak_notification:Left", _source, "Użyto przedmiotu", itemData.label, tonumber(1000))
-            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Objet utilisé", itemData.label, "INVENTORY_ITEMS", "clothing_satchel_001", 3000)
             TriggerClientEvent("redemrp_inventory:PlaySound", _source, 1)
         end
         if itemData.type == "item_letter" then
@@ -641,7 +639,6 @@ AddEventHandler(
                 data.meta,
                 data.name
             )
-            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Arme équipée", data.label, "menu_textures", "menu_icon_holster", 1000)
             TriggerClientEvent("redemrp_inventory:PlaySound", _source, 1)
         end
         if itemData.type == "item_ammo" then
@@ -1094,15 +1091,15 @@ function addItemStash(source, name, amount, meta, stashId)
 
         local weightLimit = StashMaxWeights[_source] or 60.0
         if itemData.type == "item_weapon" or itemData.type == "item_letter" then
-            --("Boss stash weight: ".. weight .." vs ".. weightLimit)
-            -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
-            --(weight + (itemData.weight * amount))
+            -- ("Boss stash weight: ".. weight .." vs ".. weightLimit)
+            TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Stockage: ~n~"..string.format("%.2f", weight + (itemData.weight)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
+            -- (weight + (itemData.weight * amount))
             if weight + (itemData.weight) > weightLimit then
                 return output
             end
         else
             --("Boss stash weight: ".. weight .." vs ".. weightLimit)
-            -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight * amount)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
+            TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Stockage: ~n~"..string.format("%.2f", weight + (itemData.weight * amount)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
             --(weight + (itemData.weight * amount))
             if weight + (itemData.weight * amount) > weightLimit then
                 return output
@@ -1455,7 +1452,7 @@ RegisterServerEvent("redemrp_inventory:GetPlayer",
 
         TriggerEvent("redemrp_respawn:IsPlayerDead", _target, function(isDead)
             if isDead then
-                return TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Cannot search!", "Cannot search downed players.", "menu_textures", "menu_icon_alert", 3000)
+                return
             end
             if HandsUp[_target] or hogtied then
                 if not exports["redem_roleplay"]:RedEM().CrimeDisabled then
@@ -1475,7 +1472,6 @@ RegisterServerEvent("redemrp_inventory:GetPlayer",
                     TriggerClientEvent("redem_roleplay:NotifyRight", _source, "You cannot rob anyone <span style=\"color:lightblue\">30 minutes</span> before a storm!", 3000)
                 end
             else
-                TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Cannot search!", "Player must have their hands up or be hogtied.", "menu_textures", "menu_icon_alert", 3000)
             end
         end)
     end
@@ -1515,7 +1511,6 @@ RegisterServerEvent("redemrp_inventory:GetPlayerAsPolice",
                 _target
             )
         else
-            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Cannot search!", "You must be police to use this.", "menu_textures", "menu_icon_alert", 3000)
         end
     end
 )

@@ -51,7 +51,7 @@ AddEventHandler("dust_telegram:SendTelegram", function(data)
                     local Parameters = { ['recipient'] = recipient, ['sender'] = sender, ['subject'] = subject, ['sentTime'] = sentDate, ['message'] = message, ['postoffice'] = postoffice }
                     MySQL.update("INSERT INTO telegrams ( `recipient`,`sender`,`subject`,`sentTime`,`message`,`postoffice`) VALUES ( @recipient,@sender, @subject,@sentTime,@message,@postoffice )", Parameters)
                     User.removeMoney(removeMoney)
-                    TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Vous avez payé $" .. removeMoney .. "pour envoyer le télégramme", "scoretimer_textures", "scoretimer_generic_tick", 4000)
+                    TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Vous avez payé $" .. removeMoney .. " pour envoyer le télégramme", "scoretimer_textures", "scoretimer_generic_tick", 4000)
                 end
             else
                 TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Le destinataire n'a pas été trouvé !", "scoretimer_textures", "scoretimer_generic_cross", 4000)
@@ -99,10 +99,7 @@ AddEventHandler("dust_telegram:DeleteTelegram", function(tid)
     MySQL.query("SELECT * FROM telegrams WHERE id = @id", { ['@id'] = tid }, function(result)
         if result[1] ~= nil then
             MySQL.update("DELETE FROM telegrams WHERE id = @id", { ["@id"] = tid })
-            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Télégramme supprimé !", "scoretimer_textures", "scoretimer_generic_tick", 4000)
-
-        else
-            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Impossible de supprimer", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Télégramme", "Télégramme récupéré !", "scoretimer_textures", "scoretimer_generic_tick", 4000)
         end
     end)
     
