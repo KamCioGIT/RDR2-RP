@@ -57,6 +57,19 @@ Config.CraftingsReceipe = {
         label = 'Gros Steak aux Carottes Sauvages',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_carrots.png', text = "Carotte Sauvage",count = "x2"}},
     },
+    ['grossteakcarottesauvage'] = {
+        type = 'grill',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'grossteak',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'Wild_Carrot',
+        ItemReceipe2Amount = 2,
+        ItemToGive = 'grossteakcarottesauvage',
+        Amount = 1,
+        WorkingTime = 1,
+        label = 'Nom affiché ',
+        desc = "Description"
+    },
    
 }
 

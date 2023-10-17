@@ -6,10 +6,16 @@ ComponentsFemale = {}
 LoadedComponents = {}
 CreatorCache = {}
 local SpawnedPeds = {}
+-- MenuData = {}
+-- TriggerEvent("redemrp_creator_menu:getData", function(call)
+--     MenuData = call
+-- end)
+
 MenuData = {}
-TriggerEvent("redemrp_creator_menu:getData", function(call)
+TriggerEvent("redemrp_menu_base:getData", function(call)
     MenuData = call
 end)
+
 
 local MainMenus = {
     ["body"] = function()
