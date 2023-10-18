@@ -1440,42 +1440,35 @@ RegisterServerEvent("redemrp_inventory:GetStash",
 )
 
 
-RegisterServerEvent("redemrp_inventory:GetPlayer",
-    function(target, hogtied)
-        local _source = source
-        local _target = target
-        local Player = RedEM.GetPlayer(_source)
-        local TargetPlayer = RedEM.GetPlayer(_target)
+RegisterServerEvent("redemrp_inventory:GetPlayer", function(target)
+    local _source = source
+    local _target = target
+    local Player = RedEM.GetPlayer(_source)
+    local TargetPlayer = RedEM.GetPlayer(_target)
 
-        local identifier = Player.GetIdentifier()
-        local charid = Player.GetActiveCharacter()
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
 
-        TriggerEvent("redemrp_respawn:IsPlayerDead", _target, function(isDead)
-            if isDead then
-                return
-            end
-            if HandsUp[_target] or hogtied then
-                if not exports["redem_roleplay"]:RedEM().CrimeDisabled then
-                    local identifier_target = TargetPlayer.GetIdentifier()
-                    local charid_target = TargetPlayer.GetActiveCharacter()
-                    TriggerClientEvent("redem_roleplay:NotifyRight", _source, "Player Cash: $"..comma_value(string.format("%.2f", TargetPlayer.getMoney())), 3000)
-                    TriggerClientEvent(
-                        "redemrp_inventory:SendItems",
-                        _source,
-                        PrepareToOutput(Inventory[identifier .. "_" .. charid]),
-                        PrepareToOutput(Inventory[identifier_target .. "_" .. charid_target]),
-                        InventoryWeight[identifier .. "_" .. charid],
-                        true,
-                        _target
-                    )
-                else
-                    TriggerClientEvent("redem_roleplay:NotifyRight", _source, "You cannot rob anyone <span style=\"color:lightblue\">30 minutes</span> before a storm!", 3000)
-                end
-            else
-            end
-        end)
-    end
-)
+    local hogtied = IsPedHogtied(target)
+    local handsup = Entity(target).state.handsup
+
+    TriggerEvent("redemrp_respawn:IsPlayerDead", _target, function(isDead)
+        if handsup or hogtied or isDead then
+                local identifier_target = TargetPlayer.GetIdentifier()
+                local charid_target = TargetPlayer.GetActiveCharacter()
+                TriggerClientEvent("redem_roleplay:NotifyRight", _source, "Argent dans les poches: $"..comma_value(string.format("%.2f", TargetPlayer.getMoney())), 3000)
+                TriggerClientEvent(
+                    "redemrp_inventory:SendItems",
+                    _source,
+                    PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+                    PrepareToOutput(Inventory[identifier_target .. "_" .. charid_target]),
+                    InventoryWeight[identifier .. "_" .. charid],
+                    true,
+                    _target
+                )
+        end
+    end)
+end)
 
 function comma_value(amount)
     local formatted = amount

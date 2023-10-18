@@ -146,16 +146,8 @@ AddEventHandler("redemrp_inventory:SearchPlayer", function()
 	local closestPlayer, closestDistance = GetClosestPlayer()
 
 	if closestPlayer ~= -1 and closestDistance <= 1.5 then
-		local Hogtied = Citizen.InvokeNative(0x3AA24CCC0D451379, GetPlayerPed(closestPlayer))
-		local Cuffed = Citizen.InvokeNative(0x74E559B3BC910685, GetPlayerPed(closestPlayer))
-
-		if ( Hogtied or Cuffed ) == 1 then
-			TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer), true)
-		else
-			TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer), false)
-		end
-	else
-		RedEM.Functions.NotifyLeft("Introuvable", "Il n'y a personne devant vous !", "menu_textures", "menu_icon_alert", 4000)
+        TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer))
+        TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer))
 	end
 end)
 

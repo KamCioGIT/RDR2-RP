@@ -1,5 +1,8 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
+
+---- Ragdoll
+
 local Ragdoll = false
 
 
@@ -26,12 +29,14 @@ Citizen.CreateThread(function()
     end
 end)
 
+
+---- Lever les mains ----- 
+
 local HandsUp = false
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         local Player = PlayerPedId()
-        print(Entity(Player).state.handsup)
         if IsControlJustReleased(0, Config.HandsUpKey) then
             if HandsUp then
                 ClearPedTasks(Player)
@@ -54,3 +59,8 @@ function HandsUpAnim()
     end
     TaskPlayAnim(PlayerPedId(), Config.HandsUpAnim[key].dict, Config.HandsUpAnim[key].anim, 1.0, -1.0, -1, 25, 0, true, 0, false, 0, false)
 end
+
+----- Fouiller ------ 
+RegisterCommand("fouiller", function()
+    TriggerEvent("redemrp_inventory:SearchPlayer")
+end)
