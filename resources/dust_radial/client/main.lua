@@ -1,3 +1,5 @@
+-- local CurrentJob = { name = nil, rank = nil, duty = false }
+
 RedEM = exports["redem_roleplay"]:RedEM()
 
 
@@ -64,45 +66,32 @@ end
 RegisterCommand("fouiller", function()
     TriggerEvent("redemrp_inventory:SearchPlayer")
 end)
+--
+-- Main radial menus that are available to everyone.
 
-
-
---- donner l'argent
-
-
-
----- menu 
-exports('settingsRadialHandler', function(menu, item)
-    if menu == 'interactions' and item == 1 then
-        TriggerEvent("redemrp_inventory:SearchPlayer")
-    elseif menu == 'interactions' and item == 2 then
-        print 'give money'
-    elseif menu == 'interactions' and item == 3 then
-        print 'craft'
+lib.addRadialItem({
+  {
+    id = 'fouiller',
+    label = 'Fouiller',
+    icon = 'eye',
+    onSelect = function()
+      TriggerEvent("redemrp_inventory:SearchPlayer")
     end
-end)
-
-
-lib.registerRadial({
-    id = 'interactions',
-    items = {
-        {
-            label = 'Fouiller',
-            icon = 'magnifying-glass',
-            onSelect = 'settingsRadialHandler'
-        },
-        {
-            label = "Donner de l'argent",
-            icon = 'money-bill-transfer',
-            onSelect = 'settingsRadialHandler'
-        },
-        {
-            label = 'Fabriquer',
-            icon = 'people-hammer',
-            onSelect = 'settingsRadialHandler'
-        },
-    }
+  },
+  {
+    id = 'money',
+    label = "Donner de l'argent",
+    icon = 'dollar-sign',
+    onSelect = function()
+      print("Donner argent")
+    end
+  },
+  {
+    id = 'craft',
+    label = "Fabriquer",
+    icon = 'hammer',
+    onSelect = function()
+      print("Menu Craft")
+    end
+  },
 })
-
-
-lib.disableRadial(false)
