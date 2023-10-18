@@ -24,7 +24,7 @@ Citizen.CreateThread(function()
             Ragdoll = false
         end
 
-        if IsControlJustReleased(0, 0x4CC0E2FE) then
+        if IsControlJustReleased(0, 0xF3830D8E) then
             if Ragdoll or not CanPedRagdoll(Player) or IsEntityDead(Player) or IsPedInAnyVehicle(Player, false) then
                 Ragdoll = false
             else
