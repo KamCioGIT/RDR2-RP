@@ -90,13 +90,12 @@ end)
 
 lib.registerRadial({
     id = 'settings_menu',
-    items = {
+    items = 
         {
             label = 'Minimap',
             icon = 'map',
             menu = 'minimap_menu'
         },
-    }
 })
 
 lib.registerRadial({
