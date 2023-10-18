@@ -72,86 +72,37 @@ end)
 
 
 ---- menu 
-local CurrentJob = { name = nil, rank = nil, duty = false }
-
---
--- Main radial menus that are available to everyone.
---
-
 exports('settingsRadialHandler', function(menu, item)
-    if menu == 'minimap_menu' and item == 1 then
-        ExecuteCommand('minimap')
-    elseif menu == 'minimap_menu' and item == 2 then
-        ExecuteCommand('minimap zoomin')
-    elseif menu == 'minimap_menu' and item == 3 then
-        ExecuteCommand('minimap zoomout')
+    if menu == 'interactions' and item == 1 then
+        TriggerEvent("redemrp_inventory:SearchPlayer")
+    elseif menu == 'interactions' and item == 2 then
+        print 'give money'
+    elseif menu == 'interactions' and item == 3 then
+        print 'craft'
     end
 end)
 
-lib.registerRadial({
-    id = 'settings_menu',
-    items = 
-        {
-            label = 'Minimap',
-            icon = 'map',
-            menu = 'minimap_menu'
-        },
-})
 
 lib.registerRadial({
-    id = 'minimap_menu',
+    id = 'interactions',
     items = {
         {
-            label = 'Toggle Mode',
-            icon = 'map',
-            onSelect = 'settingsRadialHandler',
-        },
-        {
-            label = 'Zoom In',
-            icon = 'search-plus',
-            onSelect = 'settingsRadialHandler',
-        },
-        {
-            label = 'Zoom Out',
-            icon = 'search-minus',
-            onSelect = 'settingsRadialHandler'
-        },
-    }
-})
-
-lib.registerRadial({
-    id = 'interaction_menu',
-    items = {
-        {
-            label = 'Search Person',
+            label = 'Fouiller',
             icon = 'magnifying-glass',
             onSelect = 'settingsRadialHandler'
         },
         {
-            label = 'Drag Person',
-            icon = 'people-pulling',
+            label = "Donner de l'argent",
+            icon = 'money-bill-transfer',
+            onSelect = 'settingsRadialHandler'
+        },
+        {
+            label = 'Fabriquer',
+            icon = 'people-hammer',
             onSelect = 'settingsRadialHandler'
         },
     }
 })
 
-lib.addRadialItem({
-    {
-        id = 'interactions',
-        label = 'Interactions',
-        icon = 'user-gear',
-        menu = 'interaction_menu'
-    },
-})
-  
-lib.addRadialItem({
-    {
-        id = 'settings',
-        label = 'Settings',
-        icon = 'cog',
-        menu = 'settings_menu'
-    },
-})
-  
-lib.disableRadial(false)
 
+lib.disableRadial(false)
