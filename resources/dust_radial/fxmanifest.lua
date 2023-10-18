@@ -10,4 +10,9 @@ client_scripts {
     'client/main.lua',
 }
 
+server_scripts {
+    '@ox_lib/init.lua',
+    'server/main.lua',
+}
+
 lua54 'yes'
