@@ -49,8 +49,8 @@ end)
 
 function playAnimation()
     key = math.random(1, #Config.HandsUpAnim)
-    RequestAnimDict(dict)
-    while not HasAnimDictLoaded(dict) do
+    RequestAnimDict(Config.HandsUpAnim[key].dict)
+    while not HasAnimDictLoaded(Config.HandsUpAnim[key].dict) do
         Citizen.Wait(0)
     end
     print 'ouais'
