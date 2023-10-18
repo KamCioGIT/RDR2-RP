@@ -31,15 +31,15 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         local Player = PlayerPedId()
-
+        print(Entity(Player).state.handsup)
         if IsControlJustReleased(0, Config.HandsUpKey) then
-            print 'yes'
             if HandsUp then
                 ClearPedTasks(Player)
+                Entity(Player).state:set('handsup', false, true)
                 HandsUp = false
             else
-                print 'nice'
                 playAnimation()
+                Entity(Player).state:set('handsup', true, true)
                 HandsUp = true
             end
         end
@@ -53,6 +53,5 @@ function playAnimation()
     while not HasAnimDictLoaded(Config.HandsUpAnim[key].dict) do
         Citizen.Wait(0)
     end
-    print 'ouais'
     TaskPlayAnim(PlayerPedId(), Config.HandsUpAnim[key].dict, Config.HandsUpAnim[key].anim, 1.0, -1.0, -1, 25, 0, true, 0, false, 0, false)
 end
