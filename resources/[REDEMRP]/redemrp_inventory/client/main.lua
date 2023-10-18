@@ -151,6 +151,7 @@ AddEventHandler("redemrp_inventory:SearchPlayer", function()
         local handsup = Entity(GetPlayerPed(closestPlayer)).state.handsup
         local isDead = IsEntityDead(GetPlayerPed(closestPlayer))
 		if Hogtied or isDead or handsup then
+            print 'yesss'
 			TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer), true)
 		end
 	end
