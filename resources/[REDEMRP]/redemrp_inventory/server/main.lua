@@ -1448,8 +1448,8 @@ RegisterServerEvent("redemrp_inventory:GetPlayer", function(target, hogtied)
 
     local identifier = Player.GetIdentifier()
     local charid = Player.GetActiveCharacter()
-    local handsup = Entity(target).state.handsup
-    TriggerEvent("redemrp_respawn:IsPlayerDead", _target, function(isDead)
+    local handsup = Entity(_target).state.handsup
+    local isDead = IsEntityDead(_target)
         if handsup or hogtied or isDead then
                 local identifier_target = TargetPlayer.GetIdentifier()
                 local charid_target = TargetPlayer.GetActiveCharacter()
@@ -1464,7 +1464,6 @@ RegisterServerEvent("redemrp_inventory:GetPlayer", function(target, hogtied)
                     _target
                 )
         end
-    end)
 end)
 
 function comma_value(amount)
