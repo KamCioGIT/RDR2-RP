@@ -1440,7 +1440,7 @@ RegisterServerEvent("redemrp_inventory:GetStash",
 )
 
 
-RegisterServerEvent("redemrp_inventory:GetPlayer", function(target, hogtied)
+RegisterServerEvent("redemrp_inventory:GetPlayer", function(target, fouille)
     local _source = source
     local _target = target
     local Player = RedEM.GetPlayer(_source)
@@ -1448,9 +1448,7 @@ RegisterServerEvent("redemrp_inventory:GetPlayer", function(target, hogtied)
 
     local identifier = Player.GetIdentifier()
     local charid = Player.GetActiveCharacter()
-    local handsup = Entity(_target).state.handsup
-    local isDead = IsEntityDead(_target)
-        if handsup or hogtied or isDead then
+        if fouille then
                 local identifier_target = TargetPlayer.GetIdentifier()
                 local charid_target = TargetPlayer.GetActiveCharacter()
                 TriggerClientEvent("redem_roleplay:NotifyRight", _source, "Argent dans les poches: $"..comma_value(string.format("%.2f", TargetPlayer.getMoney())), 3000)
