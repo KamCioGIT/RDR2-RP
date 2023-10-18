@@ -38,6 +38,7 @@ Citizen.CreateThread(function()
                 ClearPedTasks(Player)
                 HandsUp = false
             else
+                print 'nice'
                 playAnimation()
                 HandsUp = true
             end
