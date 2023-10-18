@@ -33,6 +33,7 @@ Citizen.CreateThread(function()
         local Player = PlayerPedId()
 
         if IsControlJustReleased(0, Config.HandsUpKey) then
+            print 'yes'
             if HandsUp then
                 ClearPedTasks(Player)
                 HandsUp = false
