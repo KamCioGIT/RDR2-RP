@@ -151,6 +151,12 @@ AddEventHandler("redemrp_inventory:SearchPlayer", function()
         local handsup = Entity(GetPlayerPed(closestPlayer)).state.handsup
         local isDead = IsEntityDead(GetPlayerPed(closestPlayer))
 		if Hogtied or isDead or handsup then
+            local dict = "mech_loco_m@generic@searching@low_energy@direct@unarmed@idle"
+            RequestAnimDict(dict)
+            while not HasAnimDictLoaded(dict) do
+                Citizen.Wait(10)
+            end
+            TaskPlayAnim(PlayerPedId(), dict, "idle", 1.0, 8.0, -1, 1, 0, false, false, false)
 			TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer), true)
 		end
 	end
