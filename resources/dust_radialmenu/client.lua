@@ -38,16 +38,15 @@ Citizen.CreateThread(function()
                 Entity(Player).state:set('handsup', false, true)
                 HandsUp = false
             else
-                playAnimation()
+                HandsUpAnim()
                 Entity(Player).state:set('handsup', true, true)
                 HandsUp = true
             end
         end
-            
     end
 end)
 
-function playAnimation()
+function HandsUpAnim()
     key = math.random(1, #Config.HandsUpAnim)
     RequestAnimDict(Config.HandsUpAnim[key].dict)
     while not HasAnimDictLoaded(Config.HandsUpAnim[key].dict) do
