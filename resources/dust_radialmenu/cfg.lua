@@ -1,5 +1,5 @@
 Config = {}
 
-Config.RagdollKey = 0x4AF4D473
+Config.RagdollKey = 0xF3830D8E
 Config.MenuKey = 0x8AAA0AD4
 
