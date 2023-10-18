@@ -1448,10 +1448,11 @@ RegisterServerEvent("redemrp_inventory:GetPlayer", function(target, fouille)
 
     local identifier = Player.GetIdentifier()
     local charid = Player.GetActiveCharacter()
+
         if fouille then
                 local identifier_target = TargetPlayer.GetIdentifier()
                 local charid_target = TargetPlayer.GetActiveCharacter()
-                TriggerClientEvent("redem_roleplay:NotifyRight", _source, "Argent dans les poches: $"..comma_value(string.format("%.2f", TargetPlayer.getMoney())), 3000)
+                TriggerClientEvent('redem_roleplay:ShowAdvancedRightNotification', _source,"Argent dans les poches: $"..comma_value(string.format("%.2f", TargetPlayer.getMoney())), "itemtype_textures" , "itemtype_cash_arthur" , "COLOR_WHITE", 4000)
                 TriggerClientEvent(
                     "redemrp_inventory:SendItems",
                     _source,
