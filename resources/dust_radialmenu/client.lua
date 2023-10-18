@@ -9,6 +9,7 @@ Citizen.CreateThread(function()
         
         if not CanPedRagdoll(Player) or IsEntityDead(Player) or IsPedInAnyVehicle(Player, true) then
             if IsControlJustReleased(0, Config.RagdollKey) then
+                print 'miam'
                 if Ragdoll then
                     Ragdoll = false
                 else
