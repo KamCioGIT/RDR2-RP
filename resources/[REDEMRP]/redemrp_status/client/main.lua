@@ -295,24 +295,24 @@ RegisterNetEvent('redemrp_status:UpdateStatus', function(thrist, hunger, stress,
     if stress and stress >= 60 then
         RedEM.Functions.NotifyRight("You are feeling stressed out...", 4000)
     end
-    if stress and stress >= 80 then
-        SetPedToRagdoll(PlayerPedId(), 3000, 5000, 0, 0, 0, 0)
-        local Ragdoll = math.random(1,2)
-        if Ragdoll == 1 then 
-            SetTimeout(math.random(8000, 10000), function()
-                SetPedToRagdoll(PlayerPedId(), 3000, 5000, 0, 0, 0, 0)
-            end)
-        end
-        if not TimecycOn then
-            SetTimecycleModifier("LensDistDrunk")
-            TimecycOn = true
-        end
-    else
-        if TimecycOn then
-            ClearTimecycleModifier()
-            TimecycOn = false
-        end
-    end
+    -- if stress and stress >= 80 then
+    --     SetPedToRagdoll(PlayerPedId(), 3000, 5000, 0, 0, 0, 0)
+    --     local Ragdoll = math.random(1,2)
+    --     if Ragdoll == 1 then 
+    --         SetTimeout(math.random(8000, 10000), function()
+    --             SetPedToRagdoll(PlayerPedId(), 3000, 5000, 0, 0, 0, 0)
+    --         end)
+    --     end
+    --     if not TimecycOn then
+    --         SetTimecycleModifier("LensDistDrunk")
+    --         TimecycOn = true
+    --     end
+    -- else
+    --     if TimecycOn then
+    --         ClearTimecycleModifier()
+    --         TimecycOn = false
+    --     end
+    -- end
     SendNUIMessage({
         thrist = thrist,
         hunger = hunger,
