@@ -1449,7 +1449,7 @@ RegisterServerEvent("redemrp_inventory:GetPlayer", function(target)
     local identifier = Player.GetIdentifier()
     local charid = Player.GetActiveCharacter()
 
-    local Hogtied = Citizen.InvokeNative(0x3AA24CCC0D451379, GetPlayerPed(_target))
+    local Hogtied = Citizen.InvokeNative(0x3AA24CCC0D451379,_target)
     local handsup = Entity(target).state.handsup
 
     TriggerEvent("redemrp_respawn:IsPlayerDead", _target, function(isDead)
