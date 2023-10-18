@@ -113,7 +113,7 @@ lib.addRadialItem({
             TriggerServerEvent('dust_radial:givemoney', data.id, amount)       
             NPlayerSelector:deactivate()
           end)
-          NPlayerSelector:setRange(5)
+          NPlayerSelector:setRange(2)
           NPlayerSelector:activate()
         end
     end)
@@ -125,7 +125,110 @@ lib.addRadialItem({
     label = "Fabriquer",
     icon = 'hammer',
     onSelect = function()
-      print("Menu Craft")
+      TriggerEvent("radial:OpenBossMenu")
     end
   },
 })
+
+
+--- menu craft 
+RegisterNetEvent("radial:OpenBossMenu", function(menutype)
+  local Position = GetEntityCoords(PlayerPedId())
+  local _menutype = menutype
+
+  Citizen.CreateThread(function()
+      while true do
+          Wait(100)
+          if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+              TriggerEvent("redemrp_menu_base:getData", function(call)
+                  call.CloseAll()
+                  isInteracting = false
+              end)
+              return
+          end
+      end
+  end)
+
+  TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+      MenuData.CloseAll()
+
+      local elements = {}
+      for k, v in pairs(Config.CraftingsReceipe) do
+        table.insert(elements, {label = v.label, value = k, desc = v.desc})
+      end
+
+      MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+          title = "Fabrication",
+          subtext = "Recettes",
+          align = 'top-right',
+          elements = elements,
+      },
+
+      function(data, menu)
+          MenuData.CloseAll()
+          TriggerServerEvent("dust_radial:MaxRessourcesAmount", data.current.value)
+          Wait(150)
+          TriggerEvent("dust_radial:SelectCraftingAmount", data.current.value, MenuData, menu)
+      end,
+
+      function(data, menu)
+          menu.close()
+          isInteracting = false
+      end)
+  end)
+end)
+
+RegisterNetEvent("dust_radial:SelectCraftingAmount")
+AddEventHandler("dust_radial:SelectCraftingAmount", function(dataType, menuData, menu)
+    menuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+
+    local elements = {
+        { label = "Quantité", 
+        value = 0, 
+        desc = "Se mettre au travail",
+        type = 'slider',
+        min = 0,
+        max = maxCraftAmountUsine 
+        },
+    }
+
+    menuData.Open('default', GetCurrentResourceName(), 'craft', {
+        title = "Atelier",
+        subtext = "Choisir la quantité",
+        align = 'top-right',
+        elements = elements,
+    },
+
+    function(data, menu)
+        if data.current.label == "Quantité" then
+            TriggerServerEvent("dust_radial:CraftItem", dataType, menu, data.current.value)
+            menu.close()
+            isInteracting = false
+        end 
+    end,
+
+    function(data, menu)
+        menu.close()
+        isInteracting = false
+    end)
+end)
+
+RegisterNetEvent("dust_radial:client:SetMaxAmount", function(value)
+    maxCraftAmountUsine = value
+end)
+

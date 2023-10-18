@@ -20,8 +20,6 @@ AddEventHandler('usine:CraftItem', function(itemNameStr, menu, amount)
 				local ItemDatagive = data.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemToGive)
 				ItemDatagive.AddItem(Config.CraftingsReceipe[itemNameStr].Amount)
 			end)
-		else 
-			RedEM.Functions.NotifyRight( _source, "Vous n'avez pas les ressources nécessaire pour fabriquer cet objet", 3000)
 		end
 
 		Citizen.Wait(Config.WorkingTime)
@@ -36,7 +34,6 @@ AddEventHandler('usine:AddItem', function(item, amount)
 	ItemData.AddItem(amount)
 
 end)
-
 
 RegisterServerEvent("usine:RequestBossMenu", function(menutype)
     local _source = source
