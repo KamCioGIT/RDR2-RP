@@ -2,6 +2,11 @@
 
 RedEM = exports["redem_roleplay"]:RedEM()
 
+local NPlayerSelector = nil
+TriggerEvent('mega_nplayerselector:load', function (data)
+    NPlayerSelector = data
+end)
+
 
 ---- Ragdoll
 
@@ -83,7 +88,30 @@ lib.addRadialItem({
     label = "Donner de l'argent",
     icon = 'dollar-sign',
     onSelect = function()
-      print("Donner argent")
+      TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        AddTextEntry("FMMC_MPM_TYP86", "Montant")
+        DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30) -- KTEXTTYPE_ALPHABET
+        while (UpdateOnscreenKeyboard() == 0) do
+            DisableAllControlActions(0)
+            Citizen.Wait(0)
+        end
+        if (GetOnscreenKeyboardResult()) then
+            amount = GetOnscreenKeyboardResult()
+        else
+        return
+        end
+                    
+        if amount then
+          NPlayerSelector:onPlayerSelected(function (data)
+            TriggerServerEvent('dust_radial:givemoney', data.id, amount)       
+            NPlayerSelector:deactivate()
+          end)
+          NPlayerSelector:setRange(5)
+          NPlayerSelector:activate()
+        end
+    end)
+
     end
   },
   {
