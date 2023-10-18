@@ -73,18 +73,18 @@ end)
 
 ---- menu 
 exports('settingsRadialHandler', function(menu, item)
-    if menu == 'interactions' and item == 1 then
-        TriggerEvent("redemrp_inventory:SearchPlayer")
-    elseif menu == 'interactions' and item == 2 then
-        print 'give money'
-    elseif menu == 'interactions' and item == 3 then
-        print 'craft'
+    if menu == 'interaction_menu' and item == 1 then
+        ExecuteCommand('minimap')
+    elseif menu == 'interaction_menu' and item == 2 then
+        ExecuteCommand('minimap zoomin')
+    elseif menu == 'minimap_menu' and item == 3 then
+        ExecuteCommand('minimap zoomout')
     end
 end)
 
 
-lib.addRadialItem({
-    id = 'interactions',
+lib.registerRadial({
+    id = 'interaction_menu',
     items = {
         {
             label = 'Fouiller',
@@ -104,6 +104,14 @@ lib.addRadialItem({
     }
 })
 
+lib.addRadialItem({
+    {
+        id = 'interactions',
+        label = 'Interactions',
+        icon = 'user-gear',
+        menu = 'interaction_menu'
+    },
+})
 
 lib.disableRadial(false)
 
