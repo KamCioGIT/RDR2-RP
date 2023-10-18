@@ -64,3 +64,7 @@ end
 RegisterCommand("fouiller", function()
     TriggerEvent("redemrp_inventory:SearchPlayer")
 end)
+
+
+
+--- donner l'argent

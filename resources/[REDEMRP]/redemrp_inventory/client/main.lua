@@ -147,7 +147,6 @@ AddEventHandler("redemrp_inventory:SearchPlayer", function()
 
 	if closestPlayer ~= -1 and closestDistance <= 1.5 then
         TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer))
-        TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer))
 	end
 end)
 
