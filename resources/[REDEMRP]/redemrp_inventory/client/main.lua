@@ -150,7 +150,7 @@ AddEventHandler("redemrp_inventory:SearchPlayer", function()
 		-- local Cuffed = Citizen.InvokeNative(0x74E559B3BC910685, GetPlayerPed(closestPlayer))
         local handsup = Entity(GetPlayerPed(closestPlayer)).state.handsup
         local isDead = IsEntityDead(GetPlayerPed(closestPlayer))
-		if ( Hogtied or isDead or handsup) == 1 then
+		if Hogtied or isDead or handsup then
 			TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer), true)
 		end
 	end
