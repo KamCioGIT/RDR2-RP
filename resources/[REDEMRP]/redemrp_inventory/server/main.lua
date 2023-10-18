@@ -1449,11 +1449,11 @@ RegisterServerEvent("redemrp_inventory:GetPlayer", function(target)
     local identifier = Player.GetIdentifier()
     local charid = Player.GetActiveCharacter()
 
-    local hogtied = IsPedHogtied(target)
+    local Hogtied = Citizen.InvokeNative(0x3AA24CCC0D451379, GetPlayerPed(closestPlayer))
     local handsup = Entity(target).state.handsup
 
     TriggerEvent("redemrp_respawn:IsPlayerDead", _target, function(isDead)
-        if handsup or hogtied or isDead then
+        if handsup or Hogtied or isDead then
                 local identifier_target = TargetPlayer.GetIdentifier()
                 local charid_target = TargetPlayer.GetActiveCharacter()
                 TriggerClientEvent("redem_roleplay:NotifyRight", _source, "Argent dans les poches: $"..comma_value(string.format("%.2f", TargetPlayer.getMoney())), 3000)
