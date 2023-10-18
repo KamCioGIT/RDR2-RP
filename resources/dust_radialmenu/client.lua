@@ -14,7 +14,7 @@ Control = {
     Decrease = 0xB2F377E8, -- F
     Mode = 0xCEFD9220, -- E
 }
-
+ToggleControl = true
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
