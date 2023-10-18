@@ -52,5 +52,6 @@ function playAnimation()
     while not HasAnimDictLoaded(dict) do
         Citizen.Wait(0)
     end
+    print 'ouais'
     TaskPlayAnim(PlayerPedId(), Config.HandsUpAnim[key].dict, Config.HandsUpAnim[key].anim, 1.0, -1.0, -1, -1, 0, true, 0, false, 0, false)
 end
