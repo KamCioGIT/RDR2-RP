@@ -54,5 +54,5 @@ function playAnimation()
         Citizen.Wait(0)
     end
     print 'ouais'
-    TaskPlayAnim(PlayerPedId(), Config.HandsUpAnim[key].dict, Config.HandsUpAnim[key].anim, 1.0, -1.0, -1, -1, 0, true, 0, false, 0, false)
+    TaskPlayAnim(PlayerPedId(), Config.HandsUpAnim[key].dict, Config.HandsUpAnim[key].anim, 1.0, -1.0, -1, 25, 0, true, 0, false, 0, false)
 end
