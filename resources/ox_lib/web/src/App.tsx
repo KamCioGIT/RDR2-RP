@@ -27,7 +27,15 @@ const App: React.FC = () => {
   fetchNui('init');
 
   return (
-    <MantineProvider withNormalizeCSS withGlobalStyles theme={{ ...theme, ...config }}>
+  <MantineProvider
+        theme={{
+          globalStyles: (theme) => ({
+            ',::before, *::after': {
+              boxSizing: 'border-box',
+            },
+          }),
+        }}
+      >
       <Progressbar />
       <CircleProgressbar />
       <Notifications />

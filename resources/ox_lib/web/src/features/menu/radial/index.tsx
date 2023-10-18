@@ -14,30 +14,39 @@ const useStyles = createStyles((theme) => ({
     left: '50%',
     transform: 'translate(-50%, -50%)',
   },
+  prout: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+
+  },
   sector: {
-    fill: theme.colors.dark[6],
-    color: theme.colors.dark[0],
+    fill: '#090909',
+    stroke: '#615C43',
+    strokeWidth: 4,
+    color: '#090909',
 
     '&:hover': {
-      fill: theme.fn.primaryColor(),
-      '> g > text, > g > svg > path': {
-        fill: '#fff',
-      },
+      fill: '#282828',
     },
     '> g > text': {
       fill: theme.colors.dark[0],
+      strokeWidth: 0,
     },
   },
   backgroundCircle: {
-    fill: theme.colors.dark[6],
+    fill: '#090909',
+    stroke: '#615C43',
+    strokeWidth: 4,
   },
   centerCircle: {
-    fill: theme.fn.primaryColor(),
-    color: '#fff',
-    stroke: theme.colors.dark[6],
+    fill: '#090909',
+    color: '#090909',
+    stroke: '#615C43',
     strokeWidth: 4,
     '&:hover': {
-      fill: theme.colors[theme.primaryColor][theme.fn.primaryShade() - 1],
+      stroke: '#DC5858',
     },
   },
   centerIconContainer: {
@@ -48,7 +57,7 @@ const useStyles = createStyles((theme) => ({
     pointerEvents: 'none',
   },
   centerIcon: {
-    color: '#fff',
+    color: '#D7D7D7',
   },
 }));
 
