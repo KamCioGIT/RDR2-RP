@@ -1,3 +1,5 @@
+RedEM = exports["redem_roleplay"]:RedEM()
+
 RegisterNetEvent('dust_radial:givemoney', function(target, amount)
     local _source = source
     local User = RedEM.GetPlayer(_source)
