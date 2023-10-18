@@ -3,7 +3,7 @@ RedEM = exports["redem_roleplay"]:RedEM()
 local Ragdoll = false
 
 Control = {
-    Toggle = 0x8CC9CD42, --X
+    Toggle = 0xF3830D8E, --X
     Forward = 0x8FD015D8, -- W
     Backward = 0xD27782E3, -- S
     Left = 0x7065027D, -- A
