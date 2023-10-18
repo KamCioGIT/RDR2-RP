@@ -20,7 +20,7 @@ Citizen.CreateThread(function()
 
 
         if Ragdoll then
-            SetPedToRagdoll(Player, -1, -1, 0, false, false, false)
+            SetPedToRagdoll(Player, 1000, 1000, 0, false, false, false)
 		end
     end
 end)
