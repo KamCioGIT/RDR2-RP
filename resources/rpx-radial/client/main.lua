@@ -4,80 +4,75 @@ local CurrentJob = { name = nil, rank = nil, duty = false }
 -- Main radial menus that are available to everyone.
 --
 
-exports('settingsRadialHandler', function(menu, item)
-    if menu == 'minimap_menu' and item == 1 then
-        ExecuteCommand('minimap')
-    elseif menu == 'minimap_menu' and item == 2 then
-        ExecuteCommand('minimap zoomin')
-    elseif menu == 'minimap_menu' and item == 3 then
-        ExecuteCommand('minimap zoomout')
+exports('myMenuHandler', function(menu, item)
+    print(menu, item)
+ 
+    if menu == 'police_menu' and item == 1 then
+        print('Handcuffs')
     end
 end)
-
+ 
 lib.registerRadial({
-    id = 'settings_menu',
-    items = {
-        {
-            label = 'Minimap',
-            icon = 'map',
-            menu = 'minimap_menu'
-        },
-    }
-})
-
-lib.registerRadial({
-    id = 'minimap_menu',
-    items = {
-        {
-            label = 'Toggle Mode',
-            icon = 'map',
-            onSelect = 'settingsRadialHandler',
-        },
-        {
-            label = 'Zoom In',
-            icon = 'search-plus',
-            onSelect = 'settingsRadialHandler',
-        },
-        {
-            label = 'Zoom Out',
-            icon = 'search-minus',
-            onSelect = 'settingsRadialHandler'
-        },
-    }
-})
-
-lib.registerRadial({
-    id = 'interaction_menu',
-    items = {
-        {
-            label = 'Search Person',
-            icon = 'magnifying-glass',
-            onSelect = 'settingsRadialHandler'
-        },
-        {
-            label = 'Drag Person',
-            icon = 'people-pulling',
-            onSelect = 'settingsRadialHandler'
-        },
-    }
-})
-
-lib.addRadialItem({
+  id = 'police_menu',
+  items = {
     {
-        id = 'interactions',
-        label = 'Interactions',
-        icon = 'user-gear',
-        menu = 'interaction_menu'
+      label = 'Handcuff',
+      icon = 'handcuffs',
+      onSelect = 'myMenuHandler'
     },
-})
-  
-lib.addRadialItem({
     {
-        id = 'settings',
-        label = 'Settings',
-        icon = 'cog',
-        menu = 'settings_menu'
+      label = 'Frisk',
+      icon = 'hand'
     },
+    {
+      label = 'Fingerprint',
+      icon = 'fingerprint'
+    },
+    {
+      label = 'Jail',
+      icon = 'bus'
+    },
+    {
+      label = 'Search',
+      icon = 'magnifying-glass',
+      onSelect = function()
+        print('Search')
+      end
+    }
+  }
 })
-  
-lib.disableRadial(false)
+ 
+lib.addRadialItem({
+  {
+    id = 'police',
+    label = 'Police',
+    icon = 'shield-halved',
+    menu = 'police_menu'
+  },
+  {
+    id = 'business_stuff',
+    label = 'Business',
+    icon = 'briefcase',
+    onSelect = function()
+      print("Business")
+    end
+  }
+})
+ 
+local coords = GetEntityCoords(cache.ped)
+local point = lib.points.new(coords, 5)
+ 
+function point:onEnter()
+  lib.addRadialItem({
+    id = 'garage_access',
+    icon = 'warehouse',
+    label = 'Garage',
+    onSelect = function()
+      print('Garage')
+    end
+  })
+end
+ 
+function point:onExit()
+  lib.removeRadialItem('garage_access')
+end
