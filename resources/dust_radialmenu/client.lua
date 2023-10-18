@@ -68,3 +68,42 @@ end)
 
 
 --- donner l'argent
+
+
+
+---- menu 
+exports('settingsRadialHandler', function(menu, item)
+    if menu == 'interactions' and item == 1 then
+        TriggerEvent("redemrp_inventory:SearchPlayer")
+    elseif menu == 'interactions' and item == 2 then
+        print 'give money'
+    elseif menu == 'interactions' and item == 3 then
+        print 'craft'
+    end
+end)
+
+
+lib.addRadialItem({
+    id = 'interactions',
+    items = {
+        {
+            label = 'Fouiller',
+            icon = 'magnifying-glass',
+            onSelect = 'settingsRadialHandler'
+        },
+        {
+            label = "Donner de l'argent",
+            icon = 'money-bill-transfer',
+            onSelect = 'settingsRadialHandler'
+        },
+        {
+            label = 'Fabriquer',
+            icon = 'people-hammer',
+            onSelect = 'settingsRadialHandler'
+        },
+    }
+})
+
+
+lib.disableRadial(false)
+
