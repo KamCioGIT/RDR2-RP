@@ -22,19 +22,32 @@ Citizen.CreateThread(function()
             Ragdoll = false
         end
 
-        if IsControlJustReleased(0, Config.RagdollKey) then
-            if Ragdoll or not CanPedRagdoll(Player) or IsEntityDead(Player) then
-                Ragdoll = false
-            else
-                Ragdoll = true
-            end
-        end
+        -- if IsControlJustReleased(0, Config.RagdollKey) then
+        --     if Ragdoll or not CanPedRagdoll(Player) or IsEntityDead(Player) then
+        --         Ragdoll = false
+        --     else
+        --         Ragdoll = true
+        --     end
+        -- end
 
         if Ragdoll then
             SetPedToRagdoll(Player, 1000, 1000, RagdollType, false, false, false)
 		end
     end
 end)
+
+local keybind = lib.addKeybind({
+    name = 'ragdoll',
+    description = 'ragdoll',
+    defaultKey = 'J',
+    onReleased = function(self)
+        if Ragdoll or not CanPedRagdoll(Player) or IsEntityDead(Player) then
+            Ragdoll = false
+        else
+            Ragdoll = true
+        end
+    end
+})
 
 
 ---- Lever les mains ----- 
