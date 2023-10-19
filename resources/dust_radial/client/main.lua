@@ -232,3 +232,58 @@ RegisterNetEvent("dust_radial:client:SetMaxAmount", function(value)
     maxCraftAmountUsine = value
 end)
 
+
+
+---- recolte ressources 
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(2)
+        local playerPos = GetEntityCoords(PlayerPedId())
+        for k, pos in pairs(Config.PetitBois) do
+            if #(playerPos - pos) < 7.0 and not isInteracting then
+                recolt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    isInteracting = true
+                    GiveRessource(petitbois, 1)
+                end
+            end
+        end
+
+        for k, pos in pairs(Config.Fil) do
+            if #(playerPos - pos) < 7.0 and not isInteracting then
+                recolt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    isInteracting = true
+                    GiveRessource(fil, 1)
+                end
+            end
+        end
+
+        for k, pos in pairs(Config.Silex) do
+            if #(playerPos - pos) < 7.0 and not isInteracting then
+                recolt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    isInteracting = true
+                    GiveRessource(silex, 1)
+                end
+            end
+        end
+    end
+end)
+
+function GiveRessource(item, amount)
+    local playerPed = PlayerPedId()
+    TriggerEvent("redemrp_inventory:PickupAnim")
+    local timer = GetGameTimer() + Config.WorkingTime
+    isInteracting = true
+    Citizen.CreateThread(function()
+        while GetGameTimer() < timer do 
+            Wait(0)
+        end
+        ClearPedTasks(playerPed)
+		FreezeEntityPosition(playerPed, false)
+        isInteracting = false
+        TriggerServerEvent('dust_radial:AddItem', item, amount)
+    end)
+end

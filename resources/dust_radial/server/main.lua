@@ -58,3 +58,13 @@ AddEventHandler('dust_radial:CraftItem', function(itemNameStr, menu, amount)
 		Citizen.Wait(Config.WorkingTime)
 	end
 end)
+
+
+RegisterServerEvent('dust_radial:AddItem')
+AddEventHandler('dust_radial:AddItem', function(item, amount)
+	print (item, amount)
+	local _source = tonumber(source)
+	local ItemData = data.getItem(_source, item)
+	ItemData.AddItem(amount)
+
+end)

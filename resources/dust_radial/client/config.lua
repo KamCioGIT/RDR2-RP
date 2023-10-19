@@ -18,35 +18,55 @@ Config.HandsUpAnim = {
 Config.CraftingsReceipe = {
     ['bow'] = {
         label = "Arc",
-        desc = "1 bois + 1 fil",
-        ItemReceipe1Name = 'cuivrepepite',
+        desc = "1 Petit Bois + 1 Fil",
+        ItemReceipe1Name = 'petitbois',
         ItemReceipe1Amount = 1,
-        ItemReceipe2Name = 'plombpepite',
+        ItemReceipe2Name = 'fil',
         ItemReceipe2Amount = 1,
-        ItemToGive = 'douille',
-        Amount = 10,
+        ItemToGive = 'WEAPON_BOW',
+        Amount = 1,
         WorkingTime = 5,
     },
     ['arrow'] = {
         label = "Flèches",
         desc = "1 bois + 1 silex",
-        ItemReceipe1Name = 'ferpepite',
-        ItemReceipe1Amount = 10,
-        ItemReceipe2Name = 'charbon',
+        ItemReceipe1Name = 'petitbois',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'silex',
         ItemReceipe2Amount = 1,
-        ItemToGive = 'piecearme',
+        ItemToGive = 'ammo_arrow',
         Amount = 10,
         WorkingTime = 5,
     },
     ['spit'] = {
         label = "Feu de camp",
-        desc = "3 bois",
-        ItemReceipe1Name = 'souffre',
-        ItemReceipe1Amount = 10,
-        ItemReceipe2Name = 'charbon',
-        ItemReceipe2Amount = 5,
-        ItemToGive = 'gunpowder',
-        Amount = 10,
+        desc = "3 Petits Bois",
+        ItemReceipe1Name = 'petitbois',
+        ItemReceipe1Amount = 3,
+        ItemToGive = 'spit',
+        Amount = 1,
         WorkingTime = 5,
     },
+}
+
+Config.WorkingTime = 3000
+
+Config.PetitBois = {
+    [1] = vector3(1378.687, -987.7832, 50.89909), --- Rhodes 
+    [2] = vector3(1876.99, -63.12452, 54.71591), --- emerald
+    [3] = vector3(-1918.058, -1195.498, 79.22073), --- bw
+    [4] = vector3(-1372.065, 552.1296, 106.9494), --- straw
+
+}
+
+Config.Silex = {
+    [1] = vector3(717.4515, -763.868, 45.52427), --- rhodes
+    [2] = vector3(1281.436, 858.6588, 102.7366), --- emerald
+    [3] = vector3(-1384.463, -756.5168, 93.43803), --- bw
+    [4] = vector3(-1570.97, 789.9352, 140.7988), --- straw
+}
+
+Config.Fil = {
+    [1] = vector3(-760.0312, -1238.9, 43.63919), --- bw
+    [2] = vector3(1404.149, -1303.683, 77.80862), --- Rhodes
 }
