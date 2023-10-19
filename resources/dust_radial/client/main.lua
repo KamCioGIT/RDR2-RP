@@ -257,13 +257,24 @@ Citizen.CreateThread(function()
 	end
 end)
 
+local woodprompt = UipromptGroup:new("Petit Bois")
+Uiprompt:new(0x760A9C6F, "Récolter", woodprompt)
+woodprompt:setActive(false)
+local filprompt = UipromptGroup:new("Fil")
+Uiprompt:new(0x760A9C6F, "Récolter", filprompt)
+filprompt:setActive(false)
+local silexprompt = UipromptGroup:new("Silex")
+Uiprompt:new(0x760A9C6F, "Récolter", silexprompt)
+silexprompt:setActive(false)
+
+
 Citizen.CreateThread(function()
     while true do
         Wait(2)
         local playerPos = GetEntityCoords(PlayerPedId())
         for k, pos in pairs(Config.PetitBois) do
             if #(playerPos - pos) < 7.0 and not isInteracting then
-                recolt:setActiveThisFrame(true)
+                woodprompt:setActiveThisFrame(true)
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
                     GiveRessource(petitbois, 1)
@@ -273,7 +284,7 @@ Citizen.CreateThread(function()
 
         for k, pos in pairs(Config.Fil) do
             if #(playerPos - pos) < 7.0 and not isInteracting then
-                recolt:setActiveThisFrame(true)
+                filprompt:setActiveThisFrame(true)
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
                     GiveRessource(fil, 1)
@@ -283,7 +294,7 @@ Citizen.CreateThread(function()
 
         for k, pos in pairs(Config.Silex) do
             if #(playerPos - pos) < 7.0 and not isInteracting then
-                recolt:setActiveThisFrame(true)
+                silexprompt:setActiveThisFrame(true)
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
                     GiveRessource(silex, 1)
