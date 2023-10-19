@@ -578,9 +578,10 @@ function camera(zoom, offset)
         x = coords.x + (zoomOffset * theta.x),
         y = coords.y + (zoomOffset * theta.y)
     }
+    local rota = GetEntityHeading(playerPed)
     if not ClothingCamera then
         DestroyAllCams(true)
-        ClothingCamera = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", pos.x, pos.y, coords.z + camOffset, 300.00,
+        ClothingCamera = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", pos.x, pos.y, coords.z + camOffset, rota,
             0.00, 0.00, 40.00, false, 0)
         local pCoords = GetEntityCoords(PlayerPedId())
         PointCamAtCoord(ClothingCamera, pCoords.x, pCoords.y, pCoords.z + camOffset)
@@ -592,7 +593,7 @@ function camera(zoom, offset)
         ----print("Camera Created")
     else
         local ClothingCamera2 = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", pos.x, pos.y, coords.z + camOffset,
-            300.00, 0.00, 0.00, 40.00, false, 0)
+        rota, 0.00, 0.00, 40.00, false, 0)
         SetCamActive(ClothingCamera2, true)
         SetCamActiveWithInterp(ClothingCamera2, ClothingCamera, 750)
         local pCoords = GetEntityCoords(PlayerPedId())
