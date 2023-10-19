@@ -8,7 +8,6 @@ AddEventHandler('redemrp_doorlocks:updatedoorsv', function(doorID, state, cb)
 	local _source = source
     local user = RedEM.GetPlayer(_source)     
         if not IsAuthorized(user.getJob(), Config.DoorList[doorID]) then
-			TriggerClientEvent('chatMessage', source, "", {0, 0, 200}, "^1You do not have a key!^0")
             return
         else 
             TriggerClientEvent('redemrp_doorlocks:changedoor', _source, doorID, state)

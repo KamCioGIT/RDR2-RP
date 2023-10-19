@@ -4,7 +4,7 @@ local PromptGroup = GetRandomIntInRange(0, 0xffffff)
 
 function SetupOpenPrompt()
     Citizen.CreateThread(function()
-        local str = 'Door'
+        local str = 'Porte'
         OpenPrompt = PromptRegisterBegin()
         PromptSetControlAction(OpenPrompt, Config.KeyPress)
         str = CreateVarString(10, 'LITERAL_STRING', str)
@@ -109,7 +109,7 @@ Citizen.CreateThread(function()
 				if distance < 1.75 then
 					if Config.UsePrompt then
 						if doorID.locked then
-							local label  = CreateVarString(10, 'LITERAL_STRING', "Unlock")
+							local label  = CreateVarString(10, 'LITERAL_STRING', "Fermée")
 							PromptSetActiveGroupThisFrame(PromptGroup, label)
 							if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 then
 								CoolDown = 1000
@@ -118,7 +118,7 @@ Citizen.CreateThread(function()
 							end
 
 						else
-							local label  = CreateVarString(10, 'LITERAL_STRING', "Lock")
+							local label  = CreateVarString(10, 'LITERAL_STRING', "Ouverte")
 							PromptSetActiveGroupThisFrame(PromptGroup, label)
 							if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 then
 								CoolDown = 1000
@@ -192,10 +192,10 @@ function ChangeStateText(coords, state)
 		local Text = ""
 		local r,g,b = 0,0,0
 		if state == false then
-			Text =  "Unlocking"
+			Text =  "Ouverture"
 			r,g,b = 51, 153, 51
 		elseif state == true then
-			Text = 'Locking'
+			Text = 'Fermeture'
 			r,g,b = 153, 1, 1
 		end
 		while timeout > 0 do
