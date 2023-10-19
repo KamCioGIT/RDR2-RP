@@ -102,6 +102,13 @@ lib.addRadialItem({
                     
         if amount then
           NPlayerSelector:onPlayerSelected(function (data)
+            RequestAnimDict("script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place")
+            while not HasAnimDictLoaded("script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place") do
+                Citizen.Wait(100)
+            end
+            TaskPlayAnim(PlayerPedId(), "script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place", "enter_rf", 1.0, 1.0, -1, 25, 0, true, 0, false, 0, false)  
+            Wait(3000)
+            ClearPedTasks(PlayerPedId())
             TriggerServerEvent('dust_radial:givemoney', data.id, amount)       
             NPlayerSelector:deactivate()
           end)
