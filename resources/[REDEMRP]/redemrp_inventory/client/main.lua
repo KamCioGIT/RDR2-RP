@@ -164,6 +164,7 @@ AddEventHandler("redemrp_inventory:SearchPlayer", function()
                     Wait(100)
                     if #(GetEntityCoords(GetPlayerPed(closestPlayer)) - GetEntityCoords(PlayerPedId())) > 2.5 then
                         TriggerEvent("redemrp_inventory:close_inventory")
+                        ClearPedTasks(PlayerPedId())
                         break
                     end
                 end
