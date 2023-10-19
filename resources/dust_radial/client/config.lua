@@ -40,9 +40,11 @@ Config.CraftingsReceipe = {
     },
     ['spit'] = {
         label = "Feu de camp",
-        desc = "3 Petits Bois",
+        desc = "3 Petits Bois + 3 Silex",
         ItemReceipe1Name = 'petitbois',
         ItemReceipe1Amount = 3,
+        ItemReceipe2Name = 'silex',
+        ItemReceipe2Amount = 3,
         ItemToGive = 'spit',
         Amount = 1,
         WorkingTime = 5,
