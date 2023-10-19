@@ -126,3 +126,91 @@ Config.Lait = {
 Config.PedMilkingDict = "mech_milking"
 Config.PedMilkingAnim = "milking_loop_player"
 
+Config.WorkingTime = 5000
+Config.DistanceToInteract = 1.5
+
+Config.Atelier = vector3(-1643.041, -1350.916, 84.40321)
+
+Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
+Config.CraftAnim = {
+    "base_trans_base",
+}
+
+Config.CraftingsReceipe = {
+	['bouteillelait'] = {
+		type = 'cuisineferme',
+		Itemtocraft = 1,
+		ItemReceipe1Name = 'sceaulait',
+		ItemReceipe1Amount = 1,
+		ItemToGive = 'bouteillelait',
+		Amount = 5,
+		WorkingTime = 10,
+		label = 'Bouteille de lait',
+		descriptionimages = {{src = 'nui://redemrp_inventory/html/items/moonshine_pot.png', text = "Jarre de lait",count = "x1"}}
+	},
+	['soupe'] = {
+		type = 'cuisineferme',
+		Itemtocraft = 4,
+		ItemReceipe1Name = 'Corn_Seed',
+		ItemReceipe1Amount = 1,
+		ItemReceipe2Name = 'Patate',
+		ItemReceipe2Amount = 1,
+		ItemReceipe3Name = 'Saugeducolibri',
+		ItemReceipe3Amount = 1,
+		ItemReceipe4Name = 'charbon',
+		ItemReceipe4Amount = 1,
+		ItemToGive = 'soupe',
+		Amount = 1,
+		WorkingTime = 5,
+		label = 'Soupe de légume',
+		descriptionimages = {{src = 'nui://redemrp_inventory/html/items/corn.png', text = "Maïs",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du Colibri",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+	},
+	['ragoutgibier'] = {
+		type = 'cuisineferme',
+		Itemtocraft = 3,
+		ItemReceipe1Name = 'viandegibier',
+		ItemReceipe1Amount = 1,
+		ItemReceipe2Name = 'Patate',
+		ItemReceipe2Amount = 1,
+		ItemReceipe3Name = 'charbon',
+		ItemReceipe3Amount = 1,
+		ItemToGive = 'Ragoutgibier',
+		Amount = 1,
+		WorkingTime = 5,
+		label = 'Ragoût',
+		descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison.png', text = "Venaison",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+	},
+	['ragoutviande'] = {
+		type = 'cuisineferme',
+		Itemtocraft = 3,
+		ItemReceipe1Name = 'viande',
+		ItemReceipe1Amount = 1,
+		ItemReceipe2Name = 'Patate',
+		ItemReceipe2Amount = 1,
+		ItemReceipe3Name = 'charbon',
+		ItemReceipe3Amount = 1,
+		ItemToGive = 'Ragoutviande',
+		Amount = 1,
+		WorkingTime = 5,
+		label = 'Ragoût',
+		descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande Crue",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+	},
+	['ragoutvolaille'] = {
+		type = 'cuisineferme',
+		Itemtocraft = 3,
+		ItemReceipe1Name = 'viandevolaille',
+		ItemReceipe1Amount = 1,
+		ItemReceipe2Name = 'Patate',
+		ItemReceipe2Amount = 1,
+		ItemReceipe3Name = 'charbon',
+		ItemReceipe3Amount = 1,
+		ItemToGive = 'Ragoutvolaille',
+		Amount = 1,
+		WorkingTime = 5,
+		label = 'Ragoût',
+		descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird.png', text = "Volaille",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+	},
+	
+    
+    
+}
