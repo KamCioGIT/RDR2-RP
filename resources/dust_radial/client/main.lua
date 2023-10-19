@@ -103,6 +103,7 @@ lib.addRadialItem({
         if amount then
             if type(amount) == "number" then
             NPlayerSelector:onPlayerSelected(function (data)
+                TriggerServerEvent('dust_radial:givemoney', data.id, amount)       
                 NPlayerSelector:deactivate()
                 RequestAnimDict("script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place")
                 while not HasAnimDictLoaded("script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place") do
@@ -111,7 +112,6 @@ lib.addRadialItem({
                 TaskPlayAnim(PlayerPedId(), "script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place", "enter_rf", 1.0, 1.0, -1, 25, 0, true, 0, false, 0, false)  
                 Wait(2500)
                 ClearPedTasks(PlayerPedId())
-                TriggerServerEvent('dust_radial:givemoney', data.id, amount)       
             end)
             NPlayerSelector:setRange(2)
             NPlayerSelector:activate()
