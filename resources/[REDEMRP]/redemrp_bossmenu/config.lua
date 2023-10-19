@@ -240,6 +240,28 @@ Config.Jobs = {
             },
         }
     },
+    ["forge"] = {
+        bigjob = "forge",
+        Name = "Forge de Blackwater",
+        MenuLocations = {
+            vector3(-875.5815, -1291.787, 43.10154)
+        },
+        Grades = {
+            [1] = {
+                Name = "Ouvrier",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Contremaître",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
 
 
 }
