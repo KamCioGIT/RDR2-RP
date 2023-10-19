@@ -2883,18 +2883,6 @@ Config.Items = {
     imgsrc = "items/provision_fsh_copper_spool.png",
     type = "item_standard",
 },
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 exports("GetItemsList", function()
