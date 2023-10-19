@@ -89,7 +89,7 @@ lib.addRadialItem({
       TriggerEvent("redemrp_menu_base:getData", function(MenuData)
         MenuData.CloseAll()
         AddTextEntry("FMMC_MPM_TYP86", "Montant")
-        DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30, "KTEXTTYPE_FLOAT")        
+        DisplayOnscreenKeyboard(1, "FMMC_MPM_TYP86", "", "", "", "", "", 30, "KTEXTTYPE_FLOAT")        
         while (UpdateOnscreenKeyboard() == 0) do
             DisableAllControlActions(0)
             Citizen.Wait(0)
