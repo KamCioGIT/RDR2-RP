@@ -793,7 +793,7 @@ RegisterNetEvent(
         end
         TaskPlayAnim(PlayerPedId(), dict, "exit_front", 1.0, 8.0, -1, 1, 0, false, false, false)
         Wait(1200)
-        PlaySoundFrontend("CHECKPOINT_PERFECT", "HUD_MINI_GAME_SOUNDSET", true, 1)
+        -- PlaySoundFrontend("CHECKPOINT_PERFECT", "HUD_MINI_GAME_SOUNDSET", true, 1)
         Wait(1000)
         ClearPedTasks(PlayerPedId())
     end
