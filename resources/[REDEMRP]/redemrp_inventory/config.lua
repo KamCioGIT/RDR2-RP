@@ -2147,7 +2147,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/shtgn_stock.png,
+    imgsrc = "items/shtgn_stock.png",
     type = "item_standard",
 },
 ["crosserollingblock"] = {
@@ -2158,7 +2158,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/shtgn_stock.png,
+    imgsrc = "items/shtgn_stock.png",
     type = "item_standard",
 },
 ["crossedoublecanon"] = {
@@ -2169,7 +2169,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/rptr_stock.png,
+    imgsrc = "items/rptr_stock.png",
     type = "item_standard",
 },
 ["corpsdarmecattleman"] = {
@@ -2301,7 +2301,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/elephantrifleframe.png,
+    imgsrc = "items/elephantrifleframe.png",
     type = "item_standard",
 },
 ["corpsdarmerollingblock"] = {
@@ -2312,7 +2312,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/elephantrifleframe.png,
+    imgsrc = "items/elephantrifleframe.png",
     type = "item_standard",
 },
 ["corpsdarmedoublecanon"] = {
@@ -2323,7 +2323,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/elp_frame.png,
+    imgsrc = "items/elp_frame.png",
     type = "item_standard",
 },
 ["barrilletcattleman"] = {
@@ -2455,7 +2455,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/provision_scrap_metal.png,
+    imgsrc = "items/provision_scrap_metal.png",
     type = "item_standard",
 },
 ["levierdarmementrollingblock"] = {
@@ -2466,7 +2466,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/provision_scrap_metal.png,
+    imgsrc = "items/provision_scrap_metal.png",
     type = "item_standard",
 },
 ["levierdarmementdoublecanon"] = {
@@ -2477,7 +2477,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/provision_scrap_metal.png,
+    imgsrc = "items/provision_scrap_metal.png",
     type = "item_standard",
 },
 ["canoncattleman"] = {
@@ -2609,7 +2609,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/lbarrel.png,
+    imgsrc = "items/lbarrel.png",
     type = "item_standard",
 },
 ["canonrollingblock"] = {
@@ -2620,7 +2620,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/lbarrel.png,
+    imgsrc = "items/lbarrel.png",
     type = "item_standard",
 },
 ["canondoublecanon"] = {
@@ -2631,7 +2631,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/elp_frame.png,
+    imgsrc = "items/elp_frame.png",
     type = "item_standard",
 },
 
@@ -2645,7 +2645,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/cherrypie.png,
+    imgsrc = "items/cherrypie.png",
     type = "item_standard",
 },
 ["tourteviande"] = {
@@ -2656,7 +2656,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/cherrypie.png,
+    imgsrc = "items/cherrypie.png",
     type = "item_standard",
 },
 ["tourtevolaille"] = {
@@ -2667,7 +2667,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/cherrypie.png,
+    imgsrc = "items/cherrypie.png",
     type = "item_standard",
 },
 ["soupe"] = {
@@ -2678,7 +2678,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/tomatosoup.png,
+    imgsrc = "items/tomatosoup.png",
     type = "item_standard",
 },
 ["Ragoutgibier"] = {
@@ -2689,7 +2689,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/hotcocoa.png,
+    imgsrc = "items/hotcocoa.png",
     type = "item_standard",
 },
 ["Ragoutviande"] = {
@@ -2700,7 +2700,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/hotcocoa.png,
+    imgsrc = "items/hotcocoa.png",
     type = "item_standard",
 },
 ["Ragoutvolaille"] = {
@@ -2711,7 +2711,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/hotcocoa.png,
+    imgsrc = "items/hotcocoa.png",
     type = "item_standard",
 },
 ["brochettegibier"] = {
@@ -2722,7 +2722,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/consumable_meat_gamey_bird_cooked.png,
+    imgsrc = "items/consumable_meat_gamey_bird_cooked.png",
     type = "item_standard",
 },
 ["brochetteviande"] = {
@@ -2733,7 +2733,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/consumable_meat_gamey_bird_cooked.png,
+    imgsrc = "items/consumable_meat_gamey_bird_cooked.png",
     type = "item_standard",
 },
 ["brochettevolaille"] = {
@@ -2744,7 +2744,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/consumable_meat_gamey_bird_cooked.png,
+    imgsrc = "items/consumable_meat_gamey_bird_cooked.png",
     type = "item_standard",
 },
 ["pain"] = {
@@ -2755,7 +2755,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/consumable_bread_roll.png,
+    imgsrc = "items/consumable_bread_roll.png",
     type = "item_standard",
 },
 ["gateau"] = {
@@ -2766,7 +2766,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/cakeslice.png,
+    imgsrc = "items/cakeslice.png",
     type = "item_standard",
 },
 ["tartemyrtille"] = {
@@ -2777,7 +2777,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/cakeslice.png,
+    imgsrc = "items/cakeslice.png",
     type = "item_standard",
 },
 ["viandeherbe"] = {
@@ -2788,7 +2788,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/consumable_prime_beef_oregano_cooked.png,
+    imgsrc = "items/consumable_prime_beef_oregano_cooked.png",
     type = "item_standard",
 },
 ["volailleherbe"] = {
@@ -2799,7 +2799,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/consumable_prime_beef_oregano_cooked.png,
+    imgsrc = "items/consumable_prime_beef_oregano_cooked.png",
     type = "item_standard",
 },
 ["gibierherbe"] = {
@@ -2810,7 +2810,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/consumable_prime_beef_oregano_cooked.png,
+    imgsrc = "items/consumable_prime_beef_oregano_cooked.png",
     type = "item_standard",
 },
 ["soupechampignon"] = {
@@ -2821,7 +2821,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/mushroom_soup.png,
+    imgsrc = "items/mushroom_soup.png",
     type = "item_standard",
 },
 ["bouteillelait"] = {
@@ -2832,7 +2832,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/consumable_offal.png,
+    imgsrc = "items/consumable_offal.png",
     type = "item_standard",
 },
 
