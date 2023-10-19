@@ -157,6 +157,17 @@ AddEventHandler("redemrp_inventory:SearchPlayer", function()
                 Citizen.Wait(10)
             end
             TaskPlayAnim(PlayerPedId(), dict, "idle", 1.0, 8.0, -1, 1, 0, false, false, false)
+            local Position = GetEntityCoords(PlayerPedId())
+
+            Citizen.CreateThread(function()
+                while true do
+                    Wait(100)
+                    if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                        TriggerEvent("redemrp_inventory:close_inventory")
+                        break
+                    end
+                end
+            end)
 			TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer), true)
 		end
 	end

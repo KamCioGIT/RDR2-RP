@@ -124,9 +124,8 @@ lib.addRadialItem({
 
 
 --- menu craft 
-RegisterNetEvent("radial:OpenBossMenu", function(menutype)
+RegisterNetEvent("radial:OpenBossMenu", function()
   local Position = GetEntityCoords(PlayerPedId())
-  local _menutype = menutype
 
   Citizen.CreateThread(function()
       while true do
