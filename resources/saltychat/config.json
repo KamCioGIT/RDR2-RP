@@ -18,7 +18,7 @@
   "NamePattern": "Joueur [{serverid}]",
   "RequestTalkStates": true,
   "RequestRadioTrafficStates": false,
-  "ToggleRange": 4085452174,
+  "ToggleRange": ,
   "TalkPrimary": 1271519931,
   "TalkSecondary": 1287709438
 }

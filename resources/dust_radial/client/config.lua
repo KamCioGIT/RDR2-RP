@@ -1,6 +1,6 @@
 Config = {}
 
-Config.RagdollKey = 0xD8F73058 -- w
+Config.RagdollKey = 0xF3830D8E 
 Config.HandsUpKey = 0x8CC9CD42 -- x 
 Config.MenuKey = 0x8AAA0AD4 -- b
 
