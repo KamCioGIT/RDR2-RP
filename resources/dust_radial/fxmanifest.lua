@@ -13,6 +13,7 @@ client_scripts {
 
 server_scripts {
     '@ox_lib/init.lua',
+    'client/config.lua',
     'server/main.lua',
 }
 
