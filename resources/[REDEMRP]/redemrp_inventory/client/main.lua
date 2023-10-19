@@ -162,7 +162,7 @@ AddEventHandler("redemrp_inventory:SearchPlayer", function()
             Citizen.CreateThread(function()
                 while true do
                     Wait(100)
-                    if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                    if #(GetEntityCoords(GetPlayerPed(closestPlayer)) - GetEntityCoords(PlayerPedId())) > 2.5 then
                         TriggerEvent("redemrp_inventory:close_inventory")
                         break
                     end
