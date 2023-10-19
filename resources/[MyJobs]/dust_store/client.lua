@@ -123,33 +123,11 @@ function StartMission()
                 if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
                     craftprompt:setActiveThisFrame(true)
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerServerEvent("store:RequestBossMenu")
+                        TriggerEvent("store:OpenBossMenu")
                     end
                 end
             end
         end
-    end)
-end
-
-function SouffreRecolt()
-    local playerPed = PlayerPedId()
-    local playerPos = GetEntityCoords(playerPed)
-    FreezeEntityPosition(playerPed, true)
-    RequestAnimDict(Config.RecolteSouffreDict)
-    while not HasAnimDictLoaded(Config.RecolteSouffreDict) do
-        Citizen.Wait(100)
-    end
-    TaskPlayAnim(PlayerPedId(), Config.RecolteSouffreDict, Config.RecolteSouffreAnim, 1.0, 1.0, -1, 0, 0, true, 0, false, 0, false)
-    local timer = GetGameTimer() + Config.WorkingTime
-    isInteracting = true
-    Citizen.CreateThread(function()
-        while GetGameTimer() < timer do 
-            Wait(0)
-        end
-        ClearPedTasks(playerPed)
-		FreezeEntityPosition(playerPed, false)
-        isInteracting = false
-        TriggerServerEvent('store:AddItem', 'souffre', 1)
     end)
 end
 
@@ -197,12 +175,9 @@ AddEventHandler("store:SelectCraftingAmount", function(dataType, menuData, menu)
 
     function(data, menu)
         if data.current.label == "Quantité" then
-            print("Start crafting" .. dataType .. " " .. data.current.value .. " times")
             TriggerServerEvent("store:CraftItem", dataType, menu, data.current.value)
             menu.close()
             isInteracting = false
-        else
-            RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
         end 
     end,
 
