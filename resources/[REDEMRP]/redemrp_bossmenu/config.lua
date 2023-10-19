@@ -218,6 +218,28 @@ Config.Jobs = {
             },
         }
     },
+    ["store_straw"] = {
+        bigjob = "store",
+        Name = "General Store Strawberry",
+        MenuLocations = {
+            vector3(-1789.773, -384.8727, 160.3285)
+        },
+        Grades = {
+            [1] = {
+                Name = "Ouvrier",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Contremaître",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
 
 
 }
