@@ -102,6 +102,7 @@ lib.addRadialItem({
                     
         if amount then
           NPlayerSelector:onPlayerSelected(function (data)
+            NPlayerSelector:deactivate()
             RequestAnimDict("script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place")
             while not HasAnimDictLoaded("script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place") do
                 Citizen.Wait(100)
@@ -110,7 +111,6 @@ lib.addRadialItem({
             Wait(3000)
             ClearPedTasks(PlayerPedId())
             TriggerServerEvent('dust_radial:givemoney', data.id, amount)       
-            NPlayerSelector:deactivate()
           end)
           NPlayerSelector:setRange(2)
           NPlayerSelector:activate()
