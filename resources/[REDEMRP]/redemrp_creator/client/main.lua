@@ -2008,6 +2008,21 @@ end)
 
 function BarberMenu()
     MenuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+  
     local elements = { {
         label = "Cheveux / Barbe",
         value = 'hair',
@@ -2025,7 +2040,7 @@ function BarberMenu()
     MenuData.Open('default', GetCurrentResourceName(), 'main_character_creator_menu', {
         title = 'Coiffeur',
         subtext = 'Options',
-        align = 'top-left',
+        align = 'top-right',
         elements = elements
     }, function(data, menu)
         BarberMenus[data.current.value]()
@@ -2201,7 +2216,7 @@ function OpenHairMenu2()
     MenuData.Open('default', GetCurrentResourceName(), 'hair_main_character_creator_menu', {
         title = 'Cheveux',
         subtext = 'Options',
-        align = 'top-left',
+        align = 'top-right',
         elements = elements
     }, function(data, menu)
 
@@ -2408,7 +2423,7 @@ function OpenMakeupMenu2()
     MenuData.Open('default', GetCurrentResourceName(), 'makeup_character_creator_menu', {
         title = 'Maquillage',
         subtext = 'Options',
-        align = 'top-left',
+        align = 'top-right',
         elements = elements
     }, function(data, menu)
     end, function(data, menu)
