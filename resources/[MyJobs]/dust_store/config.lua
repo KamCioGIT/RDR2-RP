@@ -1,7 +1,7 @@
 Config = {}
 
 Config.Jobs = {
-    [1] = "store_straw",
+    [1] = "straw_store",
 }
 
 Config.WorkingTime = 5000
