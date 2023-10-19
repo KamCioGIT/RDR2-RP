@@ -2888,3 +2888,4 @@ Config.Items = {
 exports("GetItemsList", function()
     return Config.Items
 end)
+
