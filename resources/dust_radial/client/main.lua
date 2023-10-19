@@ -108,7 +108,7 @@ lib.addRadialItem({
                 Citizen.Wait(100)
             end
             TaskPlayAnim(PlayerPedId(), "script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place", "enter_rf", 1.0, 1.0, -1, 25, 0, true, 0, false, 0, false)  
-            Wait(3000)
+            Wait(2500)
             ClearPedTasks(PlayerPedId())
             TriggerServerEvent('dust_radial:givemoney', data.id, amount)       
           end)
