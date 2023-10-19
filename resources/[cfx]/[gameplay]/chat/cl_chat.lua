@@ -25,28 +25,28 @@ AddEventHandler('chatMessage', function(author, color, text)
   if author ~= "" then
     table.insert(args, 1, author)
   end
-  SendNUIMessage({
-    type = 'ON_MESSAGE',
-    message = {
-      color = color,
-      multiline = true,
-      args = args
-    }
-  })
+  -- SendNUIMessage({
+  --   type = 'ON_MESSAGE',
+  --   message = {
+  --     color = color,
+  --     multiline = true,
+  --     args = args
+  --   }
+  -- })
 end)
 
 AddEventHandler('__cfx_internal:serverPrint', function(msg)
   print(msg)
 
-  SendNUIMessage({
-    type = 'ON_MESSAGE',
-    message = {
-      templateId = 'print',
-      multiline = true,
-      args = { msg },
-      mode = '_global'
-    }
-  })
+  -- SendNUIMessage({
+  --   type = 'ON_MESSAGE',
+  --   message = {
+  --     templateId = 'print',
+  --     multiline = true,
+  --     args = { msg },
+  --     mode = '_global'
+  --   }
+  -- })
 end)
 
 -- addMessage
@@ -57,10 +57,10 @@ local addMessage = function(message)
     }
   end
 
-  SendNUIMessage({
-    type = 'ON_MESSAGE',
-    message = message
-  })
+  -- SendNUIMessage({
+  --   type = 'ON_MESSAGE',
+  --   message = message
+  -- })
 end
 
 exports('addMessage', addMessage)
