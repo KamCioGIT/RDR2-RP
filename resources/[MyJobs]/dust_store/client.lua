@@ -113,12 +113,13 @@ end)
 function StartMission()
     Citizen.CreateThread(function()
         while true do
+            print 'rrrrrrr'
             if getjob then
                 Wait(2)
                 local playerPos = GetEntityCoords(PlayerPedId())
 
                 if #(playerPos - Config.Atelier) < 10.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier.x, Config.Atelier.y, Config.Atelier.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
                     print 'rrr'
