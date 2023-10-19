@@ -50,6 +50,7 @@ Config.CraftingsReceipe = {
 }
 
 Config.WorkingTime = 3000
+Config.BlipSprite = -2039778370
 
 Config.PetitBois = {
     [1] = vector3(1378.687, -987.7832, 50.89909), --- Rhodes 

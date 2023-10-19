@@ -237,6 +237,27 @@ end)
 ---- recolte ressources 
 
 Citizen.CreateThread(function()
+	for k,v in pairs(Config.PetitBois) do
+        local blips = N_0x554d9d53f696d002(1664425300, v)
+        SetBlipSprite(blips, 1453767378, 1)
+        SetBlipScale(blips, 1.0)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Petit bois")
+	end
+    for k,v in pairs(Config.Fil) do
+        local blips = N_0x554d9d53f696d002(1664425300, v)
+        SetBlipSprite(blips, 1453767378, 1)
+        SetBlipScale(blips, 1.0)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Fil")
+	end
+    for k,v in pairs(Config.Silex) do
+        local blips = N_0x554d9d53f696d002(1664425300, v)
+        SetBlipSprite(blips, 1453767378, 1)
+        SetBlipScale(blips, 1.0)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Silex")
+	end
+end)
+
+Citizen.CreateThread(function()
     while true do
         Wait(2)
         local playerPos = GetEntityCoords(PlayerPedId())
