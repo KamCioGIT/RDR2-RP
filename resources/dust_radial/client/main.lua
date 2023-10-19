@@ -49,7 +49,7 @@ local keybind = lib.addKeybind({
     end
 })
 
-
+keybind:disable(false)
 ---- Lever les mains ----- 
 
 local HandsUp = false
