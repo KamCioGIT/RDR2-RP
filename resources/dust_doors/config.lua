@@ -5,8 +5,6 @@ Config.UsePrompt = true
 Config.KeyPress = 0xD8F73058
 
 Config.DoorList = {
-
-
 	--
 	-- Valentine Sheriff Office
 	--

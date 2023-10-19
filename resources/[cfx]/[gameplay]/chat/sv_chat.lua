@@ -18,7 +18,7 @@ exports('addMessage', function(target, message)
 
     if not target or not message then return end
 
-    TriggerClientEvent('chat:addMessage', target, message)
+    -- TriggerClientEvent('chat:addMessage', target, message)
 end)
 
 local hooks = {}
