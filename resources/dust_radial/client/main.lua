@@ -95,7 +95,7 @@ lib.addRadialItem({
             Citizen.Wait(0)
         end
         if (GetOnscreenKeyboardResult()) then
-            tonumber(amount) = GetOnscreenKeyboardResult()
+            amount = tonumber(GetOnscreenKeyboardResult())
         else
         return
         end
