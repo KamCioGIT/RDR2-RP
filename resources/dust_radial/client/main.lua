@@ -277,7 +277,7 @@ Citizen.CreateThread(function()
                 woodprompt:setActiveThisFrame(true)
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
-                    GiveRessource(petitbois, 1)
+                    GiveRessource("petitbois", 1)
                 end
             end
         end
@@ -287,7 +287,7 @@ Citizen.CreateThread(function()
                 filprompt:setActiveThisFrame(true)
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
-                    GiveRessource(fil, 1)
+                    GiveRessource("fil", 1)
                 end
             end
         end
@@ -297,7 +297,7 @@ Citizen.CreateThread(function()
                 silexprompt:setActiveThisFrame(true)
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
-                    GiveRessource(silex, 1)
+                    GiveRessource("silex", 1)
                 end
             end
         end
