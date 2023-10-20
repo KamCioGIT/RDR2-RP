@@ -421,10 +421,11 @@ end)
 
 RegisterNetEvent("SaltyChat_VoiceRangeChanged")
 AddEventHandler("SaltyChat_VoiceRangeChanged", function(range)
-    print (range)
-    if isTalking then
-       print 'on'
-    else
-        print 'off'
+    if range == 2.5 then
+        TriggerServerEvent("redemrp_status:server:voice", "Normal")
+    elseif range == 7 then
+        TriggerServerEvent("redemrp_status:server:voice", "Whispering")
+    elseif range == 20 then
+        TriggerServerEvent("redemrp_status:server:voice", "Shouting")
     end
 end)

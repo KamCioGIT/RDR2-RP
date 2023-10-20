@@ -6,7 +6,7 @@
   "IngameChannelId": 5,
   "IngameChannelPassword": "DustRP!",
   "SwissChannelIds": [  ],
-  "VoiceRanges": [ 3.5, 8, 15, 32 ],
+  "VoiceRanges": [ 2.5, 7, 20 ],
   "EnableVoiceRangeNotification": true,
   "VoiceRangeNotification": "New voice range is {voicerange} metres.",
   "RadioType": 4,
