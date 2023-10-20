@@ -18,8 +18,11 @@ local getjob = false
 local getgrade = 0
 RegisterNetEvent("dust_job:forge")
 AddEventHandler("dust_job:forge", function(job, grade)
+
     for k, v in pairs(Config.Jobs) do
+
         if job == v then
+            print 'yesss'
             getjob = true
             getgrade = grade
             StartMission()
