@@ -7,7 +7,7 @@ TriggerEvent("redemrp_inventory:getData",function(call)
 end)
 
 
-RegisterServerEvent("dust_event:getevent",function(source)
+RegisterServerEvent("dust_event:getevent",function()
 	local _source = source
 	TriggerEvent("redemrp_inventory:createclothes", _source)
 
