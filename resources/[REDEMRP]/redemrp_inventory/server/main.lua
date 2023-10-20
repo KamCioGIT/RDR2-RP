@@ -2335,10 +2335,11 @@ end)
 
 RegisterServerEvent("redemrp_inventory:tenueevent", function(source)
     local _source = source
+    print 'get'
     local Player = RedEM.GetPlayer(_source)
     local identifier = Player.GetIdentifier()
     local charid = Player.GetActiveCharacter()
-    local itemData = SharedInventoryFunctions.getItem(_source, "tenueevent")
+    print (identifier, charid)
     local _meta = meta or {}
     local itemData = Config.Items["tenueevent"]
     local random = math.random(1, 4)
