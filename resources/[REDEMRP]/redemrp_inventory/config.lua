@@ -2883,7 +2883,24 @@ Config.Items = {
     imgsrc = "items/provision_fsh_copper_spool.png",
     type = "item_standard",
 },
+
+---- vêtement
+["clothes"] = {
+    label = "Tenue",
+    description = "Quelques vêtements",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/clothing_generic_outfit.png",
+    type = "item_standard",
+},
+
+
 }
+
+
 
 exports("GetItemsList", function()
     return Config.Items
