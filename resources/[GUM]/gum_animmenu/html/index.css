@@ -9,7 +9,6 @@
 * {
     overflow-y: hidden;
     overflow-x: hidden;
-    font-family: crock;
     box-sizing: inherit;
     touch-action: manipulation;
     -webkit-user-select: none;
@@ -378,7 +377,7 @@
 .item {
     display: block;
     position: relative;
-    width: 75%;
+    width: 100%;
     height: 30px;
     margin: 5px;
     top: 50px;
@@ -390,25 +389,17 @@
     text-decoration: none;
     font-family: 'milonga' !important;
 }
+.item a {
+    font-family: 'milonga' !important; 
+
+}
+
 .item:hover {
-    display: block;
-    position: relative;
-    width: 160px;
-    height: 30px;
-    margin: 5px;
-    color:white;
     background-color: #DC5858;
     
 }
 .item:active {
-    display: block;
-    position: relative;
-    width: 160px;
-    height: 30px;
-    margin: 5px;
-    color:white;
-    background-image: url('button.png');
-    background-size: 100% 100%;
+    background-color: #DC5858;
 }
 
 #item {
