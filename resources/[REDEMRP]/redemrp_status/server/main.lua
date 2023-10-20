@@ -63,18 +63,20 @@ UpdatePlayersStatus()
 RegisterServerEvent("redemrp_status:server:AddHungerThirst", function(hunger, thirst)
     local _source = source
     local Player = RedEM.GetPlayer(_source)
-    local meta = Player.GetMetaData()
+    if Player then
+        local meta = Player.GetMetaData()
 
-    Player.SetMetaData("hunger", tonumber(meta.hunger) + hunger)
-    if Player.GetMetaData().hunger > 100 then
-        Player.SetMetaData("hunger", 100)
-    end
-    Player.SetMetaData("thirst", tonumber(meta.thirst) + thirst)
-    if Player.GetMetaData().thirst > 100 then
-        Player.SetMetaData("thirst", 100)
-    end
+        Player.SetMetaData("hunger", tonumber(meta.hunger) + hunger)
+        if Player.GetMetaData().hunger > 100 then
+            Player.SetMetaData("hunger", 100)
+        end
+        Player.SetMetaData("thirst", tonumber(meta.thirst) + thirst)
+        if Player.GetMetaData().thirst > 100 then
+            Player.SetMetaData("thirst", 100)
+        end
 
-    TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress, 0)
+        TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress, 0)
+    end
 end)
 
 RegisterServerEvent("redemrp_status:server:AddStress", function(amount)
