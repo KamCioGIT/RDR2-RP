@@ -15,7 +15,7 @@ Citizen.CreateThread(function()
         if #(playerPos - Config.Vestiaire) < Config.DistanceToInteract and not isInteracting then
             tenueprompt:setActiveThisFrame(true)
             if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                TriggerServerEvent("redemrp_inventory:tenueevent", source)
+                TriggerServerEvent("dust_event:getevent")
             end
         end
     end

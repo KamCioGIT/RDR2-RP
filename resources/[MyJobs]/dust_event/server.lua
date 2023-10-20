@@ -7,6 +7,12 @@ TriggerEvent("redemrp_inventory:getData",function(call)
 end)
 
 
+RegisterServerEvent("dust_event:getevent",function(source)
+	local _source = source
+	TriggerEvent("redemrp_inventory:createclothes", _source)
+
+end)
+
 RegisterServerEvent("RegisterUsableItem:tenueevent")
 AddEventHandler("RegisterUsableItem:tenueevent", function(source, data)
 	local _source = source
