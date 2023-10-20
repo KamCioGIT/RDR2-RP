@@ -408,7 +408,7 @@ end
 Citizen.CreateThread(function()
     while true do
         Wait(500)
-        TriggerClientEvent("SaltyChat_PluginStateChanged", function(state)
+        TriggerEvent("SaltyChat_PluginStateChanged", function(state)
             if state then
                 print "on"
             else
