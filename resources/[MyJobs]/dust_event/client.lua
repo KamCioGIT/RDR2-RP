@@ -25,7 +25,7 @@ RegisterNetEvent("dust_event:clothes", function(id)
     print (id)
     id = 1
     if IsPedMale(PlayerPedId()) then
-        for k, v in Config.Tenue["male"][1] do
+        for k, v in pairs(Config.Tenue["male"][1]) do
          UpdateCustomClothes(PlayerPedId(), GetHashKey(v.drawable), GetHashKey(v.albedo), GetHashKey(v.normal), GetHashKey(v.material), GetHashKey(v.palette), tonumber(v.tint0), tonumber(v.tint1), tonumber(v.tint2))
         end
     else
