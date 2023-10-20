@@ -417,3 +417,14 @@ AddEventHandler("SaltyChat_TalkStateChanged", function(isTalking)
 end)
 
 
+
+
+RegisterNetEvent("SaltyChat_VoiceRangeChanged")
+AddEventHandler("SaltyChat_VoiceRangeChanged", function(range)
+    print (range)
+    if isTalking then
+       print 'on'
+    else
+        print 'off'
+    end
+end)
