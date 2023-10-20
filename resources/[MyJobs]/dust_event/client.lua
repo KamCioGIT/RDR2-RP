@@ -58,6 +58,7 @@ function UpdateCustomClothes(playerPed, drawable, albedo, normal, material, pale
     local _tint2 = tonumber(tint2)
 
     SetMetaPedTag(playerPed, _drawable, _albedo, _normal, _material, _palette, _tint0, _tint1, _tint2)
+    UpdateShopItemWearableState(playerPed, `CLOTHING_ITEM_M_FRONTIER_SHIRT_000`, `chemise`, true)
     UpdatePedVariation(playerPed)
 end
 
@@ -73,4 +74,7 @@ end
 function UpdatePedVariation(ped)
     Citizen.InvokeNative(0xAAB86462966168CE, ped, true) -- UNKNOWN "Fixes outfit"- always paired with _UPDATE_PED_VARIATION
     Citizen.InvokeNative(0xCC8CA3E88256E58F, ped, false, true, true, true, false) -- _UPDATE_PED_VARIATION
+end
+function UpdateShopItemWearableState(ped, shopItemHash, wearableStateHash, isMultiplayer)
+    Citizen.InvokeNative(0x66B957AAC2EAAEAB, ped, shopItemHash, wearableStateHash, 0, isMultiplayer, 1)
 end
