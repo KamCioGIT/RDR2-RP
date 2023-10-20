@@ -22,7 +22,10 @@ Citizen.CreateThread(function()
 end)
 
 RegisterNetEvent("dust_event:clothes", function(id)
-    UpdateCustomClothes(PlayerPedId(), Config.Tenue[id].drawable, Config.Tenue[id].albedo, Config.Tenue[id].normal, Config.Tenue[id].material, Config.Tenue[id].palette, Config.Tenue[id].tint0, Config.Tenue[id].tint1, Config.Tenue[id].tint2)
+    if IsPedMale(PlayerPedId()) then
+        UpdateCustomClothes(PlayerPedId(), Config.Tenue["males"][id].drawable, Config.Tenue["males"][id].albedo, Config.Tenue["males"][id].normal, Config.Tenue["males"][id].material, Config.Tenue["males"][id].palette, Config.Tenue["males"][id].tint0, Config.Tenue["males"][id].tint1, Config.Tenue["males"][id].tint2)
+    else
+    end
 end)
 
 function UpdateCustomClothes(playerPed, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
