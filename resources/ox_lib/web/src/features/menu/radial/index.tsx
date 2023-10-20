@@ -16,8 +16,8 @@ const useStyles = createStyles((theme) => ({
     fill: "#00000081"
   },
   sector: {
-    fill: "#00000081",
-    color: "#00000081",
+    fill:  "#090909",
+    color: "#fff",
 
     '&:hover': {
       fill: "#DC5858",
