@@ -16,7 +16,7 @@ AddEventHandler('forge:CraftItem', function(itemNameStr, menu, amount)
 		if ItemData.RemoveItem(Config.CraftingsReceipe[itemNameStr].ItemReceipe1Amount) and ItemData2.RemoveItem(Config.CraftingsReceipe[itemNameStr].ItemReceipe2Amount) then
 			print("Item removed " .. i)
 			Citizen.CreateThread(function()
-				TriggerClientEvent("forge:CraftingAction", _source)
+				TriggerClientEvent("forge:CraftingAction", _source, Config.CraftingsReceipe[itemNameStr].WorkingTime)
 				local ItemDatagive = data.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemToGive)
 				ItemDatagive.AddItem(Config.CraftingsReceipe[itemNameStr].Amount)
 			end)
