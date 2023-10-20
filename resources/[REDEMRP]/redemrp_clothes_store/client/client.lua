@@ -356,13 +356,14 @@ end)
 
 function Change(id, category, change_type)
     if id < 1 then
+        print(GetHashKey(category))
         Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
         NativeUpdatePedVariation(PlayerPedId())
         if category == "pants" or category == "boots" then
             NativeSetPedComponentEnabled(PlayerPedId(), exports.rdr_creator:GetBodyCurrentComponentHash("BODIES_LOWER"),
                 false, true, true)
         end
-        if category == "shirts_full" or category == "cloaks" then
+        if category == "shirts_full" then
             NativeSetPedComponentEnabled(PlayerPedId(), exports.rdr_creator:GetBodyCurrentComponentHash("BODIES_UPPER"),
                 false, true, true)
         end
