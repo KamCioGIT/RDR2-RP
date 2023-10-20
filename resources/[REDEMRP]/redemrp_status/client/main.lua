@@ -405,16 +405,14 @@ function startCooldown()
     end)
 end
 
-Citizen.CreateThread(function()
-    while true do
-        Wait(500)
-        local state = exports['SaltyChat']:TalkStateChanged()
-        print (state)
-        if state then
-            print "on"
-        else
-            print 'off'
-        end
+
+
+RegisterNetEvent("SaltyChat_TalkStateChanged")
+AddEventHandler("SaltyChat_TalkStateChanged", function(isTalking)
+    if isTalking then
+       print 'on'
+    else
+        print 'off'
     end
 end)
 
