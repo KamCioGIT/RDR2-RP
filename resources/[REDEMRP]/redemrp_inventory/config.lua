@@ -2898,7 +2898,7 @@ Config.Items = {
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/clothing_generic_outfit.png",
+    imgsrc = "items/clothing_generic_shirt.png",
     type = "item_standard",
 },
 }
