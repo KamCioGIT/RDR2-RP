@@ -13,6 +13,7 @@ const useStyles = createStyles((theme) => ({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+    fill: "#00000081"
   },
   sector: {
     fill: "#00000081",
@@ -34,9 +35,8 @@ const useStyles = createStyles((theme) => ({
   },
   centerCircle: {
     fill: theme.fn.primaryColor(),
-    color: '#fff',
-    border: "3px solid #615C43",
-    stroke: theme.colors.dark[6],
+    color: '#090909',
+    stroke: "3px solid #615C43",
     strokeWidth: 4,
     '&:hover': {
       fill: "#DC5858",
