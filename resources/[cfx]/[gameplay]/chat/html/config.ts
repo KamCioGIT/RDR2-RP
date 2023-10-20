@@ -11,7 +11,7 @@ export default {
   suggestionLimit: 5,
   style: {
     background: 'rgba(245, 233, 218, 0.2)',
-    width: '15vw',
-    height: '15%',
+    width: '38vw',
+    height: '22%',
   }
 };
