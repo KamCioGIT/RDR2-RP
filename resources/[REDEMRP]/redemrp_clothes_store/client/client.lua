@@ -491,7 +491,6 @@ AddEventHandler('rdr_clothes_store:ApplyClothes', function(ClothesComponents, Ta
         if next(ClothesComponents) == nil then
             return
         end
-        SetEntityAlpha(_Target, 0)
         ClothesCache = ClothesComponents
         for k, v in pairs(ClothesComponents) do
             if v ~= nil then
@@ -563,7 +562,6 @@ AddEventHandler('rdr_clothes_store:ApplyClothes', function(ClothesComponents, Ta
                 end
             end
         end
-        SetEntityAlpha(_Target, 255)
     end)
 end)
 

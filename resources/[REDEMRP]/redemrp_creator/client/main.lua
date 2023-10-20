@@ -222,7 +222,6 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
             local model = GetPedModel(tonumber(_SkinData.sex))
             LoadModel(PlayerPedId(), model)
             _Target = PlayerPedId()
-            SetEntityAlpha(_Target, 0)
             LoadedComponents = _SkinData
         end
         SetEntityHealth(_Target, health) -- Set health back to what it was
@@ -241,7 +240,6 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
         LoadBodyWaist(_Target, _SkinData)
         LoadOverlays(_Target, _SkinData)
         TriggerServerEvent("redemrp_respawn:TestDeathStatus")
-        SetEntityAlpha(_Target, 255)
         TriggerEvent("rdr_creator:SkinLoaded", _SkinData, _Target, ClothesData)
         if _Target == PlayerPedId() then
             TriggerServerEvent("rdr_clothes_store:LoadClothes", 1)
