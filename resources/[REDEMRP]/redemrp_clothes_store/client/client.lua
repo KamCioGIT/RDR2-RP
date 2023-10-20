@@ -356,7 +356,7 @@ end)
 
 function Change(id, category, change_type)
     if id < 1 then
-        if category = "cloaks" then
+        if category == "cloaks" then
             local category = GetHashKey("ponchos")
             Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), category, 0)
             NativeUpdatePedVariation(PlayerPedId())
