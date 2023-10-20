@@ -58,7 +58,7 @@ AddEventHandler('rdr_clothes_store:Save', function(Clothes, price)
                 end
             end)
         end
-        TriggerEvent("redemrp_inventory:createclothes", _Name)
+        TriggerEvent("redemrp_inventory:createclothes", _source, _Name)
 
     else
         TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
