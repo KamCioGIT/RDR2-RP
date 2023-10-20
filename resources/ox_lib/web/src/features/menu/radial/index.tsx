@@ -14,39 +14,30 @@ const useStyles = createStyles((theme) => ({
     left: '50%',
     transform: 'translate(-50%, -50%)',
   },
-  prout: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-
-  },
   sector: {
-    fill: '#090909',
-    stroke: '#615C43',
-    strokeWidth: 4,
-    color: '#090909',
+    fill: theme.colors.dark[6],
+    color: theme.colors.dark[0],
 
     '&:hover': {
-      fill: '#282828',
+      fill: theme.fn.primaryColor(),
+      '> g > text, > g > svg > path': {
+        fill: '#fff',
+      },
     },
     '> g > text': {
       fill: theme.colors.dark[0],
-      strokeWidth: 0,
     },
   },
   backgroundCircle: {
-    fill: '#090909',
-    stroke: '#615C43',
-    strokeWidth: 4,
+    fill: theme.colors.dark[6],
   },
   centerCircle: {
-    fill: '#090909',
-    color: '#090909',
-    stroke: '#615C43',
+    fill: theme.fn.primaryColor(),
+    color: '#fff',
+    stroke: theme.colors.dark[6],
     strokeWidth: 4,
     '&:hover': {
-      stroke: '#DC5858',
+      fill: theme.colors[theme.primaryColor][theme.fn.primaryShade() - 1],
     },
   },
   centerIconContainer: {
@@ -57,7 +48,7 @@ const useStyles = createStyles((theme) => ({
     pointerEvents: 'none',
   },
   centerIcon: {
-    color: '#D7D7D7',
+    color: '#fff',
   },
 }));
 
@@ -105,13 +96,6 @@ const RadialMenu: React.FC = () => {
     }
     setMenu({ ...data, page: initialPage });
     setVisible(true);
-
-    document.addEventListener('keyup', (e: KeyboardEvent) => {
-      if (e.key === 'Escape' || e.key === 'CapsLock') {
-        setVisible(false);
-        fetchNui('radialClose');
-      }
-    });
   });
 
   useNuiEvent('refreshItems', (data: RadialMenuItem[]) => {
@@ -171,8 +155,11 @@ const RadialMenu: React.FC = () => {
                         height={25}
                         fixedWidth
                       />
-                      <text x={iconX} y={iconY + 25} fill="#fff" textAnchor="middle" pointerEvents="none">
-                        {item.label}
+                      <text x={iconX} y={iconY + (item.label.includes("  \n") ? 7 : 25)} fill="#fff" textAnchor="middle" pointerEvents="none">
+                        {item.label.includes("  \n")
+                          ? item.label.split("  \n").map((value) => <tspan x={iconX} dy="1.2em">{value}</tspan>)
+                          : item.label
+                        }
                       </text>
                     </g>
                   </g>
