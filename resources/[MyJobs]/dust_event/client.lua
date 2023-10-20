@@ -1,5 +1,15 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(60000)
+        TriggerServerEvent('redemrp_status:server:AddHungerThirst', 100 , 100)
+    end
+end)
+
+
+
 local tenueprompt = UipromptGroup:new("Tenue")
 Uiprompt:new(0x760A9C6F, "Prendre une tenue", tenueprompt)
 tenueprompt:setActive(false)
@@ -8,24 +18,23 @@ Citizen.CreateThread(function()
     while true do
         Wait(0)
         local playerPos = GetEntityCoords(PlayerPedId())
-
-        if #(playerPos - Config.Vestiaire) < 10.0 then
-            Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Vestiaire, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-        end
-        if #(playerPos - Config.Vestiaire) < Config.DistanceToInteract and not isInteracting then
-            tenueprompt:setActiveThisFrame(true)
-            if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                TriggerServerEvent("dust_event:getevent")
+        for _, pos in Config.Vestiaire do
+            if #(playerPos - pos) < 10.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, pos, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if #(playerPos - pos) < Config.DistanceToInteract and not isInteracting then
+                tenueprompt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    TriggerServerEvent("dust_event:getevent")
+                end
             end
         end
     end
 end)
 
 RegisterNetEvent("dust_event:clothes", function(id)
-    print (id)
-    id = 1
     if IsPedMale(PlayerPedId()) then
-        for k, v in pairs(Config.Tenue["male"][1]) do
+        for k, v in pairs(Config.Tenue["male"][id]) do
          UpdateCustomClothes(PlayerPedId(), GetHashKey(v.drawable), GetHashKey(v.albedo), GetHashKey(v.normal), GetHashKey(v.material), GetHashKey(v.palette), tonumber(v.tint0), tonumber(v.tint1), tonumber(v.tint2))
         end
     else
