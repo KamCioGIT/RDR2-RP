@@ -101,7 +101,7 @@ AddEventHandler("forge:CraftingAction", function()
         TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 1, 0, true)
     end
 
-    local timer = GetGameTimer() + Config.WorkingTime
+    local timer = GetGameTimer() + (Config.WorkingTime * 1000)
     isInteracting = true
 
     Citizen.CreateThread(function()
