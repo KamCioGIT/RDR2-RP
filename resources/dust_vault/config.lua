@@ -34,7 +34,7 @@ Config.DistanceAffichage = 100.0
 
 Config.SmallWeight = 50.0
 Config.MediumWeight = 100.0
-Config.LargeWeight = 300.0
+Config.LargeWeight = 1500.0
 
 Config.SafeDict = "mech_pickup@loot@vaults@med@safecrack@base"
 Config.SafeAnim = "base"
