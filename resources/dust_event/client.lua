@@ -5,6 +5,7 @@ RegisterCommand("testevent", function()
     while true do
         if a < 10 then
             local ped = PlayerPedId()
+            local coords = GetEntityCoords(ped)
             local modelhash = `G_M_Y_UniExConfeds_01`
             local xOffset = math.random(1, 15)
             local yOffset = math.random(1, 15)
