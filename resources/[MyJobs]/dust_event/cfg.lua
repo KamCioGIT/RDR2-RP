@@ -20,7 +20,7 @@ Config.Tenue = {
 	},
 	
 		[3] = { [1] = {drawable = "belt_mr1_003_holster", albedo ="srxweqra_0x59b94dc7", normal = "elpjovya_0x0d66fd51", material = "hlzdcsda_0xc2191c0e", palette = "dsvkmzra_0xf509c745", tint0 = 7, tint1 = 4, tint2 = 2},
-		[2] = {drawable = " comboshirt_mr1_006", albedo ="comboshirt_mr1_006_c3_998_ab", normal = "swamngba_0x93c28789", material = "ntpnmsza_0xc90b84de", palette = "ymwmqyaa_0xf93db0c8", tint0 = 154, tint1 = 39, tint2 = 249},
+		[2] = {drawable = "comboshirt_mr1_006", albedo ="comboshirt_mr1_006_c3_998_ab", normal = "swamngba_0x93c28789", material = "ntpnmsza_0xc90b84de", palette = "ymwmqyaa_0xf93db0c8", tint0 = 154, tint1 = 39, tint2 = 249},
 		[3] = {drawable = "hat_mr1_050_alt02", albedo ="nmuodglb_0x7bc82fcb", normal = "qkwlgcmb_0xb952066a", material = "gnsnldqa_0x28dd68ab", palette = "yadlkkza_0xfb71527b", tint0 = 20, tint1 = 52, tint2 = 21},
 		[4] = {drawable = "neckerchief_mr1_002_sucb_right", albedo ="jlxfirba_0x87c17dff", normal = "vsmaaxga_0x60804f0e", material = "jjogwinb_0x845d53e8", palette = "wusfpona_0x0105607b", tint0 = 75, tint1 = 75, tint2 = 75},
 		[5] = {drawable = "pantcombo_mr1_025", albedo ="pantcombo_mr1_025_c3_999_ab", normal = "kkyaglda_0x592bbed7", material = "mtyyxbca_0xfee81356", palette = "sbzopvra_0x4101ed87", tint0 = 53, tint1 = 252, tint2 = 244}
