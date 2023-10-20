@@ -16,7 +16,7 @@ RegisterCommand("testevent", function()
                 z = coords.z + zOffset
             }
 
-            local enemy = CreatePed(modelhash, newccords, GetEntityHeading(ped), true, true)
+            local enemy = Citizen.InvokeNative(0xD49F9B0955C367DE, modelhash, newccords, GetEntityHeading(ped), true, true)
             Citizen.InvokeNative(0x9F7794730795E019,enemy,116,true)
             a = a + 1
         else break end
