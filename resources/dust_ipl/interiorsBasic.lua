@@ -2,9 +2,6 @@ RemoveImap(174727090)  -- Unknown, possibly causing CTDs
 --
 local isLoaded = false
 
-RegisterCommand("testevent", function()
-    RequestImap(-437251660)
-end)
 
 Citizen.CreateThread(function()
     while not isLoaded do
