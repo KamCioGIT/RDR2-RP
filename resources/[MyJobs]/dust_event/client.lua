@@ -18,7 +18,7 @@ Citizen.CreateThread(function()
     while true do
         Wait(0)
         local playerPos = GetEntityCoords(PlayerPedId())
-        for _, pos in Config.Vestiaire do
+        for _, pos in pairs(Config.Vestiaire) do
             if #(playerPos - pos) < 10.0 then
                 Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, pos, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
             end
