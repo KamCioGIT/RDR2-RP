@@ -665,11 +665,11 @@ RemoveImap(-158824350) -- Dirt in Small Plot (visually can't see it)
 
 ------------------------------------- Braithwaite Mansion
 --Mansion Interior
-RemoveImap(1149195254)  --Brathwaite House Shell
-RequestImap(-1643869063) -- House Burnt Down
-RemoveImap(58066174)  -- Interior
+RequestImap(1149195254)  --Brathwaite House Shell
+RemoveImap(-1643869063) -- House Burnt Down
+RequestImap(58066174)  -- Interior
 RemoveImap(1601599776)  -- House on fire Smoke (Smoke and Burning Sounds Only)
-RemoveImap(-437251660)  -- House of Fire Flames
+RequestImap(-437251660)  -- House of Fire Flames
 
 -- Mansion Exterior 
 RemoveImap(-1220264217)  -- Shurbs and Bushes
