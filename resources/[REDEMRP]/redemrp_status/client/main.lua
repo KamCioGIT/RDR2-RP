@@ -410,9 +410,9 @@ end
 RegisterNetEvent("SaltyChat_TalkStateChanged")
 AddEventHandler("SaltyChat_TalkStateChanged", function(isTalking)
     if isTalking then
-       print 'on'
+        TriggerServerEvent("redemrp_status:server:voice", "Speaking")
     else
-        print 'off'
+        TriggerServerEvent("redemrp_status:server:voice", "NotSpeaking")
     end
 end)
 
