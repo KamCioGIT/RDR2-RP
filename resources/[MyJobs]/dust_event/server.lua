@@ -9,7 +9,7 @@ end)
 
 RegisterServerEvent("dust_event:getevent",function()
 	local _source = source
-	TriggerEvent("redemrp_inventory:createclothes", _source)
+	TriggerEvent("redemrp_inventory:tenueevent", _source)
 
 end)
 
