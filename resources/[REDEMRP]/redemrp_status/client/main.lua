@@ -264,7 +264,7 @@ end
 local TimecycOn = false
 
 RegisterNetEvent('redemrp_status:UpdateStatus', function(thrist, hunger, stress, vocal)
-    Wait(1000)
+    Wait(0)
     if vocal ~= 0 then
         voice = vocal
     end
@@ -391,8 +391,6 @@ AddEventHandler('redemrp_status:StartBandage', function(name)
         usingb = false
     else
 		Wait(1000)
-        TriggerEvent("redemrp_notification:start", "You have to wait: " .. cooldown/100 .. "seconds before applying another bandage!", 2, "error")
-		 -- TriggerEvent("redemrp_notification:start", "You have to wait: " .. cooldown/100 .. "seconds before applying another bandage!", 2, "error")
     end
 end)
 
