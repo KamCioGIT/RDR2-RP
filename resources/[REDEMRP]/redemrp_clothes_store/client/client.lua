@@ -362,7 +362,7 @@ function Change(id, category, change_type)
             NativeSetPedComponentEnabled(PlayerPedId(), exports.rdr_creator:GetBodyCurrentComponentHash("BODIES_LOWER"),
                 false, true, true)
         end
-        if category == "shirts_full" then
+        if category == "shirts_full" or category == "cloaks" then
             NativeSetPedComponentEnabled(PlayerPedId(), exports.rdr_creator:GetBodyCurrentComponentHash("BODIES_UPPER"),
                 false, true, true)
         end
