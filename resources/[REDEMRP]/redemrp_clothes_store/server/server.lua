@@ -71,26 +71,28 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value)
     local _source = source
     local _clothes = nil
     local user = RedEM.GetPlayer(_source)
-    local identifier = user.identifier
-    local charid = user.charid
+    if user then
+        local identifier = user.identifier
+        local charid = user.charid
 
-    MySQL.query('SELECT * FROM clothes WHERE `identifier`=@identifier AND `charid`=@charid;', {
-        identifier = identifier,
-        charid = charid
-    }, function(_clothes)
-        if _clothes[1] then
-            _clothes = json.decode(_clothes[1].clothes)
-        else
-            _clothes = {}
-        end
-        if _clothes ~= nil then
-            if _value == 1 then
-                TriggerClientEvent("rdr_clothes_store:ApplyClothes", _source, _clothes)
-            elseif _value == 2 then
-                TriggerClientEvent("rdr_clothes_store:OpenClothingMenu", _source, _clothes)
+        MySQL.query('SELECT * FROM clothes WHERE `identifier`=@identifier AND `charid`=@charid;', {
+            identifier = identifier,
+            charid = charid
+        }, function(_clothes)
+            if _clothes[1] then
+                _clothes = json.decode(_clothes[1].clothes)
+            else
+                _clothes = {}
             end
-        end
-    end)
+            if _clothes ~= nil then
+                if _value == 1 then
+                    TriggerClientEvent("rdr_clothes_store:ApplyClothes", _source, _clothes)
+                elseif _value == 2 then
+                    TriggerClientEvent("rdr_clothes_store:OpenClothingMenu", _source, _clothes)
+                end
+            end
+        end)
+    end
 end)
 
 RegisterServerEvent("RegisterUsableItem:clothes")

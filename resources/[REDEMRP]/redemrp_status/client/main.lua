@@ -405,4 +405,15 @@ function startCooldown()
     end)
 end
 
+Citizen.CreateThread(function()
+    while true do
+    TriggerClientEvent("SaltyChat_PluginStateChanged", function(state)
+        if state then
+            print "on"
+        else
+            print 'off'
+        end
+    end)
+end)
+
 
