@@ -6,7 +6,7 @@ RegisterCommand("testevent", function()
         if a < 10 then
             local ped = PlayerPedId()
             local coords = GetEntityCoords(ped)
-            local modelhash = GetHashKey("G_M_Y_UniExConfeds_01")
+            local modelhash = GetHashKey("g_m_y_uniexconfeds_01")
             while not HasModelLoaded(modelhash) do
                 RequestModel(modelhash)
                 
