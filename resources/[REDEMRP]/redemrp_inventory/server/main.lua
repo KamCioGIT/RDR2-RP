@@ -2305,3 +2305,29 @@ AddEventHandler("redemrp_inventory:checkpoison", function(name)
     end
 end)
 
+
+RegisterServerEvent("redemrp_inventory:createclothes", function(source, id)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local itemData = SharedInventoryFunctions.getItem(_source, "clothes")
+    local _meta = meta or {}
+    local itemData = Config.Items["clothes"]
+    if not _meta.id then
+        _meta.id = id
+    end
+    local item, id = getInventoryItemFromName("clothes", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("clothes", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)

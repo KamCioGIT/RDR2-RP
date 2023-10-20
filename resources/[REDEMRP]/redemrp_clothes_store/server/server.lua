@@ -1,9 +1,11 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
 RegisterServerEvent('rdr_clothes_store:Save')
-AddEventHandler('rdr_clothes_store:Save', function(Clothes, Name, price)
+AddEventHandler('rdr_clothes_store:Save', function(Clothes, price)
     local _source = source
-    local _Name = Name
+    local numBase0 = math.random(100, 999)
+    local numBase1 = math.random(0, 999)
+    local _Name = string.format("%03d%04d", numBase0, numBase1)
     local encode = json.encode(Clothes)
     local user = RedEM.GetPlayer(_source)
     local identifier = user.identifier
@@ -56,6 +58,8 @@ AddEventHandler('rdr_clothes_store:Save', function(Clothes, Name, price)
                 end
             end)
         end
+        TriggerEvent("redemrp_inventory:createclothes", _Name)
+
     else
         TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
     end
@@ -88,6 +92,28 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value)
         end
     end)
 end)
+
+RegisterServerEvent("RegisterUsableItem:clothes")
+AddEventHandler("RegisterUsableItem:clothes", function(source, _data)
+	local _source = source
+    local id = _data.meta.id
+    local user = RedEM.GetPlayer(_source)
+    local identifier = user.identifier
+    local charid = user.charid
+    TriggerEvent('rdr_clothes_store:retrieveOutfits', identifier, charid, id, function(call)
+        if call then
+            MySQL.update("UPDATE clothes SET `clothes`=@call WHERE `identifier`=@identifier AND `charid`=@charid", {
+                call = call,
+                identifier = identifier,
+                charid = charid
+            }, function(done)
+            end)
+            TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
+            TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
+        end
+    end)
+end)
+
 
 RegisterServerEvent('rdr_clothes_store:SetOutfits')
 AddEventHandler('rdr_clothes_store:SetOutfits', function(name)

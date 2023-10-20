@@ -47,18 +47,8 @@ function OpenClothingMenu()
         else
             destory()
             menu.close()
-            local output = nil
-            AddTextEntry('FMMC_MPM_NA', "Outfit Name:")
-            DisplayOnscreenKeyboard(1, "FMMC_MPM_NA", "", "Name", "", "", "", 30)
-            while (UpdateOnscreenKeyboard() == 0) do
-                DisableAllControlActions(0)
-                Citizen.Wait(0)
-            end
-            if (GetOnscreenKeyboardResult()) then
-                output = GetOnscreenKeyboardResult()
-            end
             saveOutfit = true
-            TriggerServerEvent("rdr_clothes_store:Save", ClothesCache, output, CurrentPrice)
+            TriggerServerEvent("rdr_clothes_store:Save", ClothesCache, CurrentPrice)
             OldClothesCache = {}
 
         end
