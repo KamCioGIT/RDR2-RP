@@ -2,7 +2,7 @@ Config = {}
 
 Config.Vestiaire = {
 	[1] = vector3(1895.777, -1858.748, 42.17345),
-	[2] = vector3(336.6819, 1504.111, 181.8745),
+	[2] = vector3(336.6819, 1504.111, 180.8745),
 }
 Config.DistanceToInteract = 2.0
 Config.Tenue = {
