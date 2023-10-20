@@ -58,7 +58,6 @@ function UpdateCustomClothes(playerPed, drawable, albedo, normal, material, pale
     local _tint2 = tonumber(tint2)
 
     SetMetaPedTag(playerPed, _drawable, _albedo, _normal, _material, _palette, _tint0, _tint1, _tint2)
-    UpdateShopItemWearableState(playerPed, `CLOTHING_ITEM_M_FRONTIER_SHIRT_000`, `chemise`, true)
     UpdatePedVariation(playerPed)
 end
 

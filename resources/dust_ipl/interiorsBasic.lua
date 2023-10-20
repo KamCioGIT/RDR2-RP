@@ -296,14 +296,14 @@ RequestImap(637874199) -- Valentine -- Green Building Lamp
 --- RequestImap(-1521525254)  --BREATWHAITE -- Exterior Trees and Flowers 1(Run 1 and 2 together)
 RequestImap(-761186147)  --Green House Valentine -- Exterior Trees and Flowers 2(Run 1 and 2 together)
 RemoveImap(2040843256) -- Valentine -- Construction supplies outside of Smithfields Saloon / Green Building -- https://gyazo.com/c5b67926f2c4304b74061ca62b345a1b
-RemoveImap(999248445) -- Valentine -- Yellow Wagon with Blue Barrels outside Smithfields Saloon  -- https://gyazo.com/467e15f5cd1de68bad5e2d414fa330d4
+RequestImap(999248445) -- Valentine -- Yellow Wagon with Blue Barrels outside Smithfields Saloon  -- https://gyazo.com/467e15f5cd1de68bad5e2d414fa330d4
 RemoveImap(-713587740)  -- Valentine -- Construction Material in Roadway -- https://gyazo.com/665f85e9e2b00ec78c5fd6b2b0dd2332
-RemoveImap(-1217078386) -- Valentine -- Wagons blocking road through Valentine -- https://gyazo.com/c6758dd8f86601eaeefef2b6ef69f38c -- https://gyazo.com/83e1fb7bb26402e6d6329777e7a766a9
-RemoveImap(-1579403437) -- Valentine -- Wagon Parked in front of bank -- https://gyazo.com/5b08f55828e867f872552bb8881dc293
+RequestImap(-1217078386) -- Valentine -- Wagons blocking road through Valentine -- https://gyazo.com/c6758dd8f86601eaeefef2b6ef69f38c -- https://gyazo.com/83e1fb7bb26402e6d6329777e7a766a9
+RequestImap(-1579403437) -- Valentine -- Wagon Parked in front of bank -- https://gyazo.com/5b08f55828e867f872552bb8881dc293
 RemoveImap(517553365) -- Valentine -- 2 Wagons, 1 in front of and behind of blue house across from Keane's Saloon.  -- https://gyazo.com/4444709e3cc069fddd8d4003d5f0caa3
-RemoveImap(805009584) -- Valentine -- Western Barricades -- https://gyazo.com/631b61e44cae28d4c7c4391d1d7830a7
-RemoveImap(-560409108) -- Valentine -- Eastern Barricades -- https://gyazo.com/45304e29a207805e373bcd921af6a668
-RemoveImap(-518785376) -- Valentine -- Southern Barricades -- https://gyazo.com/2fa60fa4d76205783907e2eec98253ec
+RequestImap(805009584) -- Valentine -- Western Barricades -- https://gyazo.com/631b61e44cae28d4c7c4391d1d7830a7
+RequestImap(-560409108) -- Valentine -- Eastern Barricades -- https://gyazo.com/45304e29a207805e373bcd921af6a668
+RequestImap(-518785376) -- Valentine -- Southern Barricades -- https://gyazo.com/2fa60fa4d76205783907e2eec98253ec
 
 --------------------------------                                   ############# -- Valentine Mainstreet Sheriffs Office -- ###############                                       ----------------------
 RequestImap(-1301569116) -- Valentine -- Sheriffs Office boarded up
