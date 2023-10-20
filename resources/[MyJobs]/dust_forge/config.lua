@@ -7,9 +7,9 @@ Config.Jobs = {
 Config.WorkingTime = 5000
 Config.DistanceToInteract = 1.5
 
-Config.Atelier = vector3(-866.9702, -1286.437, 43.10227) -- Creer toutes les balles
-Config.Enclume = vector3(-870.0458, -1285.856, 43.10125)
-Config.Forge = vector3(-866.8604, -1291.914, 43.10212)
+Config.Atelier = vector3(-866.9702, -1286.437, 42.10227) -- Creer toutes les balles
+Config.Enclume = vector3(-870.0458, -1285.856, 42.10125)
+Config.Forge = vector3(-866.8604, -1291.914, 42.10212)
 Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
 Config.CraftAnim = {
     "base_trans_base",

@@ -14,10 +14,10 @@ Config.DistanceToInteract = 1.5
 
 Config.CreateFerAndLaitonPos = vector3(2317.1611, -1455.7, 47.01) -- 1 Charbon + 10 Minerai brut  = Lingot de Laiton
 
-Config.Atelier = vector3(2369.379, -1467.595, 46.0) -- Creer toutes les balles
-Config.Assembly = vector3(2369.379, -1467.595, 46.0) 
-Config.Poudre = vector3(2369.379, -1467.595, 46.0) 
-Config.Etabli = vector3(2369.379, -1467.595, 46.0) 
+Config.Atelier = vector3(2361.018, -1450.258, 45.07627) -- Creer toutes les balles
+Config.Assembly = vector3(2363.794, -1467.513, 45.0539) 
+Config.Poudre = vector3(2366.975, -1467.534, 45.05197) 
+Config.Etabli = vector3(2370.284, -1467.989, 46.04718) 
 
 
 Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
