@@ -1,7 +1,7 @@
 Config = {}
 
 Config.Vestiaire = vector3(1895.777, -1858.748, 43.17345)
-onfig.DistanceToInteract = 2.0
+Config.DistanceToInteract = 2.0
 Config.Tenue = {
 	["male"] = {
 		[1] = { [1] = {drawable = "coat_mr1_130_westernright", albedo ="kkwecyia_0xb2e66aba", normal = "iyphvbwa_0x2089387a", material = "cjdntsua_0x5462f8e3", palette = "ymwmqyaa_0xf93db0c8", tint0 = 154, tint1 = 46, tint2 = 14},
