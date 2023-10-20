@@ -2,11 +2,19 @@
 -- Eat()
 -- Drink()
 -- Wine()
+-- Gin()
+-- Rum()
+-- Cognac()
+-- Moonshine()
 -- Whisky()
 -- EatBowl()
 -- Shampan()
 -- Beer()
 -- Coffe()
+-- Watch()
+-- Fan()
+-- ChewingTobacco(buffed)
+-- Pomade()
 -- BoostStamina(10)
 
 local crosshairhidden = false
@@ -137,16 +145,6 @@ Config.Items = {
         end,
         ClientAction = function()
             Coffe()
-        end
-    },
-    ["mbandage"] = {
-        hunger = 0,
-        thirst = 0,
-        action = function(source, name)
-            TriggerClientEvent('redemrp_status:Action-' .. name, source)
-        end,
-        ClientAction = function()
-            MBandage()
         end
     },
 

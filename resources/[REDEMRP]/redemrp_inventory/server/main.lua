@@ -2331,3 +2331,31 @@ RegisterServerEvent("redemrp_inventory:createclothes", function(source, id)
         )
     end
 end)
+
+
+RegisterServerEvent("redemrp_inventory:tenueevent", function(source)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local itemData = SharedInventoryFunctions.getItem(_source, "tenueevent")
+    local _meta = meta or {}
+    local itemData = Config.Items["tenueevent"]
+    local random = math.random(1, 4)
+    if not _meta.id then
+        _meta.id = random
+    end
+    local item, id = getInventoryItemFromName("tenueevent", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("tenueevent", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)

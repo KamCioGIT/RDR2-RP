@@ -51,22 +51,12 @@ Config.Items = {
     },
     ["bandage"] = {
         label = "Bandage",
-        description = "A bandage to heal wounds and restore health",
-        weight = 0.2,
+        description = "Utile pour stopper un saignement",
+        weight = 0.1,
         canBeDropped = true,
         canBeUsed = true,
         limit = 100,
         imgsrc = "items/bandage.png",
-        type = "item_standard"
-    },
-    ["mbandage"] = {
-        label = "Medicated Bandage",
-        description = "A medicated bandage to heal wounds and restore health faster",
-        weight = 0.2,
-        canBeDropped = true,
-        canBeUsed = true,
-        limit = 100,
-        imgsrc = "items/mbandage.png",
         type = "item_standard"
     },
     ["WEAPON_REVOLVER_CATTLEMAN"] = {
@@ -2898,6 +2888,19 @@ Config.Items = {
 },
 
 
+
+---- EVENT -----
+["tenueevent"] = {
+    label = "Uniforme",
+    description = "Pour l'Union",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/clothing_generic_outfit.png",
+    type = "item_standard",
+},
 }
 
 
