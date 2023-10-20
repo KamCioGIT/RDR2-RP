@@ -668,7 +668,7 @@ RemoveImap(-158824350) -- Dirt in Small Plot (visually can't see it)
 RequestImap(1149195254)  --Brathwaite House Shell
 RemoveImap(-1643869063) -- House Burnt Down
 RequestImap(58066174)  -- Interior
-RemoveImap(1601599776)  -- House on fire Smoke (Smoke and Burning Sounds Only)
+RequestImap(1601599776)  -- House on fire Smoke (Smoke and Burning Sounds Only)
 RequestImap(-437251660)  -- House of Fire Flames
 
 -- Mansion Exterior 

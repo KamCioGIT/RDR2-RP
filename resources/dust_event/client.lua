@@ -6,7 +6,11 @@ RegisterCommand("testevent", function()
         if a < 10 then
             local coords = GetEntityCoords(ped)
             local modelhash = GetHashKey("G_M_Y_UniExConfeds_01")
-            LoadModel(modelhash)
+            while not HasModelLoaded(modelhash) do
+                RequestModel(modelhash)
+                
+                Citizen.Wait(1)
+            end
             local xOffset = math.random(1, 15)
             local yOffset = math.random(1, 15)
             local zOffset = math.random(1, 15)
@@ -26,11 +30,3 @@ RegisterCommand("testevent", function()
         else break end
     end
 end)
-
-LoadModel = function(model)
-    while not HasModelLoaded(model) do
-        RequestModel(model)
-        
-        Citizen.Wait(1)
-    end
-end
