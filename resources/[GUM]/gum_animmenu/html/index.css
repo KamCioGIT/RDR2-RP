@@ -301,8 +301,6 @@
     position: absolute;
     bottom: 9px;
 	width: 180px;
-    height: 20px;
-    left:2px;
     font-size: 17px;
     color:white;
     text-decoration: none;
@@ -358,9 +356,7 @@
     position: absolute;
     bottom: 9px;
 	width: 190px;
-    height: 20px;
-    left:2px;
-    font-size: 20px;
+    font-size: 15px;
     color:white;
     text-decoration: none;
 }
