@@ -17,7 +17,7 @@ const useStyles = createStyles((theme) => ({
   },
   sector: {
     fill: "#00000081",
-    color: theme.colors.dark[0],
+    color: "#00000081",
 
     '&:hover': {
       fill: "#DC5858",
@@ -39,7 +39,7 @@ const useStyles = createStyles((theme) => ({
     stroke: "#615C43",
     strokeWidth: 4,
     '&:hover': {
-      fill: "#DC5858",
+      stroke: "#DC5858",
     },
   },
   centerIconContainer: {
