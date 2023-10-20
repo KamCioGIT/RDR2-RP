@@ -800,3 +800,26 @@ exports('GetClothesCurrentComponentHash', function(name)
     end
     return hash
 end)
+
+
+
+RegisterNetEvent("redemrp_inventory:removeclothes", function()
+    for category, _ in pairs(Config.Label) do
+        if category == "cloaks" then
+            local category = GetHashKey("ponchos")
+            Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), category, 0)
+            NativeUpdatePedVariation(PlayerPedId())
+        else
+            Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
+            NativeUpdatePedVariation(PlayerPedId())
+        end
+        if category == "pants" or category == "boots" then
+            NativeSetPedComponentEnabled(PlayerPedId(), exports.redemrp_creator:GetBodyCurrentComponentHash("BODIES_LOWER"),
+                false, true, true)
+        end
+        if category == "shirts_full" then
+            NativeSetPedComponentEnabled(PlayerPedId(), exports.redemrp_creator:GetBodyCurrentComponentHash("BODIES_UPPER"),
+                false, true, true)
+        end
+    end
+end)

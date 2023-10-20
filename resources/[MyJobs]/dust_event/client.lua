@@ -34,6 +34,8 @@ end)
 
 RegisterNetEvent("dust_event:clothes", function(id)
     if IsPedMale(PlayerPedId()) then
+        TriggerEvent("redemrp_inventory:removeclothes")
+        Wait(100)
         for k, v in pairs(Config.Tenue["male"][id]) do
          UpdateCustomClothes(PlayerPedId(), GetHashKey(v.drawable), GetHashKey(v.albedo), GetHashKey(v.normal), GetHashKey(v.material), GetHashKey(v.palette), tonumber(v.tint0), tonumber(v.tint1), tonumber(v.tint2))
         end
