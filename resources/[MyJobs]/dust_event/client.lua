@@ -34,6 +34,7 @@ end)
 
 RegisterNetEvent("dust_event:clothes", function(id)
     if IsPedMale(PlayerPedId()) then
+        print(id)
         TriggerEvent("redemrp_inventory:removeclothes")
         Wait(100)
         for k, v in pairs(Config.Tenue["male"][id]) do
