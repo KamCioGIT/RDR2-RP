@@ -19,7 +19,6 @@ function ExtractIdentifiers(src)
             identifiers.ip = id
         elseif string.find(id, "discord:") then
             identifiers.discord = id
-            print 'discord'
         elseif string.find(id, "license:") then
             identifiers.license = id
         elseif string.find(id, "xbl:") then
