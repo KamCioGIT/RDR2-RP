@@ -7,7 +7,7 @@ function ExtractIdentifiers(src)
     identifiers.steam = RedEM.Functions.GetIdentifier(src, "steam")
     identifiers.ip = RedEM.Functions.GetIdentifier(src, "ip")
     identifiers.license = RedEM.Functions.GetIdentifier(src, "license")
-
+    print(RedEM.Functions.GetIdentifier(src, "discord"))
     return identifiers
 end
 
