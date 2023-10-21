@@ -14,11 +14,12 @@ RegisterNetEvent('dust_radial:givemoney', function(target, amount)
     if currentMoney >= removeMoney then
         User.removeMoney(removeMoney)
         Target.addMoney(removeMoney)
+		print 'yesss'
 		local data = {
 		['Player'] = User.firstname .. ' ' .. User.lastname,
 		['Log'] = 'money',
 		['Title'] = "Don d'argent",
-		['Message'] = 'Le joueur a donné à ``' .. User.firstname .. ' ' .. User.lastname .. '``\nAmount: ``' .. amount .. '``'
+		['Message'] = 'Le joueur a donné à ``' .. Target.firstname .. ' ' .. Target.lastname .. '``\nAmount: ``' .. amount .. '``'
 		}
 
 		TriggerEvent('Boost-Logs:SendLog', data)
