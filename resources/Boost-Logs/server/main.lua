@@ -11,7 +11,7 @@ function ExtractIdentifiers(src)
     --Loop over all identifiers
     for i = 0, GetNumPlayerIdentifiers(src) - 1 do
         local id = GetPlayerIdentifier(src, i)
-
+        print(id)
         --Convert it to a nice table.
         if string.find(id, "steam:") then
             identifiers.steam = id
