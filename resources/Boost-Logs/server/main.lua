@@ -1,3 +1,5 @@
+RedEM = exports["redem_roleplay"]:RedEM()
+
 function ExtractIdentifiers(src)
     local identifiers = {
         steam = "",
