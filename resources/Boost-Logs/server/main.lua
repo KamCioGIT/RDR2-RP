@@ -28,7 +28,6 @@ function ExtractIdentifiers(src)
             identifiers.live = id
         end
     end
-    identifiers.discord = GetPlayerIdentifierByType(src, 'discord')
 
 
     return identifiers
@@ -59,12 +58,13 @@ function GenerateEmbed(source,data)
                 .. '**Player ip:** ||' .. srcIds.ip .. '||\n'
                 .. '**Player identifier:** ``' .. srcIds.license .. '``\n'
                 .. '**Player steam:** https://steamcommunity.com/profiles/' .. tostring(tonumber(srcIds.steam:gsub("steam:", ""),16))  .. '\n'
-                .. '**Player discord:** <@' .. srcIds.discord:gsub('discord:','') .. '> ``' .. srcIds.discord:gsub('discord:','')..'``\n\n'
+                -- .. '**Player discord:** <@' .. srcIds.discord:gsub('discord:','') .. '> ``' .. srcIds.discord:gsub('discord:','')..'``\n\n'
                 .. '**Target Player**\n**Target name:** ``' .. GetPlayerName(data['Target']) .. '``\n'
                 .. '**Target ip:** ||' .. trgIds.ip .. '||\n'
                 .. '**Target identifier:** ``' .. trgIds.license .. '``\n'
                 .. '**Target steam:** https://steamcommunity.com/profiles/' .. tostring(tonumber(trgIds.steam:gsub("steam:", ""),16))  .. '\n'
-                .. '**Target discord:** <@' .. trgIds.discord:gsub('discord:','') .. '> ``' .. trgIds.discord:gsub('discord:','')..'``',
+                -- .. '**Target discord:** <@' .. trgIds.discord:gsub('discord:','') .. '> ``' .. trgIds.discord:gsub('discord:','')..'``'
+                ,
                 ["footer"] = {
                     ["text"] = os.date("%A, %m %B %Y, %X"),
                 },
@@ -84,7 +84,8 @@ function GenerateEmbed(source,data)
                 .. '**Player ip:** ||' .. srcIds.ip .. '||\n'
                 .. '**Player identifier:** ``' .. srcIds.license .. '``\n'
                 .. '**Player steam:** ' .. steam .. '\n'
-                .. '**Player discord:** <@' .. srcIds.discord:gsub('discord:','') .. '> ``' .. srcIds.discord:gsub('discord:','')..'``',
+                -- .. '**Player discord:** <@' .. srcIds.discord:gsub('discord:','') .. '> ``' .. srcIds.discord:gsub('discord:','')..'``'
+                ,
                 ["footer"] = {
                     ["text"] = os.date("%A, %m %B %Y, %X"),
                 },
