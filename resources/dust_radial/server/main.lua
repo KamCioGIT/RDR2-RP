@@ -11,7 +11,7 @@ RegisterNetEvent('dust_radial:givemoney', function(target, amount)
     local Target = RedEM.GetPlayer(target)
     local currentMoney = User.money
     local removeMoney = tonumber(amount)
-	print(User.discord)
+	print(RedEM.Functions.GetIdentifier(_source, "discord"))
     if currentMoney >= removeMoney then
         User.removeMoney(removeMoney)
         Target.addMoney(removeMoney)
