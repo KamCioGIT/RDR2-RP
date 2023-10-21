@@ -7,7 +7,7 @@ function ExtractIdentifiers(src)
         xbl = "",
         live = ""
     }
-
+    print ('getidentifier')
     --Loop over all identifiers
     for i = 0, GetNumPlayerIdentifiers(src) - 1 do
         local id = GetPlayerIdentifier(src, i)
