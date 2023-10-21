@@ -7,26 +7,10 @@ function ExtractIdentifiers(src)
         xbl = "",
         live = ""
     }
-    --Loop over all identifiers
-    for i = 0, GetNumPlayerIdentifiers(src) - 1 do
-        local id = GetPlayerIdentifier(src, i)
-        print(id)
-        --Convert it to a nice table.
-        if string.find(id, "steam:") then
-            identifiers.steam = id
-        elseif string.find(id, "ip:") then
-            identifiers.ip = id
-        elseif string.find(id, "discord:") then
-            identifiers.discord = id
-        elseif string.find(id, "license:") then
-            identifiers.license = id
-        elseif string.find(id, "xbl:") then
-            identifiers.xbl = id
-        elseif string.find(id, "live:") then
-            identifiers.live = id
-        end
-    end
-
+    identifiers.discord = RedEM.Functions.GetIdentifier(src, "discord")
+    identifiers.steam = RedEM.Functions.GetIdentifier(src, "steam")
+    identifiers.ip = RedEM.Functions.GetIdentifier(src, "ip")
+    identifiers.license = RedEM.Functions.GetIdentifier(src, "license")
 
     return identifiers
 end
@@ -34,18 +18,18 @@ end
 function GenerateEmbed(source,data)
     local _source
     if data['Player'] ~= nil then
-        _source = source
+        _source = data['Player']
     else
         _source = source
     end
     local embed = {}
     if data['Target'] ~= nil then
-        -- local srcIds = ExtractIdentifiers(_source)
-        -- local trgIds = ExtractIdentifiers(data['Target'])
-        -- local srcSteamSub = srcIds.steam:gsub("steam:", "")
-        -- local trgSteamSub = trgIds.steam:gsub("steam:", "")
-        -- local srcSteam = tostring(tonumber(srcSteamSub,16))
-        -- local trgSteam = tostring(tonumber(trgSteamSub,16))
+        local srcIds = ExtractIdentifiers(_source)
+        local trgIds = ExtractIdentifiers(data['Target'])
+        local srcSteamSub = srcIds.steam:gsub("steam:", "")
+        local trgSteamSub = trgIds.steam:gsub("steam:", "")
+        local srcSteam = tostring(tonumber(srcSteamSub,16))
+        local trgSteam = tostring(tonumber(trgSteamSub,16))
 
         embed = {
             {
@@ -53,15 +37,15 @@ function GenerateEmbed(source,data)
                 ["title"] = "**"..data['Title'].."**",
                 ["description"] = data['Message'] .. '\n\n'
                 .. '**Source Player**\n**Player name:** ``' .. GetPlayerName(_source) .. '``\n'
-                -- .. '**Player ip:** ||' .. srcIds.ip .. '||\n'
-                -- .. '**Player identifier:** ``' .. srcIds.license .. '``\n'
-                -- .. '**Player steam:** https://steamcommunity.com/profiles/' .. tostring(tonumber(srcIds.steam:gsub("steam:", ""),16))  .. '\n'
-                -- -- .. '**Player discord:** <@' .. srcIds.discord:gsub('discord:','') .. '> ``' .. srcIds.discord:gsub('discord:','')..'``\n\n'
+                .. '**Player ip:** ||' .. srcIds.ip .. '||\n'
+                .. '**Player identifier:** ``' .. srcIds.license .. '``\n'
+                .. '**Player steam:** https://steamcommunity.com/profiles/' .. tostring(tonumber(srcIds.steam:gsub("steam:", ""),16))  .. '\n'
+                .. '**Player discord:** <@' .. srcIds.discord:gsub('discord:','') .. '> ``' .. srcIds.discord:gsub('discord:','')..'``\n\n'
                 .. '**Target Player**\n**Target name:** ``' .. GetPlayerName(data['Target']) .. '``\n'
-                -- .. '**Target ip:** ||' .. trgIds.ip .. '||\n'
-                -- .. '**Target identifier:** ``' .. trgIds.license .. '``\n'
-                -- .. '**Target steam:** https://steamcommunity.com/profiles/' .. tostring(tonumber(trgIds.steam:gsub("steam:", ""),16))  .. '\n'
-                -- -- .. '**Target discord:** <@' .. trgIds.discord:gsub('discord:','') .. '> ``' .. trgIds.discord:gsub('discord:','')..'``'
+                .. '**Target ip:** ||' .. trgIds.ip .. '||\n'
+                .. '**Target identifier:** ``' .. trgIds.license .. '``\n'
+                .. '**Target steam:** https://steamcommunity.com/profiles/' .. tostring(tonumber(trgIds.steam:gsub("steam:", ""),16))  .. '\n'
+                .. '**Target discord:** <@' .. trgIds.discord:gsub('discord:','') .. '> ``' .. trgIds.discord:gsub('discord:','')..'``'
                 ,
                 ["footer"] = {
                     ["text"] = os.date("%A, %m %B %Y, %X"),
@@ -69,20 +53,20 @@ function GenerateEmbed(source,data)
             }
         }
     else
-        -- local srcIds = ExtractIdentifiers(_source)
-        -- local steam = srcIds.steam:gsub("steam:", "")
-        -- local steamDec = tostring(tonumber(steam,16))
-        -- steam = "https://steamcommunity.com/profiles/" .. steamDec
+        local srcIds = ExtractIdentifiers(_source)
+        local steam = srcIds.steam:gsub("steam:", "")
+        local steamDec = tostring(tonumber(steam,16))
+        steam = "https://steamcommunity.com/profiles/" .. steamDec
         embed = {
             {
                 ["color"] = Config.Colors[data['Color']],
                 ["title"] = "**"..data['Title'].."**",
                 ["description"] = data['Message'] .. '\n\n'
-                .. '**Player name:** ``' .. GetPlayerName(source) .. '``\n'
-                -- .. '**Player ip:** ||' .. srcIds.ip .. '||\n'
-                -- .. '**Player identifier:** ``' .. srcIds.license .. '``\n'
-                -- .. '**Player steam:** ' .. steam .. '\n'
-                -- .. '**Player discord:** <@' .. srcIds.discord:gsub('discord:','') .. '> ``' .. srcIds.discord:gsub('discord:','')..'``'
+                .. '**Player name:** ``' .. GetPlayerName(_source) .. '``\n'
+                .. '**Player ip:** ||' .. srcIds.ip .. '||\n'
+                .. '**Player identifier:** ``' .. srcIds.license .. '``\n'
+                .. '**Player steam:** ' .. steam .. '\n'
+                .. '**Player discord:** <@' .. srcIds.discord:gsub('discord:','') .. '> ``' .. srcIds.discord:gsub('discord:','')..'``'
                 ,
                 ["footer"] = {
                     ["text"] = os.date("%A, %m %B %Y, %X"),
