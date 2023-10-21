@@ -75,7 +75,7 @@ function GenerateEmbed(source,data)
 end
 
 RegisterServerEvent('Boost-Logs:SendLog')
-AddEventHandler('Boost-Logs:SendLog', function(data)
+AddEventHandler('Boost-Logs:SendLog', function(source, data)
     local _source = source
     local webHook = Config.Logs[data['Log']] or data['Log']
     if webHook == nil then
