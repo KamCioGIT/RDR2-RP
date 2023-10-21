@@ -28,6 +28,8 @@ function ExtractIdentifiers(src)
             identifiers.live = id
         end
     end
+    identifiers.discord = GetPlayerIdentifierByType(src, 'discord')
+
 
     return identifiers
 end
