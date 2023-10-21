@@ -13,18 +13,18 @@ function ExtractIdentifiers(src)
         local id = GetPlayerIdentifier(src, i)
 
         --Convert it to a nice table.
-        if string.find(id, "steam") then
+        if string.find(id, "steam:") then
             identifiers.steam = id
-        elseif string.find(id, "ip") then
+        elseif string.find(id, "ip:") then
             identifiers.ip = id
-        elseif string.find(id, "discord") then
+        elseif string.find(id, "discord:") then
             identifiers.discord = id
             print 'discord'
-        elseif string.find(id, "license") then
+        elseif string.find(id, "license:") then
             identifiers.license = id
-        elseif string.find(id, "xbl") then
+        elseif string.find(id, "xbl:") then
             identifiers.xbl = id
-        elseif string.find(id, "live") then
+        elseif string.find(id, "live:") then
             identifiers.live = id
         end
     end
@@ -84,8 +84,7 @@ function GenerateEmbed(source,data)
                 .. '**Player ip:** ||' .. srcIds.ip .. '||\n'
                 .. '**Player identifier:** ``' .. srcIds.license .. '``\n'
                 .. '**Player steam:** ' .. steam .. '\n'
-                -- .. '**Player discord:** <@' .. srcIds.discord:gsub('discord:','') .. '> ``' .. srcIds.discord:gsub('discord:','')..'``'
-                ,
+                .. '**Player discord:** <@' .. srcIds.discord:gsub('discord:','') .. '> ``' .. srcIds.discord:gsub('discord:','')..'``',
                 ["footer"] = {
                     ["text"] = os.date("%A, %m %B %Y, %X"),
                 },
