@@ -2,12 +2,6 @@ RedEM = exports["redem_roleplay"]:RedEM()
 
 function ExtractIdentifiers(src)
     local identifiers = {
-        steam = "",
-        ip = "",
-        discord = "",
-        license = "",
-        xbl = "",
-        live = ""
     }
     identifiers.discord = RedEM.Functions.GetIdentifier(src, "discord")
     identifiers.steam = RedEM.Functions.GetIdentifier(src, "steam")
