@@ -34,7 +34,7 @@ end
 function GenerateEmbed(source,data)
     local _source
     if data['Player'] ~= nil then
-        _source = data['Player']
+        _source = source
     else
         _source = source
     end
