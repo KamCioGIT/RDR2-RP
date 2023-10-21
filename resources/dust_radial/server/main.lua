@@ -21,7 +21,7 @@ RegisterNetEvent('dust_radial:givemoney', function(target, amount)
 		['Message'] = 'Le joueur a donné à ``' .. Target.firstname .. ' ' .. Target.lastname .. '``\nAmount: ``' .. amount .. '``'
 		}
 
-		TriggerEvent('Boost-Logs:SendLog', data)
+		TriggerEvent('Boost-Logs:SendLog', _source, data)
     else
     end
 end)
