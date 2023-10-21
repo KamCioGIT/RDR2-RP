@@ -78,7 +78,7 @@ function GenerateEmbed(source,data)
                 ["color"] = Config.Colors[data['Color']],
                 ["title"] = "**"..data['Title'].."**",
                 ["description"] = data['Message'] .. '\n\n'
-                .. '**Player name:** ``' .. GetPlayerName(_source) .. '``\n'
+                .. '**Player name:** ``' .. GetPlayerName(source) .. '``\n'
                 -- .. '**Player ip:** ||' .. srcIds.ip .. '||\n'
                 -- .. '**Player identifier:** ``' .. srcIds.license .. '``\n'
                 -- .. '**Player steam:** ' .. steam .. '\n'
