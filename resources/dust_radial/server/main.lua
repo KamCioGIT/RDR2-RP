@@ -14,7 +14,6 @@ RegisterNetEvent('dust_radial:givemoney', function(target, amount)
     if currentMoney >= removeMoney then
         User.removeMoney(removeMoney)
         Target.addMoney(removeMoney)
-		print 'yesss'
 		local data = {
 		['Player'] = User.firstname .. ' ' .. User.lastname,
 		['Log'] = 'money',
