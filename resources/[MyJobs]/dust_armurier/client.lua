@@ -13,18 +13,11 @@ end)
 
 --- Définir si le joueur est armurier
 
-Citizen.CreateThread(function()
-    Wait(1000)
-    if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_armurier:server:RequestJob")
-    end
-end)
-
 local getjob = false
 local getgrade = 0
-RegisterNetEvent("redem_roleplay:JobChange")
-AddEventHandler("redem_roleplay:JobChange", function(job, grade)
-    print(job)
+
+RegisterNetEvent("dust_job:armurier")
+AddEventHandler("dust_job:armurier", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             getjob = true
@@ -57,6 +50,17 @@ Citizen.CreateThread(function()
                         isInteracting = true
                         Wait(200)
                         inspectcustom()
+                    end
+                end
+            end
+            for k, v in pairs(Config.CraftArme) do
+                if #(playerPos - v) < 10.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                end
+                if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                    craftprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        TriggerEvent("store:OpenBossMenu")
                     end
                 end
             end
@@ -106,131 +110,6 @@ function GetWeaponType(hash)
 		return "SHORTARM"
 	end
 	return false
-end
-
-function ShopMenu()
-    MenuData.CloseAll()
-    local elements = {
-            {label = "Pistols", value = 'pistols'},
-            {label = "Long Guns", value = 'longguns'},
-            {label = "Melee Weapons", value = 'handguns'},
-            {label = "Ammo", value = 'ammo'}
-    }
-    MenuData.Open('default', GetCurrentResourceName(), 'weaponshop_main', {
-        title    = 'Weapon Shop',
-        subtext    = 'choose a category',
-        align    = 'top-left',
-        elements = elements,
-    }, function(data, menu)
-        local elements2 = {}
-        local OpenSub = false
-        local category = data.current.value
-        if category == 'pistols' then
-            elements2 = {
-                {label = "Cattleman Revolver", value = 'cattleman_w', weapon = 'WEAPON_REVOLVER_CATTLEMAN', price = 10, lvl = 1, subtext = '$10 LvL 1'},
-                {label = "Double Action Revolver", value = 'doubleaction_w', weapon = 'WEAPON_REVOLVER_DOUBLEACTION', price = 12, lvl = 5, subtext = '$12 LvL 5'},
-                {label = "Volcanic", value = 'volcanic_w', weapon = 'WEAPON_PISTOL_VOLCANIC', price = 20, lvl = 10, subtext = '$20 LvL 10'},
-                {label = "Semi-auto Pistol", value = 'semiauto-p_w', weapon = 'WEAPON_PISTOL_SEMIAUTO', price = 22, lvl = 15, subtext = '$22 LvL 15'},
-                {label = "Mauser", value = 'mauser_w', weapon = 'WEAPON_PISTOL_MAUSER', price = 30, lvl = 20, subtext = '$30 LvL 20'},
-                {label = "M 1899", value = 'm1899_w', weapon = 'WEAPON_PISTOL_M1899', price = 40, lvl = 30, subtext = '$40 LvL 30'},
-                {label = "Lemat Revolver", value = 'lemat_w', weapon = 'WEAPON_REVOLVER_LEMAT', price = 50, lvl = 40, subtext = "$50 LvL 40"}
-            }
-            OpenSub = true
-        elseif category == 'longguns' then
-            elements2 = {
-                {label = "Carbine Repeator", value = 'carbine_w', weapon = 'WEAPON_REPEATER_CARBINE', price = 20, lvl = 1, subtext = '$20 LvL 1'},
-                {label = "Varmint Rifle", value = 'varmint_w', weapon = 'WEAPON_RIFLE_VARMINT', price = 15, lvl = 1, subtext = "$15 LvL 1"},
-                {label = "Evans Repeater", value = 'evans_w', weapon = 'WEAPON_REPEATER_EVANS', price = 30, lvl = 5, subtext = "$30 LvL 5"},
-                {label = "Bolt Action Rifle", value = 'bolt_w', weapon = 'WEAPON_RIFLE_BOLTACTION', price = 40, lvl = 10, subtext = "$40 LvL 10"},
-                {label = "Carcano Rifle", value = 'carcano_w', weapon = 'WEAPON_SNIPERRIFLE_CARCANO', price = 70, lvl = 30, subtext = "$70 LvL 30"},
-                {label = "Rolling Block Rifle", value = 'rolling_w', weapon = 'WEAPON_SNIPERRIFLE_ROLLINGBLOCK', price = 100, lvl = 50, subtext = "$100 LvL 50"},
-                {label = "Pump Shotgun", value = 'pump_w', weapon = 'WEAPON_SHOTGUN_PUMP', price = 25, lvl = 10, subtext = "$25 LvL 10"},
-                {label = "Repeating Shotgun", value = 'repeating_w', weapon = 'WEAPON_SHOTGUN_REPEATING', price = 40, lvl = 20, subtext = "$40 LvL 20"},
-                {label = "Semi-auto Shotgun", value = 'semiauto-s_w', weapon = 'WEAPON_SHOTGUN_SEMIAUTO', price = 55, lvl = 30, subtext = "$55 LvL 30"},
-                {label = "Sawed-off Shotgun", value = 'sawedoff_w', weapon = 'WEAPON_SHOTGUN_SAWEDOFF', price = 70, lvl = 50, subtext = "$70 LvL 50"}
-            }
-            OpenSub = true
-        elseif category == 'handguns' then
-            elements2 = {
-                {label = "Knife", value = 'knife_w', weapon = 'WEAPON_MELEE_KNIFE', price = 2, lvl = 1, subtext = '$2 LvL 1'},
-                {label = "Lantern", value = 'lantern_r_w', weapon = 'WEAPON_MELEE_DAVY_LANTERN', price = 10, lvl = 1, subtext = "$10 LvL 1"},
-                {label = "Bow", value = 'bow_w', weapon = 'WEAPON_BOW', price = 10, lvl = 5, subtext = "$10 LvL 5"},
-                {label = "Lasso", value = 'lasso_w', weapon = 'WEAPON_LASSO', price = 10, lvl = 10, subtext = "$10 LvL 10"},
-                {label = "Hatchet", value = 'hatchet_w', weapon = 'WEAPON_MELEE_HATCHET', price = 10, lvl = 15, subtext = "$10 LvL 15"},
-                {label = "Throwing knives", value = 'throwing_w', weapon = 'WEAPON_THROWN_THROWING_KNIVES', price = 25, lvl = 25, subtext = "$25 LvL 25"},
-                {label = "Electric Lantern", value = 'lantern_w', weapon = 'WEAPON_MELEE_LANTERN_ELECTRIC', price = 30, lvl = 25, subtext = "$30 LvL 25"},
-                {label = "Tomahawk", value = 'tomahawk_w', weapon = 'WEAPON_THROWN_TOMAHAWK', price = 25, lvl = 30, subtext = "$25 LvL 30"}
-            }
-            OpenSub = true
-        elseif category == 'ammo' then
-            local options = {
-                {label = 'Pistols', value = 'pistols'},
-                {label = 'Long Guns', value = 'longgunsammo'},
-                {label = 'Melee Weapons', value = 'handgunsammo'},
-            }
-            MenuData.Open('default', GetCurrentResourceName(), 'weaponshop_ammo', {
-                title    = 'Ammo Shop',
-                align    = 'top-left',
-                elements = options,
-            }, function(data2, menu2)
-                local choice = data2.current.value
-                local ammochoices = {}
-
-                if choice == 'pistols' then
-                    ammochoices = {
-                        {label = "Revolver", value = 'revolver_ammo', price = 3, subtext = '$3'}, 
-                        {label = "Pistol", value = 'pistol_ammo', price = 4, subtext = '$4'}
-                    }
-                elseif choice == 'longgunsammo' then
-                    ammochoices = {
-                        {label = "Repeator", value = 'repeator_ammo', price = 2, subtext = '$2'},
-                        {label = "22 Rifle", value = '22_ammo', price = 2, subtext = '$2'},
-                        {label = "Rifle", value = 'rifle_ammo', price = 3, subtext = '$3'},
-                        {label = "Sniper Rifle", value = 'snipe_ammo', price = 4, subtext = '$4'},
-                        {label = "Shotgun Shells", value = 'shotgun_ammo', price = 3, subtext = '$3'}
-                    }
-                elseif choice == 'handgunsammo' then
-                    ammochoices = {
-                        {label = "Arrows", value = 'arrows', price = 5, subtext = '$5'}, 
-                        {label = "Throwing knives", value = 'knives', price = 5, subtext = '$5'}, 
-                    }
-                end
-
-                MenuData.Open('default', GetCurrentResourceName(), 'weaponshop_'..category, {
-                    title    = category..' Shop',
-                    align    = 'top-left',
-                    elements = ammochoices,
-                }, function(data3, menu3)
-                    local item = data3.current.value
-                    local price = data3.current.price
-                    TriggerServerEvent("redemrp_gunshop:buyammo", tonumber(price), item)
-                end, function(data3, menu3)
-                    menu3.close()
-                end)
-            end, function(data3, menu3)
-                menu3.close()
-            end) 
-        end
-
-        if OpenSub == true then
-            OpenSub = false
-            MenuData.Open('default', GetCurrentResourceName(), 'weaponshop_'..category, {
-                title    = category..' Shop',
-                align    = 'top-left',
-                elements = elements2,
-            }, function(data2, menu2)
-                local weapon = data2.current.weapon
-                local item = data2.current.value
-                local price = data2.current.price
-                local lvl = data2.current.lvl
-                TriggerServerEvent("redemrp_gunshop:buygun", item, tonumber(price), weapon,  tonumber(lvl))
-            end, function(data2, menu2)
-                menu2.close()
-            end) 
-        end
-    end, function(data, menu)
-        menu.close()
-    end) 
 end
 
 
@@ -456,19 +335,197 @@ function UpdatePedVariation(ped)
     Citizen.InvokeNative(0xCC8CA3E88256E58F, ped, false, true, true, true, false) -- _UPDATE_PED_VARIATION
 end
 
-RegisterCommand("testclothe", function()
+RegisterCommand("tc", function(source, args, rawCommand)
+    print (args[1], args[2] )
     local playerPed = PlayerPedId()
-    local drawable = `cloak_fr1_000`
-    local albedo = `rxeonbaa_0xa27c83f4`
-    local normal = `jbcenhqa_0x761e354e`
-    local material = `jgqpesaa_0x8fc6aeb3`
-    local palette = `dsvkmzra_0xf509c745`
-    local tint0 = 96
-    local tint1 = 29
-    local tint2 = 9
+    local drawable = GetHashKey(args[1])
+    local albedo = GetHashKey(args[2])
+    local normal = GetHashKey(args[3])
+    local material = GetHashKey(args[4])
+    local palette = GetHashKey(args[5])
+    local tint0 = args[6]
+    local tint1 = args[7]
+    local tint2 = args[8]
     while not IsPedReadyToRender(playerPed) do
         Wait(0)
     end
     SetMetaPedTag(playerPed, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
     UpdatePedVariation(playerPed)
+end)
+
+
+
+Citizen.CreateThread(function()
+
+    while true do
+        local ped = PlayerPedId()
+        SetPedConfigFlag(ped,263,true) -- No Critical Hits
+        -- SetPedConfigFlag(ped,169,true) -- Disable Grapple
+        SetPedConfigFlag(ped,340,true)  --- no melle finish
+        Wait(500)
+        local _,wep = GetCurrentPedWeapon(ped)
+        Citizen.InvokeNative(0xD77AE48611B7B10A, ped, Config.DamageModifier[wep])
+
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(0)
+        if Config.WeaponRecoilSystem then
+            local ped = PlayerPedId()
+            if IsPedShooting(ped) then
+                local _,wep = GetCurrentPedWeapon(ped)
+                if Config.WeaponRecoils[wep] and Config.WeaponRecoils[wep] ~= 0 then
+                    TimeValue =     0
+                    repeat
+                        Wait(0)
+                        GameplayCamPitch = GetGameplayCamRelativePitch()
+                        if Config.WeaponRecoils[wep] > 0.1 then
+                            SetGameplayCamRelativePitch(GameplayCamPitch+0.6, 1.2)
+                            TimeValue = TimeValue+0.6
+                        else
+                            SetGameplayCamRelativePitch(GameplayCamPitch+0.016, 0.333)
+                            TimeValue = TimeValue+0.1
+                        end
+                    until TimeValue >= Config.WeaponRecoils[wep]
+                end
+            end
+        end
+    end
+end)
+
+
+----- craft
+
+RegisterNetEvent("gunstore:OpenBossMenu", function()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local jobgrade = RedEM.GetPlayerData().jobgrade
+
+        local elements = {}
+
+
+        for k, v in pairs(Config.CraftingsReceipe) do
+            table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Cuisine",
+            subtext = "Laisse le cuisiner",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            MenuData.CloseAll()
+            TriggerServerEvent("gunstore:MaxRessourcesAmount", data.current.value)
+            Wait(150)
+            TriggerEvent("gunstore:SelectCraftingAmount", data.current.value, MenuData, menu)
+            --
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)
+
+RegisterNetEvent("gunstore:CraftingAction")
+AddEventHandler("gunstore:CraftingAction", function()
+    local playerPed = PlayerPedId()
+    local coords = GetEntityCoords(playerPed)
+    FreezeEntityPosition(playerPed, true)
+    isInteracting = true
+    RequestAnimDict(Config.AnimDict)
+    while not HasAnimDictLoaded(Config.AnimDict) do
+        Citizen.Wait(50)
+    end
+
+    for k,v in pairs(Config.CraftAnim) do
+        TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 1, 0, true)
+    end
+
+    local timer = GetGameTimer() + Config.WorkingTime
+    isInteracting = true
+
+    Citizen.CreateThread(function()
+        while GetGameTimer() < timer do 
+            Wait(0)
+        end
+        ClearPedTasks(PlayerPedId())
+        FreezeEntityPosition(playerPed, false)
+        isInteracting = false
+    end)    
+end)
+
+RegisterNetEvent("gunstore:SelectCraftingAmount")
+AddEventHandler("gunstore:SelectCraftingAmount", function(dataType, menuData, menu)
+    menuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+
+    local elements = {
+        { label = "Quantité", 
+        value = 0, 
+        desc = "Se mettre au travail",
+        type = 'slider',
+        min = 0,
+        max = maxCraftAmountgunstore 
+        },
+    }
+
+    menuData.Open('default', GetCurrentResourceName(), 'craft', {
+        title = "Atelier",
+        subtext = "Choisir la quantité",
+        align = 'top-right',
+        elements = elements,
+    },
+
+    function(data, menu)
+        if data.current.label == "Quantité" then
+            TriggerServerEvent("gunstore:CraftItem", dataType, menu, data.current.value)
+            menu.close()
+            isInteracting = false
+        end 
+    end,
+
+    function(data, menu)
+        menu.close()
+        isInteracting = false
+    end)
+end)
+
+RegisterNetEvent("gunstore:client:SetMaxAmount", function(value)
+    maxCraftAmountgunstore = value
 end)

@@ -263,8 +263,11 @@ end
 
 local TimecycOn = false
 
-RegisterNetEvent('redemrp_status:UpdateStatus', function(thrist, hunger, stress)
-    Wait(1000)
+RegisterNetEvent('redemrp_status:UpdateStatus', function(thrist, hunger, stress, vocal)
+    Wait(0)
+    if vocal ~= 0 then
+        voice = vocal
+    end
     local shownotifiaction1 = false
     local shownotifiaction2 = false
     if hunger <= 10 and not shownotifiaction2 then
@@ -292,29 +295,30 @@ RegisterNetEvent('redemrp_status:UpdateStatus', function(thrist, hunger, stress)
     if stress and stress >= 60 then
         RedEM.Functions.NotifyRight("You are feeling stressed out...", 4000)
     end
-    if stress and stress >= 80 then
-        SetPedToRagdoll(PlayerPedId(), 3000, 5000, 0, 0, 0, 0)
-        local Ragdoll = math.random(1,2)
-        if Ragdoll == 1 then 
-            SetTimeout(math.random(8000, 10000), function()
-                SetPedToRagdoll(PlayerPedId(), 3000, 5000, 0, 0, 0, 0)
-            end)
-        end
-        if not TimecycOn then
-            SetTimecycleModifier("LensDistDrunk")
-            TimecycOn = true
-        end
-    else
-        if TimecycOn then
-            ClearTimecycleModifier()
-            TimecycOn = false
-        end
-    end
+    -- if stress and stress >= 80 then
+    --     SetPedToRagdoll(PlayerPedId(), 3000, 5000, 0, 0, 0, 0)
+    --     local Ragdoll = math.random(1,2)
+    --     if Ragdoll == 1 then 
+    --         SetTimeout(math.random(8000, 10000), function()
+    --             SetPedToRagdoll(PlayerPedId(), 3000, 5000, 0, 0, 0, 0)
+    --         end)
+    --     end
+    --     if not TimecycOn then
+    --         SetTimecycleModifier("LensDistDrunk")
+    --         TimecycOn = true
+    --     end
+    -- else
+    --     if TimecycOn then
+    --         ClearTimecycleModifier()
+    --         TimecycOn = false
+    --     end
+    -- end
     SendNUIMessage({
         thrist = thrist,
         hunger = hunger,
         stress = stress,
-        temp = GetCurrentTemperature()
+        temp = GetCurrentTemperature(),
+        vocal = voice 
     })
 end)
 
@@ -387,8 +391,6 @@ AddEventHandler('redemrp_status:StartBandage', function(name)
         usingb = false
     else
 		Wait(1000)
-        TriggerEvent("redemrp_notification:start", "You have to wait: " .. cooldown/100 .. "seconds before applying another bandage!", 2, "error")
-		 -- TriggerEvent("redemrp_notification:start", "You have to wait: " .. cooldown/100 .. "seconds before applying another bandage!", 2, "error")
     end
 end)
 
@@ -401,3 +403,27 @@ function startCooldown()
     end)
 end
 
+
+
+RegisterNetEvent("SaltyChat_TalkStateChanged")
+AddEventHandler("SaltyChat_TalkStateChanged", function(isTalking)
+    if isTalking then
+        TriggerServerEvent("redemrp_status:server:voice", "Speaking")
+    else
+        TriggerServerEvent("redemrp_status:server:voice", "NotSpeaking")
+    end
+end)
+
+
+
+
+RegisterNetEvent("SaltyChat_VoiceRangeChanged")
+AddEventHandler("SaltyChat_VoiceRangeChanged", function(range)
+    if range == 2.5 then
+        TriggerServerEvent("redemrp_status:server:voice", "Whispering")
+    elseif range == 7 then
+        TriggerServerEvent("redemrp_status:server:voice", "Normal")
+    elseif range == 20 then
+        TriggerServerEvent("redemrp_status:server:voice", "Shouting")
+    end
+end)

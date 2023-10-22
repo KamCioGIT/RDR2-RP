@@ -2,6 +2,7 @@ RemoveImap(174727090)  -- Unknown, possibly causing CTDs
 --
 local isLoaded = false
 
+
 Citizen.CreateThread(function()
     while not isLoaded do
         Citizen.Wait(1)
@@ -70,8 +71,8 @@ Citizen.CreateThread(function()
             if IsInteriorEntitySetActive(interior, "bee_01_house_fireplace_on") then
                 --("Beechers Interior Already Active")
             else
-                ActivateInteriorEntitySet(interior, "bee_01_masterBR_bed01")
-                ActivateInteriorEntitySet(interior, "Beechers_decorated_after_Abigail3")
+                ActivateInteriorEntitySet(interior, "bee_01_masterBR_bed01")  
+                ActivateInteriorEntitySet(interior, "Beechers_after_Marston8_Abigail2.2")
                 ActivateInteriorEntitySet(interior, "IntGrp_livingrm_furniture_basic")
                 ActivateInteriorEntitySet(interior, "bee_01_house_fireplace_on")
                 --("Beechers Interior Activated")
@@ -295,14 +296,14 @@ RequestImap(637874199) -- Valentine -- Green Building Lamp
 --- RequestImap(-1521525254)  --BREATWHAITE -- Exterior Trees and Flowers 1(Run 1 and 2 together)
 RequestImap(-761186147)  --Green House Valentine -- Exterior Trees and Flowers 2(Run 1 and 2 together)
 RemoveImap(2040843256) -- Valentine -- Construction supplies outside of Smithfields Saloon / Green Building -- https://gyazo.com/c5b67926f2c4304b74061ca62b345a1b
-RemoveImap(999248445) -- Valentine -- Yellow Wagon with Blue Barrels outside Smithfields Saloon  -- https://gyazo.com/467e15f5cd1de68bad5e2d414fa330d4
+RequestImap(999248445) -- Valentine -- Yellow Wagon with Blue Barrels outside Smithfields Saloon  -- https://gyazo.com/467e15f5cd1de68bad5e2d414fa330d4
 RemoveImap(-713587740)  -- Valentine -- Construction Material in Roadway -- https://gyazo.com/665f85e9e2b00ec78c5fd6b2b0dd2332
-RemoveImap(-1217078386) -- Valentine -- Wagons blocking road through Valentine -- https://gyazo.com/c6758dd8f86601eaeefef2b6ef69f38c -- https://gyazo.com/83e1fb7bb26402e6d6329777e7a766a9
-RemoveImap(-1579403437) -- Valentine -- Wagon Parked in front of bank -- https://gyazo.com/5b08f55828e867f872552bb8881dc293
+RequestImap(-1217078386) -- Valentine -- Wagons blocking road through Valentine -- https://gyazo.com/c6758dd8f86601eaeefef2b6ef69f38c -- https://gyazo.com/83e1fb7bb26402e6d6329777e7a766a9
+RequestImap(-1579403437) -- Valentine -- Wagon Parked in front of bank -- https://gyazo.com/5b08f55828e867f872552bb8881dc293
 RemoveImap(517553365) -- Valentine -- 2 Wagons, 1 in front of and behind of blue house across from Keane's Saloon.  -- https://gyazo.com/4444709e3cc069fddd8d4003d5f0caa3
-RemoveImap(805009584) -- Valentine -- Western Barricades -- https://gyazo.com/631b61e44cae28d4c7c4391d1d7830a7
-RemoveImap(-560409108) -- Valentine -- Eastern Barricades -- https://gyazo.com/45304e29a207805e373bcd921af6a668
-RemoveImap(-518785376) -- Valentine -- Southern Barricades -- https://gyazo.com/2fa60fa4d76205783907e2eec98253ec
+RequestImap(805009584) -- Valentine -- Western Barricades -- https://gyazo.com/631b61e44cae28d4c7c4391d1d7830a7
+RequestImap(-560409108) -- Valentine -- Eastern Barricades -- https://gyazo.com/45304e29a207805e373bcd921af6a668
+RequestImap(-518785376) -- Valentine -- Southern Barricades -- https://gyazo.com/2fa60fa4d76205783907e2eec98253ec
 
 --------------------------------                                   ############# -- Valentine Mainstreet Sheriffs Office -- ###############                                       ----------------------
 RequestImap(-1301569116) -- Valentine -- Sheriffs Office boarded up
@@ -380,7 +381,7 @@ RequestImap(-956131204) -- Beechers Barn exterior and fencing
 RemoveImap(2006257967)
 RemoveImap(-2008632686)
 RemoveImap(-1615103170)
-RequestImap(578474998) -- Beechers border fencing
+RemoveImap(578474998) -- Beechers border fencing new
 RequestImap(-1860722801) -- Gazebo
 RemoveImap(-692583342)
 RemoveImap(-669282002)
@@ -664,11 +665,11 @@ RemoveImap(-158824350) -- Dirt in Small Plot (visually can't see it)
 
 ------------------------------------- Braithwaite Mansion
 --Mansion Interior
-RemoveImap(1149195254)  --Brathwaite House Shell
-RequestImap(-1643869063) -- House Burnt Down
-RemoveImap(58066174)  -- Interior
-RemoveImap(1601599776)  -- House on fire Smoke (Smoke and Burning Sounds Only)
-RemoveImap(-437251660)  -- House of Fire Flames
+RequestImap(1149195254)  --Brathwaite House Shell
+RemoveImap(-1643869063) -- House Burnt Down
+RequestImap(58066174)  -- Interior
+RequestImap(1601599776)  -- House on fire Smoke (Smoke and Burning Sounds Only)
+RequestImap(-437251660)  -- House of Fire Flames
 
 -- Mansion Exterior 
 RemoveImap(-1220264217)  -- Shurbs and Bushes

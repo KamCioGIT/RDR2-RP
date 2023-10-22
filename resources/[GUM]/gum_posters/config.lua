@@ -5,7 +5,7 @@ Config = {}
 ---------DISCORD HOOK--------
 -----------------------------
 Config.EnableHook = true
-Config.WebhookLink = "https://discord.com/api/webhooks/1146934966828159110/i5-tnhMuFDwVUS6SzX3Yx1WrIlbQ9-mV83lmEpA6XhOH5Xxlc-tKY0u5Dif-HPbN3f03"
+Config.WebhookLink = "https://discord.com/api/webhooks/1165342456418668624/BS02U9RpVZHL306MOa-diZtT8ddTJR0XVLiCWBkPfC86IB_nyeQig4taMpUD2TqUpoft"
 Config.Icon = "https://i.imgur.com/i1ylkFj.png"
 Config.Avatar = "https://i.imgur.com/i1ylkFj.png"
 Config.ICNameDiscord = true --Name lastname on discord

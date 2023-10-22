@@ -7,10 +7,10 @@ Config.EnableCommand = false -- Enable/Disable /clothing command
 Config.BlipSprite = 1195729388	 -- Clothing shop sprite
 Config.BlipSpriteCloakRoom = 1496995379	 -- Clothing shop sprite
 Config.BlipScale = 0.2 -- Blip scale
-Config.OpenKey = 0xD9D0E1C0 -- Opening key hash
+Config.OpenKey = 0x760A9C6F -- Opening key hash
 Config.Zones = {
 	vector3(-181.8676, 624.49322, 114.08956), -- VALENTINE
-	vector3(1323.6649, -1288.453, 77.020866), -- RHODES
+	vector3(1225.331, -1247.26, 74.15482), -- RHODES
 	vector3(2550.81,-1166.28,53.68), -- SAINT DENIS
 	vector3(-767.94,-1294.95,43.84), -- BLACK WATER
 	vector3(-1794.89,-385.22,160.33), -- STRAWBERRY
@@ -23,7 +23,7 @@ Config.Cloakroom = {
 	vector3(-171.7564, 638.16632, 114.08965), -- VALENTINE
 	vector3(-1816.561, -367.8912, 163.29634), -- STRAWBERRY
 	vector3(-767.4958, -1291.484, 43.83496), -- BLACKWATER
-	vector3(1235.8572, -1304.43, 76.90277), -- RHODES
+	vector3(1216.392, -1256.645, 75.06288), -- RHODES
 	vector3(2556.49,-1160.14,53.74), -- SAINT DENIS
 	vector3(-3727.226, -2610.616, -12.93387), -- Armadillo
 	vector3(-5508.13, -2913.663, -1.751304), -- Tumbleweed
@@ -31,48 +31,53 @@ Config.Cloakroom = {
 	vector3(1976.2947, -5511.198, 42.824645), -- Guarma Wedding 2
 }
 
+Config.Hat = {
+	vector3(2555.037, -1171.738, 53.6835), -- SAINT DENIS
+}
+
 Config.Label = {
-	["boot_accessories"] = "Boot Accessories",
-	["pants"] = "Pants",            	
-	["cloaks"] = "Cloak",            	
-	["hats"] = "Hat",             	
-	["vests"] = "Vest",            	
+	["boot_accessories"] = "Accessoire de bottes",
+	["pants"] = "Pantalon",            	
+	["cloaks"] = "Cape",            	
+	["hats"] = "Chapeau",             	
+	["vests"] = "Veste",            	
 	["chaps"] = "Chaps",             	
-	["shirts_full"] = "Shirt",       	
+	["shirts_full"] = "Chemise",       	
 	["badges"] = "Badge",           	
-	["masks"] = "Mask",            	
-	["spats"] = "Spats",           	
-	["neckwear"] = "Neck",         	
-	["boots"] = "Boots",            	
-	["accessories"] = "Accessories",      	
-	["jewelry_rings_right"] = "Jewelry Right",
-	["jewelry_rings_left"]	= "Jewelry Left",
+	["masks"] = "Masque",            	
+	["spats"] = "Guêtres",           	
+	["neckwear"] = "Cou",         	
+	["boots"] = "Bottes",            	
+	["accessories"] = "Accessoires",      	
+	["jewelry_rings_right"] = "Anneau droit",
+	["jewelry_rings_left"]	= "Anneau gauche",
 	["jewelry_bracelets"] = "Bracelets",	
-	["gauntlets"] = "Gauntlets",        	
-	["neckties"] = "Necktie",        	
-	["holsters_knife"] = "Knife Holster",   	
-	["talisman_holster"] = "Talisman Holster",
-	["loadouts"] = "Loadouts",          	
-	["suspenders"] = "Suspenders",      	
-	["talisman_satchel"] = "Talisman Satchel", 	
-	["satchels"] = "Satchel",         	
-	["gunbelts"] = "Gunbelt",          	
-	["belts"] = "Belt",            	
-	["belt_buckles"] = "Belt Buckle",     	
-	["holsters_left"] = "Holster Left",    	
-	["holsters_right"] = "Holster Right",   	
-	["talisman_wrist"] = "Wrist Talisman",   	
-	["coats"] = "Coat",            	
-	["coats_closed"] = "Coat Closed",     	
+	["gauntlets"] = "Gantelets",        	
+	["neckties"] = "Cravates",        	
+	["holsters_knife"] = "Étui à couteau",   	
+	["talisman_holster"] = "Porte talisman",
+	["loadouts"] = "Cartouchière",          	
+	["suspenders"] = "Bretelles",      	
+	["talisman_satchel"] = "Sacoche - Talisman", 	
+	["satchels"] = "Sacoches",         	
+	["gunbelts"] = "Holster",          	
+	["belts"] = "Ceinture",            	
+	["belt_buckles"] = "Boucle de ceinture",     	
+	["holsters_left"] = "Holster Gauche",    	
+	["holsters_right"] = "Holster Droite",   	
+	["talisman_wrist"] = "Talisman Poignée",   	
+	["coats"] = "Manteau",            	
+	["coats_closed"] = "Manteau fermé",     	
 	["ponchos"] = "Poncho",           	
-	["eyewear"] = "Eyewear",          	
-	["gloves"] = "Gloves",           	
-	["holsters_crossdraw"] = "Crossdraw Holster", 	
-	["aprons"] = "Aprons",			
-	["skirts"] = "Skirts",
-	["hair_accessories"] = "Hair Accessories",
-	["dresses"] = "Dresses",  
-	["armor"] = "Armor",    	
+	["eyewear"] = "Lunettes",          	
+	["gloves"] = "Gants",           	
+	["holsters_crossdraw"] = "Holster main faible", 	
+	["aprons"] = "Tablier",			
+	["skirts"] = "Jupe",
+	["hair_accessories"] = "Accessoire tête",
+	["dresses"] = "Robe",  
+	["armor"] = "Armure",
+	["save"] = "Valider",    	
 }
 
 
@@ -122,7 +127,7 @@ Config.Price = {
 
 Config.MenuElements = {
 	["head"] = {
-		label = "Head",
+		label = "Tête",
 		category = {
 			"hats",
 			"eyewear",
@@ -132,7 +137,7 @@ Config.MenuElements = {
 		}
 	},
 	["torso"] = {
-		label = "Torso",
+		label = "Torse",
 		category = {
 			"cloaks",
 			"vests",
@@ -151,7 +156,7 @@ Config.MenuElements = {
 		}
 	},
 	["legs"] = {
-		label = "Legs",
+		label = "Jambes",
 		category = {
 			"pants",
 			"chaps",
@@ -159,7 +164,7 @@ Config.MenuElements = {
 		}
 	},
 	["foot"] = {
-		label = "Boots",
+		label = "Bottes",
 		category = {
 			"boots",
 			"spats",
@@ -167,29 +172,39 @@ Config.MenuElements = {
 		}
 	},
 	["hands"] = {
-		label = "Hands",
+		label = "Mains",
 		category = {
-			"jewelry_rings_right",
-			"jewelry_rings_left",
-			"jewelry_bracelets",
+			-- "jewelry_rings_right",
+			-- "jewelry_rings_left",
+			-- "jewelry_bracelets",
 			"gauntlets",
 			"gloves",
 		}
 	},
 	["accessories"] = {
-		label = "Accessories",
+		label = "Accessoires",
 		category = {
 			"accessories",
 			"talisman_wrist",
 			"talisman_holster",
 			"belt_buckles",
-			"satchels",
+			-- "satchels",
 			"holsters_crossdraw",
 			"aprons",
 			"bows",
-			"armor",
-			"badges",
+			-- "armor",
+			-- "badges",
 			"hair_accessories",
 		}
 	},
+}
+
+
+Config.HatElements = {
+	["head"] = {
+		label = "Tête",
+		category = {
+			"hats",
+		}
+	}
 }

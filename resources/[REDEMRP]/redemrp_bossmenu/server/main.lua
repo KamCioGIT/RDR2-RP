@@ -6,13 +6,6 @@ JobLedgers = {}
 DutyCommandTimer = {}
 
 Citizen.CreateThread(function()
-    Wait(100)
-    local ledgerfile = LoadResourceFile(GetCurrentResourceName(), 'ledgers.json')
-    JobLedgers = json.decode(ledgerfile)
-    print("Job ledgers loaded.")
-end)
-
-Citizen.CreateThread(function()
     while true do
         Wait(900000) -- 15 minutes
         DoPay()
@@ -34,7 +27,6 @@ function DoPay()
                     if Config.Jobs[job].Grades[grade] then
                         if Config.Jobs[job].Grades[grade].Pay then
                             local pay = Config.Jobs[job].Grades[grade].Pay
-                            RedEM.Functions.NotifyRight(id, "You received <strong style=\"color:lime\">$"..RedEM.Functions.CommaValue(string.format("%.2f", pay)).."</strong> from your government job!", 10000)
                             TriggerClientEvent("RedEM:client:PlaySound", id, 1)
                             user.AddMoney(pay)
                         end
@@ -124,11 +116,11 @@ exports("GetJobDuty", GetJobDuty)
 --     end
 -- end)
 
-RegisterServerEvent("redemrp_bossmenu:server:RequestJob", function()
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
+RegisterServerEvent("redemrp_bossmenu:server:RequestJob", function(trgt)
+    local _trgt = trgt
+    local user = RedEM.GetPlayer(_trgt)
     if user then
-        TriggerClientEvent("redemrp_bossmenu:client:ReceiveJob", _source, user.GetJob(), user.GetJobGrade())
+        TriggerClientEvent("redemrp_bossmenu:client:ReceiveJob", _trgt, user.GetJob(), user.GetJobGrade())
     end
 end)
 
@@ -167,7 +159,7 @@ RegisterServerEvent("redemrp_bossmenu:server:ToggleDuty", function()
     end
 end)
 
-RegisterServerEvent("redemrp_bossmenu:server:RequestBossMenu", function()
+RegisterServerEvent("redemrp_bossmenu:server:RequestBossMenu", function() ---- garde
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local job, grade = user.GetJob(), user.GetJobGrade()
@@ -184,9 +176,10 @@ RegisterServerEvent("redemrp_bossmenu:server:HireMember", function(targetId)
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local job, grade = user.GetJob(), user.GetJobGrade()
+    local _target = targetId
     if Config.Jobs[job] then
         if Config.Jobs[job].Grades[grade].Personnel then
-            local targetUser = RedEM.GetPlayer(targetId)
+            local targetUser = RedEM.GetPlayer(_target)
             if targetUser then
                 local targetJob = targetUser.GetJob()
                 targetUser.SetJob(job)
@@ -194,11 +187,8 @@ RegisterServerEvent("redemrp_bossmenu:server:HireMember", function(targetId)
                 -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Hired Employee', 'lightgreen', 
                 --     "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " hired "..
                 --     "["..targetId.."] **"..targetUser.GetFirstName().." "..targetUser.GetLastName().. "** (serverid: "..targetId.." | name: ".. GetPlayerName(targetId).." | steamid: "..targetUser.GetIdentifier().." | characterid: "..targetUser.GetActiveCharacter()..") into job "..job)
-                TriggerClientEvent("redem_roleplay:JobChange", targetId, job, 3)
+                TriggerEvent("redemrp_bossmenu:server:RequestJob", _target)
                 -- RedEM.Functions.NotifyLeft(_source, "Employé embauché!", "menu_icon_tick", 3000)
-                if not JobLedgers[job] then
-                    JobLedgers[job] = 0
-                end
                 TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
             end
         end
@@ -241,7 +231,7 @@ RegisterServerEvent("redemrp_bossmenu:server:GetGradeList", function()
                 if targetUser then
                     local targetJob = targetUser.GetJob()
                     local targetGrade = targetUser.GetJobGrade()
-                    if targetJob == job and targetGrade < grade then
+                    if targetJob == job and tonumber(targetGrade) < tonumber(grade) then
                         local targetName = targetUser.GetFirstName() .. " " .. targetUser.GetLastName()
                         local serverName = GetPlayerName(tonumber(targetId))
                         table.insert(GradeList, {char = targetName, name = serverName, id = tonumber(targetId)})
@@ -255,7 +245,7 @@ RegisterServerEvent("redemrp_bossmenu:server:GetGradeList", function()
     end
 end)
 
-RegisterServerEvent("redemrp_bossmenu:server:GetOfflineFireList", function()
+RegisterServerEvent("redemrp_bossmenu:server:GetOfflineFireList", function() ---- garde
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local job, grade = user.GetJob(), user.GetJobGrade()
@@ -279,6 +269,20 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local job, grade = user.GetJob(), user.GetJobGrade()
+    local FireList = {}
+    for _,targetId in ipairs(GetPlayers()) do
+        local targetUser = RedEM.GetPlayer(targetId)
+        if targetUser then
+            local targetJob = targetUser.GetJob()
+            if targetJob == job then
+                local targetName = targetUser.GetFirstName() .. " " .. targetUser.GetLastName()
+                local serverName = GetPlayerName(tonumber(targetId))
+                local characterid = targetUser.charid
+                local identifier = targetUser.identifier
+                table.insert(FireList, {char = targetName,  charid = characterid , steam = identifier, id = tonumber(targetId)})
+            end
+        end
+    end
     if Config.Jobs[job] then
         if Config.Jobs[job].Grades[grade].Personnel then
             local Employee = MySQL.query.await("SELECT * FROM characters WHERE identifier = :identifier AND characterid = :charid", { identifier = id, charid = charid })
@@ -286,29 +290,17 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
                 Employee = Employee[1]
                 if Employee.identifier == id and Employee.characterid == charid then
                     MySQL.query.await("UPDATE characters SET job = 'unemployed', jobgrade = 0 WHERE identifier = :identifier AND characterid = :charid", { identifier = id, charid = charid })
-                    -- RedEM.Functions.NotifyLeft(_source, "Employee fired!", "You fired "..Employee.firstname.." "..Employee.lastname.. "!", "menu_textures", "menu_icon_tick", 3000)
-                    -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Fired Employee', 'red', 
-                    --         "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().."** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " fired "..
-                    --         "[OFFLINE] **"..Employee.firstname.." "..Employee.lastname.. "** (name: OFFLINE | steamid: "..Employee.identifier.." | characterid: "..Employee.characterid..") from job "..job)
-                    if not JobLedgers[job] then
-                        JobLedgers[job] = 0
-                    end
-                    local OnlineIds = {}
-                    for k,v in ipairs(GetPlayers()) do
-                        local targetUser = RedEM.GetPlayer(v)
-                        if targetUser then
-                            table.insert(OnlineIds, {no = k, id = targetUser.GetIdentifier(), charid = targetUser.GetActiveCharacter()})
-                        end
-                    end
-
-                    for k,v in pairs(OnlineIds) do
-                        if v.id == Employee.identifier and tonumber(v.characterid) == tonumber(Employee.characterid) then
-                            TriggerClientEvent("redem_roleplay:JobChange", v.no, "unemployed")
-                        end
-                    end
-
                     TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
                 end
+                for k, v in pairs(FireList) do
+                    if v.steam == id and v.charid == charid then
+                        local trgtuser = RedEM.GetPlayer(v.id)
+                        local sourcetrgt = v.id
+                        trgtuser.SetJob("unemployed")
+                        trgtuser.SetJobGrade(0)
+                        TriggerEvent("redemrp_bossmenu:server:RequestJob", sourcetrgt)
+                    end
+                end
             end
         else
             RedEM.Functions.NotifyLeft(_source, "No access!", "You don't have personnel access!", "menu_textures", "menu_icon_alert", 3000)
@@ -316,30 +308,6 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMemberOffline", function(id, ch
     end
 end)
 
-RegisterServerEvent("redemrp_bossmenu:server:GetGradeList", function()
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-    local job, grade = user.GetJob(), user.GetJobGrade()
-    if Config.Jobs[job] then
-        if Config.Jobs[job].Grades[grade].Personnel then
-            local GradeList = {}
-            for _,targetId in ipairs(GetPlayers()) do
-                local targetUser = RedEM.GetPlayer(targetId)
-                if targetUser then
-                    local targetJob = targetUser.GetJob()
-                    if targetJob == job then
-                        local targetName = targetUser.GetFirstName() .. " " .. targetUser.GetLastName()
-                        local serverName = GetPlayerName(tonumber(targetId))
-                        table.insert(GradeList, {char = targetName, name = serverName, id = tonumber(targetId)})
-                    end
-                end
-            end
-            TriggerClientEvent("redemrp_bossmenu:client:ViewGradeList", _source, GradeList)
-        else
-            RedEM.Functions.NotifyLeft(_source, "No access!", "You don't have personnel access!", "menu_textures", "menu_icon_alert", 3000)
-        end
-    end
-end)
 
 RegisterServerEvent("redemrp_bossmenu:server:FireMember", function(targetId)
     local _source = source
@@ -350,43 +318,25 @@ RegisterServerEvent("redemrp_bossmenu:server:FireMember", function(targetId)
             local targetUser = RedEM.GetPlayer(targetId)
             local targetJob = targetUser.GetJob()
             if targetUser.identifier == user.identifier then
-                TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
+                TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source)
                 return
             end
             if targetJob == job then
                 if targetUser.jobgrade >= grade then
-                    TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
+                    TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source)
                     return
                 end
                 targetUser.SetJob("unemployed")
                 targetUser.SetJobGrade(0)
-                TriggerClientEvent("redem_roleplay:JobChange", _source, "unemployed")
+                TriggerEvent("redemrp_bossmenu:server:RequestJob", _source)
                 RedEM.Functions.NotifyLeft(_source, "Employee fired!", "You fired "..targetUser.GetFirstName().." "..targetUser.GetLastName().."!", "menu_textures", "menu_icon_tick", 3000)
-                TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Fired Employee', 'red', 
-                        "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " fired "..
-                        "["..targetId.."] **"..targetUser.GetFirstName().." "..targetUser.GetLastName().. "** (serverid: "..targetId.." | name: ".. GetPlayerName(targetId).." | steamid: "..targetUser.GetIdentifier().." | characterid: "..targetUser.GetActiveCharacter()..") from job "..job)
                 TriggerClientEvent("redemrp_bossmenu:client:ViewGradeList", _source, GradeList)
             end
         end
     end
 end)
 
-RegisterServerEvent("redemrp_bossmenu:server:TrySetGrade", function(targetId)
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-    local job, grade = user.GetJob(), user.GetJobGrade()
-    if Config.Jobs[job] then
-        if Config.Jobs[job].Grades[grade].Personnel then
-            local targetUser = RedEM.GetPlayer(targetId)
-            local targetJob = targetUser.GetJob()
-            local targetGrade = targetUser.GetJobGrade()
-            if targetJob == job and targetGrade <= grade then
-                TriggerClientEvent("redemrp_bossmenu:client:FinishSetGrade", _source)
-                SettingGrade[_source] = targetId
-            end
-        end
-    end
-end)
+
 
 RegisterNetEvent("redemrp_bossmenu:server:SetGrade", function(targetId, gradeId)
     local _source = source
@@ -408,10 +358,8 @@ RegisterNetEvent("redemrp_bossmenu:server:SetGrade", function(targetId, gradeId)
                         "["..targetId.."] **"..targetUser.GetFirstName().." "..targetUser.GetLastName().. "** (serverid: "..targetId.." | name: ".. GetPlayerName(targetId).." | steamid: "..targetUser.GetIdentifier().." | characterid: "..targetUser.GetActiveCharacter()..") job grade to: "..job.." grade "..gradeId)
                         RedEM.Functions.NotifyLeft(_source, "Grade set!", "You set "..targetUser.GetFirstName().." "..targetUser.GetLastName().."'s grade to "..gradeId.."!", "menu_textures", "menu_icon_tick", 3000)
                         RedEM.Functions.NotifyLeft(targetId, "Grade set!", "Your job grade was to "..Config.Jobs[job].Grades[tonumber(gradeId)].Name.." ("..gradeId..")!", "menu_textures", "menu_icon_tick", 3000)
-                        if not JobLedgers[job] then
-                            JobLedgers[job] = 0
-                        end
                         TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
+                        TriggerClientEvent("redem_roleplay:JobChange", tonumber(targetId), job, gradeId)
                     else
                         RedEM.Functions.NotifyLeft(_source, "Invalid grade!", "That grade doesn't exist!", "menu_textures", "menu_icon_alert", 3000)
                     end
@@ -438,94 +386,7 @@ RegisterServerEvent("redemrp_bossmenu:server:RequestBossStash", function()
     end
 end)
 
-RegisterServerEvent("redemrp_bossmenu:server:OpenLockerID", function(lockerid)
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-    local job, grade = user.GetJob(), user.GetJobGrade()
-    if Config.Jobs[job] then
-        if Config.Jobs[job].HasLockers then
-            TriggerClientEvent("redemrp_inventory:OpenStash", _source, "policelocker_"..lockerid, 1000.0)
-        else
-            RedEM.Functions.NotifyLeft(_source, "No access!", "You don't have storage access!", "menu_textures", "menu_icon_alert", 3000)
-        end
-    end
-end)
 
-RegisterServerEvent("redemrp_bossmenu:server:LedgerDeposit", function(amount)
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-    local job = user.GetJob()
-    if amount < 0 then return end
-    if Config.Jobs[user.job] then
-        if Config.Jobs[user.job].Grades[user.jobgrade].Ledger then
-            if user.GetMoney() >= amount then
-                user.RemoveMoney(amount)
-                if not JobLedgers[job] then
-                    JobLedgers[job] = 0
-                end
-                JobLedgers[job] = JobLedgers[job] + amount
-                TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
-                TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Ledger Deposit', 'lightgreen', 
-                "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " deposited **$"..amount.."** into "..job.." ledger. New balance: "..JobLedgers[job])
-            end
-        else
-            RedEM.Functions.NotifyLeft(_source, "No access!", "You don't have ledger access!", "menu_textures", "menu_icon_alert", 3000)
-        end
-    else
-        print("Job nil")
-    end
-end)
-
-RegisterServerEvent("redemrp_bossmenu:server:LedgerWithdraw", function(amount)
-    local _source = source
-    local user = RedEM.GetPlayer(_source)
-    local job = user.GetJob()
-    local grade = user.GetJobGrade()
-    if amount < 0 then return end
-    if Config.Jobs[job] then
-        if Config.Jobs[job].Grades[grade].Ledger then
-            if not JobLedgers[job] then
-                JobLedgers[job] = 0
-            end
-            if JobLedgers[job] >= amount then
-                user.AddMoney(amount)
-                JobLedgers[job] = JobLedgers[job] - amount
-                TriggerClientEvent("redemrp_bossmenu:client:OpenBossMenu", _source, JobLedgers[job])
-                TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Ledger Withdrawal', 'red', 
-                "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " withdrew **$"..amount.."** from "..job.." ledger. New balance: "..JobLedgers[job])
-            end
-        else
-            RedEM.Functions.NotifyLeft(_source, "No access!", "You don't have ledger access!", "menu_textures", "menu_icon_alert", 3000)
-        end
-    else
-        print("Job nil")
-    end
-end)
-
-function JobLedgerDeposit(job, amount)
-    if Config.Jobs[job] then
-        if JobLedgers[job] then
-            JobLedgers[job] = JobLedgers[job] + amount
-            TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Ledger Deposit by Server', 'red', 
-                "**$"..amount.."** was deposited into "..job.." job ledger by the server. New balance: "..JobLedgers[job])
-        end
-    end
-end
-exports('JobLedgerDeposit', JobLedgerDeposit)
-
-function JobLedgerWithdraw(job, amount)
-    if Config.Jobs[job] then
-        if JobLedgers[job] then
-            JobLedgers[job] = JobLedgers[job] - amount
-            if JobLedgers[job] < 0 then 
-                JobLedgers[job] = 0
-            end
-            TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Ledger Withdrawal by Server', 'lightgreen', 
-                "**$"..amount.."** was withdrawn from "..job.." job ledger by the server. New balance:"..JobLedgers[job])
-        end
-    end
-end
-exports('JobLedgerWithdraw', JobLedgerWithdraw)
 
 AddEventHandler(
     "onResourceStop",

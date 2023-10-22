@@ -11,11 +11,28 @@ local varString = CreateVarString(10, "LITERAL_STRING", "Boss Menu")
 local Timeout = nil
 
 
+Citizen.CreateThread(function()
+    Wait(1000)
+    if RedEM.GetPlayerData().isLoggedIn then
+        TriggerServerEvent("redemrp_bossmenu:server:RequestJob")
+    end
+end)
+
 RegisterNetEvent("redemrp_bossmenu:client:ReceiveJob", function(job, grade)
     PromptSetEnabled(BossMenuPrompt, false)
     PromptSetVisible(BossMenuPrompt, false)
     BossMenuPromptShown = false
     PlayerJob, PlayerJobgrade = job, grade
+    print (PlayerJob, PlayerJobgrade)
+    if Config.Jobs[job] then
+        print 'pass'
+        if Config.Jobs[job].bigjob then
+            print 'pass2'
+            local bigjob = Config.Jobs[job].bigjob
+            print (bigjob)
+            TriggerEvent("dust_job:"..bigjob, PlayerJob, PlayerJobgrade)
+        end
+    end
 end)
 
 Citizen.CreateThread(function()
@@ -40,8 +57,7 @@ local onCooldown = false
 
 RegisterNetEvent("redemrp_bossmenu:client:ToggleDuty", function() TriggerServerEvent("redemrp_bossmenu:server:ToggleDuty") end)
 
-RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function(ledgerAmt)
-    if not ledgerAmt then ledgerAmt = 0 end
+RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function()
     local Position = GetEntityCoords(PlayerPedId())
     Citizen.CreateThread(function()
         while true do
@@ -60,21 +76,11 @@ RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function(ledgerAmt)
         if Config.Jobs[PlayerJob].HasDuty then
             table.insert(elements, {label = "Service", value = 'duty', desc = "Prendre/Quitter son service."})
         end
-        if Config.Jobs[PlayerJob].HasLockers then
-            table.insert(elements, {label = "Access Locker #", value = 'locker', desc = "Access Locker by #"})
-        end
         if Config.Jobs[PlayerJob].Grades[PlayerJobgrade].Personnel then
             table.insert(elements, {label = "Employés", value = 'personnel', desc = "Gérer vos employés"})
         end
-        if Config.Jobs[PlayerJob].Grades[PlayerJobgrade].Ledger then
-            table.insert(elements, {label = "Access Ledger", value = 'ledger', desc = 'Ledger Balance:<br/><span style="color:limegreen;font-size:18pt">$'..ledgerAmt..'</span>'})
-        end
         if Config.Jobs[PlayerJob].Grades[PlayerJobgrade].StorageAccess then
             table.insert(elements, {label = "Stockage", value = 'stash', desc = "Accéder au stockage"})
-        end
-
-        if #elements == 0 then
-            return RedEM.Functions.NotifyRight( "You don't have any options here.", 3000)
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'bossmenu', {
@@ -96,87 +102,6 @@ RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function(ledgerAmt)
                     RedEM.Functions.NotifyRight( "Attendez quelques secondes !", 3000)
                     menu.close()
                 end
-            elseif data.current.value == 'locker' then
-                MenuData.CloseAll()
-                AddTextEntry("FMMC_MPM_TYP86", "Locker ID #")
-                DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30)
-                while (UpdateOnscreenKeyboard() == 0) do
-                    DisableAllControlActions(0)
-                    Citizen.Wait(0)
-                end
-                if (GetOnscreenKeyboardResult()) then
-                    kbdRes = GetOnscreenKeyboardResult()
-                else
-                    menu.close()
-                    return
-                end
-                
-                if #(kbdRes) >= 1 then
-                    TriggerServerEvent("redemrp_bossmenu:server:OpenLockerID", tonumber(kbdRes))
-                else
-                    RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid ID.", "menu_textures", "menu_icon_alert", 4000)
-                    menu.close()
-                end
-            elseif data.current.value == 'ledger' then
-                local elements = {
-                    {label = "Deposit Money", value = 'deposit', desc = "Deposit an amount"},
-                    {label = "Withdraw Money", value = 'withdraw', desc = "Withdraw an amount"},
-                }
-        
-                MenuData.Open('default', GetCurrentResourceName(), 'bossmenu_ledger', {
-                    title = "Ledger",
-                    subtext = 'Balance:<br/><span style="color:limegreen;font-size:18pt">$'..ledgerAmt..'</span>',
-                    align = 'top-right',
-                    elements = elements,
-                },
-                function(data, menu)
-                    if data.current.value == 'deposit' then
-                        MenuData.CloseAll()
-                        AddTextEntry("FMMC_MPM_TYP3", "Deposit Amount $")
-                        DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP3", "", "", "", "", "", 30)
-                        while (UpdateOnscreenKeyboard() == 0) do
-                            DisableAllControlActions(0)
-                            Citizen.Wait(0)
-                        end
-                        if (GetOnscreenKeyboardResult()) then
-                            kbdRes = GetOnscreenKeyboardResult()
-                        else
-                            menu.close()
-                            return
-                        end
-                        
-                        if #(kbdRes) >= 1 then
-                            TriggerServerEvent("redemrp_bossmenu:server:LedgerDeposit", tonumber(kbdRes))
-                        else
-                            RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid amount.", "menu_textures", "menu_icon_alert", 4000)
-                            menu.close()
-                        end
-                    elseif data.current.value == 'withdraw' then
-                        MenuData.CloseAll()
-                        AddTextEntry("FMMC_MPM_TYP4", "Withdraw Amount $")
-                        DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP4", "", "", "", "", "", 30)
-                        while (UpdateOnscreenKeyboard() == 0) do
-                            DisableAllControlActions(0)
-                            Citizen.Wait(0)
-                        end
-                        if (GetOnscreenKeyboardResult()) then
-                            kbdRes = GetOnscreenKeyboardResult()
-                        else
-                            menu.close()
-                            return
-                        end
-                        
-                        if #(kbdRes) >= 1 then
-                            TriggerServerEvent("redemrp_bossmenu:server:LedgerWithdraw", tonumber(kbdRes))
-                        else
-                            RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid amount.", "menu_textures", "menu_icon_alert", 4000)
-                            menu.close()
-                        end
-                    end
-                end,
-                function(data, menu)
-                    menu.close()
-                end)
             elseif data.current.value == 'personnel' then
                 local elements = {
                     {label = "Recruter", value = 'hire', desc = "Recruter la personne à côté de vous"},
@@ -212,9 +137,6 @@ RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function(ledgerAmt)
                     menu.close()
                     TriggerServerEvent("redemrp_bossmenu:server:RequestBossMenu")
                 end)
-            elseif data.current.value == 'setgrade' then
-                MenuData.CloseAll()
-                TriggerServerEvent("redemrp_bossmenu:server:GetGradeList")
             elseif data.current.value == 'stash' then
                 MenuData.CloseAll()
                 TriggerServerEvent("redemrp_bossmenu:server:RequestBossStash")
@@ -226,26 +148,6 @@ RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function(ledgerAmt)
     end)
 end)
 
-RegisterNetEvent("redemrp_bossmenu:client:FinishSetGrade", function()
-    AddTextEntry("FMMC_MPM_TYP8", "Rank #:")
-    DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP8", "", "", "", "", "", 30)
-    while (UpdateOnscreenKeyboard() == 0) do
-        DisableAllControlActions(0)
-        Citizen.Wait(0)
-    end
-    if (GetOnscreenKeyboardResult()) then
-        kbdRes = GetOnscreenKeyboardResult()
-    else
-        return
-    end
-    
-    if #(kbdRes) >= 1 then
-        TriggerServerEvent("redemrp_bossmenu:server:SetGrade", kbdRes)
-    else
-        RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid Player ID.", "menu_textures", "menu_icon_alert", 4000)
-        TriggerServerEvent("redemrp_bossmenu:server:RequestBossMenu")
-    end
-end)
 
 FiringPlayer = nil
 FiringIdentifier = nil
@@ -298,78 +200,8 @@ RegisterNetEvent("redemrp_bossmenu:client:ViewFireList", function(FireList)
     end)
 end)
 
-GradePlayer = nil
-GradeIdentifier = nil
-GradeCharID = nil
-GradeName = nil
-RegisterNetEvent("redemrp_bossmenu:client:ViewGradeList", function(GradeList)
-    TriggerEvent("redemrp_menu_base:getData",function(MenuData)
-        MenuData.CloseAll()
-        local elements = {}
-        for k,v in ipairs(GradeList) do
-            table.insert(elements, {label = v.char .. " ("..v.name..")", value = v.id, desc = "Fire "..v.name.."?"})
-        end
 
-        MenuData.Open('default', GetCurrentResourceName(), 'bossmenu_gradelist', {
-            title = "Change Employee Grade",
-            subtext = "List of <span style=\"color:lightgreen\">ONLINE</span> Employees",
-            align = 'top-right',
-            elements = elements,
-        },
-        function(data, menu)
-            GradePlayer = data.current.value
-            GradeName = data.current.label
-
-            local elements = {
-                {label = "<span style=\"color:#FF2D2D\">Confirm</span>", value = 'confirm', desc = "Change Rank?"},
-                {label = "Cancel", value = 'cancel', desc = "Cancel this action."},
-            }
-
-            MenuData.Open('default', GetCurrentResourceName(), 'bossmenu_gradelistconfirm', {
-                title = "Change Employee Grade",
-                subtext = "Are you sure?",
-                align = 'top-right',
-                elements = elements,
-            },
-            function(data, menu)
-                if data.current.value == "confirm" then
-                    --GRADE STUFF
-                    MenuData.CloseAll()
-                    AddTextEntry("FMMC_MPM_TYP86", "Employee grade to change to:")
-                    DisplayOnscreenKeyboard(3, "FMMC_MPM_TYP86", "", "", "", "", "", 30)
-                    while (UpdateOnscreenKeyboard() == 0) do
-                        DisableAllControlActions(0)
-                        Citizen.Wait(0)
-                    end
-                    if (GetOnscreenKeyboardResult()) then
-                        kbdRes = GetOnscreenKeyboardResult()
-                    else
-                        menu.close()
-                        return
-                    end
-                    
-                    if #(kbdRes) >= 1 then
-                        TriggerServerEvent("redemrp_bossmenu:server:SetGrade", GradePlayer, tonumber(kbdRes))
-                    else
-                        RedEM.Functions.NotifyLeft("Invalid entry!", "Enter a valid grade.", "menu_textures", "menu_icon_alert", 4000)
-                        menu.close()
-                    end
-                elseif data.current.value == "cancel" then
-                    menu.close()
-                end
-            end,
-            function(data, menu)
-                menu.close()
-            end)
-        end,
-        function(data, menu)
-            menu.close()
-            TriggerServerEvent("redemrp_bossmenu:server:RequestBossMenu")
-        end)
-    end)
-end)
-
-RegisterNetEvent("redemrp_bossmenu:client:ViewOfflineFireList", function(FireList)
+RegisterNetEvent("redemrp_bossmenu:client:ViewOfflineFireList", function(FireList) --- garde
     TriggerEvent("redemrp_menu_base:getData",function(MenuData)
         MenuData.CloseAll()
         local elements = {}
@@ -420,7 +252,7 @@ end)
 SetGradePlayer = nil
 SetGradeName = nil
 SetGradeNumber = nil
-RegisterNetEvent("redemrp_bossmenu:client:ViewGradeList", function(FireList)
+RegisterNetEvent("redemrp_bossmenu:client:ViewGradeList", function(FireList) ---- garde
     TriggerEvent("redemrp_menu_base:getData",function(MenuData)
         MenuData.CloseAll()
         local elements = {}

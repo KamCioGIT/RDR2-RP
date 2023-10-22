@@ -10,7 +10,7 @@ local PlayersStatus = {}
 AddEventHandler("redemrp:playerLoaded", function(source, Player)
     local _source = source
     local metadata = Player.GetMetaData()
-    TriggerClientEvent('redemrp_status:UpdateStatus', tonumber(_source), metadata.thirst, metadata.hunger, metadata.stress)
+    TriggerClientEvent('redemrp_status:UpdateStatus', tonumber(_source), metadata.thirst, metadata.hunger, metadata.stress, 0)
 end)
 
 RegisterNetEvent("redemrp_status:server:FeedMe", function(source)
@@ -18,7 +18,7 @@ RegisterNetEvent("redemrp_status:server:FeedMe", function(source)
     local Player = RedEM.GetPlayer(_source)
     Player.SetMetaData("hunger", 100)
     Player.SetMetaData("thirst", 100)
-    TriggerClientEvent('redemrp_status:UpdateStatus', _source, 100, 100, Player.GetMetaData().stress)
+    TriggerClientEvent('redemrp_status:UpdateStatus', _source, 100, 100, Player.GetMetaData().stress, 0)
 end)
 
 RegisterNetEvent("redemrp_status:server:ClearStress", function(source)
@@ -50,7 +50,7 @@ function UpdatePlayersStatus()
                             tempPlayer.SetMetaData("stress", tonumber(string.format("%.2f", tonumber(metadata.stress) - 0.1)))
                         end
                     end
-                    TriggerClientEvent('redemrp_status:UpdateStatus', tonumber(playerId), tempPlayer.GetMetaData().thirst, tempPlayer.GetMetaData().hunger, tempPlayer.GetMetaData().stress)
+                    TriggerClientEvent('redemrp_status:UpdateStatus', tonumber(playerId), tempPlayer.GetMetaData().thirst, tempPlayer.GetMetaData().hunger, tempPlayer.GetMetaData().stress, 0)
                     Wait(10)
                 end
             end
@@ -63,18 +63,20 @@ UpdatePlayersStatus()
 RegisterServerEvent("redemrp_status:server:AddHungerThirst", function(hunger, thirst)
     local _source = source
     local Player = RedEM.GetPlayer(_source)
-    local meta = Player.GetMetaData()
+    if Player then
+        local meta = Player.GetMetaData()
 
-    Player.SetMetaData("hunger", tonumber(meta.hunger) + hunger)
-    if Player.GetMetaData().hunger > 100 then
-        Player.SetMetaData("hunger", 100)
-    end
-    Player.SetMetaData("thirst", tonumber(meta.thirst) + thirst)
-    if Player.GetMetaData().thirst > 100 then
-        Player.SetMetaData("thirst", 100)
-    end
+        Player.SetMetaData("hunger", tonumber(meta.hunger) + hunger)
+        if Player.GetMetaData().hunger > 100 then
+            Player.SetMetaData("hunger", 100)
+        end
+        Player.SetMetaData("thirst", tonumber(meta.thirst) + thirst)
+        if Player.GetMetaData().thirst > 100 then
+            Player.SetMetaData("thirst", 100)
+        end
 
-    TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress)
+        TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress, 0)
+    end
 end)
 
 RegisterServerEvent("redemrp_status:server:AddStress", function(amount)
@@ -87,7 +89,7 @@ RegisterServerEvent("redemrp_status:server:AddStress", function(amount)
         Player.SetMetaData("stress", 100)
     end
 
-    TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress)
+    TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress, 0)
 end)
 
 RegisterServerEvent("redemrp_status:server:RelieveStress", function(amount)
@@ -102,7 +104,7 @@ RegisterServerEvent("redemrp_status:server:RelieveStress", function(amount)
         newstress = 0
     end
 
-    TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, newstress)
+    TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, newstress, 0)
 end)
 
 RegisterServerEvent("redemrp_status:server:AddHungerThirstForId", function(_source, hunger, thirst)
@@ -118,6 +120,16 @@ RegisterServerEvent("redemrp_status:server:AddHungerThirstForId", function(_sour
         Player.SetMetaData("thirst", 100)
     end
 
-    TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress)
+    TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress, 0)
 end)
 
+RegisterServerEvent("redemrp_status:server:voice", function(info)
+    local _source = source
+    if _source then
+        local Player = RedEM.GetPlayer(_source)
+        voice = info
+        if Player then
+            TriggerClientEvent('redemrp_status:UpdateStatus', _source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress, voice)
+        end
+    end
+end)

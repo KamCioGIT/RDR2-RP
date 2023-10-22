@@ -206,10 +206,19 @@ function createObjectBox(object) {
         }
     } else if(object.name == "newspaper") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `A newspaper (edition " + object.meta.edition + ")`)    ");
+    } else if(object.name == "télégramme") {
+        var isoDate = new Date(object.meta.data.sentTime).toISOString().split('T')[0];
+        isoDatestr = isoDate.replace("2023","1885");
+        isoDatenew = isoDatestr.replace("2024","1886");
+        if (object.meta.sender == "Anonyme") {
+            boxContent.setAttribute('onmouseover', "Over(`Télégramme Anonyme`, `Reçu le " + isoDatenew + "`)    ");   
+        } else {
+            boxContent.setAttribute('onmouseover', "Over(`" + object.meta.data.subject + "`, `Télégramme de " + object.meta.data.sender + " le " + isoDatenew + "`)    ");   
+        }
     } else if(object.name == "contratsigne") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Contrat de travail de " + object.meta.job + " de " + object.meta.name + "`)    ");
     } else if(object.name == "transferhorse") {
-        boxContent.setAttribute('onmouseover', "Over(`" + object.name + "`, `Certificat du cheval " + object.meta.horseid + "`)");
+        boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Certificat du cheval " + object.meta.horseid + "`)");
     } else if(object.name == "gourde") {
         if(object.meta.water != undefined && object.meta.water != null) {
             boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Remplie à " + (object.meta.water).toFixed(0) + "% d'eau "  + object.meta.quality + "`)    ");

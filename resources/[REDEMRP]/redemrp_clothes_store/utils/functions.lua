@@ -71,6 +71,25 @@ function CalculatePrice()
 		return price
 end
 
+function CalculatePriceHat()
+	local price = 0
+		if IsPedMale(PlayerPedId()) then
+				if OldHatCache["hats"].model ~= HatCache["hats"].model or OldHatCache["hats"].texture ~= HatCache["hats"].texture then
+					if HatCache["hats"].model > 0 then
+						price = price + Config.Price["hats"]
+					end
+				end
+		else
+				if OldHatCache["hats"].model ~= HatCache["hats"].model or OldHatCache["hats"].texture ~= HatCache["hats"].texture then
+					if HatCache["hats"].model > 0 then
+						price = price + Config.Price["hats"]
+					end
+				end
+		
+		end
+		return price
+end
+
 
 function NativeSetPedComponentEnabled(ped, componentHash, immediately, isMp)
     local categoryHash = NativeGetPedComponentCategory(not IsPedMale(ped), componentHash)
@@ -91,9 +110,6 @@ function NativeFixMeshIssues(ped, categoryHash)
     Citizen.InvokeNative(0x59BD177A1A48600A, ped, categoryHash)
 end
 
-function NativeHasPedComponentLoaded(ped)
-    return Citizen.InvokeNative(0xA0BC8FAED8CFEB3C, ped)
-end
 
 
 function NativeUpdatePedVariation(ped)
@@ -102,6 +118,10 @@ function NativeUpdatePedVariation(ped)
     while not NativeHasPedComponentLoaded(ped) do
         Wait(1)
     end
+end
+
+function NativeHasPedComponentLoaded(ped)
+    return Citizen.InvokeNative(0xA0BC8FAED8CFEB3C, ped)
 end
 
 function SetMetaPedTag(ped, drawable, albedo, normal, material, palette, tint0, tint1, tint2)

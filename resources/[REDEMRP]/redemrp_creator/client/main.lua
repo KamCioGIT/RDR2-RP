@@ -6,10 +6,16 @@ ComponentsFemale = {}
 LoadedComponents = {}
 CreatorCache = {}
 local SpawnedPeds = {}
+-- MenuData = {}
+-- TriggerEvent("redemrp_creator_menu:getData", function(call)
+--     MenuData = call
+-- end)
+
 MenuData = {}
-TriggerEvent("redemrp_creator_menu:getData", function(call)
+TriggerEvent("redemrp_menu_base:getData", function(call)
     MenuData = call
 end)
+
 
 local MainMenus = {
     ["body"] = function()
@@ -36,6 +42,20 @@ local MainMenus = {
         TriggerEvent("redemrp_respawn:respawn", true)
     end
 }
+
+local BarberMenus = {
+    ["hair"] = function()
+        OpenHairMenu()
+    end,
+    ["makeup"] = function()
+        OpenMakeupMenu()
+    end,
+    ["save"] = function()
+        MenuData.CloseAll()
+        LoadedComponents = CreatorCache
+        TriggerServerEvent("rdr_creator:SaveSkin", CreatorCache)
+    end
+}
 local BodyFunctions = {
     ["head"] = function(target, data)
         -- print("test")
@@ -56,9 +76,9 @@ local BodyFunctions = {
     ["body_waist"] = function(target, data)
         LoadBodyWaist(target, data)
     end,
-    ["height"] = function(target, data)
-        LoadHeight(target, data)
-    end,
+    -- ["height"] = function(target, data)
+    --     LoadHeight(target, data)
+    -- end,
 }
 
 local FaceFunctions = {
@@ -101,7 +121,13 @@ local HairFunctions = {
     end,
     ["beard"] = function(target, data)
         LoadBeard(target, data)
-    end
+    end,
+    ["beardstabble_t"] = function(target, data)
+        LoadOverlays(target, data)
+    end,
+    ["beardstabble_op"] = function(target, data)
+        LoadOverlays(target, data)
+    end,
 
 }
 
@@ -196,7 +222,6 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
             local model = GetPedModel(tonumber(_SkinData.sex))
             LoadModel(PlayerPedId(), model)
             _Target = PlayerPedId()
-            SetEntityAlpha(_Target, 0)
             LoadedComponents = _SkinData
         end
         SetEntityHealth(_Target, health) -- Set health back to what it was
@@ -204,7 +229,7 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
         print("Loading...")
         -- print(_Target, PlayerPedId())
         FixIssues(_Target, _SkinData)
-        LoadHeight(_Target, _SkinData)
+        -- LoadHeight(_Target, _SkinData)
         LoadBody(_Target, _SkinData)
         LoadHead(_Target, _SkinData)
         LoadHair(_Target, _SkinData)
@@ -215,7 +240,6 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
         LoadBodyWaist(_Target, _SkinData)
         LoadOverlays(_Target, _SkinData)
         TriggerServerEvent("redemrp_respawn:TestDeathStatus")
-        SetEntityAlpha(_Target, 255)
         TriggerEvent("rdr_creator:SkinLoaded", _SkinData, _Target, ClothesData)
         if _Target == PlayerPedId() then
             TriggerServerEvent("rdr_clothes_store:LoadClothes", 1)
@@ -265,7 +289,7 @@ RegisterNetEvent('RedEM:client:ApplySkinCommand', function(SkinData, Target, Clo
             print("Loading...")
             -- print(_Target, PlayerPedId())
             FixIssues(_Target, _SkinData)
-            LoadHeight(_Target, _SkinData)
+            -- LoadHeight(_Target, _SkinData)
             LoadBody(_Target, _SkinData)
             LoadHead(_Target, _SkinData)
             LoadHair(_Target, _SkinData)
@@ -325,9 +349,9 @@ AddEventHandler('redemrp_skin:LoadSkinClient', function()
     TriggerServerEvent("RedEM:server:LoadSkin")
 end)
 
-RegisterCommand('loadskin', function(source, args, raw)
-    TriggerServerEvent("RedEM:server:LoadSkin", true)
-end)
+-- RegisterCommand('loadskin', function(source, args, raw)
+--     TriggerServerEvent("RedEM:server:LoadSkin", true)
+-- end)
 
 function StartCreator()
     TriggerServerEvent("rdr_creator:SetPlayerBucket" , BucketId)
@@ -402,6 +426,8 @@ function MainMenu()
     end)
 end
 
+
+
 function OpenBodyMenu()
     MenuData.CloseAll()
     local BodySizeOptions = {"Maigre", "Athlétique", "Moyen", "Lourd", "Costaud"}
@@ -460,15 +486,17 @@ function OpenBodyMenu()
         min = 1,
         max = 21,
         options = BodyWaistOptions
-    }, {
-        label = "Taille",
-        value = CreatorCache["height"] or 95,
-        category = "height",
-        desc = "Ajuster votre taille",
-        type = "slider",
-        min = 95,
-        max = 105,
-    }}
+    }, 
+    --{
+    --     label = "Taille",
+    --     value = CreatorCache["height"] or 95,
+    --     category = "height",
+    --     desc = "Ajuster votre taille",
+    --     type = "slider",
+    --     min = 95,
+    --     max = 105,
+    -- }
+    }
 
     MenuData.Open('default', GetCurrentResourceName(), 'body_character_creator_menu', {
         title = 'Apparence de base',
@@ -572,7 +600,7 @@ function OpenHairMenu2(cb)
             end
             local options = {}
             for k, v in pairs(category) do
-                table.insert(options, "Styl " .. k)
+                table.insert(options, k)
             end
             table.insert(elements, {
                 label = "Cheveux",
@@ -611,7 +639,7 @@ function OpenHairMenu2(cb)
 
             local category = hairs_list["male"]["beard"]
             for k, v in pairs(category) do
-                table.insert(options, "Styl " .. k)
+                table.insert(options, k)
             end
             table.insert(elements, {
                 label = "Barbe",
@@ -629,7 +657,7 @@ function OpenHairMenu2(cb)
             options = {}
 
             for i = 1, GetMaxTexturesForModel("beard", CreatorCache["beard"].model or 1), 1 do
-                table.insert(options, "Color " .. i)
+                table.insert(options, "Couleur " .. i)
             end
             table.insert(elements, {
                 label = "Couleur de barbe",
@@ -656,7 +684,7 @@ function OpenHairMenu2(cb)
         end
         local options = {}
         for k, v in pairs(category) do
-            table.insert(options, k .. " Style")
+            table.insert(options, k)
         end
         table.insert(elements, {
             label = "Cheveux",
@@ -674,7 +702,7 @@ function OpenHairMenu2(cb)
         options = {}
 
         for i = 1, GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1), 1 do
-            table.insert(options, i .. " Color")
+            table.insert(options, i .. " Couleur")
         end
         table.insert(elements, {
             label = "Coouleur de cheveux",
@@ -727,10 +755,10 @@ function OpenHairMenu2(cb)
                     -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
                     if GetMaxTexturesForModel(data.current.category, data.current.value) > 1 then
                         for i = 1, GetMaxTexturesForModel(data.current.category, data.current.value), 1 do
-                            table.insert(options, "Color " .. i)
+                            table.insert(options, "Couleur " .. i)
                         end
                     else
-                        table.insert(options, "None")
+                        table.insert(options, "Sans")
     
                     end
                     menu.setElement(data.current.id + 1, "options", options)
@@ -789,7 +817,7 @@ function OpenHairMenu()
             end
             local options = {}
             for k, v in pairs(category) do
-                table.insert(options, "Styl " .. k)
+                table.insert(options, k)
             end
             table.insert(elements, {
                 label = "Cheveux",
@@ -807,7 +835,7 @@ function OpenHairMenu()
             options = {}
 
             for i = 1, GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1), 1 do
-                table.insert(options,i.." Color")
+                table.insert(options,i.." Couleur")
             end
             table.insert(elements, {
                 label = "Couleur de cheveux",
@@ -828,7 +856,7 @@ function OpenHairMenu()
 
             local category = hairs_list["male"]["beard"]
             for k, v in pairs(category) do
-                table.insert(options, k.." Style")
+                table.insert(options, k)
             end
             table.insert(elements, {
                 label = "Barbe",
@@ -846,7 +874,7 @@ function OpenHairMenu()
             options = {}
 
             for i = 1, GetMaxTexturesForModel("beard", CreatorCache["beard"].model or 1), 1 do
-                table.insert(options, "Color " .. i)
+                table.insert(options, "Couleur " .. i)
             end
             table.insert(elements, {
                 label = "Couleur de barbe",
@@ -863,6 +891,28 @@ function OpenHairMenu()
 
             options = {}
             a = a + 1
+
+            table.insert(elements, {
+                label = "Rasage",
+                value = CreatorCache["beardstabble_t"] or 1,
+                category = "beardstabble_t",
+                desc = "Change le rasage",
+                change_type = "overlays",
+                type = "slider",
+                min = 1,
+                max = 2
+            })
+            table.insert(elements, {
+                label = "Rasage: Opacité",
+                value = CreatorCache["beardstabble_op"] or 0,
+                category = "beardstabble_op",
+                desc = "Change le rasage",
+                type = "slider",
+                change_type = "overlays",
+                min = 0,
+                max = 100,
+                hop = 5
+            })
     else
         local a = 1
         local category = hairs_list["female"]["hair"]
@@ -873,7 +923,7 @@ function OpenHairMenu()
         end
         local options = {}
         for k, v in pairs(category) do
-            table.insert(options, "Styl " .. k)
+            table.insert(options, k)
         end
         table.insert(elements, {
             label = "Cheveux",
@@ -910,7 +960,7 @@ function OpenHairMenu()
         a = a + 1
     end
     MenuData.Open('default', GetCurrentResourceName(), 'hair_main_character_creator_menu', {
-        title = 'Cheuveux',
+        title = 'Cheveux',
         subtext = 'Options',
         align = 'top-left',
         elements = elements
@@ -931,10 +981,10 @@ function OpenHairMenu()
                     -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
                     if GetMaxTexturesForModel(data.current.category, data.current.value) > 1 then
                         for i = 1, GetMaxTexturesForModel(data.current.category, data.current.value), 1 do
-                            table.insert(options, "Color " .. i)
+                            table.insert(options, "Couleur " .. i)
                         end
                     else
-                        table.insert(options, "None")
+                        table.insert(options, "Sans")
     
                     end
                     menu.setElement(data.current.id + 1, "options", options)
@@ -958,6 +1008,11 @@ function OpenHairMenu()
             if CreatorCache[data.current.category].texture ~= data.current.value then
                 CreatorCache[data.current.category].texture = data.current.value
                 HairFunctions[data.current.category](PlayerPedId(), CreatorCache)
+            end
+        elseif data.current.change_type == "overlays" then
+            if CreatorCache[data.current.category] ~= data.current.value then
+                CreatorCache[data.current.category] = data.current.value
+                LoadOverlays(PlayerPedId(), CreatorCache)
             end
         else
             if CreatorCache[data.current.category] ~= data.current.value then
@@ -1900,3 +1955,483 @@ end)
 exports('GetMaxTexturesForModel', function(category , model)
     return GetMaxTexturesForModel(category,model)
 end)
+
+
+
+
+
+---- barber
+local BarberMenus = {
+    ["hair"] = function()
+        OpenHairMenu2()
+    end,
+    ["makeup"] = function()
+        OpenMakeupMenu2()
+    end,
+    ["save"] = function()
+        MenuData.CloseAll()
+        LoadedComponents = CreatorCache
+        TriggerServerEvent("rdr_creator:SaveHair", CreatorCache.hair, CreatorCache.beard)
+    end
+}
+
+local barberprompt = UipromptGroup:new("Coiffeur")
+Uiprompt:new(0x760A9C6F, "Ouvrir", barberprompt)
+barberprompt:setActive(false)
+
+Citizen.CreateThread(function()
+    for name,pos in pairs(Config.Barber) do
+        local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, pos)
+        SetBlipSprite(blip, Config.BlipSprite)
+        SetBlipScale(blip, 0.2)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format(name))
+    end
+    while true do
+        Wait(2)
+        local playerPos = GetEntityCoords(PlayerPedId())
+        for city, pos in pairs(Config.Barber) do
+            if #(playerPos - pos) < 6.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, pos, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if #(playerPos - pos) < Config.DistanceToInteract and not isInteracting then
+                barberprompt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    isInteracting = true
+                    BarberMenu()
+                end
+            end
+        end
+    end
+end)
+
+function BarberMenu()
+    MenuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+  
+    local elements = { {
+        label = "Cheveux / Barbe",
+        value = 'hair',
+        desc = "Changer votre pilosité"
+    }, {
+        label = "Maquillage",
+        value = 'makeup',
+        desc = "Changer votre maquillage"
+    }, {
+        label = "Valider",
+        value = 'save',
+        desc = "Valider votre personnage"
+    }}
+
+    MenuData.Open('default', GetCurrentResourceName(), 'main_character_creator_menu', {
+        title = 'Coiffeur',
+        subtext = 'Options',
+        align = 'top-right',
+        elements = elements
+    }, function(data, menu)
+        BarberMenus[data.current.value]()
+    end, function(data, menu)
+    end)
+end
+
+function OpenHairMenu2()
+    MenuData.CloseAll()
+    local elements = {}
+    if IsPedMale(PlayerPedId()) then
+            local a = 1
+            local category = hairs_list["male"]["hair"]
+            -- print(CreatorCache["hair"])
+            -- print(CreatorCache["beard"])
+            if CreatorCache["hair"] == nil or type(CreatorCache["hair"]) ~= "table" then
+                CreatorCache["hair"] = {}
+                CreatorCache["hair"].model = 0
+                CreatorCache["hair"].texture = 1
+            end
+            if CreatorCache["beard"] == nil or type(CreatorCache["beard"]) ~= "table" then
+                CreatorCache["beard"] = {}
+                -- print(CreatorCache["beard"])
+                CreatorCache["beard"].model = 0
+                -- print(CreatorCache["beard"])
+                CreatorCache["beard"].texture = 1
+                
+            end
+            local options = {}
+            for k, v in pairs(category) do
+                table.insert(options, k)
+            end
+            table.insert(elements, {
+                label = "Cheveux",
+                value = CreatorCache["hair"].model or 0,
+                category = "hair",
+                desc = "Changer vos cheveux",
+                type = "slider",
+                min = 0,
+                max = #category,
+                change_type = "model",
+                id = a,
+                options = options
+            })
+            a = a + 1
+            options = {}
+
+            for i = 1, GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1), 1 do
+                table.insert(options,i.." Couleur")
+            end
+            table.insert(elements, {
+                label = "Couleur de cheveux",
+                value = CreatorCache["hair"].texture or 1,
+                category = "hair",
+                desc = "Changer la couleur de cheveux",
+                type = "slider",
+                min = 1,
+                max = GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1),
+                change_type = "texture",
+                id = a,
+                options = options
+            })
+
+            options = {}
+            a = a + 1
+
+
+            local category = hairs_list["male"]["beard"]
+            for k, v in pairs(category) do
+                table.insert(options, k)
+            end
+            table.insert(elements, {
+                label = "Barbe",
+                value = CreatorCache["beard"].model or 0,
+                category = "beard",
+                desc = "Changer votre barbe",
+                type = "slider",
+                min = 0,
+                max = #category,
+                change_type = "model",
+                id = a,
+                options = options
+            })
+            a = a + 1
+            options = {}
+
+            for i = 1, GetMaxTexturesForModel("beard", CreatorCache["beard"].model or 1), 1 do
+                table.insert(options, "Couleur " .. i)
+            end
+            table.insert(elements, {
+                label = "Couleur de barbe",
+                value = CreatorCache["beard"].texture or 1,
+                category = "beard",
+                desc = "Changer votre couleur de barbe",
+                type = "slider",
+                min = 1,
+                max = GetMaxTexturesForModel("beard", CreatorCache["beard"].model or 1),
+                change_type = "texture",
+                id = a,
+                options = options
+            })
+
+            options = {}
+            a = a + 1
+
+            table.insert(elements, {
+                label = "Rasage",
+                value = CreatorCache["beardstabble_t"] or 1,
+                category = "beardstabble_t",
+                desc = "Change le rasage",
+                change_type = "overlays",
+                type = "slider",
+                min = 1,
+                max = 2
+            })
+            table.insert(elements, {
+                label = "Rasage: Opacité",
+                value = CreatorCache["beardstabble_op"] or 0,
+                category = "beardstabble_op",
+                desc = "Change le rasage",
+                type = "slider",
+                change_type = "overlays",
+                min = 0,
+                max = 100,
+                hop = 5
+            })
+    else
+        local a = 1
+        local category = hairs_list["female"]["hair"]
+        if CreatorCache["hair"] == nil or type(CreatorCache["hair"]) ~= "table" then
+            CreatorCache["hair"] = {}
+            CreatorCache["hair"].model = 0
+            CreatorCache["hair"].texture = 1
+        end
+        local options = {}
+        for k, v in pairs(category) do
+            table.insert(options, k)
+        end
+        table.insert(elements, {
+            label = "Cheveux",
+            value = CreatorCache["hair"].model or 0,
+            category = "hair",
+            desc = "Changer votre couleur de cheveux",
+            type = "slider",
+            min = 0,
+            max = #category,
+            change_type = "model",
+            id = a,
+            options = options
+        })
+        a = a + 1
+        options = {}
+
+        for i = 1, GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1), 1 do
+            table.insert(options, "Kolor " .. i)
+        end
+        table.insert(elements, {
+            label = "Couleur de cheveux",
+            value = CreatorCache["hair"].texture or 1,
+            category = "hair",
+            desc = "Changer votre couleur de cheveux",
+            type = "slider",
+            min = 1,
+            max = GetMaxTexturesForModel("hair", CreatorCache["hair"].model or 1),
+            change_type = "texture",
+            id = a,
+            options = options
+        })
+
+        options = {}
+        a = a + 1
+    end
+    MenuData.Open('default', GetCurrentResourceName(), 'hair_main_character_creator_menu', {
+        title = 'Cheveux',
+        subtext = 'Options',
+        align = 'top-right',
+        elements = elements
+    }, function(data, menu)
+
+    end, function(data, menu)
+        BarberMenu()
+    end, function(data, menu)
+
+
+        if data.current.change_type == "model" then
+            if CreatorCache[data.current.category].model ~= data.current.value then
+                CreatorCache[data.current.category].texture = 1
+                CreatorCache[data.current.category].model = data.current.value
+                if data.current.value > 0 then
+                    local options = {}
+                    -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
+                    if GetMaxTexturesForModel(data.current.category, data.current.value) > 1 then
+                        for i = 1, GetMaxTexturesForModel(data.current.category, data.current.value), 1 do
+                            table.insert(options, "Couleur " .. i)
+                        end
+                    else
+                        table.insert(options, "Sans")
+    
+                    end
+                    menu.setElement(data.current.id + 1, "options", options)
+                    menu.setElement(data.current.id + 1, "max",
+                        GetMaxTexturesForModel(data.current.category, data.current.value))
+                    menu.setElement(data.current.id + 1, "min", 1)
+                    menu.setElement(data.current.id + 1, "value", 1)
+                    menu.refresh()
+    
+                else
+                    menu.setElement(data.current.id + 1, "max", 0)
+                    menu.setElement(data.current.id + 1, "min", 0)
+                    menu.setElement(data.current.id + 1, "value", 0)
+                    menu.refresh()
+    
+                end
+                HairFunctions[data.current.category](PlayerPedId(), CreatorCache)
+            end
+         elseif data.current.change_type == "texture" then
+            -- print(CreatorCache[data.current.category].texture)
+            if CreatorCache[data.current.category].texture ~= data.current.value then
+                CreatorCache[data.current.category].texture = data.current.value
+                HairFunctions[data.current.category](PlayerPedId(), CreatorCache)
+            end
+        elseif data.current.change_type == "overlays" then
+            if CreatorCache[data.current.category] ~= data.current.value then
+                CreatorCache[data.current.category] = data.current.value
+                LoadOverlays(PlayerPedId(), CreatorCache)
+            end
+        else
+            if CreatorCache[data.current.category] ~= data.current.value then
+                CreatorCache[data.current.category] = data.current.value
+                HairFunctions[data.current.category](PlayerPedId(), CreatorCache)
+            end
+        end
+    end)
+end
+
+function OpenMakeupMenu2()
+    MenuData.CloseAll()
+    local elements = {{
+        label = "Fard à paupières",
+        value = CreatorCache["shadows_t"] or 1,
+        category = "shadows_t",
+        desc = "Changer le fard à paupières",
+        type = "slider",
+        min = 1,
+        max = 5
+    }, {
+        label = "Fard à paupières: Opacité",
+        value = CreatorCache["shadows_op"] or 0,
+        category = "shadows_op",
+        desc = "Changer le fard à paupières",
+        type = "slider",
+        min = 0,
+        max = 100,
+        hop = 5
+    }, {
+        label = "Fard à paupières: Palette",
+        value = CreatorCache["shadows_id"] or 1,
+        category = "shadows_id",
+        desc = "Changer le fard à paupières",
+        type = "slider",
+        min = 1,
+        max = 25
+    }, {
+        label = "Fard à paupières: Couleur",
+        value = CreatorCache["shadows_c1"] or 0,
+        category = "shadows_c1",
+        desc = "Changer le fard à paupières",
+        type = "slider",
+        min = 0,
+        max = 64
+    }, {
+        label = "Blush",
+        value = CreatorCache["blush_t"] or 1,
+        category = "blush_t",
+        desc = "Changer le blush",
+        type = "slider",
+        min = 1,
+        max = 4
+    }, {
+        label = "Blush: Opacité",
+        value = CreatorCache["blush_op"] or 0,
+        category = "blush_op",
+        desc = "Changer le blush",
+        type = "slider",
+        min = 0,
+        max = 100,
+        hop = 5
+    }, {
+        label = "Blush: Palette",
+        value = CreatorCache["blush_id"] or 1,
+        category = "blush_id",
+        desc = "Changer le blush",
+        type = "slider",
+        min = 1,
+        max = 25
+    }, {
+        label = "Blush: Couleur",
+        value = CreatorCache["blush_c1"] or 0,
+        category = "blush_c1",
+        desc = "Changer le blush",
+        type = "slider",
+        min = 0,
+        max = 64
+    }, {
+        label = "Rouge à lèvres",
+        value = CreatorCache["lipsticks_t"] or 1,
+        category = "lipsticks_t",
+        desc = "Changer le rouge à lèvres",
+        type = "slider",
+        min = 1,
+        max = 7
+    }, {
+        label = "Rouge à lèvres: Opacité",
+        value = CreatorCache["lipsticks_op"] or 0,
+        category = "lipsticks_op",
+        desc = "Changer le rouge à lèvres",
+        type = "slider",
+        min = 0,
+        max = 100,
+        hop = 5
+    }, {
+        label = "Rouge à lèvres: Palette",
+        value = CreatorCache["lipsticks_id"] or 1,
+        category = "lipsticks_id",
+        desc = "Changer le rouge à lèvres",
+        type = "slider",
+        min = 1,
+        max = 25
+    }, {
+        label = "Rouge à lèvres: Couleur Principale",
+        value = CreatorCache["lipsticks_c1"] or 0,
+        category = "lipsticks_c1",
+        desc = "Changer le rouge à lèvres",
+        type = "slider",
+        min = 0,
+        max = 64
+    }, {
+        label = "Rouge à lèvres: Couleur Secondaire",
+        value = CreatorCache["lipsticks_c2"] or 0,
+        category = "lipsticks_c2",
+        desc = "Changer le rouge à lèvres",
+        type = "slider",
+        min = 0,
+        max = 64
+    }, {
+        label = "Eyeliner",
+        value = CreatorCache["eyeliners_t"] or 1,
+        category = "eyeliners_t",
+        desc = "Change l'eyeliner",
+        type = "slider",
+        min = 1,
+        max = 15
+    }, {
+        label = "Eyeliner: Opacité",
+        value = CreatorCache["eyeliners_op"] or 0,
+        category = "eyeliners_op",
+        desc = "Change l'eyeliner",
+        type = "slider",
+        min = 0,
+        max = 100,
+        hop = 5
+    }, {
+        label = "Eyeliner: Palette",
+        value = CreatorCache["eyeliners_id"] or 1,
+        category = "eyeliners_id",
+        desc = "Change l'eyeliner",
+        type = "slider",
+        min = 1,
+        max = 25
+    }, {
+        label = "Eyeliner: Couleur",
+        value = CreatorCache["eyeliners_c1"] or 0,
+        category = "eyeliners_c1",
+        desc = "Change l'eyeliner",
+        type = "slider",
+        min = 0,
+        max = 64
+    }}
+
+    MenuData.Open('default', GetCurrentResourceName(), 'makeup_character_creator_menu', {
+        title = 'Maquillage',
+        subtext = 'Options',
+        align = 'top-right',
+        elements = elements
+    }, function(data, menu)
+    end, function(data, menu)
+        BarberMenu()
+    end, function(data, menu)
+        if CreatorCache[data.current.category] ~= data.current.value then
+            CreatorCache[data.current.category] = data.current.value
+            LoadOverlays(PlayerPedId(), CreatorCache)
+        end
+    end)
+end
+
+

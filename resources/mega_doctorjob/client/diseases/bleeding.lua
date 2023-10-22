@@ -17,6 +17,7 @@ if DiseasesConfig['bleeding'] then
                                     self:setPaused(false)
                                     self:setActive(true)
                                     self._data.damageType = 'projectile'
+                                    self._data.antidouleur = false
                                     self:startEffect()
                                 end
                             end
@@ -56,7 +57,7 @@ if DiseasesConfig['bleeding'] then
                             self:setPaused(false)
                         end
                     end
-                    if self.config.enableRagdoll then
+                    if self.config.enableRagdoll and not self._data.antidouleur then
                         if (IsPedSprinting(PlayerPedId()) or IsPedRunning(PlayerPedId())) and IsPedOnFoot(PlayerPedId()) then
                             Wait(1000)
                             Citizen.InvokeNative(0xD9B31B4650520529, 'MEDIUM_EXPLOSION_SHAKE', 0.5)

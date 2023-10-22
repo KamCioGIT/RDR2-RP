@@ -67,15 +67,15 @@ OpenCharacterMenu = function()
     for k,v in ipairs(CharsList) do
         if v.citizenid then
             if #v.citizenid ~= 7 then
-                table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, image="items/character_exists.png", value = v.characterid})
+                table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, value = v.characterid})
             else
-                table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, image="items/character_exists.png", value = v.characterid})
+                table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, value = v.characterid})
             end
         else
-            table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, image="items/character_exists.png", value = v.characterid})
+            table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, value = v.characterid})
         end
     end
-    table.insert(elements, {label = "<strong>Nouveau Personnages</strong>", desc = "Créer un nouveau personnage", image="items/character_new.png", value = "new"})
+    table.insert(elements, {label = "<strong>Nouveau Personnages</strong>", desc = "Créer un nouveau personnage", value = "new"})
     MenuData.Open('default', GetCurrentResourceName(), 'charselect', {
         title    = "DUST",
         subtext  = "Vos personnages",
@@ -85,7 +85,7 @@ OpenCharacterMenu = function()
     },
     function(data, menu)
         if data.current.value == "new" then
-            if #CharsList < 8 then
+            if #CharsList < 2 then
                 MenuData.CloseAll()
                 SendNUIMessage({
                     new = true

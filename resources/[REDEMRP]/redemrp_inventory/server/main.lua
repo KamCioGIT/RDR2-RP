@@ -103,7 +103,6 @@ AddEventHandler(
                         retVal = addItemStash(_source, data.name, data.amount, data.meta, stashId)
                         if retVal == false then
                             addItem(data.name, data.amount, data.meta, identifier, charid, lvl)
-                            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Pas assez de place !", "Cet inventaire est plein.", "menu_textures", "menu_icon_alert", 3000)
                         end
                     end
                     if itemData.type == "item_weapon" then
@@ -625,7 +624,6 @@ AddEventHandler(
         if itemData.canBeUsed then
             TriggerEvent("RegisterUsableItem:" .. data.name, _source, data)
             --TriggerClientEvent("ak_notification:Left", _source, "Użyto przedmiotu", itemData.label, tonumber(1000))
-            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Objet utilisé", itemData.label, "INVENTORY_ITEMS", "clothing_satchel_001", 3000)
             TriggerClientEvent("redemrp_inventory:PlaySound", _source, 1)
         end
         if itemData.type == "item_letter" then
@@ -641,7 +639,6 @@ AddEventHandler(
                 data.meta,
                 data.name
             )
-            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Arme équipée", data.label, "menu_textures", "menu_icon_holster", 1000)
             TriggerClientEvent("redemrp_inventory:PlaySound", _source, 1)
         end
         if itemData.type == "item_ammo" then
@@ -1094,15 +1091,15 @@ function addItemStash(source, name, amount, meta, stashId)
 
         local weightLimit = StashMaxWeights[_source] or 60.0
         if itemData.type == "item_weapon" or itemData.type == "item_letter" then
-            --("Boss stash weight: ".. weight .." vs ".. weightLimit)
-            -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
-            --(weight + (itemData.weight * amount))
+            -- ("Boss stash weight: ".. weight .." vs ".. weightLimit)
+            TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Stockage: ~n~"..string.format("%.2f", weight + (itemData.weight)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
+            -- (weight + (itemData.weight * amount))
             if weight + (itemData.weight) > weightLimit then
                 return output
             end
         else
             --("Boss stash weight: ".. weight .." vs ".. weightLimit)
-            -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight * amount)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
+            TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Stockage: ~n~"..string.format("%.2f", weight + (itemData.weight * amount)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
             --(weight + (itemData.weight * amount))
             if weight + (itemData.weight * amount) > weightLimit then
                 return output
@@ -1443,43 +1440,30 @@ RegisterServerEvent("redemrp_inventory:GetStash",
 )
 
 
-RegisterServerEvent("redemrp_inventory:GetPlayer",
-    function(target, hogtied)
-        local _source = source
-        local _target = target
-        local Player = RedEM.GetPlayer(_source)
-        local TargetPlayer = RedEM.GetPlayer(_target)
+RegisterServerEvent("redemrp_inventory:GetPlayer", function(target, fouille)
+    local _source = source
+    local _target = target
+    local Player = RedEM.GetPlayer(_source)
+    local TargetPlayer = RedEM.GetPlayer(_target)
 
-        local identifier = Player.GetIdentifier()
-        local charid = Player.GetActiveCharacter()
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
 
-        TriggerEvent("redemrp_respawn:IsPlayerDead", _target, function(isDead)
-            if isDead then
-                return TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Cannot search!", "Cannot search downed players.", "menu_textures", "menu_icon_alert", 3000)
-            end
-            if HandsUp[_target] or hogtied then
-                if not exports["redem_roleplay"]:RedEM().CrimeDisabled then
-                    local identifier_target = TargetPlayer.GetIdentifier()
-                    local charid_target = TargetPlayer.GetActiveCharacter()
-                    TriggerClientEvent("redem_roleplay:NotifyRight", _source, "Player Cash: $"..comma_value(string.format("%.2f", TargetPlayer.getMoney())), 3000)
-                    TriggerClientEvent(
-                        "redemrp_inventory:SendItems",
-                        _source,
-                        PrepareToOutput(Inventory[identifier .. "_" .. charid]),
-                        PrepareToOutput(Inventory[identifier_target .. "_" .. charid_target]),
-                        InventoryWeight[identifier .. "_" .. charid],
-                        true,
-                        _target
-                    )
-                else
-                    TriggerClientEvent("redem_roleplay:NotifyRight", _source, "You cannot rob anyone <span style=\"color:lightblue\">30 minutes</span> before a storm!", 3000)
-                end
-            else
-                TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Cannot search!", "Player must have their hands up or be hogtied.", "menu_textures", "menu_icon_alert", 3000)
-            end
-        end)
-    end
-)
+        if fouille then
+                local identifier_target = TargetPlayer.GetIdentifier()
+                local charid_target = TargetPlayer.GetActiveCharacter()
+                TriggerClientEvent('redem_roleplay:ShowAdvancedRightNotification', _source,"Argent dans les poches: $"..comma_value(string.format("%.2f", TargetPlayer.getMoney())), "itemtype_textures" , "itemtype_cash_arthur" , "COLOR_WHITE", 4000)
+                TriggerClientEvent(
+                    "redemrp_inventory:SendItems",
+                    _source,
+                    PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+                    PrepareToOutput(Inventory[identifier_target .. "_" .. charid_target]),
+                    InventoryWeight[identifier .. "_" .. charid],
+                    true,
+                    _target
+                )
+        end
+end)
 
 function comma_value(amount)
     local formatted = amount
@@ -1515,7 +1499,6 @@ RegisterServerEvent("redemrp_inventory:GetPlayerAsPolice",
                 _target
             )
         else
-            TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Cannot search!", "You must be police to use this.", "menu_textures", "menu_icon_alert", 3000)
         end
     end
 )
@@ -2243,7 +2226,6 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
             end
             if type == "boire" then
                 local meta = item.getMeta()
-                print (meta)
                 if meta["water"] then
                     if tonumber(meta["water"]) >= 20 then
                         newwater = tonumber(meta["water"]) - 20
@@ -2272,5 +2254,109 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
             InventoryWeight[identifier .. "_" .. charid]
             )
         end
+    end
+end)
+
+---- telegram
+
+RegisterServerEvent("redemrp_inventory:createtelegram", function(source, telegram)
+    local _source = source
+    print(source, telegram)
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local itemData = Config.Items["transferhorse"]
+    local _meta = meta or {}
+    _meta.data = telegram
+    local item, id = getInventoryItemFromName("télégramme", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("télégramme", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)
+
+
+RegisterServerEvent("redemrp_inventory:checkpoison")
+AddEventHandler("redemrp_inventory:checkpoison", function(name)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    if Player then
+        local identifier = Player.GetIdentifier()
+        local charid = Player.GetActiveCharacter()
+        local player_inventory = Inventory[identifier .. "_" .. charid]
+        local item, id = getInventoryItemFromName(name, player_inventory, {})
+        if item then
+            local meta = item.getMeta()
+            if meta["poison"] then
+                qual = meta["poison"]
+                if qual == true then
+                    TriggerClientEvent("dust_maladie:poison", _source)
+                end
+            end
+        end
+    end
+end)
+
+
+RegisterServerEvent("redemrp_inventory:createclothes", function(source, id)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local itemData = SharedInventoryFunctions.getItem(_source, "clothes")
+    local _meta = meta or {}
+    local itemData = Config.Items["clothes"]
+    if not _meta.id then
+        _meta.id = id
+    end
+    local item, id = getInventoryItemFromName("clothes", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("clothes", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)
+
+
+RegisterServerEvent("redemrp_inventory:chapeau", function(source, info)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local _meta = meta or {}
+    local itemData = Config.Items["chapeau"]
+    if not _meta.model then
+        _meta.model = info.model
+    end
+    if not _meta.texture then
+        _meta.texture = info.texture
+    end
+    local item, id = getInventoryItemFromName("chapeau", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("chapeau", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
     end
 end)

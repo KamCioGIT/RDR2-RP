@@ -13,13 +13,14 @@ const useStyles = createStyles((theme) => ({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+    fill: "#00000081"
   },
   sector: {
-    fill: theme.colors.dark[6],
-    color: theme.colors.dark[0],
+    fill:  "#090909",
+    color: "#fff",
 
     '&:hover': {
-      fill: theme.fn.primaryColor(),
+      fill: "#DC5858",
       '> g > text, > g > svg > path': {
         fill: '#fff',
       },
@@ -28,16 +29,17 @@ const useStyles = createStyles((theme) => ({
       fill: theme.colors.dark[0],
     },
   },
+
   backgroundCircle: {
     fill: theme.colors.dark[6],
   },
   centerCircle: {
-    fill: theme.fn.primaryColor(),
+    fill: "#090909",
     color: '#fff',
-    stroke: theme.colors.dark[6],
+    stroke: "#615C43",
     strokeWidth: 4,
     '&:hover': {
-      fill: theme.colors[theme.primaryColor][theme.fn.primaryShade() - 1],
+      stroke: "#DC5858",
     },
   },
   centerIconContainer: {
@@ -96,13 +98,6 @@ const RadialMenu: React.FC = () => {
     }
     setMenu({ ...data, page: initialPage });
     setVisible(true);
-
-    document.addEventListener('keyup', (e: KeyboardEvent) => {
-      if (e.key === 'Escape' || e.key === 'CapsLock') {
-        setVisible(false);
-        fetchNui('radialClose');
-      }
-    });
   });
 
   useNuiEvent('refreshItems', (data: RadialMenuItem[]) => {
@@ -162,8 +157,11 @@ const RadialMenu: React.FC = () => {
                         height={25}
                         fixedWidth
                       />
-                      <text x={iconX} y={iconY + 25} fill="#fff" textAnchor="middle" pointerEvents="none">
-                        {item.label}
+                      <text x={iconX} y={iconY + (item.label.includes("  \n") ? 7 : 25)} fill="#fff" textAnchor="middle" pointerEvents="none">
+                        {item.label.includes("  \n")
+                          ? item.label.split("  \n").map((value) => <tspan x={iconX} dy="1.2em">{value}</tspan>)
+                          : item.label
+                        }
                       </text>
                     </g>
                   </g>

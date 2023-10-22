@@ -20,8 +20,9 @@ files {
     'test_timecycle.xml',
     'stream/ytyp/*.ytyp',
 }
-
+data_file 'DLC_ITYP_REQUEST' 'stream/bar_counter02.ytyp'
 data_file "TIMECYCLEMOD_FILE" "test_timecycle.xml"
+
 
 author "YourMAPS Tafé"
 dependency '/assetpacks'

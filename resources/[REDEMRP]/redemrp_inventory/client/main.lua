@@ -85,7 +85,7 @@ Citizen.CreateThread(
         TriggerServerEvent("redemrp_inventory:playerJoined")
         while true do
             Wait(1)
-            if IsControlJustReleased(0, 0x4CC0E2FE) then
+            if IsControlJustReleased(0, 0xC1989F95) then
                 isInventoryOpen = not isInventoryOpen
 
                 if isInventoryOpen then
@@ -147,15 +147,30 @@ AddEventHandler("redemrp_inventory:SearchPlayer", function()
 
 	if closestPlayer ~= -1 and closestDistance <= 1.5 then
 		local Hogtied = Citizen.InvokeNative(0x3AA24CCC0D451379, GetPlayerPed(closestPlayer))
-		local Cuffed = Citizen.InvokeNative(0x74E559B3BC910685, GetPlayerPed(closestPlayer))
+		-- local Cuffed = Citizen.InvokeNative(0x74E559B3BC910685, GetPlayerPed(closestPlayer))
+        local handsup = Entity(GetPlayerPed(closestPlayer)).state.handsup
+        local isDead = IsEntityDead(GetPlayerPed(closestPlayer))
+		if Hogtied or isDead or handsup then
+            local dict = "mech_loco_m@generic@searching@low_energy@direct@unarmed@idle"
+            RequestAnimDict(dict)
+            while not HasAnimDictLoaded(dict) do
+                Citizen.Wait(10)
+            end
+            TaskPlayAnim(PlayerPedId(), dict, "idle", 1.0, 8.0, -1, 1, 0, false, false, false)
+            local Position = GetEntityCoords(PlayerPedId())
 
-		if ( Hogtied or Cuffed ) == 1 then
+            Citizen.CreateThread(function()
+                while true do
+                    Wait(100)
+                    if #(GetEntityCoords(GetPlayerPed(closestPlayer)) - GetEntityCoords(PlayerPedId())) > 2.5 then
+                        TriggerEvent("redemrp_inventory:close_inventory")
+                        ClearPedTasks(PlayerPedId())
+                        break
+                    end
+                end
+            end)
 			TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer), true)
-		else
-			TriggerServerEvent("redemrp_inventory:GetPlayer", GetPlayerServerId(closestPlayer), false)
 		end
-	else
-		RedEM.Functions.NotifyLeft("Introuvable", "Il n'y a personne devant vous !", "menu_textures", "menu_icon_alert", 4000)
 	end
 end)
 
@@ -234,18 +249,18 @@ end)
 
 local PistolsEquipping = 0
 
-RegisterCommand("lanternbelt", function()
-    for i, k in pairs(UsedWeapons) do
-        if k.name == "WEAPON_MELEE_LANTERN" then
-            SetCurrentPedWeapon(PlayerPedId(), `WEAPON_MELEE_LANTERN`, true, 12, false, false)
-            if IsPedMale(PlayerPedId()) then
-                TriggerServerEvent('3dme:shareDisplay', "ATTACHES HIS LANTERN TO HIS BELT")
-            else
-                TriggerServerEvent('3dme:shareDisplay', "ATTACHES HER LANTERN TO HER BELT")
-            end
-        end
-    end
-end)
+-- RegisterCommand("lanternbelt", function()
+--     for i, k in pairs(UsedWeapons) do
+--         if k.name == "WEAPON_MELEE_LANTERN" then
+--             SetCurrentPedWeapon(PlayerPedId(), `WEAPON_MELEE_LANTERN`, true, 12, false, false)
+--             if IsPedMale(PlayerPedId()) then
+--                 TriggerServerEvent('3dme:shareDisplay', "ATTACHES HIS LANTERN TO HIS BELT")
+--             else
+--                 TriggerServerEvent('3dme:shareDisplay', "ATTACHES HER LANTERN TO HER BELT")
+--             end
+--         end
+--     end
+-- end)
 
 function ReloadWeapons()
     Citizen.InvokeNative(0x1B83C0DEEBCBB214, PlayerPedId())
@@ -654,9 +669,14 @@ RegisterNUICallback(
         local closestPlayer, closestDistance = GetClosestPlayer()
         if closestPlayer ~= -1 and closestDistance <= 1.5 then
             --print(json.encode(data))
+            RequestAnimDict("script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place")
+            while not HasAnimDictLoaded("script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place") do
+                Citizen.Wait(100)
+            end
+            TaskPlayAnim(PlayerPedId(), "script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place", "enter_rf", 1.0, 1.0, -1, 25, 0, true, 0, false, 0, false)  
+            Wait(2500)
+            ClearPedTasks(PlayerPedId())
             TriggerServerEvent("redemrp_inventory:giveItem", data.data, GetPlayerServerId(closestPlayer))
-        else
-            RedEM.Functions.NotifyLeft("Introuvable", "Il n'y a personne devant vous !", "menu_textures", "menu_icon_alert", 4000)
         end
     end
 )
@@ -774,7 +794,7 @@ RegisterNetEvent(
         end
         TaskPlayAnim(PlayerPedId(), dict, "exit_front", 1.0, 8.0, -1, 1, 0, false, false, false)
         Wait(1200)
-        PlaySoundFrontend("CHECKPOINT_PERFECT", "HUD_MINI_GAME_SOUNDSET", true, 1)
+        -- PlaySoundFrontend("CHECKPOINT_PERFECT", "HUD_MINI_GAME_SOUNDSET", true, 1)
         Wait(1000)
         ClearPedTasks(PlayerPedId())
     end

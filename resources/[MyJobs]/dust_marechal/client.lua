@@ -6,18 +6,10 @@ TriggerEvent("redemrp_menu_base:getData", function(call)
 end)
 
 
-
-Citizen.CreateThread(function()
-    Wait(1000)
-    if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_armurier:server:RequestJob")
-    end
-end)
-
 local getjob = false
 local getgrade = 0
-RegisterNetEvent("redem_roleplay:JobChange")
-AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+RegisterNetEvent("dust_job:marechal")
+AddEventHandler("dust_job:marechal", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             getjob = true
@@ -148,7 +140,7 @@ end
 function OpenCategory(menu_catagory, horse, horseid)
     MenuData.CloseAll()
     local elements = {}
-    local a = 1
+    local a = 0
     for v, k in pairs(Config.MenuElements[menu_catagory].category) do
         local category = comp_list[k]
         local options = {}
@@ -287,7 +279,7 @@ end
 function OpenCategoryCart(menu_catagory, horse, horseid, model)
     MenuData.CloseAll()
     local elements = {}
-    local a = 1
+    local a = 0
     for v, k in pairs(Config.MenuCart[menu_catagory].category) do
         if menu_catagory ~= "propsets" then
             category = comp_cart[k]
@@ -369,9 +361,9 @@ function MenuUpdateComp(data, menu, horse)
     end
 end
 
-function Change(horse, componentHash)
-    Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash, true, true, true)
-end
+-- function Change(horse, componentHash)
+--     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, componentHash, true, true, true)
+-- end
 function NativeSetPedComponentEnabled(ped, component)
     Citizen.InvokeNative(0xD3A7B003ED343FD9, ped, component, true, true, true)
 end

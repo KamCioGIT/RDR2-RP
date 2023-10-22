@@ -4,9 +4,8 @@ Config.Jobs = {
     [1] = "fermier",
 }
 
-Config.FarmerDepositPos = { vector3(-2584.335, 415.2029, 148.965)} -- 
-Config.FarmerWithdrawalPos = { vector3(-2588.564, 417.783, 149.0052)}
-Config.GetVirginContractPos = { vector3(-2592.237, 455.9889, 146.9973)}
+Config.FarmerDepositPos = { vector3(-1605.754, -1374.691, 82.95718)} -- 
+Config.FarmerWithdrawalPos = { vector3(-1608.229, -1368.804, 82.98436)}
 Config.DistanceToInteract = 2.2
 
 Config.PointSprite = 2033377404
@@ -22,13 +21,22 @@ Config.ShowBlips = true
 
 Config.RessourcesPoints = 
 {
-    vector3(-2572.389, 551.3449, 141.3406),
-    vector3(-2569.031, 546.512, 141.3784),
-    vector3(-2563.755, 550.1628, 141.096),
-    vector3(-2567.136, 556.5611, 141.2192),
-    vector3(-2561.816, 561.8822, 140.8911),
-    vector3(-2556.401, 556.0502, 141.0345),
-    vector3(-2549.916, 560.5123, 140.7749)
+    vector3(-1615.878, -1426.288, 81.88916),
+	vector3(-1617.427, -1435.034, 81.96293),
+    vector3(-1621.828, -1440.985, 82.34075),
+    vector3(-1622.169, -1433.59, 82.2501),
+    vector3(-1624.659, -1426.977, 82.23602),
+    vector3(-1626.601, -1433.14, 82.36633),
+    vector3(-1630.822, -1439.332, 82.69156),
+	vector3(-1632.205, -1433.772, 82.54325),
+	vector3(-1632.592, -1426.442, 82.48561),
+	vector3(-1634.623, -1423.012, 82.55132),
+	vector3(-1635.463, -1430.553, 82.56765),
+	vector3(-1637.581, -1435.817, 82.71082),
+	vector3(-1638.695, -1425.392, 82.65939),
+	vector3(-1641.995, -1433.702, 82.89939),
+	vector3(-1644.237, -1434.741, 82.9072),
+	vector3(-1642.702, -1422.851, 82.93333),
 }
 
 Config.Buycattle = {
@@ -126,3 +134,91 @@ Config.Lait = {
 Config.PedMilkingDict = "mech_milking"
 Config.PedMilkingAnim = "milking_loop_player"
 
+Config.WorkingTime = 5000
+Config.DistanceToInteract = 1.5
+
+Config.Atelier = vector3(-1643.041, -1350.916, 84.40321)
+
+Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
+Config.CraftAnim = {
+    "base_trans_base",
+}
+
+Config.CraftingsReceipe = {
+	['bouteillelait'] = {
+		type = 'cuisineferme',
+		Itemtocraft = 1,
+		ItemReceipe1Name = 'sceaulait',
+		ItemReceipe1Amount = 1,
+		ItemToGive = 'bouteillelait',
+		Amount = 5,
+		WorkingTime = 10,
+		label = 'Bouteille de lait',
+		descriptionimages = {{src = 'nui://redemrp_inventory/html/items/moonshine_pot.png', text = "Jarre de lait",count = "x1"}}
+	},
+	['soupe'] = {
+		type = 'cuisineferme',
+		Itemtocraft = 4,
+		ItemReceipe1Name = 'Corn_Seed',
+		ItemReceipe1Amount = 1,
+		ItemReceipe2Name = 'Patate',
+		ItemReceipe2Amount = 1,
+		ItemReceipe3Name = 'Saugeducolibri',
+		ItemReceipe3Amount = 1,
+		ItemReceipe4Name = 'charbon',
+		ItemReceipe4Amount = 1,
+		ItemToGive = 'soupe',
+		Amount = 1,
+		WorkingTime = 5,
+		label = 'Soupe de légume',
+		descriptionimages = {{src = 'nui://redemrp_inventory/html/items/corn.png', text = "Maïs",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du Colibri",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+	},
+	['ragoutgibier'] = {
+		type = 'cuisineferme',
+		Itemtocraft = 3,
+		ItemReceipe1Name = 'viandegibier',
+		ItemReceipe1Amount = 1,
+		ItemReceipe2Name = 'Patate',
+		ItemReceipe2Amount = 1,
+		ItemReceipe3Name = 'charbon',
+		ItemReceipe3Amount = 1,
+		ItemToGive = 'Ragoutgibier',
+		Amount = 1,
+		WorkingTime = 5,
+		label = 'Ragoût',
+		descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison.png', text = "Venaison",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+	},
+	['ragoutviande'] = {
+		type = 'cuisineferme',
+		Itemtocraft = 3,
+		ItemReceipe1Name = 'viande',
+		ItemReceipe1Amount = 1,
+		ItemReceipe2Name = 'Patate',
+		ItemReceipe2Amount = 1,
+		ItemReceipe3Name = 'charbon',
+		ItemReceipe3Amount = 1,
+		ItemToGive = 'Ragoutviande',
+		Amount = 1,
+		WorkingTime = 5,
+		label = 'Ragoût',
+		descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande Crue",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+	},
+	['ragoutvolaille'] = {
+		type = 'cuisineferme',
+		Itemtocraft = 3,
+		ItemReceipe1Name = 'viandevolaille',
+		ItemReceipe1Amount = 1,
+		ItemReceipe2Name = 'Patate',
+		ItemReceipe2Amount = 1,
+		ItemReceipe3Name = 'charbon',
+		ItemReceipe3Amount = 1,
+		ItemToGive = 'Ragoutvolaille',
+		Amount = 1,
+		WorkingTime = 5,
+		label = 'Ragoût',
+		descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird.png', text = "Volaille",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+	},
+	
+    
+    
+}

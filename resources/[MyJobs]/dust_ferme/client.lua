@@ -8,36 +8,31 @@ local isFarmer = false
 
 
 --- Définir si le joueur est fermier 
-
-Citizen.CreateThread(function()
-    Wait(1000)
-    if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_armurier:server:RequestJob")
-    end
-end)
-
-local getjob = false
 local getgrade = 0
-RegisterNetEvent("redem_roleplay:JobChange")
-AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+RegisterNetEvent("dust_job:fermier")
+AddEventHandler("dust_job:fermier", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
-            getjob = true
+            isFarmer = true
             getgrade = grade
             startMission()
             cattle()
-            Paturages()
             if getgrade >= 2 then
                 contremaitre()
             end
         else
-            getjob = false
+            isFarmer = false
             getgrade = 0
         end
     end
 end)
 
 -- VA MINER   
+
+local craftprompt = UipromptGroup:new("Atelier")
+Uiprompt:new(0x760A9C6F, "Fabriquer", craftprompt)
+craftprompt:setActive(false)
+
 local bleprompt = UipromptGroup:new("Blé")
 Uiprompt:new(0x760A9C6F, "Récolter", bleprompt)
 bleprompt:setActive(false)
@@ -54,7 +49,7 @@ function startMission()
     GetRandomRessourcePoint()
     Citizen.CreateThread(function() --- MINERAI
         while true do
-            if getjob then
+            if isFarmer then
                 Wait(0)
                 local playerPos = GetEntityCoords(PlayerPedId())
                 if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isInteracting then
@@ -66,9 +61,9 @@ function startMission()
             end
         end
     end)
-    Citizen.CreateThread(function() --- DEPOT
+    Citizen.CreateThread(function() --- DEPOT et craft
         while true do
-            if getjob then
+            if isFarmer then
                 Wait(0)
                 local playerPos = GetEntityCoords(PlayerPedId())
                 for k, v in ipairs(Config.FarmerDepositPos) do
@@ -82,6 +77,16 @@ function startMission()
                         end
                     else end
                 end
+
+                if #(playerPos - Config.Atelier) < 10.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                end
+                if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
+                    craftprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        TriggerEvent("ferme:OpenBossMenu")
+                    end
+                end
             end
         end
     end)
@@ -93,7 +98,7 @@ retprompt:setActive(false)
 
 function contremaitre() --- RETRAIT
     while true do
-        if getjob then
+        if isFarmer then
             Wait(0)
             local playerPos = GetEntityCoords(PlayerPedId())
             for k, v in ipairs(Config.FarmerWithdrawalPos) do
@@ -230,27 +235,42 @@ farmprompt:setActive(false)
 
 -- zone étable
 function cattle()
+    for k,v in pairs(Config.Buycattle) do
+        local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
+        SetBlipSprite(blip, v.blip)
+        SetBlipScale(blip, 0.2)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Marché aux bestiaux"))
+    end
+    for k,v in pairs(Config.Paturages) do
+        local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
+        local radius = Citizen.InvokeNative(0x45F13B7E0A15C880, Config.radiusStyle, v.pos, Config.blipRadius)
+        SetBlipSprite(blip, Config.BlipSprite)
+        SetBlipScale(blip, 0.2)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Pâturage"))
+    end
     while true do
         Wait(0)
-        local playerpos = GetEntityCoords(PlayerPedId())
-        for k, v in pairs(Config.FarmStables) do
-            if #(playerpos - v.pos ) < 7 and not isInteracting then
-                farmprompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, 0x6319DB71) then
-                    isInteracting = true
-                    local menutype = "Ouvrir"
-                    TriggerServerEvent("dust_ferme:server:askcow")
-                    Wait(200)
-                    OpenFarmStable(menutype, v.name)
-                end
-                if farmprompt:hasHoldModeJustCompleted() then
-                    isInteracting = true
-                    local menutype = "Bétail"
-                    TriggerServerEvent("dust_ferme:server:askcow")
-                    Wait(200)
-                    OpenFarmStable(menutype, v.name)
-                end
-            end 
+        if isFarmer then
+            local playerpos = GetEntityCoords(PlayerPedId())
+            for k, v in pairs(Config.FarmStables) do
+                if #(playerpos - v.pos ) < 7 and not isInteracting then
+                    farmprompt:setActiveThisFrame(true)
+                    if IsControlJustReleased(0, 0x6319DB71) then
+                        isInteracting = true
+                        local menutype = "Ouvrir"
+                        TriggerServerEvent("dust_ferme:server:askcow")
+                        Wait(200)
+                        OpenFarmStable(menutype, v.name)
+                    end
+                    if farmprompt:hasHoldModeJustCompleted() then
+                        isInteracting = true
+                        local menutype = "Bétail"
+                        TriggerServerEvent("dust_ferme:server:askcow")
+                        Wait(200)
+                        OpenFarmStable(menutype, v.name)
+                    end
+                end 
+            end
         end
     end
 end
@@ -502,6 +522,7 @@ Citizen.CreateThread(function ()
                         for k, v in pairs(Config.FarmStables) do
                             if #(targetCoords - v.pos) < 7 then
                                 TriggerServerEvent("dust_ferme:server:stockcow", v.name, cowid, entity)
+                                DeleteEntity(entity)
                             end
                         end
                         for k, v in pairs(Config.Paturages) do
@@ -592,23 +613,6 @@ AddEventHandler("dust_ferme:cowstocked", function(entity)
     DeleteEntity(entity)
 end)
 
--- différentes zones de paturage
-
-function Paturages()
-    for k,v in pairs(Config.Buycattle) do
-        local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
-        SetBlipSprite(blip, v.blip)
-        SetBlipScale(blip, 0.2)
-        Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Marché aux bestiaux"))
-    end
-    for k,v in pairs(Config.Paturages) do
-        local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
-        local radius = Citizen.InvokeNative(0x45F13B7E0A15C880, Config.radiusStyle, v.pos, Config.blipRadius)
-        SetBlipSprite(blip, Config.BlipSprite)
-        SetBlipScale(blip, 0.2)
-        Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Pâturage"))
-    end
-end
 
 -- lait
 local laitprompt = UipromptGroup:new("Bétail")
@@ -721,4 +725,137 @@ end)
 
 AddEventHandler('txAdmin:events:serverShuttingDown', function()
     TriggerServerEvent('dust_ferme:server:resetcow')
+end)
+
+
+RegisterNetEvent("ferme:OpenBossMenu", function()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local jobgrade = RedEM.GetPlayerData().jobgrade
+
+        local elements = {}
+
+
+        for k, v in pairs(Config.CraftingsReceipe) do
+            table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Cuisine",
+            subtext = "Laisse le cuisiner",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            MenuData.CloseAll()
+            TriggerServerEvent("ferme:MaxRessourcesAmount", data.current.value)
+            Wait(150)
+            TriggerEvent("ferme:SelectCraftingAmount", data.current.value, MenuData, menu)
+            --
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)
+
+RegisterNetEvent("ferme:CraftingAction")
+AddEventHandler("ferme:CraftingAction", function()
+    local playerPed = PlayerPedId()
+    local coords = GetEntityCoords(playerPed)
+    FreezeEntityPosition(playerPed, true)
+    isInteracting = true
+    RequestAnimDict(Config.AnimDict)
+    while not HasAnimDictLoaded(Config.AnimDict) do
+        Citizen.Wait(50)
+    end
+
+    for k,v in pairs(Config.CraftAnim) do
+        TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 1, 0, true)
+    end
+
+    local timer = GetGameTimer() + Config.WorkingTime
+    isInteracting = true
+
+    Citizen.CreateThread(function()
+        while GetGameTimer() < timer do 
+            Wait(0)
+        end
+        ClearPedTasks(PlayerPedId())
+        FreezeEntityPosition(playerPed, false)
+        isInteracting = false
+    end)    
+end)
+
+RegisterNetEvent("ferme:SelectCraftingAmount")
+AddEventHandler("ferme:SelectCraftingAmount", function(dataType, menuData, menu)
+    menuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+
+    local elements = {
+        { label = "Quantité", 
+        value = 0, 
+        desc = "Se mettre au travail",
+        type = 'slider',
+        min = 0,
+        max = maxCraftAmountstore 
+        },
+    }
+
+    menuData.Open('default', GetCurrentResourceName(), 'craft', {
+        title = "Atelier",
+        subtext = "Choisir la quantité",
+        align = 'top-right',
+        elements = elements,
+    },
+
+    function(data, menu)
+        if data.current.label == "Quantité" then
+            TriggerServerEvent("store:CraftItem", dataType, menu, data.current.value)
+            menu.close()
+            isInteracting = false
+        end 
+    end,
+
+    function(data, menu)
+        menu.close()
+        isInteracting = false
+    end)
+end)
+
+RegisterNetEvent("ferme:client:SetMaxAmount", function(value)
+    maxCraftAmountstore = value
 end)

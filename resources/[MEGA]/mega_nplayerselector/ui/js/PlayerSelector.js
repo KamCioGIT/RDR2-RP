@@ -16,7 +16,7 @@ class PlayerSelector extends HTMLElement {
         this.setAttribute('playerId', this._id);
         const id = document.createElement('p');
         id.classList.add('selector-id');
-        id.innerHTML = `ID: ${this._id}`;
+        // id.innerHTML = `ID: ${this._id}`;
         const img = document.createElement('img');
         img.classList.add('selector-img');
         img.setAttribute('src', './img/selector.png')

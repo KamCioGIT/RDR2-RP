@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+
 @font-face {
     font-family: 'RDR Lino Regular';
     src: url("../fonts/RDR_Lino_Regular.ttf") format("truetype");
@@ -49,15 +52,15 @@ h1, h2, h3, h4, h5, h6, hr, p {
 }
 
 h1 {
-    font-family: 'Chinese Rocks';
+    font-family: 'Milonga';
 }
 
 h2, h3, h4, h5, h6 {
-    font-family: 'RDR Lino Regular';
+    font-family: 'Milonga';
 }
 
 p {
-    font-family: 'Hapna Slab Serif';
+    font-family: 'Milonga';
 }
 
 button:focus {
@@ -70,19 +73,19 @@ button:focus {
   
 /* Track */
 ::-webkit-scrollbar-track {
-    background: rgba(92, 92, 92, 0.3); 
+    background: #2c2a21; 
     border-radius: 5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: rgba(178, 18, 20, 0.3); 
+    background: #615C43; 
     border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #B62A2A; 
+    background: #C1B681; 
 }
 
 #app {
@@ -96,19 +99,26 @@ button:focus {
 }
 
 .patient, .notes {
-    width: 100%;
+    width: 34vw;
     height: 100%;
     max-height: calc(100vh - 200px);
     background: url('../img/bg.png');
     background-size: 100% 100%;
     margin: 0 25px;
     padding: 50px;
+    box-shadow: 0px 0px 10px 8px #00000080;
 }
 
 .notes {
-    width: 100%;
     grid-column: 1/2;
     padding: 50px 80px;
+
+    width: 53vw;
+    max-height: calc(100vh - 200px);
+    background: url('../img/bgdeux.png');
+    background-size: 100% 100%;
+    margin: 0 25px;
+    padding: 50px;
 }
 
 .notes .scrollable {
@@ -120,13 +130,37 @@ button:focus {
     grid-column: 2/3;
 }
 
+.title_lm {
+    text-align: center;
+    margin: auto;
+    margin-top: -2.5vh;
+}
+
+.title_lm_notes {
+    text-align: center;
+    margin: auto;
+    margin-top: -1.5vh;
+}
+
+.pb_un {
+    width: 15vw;
+    margin-top: 0.5vh;
+    height: 1.5vh;
+}
+
+.pb_deux {
+    width: 27vw;
+    margin-top: 1.5vh;
+}
+
+
 .header-group {
     width: fit-content;
 }
 
 .header-group hr {
-    border-color: #B62A2A;
-    border: 2px solid #B62A2A;
+    border-color: #615C43;
+    border: 2px solid #615C43;
 }
 
 .patient-info {
@@ -161,9 +195,10 @@ button:focus {
 }
 
 .parameter p {
-    font-size: 24px;
+    font-size: 17px;
     margin-top: 5px;
-    font-family: 'Chinese Rocks';
+    color: #cacaca;
+    font-family: 'Hapna Slab Serif';
 }
 
 .rdr-button {
@@ -171,11 +206,13 @@ button:focus {
     border: 0px;
     background-size: 100% 100%;
     color: #fafafa;
-    font-family: 'Chinese Rocks';
+    font-family: 'Milonga';
     font-size: 24px;
-    width: 100%;
+    width: 17vw;
+    max-width: 100%;
     height: 80px;
-    margin: 5px 0;
+    margin: auto;
+    text-align: center;
     transition: all .15s ease-out;
 }
 
@@ -207,12 +244,12 @@ button:focus {
 .curable {
     padding: 5px;
     width: fit-content;
+    color: #fafafa;
+    font-family: 'Hapna Slab Serif';
 }
 
 .curable:hover {
-    background: url('../img/box-red.png');
-    background-size: 100% 100%;
-    color: #fafafa;
+    color: #DC5757;
 }
 
 .text-warning {
@@ -221,13 +258,13 @@ button:focus {
 
 @keyframes dangerPulse {
     0% {
-        fill: rgba(182, 42, 42, 0.7);
+        fill: #DC5757;
     } 
     50% {
         fill: #B62A2A;
     }
     100% {
-        fill: rgba(182, 42, 42, 0.7);
+        fill: #DC5757;
     }
 }
 
@@ -236,9 +273,9 @@ button:focus {
 }
 
 .note {
-    background: url('../img/box.png');
-    background-size: 100% 100%;
-    padding: 25px;
+    border: 2px solid #615C43;
+    padding: 20px;
+    margin-right: 5px;
     display: grid;
     grid-template-rows: fit-content auto;
     font-size: 18px;
@@ -256,7 +293,8 @@ button:focus {
 }
 
 .note-content {
-    color: rgba(255, 255, 255, 0.7);
+    color: #cacaca;
+    max-width: 80%;
 }
 
 .header-right {
@@ -294,11 +332,11 @@ button:focus {
     margin: 15px 0;
     background: #333333;
     border-radius: 5px;
-    color: #fafafa;
+    color: #cacaca;
     border: 0;
     padding: 10px 10px;
-    font-size: 20px;
-    font-family: 'Hapna Slab Serif';
+    font-size: 16px;
+    font-family: 'Hapna Slab Serif' !important;
 }
 
 .custom-modal label {

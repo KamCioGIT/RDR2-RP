@@ -24,9 +24,10 @@ ensure spawnmanager
 ensure mapmanager
 ensure basic-gamemode 
 ensure chat
-ensure ipl_tool
+-- ensure ipl_tool
 exec resources/weathersync/permissions.cfg
 start weathersync
+start saltychat
 
 # Spooner
 start uiprompt
@@ -50,6 +51,7 @@ ensure redemrp_charselect
 ensure [REDEMRP]
 ensure gumApi
 ensure gtp_safecracking
+ensure objectloader
 
 # Dust Resources
 ensure dust_stable
@@ -69,9 +71,11 @@ ensure dust_rumors
 ensure [GUM]
 ensure redm-doorsearch
 ensure dust_marechal
-ensure redm_emotes
+-- ensure redm_emotes
 ensure dust_armurier
 ensure dust_banking
+ensure dust_telegram
+ensure dust_radial
 
 # MEGA
 ensure [MEGA]

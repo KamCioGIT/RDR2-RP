@@ -12,9 +12,9 @@
     <div id="app">
         <div class="notes" v-if="hospital" style="display: none;">
             {{note}}
-            <div class="header-group">
-                <h1>Patient Notes - {{hospital}}</h1>
-                <hr>
+            <div class="title_lm_notes">
+                <h1> Antécédents - {{hospital}}</h1>
+                <img src="./img/petite_barre.png" class="pb_deux">
             </div>
             <div class="scrollable">
                 <div class="note" v-for="note of notes">
@@ -30,15 +30,15 @@
                     </div>
                 </div>
                 <button class="rdr-button" id="add-note" @click="openNoteModal()">
-                    Add Note
+                    Ajouter une note
                 </button>
             </div>
         </div>
         <div class="patient" style="display: none;">
-            <div class="header-group">
-                <h1 v-if="!this.inspectMode">Patient</h1>
-                <h1 v-else>Dead Body</h1>
-                <hr>
+            <div class="title_lm">
+                <h1 v-if="!this.inspectMode">Symptômes</h1>
+                <h1 v-else>Cadavre</h1>
+                <img src="./img/petite_barre.png" class="pb_un">
             </div>
             <div class="patient-info">
                 <div class="silhouette">
@@ -80,14 +80,14 @@
                 <div class="patient-parameters" v-if="patient.diseases">
                     <div class="parameter">
                         <div class="header-group">
-                            <h1>Heart Rate</h1>
+                            <h1>Pouls</h1>
                             <hr>
                         </div>
                         <p>{{heartRate}}</p>
                     </div>
                     <div class="parameter">
                         <div class="header-group">
-                            <h1>Body Temperature</h1>
+                            <h1>Température</h1>
                             <hr>
                         </div>
                         <p>{{bodyTemperature}}</p>
@@ -102,12 +102,8 @@
                         </div>
                     </div>
                     <div class="parameter" id="notes-toggle-wrapper" v-if="hospital">
-                        <div class="header-group">
-                            <h1>Notes</h1>
-                            <hr>
-                        </div>
                         <button @click="toggleNotes()" id="notes-toggle" class="rdr-button">
-                            {{ notesOpened ? 'Close Notes' : 'Open Notes' }}
+                            {{ notesOpened ? 'Fermer' : 'Notes' }}
                         </button>
                     </div>
                 </div>
@@ -115,7 +111,7 @@
         </div>
     </script>
     <script type="text/template" id="addNoteModalContent">
-        <h1>Add Note</h1>
+        <h1>Ajouter une note</h1>
         <form class="modal-form" id="addNoteForm">
             <textarea id="noteText"></textarea>
         </form>

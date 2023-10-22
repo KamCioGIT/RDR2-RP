@@ -5,17 +5,10 @@ local ressourcePointIndexForMining = nil
 local isInBossMenu = false
 
 
-Citizen.CreateThread(function()
-    Wait(1000)
-    if RedEM.GetPlayerData().isLoggedIn then
-        TriggerServerEvent("dust_armurier:server:RequestJob")
-    end
-end)
-
 local getjob = false
-local getgrade = 0
-RegisterNetEvent("redem_roleplay:JobChange")
-AddEventHandler("redem_roleplay:JobChange", function(job, grade)
+local getgrade = tonumber(0)
+RegisterNetEvent("dust_job:mineur")
+AddEventHandler("dust_job:mineur", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             getjob = true

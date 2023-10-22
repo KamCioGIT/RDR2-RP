@@ -88,7 +88,7 @@ NewPlayer = function(source, charid, dbdata)
         self.money = newMoney
 
         TriggerClientEvent("redem:addMoney", self.source, m)
-        TriggerClientEvent("redem:activateMoney", self.source, self.money)
+        -- TriggerClientEvent("redem:activateMoney", self.source, self.money)
         self.SendPlayerDataToClient()
     end
 
@@ -98,7 +98,7 @@ NewPlayer = function(source, charid, dbdata)
         self.money = newMoney
 
         TriggerClientEvent("redem:removeMoney", self.source, m)
-        TriggerClientEvent("redem:activateMoney", self.source, self.money)
+        -- TriggerClientEvent("redem:activateMoney", self.source, self.money)
         self.SendPlayerDataToClient()
     end
 

@@ -15,7 +15,7 @@ let html = document.querySelector('#addNoteModalContent').innerHTML;
 
 addNoteModal.setContent(html);
 
-addNoteModal.addFooterBtn('Submit', 'custom-modal-submit tingle-btn tingle-btn--primary tingle-btn--pull-right', function() {
+addNoteModal.addFooterBtn('Valider', 'custom-modal-submit tingle-btn tingle-btn--primary tingle-btn--pull-right', function() {
     let inputElement = document.querySelector('#noteText');
 
     fetch(`http://${GetParentResourceName()}/addNote`, {

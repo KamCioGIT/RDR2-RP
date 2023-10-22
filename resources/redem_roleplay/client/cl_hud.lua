@@ -63,10 +63,11 @@ end)
 
 -- Updating
 RegisterNetEvent("redem:addMoney", function(_money, native, current)
-    SendNUIMessage({
-        addcash = true,
-        money = roundMe(_money, 2)
-    })
+    TriggerEvent('redem_roleplay:ShowAdvancedRightNotification', "+$".._money, "itemtype_textures" , "itemtype_cash_arthur" , "COLOR_GREENDARK", 4000)
+    -- SendNUIMessage({
+    --     addcash = true,
+    --     money = roundMe(_money, 2)
+    -- })
 end)
 
 RegisterNetEvent("redemrp:removeMoney", function(_money, native, current)
@@ -77,8 +78,9 @@ RegisterNetEvent("redemrp:removeMoney", function(_money, native, current)
 end)
 
 RegisterNetEvent("redem:removeMoney", function(_money, native, current)
-    SendNUIMessage({
-        removecash = true,
-        money = roundMe(_money, 2)
-    })
+    TriggerEvent('redem_roleplay:ShowAdvancedRightNotification', "-$".._money, "itemtype_textures" , "itemtype_cash_arthur" , "COLOR_REDDARK", 4000)
+    -- SendNUIMessage({
+    --     removecash = true,
+    --     money = roundMe(_money, 2)
+    -- })
 end)

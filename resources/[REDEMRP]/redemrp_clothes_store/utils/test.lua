@@ -10,7 +10,8 @@ clothes_list = {
 					['hash_dec_signed'] = 125186871,
 					['hashname'] = '',
 					['is_multiplayer'] = true,
-					['ped_type'] = 'female'
+					['ped_type'] = 'female',
+					['price'] = 5, ----- rentrer le prix comme ça sur chaque variation, si vous n'en mettez pas l'item est gratuit
 				},
 				[2] = {
 					['category_hash'] = 2044190614,
