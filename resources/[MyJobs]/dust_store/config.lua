@@ -14,6 +14,15 @@ Config.CraftAnim = {
 }
 
 
+Config.BuyPain = {
+    [1] = vector3(-816.855, -1226.588, 43.58243), -- bla
+    [2] = vector3(2842.779, -1224.614, 47.62225), -- st denis
+}
+
+Config.Market = {
+    ["bread"] = {label = "Pain", price = 0,25}
+}
+
 Config.CraftingsReceipe = {
     ['soupe'] = {
         type = 'epicerie',

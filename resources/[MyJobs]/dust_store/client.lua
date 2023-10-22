@@ -191,3 +191,81 @@ RegisterNetEvent("store:client:SetMaxAmount", function(value)
     maxCraftAmountstore = value
 end)
 
+
+
+---- buy pain
+
+local marketprompt = UipromptGroup:new("Marché")
+Uiprompt:new(0x760A9C6F, "Acheter", marketprompt)
+marketprompt:setActive(false)
+
+Citizen.CreateThread(function()
+    for k,v in pairs(Config.BuyPain) do
+        local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v)
+        SetBlipSprite(blip, 819673798)
+        SetBlipScale(blip, 0.2)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Marché"))
+    end
+    while true do
+        Wait(2)
+        local playerPos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.BuyPain) do
+            if #(playerPos - v) < 10.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                marketprompt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    BuyPain()
+                    isInteracting = true
+                end
+            end
+        end
+    end
+end)
+
+
+function BuyPain()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+
+        local elements = {}
+
+
+        for k, v in pairs(Config.Market) do
+            table.insert(elements, {label = v.label, value = k})
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'market', {
+            title = "Marché",
+            subtext = "Acheter",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            TriggerServerEvent("store:buypain", data.current.value)
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end

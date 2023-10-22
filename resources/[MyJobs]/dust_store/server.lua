@@ -28,7 +28,6 @@ end)
 
 RegisterServerEvent('store:AddItem')
 AddEventHandler('store:AddItem', function(item, amount)
-	print (item, amount)
 	local _source = tonumber(source)
 	local ItemData = data.getItem(_source, item)
 	ItemData.AddItem(amount)
@@ -118,5 +117,18 @@ RegisterServerEvent("store:MaxRessourcesAmount", function(dataType)
 		end
 	end
 
+end)
+
+
+RegisterNetEvent("store:buypain", function(item, price)
+	local _source = tonumber(source)
+	local user = RedEM.GetPlayer(_source)
+	local money = user.money
+	local itemprice = price
+	if money >= itemprice then
+		user.RemoveMoney(price)
+		local ItemData = data.getItem(_source, item)
+		ItemData.AddItem(amount)
+	end
 end)
 
