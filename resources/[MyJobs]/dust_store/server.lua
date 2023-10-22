@@ -127,7 +127,7 @@ RegisterNetEvent("store:buypain", function(item, price)
 	local money = user.money
 	local itemprice = price
 	if money >= itemprice then
-		user.RemoveMoney(price)
+		user.RemoveMoney(itemprice)
 		ItemData.AddItem(1)
 	end
 end)
