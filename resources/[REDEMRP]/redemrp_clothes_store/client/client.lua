@@ -576,7 +576,7 @@ end
 function camera(zoom, offset)
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
-    local heading = GetEntityHeading(playerPed) - 90.0
+    local heading = GetEntityHeading(playerPed) + 90.0
     local zoomOffset = zoom
     local camOffset = offset
     local angle = heading * math.pi / 180.0
