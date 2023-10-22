@@ -913,7 +913,7 @@ Citizen.CreateThread(
                     end
 
                     if distance <= 5.0 then
-                        DrawText3D(v.coords.x, v.coords.y, v.coords.z + 0.5, v.label .. " " .. "[" .. v.amount .. "]")
+                        DrawText3D(v.coords.x, v.coords.y, v.coords.z + 0.5, v.amount .. " " .. v.label)
                     end
 
                     if distance <= 1.2 then
