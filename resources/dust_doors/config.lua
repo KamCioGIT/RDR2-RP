@@ -10,8 +10,8 @@ Config.Trapdoor = {
 		authorizedJobs = { 'straw_store' },
 		doorid = "p_trapdoor01x",
 		objCoords = vector3(-1790.7442626953125, -390.150390625, 159.28944396972656),
-		objPitchclose = 0.0,
-		objPitchopen = -85.0,
+		objPitchclose = vector3(0.0, 0.0, 145),
+		objPitchopen =  vector3(-90, 0.0, 145),
 		locked = false,
 		distance = 3.0
 	},

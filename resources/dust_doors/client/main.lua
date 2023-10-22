@@ -161,10 +161,10 @@ Citizen.CreateThread(function()
 				SetEntityRotation(data.obj, data.rota, 0, true)
 				if IsControlJustReleased(0, 0x760A9C6F) then
 					if data.trapopen == true then
-						SetEntityRotation(data.prop, -90.0, 0.0, 0.0, 0, true)
+						SetEntityRotation(data.prop, data.objPitchclose, 0, true)
 						data.trapopen = true
 					else
-						SetEntityRotation(data.prop, -90.0, 0.0, 0.0, 0, true)
+						SetEntityRotation(data.prop, data.objPitchopen, 0, true)
 						data.trapopen = true
 					end
 				end
@@ -172,10 +172,10 @@ Citizen.CreateThread(function()
 			if data.prop then
 				if IsControlJustReleased(0, 0x760A9C6F) then
 					if data.trapopen == true then
-						SetEntityRotation(data.prop, 0.0, 0.0, 0.0, 0, true)
+						SetEntityRotation(data.prop, data.objPitchclose, 0, true)
 						data.trapopen = false
 					else
-						SetEntityRotation(data.prop, -90.0, 0.0, 0.0, 0, true)
+						SetEntityRotation(data.prop, data.objPitchopen, 0, true)
 						data.trapopen = true
 					end
 				end
