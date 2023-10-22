@@ -152,6 +152,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(0)
 		for k, v in ipairs(Config.Trapdoor) do
 			if DoesObjectOfTypeExistAtCoords(v.objCoords, 15.0, GetHashKey(v.doorID)) then
+				print 'eee'
 				if v.obj == nil then
 					v.obj = GetClosestObjectOfType(pos, AnimConfig.Radius, GetHashKey(v.doorID), false, false, false)
 				end
