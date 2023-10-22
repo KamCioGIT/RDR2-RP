@@ -249,7 +249,7 @@ function BuyPain()
 
 
         for k, v in pairs(Config.Market) do
-            table.insert(elements, {label = v.label, value = k})
+            table.insert(elements, {label = v.label, value = k, price = v.price, desc = "$"..v.price})
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'market', {
@@ -260,7 +260,7 @@ function BuyPain()
         },
 
         function(data, menu)
-            TriggerServerEvent("store:buypain", data.current.value)
+            TriggerServerEvent("store:buypain", data.current.value, data.current.price)
         end,
 
         function(data, menu)
