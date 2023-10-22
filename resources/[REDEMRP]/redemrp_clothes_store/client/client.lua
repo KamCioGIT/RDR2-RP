@@ -1032,7 +1032,6 @@ function OpenHatMenu()
     }, function(data, menu)
 
     end, function(data, menu)
-        print (data.current.value)
         if data.current.value == "save" then
             print "ouais la zone"
             destory()
