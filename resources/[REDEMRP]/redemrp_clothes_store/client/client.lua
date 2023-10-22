@@ -926,7 +926,7 @@ function OpenHatMenu()
             a = a + 1
             options = {}
 
-            for i = 1, GetMaxTexturesForModel(k, HatCache[k].model or 1), 1 do
+            for i = 1, GetMaxTexturesForModel(k, HatCache["hats"].model or 1), 1 do
                 table.insert(options, i.." Couleur")
             end
             table.insert(elements, {
