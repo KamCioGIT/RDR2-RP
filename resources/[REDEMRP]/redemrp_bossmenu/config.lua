@@ -248,6 +248,29 @@ Config.Jobs = {
             },
         }
     },
+    ["store_rhodes"] = {
+        bigjob = "store",
+        Name = "General Store Rhodes",
+        blisprite = 1475879922,
+        MenuLocations = 
+            vector3(-1789.773, -384.8727, 160.3285)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Ouvrier",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Contremaître",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
     ["forge"] = {
         bigjob = "forge",
         Name = "Forge",
@@ -272,5 +295,173 @@ Config.Jobs = {
         }
     },
 
+----- ----- ----- -----
+
+    ["saloon_vh"] = {
+        bigjob = "saloon",
+        Name = "Saloon de Van Horn",
+        blisprite = 1879260108,
+        MenuLocations = 
+        vector3(2950.342, 529.1586, 45.33422)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["saloon_faubourg"] = {
+        bigjob = "saloon",
+        Name = "Saloon des faubourgs",
+        blisprite = 1879260108,
+        MenuLocations = 
+            vector3(2793.258, -1165.609, 47.93198)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["doctor_stdenis"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de Saint-Denis",
+        MenuLocations = 
+            vector3(2733.16, -1230.244, 50.37041)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["presse"] = {
+        bigjob = "presse",
+        Name = "Presse",
+        blisprite = 587827268,
+        MenuLocations = 
+            vector3(2613.231, -1340.257, 50.13868)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["apothicaire"] = {
+        bigjob = "apothicaire",
+        Name = "Apothicaire",
+        blisprite = 669307703,
+        MenuLocations = 
+            vector3(2627.889, -1351.214, 49.04772)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["sheriff_rhodes"] = {
+        bigjob = "sheriff",
+        Name = "Shériff",
+        blisprite = 778811758,
+        MenuLocations = 
+            vector3(1361.258, -1306.085, 77.7606)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+                Pay = 0.75,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+                Pay = 0.75,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+                Pay = 0.75,
+            },
+        }
+    },
+    ["sheriff_bla"] = {
+        bigjob = "sheriff",
+        Name = "Shériff",
+        blisprite = 778811758,
+        MenuLocations = 
+            vector3(-768.0265, -1266.601, 44.05392)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+                Pay = 0.75,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+                Pay = 0.75,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+                Pay = 0.75,
+            },
+        }
+    },
 
 }

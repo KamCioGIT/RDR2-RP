@@ -54,8 +54,8 @@ AddEventHandler(
                         CreateInventory(inv)
                 else
                     local start_items = {
-                        ["water"] = {amount = 3, meta = {}},
-                        ["bread"] = {amount = 3, meta = {}}
+                        ["gourde"] = {amount = 1, meta = {}},
+                        ["bread"] = {amount = 5, meta = {}}
                     }
                     MySQL.update(
                         "INSERT INTO user_inventory (`identifier`, `charid`, `items`) VALUES (@identifier, @charid, @items);",

@@ -40,13 +40,23 @@ Config.Crafting = {
 
 Config.Items = {
     ["water"] = {
-        label = "Water",
-        description = "Some refreshing water to keep you hydrated",
-        weight = 0.01,
+        label = "Eau",
+        description = "De l'eau",
+        weight = 0.1,
         canBeDropped = true,
         canBeUsed = true,
         limit = 200,
         imgsrc = "items/water.png",
+        type = "item_standard"
+    },
+    ["bread"] = {
+        label = "Pain",
+        description = "Du bon pain",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = true,
+        limit = 200,
+        imgsrc = "items/cooked_bread.png",
         type = "item_standard"
     },
     ["bandage"] = {

@@ -7,7 +7,7 @@ DutyCommandTimer = {}
 
 Citizen.CreateThread(function()
     while true do
-        Wait(900000) -- 15 minutes
+        Wait(1800000) -- 15 minutes
         DoPay()
     end
 end)
@@ -28,7 +28,7 @@ function DoPay()
                         if Config.Jobs[job].Grades[grade].Pay then
                             local pay = Config.Jobs[job].Grades[grade].Pay
                             TriggerClientEvent("RedEM:client:PlaySound", id, 1)
-                            user.AddMoney(pay)
+                            user.AddBankMoney(pay)
                         end
                     end
                 end
