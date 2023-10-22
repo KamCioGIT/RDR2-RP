@@ -10218,9 +10218,9 @@ hairs_list = {
 					['normal'] = `vfiqflna_0x7e6e8df9`,
 					['material'] = `bpvkokra_0xf4fd0d09`,
 					['palette'] = `rkdidexa_0x3f6e70ff `,
-					['tint0'] = 20,
-					['tint1'] = 20,
-					['tint2'] = 20
+					['tint0'] = 70,
+					['tint1'] = 64,
+					['tint2'] = 88
 				},
 				[11] = {
 					['category_hash'] = 4160842698,
@@ -10233,10 +10233,10 @@ hairs_list = {
 					['albedo'] = `rncoeraa_0xf8af92e5`,
 					['normal'] = `vfiqflna_0x7e6e8df9`,
 					['material'] = `bpvkokra_0xf4fd0d09`,
-					['palette'] = `rkdidexa_0x3f6e70ff `,
-					['tint0'] = 100,
-					['tint1'] = 240,
-					['tint2'] = 240
+					['palette'] = `sgxurdka_0xdfb1f64c `,
+					['tint0'] = 60,
+					['tint1'] = 60,
+					['tint2'] = 60
 				},
 				[12] = {
 					['category_hash'] = 4160842698,
@@ -10249,10 +10249,10 @@ hairs_list = {
 					['albedo'] = `rncoeraa_0xf8af92e5`,
 					['normal'] = `vfiqflna_0x7e6e8df9`,
 					['material'] = `bpvkokra_0xf4fd0d09`,
-					['palette'] = `rkdidexa_0x3f6e70ff `,
-					['tint0'] = 100,
-					['tint1'] = 100,
-					['tint2'] = 240
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 65,
+					['tint1'] = 28,
+					['tint2'] = 204
 				},
 				[13] = {
 					['category_hash'] = 4160842698,
@@ -10265,10 +10265,10 @@ hairs_list = {
 					['albedo'] = `rncoeraa_0xf8af92e5`,
 					['normal'] = `vfiqflna_0x7e6e8df9`,
 					['material'] = `bpvkokra_0xf4fd0d09`,
-					['palette'] = `rkdidexa_0x3f6e70ff `,
-					['tint0'] = 240,
-					['tint1'] = 100,
-					['tint2'] = 10
+					['palette'] = `sgxurdka_0xdfb1f64c`,
+					['tint0'] = 10,
+					['tint1'] = 9,
+					['tint2'] = 43
 				},
 			},
 			[26] = {
