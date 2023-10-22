@@ -572,6 +572,7 @@ function destory()
     DestroyAllCams(true)
     ClothingCamera = nil
     showcontrol = false
+    cameraprompt:setActive(false)
 end
 
 local cameraprompt = UipromptGroup:new("Camera")
@@ -590,6 +591,7 @@ end)
 
 function camera(zoom, offset)
     showcontrol = true
+    cameraprompt:setActive(true)
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
     local heading = GetEntityHeading(playerPed) + 90.0
