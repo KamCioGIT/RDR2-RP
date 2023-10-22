@@ -90,6 +90,25 @@ function CalculatePriceHat()
 		return price
 end
 
+function CalculatePriceMask()
+	local price = 0
+		if IsPedMale(PlayerPedId()) then
+				if OldHatCache["masks"].model ~= HatCache["masks"].model or OldHatCache["masks"].texture ~= HatCache["masks"].texture then
+					if HatCache["masks"].model > 0 then
+						price = price + Config.Price["masks"]
+					end
+				end
+		else
+				if OldHatCache["masks"].model ~= HatCache["masks"].model or OldHatCache["masks"].texture ~= HatCache["masks"].texture then
+					if HatCache["masks"].model > 0 then
+						price = price + Config.Price["masks"]
+					end
+				end
+		
+		end
+		return price
+end
+
 
 function NativeSetPedComponentEnabled(ped, componentHash, immediately, isMp)
     local categoryHash = NativeGetPedComponentCategory(not IsPedMale(ped), componentHash)
