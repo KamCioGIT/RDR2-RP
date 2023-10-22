@@ -922,8 +922,8 @@ Citizen.CreateThread(
                             TaskLookAtEntity(playerPed, v.obj, 3000, 2048, 3)
                             local PromptGroupName = CreateVarString(10, "LITERAL_STRING", v.label)
                             TriggerEvent("redem_roleplay:ShowTopNotification")
-                            PromptSetActiveGroupThisFrame(PickupPromptGroup, PromptGroupName)
-                            if PromptHasHoldModeCompleted(PickupPrompt) then
+                            -- PromptSetActiveGroupThisFrame(PickupPromptGroup, PromptGroupName)
+                            if IsControlJustReleased(0, 0x156F7119) then
                                 PromptActive = true
                                 TriggerServerEvent("redemrp_inventory:onPickup", k)
                             end

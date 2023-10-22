@@ -621,8 +621,6 @@ AddEventHandler(
             )
             DroppedItems[id] = nil
             TriggerClientEvent("redemrp_inventory:UpdatePickups", -1, DroppedItems)
-        else
-            TriggerClientEvent("redem_roleplay:NotifyRight", _source, "You cannot pick this up!", 3000)
         end
         TriggerClientEvent("redemrp_inventory:ReEnablePrompt", _source)
     end
