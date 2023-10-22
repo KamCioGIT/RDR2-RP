@@ -76,7 +76,8 @@ Config.Label = {
 	["skirts"] = "Jupe",
 	["hair_accessories"] = "Accessoire tête",
 	["dresses"] = "Robe",  
-	["armor"] = "Armure",    	
+	["armor"] = "Armure",
+	["save"] = "Valider",    	
 }
 
 
