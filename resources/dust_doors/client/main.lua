@@ -154,18 +154,28 @@ Citizen.CreateThread(function()
 		local bellrun = false
 		for component, data in pairs(Config.Trapdoor) do
 			if DoesObjectOfTypeExistAtCoords(pos, 40.0, GetHashKey(data.doorid)) then
-				if data.obj == nil then
-					data.obj = GetClosestObjectOfType(pos, 40.0, GetHashKey(data.doorid), false, false, false)
-					SetEntityAsMissionEntity(data.obj, true, true)
-					if IsControlJustReleased(0, 0x760A9C6F) then
-						print 'open'
-						SetEntityRotation(data.obj, -90.0, 0.0, 0.0, 0, true)
+				data.obj = GetClosestObjectOfType(pos, 40.0, GetHashKey(data.doorid), false, false, false)
+				data.rota = GetEntityRotation(data.obj)
+				DeleteEntity(data.obj)
+				data.prop = CreateObject("p_trapdoor02x", data.objCoords, false, false, true)
+				SetEntityRotation(data.obj, data.rota, 0, true)
+				if IsControlJustReleased(0, 0x760A9C6F) then
+					if data.trapopen == true then
+						SetEntityRotation(data.prop, -90.0, 0.0, 0.0, 0, true)
+						data.trapopen = true
+					else
+						SetEntityRotation(data.prop, -90.0, 0.0, 0.0, 0, true)
 						data.trapopen = true
 					end
-				else
-					if IsControlJustReleased(0, 0x760A9C6F) then
-						print 'open'
-						SetEntityRotation(data.obj, -90.0, 0.0, 0.0, 0, true)
+				end
+			end
+			if data.prop then
+				if IsControlJustReleased(0, 0x760A9C6F) then
+					if data.trapopen == true then
+						SetEntityRotation(data.prop, -90.0, 0.0, 0.0, 0, true)
+						data.trapopen = true
+					else
+						SetEntityRotation(data.prop, -90.0, 0.0, 0.0, 0, true)
 						data.trapopen = true
 					end
 				end
