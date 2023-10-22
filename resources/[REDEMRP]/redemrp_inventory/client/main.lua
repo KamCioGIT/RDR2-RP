@@ -879,12 +879,11 @@ function SetupPickPrompt()
         function()
             local str = "Pick Up"
             PickupPrompt = Citizen.InvokeNative(0x04F97DE45A519419)
-            PromptSetControlAction(PickupPrompt, 0x156F7119)
+            PromptSetControlAction(PickupPrompt, 0xC7B5340A)
             str = CreateVarString(10, "LITERAL_STRING", str)
             PromptSetText(PickupPrompt, str)
             PromptSetEnabled(PickupPrompt, true)
             PromptSetVisible(PickupPrompt, true)
-            PromptSetHoldMode(PickupPrompt, true)
             PromptSetGroup(PickupPrompt, PickupPromptGroup)
             PromptRegisterEnd(PickupPrompt)
         end
@@ -922,7 +921,7 @@ Citizen.CreateThread(
                             TaskLookAtEntity(playerPed, v.obj, 3000, 2048, 3)
                             local PromptGroupName = CreateVarString(10, "LITERAL_STRING", v.label)
                             PromptSetActiveGroupThisFrame(PickupPromptGroup, PromptGroupName)
-                            if IsControlJustReleased(0, 0x156F7119) then
+                            if IsControlJustReleased(0, 0xC7B5340A) then
                                 PromptActive = true
                                 TriggerServerEvent("redemrp_inventory:onPickup", k)
                             end
