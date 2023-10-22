@@ -576,7 +576,7 @@ end
 function camera(zoom, offset)
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
-    local heading = GetEntityHeading(playerPed)
+    local heading = GetEntityHeading(playerPed) - 90.0
     local zoomOffset = zoom
     local camOffset = offset
     local angle = heading * math.pi / 180.0
@@ -598,7 +598,6 @@ function camera(zoom, offset)
         RenderScriptCams(true, true, 1000, true, true)
         -- DisplayHud(false)
         DisplayRadar(false)
-        SetEntityHeading(playerPed, 334.0)
         ----print("Camera Created")
     else
         local ClothingCamera2 = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", pos.x, pos.y, coords.z + camOffset,
