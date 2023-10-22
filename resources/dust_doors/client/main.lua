@@ -172,8 +172,8 @@ Citizen.CreateThread(function()
 			if data.prop then
 				if IsControlJustReleased(0, 0x760A9C6F) then
 					if data.trapopen == true then
-						SetEntityRotation(data.prop, -90.0, 0.0, 0.0, 0, true)
-						data.trapopen = true
+						SetEntityRotation(data.prop, 0.0, 0.0, 0.0, 0, true)
+						data.trapopen = false
 					else
 						SetEntityRotation(data.prop, -90.0, 0.0, 0.0, 0, true)
 						data.trapopen = true
