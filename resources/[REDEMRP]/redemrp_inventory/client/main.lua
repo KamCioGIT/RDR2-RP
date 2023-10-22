@@ -692,14 +692,14 @@ end
 function DrawText3D(x, y, z, text)
     local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z)
     local px, py, pz = table.unpack(GetGameplayCamCoord())
-    SetTextScale(0.15, 0.15)
+    SetTextScale(0.30, 0.30)
     SetTextFontForCurrentCommand(25)
     SetTextColor(255, 255, 255, 215)
     local str = CreateVarString(10, "LITERAL_STRING", text, Citizen.ResultAsLong())
     SetTextCentre(1)
     DisplayText(str, _x, _y)
     local factor = (string.len(text)) / 150
-    DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 255, 255, 255, 120, 0)
+    DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 255, 255, 255, 100, 0)
 end
 
 RegisterNetEvent(
