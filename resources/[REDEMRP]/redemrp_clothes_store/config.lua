@@ -12,7 +12,7 @@ Config.Zones = {
 	vector3(-181.8676, 624.49322, 114.08956), -- VALENTINE
 	vector3(1225.331, -1247.26, 74.15482), -- RHODES
 	vector3(2550.81,-1166.28,53.68), -- SAINT DENIS
-	vector3(-767.94,-1294.95,43.84), -- BLACK WATER
+	vector3(-764.4633, -1291.577, 43.83503), -- BLACK WATER
 	vector3(-1794.89,-385.22,160.33), -- STRAWBERRY
 	vector3(-3731.783, -2610.405, -12.9377), -- Armadillo
 	vector3(2927.3571, 1271.6688, 44.652835), -- Annesburg
