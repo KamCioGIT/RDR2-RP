@@ -88,6 +88,7 @@ Citizen.CreateThread(
             if IsControlJustReleased(0, 0xC1989F95) then
                 isInventoryOpen = not isInventoryOpen
                 print("closeInventory")
+                TriggerEvent("redemrp_inventory:close_inventory")
 
                 if isInventoryOpen then
                     for i, k in pairs(InventoryItems) do
