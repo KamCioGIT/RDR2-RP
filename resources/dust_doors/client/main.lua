@@ -157,7 +157,7 @@ Citizen.CreateThread(function()
 				data.obj = GetClosestObjectOfType(pos, 40.0, GetHashKey(data.doorid), false, false, false)
 				DeleteEntity(data.obj)
 				data.prop = CreateObject("p_trapdoor02x", data.objCoords, false, false, true)
-				SetEntityRotation(data.obj, data.objPitchclose, 0, true)
+				SetEntityRotation(data.prop, data.objPitchclose, 0, true)
 				if IsControlJustReleased(0, 0x760A9C6F) then
 					if data.trapopen == true then
 						SetEntityRotation(data.prop, data.objPitchclose, 0, true)
