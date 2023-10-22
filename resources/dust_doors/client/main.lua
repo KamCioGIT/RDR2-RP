@@ -155,7 +155,7 @@ Citizen.CreateThread(function()
 
 			local object = GetClosestObjectOfType(playerCoords.x, playerCoords.y, playerCoords.z, 10.0, GetHashKey(v.doorID), false, false, false)
 			if object ~= 0 then
-				SetEntityRotation(object, v.objPitchopen, 0.0, 0.0, 2, true)
+				SetEntityRotation(object, 90.0, 0.0, 0.0, 2, true)
 			end
 		end
 	end
