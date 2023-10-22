@@ -10218,9 +10218,9 @@ hairs_list = {
 					['normal'] = `vfiqflna_0x7e6e8df9`,
 					['material'] = `bpvkokra_0xf4fd0d09`,
 					['palette'] = `sgxurdka_0xdfb1f64c  `,
-					['tint0'] = 80,
-					['tint1'] = 0,
-					['tint2'] = 150
+					['tint0'] = 26,
+					['tint1'] = 50,
+					['tint2'] = 19
 				},
 				[11] = {
 					['category_hash'] = 4160842698,
@@ -10234,9 +10234,9 @@ hairs_list = {
 					['normal'] = `vfiqflna_0x7e6e8df9`,
 					['material'] = `bpvkokra_0xf4fd0d09`,
 					['palette'] = `sgxurdka_0xdfb1f64c  `,
-					['tint0'] = 90,
-					['tint1'] = 150,
-					['tint2'] = 0
+					['tint0'] = 30,
+					['tint1'] = 20,
+					['tint2'] = 19
 				},
 				[12] = {
 					['category_hash'] = 4160842698,
@@ -10250,9 +10250,9 @@ hairs_list = {
 					['normal'] = `vfiqflna_0x7e6e8df9`,
 					['material'] = `bpvkokra_0xf4fd0d09`,
 					['palette'] = `sgxurdka_0xdfb1f64c  `,
-					['tint0'] = 200,
-					['tint1'] = 10,
-					['tint2'] = 70
+					['tint0'] = 26,
+					['tint1'] = 100,
+					['tint2'] = 19
 				},				
 				[13] = {
 					['category_hash'] = 4160842698,
@@ -10266,9 +10266,9 @@ hairs_list = {
 					['normal'] = `vfiqflna_0x7e6e8df9`,
 					['material'] = `bpvkokra_0xf4fd0d09`,
 					['palette'] = `sgxurdka_0xdfb1f64c  `,
-					['tint0'] = 78,
-					['tint1'] = 26,
-					['tint2'] = 43
+					['tint0'] = 25,
+					['tint1'] = 130,
+					['tint2'] = 40
 				},
 				[14] = {
 					['category_hash'] = 4160842698,
@@ -10282,9 +10282,9 @@ hairs_list = {
 					['normal'] = `vfiqflna_0x7e6e8df9`,
 					['material'] = `bpvkokra_0xf4fd0d09`,
 					['palette'] = `sgxurdka_0xdfb1f64c  `,
-					['tint0'] = 14,
-					['tint1'] = 78,
-					['tint2'] = 35
+					['tint0'] = 20,
+					['tint1'] = 140,
+					['tint2'] = 50
 				},
 				[15] = {
 					['category_hash'] = 4160842698,
@@ -10298,10 +10298,12 @@ hairs_list = {
 					['normal'] = `vfiqflna_0x7e6e8df9`,
 					['material'] = `bpvkokra_0xf4fd0d09`,
 					['palette'] = `sgxurdka_0xdfb1f64c  `,
-					['tint0'] = 110,
-					['tint1'] = 19,
-					['tint2'] = 98
+					['tint0'] = 17,
+					['tint1'] = 90,
+					['tint2'] = 20
 				},
+			},
+			},
 			},
 			[26] = {
 				[1] = {
