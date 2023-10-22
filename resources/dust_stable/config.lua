@@ -37,16 +37,19 @@ Config.Buycart = {
 		stable= 'buyhorse',
 	},
 }
-Config.WarHorses = {
+
+Config.BuyHorses = {
 	AndalouNoir= {
 		model = "A_C_Horse_Andalusian_DarkBay",
 		name = "Andalou (Noir)",
 		desc = "Un Cheval de guerre noir",
+		price = 40,
     },
 	AndalouPerlino= {
 		model = "A_C_Horse_Andalusian_Perlino",
 		name = "Andalou (Blanc)",
 		desc = "Un Cheval de guerre noir",
+		price = 40,
     },
 }
 

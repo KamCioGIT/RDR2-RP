@@ -709,11 +709,11 @@ RegisterNetEvent(
         local coords = GetEntityCoords(ped)
         local forward = GetEntityForwardVector(ped)
         local x, y, z = table.unpack(coords + forward * 1.6)
-        while not HasModelLoaded(GetHashKey("P_COTTONBOX01X")) do
+        while not HasModelLoaded(GetHashKey("p_cs_dirtybag01x")) do
             Wait(500)
-            modelrequest(GetHashKey("P_COTTONBOX01X"))
+            modelrequest(GetHashKey("p_cs_dirtybag01x"))
         end
-        local obj = CreateObject("P_COTTONBOX01X", x, y, z, true, true, true)
+        local obj = CreateObject("p_cs_dirtybag01x", x, y, z, true, true, true)
         PlaceObjectOnGroundProperly(obj)
         SetEntityAsMissionEntity(obj, true, true)
         FreezeEntityPosition(obj, true)
@@ -730,8 +730,7 @@ RegisterNetEvent(
             _coords.z,
             ObjToNet(obj)
         )
-        PlaySoundFrontend("show_info", "Study_Sounds", true, 0)
-        SetModelAsNoLongerNeeded(GetHashKey("P_COTTONBOX01X"))
+        SetModelAsNoLongerNeeded(GetHashKey("p_cs_dirtybag01x"))
     end
 )
 
@@ -742,11 +741,11 @@ RegisterNetEvent(
         local coords = GetEntityCoords(ped)
         local forward = GetEntityForwardVector(ped)
         local x, y, z = table.unpack(coords + forward * 1.6)
-        while not HasModelLoaded(GetHashKey("p_uniqletterbundle01x")) do
+        while not HasModelLoaded(GetHashKey("p_telegram01x")) do
             Wait(500)
-            modelrequest(GetHashKey("p_uniqletterbundle01x"))
+            modelrequest(GetHashKey("p_telegram01x"))
         end
-        local obj = CreateObject("p_uniqletterbundle01x", x, y, z, true, true, true)
+        local obj = CreateObject("p_telegram01x", x, y, z, true, true, true)
         PlaceObjectOnGroundProperly(obj)
         SetEntityAsMissionEntity(obj, true, true)
         FreezeEntityPosition(obj, true)
@@ -763,8 +762,71 @@ RegisterNetEvent(
             _coords.z,
             ObjToNet(obj)
         )
-        PlaySoundFrontend("show_info", "Study_Sounds", true, 0)
-        SetModelAsNoLongerNeeded(GetHashKey("p_uniqletterbundle01x"))
+        SetModelAsNoLongerNeeded(GetHashKey("p_telegram01x"))
+    end
+)
+
+RegisterNetEvent(
+    "redemrp_inventory:CreateAmmoPickup",
+    function(name, amount, meta, label, img)
+        local ped = PlayerPedId()
+        local coords = GetEntityCoords(ped)
+        local forward = GetEntityForwardVector(ped)
+        local x, y, z = table.unpack(coords + forward * 1.6)
+        while not HasModelLoaded(GetHashKey("p_ammoboxhalf01x")) do
+            Wait(500)
+            modelrequest(GetHashKey("p_ammoboxhalf01x"))
+        end
+        local obj = CreateObject("p_ammoboxhalf01x", x, y, z, true, true, true)
+        PlaceObjectOnGroundProperly(obj)
+        SetEntityAsMissionEntity(obj, true, true)
+        FreezeEntityPosition(obj, true)
+        local _coords = GetEntityCoords(obj)
+        TriggerServerEvent(
+            "redemrp_inventory:AddPickupServer",
+            name,
+            amount,
+            meta,
+            label,
+            img,
+            _coords.x,
+            _coords.y,
+            _coords.z,
+            ObjToNet(obj)
+        )
+        SetModelAsNoLongerNeeded(GetHashKey("p_ammoboxhalf01x"))
+    end
+)
+
+RegisterNetEvent(
+    "redemrp_inventory:CreateWeaponPickup",
+    function(name, amount, meta, label, img)
+        local ped = PlayerPedId()
+        local coords = GetEntityCoords(ped)
+        local forward = GetEntityForwardVector(ped)
+        local x, y, z = table.unpack(coords + forward * 1.6)
+        while not HasModelLoaded(GetHashKey("s_lootableammocase")) do
+            Wait(500)
+            modelrequest(GetHashKey("s_lootableammocase"))
+        end
+        local obj = CreateObject("s_lootableammocase", x, y, z, true, true, true)
+        PlaceObjectOnGroundProperly(obj)
+        SetEntityAsMissionEntity(obj, true, true)
+        FreezeEntityPosition(obj, true)
+        local _coords = GetEntityCoords(obj)
+        TriggerServerEvent(
+            "redemrp_inventory:AddPickupServer",
+            name,
+            amount,
+            meta,
+            label,
+            img,
+            _coords.x,
+            _coords.y,
+            _coords.z,
+            ObjToNet(obj)
+        )
+        SetModelAsNoLongerNeeded(GetHashKey("s_lootableammocase"))
     end
 )
 

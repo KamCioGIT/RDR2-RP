@@ -401,7 +401,7 @@ AddEventHandler("redemrp_inventory:drop",function(data, letterSend)
     letterSend = letterSend or false
     local _source = source
     local itemData = Config.Items[data.name]
-    if data.name == "letter" and letterSend then
+    if data.name == "télégramme" and letterSend then
         TriggerClientEvent("redemrp_inventory:CreateLetterPickup",
             _source,
             data.name,
@@ -411,7 +411,6 @@ AddEventHandler("redemrp_inventory:drop",function(data, letterSend)
             itemData.imgsrc
         )
     elseif itemData.canBeDropped then
-        print("drop")
         local user = RedEM.GetPlayer(_source)
         local identifier = user.GetIdentifier()
         local charid = user.GetActiveCharacter()
@@ -424,8 +423,26 @@ AddEventHandler("redemrp_inventory:drop",function(data, letterSend)
                 {},
                 InventoryWeight[identifier .. "_" .. charid]
             )
-            if data.name == "letter" then
+            if data.name == "télégramme" then
                 TriggerClientEvent("redemrp_inventory:CreateLetterPickup",
+                    _source,
+                    data.name,
+                    data.amount,
+                    data.meta,
+                    itemData.label,
+                    itemData.imgsrc
+                )
+            elseif data.type == "item_ammo" then
+                TriggerClientEvent("redemrp_inventory:CreateAmmoPickup",
+                    _source,
+                    data.name,
+                    data.amount,
+                    data.meta,
+                    itemData.label,
+                    itemData.imgsrc
+                )
+            elseif data.type == "item_weapon" then
+                TriggerClientEvent("redemrp_inventory:CreateWeaponPickup",
                     _source,
                     data.name,
                     data.amount,

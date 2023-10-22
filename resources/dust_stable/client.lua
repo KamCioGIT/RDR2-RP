@@ -594,7 +594,7 @@ function buyhorse(stable)
 
         local elements = {}
 
-        for k, v in pairs(Config.WarHorses) do
+        for k, v in pairs(Config.BuyHorses) do
             table.insert(elements, {label = v.name, value = v.model, desc = v.desc})
         end
         MenuData.Open('default', GetCurrentResourceName(), 'buyhorse', {
