@@ -35,7 +35,7 @@ Config.Hat = {
 	vector3(2555.037, -1171.738, 53.6835), -- SAINT DENIS
 }
 
-Config.Hat = {
+Config.Mask = {
 	vector3(2825.81, -1229.961, 47.59823), -- SAINT DENIS
 }
 
