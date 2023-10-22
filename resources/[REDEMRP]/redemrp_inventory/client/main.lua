@@ -85,9 +85,17 @@ Citizen.CreateThread(
         TriggerServerEvent("redemrp_inventory:playerJoined")
         while true do
             Wait(1)
+
+            if isInventoryOpen then 
+                if IsControlJustReleased(0, 0xC1989F95) then
+                    print('close inv')
+                    TriggerEvent("redemrp_inventory:closeinv")
+                end
+            end
+
             if IsControlJustReleased(0, 0xC1989F95) then
                 isInventoryOpen = not isInventoryOpen
-
+                print('open inv')
                 if isInventoryOpen then
                     for i, k in pairs(InventoryItems) do
                         if k.type == "item_weapon" and not WeaponsWithoutAmmo[k.name] then
@@ -128,12 +136,6 @@ Citizen.CreateThread(
                     IsCrafting = false
                     isOtherOpen = false
                     SetNuiFocusKeepInput(false)
-                end
-            end
-
-            if isInventoryOpen then 
-                if IsControlJustReleased(0, 0xC1989F95) then
-                    TriggerEvent("redemrp_inventory:closeinv")
                 end
             end
         end
