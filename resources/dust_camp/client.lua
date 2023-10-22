@@ -686,3 +686,8 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
     end
 end)
+
+
+RegisterCommand("testi", function()
+    TriggerEvent('redem_roleplay:Tip', "Ramasser l'objet", 4000)
+end)
