@@ -575,7 +575,7 @@ function destory()
 end
 
 local cameraprompt = UipromptGroup:new("Camera")
-Uiprompt:new(0x7065027D , "Gauche/Droite", cameraprompt)
+Uiprompt:new({0x7065027D,0xCEFD9220} , "Gauche/Droite", cameraprompt)
 Uiprompt:new(0x3076E97C , "Zoom", cameraprompt)
 Uiprompt:new(0xF84FA74F , "Haut/Bas", cameraprompt)
 cameraprompt:setActive(false)
@@ -584,14 +584,14 @@ cameraprompt:setActive(false)
 Citizen.CreateThread(function()
     while true do
         Wait(1)
-        if ClothingCamera then
+        if showcontrol then
             cameraprompt:setActiveThisFrame(true)
         end
     end
 end)
 
 function camera(zoom, offset)
-    local showcontrol = true
+    showcontrol = true
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
     local heading = GetEntityHeading(playerPed) + 90.0
