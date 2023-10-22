@@ -172,7 +172,7 @@ end)
 RegisterNetEvent("dust_stable:server:createhorse")
 AddEventHandler(
     "dust_stable:server:createhorse",
-    function(alias, model, stable, race, comp, type)
+    function(alias, model, stable, race, comp, type, price)
         local _source = source     
 		local user = RedEM.GetPlayer(_source)
 		local identifier = user.identifier
@@ -186,55 +186,60 @@ AddEventHandler(
 		local numBase0 = math.random(100, 999)
 		local numBase1 = math.random(0, 9999)
 		local generetedUid = string.format("%03d%04d", numBase0, numBase1)
-		if type == "horse" then
-			MySQL.update(
-			'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `components`, `stashid`, `type`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @components, @stashid, @type);',
-			{
-				identifier = identifier,
-				charid = charid,
-				name = name,
-				horseid = horseid,
-				model = model,
-				stable = stable,
-				race = race,
-				meta = json.encode(_meta),
-				components = json.encode(comp),
-				stashid = "horse_"..generetedUid,
-				type = type
-			}, function(rowsChanged)
+		local currentMoney = user.money
+		local removeMoney = price
+		if currentMoney >= removeMoney then
+			user.removeMoney(removeMoney)
+			if type == "horse" then
+				MySQL.update(
+				'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `components`, `stashid`, `type`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @components, @stashid, @type);',
+				{
+					identifier = identifier,
+					charid = charid,
+					name = name,
+					horseid = horseid,
+					model = model,
+					stable = stable,
+					race = race,
+					meta = json.encode(_meta),
+					components = json.encode(comp),
+					stashid = "horse_"..generetedUid,
+					type = type
+				}, function(rowsChanged)
 
-			end)
-			MySQL.update(
-			'INSERT INTO stashes (`stashid`) VALUES (@stashid);',
-			{
-				stashid = "horse_"..generetedUid
-			}, function(rowsChanged)
-			end)
-		end
-		if type == "cart" then
-			MySQL.update(
-			'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `components`, `stashid`, `type`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @components, @stashid, @type);',
-			{
-				identifier = identifier,
-				charid = charid,
-				name = name,
-				horseid = horseid,
-				model = model,
-				stable = stable,
-				race = race,
-				meta = json.encode(_meta),
-				components = json.encode(comp),
-				stashid = "cart_"..generetedUid,
-				type = type
-			}, function(rowsChanged)
+				end)
+				MySQL.update(
+				'INSERT INTO stashes (`stashid`) VALUES (@stashid);',
+				{
+					stashid = "horse_"..generetedUid
+				}, function(rowsChanged)
+				end)
+			end
+			if type == "cart" then
+				MySQL.update(
+				'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `components`, `stashid`, `type`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @components, @stashid, @type);',
+				{
+					identifier = identifier,
+					charid = charid,
+					name = name,
+					horseid = horseid,
+					model = model,
+					stable = stable,
+					race = race,
+					meta = json.encode(_meta),
+					components = json.encode(comp),
+					stashid = "cart_"..generetedUid,
+					type = type
+				}, function(rowsChanged)
 
-			end)
-			MySQL.update(
-			'INSERT INTO stashes (`stashid`) VALUES (@stashid);',
-			{
-				stashid = "cart_"..generetedUid
-			}, function(rowsChanged)
-			end)
+				end)
+				MySQL.update(
+				'INSERT INTO stashes (`stashid`) VALUES (@stashid);',
+				{
+					stashid = "cart_"..generetedUid
+				}, function(rowsChanged)
+				end)
+			end
 		end
 end)
 

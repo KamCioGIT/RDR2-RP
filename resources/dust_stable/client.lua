@@ -1,5 +1,21 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
+
+RegisterNetEvent("dust_job:marechal")
+AddEventHandler("dust_job:marechal", function(job, grade)
+    for k, v in pairs(Config.Jobs) do
+        if job == v then
+            getjob = true
+            getgrade = grade
+            Buy()
+        else
+            getjob = false
+            getgrade = 0
+        end
+    end
+end)
+
+
 Citizen.CreateThread(function()
     Wait(1000)
     if RedEM.GetPlayerData().isLoggedIn then
@@ -562,7 +578,7 @@ local AchatPrompt = UipromptGroup:new("Écurie")
 Uiprompt:new(0x156F7119, "Acheter", AchatPrompt)
 AchatPrompt:setActive(false)
 
-Citizen.CreateThread(function()
+function Buy()
     while true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
@@ -585,6 +601,22 @@ Citizen.CreateThread(function()
             end
         end
     end
+end
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(0)
+        local playerpos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.NoobPos) do
+            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+                AchatPrompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x156F7119) then
+                    buyhorse(v.stable)
+                    isInteracting = true
+                end
+            end
+        end
+    end
 end)
 
 
@@ -593,10 +625,16 @@ function buyhorse(stable)
         MenuData.CloseAll()
 
         local elements = {}
-
-        for k, v in pairs(Config.BuyHorses) do
-            table.insert(elements, {label = v.name, value = v.model, desc = v.desc})
+        if stable == 'Stdenis_start' or stable == 'Startbla' then
+            for k, v in pairs(Config.NoobHorses) do
+                table.insert(elements, {label = v.name, value = v.model, desc = v.desc, price= v.price})
+            end
+        else
+            for k, v in pairs(Config.BuyHorses) do
+                table.insert(elements, {label = v.name, value = v.model, desc = v.desc, price= v.price})
+            end
         end
+
         MenuData.Open('default', GetCurrentResourceName(), 'buyhorse', {
             title = "Acheter un cheval",
             subtext = "Chevaux",
@@ -614,7 +652,7 @@ function buyhorse(stable)
                 end
             end
             local type = "horse"
-            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type)
+            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type, data.current.price)
             isInteracting = false
         end,
 
@@ -632,7 +670,7 @@ function buycart(stable)
         local elements = {}
 
         for k, v in pairs(Config.Cart) do
-            table.insert(elements, {label = v.name, value = v.model, desc = v.desc})
+            table.insert(elements, {label = v.name, value = v.model, desc = v.desc, price = v.price})
         end
         MenuData.Open('default', GetCurrentResourceName(), 'buycart', {
             title = "Acheter une charrette",
@@ -651,7 +689,7 @@ function buycart(stable)
                 end
             end
             local type = "cart"
-            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type)
+            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type, price)
             isInteracting = false
         end,
 
