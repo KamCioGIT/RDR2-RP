@@ -108,7 +108,7 @@ Config.Stables = {
 		name = 'Stdenis_start',
     },
 	Startbla = {
-		pos = vector4(-873.7465, -1382.578, 43.5629),
+		pos = vector3(-873.7465, -1382.578, 43.5629),
 		name = 'Startbla',
     },
 }
