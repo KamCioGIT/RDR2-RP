@@ -13,15 +13,90 @@ Config.Stables = {
 		pos = vector3(2557.551, -789.9655, 42.35028),
 		name = 'cinematic',
     },
-	event1 = {
-		pos = vector3(1873.393, -1851.72, 42.90733),
-		name = 'event1',
+	Blackwater = {
+		pos = vector3(-885.1912, -1362.12, 43.49583),
+		name = 'Blackwater',
     },
-	event2 = {
-		pos = vector3(366.6672, 1459.126, 178.9883),
-		name = 'event2',
+	Strawberry = {
+		pos = vector3(-1810.528, -564.4277, 155.9662),
+		name = 'Strawberry',
     },
-
+	Wapiti = {
+		pos = vector3(486.6815, 2217.716, 247.2323),
+		name = 'Wapiti',
+    },
+	DakotaCamp = {
+		pos = vector3(-115.0529, 1486.4540, 112.7034),
+		name = 'DakotaCamp',
+    },
+	Amabarino = {
+		pos = vector3(-1336.1310, 2397.8857, 307.0894),
+		name = 'Amabarino',
+    },
+	Flatneck = {
+		pos = vector3(-381.2650, -349.7352, 86.8605),
+		name = 'Flatneck',
+    },
+	Valentine = {
+		pos = vector3(-365.1976, 776.2587, 116.2820),
+		name = 'Valentine',
+    },
+	Emerald = {
+		pos = vector3(1383.8695, 326.0576, 87.8322),
+		name = 'Emerald',
+    },
+	Rhodes_sheriff = {
+		pos = vector3(1369.5880, -1298.0417, 76.7351),
+		name = 'Rhodes_sheriff',
+    },
+	Rhodes_poste = {
+		pos = vector3(1257.0261, -1315.4788, 76.2924),
+		name = 'Rhodes_poste',
+    },
+	Blackwater_sheriff = {
+		pos = vector3(-741.5472, -1302.6738, 43.2705),
+		name = 'Blackwater_sheriff',
+    },
+	Strawberry_sheriff = {
+		pos = vector3(-1799.4211, -351.5683, 164.0752),
+		name = 'Strawberry_sheriff',
+    },
+	Manzanita = {
+		pos = vector3(-1970.1453, -1655.9006, 117.1564),
+		name = 'Manzanita',
+    },
+	Littlecreek = {
+		pos = vector3(-2217.7065, 733.1433, 123.1683),
+		name = 'Littlecreek',
+    },
+	Fort_Wallace = {
+		pos = vector3(348.8842, 1507.8472, 180.6682),
+		name = 'Fort_Wallace',
+    },
+	Annesburg = {
+		pos = vector3(2912.6509, 1244.7437, 44.7109),
+		name = 'Annesburg',
+    },
+	VanHorn = {
+		pos = vector3(2935.8020, 573.9051, 44.6474),
+		name = 'VanHorn',
+    },
+	Fermejohn = {
+		pos = vector3(-1655.8254, -1381.1234, 83.9948),
+		name = 'Fermejohn',
+    },
+	Stdenis_Marshall = {
+		pos = vector3(2489.8730, -1322.0959, 48.8657) ,
+		name = 'Stdenis_Marshall',
+    },
+	Stdenis_eglise = {
+		pos = vector3(2732.0396, -1258.5210, 49.7719),
+		name = 'Stdenis_eglise',
+    },
+	Stdenis_roturier = {
+		pos = vector3(2556.4985, -807.7131, 42.3602),
+		name = 'Stdenis_roturier',
+    },
 }
 Config.Buyhorse = {
 	Saint_Denis = {
