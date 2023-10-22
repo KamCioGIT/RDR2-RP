@@ -150,17 +150,12 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
+		local playerCoords = GetEntityCoords(PlayerPedId())
 		for k, v in ipairs(Config.Trapdoor) do
-			if DoesObjectOfTypeExistAtCoords(v.objCoords, 15.0, GetHashKey(v.doorID)) then
-				print 'eee'
-				if v.obj == nil then
-					v.obj = GetClosestObjectOfType(pos, AnimConfig.Radius, GetHashKey(v.doorID), false, false, false)
-				end
-				if doorID.locked then
-					SetEntityRotation(v.obj, v.objPitchclose, 0.0, 0.0, 2, true)
-				else
-					SetEntityRotation(v.obj, v.objPitchopen, 0.0, 0.0, 2, true)
-				end
+
+			local object = GetClosestObjectOfType(playerCoords.x, playerCoords.y, playerCoords.z, 10.0, GetHashKey(v.doorID), false, false, false)
+			if object ~= 0 then
+				SetEntityRotation(object, v.objPitchopen, 0.0, 0.0, 2, true)
 			end
 		end
 	end
