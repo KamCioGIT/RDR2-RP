@@ -169,7 +169,7 @@ Citizen.CreateThread(function()
 						data.trapopen = true
 					end
 				end
-			else
+			end
 		end
 		Citizen.Wait(10)
 	end
