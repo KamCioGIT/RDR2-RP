@@ -2897,6 +2897,17 @@ Config.Items = {
     imgsrc = "items/clothing_hl_player_hat_027_1.png",
     type = "item_standard",
 },
+["masque"] = {
+    label = "Masque",
+    description = "Incognito",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/kit_mask_brown_sack.png",
+    type = "item_standard",
+},
 }
 
 
