@@ -12,12 +12,13 @@ Config.Boucher =
     vector3(-5508.164, -2947.579, -1.87025), -- Tumbleweed
     vector3(-1985.348, -1646.334, 117.1001), -- Manzanita
     vector3(1296.543, -1279.365, 75.84337), -- Rhodes
-    vector3(1420.489, 379.5677, 90.32045) -- Emerald
+    vector3(1420.489, 379.5677, 90.32045), -- Emerald
+    vector3(464.9087, 2246.178, 248.2368),  --- Camp natif
 }
 
-Config.Craftcuir = {vector3(-1970.758, -1641.776, 117.1183)}
+Config.Craftcuir = {vector3(-1970.758, -1641.776, 117.1183), vector3(464.9664, 2250.193, 248.2958)}
 
-Config.Craftviande = vector3(-1986.814, -1642.825, 117.1306)
+-- Config.Craftviande = vector3(-1986.814, -1642.825, 117.1306)
 
 
 Config.Animal = {
