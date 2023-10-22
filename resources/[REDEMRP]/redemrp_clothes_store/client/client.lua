@@ -1020,6 +1020,7 @@ function OpenHatMenu()
     }, function(data, menu)
 
     end, function(data, menu)
+        MenuUpdateHat(data, menu)
         if data.current.value == "save" then
             destory()
             menu.close()
@@ -1029,10 +1030,6 @@ function OpenHatMenu()
             info.texture = HatCache["hats"].texture
             TriggerServerEvent("rdr_clothes_store:GiveHat", info, CurrentPrice)
             OldHatCache = {}
-
-        else   
-            MenuUpdateHat(data, menu)
-            
         end
     end, function(data, menu)
         menu.close()
