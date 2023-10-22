@@ -699,7 +699,7 @@ function DrawText3D(x, y, z, text)
     SetTextCentre(1)
     DisplayText(str, _x, _y)
     local factor = (string.len(text)) / 150
-    DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 100, 1, 1, 190, 0)
+    DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 255, 255, 255, 120, 0)
 end
 
 RegisterNetEvent(
@@ -921,7 +921,6 @@ Citizen.CreateThread(
                         if not PromptActive then
                             TaskLookAtEntity(playerPed, v.obj, 3000, 2048, 3)
                             local PromptGroupName = CreateVarString(10, "LITERAL_STRING", v.label)
-                            TriggerEvent("redem_roleplay:ShowTopNotification")
                             -- PromptSetActiveGroupThisFrame(PickupPromptGroup, PromptGroupName)
                             if IsControlJustReleased(0, 0x156F7119) then
                                 PromptActive = true
