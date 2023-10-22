@@ -167,31 +167,20 @@ Citizen.CreateThread(function()
 						end
 					end
 				else
-					if data.bell then
-						local currentH = GetClockHours()
-						local currentM = GetClockMinutes()
-						if currentH == 12 and currentM >= 0 and currentM <=15 and bellrun == false then
-							bellrun = true
-							print("^4Start Animating Bell (no loop):^6 "..data.model.."|"..data.obj)
-							Citizen.InvokeNative(0xDC6D22FAB76D4874, data.obj, data.anim, data.dict, -1, true, true, false, 1.0, 0)
-							Citizen.Wait(15000)
+					if IsControlJustReleased(0, 0x760A9C6F) then
+						if trapopen then
+							trapopen = true
+							print 'open'
+							SetEntityRotation(data.obj, -90.0, 0.0, 0.0, 0, true)
 						else
-							Citizen.InvokeNative(0x786591D986DE9159, data.obj, data.anim, data.dict, 0)
-							bellrun = false
+							SetEntityRotation(data.obj, -90.0, 0.0, 0.0, 0, true)
+							trapopen = false
 						end
 					end
 				end
-			else
-				if data.obj ~= nil then
-					print("^4Stop Animating :^6 "..data.model.."|"..data.obj)
-					Citizen.InvokeNative(0x786591D986DE9159, data.obj, data.anim, data.dict, 0)
-					data.obj = nil
-					bellrun = false
-				end		
 			end
-
 		end
-		Citizen.Wait(2000)
+		Citizen.Wait(10)
 	end
 end)
 
