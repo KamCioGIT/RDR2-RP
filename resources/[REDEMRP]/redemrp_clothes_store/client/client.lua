@@ -95,10 +95,10 @@ function OpenCateogry(menu_catagory)
             options = {}
 
             for i = 1, GetMaxTexturesForModel(k, ClothesCache[k].model or 1), 1 do
-                table.insert(options, i.." Color")
+                table.insert(options, i.." Couleur")
             end
             table.insert(elements, {
-                label = Config.Label[k] .. " Color" or v,
+                label = Config.Label[k] .. " Couleur" or v,
                 value = ClothesCache[k].texture or 1,
                 category = k,
                 desc = "Changer la couleur",
@@ -145,10 +145,10 @@ function OpenCateogry(menu_catagory)
             options = {}
 
             for i = 1, GetMaxTexturesForModel(k, ClothesCache[k].model or 1), 1 do
-                table.insert(options, i.." Color")
+                table.insert(options, i.." Couleur")
             end
             table.insert(elements, {
-                label = Config.Label[k] .. " Color" or v,
+                label = Config.Label[k] .. " Couleur" or v,
                 value = ClothesCache[k].texture or 1,
                 category = k,
                 desc = "Changer la couleur",

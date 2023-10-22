@@ -169,9 +169,9 @@ Config.MenuElements = {
 	["hands"] = {
 		label = "Mains",
 		category = {
-			"jewelry_rings_right",
-			"jewelry_rings_left",
-			"jewelry_bracelets",
+			-- "jewelry_rings_right",
+			-- "jewelry_rings_left",
+			-- "jewelry_bracelets",
 			"gauntlets",
 			"gloves",
 		}
@@ -183,12 +183,12 @@ Config.MenuElements = {
 			"talisman_wrist",
 			"talisman_holster",
 			"belt_buckles",
-			"satchels",
+			-- "satchels",
 			"holsters_crossdraw",
 			"aprons",
 			"bows",
-			"armor",
-			"badges",
+			-- "armor",
+			-- "badges",
 			"hair_accessories",
 		}
 	},
