@@ -699,7 +699,7 @@ function DrawText3D(x, y, z, text)
     SetTextCentre(1)
     DisplayText(str, _x, _y)
     local factor = (string.len(text)) / 150
-    DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 255, 255, 255, 100, 0)
+    DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 0, 0, 0, 100, 0)
 end
 
 RegisterNetEvent(
