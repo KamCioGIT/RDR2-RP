@@ -877,7 +877,7 @@ local PromptActive = false
 function SetupPickPrompt()
     Citizen.CreateThread(
         function()
-            local str = "Pick Up"
+            local str = "Ramasser"
             PickupPrompt = Citizen.InvokeNative(0x04F97DE45A519419)
             PromptSetControlAction(PickupPrompt, 0xC7B5340A)
             str = CreateVarString(10, "LITERAL_STRING", str)
