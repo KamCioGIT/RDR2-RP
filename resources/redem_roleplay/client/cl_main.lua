@@ -64,7 +64,7 @@ Citizen.CreateThread(function()
     local timer = 0
     while true do 
         Wait(0)
-        if IsControlJustPressed(0,0x4AF4D473) then -- DEL KEY
+        if IsControlJustPressed(0,0xCEFD9220) then -- DEL KEY
             timer = 0
             active = true
             while  timer < 200 do 
