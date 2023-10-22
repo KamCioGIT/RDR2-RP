@@ -563,7 +563,6 @@ AddEventHandler('rdr_clothes_store:ApplyClothes', function(ClothesComponents, Ta
     end)
 end)
 
-local showcontrol = false
 function destory()
     SetCamActive(ClothingCamera, false)
     RenderScriptCams(false, true, 500, true, true)
@@ -571,15 +570,14 @@ function destory()
     DisplayRadar(true)
     DestroyAllCams(true)
     ClothingCamera = nil
-    showcontrol = false
-    cameraprompt:setActive(false)
+    -- cameraprompt:setActive(false)
 end
 
-local cameraprompt = UipromptGroup:new("Camera")
-Uiprompt:new({0x7065027D,0xCEFD9220} , "GaucheDroite", cameraprompt)
-Uiprompt:new(0x3076E97C , "Zoom", cameraprompt)
-Uiprompt:new(0xF84FA74F , "HautBas", cameraprompt)
-cameraprompt:setActive(false)
+-- local cameraprompt = UipromptGroup:new("Camera")
+-- Uiprompt:new({0x7065027D,0xCEFD9220} , "GaucheDroite", cameraprompt)
+-- Uiprompt:new(0x3076E97C , "Zoom", cameraprompt)
+-- Uiprompt:new(0xF84FA74F , "HautBas", cameraprompt)
+-- cameraprompt:setActive(false)
 
 
 -- Citizen.CreateThread(function()
@@ -590,8 +588,7 @@ cameraprompt:setActive(false)
 -- end)
 
 function camera(zoom, offset)
-    showcontrol = true
-    cameraprompt:setActive(true)
+    -- cameraprompt:setActive(true)
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
     local heading = GetEntityHeading(playerPed) + 90.0
