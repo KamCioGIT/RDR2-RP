@@ -35,6 +35,10 @@ Config.Hat = {
 	vector3(2555.037, -1171.738, 53.6835), -- SAINT DENIS
 }
 
+Config.Hat = {
+	vector3(2825.81, -1229.961, 47.59823), -- SAINT DENIS
+}
+
 Config.Label = {
 	["boot_accessories"] = "Accessoire de bottes",
 	["pants"] = "Pantalon",            	
@@ -129,9 +133,9 @@ Config.MenuElements = {
 	["head"] = {
 		label = "Tête",
 		category = {
-			"hats",
+			-- "hats",
 			"eyewear",
-			"masks",
+			-- "masks",
 			"neckwear",
 			"neckties",
 		}
@@ -199,12 +203,3 @@ Config.MenuElements = {
 	},
 }
 
-
-Config.HatElements = {
-	["head"] = {
-		label = "Tête",
-		category = {
-			"hats",
-		}
-	}
-}
