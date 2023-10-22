@@ -690,5 +690,5 @@ end)
 
 RegisterCommand("testi", function()
     -- TriggerEvent('redem_roleplay:Tip', "Ramasser l'objet", 4000)
-    TriggerEvent("redem_roleplay:ShowTopNotification", "Ramasser l'objet", "Revolver" 4000)
+    TriggerEvent("redem_roleplay:ShowTopNotification", "Ramasser l'objet", "Revolver", 4000)
 end)
