@@ -157,14 +157,9 @@ Citizen.CreateThread(function()
 				if data.obj == nil then
 					data.obj = GetClosestObjectOfType(pos, 40.0, GetHashKey(data.doorid), false, false, false)
 					if IsControlJustReleased(0, 0x760A9C6F) then
-						if trapopen then
-							trapopen = true
 							print 'open'
 							SetEntityRotation(data.obj, -90.0, 0.0, 0.0, 0, true)
-						else
-							SetEntityRotation(data.obj, -90.0, 0.0, 0.0, 0, true)
 							trapopen = false
-						end
 					end
 				else
 					if IsControlJustReleased(0, 0x760A9C6F) then
