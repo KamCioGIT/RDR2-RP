@@ -85,14 +85,6 @@ Citizen.CreateThread(
         TriggerServerEvent("redemrp_inventory:playerJoined")
         while true do
             Wait(1)
-
-            if isInventoryOpen then 
-                if IsControlJustReleased(0, 0xC1989F95) then
-                    print('close inv')
-                    TriggerEvent("redemrp_inventory:closeinv")
-                end
-            end
-
             if IsControlJustReleased(0, 0xC1989F95) then
                 isInventoryOpen = not isInventoryOpen
                 print('open inv')
