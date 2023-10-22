@@ -87,7 +87,7 @@ Citizen.CreateThread(
             Wait(1)
             if IsControlJustReleased(0, 0xC1989F95) then
                 isInventoryOpen = not isInventoryOpen
-
+                print('open inv')
                 if isInventoryOpen then
                     for i, k in pairs(InventoryItems) do
                         if k.type == "item_weapon" and not WeaponsWithoutAmmo[k.name] then
