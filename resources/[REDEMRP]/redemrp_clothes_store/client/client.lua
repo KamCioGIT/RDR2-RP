@@ -563,7 +563,7 @@ AddEventHandler('rdr_clothes_store:ApplyClothes', function(ClothesComponents, Ta
     end)
 end)
 
-
+local showcontrol = false
 function destory()
     SetCamActive(ClothingCamera, false)
     RenderScriptCams(false, true, 500, true, true)
@@ -571,6 +571,7 @@ function destory()
     DisplayRadar(true)
     DestroyAllCams(true)
     ClothingCamera = nil
+    showcontrol = false
 end
 
 local cameraprompt = UipromptGroup:new("Camera")
@@ -590,6 +591,7 @@ Citizen.CreateThread(function()
 end)
 
 function camera(zoom, offset)
+    local showcontrol = true
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
     local heading = GetEntityHeading(playerPed) + 90.0
