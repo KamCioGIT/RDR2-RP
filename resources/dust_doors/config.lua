@@ -4,6 +4,20 @@ Config.UsePrompt = true
 
 Config.KeyPress = 0xD8F73058
 
+
+Config.Trapdoor = {
+	{
+		authorizedJobs = { 'straw_store' },
+		doorid = "p_trapdoor01x",
+		objCoords = vector3(-1789.993, -388.8973, 160.3287),
+		objPitchclose = 0.0,
+		objPitchopen = -85.0,
+		locked = true,
+		distance = 3.0
+	},
+
+}
+
 Config.DoorList = {
 	--
 	-- Valentine Sheriff Office
