@@ -585,6 +585,7 @@ Citizen.CreateThread(function()
     while true do
         Wait(1)
         if showcontrol then
+            print 'showcontrol'
             cameraprompt:setActiveThisFrame(true)
         end
     end
