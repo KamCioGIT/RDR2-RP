@@ -11,6 +11,23 @@ TriggerEvent("redemrp_menu_base:getData", function(call)
     MenuData = call
 end)
 
+
+Citizen.CreateThread(function()
+    for k,v in pairs(Config.Hat) do
+        local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v)
+        SetBlipSprite(blip, 990667866)
+        SetBlipScale(blip, 0.2)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Chapelier"))
+    end
+    for k,v in pairs(Config.Mask) do
+        local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v)
+        SetBlipSprite(blip, -2034972265)
+        SetBlipScale(blip, 0.2)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Masques"))
+    end
+end)
+
+
 function OpenClothingMenu()
     MenuData.CloseAll()
     local elements = {}
