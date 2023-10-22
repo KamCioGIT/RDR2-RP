@@ -582,12 +582,12 @@ Uiprompt:new(0xF84FA74F , "HautBas", cameraprompt)
 cameraprompt:setActive(false)
 
 
-Citizen.CreateThread(function()
-    while true do
-        Wait(1)
-            cameraprompt:setActiveThisFrame(true)
-    end
-end)
+-- Citizen.CreateThread(function()
+--     while true do
+--         Wait(1)
+--             cameraprompt:setActiveThisFrame(true)
+--     end
+-- end)
 
 function camera(zoom, offset)
     showcontrol = true
