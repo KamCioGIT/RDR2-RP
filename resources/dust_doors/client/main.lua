@@ -156,24 +156,17 @@ Citizen.CreateThread(function()
 			if DoesObjectOfTypeExistAtCoords(pos, 40.0, GetHashKey(data.doorid)) then
 				if data.obj == nil then
 					data.obj = GetClosestObjectOfType(pos, 40.0, GetHashKey(data.doorid), false, false, false)
-					data.rota = GetEntityRotation(data.obj)
-					DeleteEntity(data.obj)
-					data.prop = CreateObject(data.doorid, data.objCoords, true, false, true)
-					SetEntityRotation(data.obj, data.rota, 0, true)
+					SetEntityAsMissionEntity(data.obj, true, true)
 					if IsControlJustReleased(0, 0x760A9C6F) then
 						print 'open'
-						SetEntityRotation(prop, -90.0, 0.0, 0.0, 0, true)
+						SetEntityRotation(data.obj, -90.0, 0.0, 0.0, 0, true)
 						data.trapopen = true
 					end
 				else
 					if IsControlJustReleased(0, 0x760A9C6F) then
-						if data.trapopen == true then
-							SetEntityRotation(prop, -90.0, 0.0, 0.0, 0, true)
-							data.trapopen = true
-						else
-							SetEntityRotation(prop, -90.0, 0.0, 0.0, 0, true)
-							data.trapopen = true
-						end
+						print 'open'
+						SetEntityRotation(data.obj, -90.0, 0.0, 0.0, 0, true)
+						data.trapopen = true
 					end
 				end
 			else
