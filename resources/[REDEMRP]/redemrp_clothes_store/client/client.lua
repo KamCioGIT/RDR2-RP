@@ -944,6 +944,11 @@ function OpenHatMenu()
 
             options = {}
             a = a + 1
+            table.insert(elements, {
+                label = Config.Label["save"] or "Save",
+                value = "save",
+                desc = "Valider"
+            })
         end
 
     else
@@ -992,13 +997,14 @@ function OpenHatMenu()
 
         options = {}
         a = a + 1
+        table.insert(elements, {
+            label = Config.Label["save"] or "Save",
+            value = "save",
+            desc = "Valider"
+        })
     end
 
-    table.insert(elements, {
-        label = Config.Label["save"] or "Save",
-        value = "save",
-        desc = "Valider"
-    })
+
 
     end
     MenuData.Open('default', GetCurrentResourceName(), 'hat_store_menu_category', {
