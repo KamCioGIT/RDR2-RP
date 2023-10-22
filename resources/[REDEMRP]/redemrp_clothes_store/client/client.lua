@@ -582,8 +582,10 @@ cameraprompt:setActive(false)
 
 Citizen.CreateThread(function()
     while true do
-        Wait(1)
-        cameraprompt:setActiveThisFrame(true)
+        if ClothingCamera then
+            Wait(1)
+            cameraprompt:setActiveThisFrame(true)
+        end
     end
 end)
 
