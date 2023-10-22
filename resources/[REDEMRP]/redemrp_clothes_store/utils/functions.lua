@@ -94,13 +94,13 @@ function CalculatePriceMask()
 	local price = 0
 		if IsPedMale(PlayerPedId()) then
 				if OldMaskCache["masks"].model ~= MaskCache["masks"].model or OldMaskCache["masks"].texture ~= MaskCache["masks"].texture then
-					if HatCache["masks"].model > 0 then
+					if MaskCache["masks"].model > 0 then
 						price = price + Config.Price["masks"]
 					end
 				end
 		else
 				if OldMaskCache["masks"].model ~= MaskCache["masks"].model or OldMaskCache["masks"].texture ~= MaskCache["masks"].texture then
-					if HatCache["masks"].model > 0 then
+					if MaskCache["masks"].model > 0 then
 						price = price + Config.Price["masks"]
 					end
 				end
