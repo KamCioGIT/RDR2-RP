@@ -949,6 +949,12 @@ function OpenHatMenu()
                 value = "save",
                 desc = "Valider"
             })
+            
+        table.insert(elements, {
+            label = "Quitter",
+            value = "quit",
+            desc = "Quitter"
+        })
         end
 
     else
@@ -1002,6 +1008,12 @@ function OpenHatMenu()
             value = "save",
             desc = "Valider"
         })
+
+        table.insert(elements, {
+            label = "Quitter",
+            value = "quit",
+            desc = "Quitter"
+        })
     end
 
 
@@ -1020,7 +1032,6 @@ function OpenHatMenu()
     }, function(data, menu)
 
     end, function(data, menu)
-        MenuUpdateHat(data, menu)
         if data.current.value == "save" then
             destory()
             menu.close()
@@ -1030,12 +1041,14 @@ function OpenHatMenu()
             info.texture = HatCache["hats"].texture
             TriggerServerEvent("rdr_clothes_store:GiveHat", info, CurrentPrice)
             OldHatCache = {}
-        end
-    end, function(data, menu)
-        menu.close()
+        elseif data.current.value == "quit" then
+            menu.close()
             OldHatCache = {}
             destory()
             TriggerServerEvent("RedEM:server:LoadSkin")
+        end
+    end, function(data, menu)
+        MenuUpdateHat(data, menu)
     end)
 end
 
