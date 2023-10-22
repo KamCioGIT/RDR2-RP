@@ -163,14 +163,10 @@ Citizen.CreateThread(function()
 					end
 				else
 					if IsControlJustReleased(0, 0x760A9C6F) then
-						if trapopen then
 							trapopen = true
 							print 'open'
 							SetEntityRotation(data.obj, -90.0, 0.0, 0.0, 0, true)
-						else
-							SetEntityRotation(data.obj, -90.0, 0.0, 0.0, 0, true)
-							trapopen = false
-						end
+
 					end
 				end
 			end
