@@ -123,11 +123,11 @@ end)
 RegisterNetEvent("store:buypain", function(item, price)
 	local _source = tonumber(source)
 	local user = RedEM.GetPlayer(_source)
+	local ItemData = data.getItem(_source, item)
 	local money = user.money
 	local itemprice = price
 	if money >= itemprice then
 		user.RemoveMoney(price)
-		local ItemData = data.getItem(_source, item)
 		ItemData.AddItem(amount)
 	end
 end)
