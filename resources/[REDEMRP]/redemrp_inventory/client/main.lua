@@ -912,7 +912,7 @@ Citizen.CreateThread(
                         can_wait = false
                     end
 
-                    if distance <= 5.0 then
+                    if distance <= 2.0 then
                         DrawText3D(v.coords.x, v.coords.y, v.coords.z + 0.5, v.amount .. " " .. v.label)
                     end
 
