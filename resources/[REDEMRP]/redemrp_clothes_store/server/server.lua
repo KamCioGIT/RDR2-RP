@@ -91,6 +91,8 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value)
                     TriggerClientEvent("rdr_clothes_store:OpenClothingMenu", _source, _clothes)
                 elseif _value == 3 then
                     TriggerClientEvent("rdr_clothes_store:OpenHatMenu", _source, _clothes)
+                elseif _value == 4 then
+                    TriggerClientEvent("rdr_clothes_store:OpenMaskMenu", _source, _clothes)
                 end
             end
         end)

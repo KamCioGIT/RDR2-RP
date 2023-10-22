@@ -1134,3 +1134,319 @@ RegisterNetEvent("redemrp_clothes_store:puthat", function(model, texture)
         haton = true
     end
 end)
+
+
+---- masque
+
+---- chapeaux
+
+local Maskprompt = UipromptGroup:new("Marché")
+Uiprompt:new(0x760A9C6F, "Acheter des masques", Maskprompt)
+Maskprompt:setActive(false)
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(1)
+        local playerPed = PlayerPedId()
+        local coords = GetEntityCoords(playerPed)
+        if isCreatorOpened then
+            DrawLightWithRange(coords.x + 1, coords.y + 1, coords.z + 1, 255, 255, 255, 2.5, 10.0)
+        end
+        for k, v in pairs(Config.Mask) do
+            local dist = Vdist(coords, v)
+            if dist < 2 then
+                Maskprompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x760A9C6F) then
+                    TriggerServerEvent("rdr_clothes_store:LoadClothes", 4)
+                end
+            end
+        end
+
+    end
+end)
+
+RegisterNetEvent('rdr_clothes_store:OpenMaskMenu')
+AddEventHandler('rdr_clothes_store:OpenMaskMenu', function(ClothesComponents)
+    MaskCache = ClothesComponents
+    if IsPedMale(PlayerPedId()) then
+        for k,v in pairs(clothes_list["male"]) do
+            if MaskCache["masks"] == nil then
+                MaskCache["masks"] = {}
+                MaskCache["masks"].model = 0
+                MaskCache["masks"].texture = 0
+            end
+        end
+    else
+        for k,v in pairs(clothes_list["female"]) do
+            if MaskCache["masks"] == nil then
+                MaskCache["masks"] = {}
+                MaskCache["masks"].model = 0
+                MaskCache["masks"].texture = 0
+            end
+        end
+
+    end
+    OldMaskCache = deepcopy(MaskCache)
+--    if IsPedMale(PlayerPedId()) then
+--        for k,v in pairs(clothes_list["male"]) do
+--            if OldClothesCache[k] == nil then
+--                OldClothesCache[k] = {}
+--                OldClothesCache[k].model = 0
+--                OldClothesCache[k].texture = 0
+--            end
+--        end
+--    else
+--        for k,v in pairs(clothes_list["female"]) do
+--            if OldClothesCache[k] == nil then
+--                OldClothesCache[k] = {}
+--                OldClothesCache[k].model = 0
+--                OldClothesCache[k].texture = 0
+--            end
+--        end
+--    end
+    camera(2.8, -0.15)
+    ClothingLight()
+    OpenMaskMenu()
+end)
+
+
+function OpenMaskMenu()
+    MenuData.CloseAll()
+    local elements = {}
+
+    if IsPedMale(PlayerPedId()) then
+        local a = 1
+            if clothes_list["male"]["masks"] ~= nil then
+            local category = clothes_list["male"]["masks"]
+            if MaskCache["masks"] == nil then
+                MaskCache["masks"] = {}
+                MaskCache["masks"].model = 0
+                MaskCache["masks"].texture = 1
+            end
+            local options = {}
+            for k, v in pairs(category) do
+                table.insert(options, k .." Style")
+            end
+            table.insert(elements, {
+                label = Config.Label["masks"].. " ($" .. Config.Price["masks"]..")" or v,
+                value = MaskCache["masks"].model or 0,
+                category = "masks",
+                desc = "Changer le modèle",
+                type = "slider",
+                min = 0,
+                max = #category,
+                change_type = "model",
+                id = a,
+                options = options
+            })
+            a = a + 1
+            options = {}
+
+            for i = 1, GetMaxTexturesForModel("masks", MaskCache["masks"].model or 1), 1 do
+                table.insert(options, i.." Couleur")
+            end
+            table.insert(elements, {
+                label = Config.Label["masks"] .. " Couleur" or v,
+                value = MaskCache["masks"].texture or 1,
+                category = "masks",
+                desc = "Changer la couleur",
+                type = "slider",
+                min = 1,
+                max = GetMaxTexturesForModel("masks", MaskCache["masks"].model or 1),
+                change_type = "texture",
+                id = a,
+                options = options
+            })
+
+            options = {}
+            a = a + 1
+            table.insert(elements, {
+                label = Config.Label["save"] or "Save",
+                value = "save",
+                desc = "Valider"
+            })
+        
+        end
+
+    else
+        local a = 1
+        if clothes_list["female"]["masks"] ~= nil then
+        local category = clothes_list["female"]["masks"]
+        if MaskCache["masks"] == nil then
+            MaskCache["masks"] = {}
+            MaskCache["masks"].model = 0
+            MaskCache["masks"].texture = 1
+        end
+        local options = {}
+        for k, v in pairs(category) do
+            table.insert(options, k .." Style")
+        end
+        table.insert(elements, {
+            label = Config.Label["masks"].. " ($" .. Config.Price["masks"]..")" or v,
+            value = MaskCache["masks"].model or 0,
+            category = "masks",
+            desc = "Changer le modèle",
+            type = "slider",
+            min = 0,
+            max = #category,
+            change_type = "model",
+            id = a,
+            options = options
+        })
+        a = a + 1
+        options = {}
+
+        for i = 1, GetMaxTexturesForModel("masks", MaskCache["masks"].model or 1), 1 do
+            table.insert(options, i.." Couleur")
+        end
+        table.insert(elements, {
+            label = Config.Label["masks"] .. " Couleur" or v,
+            value = MaskCache["masks"].texture or 1,
+            category = "masks",
+            desc = "Changer la couleur",
+            type = "slider",
+            min = 1,
+            max = GetMaxTexturesForModel("masks", MaskCache["masks"].model or 1),
+            change_type = "texture",
+            id = a,
+            options = options
+        })
+
+        options = {}
+        a = a + 1
+        table.insert(elements, {
+            label = Config.Label["save"] or "Save",
+            value = "save",
+            desc = "Valider"
+        })
+    end
+
+
+
+    end
+    MenuData.Open('default', GetCurrentResourceName(), 'Mask_store_menu_category', {
+
+        title = 'Chapelier',
+
+        subtext = 'Acheter des chapeaux',
+
+        align = 'top-left',
+
+        elements = elements
+
+    }, function(data, menu)
+        if data.current.value == "save" then
+            print "ouais la zone"
+            destory()
+            menu.close()
+            saveOutfit = true
+            local info = {}
+            info.model = MaskCache["masks"].model
+            info.texture = MaskCache["masks"].texture
+            TriggerServerEvent("rdr_clothes_store:GiveMask", info, CurrentPrice)
+            OldMaskCache = {}
+        else end
+    end, function(data, menu)
+        menu.close()
+        OldMaskCache = {}
+        destory()
+        TriggerServerEvent("RedEM:server:LoadSkin")
+    end, function(data, menu)
+        MenuUpdateMask(data, menu)
+    end)
+end
+
+
+function MenuUpdateMask(data, menu)
+
+    if data.current.change_type == "model" then
+        if MaskCache["masks"].model ~= data.current.value then
+            MaskCache["masks"].texture = 1
+            MaskCache["masks"].model = data.current.value
+            if data.current.value > 0 then
+                local options = {}
+                -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
+                if GetMaxTexturesForModel("masks", data.current.value) > 1 then
+                    for i = 1, GetMaxTexturesForModel("masks", data.current.value), 1 do
+                        table.insert(options, i .. " Couleur")
+                    end
+                else
+                    table.insert(options, "Sans")
+
+                end
+                menu.setElement(data.current.id + 1, "options", options)
+                menu.setElement(data.current.id + 1, "max",
+                    GetMaxTexturesForModel("masks", data.current.value))
+                menu.setElement(data.current.id + 1, "min", 1)
+                menu.setElement(data.current.id + 1, "value", 1)
+                menu.refresh()
+
+            else
+                menu.setElement(data.current.id + 1, "max", 0)
+                menu.setElement(data.current.id + 1, "min", 0)
+                menu.setElement(data.current.id + 1, "value", 0)
+                menu.refresh()
+
+            end
+            if CurrentPrice ~= CalculatePriceMask() then
+                CurrentPrice = CalculatePriceMask()
+                local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING",
+                    tostring(CurrentPrice .. "$"), Citizen.ResultAsLong())
+                Citizen.InvokeNative(0xFA233F8FE190514C, str)
+                Citizen.InvokeNative(0xE9990552DEC71600)
+            end
+            Change(data.current.value, "masks", data.current.change_type)
+        end
+    end
+    if data.current.change_type == "texture" then
+        if MaskCache["masks"].texture ~= data.current.value then
+            MaskCache["masks"].texture = data.current.value
+            Change(data.current.value, "masks", data.current.change_type)
+        end
+    end
+
+end
+
+local Maskon = false
+RegisterNetEvent("redemrp_clothes_store:putMask", function(model, texture)
+    if Maskon then
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey("masks"), 0)
+        NativeUpdatePedVariation(PlayerPedId())
+        Maskon = false
+    else
+        if IsPedMale(PlayerPedId()) then
+            if clothes_list["male"]["masks"][model][texture]['is_multiplayer'] == false then
+                local drawable = clothes_list["male"]["masks"][model][texture].drawable
+                local albedo = clothes_list["male"]["masks"][model][texture].albedo
+                local normal = clothes_list["male"]["masks"][model][texture].normal
+                local material = clothes_list["male"]["masks"][model][texture].material
+                local palette = clothes_list["male"]["masks"][model][texture].palette
+                local tint0 = clothes_list["male"]["masks"][model][texture].tint0
+                local tint1 = clothes_list["male"]["masks"][model][texture].tint1
+                local tint2 = clothes_list["male"]["masks"][model][texture].tint2
+                UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+            else
+            NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"]["masks"][model][texture].hash, false, true,
+                true)
+            end
+
+        else
+            if clothes_list["female"]["masks"][model][texture]['is_multiplayer'] == false then
+                local drawable = clothes_list["female"]["masks"][model][texture].drawable
+                local albedo = clothes_list["female"]["masks"][model][texture].albedo
+                local normal = clothes_list["female"]["masks"][model][texture].normal
+                local material = clothes_list["female"]["masks"][model][texture].material
+                local palette = clothes_list["female"]["masks"][model][texture].palette
+                local tint0 = clothes_list["female"]["masks"][model][texture].tint0
+                local tint1 = clothes_list["female"]["masks"][model][texture].tint1
+                local tint2 = clothes_list["female"]["masks"][model][texture].tint2
+                UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+            else
+                NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"]["masks"][model][texture].hash, false, true,
+                    true)
+            end
+
+        end
+        Maskon = true
+    end
+end)
