@@ -20,8 +20,8 @@ Config.BuyPain = {
 }
 
 Config.Market = {
-    ["bread"] = {label = "Pain", price = 0,50},
-    ["water"] = {label = "Eau", price = 0,30}
+    ["bread"] = {label = "Pain", price = 0.50},
+    ["water"] = {label = "Eau", price = 0.30}
 }
 
 Config.CraftingsReceipe = {
