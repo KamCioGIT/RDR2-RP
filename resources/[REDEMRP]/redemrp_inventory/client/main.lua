@@ -692,14 +692,14 @@ end
 function DrawText3D(x, y, z, text)
     local onScreen, _x, _y = GetScreenCoordFromWorldCoord(x, y, z)
     local px, py, pz = table.unpack(GetGameplayCamCoord())
-    SetTextScale(0.35, 0.35)
-    SetTextFontForCurrentCommand(1)
+    SetTextScale(0.15, 0.15)
+    SetTextFontForCurrentCommand(25)
     SetTextColor(255, 255, 255, 215)
     local str = CreateVarString(10, "LITERAL_STRING", text, Citizen.ResultAsLong())
     SetTextCentre(1)
     DisplayText(str, _x, _y)
     local factor = (string.len(text)) / 150
-    DrawSprite("generic_textures", "hud_menu_4a", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 100, 1, 1, 190, 0)
+    DrawSprite("honor_display", "honor_bg", _x, _y + 0.0125, 0.015 + factor, 0.03, 0.1, 100, 1, 1, 190, 0)
 end
 
 RegisterNetEvent(
@@ -921,6 +921,7 @@ Citizen.CreateThread(
                         if not PromptActive then
                             TaskLookAtEntity(playerPed, v.obj, 3000, 2048, 3)
                             local PromptGroupName = CreateVarString(10, "LITERAL_STRING", v.label)
+                            TriggerEvent("redem_roleplay:ShowTopNotification")
                             PromptSetActiveGroupThisFrame(PickupPromptGroup, PromptGroupName)
                             if PromptHasHoldModeCompleted(PickupPrompt) then
                                 PromptActive = true
