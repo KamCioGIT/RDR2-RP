@@ -575,7 +575,7 @@ function destory()
 end
 
 local cameraprompt = UipromptGroup:new("Camera")
-Uiprompt:new({0x7065027D,0xCEFD9220} , "Gauche/Droite", cameraprompt)
+Uiprompt:new(0x7065027D , "Gauche/Droite", cameraprompt)
 Uiprompt:new(0x3076E97C , "Zoom", cameraprompt)
 Uiprompt:new(0xF84FA74F , "Haut/Bas", cameraprompt)
 cameraprompt:setActive(false)
