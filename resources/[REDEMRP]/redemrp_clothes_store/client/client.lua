@@ -653,12 +653,6 @@ Citizen.CreateThread(function()
         SetBlipScale(blip, Config.BlipScale)
         Citizen.InvokeNative(0x9CB1A1623062F402, blip, Config.BlipName)
     end
-    for k, v in pairs(Config.Cloakroom) do
-        local blip = N_0x554d9d53f696d002(1664425300, v)
-        SetBlipSprite(blip, Config.BlipSpriteCloakRoom, 1)
-        SetBlipScale(blip, Config.BlipScale)
-        Citizen.InvokeNative(0x9CB1A1623062F402, blip, Config.BlipNameCloakRoom)
-    end
 end)
 
 RegisterNetEvent('rdr_clothes_store:OpenOutfits')

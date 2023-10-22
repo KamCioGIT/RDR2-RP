@@ -1,7 +1,7 @@
 Config = {}
 Config.Shoptext = 'Press ~INPUT_JUMP~ to access Clothing Store' -- Text to open the clothing shop
 Config.Cloakroomtext = 'Press ~INPUT_JUMP~ to change your Outfit' -- Text to open the clothing shop
-Config.BlipName = 'Clothing Store' -- Blip Name Showed on map
+Config.BlipName = 'Tailleur' -- Blip Name Showed on map
 Config.BlipNameCloakRoom = 'Wardrobe' -- Blip Name Showed on map
 Config.EnableCommand = false -- Enable/Disable /clothing command
 Config.BlipSprite = 1195729388	 -- Clothing shop sprite
