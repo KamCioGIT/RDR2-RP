@@ -1079,13 +1079,13 @@ function MenuUpdateHat(data, menu)
                 Citizen.InvokeNative(0xFA233F8FE190514C, str)
                 Citizen.InvokeNative(0xE9990552DEC71600)
             end
-            Change(data.current.value, "hats", data.current.change_type)
+            ChangeHat(data.current.value, data.current.change_type)
         end
     end
     if data.current.change_type == "texture" then
         if HatCache["hats"].texture ~= data.current.value then
             HatCache["hats"].texture = data.current.value
-            Change(data.current.value, "hats", data.current.change_type)
+            ChangeHat(data.current.value, data.current.change_type)
         end
     end
 
@@ -1135,10 +1135,83 @@ RegisterNetEvent("redemrp_clothes_store:puthat", function(model, texture)
     end
 end)
 
+function ChangeHat(id, change_type)
+    if id < 1 then
+            Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey("hats"), 0)
+            NativeUpdatePedVariation(PlayerPedId())
+    else
+        if IsPedMale(PlayerPedId()) then
+            if change_type == "model" then
+                if clothes_list["male"]["hats"][id][1]['is_multiplayer'] == false then
+                    local drawable = clothes_list["male"]["hats"][id][1].drawable
+                    local albedo = clothes_list["male"]["hats"][id][1].albedo
+                    local normal = clothes_list["male"]["hats"][id][1].normal
+                    local material = clothes_list["male"]["hats"][id][1].material
+                    local palette = clothes_list["male"]["hats"][id][1].palette
+                    local tint0 = clothes_list["male"]["hats"][id][1].tint0
+                    local tint1 = clothes_list["male"]["hats"][id][1].tint1
+                    local tint2 = clothes_list["male"]["hats"][id][1].tint2
+                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"]["hats"][id][1].hash, false, true,
+                    true)
+                end
+            else
+                if clothes_list["male"]["hats"][HatCache["hats"].model][id]['is_multiplayer'] == false then
+                    local drawable = clothes_list["male"]["hats"][HatCache["hats"].model][id].drawable
+                    local albedo = clothes_list["male"]["hats"][HatCache["hats"].model][id].albedo
+                    local normal = clothes_list["male"]["hats"][HatCache["hats"].model][id].normal
+                    local material = clothes_list["male"]["hats"][HatCache["hats"].model][id].material
+                    local palette = clothes_list["male"]["hats"][HatCache["hats"].model][id].palette
+                    local tint0 = clothes_list["male"]["hats"][HatCache["hats"].model][id].tint0
+                    local tint1 = clothes_list["male"]["hats"][HatCache["hats"].model][id].tint1
+                    local tint2 = clothes_list["male"]["hats"][HatCache["hats"].model][id].tint2
+                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                NativeSetPedComponentEnabled(PlayerPedId(),
+                    clothes_list["male"]["hats"][HatCache["hats"].model][id].hash, false, true, true)
+                end
+            end
+
+        else
+            if change_type == "model" then
+                if clothes_list["female"]["hats"][id][1]['is_multiplayer'] == false then
+                    local drawable = clothes_list["female"]["hats"][id][1].drawable
+                    local albedo = clothes_list["female"]["hats"][id][1].albedo
+                    local normal = clothes_list["female"]["hats"][id][1].normal
+                    local material = clothes_list["female"]["hats"][id][1].material
+                    local palette = clothes_list["female"]["hats"][id][1].palette
+                    local tint0 = clothes_list["female"]["hats"][id][1].tint0
+                    local tint1 = clothes_list["female"]["hats"][id][1].tint1
+                    local tint2 = clothes_list["female"]["hats"][id][1].tint2
+                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                    NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"]["hats"][id][1].hash, false, true,
+                        true)
+                end
+            else
+                if clothes_list["female"]["hats"][HatCache["hats"].model][id]['is_multiplayer'] == false then
+                    local drawable = clothes_list["female"]["hats"][HatCache["hats"].model][id].drawable
+                    local albedo = clothes_list["female"]["hats"][HatCache["hats"].model][id].albedo
+                    local normal = clothes_list["female"]["hats"][HatCache["hats"].model][id].normal
+                    local material = clothes_list["female"]["hats"][HatCache["hats"].model][id].material
+                    local palette = clothes_list["female"]["hats"][HatCache["hats"].model][id].palette
+                    local tint0 = clothes_list["female"]["hats"][HatCache["hats"].model][id].tint0
+                    local tint1 = clothes_list["female"]["hats"][HatCache["hats"].model][id].tint1
+                    local tint2 = clothes_list["female"]["hats"][HatCache["hats"].model][id].tint2
+                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                NativeSetPedComponentEnabled(PlayerPedId(),
+                    clothes_list["female"]["hats"][HatCache["hats"].model][id].hash, false, true, true)
+                end
+            end
+        end
+
+    end
+end
+
 
 ---- masque
-
----- chapeaux
 
 local Maskprompt = UipromptGroup:new("Marché")
 Uiprompt:new(0x760A9C6F, "Acheter des masques", Maskprompt)
@@ -1394,16 +1467,91 @@ function MenuUpdateMask(data, menu)
                 Citizen.InvokeNative(0xFA233F8FE190514C, str)
                 Citizen.InvokeNative(0xE9990552DEC71600)
             end
-            Change(data.current.value, "masks", data.current.change_type)
+            ChangeMask(data.current.value, data.current.change_type)
         end
     end
     if data.current.change_type == "texture" then
         if MaskCache["masks"].texture ~= data.current.value then
             MaskCache["masks"].texture = data.current.value
-            Change(data.current.value, "masks", data.current.change_type)
+            ChangeMask(data.current.value, data.current.change_type)
         end
     end
 
+end
+
+function ChangeMask(id, change_type)
+    if id < 1 then
+            Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey("masks"), 0)
+            NativeUpdatePedVariation(PlayerPedId())
+    else
+        if IsPedMale(PlayerPedId()) then
+            if change_type == "model" then
+                if clothes_list["male"]["masks"][id][1]['is_multiplayer'] == false then
+                    local drawable = clothes_list["male"]["masks"][id][1].drawable
+                    local albedo = clothes_list["male"]["masks"][id][1].albedo
+                    local normal = clothes_list["male"]["masks"][id][1].normal
+                    local material = clothes_list["male"]["masks"][id][1].material
+                    local palette = clothes_list["male"]["masks"][id][1].palette
+                    local tint0 = clothes_list["male"]["masks"][id][1].tint0
+                    local tint1 = clothes_list["male"]["masks"][id][1].tint1
+                    local tint2 = clothes_list["male"]["masks"][id][1].tint2
+                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"]["masks"][id][1].hash, false, true,
+                    true)
+                end
+            else
+                if clothes_list["male"]["masks"][MaskCache["masks"].model][id]['is_multiplayer'] == false then
+                    local drawable = clothes_list["male"]["masks"][MaskCache["masks"].model][id].drawable
+                    local albedo = clothes_list["male"]["masks"][MaskCache["masks"].model][id].albedo
+                    local normal = clothes_list["male"]["masks"][MaskCache["masks"].model][id].normal
+                    local material = clothes_list["male"]["masks"][MaskCache["masks"].model][id].material
+                    local palette = clothes_list["male"]["masks"][MaskCache["masks"].model][id].palette
+                    local tint0 = clothes_list["male"]["masks"][MaskCache["masks"].model][id].tint0
+                    local tint1 = clothes_list["male"]["masks"][MaskCache["masks"].model][id].tint1
+                    local tint2 = clothes_list["male"]["masks"][MaskCache["masks"].model][id].tint2
+                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                NativeSetPedComponentEnabled(PlayerPedId(),
+                    clothes_list["male"]["masks"][MaskCache["masks"].model][id].hash, false, true, true)
+                end
+            end
+
+        else
+            if change_type == "model" then
+                if clothes_list["female"]["masks"][id][1]['is_multiplayer'] == false then
+                    local drawable = clothes_list["female"]["masks"][id][1].drawable
+                    local albedo = clothes_list["female"]["masks"][id][1].albedo
+                    local normal = clothes_list["female"]["masks"][id][1].normal
+                    local material = clothes_list["female"]["masks"][id][1].material
+                    local palette = clothes_list["female"]["masks"][id][1].palette
+                    local tint0 = clothes_list["female"]["masks"][id][1].tint0
+                    local tint1 = clothes_list["female"]["masks"][id][1].tint1
+                    local tint2 = clothes_list["female"]["masks"][id][1].tint2
+                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                    NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"]["masks"][id][1].hash, false, true,
+                        true)
+                end
+            else
+                if clothes_list["female"]["masks"][MaskCache["masks"].model][id]['is_multiplayer'] == false then
+                    local drawable = clothes_list["female"]["masks"][MaskCache["masks"].model][id].drawable
+                    local albedo = clothes_list["female"]["masks"][MaskCache["masks"].model][id].albedo
+                    local normal = clothes_list["female"]["masks"][MaskCache["masks"].model][id].normal
+                    local material = clothes_list["female"]["masks"][MaskCache["masks"].model][id].material
+                    local palette = clothes_list["female"]["masks"][MaskCache["masks"].model][id].palette
+                    local tint0 = clothes_list["female"]["masks"][MaskCache["masks"].model][id].tint0
+                    local tint1 = clothes_list["female"]["masks"][MaskCache["masks"].model][id].tint1
+                    local tint2 = clothes_list["female"]["masks"][MaskCache["masks"].model][id].tint2
+                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                NativeSetPedComponentEnabled(PlayerPedId(),
+                    clothes_list["female"]["masks"][MaskCache["masks"].model][id].hash, false, true, true)
+                end
+            end
+        end
+
+    end
 end
 
 local Maskon = false
