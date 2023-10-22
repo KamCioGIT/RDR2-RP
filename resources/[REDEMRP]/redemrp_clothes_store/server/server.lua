@@ -266,3 +266,28 @@ AddEventHandler("RegisterUsableItem:chapeau", function(source, _data)
     local texture = _data.meta.texture
     TriggerClientEvent("redemrp_clothes_store:puthat", _source, model, texture)
 end)
+
+
+--- masques
+
+RegisterServerEvent('rdr_clothes_store:GiveMask')
+AddEventHandler('rdr_clothes_store:GiveMask', function(info, price)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local currentMoney = user.GetMoney()
+    if currentMoney >= price then
+        user.RemoveMoney(price)
+        TriggerEvent("redemrp_inventory:masque", _source, info)
+
+    else
+        TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
+    end
+end)
+
+RegisterServerEvent("RegisterUsableItem:masque")
+AddEventHandler("RegisterUsableItem:masque", function(source, _data)
+	local _source = source
+    local model = _data.meta.model
+    local texture = _data.meta.texture
+    TriggerClientEvent("redemrp_clothes_store:putMask", _source, model, texture)
+end)

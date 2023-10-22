@@ -1336,7 +1336,6 @@ function OpenMaskMenu()
 
     }, function(data, menu)
         if data.current.value == "save" then
-            print "ouais la zone"
             destory()
             menu.close()
             saveOutfit = true
