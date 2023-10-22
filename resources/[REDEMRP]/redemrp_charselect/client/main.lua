@@ -75,7 +75,7 @@ OpenCharacterMenu = function()
             table.insert(elements, {label = "<strong>"..v.firstname .. " " .. v.lastname.."</strong>", desc = v.characterid, value = v.characterid})
         end
     end
-    table.insert(elements, {label = "<strong>Nouveau Personnages</strong>", desc = "Créer un nouveau personnage", value = "new"})
+    table.insert(elements, {label = "<strong>Nouveau Personnage</strong>", desc = "Créer un nouveau personnage", value = "new"})
     MenuData.Open('default', GetCurrentResourceName(), 'charselect', {
         title    = "DUST",
         subtext  = "Vos personnages",
@@ -96,7 +96,7 @@ OpenCharacterMenu = function()
             print("Personnage: "..data.current.value)
             SelectingChar = data.current.value
             local elements = {
-                {label = "Choisir", desc = "Jouer ce personnage?", image="items/charsel_confirm.png",value = "select"},
+                {label = "Choisir", desc = "Jouer ce personnage?",value = "select"},
                 -- {label = "Delete Character", desc = "Delete this character?", image="items/charsel_delete.png", value = "delete"}
             }
             MenuData.Open('default', GetCurrentResourceName(), 'charselect2', {
@@ -112,8 +112,8 @@ OpenCharacterMenu = function()
                     TriggerServerEvent("redemrp:selectCharacter", SelectingChar)
                 elseif data.current.value == "delete" then
                     local elements = {
-                        {label = "<span style=\"color:red;\">Confirm Deletion</span>", desc = "Confirm deleting this character?", image="items/charsel_confirm.png", value = "confirm"},
-                        {label = "Cancel", desc = "Cancel deletion", image="items/charsel_cancel.png", value = "cancel"}
+                        {label = "<span style=\"color:red;\">Confirm Deletion</span>", desc = "Confirm deleting this character?", value = "confirm"},
+                        {label = "Cancel", desc = "Cancel deletion", value = "cancel"}
                     }
                     MenuData.Open('default', GetCurrentResourceName(), 'charselect3', {
                         title    = "REDEM:RP",
