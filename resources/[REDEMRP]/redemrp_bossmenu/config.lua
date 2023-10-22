@@ -67,6 +67,7 @@ Config.Jobs = {
     ["armurier_rhodes"] = {
         bigjob = "armurier",
         Name = "Armurerie de Rhodes",
+        blisprite = -145868367,
         MenuLocations = {
             vector3(1328.648, -1325.286, 77.94454)
         },
@@ -89,6 +90,7 @@ Config.Jobs = {
     ["armurier_strawberry"] = {
         bigjob = "armurier",
         Name = "Armurerie de Strawberry",
+        blisprite = -145868367,
         MenuLocations = {
             vector3(-1843.087, -413.7095, 162.3547)
         },
@@ -111,6 +113,7 @@ Config.Jobs = {
     ["marechal_bla"] = {
         bigjob = "marechal",
         Name = "Écurie de Blackwater",
+        blisprite = -1327110633,
         MenuLocations = {
             vector3(-878.4421, -1361.514, 43.57775)
         },
@@ -133,6 +136,7 @@ Config.Jobs = {
     ["marechal_stdenis"] = {
         bigjob = "marechal",
         Name = "Écurie de Saint-Denis",
+        blisprite = -1327110633,
         MenuLocations = {
             vector3(2513.883, -1459.578, 46.36203)
         },
@@ -155,6 +159,7 @@ Config.Jobs = {
     ["usine"] = {
         bigjob = "usine",
         Name = "Usine",
+        blisprite = 1576459965,
         MenuLocations = {
             vector3(2324.79, -1456.619, 46.00994)
         },
@@ -176,7 +181,8 @@ Config.Jobs = {
     },
     ["mineur"] = {
         bigjob = "mineur",
-        Name = "Usine",
+        Name = "Mine",
+        blisprite = 1220803671,
         MenuLocations = {
             vector3(2957.164, 1377.683, 56.3044)
         },
@@ -198,7 +204,8 @@ Config.Jobs = {
     },
     ["fermier"] = {
         bigjob = "fermier",
-        Name = "Usine",
+        Name = "Ferme",
+        blisprite = 552659337,
         MenuLocations = {
             vector3(-1643.433, -1355.236, 84.45272)
         },
@@ -221,6 +228,7 @@ Config.Jobs = {
     ["store_straw"] = {
         bigjob = "store",
         Name = "General Store Strawberry",
+        blisprite = 1475879922,
         MenuLocations = {
             vector3(-1789.773, -384.8727, 160.3285)
         },
@@ -242,7 +250,8 @@ Config.Jobs = {
     },
     ["forge"] = {
         bigjob = "forge",
-        Name = "Forge de Blackwater",
+        Name = "Forge",
+        blisprite = -758970771,
         MenuLocations = {
             vector3(-875.5815, -1291.787, 43.10154)
         },

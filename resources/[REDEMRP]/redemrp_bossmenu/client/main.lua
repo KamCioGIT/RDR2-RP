@@ -13,6 +13,12 @@ local Timeout = nil
 
 Citizen.CreateThread(function()
     Wait(1000)
+    for k,v in pairs(Config.Jobs) do
+        local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.MenuLocations)
+        SetBlipSprite(blip, v.blisprite)
+        SetBlipScale(blip, 0.2)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format(v.Name))
+    end
     if RedEM.GetPlayerData().isLoggedIn then
         TriggerServerEvent("redemrp_bossmenu:server:RequestJob")
     end
