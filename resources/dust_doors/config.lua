@@ -12,7 +12,7 @@ Config.Trapdoor = {
 		objCoords = vector3(-1789.993, -388.8973, 160.3287),
 		objPitchclose = 0.0,
 		objPitchopen = -85.0,
-		locked = true,
+		locked = false,
 		distance = 3.0
 	},
 

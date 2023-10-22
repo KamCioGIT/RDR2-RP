@@ -150,53 +150,16 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
-		local playerCoords, letSleep = GetEntityCoords(PlayerPedId()), true
-
 		for k, v in ipairs(Config.Trapdoor) do
 			if DoesObjectOfTypeExistAtCoords(v.objCoords, 15.0, GetHashKey(v.doorID)) then
-				if data.obj == nil then
-					data.obj = GetClosestObjectOfType(pos, AnimConfig.Radius, GetHashKey(data.model), false, false, false)
-					RequestAnimDict(data.dict)
-					while not HasAnimDictLoaded(data.dict) do
-						Citizen.Wait(10)
-					end
-					if not data.bell then
-						print("^4Start Animating :^6 "..data.model.."|"..data.obj)
-						Citizen.InvokeNative(0xDC6D22FAB76D4874, data.obj, data.anim, data.dict, -1, true, true, false, 1.0, 0)
-					else
-						local currentH = GetClockHours()
-						local currentM = GetClockMinutes()
-						if currentH == 12 and currentM >= 0 and currentM <=15 and bellrun == false then
-							print("^4Start Animating Bell (no loop):^6 "..data.model.."|"..data.obj)
-							bellrun = true
-							Citizen.InvokeNative(0xDC6D22FAB76D4874, data.obj, data.anim, data.dict, -1, true, true, false, 1.0, 0)
-						else
-							Citizen.InvokeNative(0x786591D986DE9159, data.obj, data.anim, data.dict, 0)
-							bellrun = false
-						end
-					end
-				else
-					if data.bell then
-						local currentH = GetClockHours()
-						local currentM = GetClockMinutes()
-						if currentH == 12 and currentM >= 0 and currentM <=15 and bellrun == false then
-							bellrun = true
-							print("^4Start Animating Bell (no loop):^6 "..data.model.."|"..data.obj)
-							Citizen.InvokeNative(0xDC6D22FAB76D4874, data.obj, data.anim, data.dict, -1, true, true, false, 1.0, 0)
-							Citizen.Wait(15000)
-						else
-							Citizen.InvokeNative(0x786591D986DE9159, data.obj, data.anim, data.dict, 0)
-							bellrun = false
-						end
-					end
+				if v.obj == nil then
+					v.obj = GetClosestObjectOfType(pos, AnimConfig.Radius, GetHashKey(v.doorID), false, false, false)
 				end
-			else
-				if data.obj ~= nil then
-					print("^4Stop Animating :^6 "..data.model.."|"..data.obj)
-					Citizen.InvokeNative(0x786591D986DE9159, data.obj, data.anim, data.dict, 0)
-					data.obj = nil
-					bellrun = false
-				end		
+				if doorID.locked then
+					SetEntityRotation(v.obj, v.objPitchclose, 0.0, 0.0, 2, true)
+				else
+					SetEntityRotation(v.obj, v.objPitchopen, 0.0, 0.0, 2, true)
+				end
 			end
 		end
 	end
