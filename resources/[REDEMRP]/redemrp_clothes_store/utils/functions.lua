@@ -71,6 +71,25 @@ function CalculatePrice()
 		return price
 end
 
+function CalculatePriceHat()
+	local price = 0
+		if IsPedMale(PlayerPedId()) then
+				if OldHatCache["hats"].model ~= HatCache["hats"].model or OldHatCache["hats"].texture ~= HatCache["hats"].texture then
+					if HatCache["hats"].model > 0 then
+						price = price + Config.Price["hats"]
+					end
+				end
+		else
+				if OldHatCache["hats"].model ~= HatCache["hats"].model or OldHatCache["hats"].texture ~= HatCache["hats"].texture then
+					if HatCache["hats"].model > 0 then
+						price = price + Config.Price["hats"]
+					end
+				end
+		
+		end
+		return price
+end
+
 
 function NativeSetPedComponentEnabled(ped, componentHash, immediately, isMp)
     local categoryHash = NativeGetPedComponentCategory(not IsPedMale(ped), componentHash)

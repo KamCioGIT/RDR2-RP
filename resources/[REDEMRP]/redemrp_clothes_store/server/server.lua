@@ -89,6 +89,8 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value)
                     TriggerClientEvent("rdr_clothes_store:ApplyClothes", _source, _clothes)
                 elseif _value == 2 then
                     TriggerClientEvent("rdr_clothes_store:OpenClothingMenu", _source, _clothes)
+                elseif _value == 3 then
+                    TriggerClientEvent("rdr_clothes_store:OpenHatMenu", _source, _clothes)
                 end
             end
         end)
@@ -238,4 +240,27 @@ AddEventHandler("rdr_clothes_store:deleteClothes", function(charid, Callback)
         else
         end
     end)
+end)
+
+--- chapeau
+RegisterServerEvent('rdr_clothes_store:GiveHat')
+AddEventHandler('rdr_clothes_store:GiveHat', function(info, price)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local currentMoney = user.GetMoney()
+    if currentMoney >= price then
+        user.RemoveMoney(price)
+        TriggerEvent("redemrp_inventory:chapeau", _source, info)
+
+    else
+        TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
+    end
+end)
+
+RegisterServerEvent("RegisterUsableItem:chapeau")
+AddEventHandler("RegisterUsableItem:chapeau", function(source, _data)
+	local _source = source
+    local model = _data.meta.model
+    local texture = _data.meta.texture
+    TriggerClientEvent("redemrp_clothes_store:puthat", _source, model, texture)
 end)

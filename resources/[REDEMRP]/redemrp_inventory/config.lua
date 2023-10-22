@@ -2886,19 +2886,15 @@ Config.Items = {
     imgsrc = "items/clothing_generic_outfit.png",
     type = "item_standard",
 },
-
-
-
----- EVENT -----
-["tenueevent"] = {
-    label = "Uniforme",
-    description = "Pour l'Union",
+["chapeau"] = {
+    label = "Chapeau",
+    description = "Couvre-chef",
     weight = 0.1,
     canBeDropped = true,
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/clothing_generic_shirt.png",
+    imgsrc = "items/clothing_hl_player_hat_027_1.png",
     type = "item_standard",
 },
 }

@@ -2333,22 +2333,22 @@ RegisterServerEvent("redemrp_inventory:createclothes", function(source, id)
 end)
 
 
-RegisterServerEvent("redemrp_inventory:tenueevent", function(source)
+RegisterServerEvent("redemrp_inventory:chapeau", function(source, info)
     local _source = source
-    print 'get'
     local Player = RedEM.GetPlayer(_source)
     local identifier = Player.GetIdentifier()
     local charid = Player.GetActiveCharacter()
-    print (identifier, charid)
     local _meta = meta or {}
-    local itemData = Config.Items["tenueevent"]
-    local random = math.random(1, 4)
-    if not _meta.id then
-        _meta.id = random
+    local itemData = Config.Items["chapeau"]
+    if not _meta.model then
+        _meta.model = info.model
     end
-    local item, id = getInventoryItemFromName("tenueevent", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not _meta.texture then
+        _meta.texture = info.texture
+    end
+    local item, id = getInventoryItemFromName("chapeau", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
     if not item then
-        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("tenueevent", 1, _meta))
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("chapeau", 1, _meta))
         InventoryWeight[identifier .. "_" .. charid] =
         InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
         TriggerClientEvent(

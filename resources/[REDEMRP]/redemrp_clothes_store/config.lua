@@ -31,6 +31,10 @@ Config.Cloakroom = {
 	vector3(1976.2947, -5511.198, 42.824645), -- Guarma Wedding 2
 }
 
+Config.Hat = {
+	vector3(2555.037, -1171.738, 53.6835), -- SAINT DENIS
+}
+
 Config.Label = {
 	["boot_accessories"] = "Accessoire de bottes",
 	["pants"] = "Pantalon",            	
@@ -192,4 +196,14 @@ Config.MenuElements = {
 			"hair_accessories",
 		}
 	},
+}
+
+
+Config.HatElements = {
+	["head"] = {
+		label = "Tête",
+		category = {
+			"hats",
+		}
+	}
 }

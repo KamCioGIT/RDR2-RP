@@ -242,7 +242,6 @@ function GetMaxTexturesForModel(category, model)
     if model == 0 then
         model = 1
     end
-    print(#clothes_list["male"])
     if IsPedMale(PlayerPedId()) then
         return #clothes_list["male"][category][model]
     else
@@ -819,5 +818,313 @@ RegisterNetEvent("redemrp_inventory:removeclothes", function()
             Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
             NativeUpdatePedVariation(PlayerPedId())
         end
+    end
+end)
+
+
+---- chapeaux
+
+local hatprompt = UipromptGroup:new("Chapelier")
+Uiprompt:new(0x760A9C6F, "Acheter des chapeaux", hatprompt)
+hatprompt:setActive(false)
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(1)
+        local playerPed = PlayerPedId()
+        local coords = GetEntityCoords(playerPed)
+        if isCreatorOpened then
+            DrawLightWithRange(coords.x + 1, coords.y + 1, coords.z + 1, 255, 255, 255, 2.5, 10.0)
+        end
+        for k, v in pairs(Config.Hat) do
+            local dist = Vdist(coords, v)
+            if dist < 2 then
+                hatprompt:setActiveThisFrame(true)
+                if IsControlJustReleased(0, 0x760A9C6F) then
+                    TriggerServerEvent("rdr_clothes_store:LoadClothes", 3)
+                end
+            end
+        end
+
+    end
+end)
+
+RegisterNetEvent('rdr_clothes_store:OpenHatMenu')
+AddEventHandler('rdr_clothes_store:OpenHatMenu', function(ClothesComponents)
+    HatCache = ClothesComponents
+    if IsPedMale(PlayerPedId()) then
+        for k,v in pairs(clothes_list["male"]) do
+            if HatCache["hats"] == nil then
+                HatCache["hats"] = {}
+                HatCache["hats"].model = 0
+                HatCache["hats"].texture = 0
+            end
+        end
+    else
+        for k,v in pairs(clothes_list["female"]) do
+            if HatCache["hats"] == nil then
+                HatCache["hats"] = {}
+                HatCache["hats"].model = 0
+                HatCache["hats"].texture = 0
+            end
+        end
+
+    end
+    OldHatCache = deepcopy(HatCache)
+--    if IsPedMale(PlayerPedId()) then
+--        for k,v in pairs(clothes_list["male"]) do
+--            if OldClothesCache[k] == nil then
+--                OldClothesCache[k] = {}
+--                OldClothesCache[k].model = 0
+--                OldClothesCache[k].texture = 0
+--            end
+--        end
+--    else
+--        for k,v in pairs(clothes_list["female"]) do
+--            if OldClothesCache[k] == nil then
+--                OldClothesCache[k] = {}
+--                OldClothesCache[k].model = 0
+--                OldClothesCache[k].texture = 0
+--            end
+--        end
+--    end
+    camera(2.8, -0.15)
+    ClothingLight()
+    OpenHatMenu()
+end)
+
+
+function OpenHatMenu()
+    MenuData.CloseAll()
+    local elements = {}
+
+    if IsPedMale(PlayerPedId()) then
+        local a = 1
+            if clothes_list["male"]["hats"] ~= nil then
+            local category = clothes_list["male"]["hats"]
+            if HatCache["hats"] == nil then
+                HatCache["hats"] = {}
+                HatCache["hats"].model = 0
+                HatCache["hats"].texture = 1
+            end
+            local options = {}
+            for k, v in pairs(category) do
+                table.insert(options, k .." Style")
+            end
+            table.insert(elements, {
+                label = Config.Label["hats"].. " ($" .. Config.Price["hats"]..")" or v,
+                value = HatCache["hats"].model or 0,
+                category = "hats",
+                desc = "Changer le modèle",
+                type = "slider",
+                min = 0,
+                max = #category,
+                change_type = "model",
+                id = a,
+                options = options
+            })
+            a = a + 1
+            options = {}
+
+            for i = 1, GetMaxTexturesForModel(k, HatCache[k].model or 1), 1 do
+                table.insert(options, i.." Couleur")
+            end
+            table.insert(elements, {
+                label = Config.Label["hats"] .. " Couleur" or v,
+                value = HatCache["hats"].texture or 1,
+                category = "hats",
+                desc = "Changer la couleur",
+                type = "slider",
+                min = 1,
+                max = GetMaxTexturesForModel("hats", HatCache["hats"].model or 1),
+                change_type = "texture",
+                id = a,
+                options = options
+            })
+
+            options = {}
+            a = a + 1
+        end
+
+    else
+        local a = 1
+        if clothes_list["female"]["hats"] ~= nil then
+        local category = clothes_list["female"]["hats"]
+        if HatCache["hats"] == nil then
+            HatCache["hats"] = {}
+            HatCache["hats"].model = 0
+            HatCache["hats"].texture = 1
+        end
+        local options = {}
+        for k, v in pairs(category) do
+            table.insert(options, k .." Style")
+        end
+        table.insert(elements, {
+            label = Config.Label["hats"].. " ($" .. Config.Price["hats"]..")" or v,
+            value = HatCache["hats"].model or 0,
+            category = "hats",
+            desc = "Changer le modèle",
+            type = "slider",
+            min = 0,
+            max = #category,
+            change_type = "model",
+            id = a,
+            options = options
+        })
+        a = a + 1
+        options = {}
+
+        for i = 1, GetMaxTexturesForModel(k, HatCache[k].model or 1), 1 do
+            table.insert(options, i.." Couleur")
+        end
+        table.insert(elements, {
+            label = Config.Label["hats"] .. " Couleur" or v,
+            value = HatCache["hats"].texture or 1,
+            category = "hats",
+            desc = "Changer la couleur",
+            type = "slider",
+            min = 1,
+            max = GetMaxTexturesForModel("hats", HatCache["hats"].model or 1),
+            change_type = "texture",
+            id = a,
+            options = options
+        })
+
+        options = {}
+        a = a + 1
+    end
+
+    table.insert(elements, {
+        label = Config.Label["save"] or "Save",
+        value = "save",
+        desc = "Valider"
+    })
+
+    end
+    MenuData.Open('default', GetCurrentResourceName(), 'hat_store_menu_category', {
+
+        title = 'Chapelier',
+
+        subtext = 'Acheter des chapeaux',
+
+        align = 'top-left',
+
+        elements = elements
+
+    }, function(data, menu)
+
+    end, function(data, menu)
+        if data.current.value == "save" then
+            destory()
+            menu.close()
+            saveOutfit = true
+            local info = {}
+            info.model = HatCache["hats"].model
+            info.texture = HatCache["hats"].texture
+            TriggerServerEvent("rdr_clothes_store:GiveHat", info, CurrentPrice)
+            OldHatCache = {}
+
+        end
+    end, function(data, menu)
+        MenuUpdateHat(data, menu)
+        menu.close()
+        OldHatCache = {}
+        destory()
+        TriggerServerEvent("RedEM:server:LoadSkin")
+    end)
+end
+
+
+function MenuUpdateHat(data, menu)
+
+    if data.current.change_type == "model" then
+        if HatCache["hats"].model ~= data.current.value then
+            HatCache["hats"].texture = 1
+            HatCache["hats"].model = data.current.value
+            if data.current.value > 0 then
+                local options = {}
+                -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
+                if GetMaxTexturesForModel("hats", data.current.value) > 1 then
+                    for i = 1, GetMaxTexturesForModel("hats", data.current.value), 1 do
+                        table.insert(options, i .. " Couleur")
+                    end
+                else
+                    table.insert(options, "Sans")
+
+                end
+                menu.setElement(data.current.id + 1, "options", options)
+                menu.setElement(data.current.id + 1, "max",
+                    GetMaxTexturesForModel("hats", data.current.value))
+                menu.setElement(data.current.id + 1, "min", 1)
+                menu.setElement(data.current.id + 1, "value", 1)
+                menu.refresh()
+
+            else
+                menu.setElement(data.current.id + 1, "max", 0)
+                menu.setElement(data.current.id + 1, "min", 0)
+                menu.setElement(data.current.id + 1, "value", 0)
+                menu.refresh()
+
+            end
+            if CurrentPrice ~= CalculatePriceHat() then
+                CurrentPrice = CalculatePriceHat()
+                local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING",
+                    tostring(CurrentPrice .. "$"), Citizen.ResultAsLong())
+                Citizen.InvokeNative(0xFA233F8FE190514C, str)
+                Citizen.InvokeNative(0xE9990552DEC71600)
+            end
+            Change(data.current.value, "hats", data.current.change_type)
+        end
+    end
+    if data.current.change_type == "texture" then
+        if HatCache["hats"].texture ~= data.current.value then
+            HatCache["hats"].texture = data.current.value
+            Change(data.current.value, "hats", data.current.change_type)
+        end
+    end
+
+end
+
+local haton = false
+RegisterNetEvent("redemrp_clothes_store:puthat", function(model, texture)
+    if haton then
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey("hats"), 0)
+        NativeUpdatePedVariation(PlayerPedId())
+        haton = false
+    else
+        if IsPedMale(PlayerPedId()) then
+            if clothes_list["male"]["hats"][model][texture]['is_multiplayer'] == false then
+                local drawable = clothes_list["male"]["hats"][model][texture].drawable
+                local albedo = clothes_list["male"]["hats"][model][texture].albedo
+                local normal = clothes_list["male"]["hats"][model][texture].normal
+                local material = clothes_list["male"]["hats"][model][texture].material
+                local palette = clothes_list["male"]["hats"][model][texture].palette
+                local tint0 = clothes_list["male"]["hats"][model][texture].tint0
+                local tint1 = clothes_list["male"]["hats"][model][texture].tint1
+                local tint2 = clothes_list["male"]["hats"][model][texture].tint2
+                UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+            else
+            NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"]["hats"][model][texture].hash, false, true,
+                true)
+            end
+
+        else
+            if clothes_list["female"]["hats"][model][texture]['is_multiplayer'] == false then
+                local drawable = clothes_list["female"]["hats"][model][texture].drawable
+                local albedo = clothes_list["female"]["hats"][model][texture].albedo
+                local normal = clothes_list["female"]["hats"][model][texture].normal
+                local material = clothes_list["female"]["hats"][model][texture].material
+                local palette = clothes_list["female"]["hats"][model][texture].palette
+                local tint0 = clothes_list["female"]["hats"][model][texture].tint0
+                local tint1 = clothes_list["female"]["hats"][model][texture].tint1
+                local tint2 = clothes_list["female"]["hats"][model][texture].tint2
+                UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+            else
+                NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"]["hats"][model][texture].hash, false, true,
+                    true)
+            end
+
+        end
+        haton = true
     end
 end)
