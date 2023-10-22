@@ -9,26 +9,26 @@ Config.BlipSpriteCloakRoom = 1496995379	 -- Clothing shop sprite
 Config.BlipScale = 0.2 -- Blip scale
 Config.OpenKey = 0x760A9C6F -- Opening key hash
 Config.Zones = {
-	vector3(-181.8676, 624.49322, 114.08956), -- VALENTINE
-	vector3(1225.331, -1247.26, 74.15482), -- RHODES
+	-- vector3(-181.8676, 624.49322, 114.08956), -- VALENTINE
+	-- vector3(1225.331, -1247.26, 74.15482), -- RHODES
 	vector3(2550.81,-1166.28,53.68), -- SAINT DENIS
 	vector3(-764.4633, -1291.577, 43.83503), -- BLACK WATER
-	vector3(-1794.89,-385.22,160.33), -- STRAWBERRY
-	vector3(-3731.783, -2610.405, -12.9377), -- Armadillo
-	vector3(2927.3571, 1271.6688, 44.652835), -- Annesburg
-	vector3(-5484.658, -2961.321, -1.745089), -- Tumbleweed
+	-- vector3(-1794.89,-385.22,160.33), -- STRAWBERRY
+	-- vector3(-3731.783, -2610.405, -12.9377), -- Armadillo
+	-- vector3(2927.3571, 1271.6688, 44.652835), -- Annesburg
+	-- vector3(-5484.658, -2961.321, -1.745089), -- Tumbleweed
 }
 
 Config.Cloakroom = {
-	vector3(-171.7564, 638.16632, 114.08965), -- VALENTINE
-	vector3(-1816.561, -367.8912, 163.29634), -- STRAWBERRY
+	-- vector3(-171.7564, 638.16632, 114.08965), -- VALENTINE
+	-- vector3(-1816.561, -367.8912, 163.29634), -- STRAWBERRY
 	vector3(-767.4958, -1291.484, 43.83496), -- BLACKWATER
-	vector3(1216.392, -1256.645, 75.06288), -- RHODES
+	-- vector3(1216.392, -1256.645, 75.06288), -- RHODES
 	vector3(2556.49,-1160.14,53.74), -- SAINT DENIS
-	vector3(-3727.226, -2610.616, -12.93387), -- Armadillo
-	vector3(-5508.13, -2913.663, -1.751304), -- Tumbleweed
-	vector3(2002.7088, -5505.448, 44.389133), -- Guarma Wedding 1
-	vector3(1976.2947, -5511.198, 42.824645), -- Guarma Wedding 2
+	-- vector3(-3727.226, -2610.616, -12.93387), -- Armadillo
+	-- vector3(-5508.13, -2913.663, -1.751304), -- Tumbleweed
+	-- vector3(2002.7088, -5505.448, 44.389133), -- Guarma Wedding 1
+	-- vector3(1976.2947, -5511.198, 42.824645), -- Guarma Wedding 2
 }
 
 Config.Hat = {
