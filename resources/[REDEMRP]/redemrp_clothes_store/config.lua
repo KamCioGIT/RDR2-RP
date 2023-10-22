@@ -33,10 +33,12 @@ Config.Cloakroom = {
 
 Config.Hat = {
 	[1] = vector3(2555.037, -1171.738, 53.6835), -- SAINT DENIS
+	[2] = vector3(-759.6125, -1293.875, 43.83521), --- blackwater
 }
 
 Config.Mask = {
 	[1] = vector3(2825.81, -1229.961, 47.59823), -- SAINT DENIS
+	[2] = vector3(-847.2916, -1180.989, 43.55643) ---- Blackwater 
 }
 
 Config.Label = {
