@@ -1030,8 +1030,6 @@ function OpenHatMenu()
         elements = elements
 
     }, function(data, menu)
-
-    end, function(data, menu)
         if data.current.value == "save" then
             print "ouais la zone"
             destory()
@@ -1048,6 +1046,8 @@ function OpenHatMenu()
             destory()
             TriggerServerEvent("RedEM:server:LoadSkin")
         end
+    end, function(data, menu)
+
     end, function(data, menu)
         MenuUpdateHat(data, menu)
     end)
