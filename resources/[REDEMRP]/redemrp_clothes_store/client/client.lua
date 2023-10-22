@@ -1024,13 +1024,13 @@ function OpenHatMenu()
             TriggerServerEvent("rdr_clothes_store:GiveHat", info, CurrentPrice)
             OldHatCache = {}
 
+        else        menu.close()
+            OldHatCache = {}
+            destory()
+            TriggerServerEvent("RedEM:server:LoadSkin")
         end
     end, function(data, menu)
         MenuUpdateHat(data, menu)
-        menu.close()
-        OldHatCache = {}
-        destory()
-        TriggerServerEvent("RedEM:server:LoadSkin")
     end)
 end
 
