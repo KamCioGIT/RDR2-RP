@@ -39,7 +39,7 @@ function DisplayCoordinates()
             print(heading)
 
             --TriggerEvent('chatMessage', 'COORDINATES', {255, 0, 0}, string.format("X: %.2f, Y: %.2f, Z: %.2f", x, y, z))
-            DrawTxt("x = " .. tonumber(string.format("%.2f", x)) .. " y = " .. tonumber(string.format("%.2f", y)) .. " z = " .. tonumber(string.format("%.2f", z))"heading = ".. tonumber(string.format("%.2f", heading)), 0.01, 0.0, 0.4, 0.4, true, 255, 255, 255, 255)
+            DrawTxt("x = " .. tonumber(string.format("%.2f", x)) .. " y = " .. tonumber(string.format("%.2f", y)) .. " z = " .. tonumber(string.format("%.2f", z)).."heading = ".. tonumber(string.format("%.2f", heading)), 0.01, 0.0, 0.4, 0.4, true, 255, 255, 255, 255)
         end
     end)
 end
