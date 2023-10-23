@@ -549,7 +549,9 @@ end)
 function CalculatePrice()
 	local price = 0
     for k,v in pairs(weapon_comp["shared_components"]) do
+        print (k)
         if NewCompCache["commun"][k] then
+            print (1)
             if NewCompCache["commun"][k] > 0 then
                 print (Config.LabelPrice[k])
                 price = price + Config.LabelPrice[k]
