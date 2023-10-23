@@ -33,7 +33,7 @@ MedicineItems = {
         -- (-1 for complete cure)
         cureDuration = -1,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 5000,
+        applyDuration = 2000,
         -- health to add when used
         healthAmount = 0,
         -- inner core health added from 0 to 100
@@ -57,7 +57,7 @@ MedicineItems = {
         -- (-1 for complete cure)
         cureDuration = -1,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 5000,
+        applyDuration = 2000,
         -- health to add when used
         healthAmount = 0,
         -- inner core health added from 0 to 100
@@ -72,6 +72,7 @@ MedicineItems = {
         animation = "injection_player",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
+        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
     },
     ['antidote'] = {
         healProbability = {
@@ -82,7 +83,7 @@ MedicineItems = {
         -- (-1 for complete cure)
         cureDuration = -1,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 5000,
+        applyDuration = 2000,
         -- health to add when used
         healthAmount = 0,
         -- inner core health added from 0 to 100
@@ -97,6 +98,7 @@ MedicineItems = {
         animation = "injection_player",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
+        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
     },
     ['antidysentrie'] = {
         healProbability = {
@@ -106,7 +108,7 @@ MedicineItems = {
         -- (-1 for complete cure)
         cureDuration = -1,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 5000,
+        applyDuration = 2000,
         -- health to add when used
         healthAmount = 0,
         -- inner core health added from 0 to 100
@@ -130,7 +132,7 @@ MedicineItems = {
         -- (-1 for complete cure)
         cureDuration = 60000,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 5000,
+        applyDuration = 2000,
         -- health to add when used
         healthAmount = 0,
         -- inner core health added from 0 to 100
@@ -155,7 +157,7 @@ MedicineItems = {
         -- (-1 for complete cure)
         cureDuration = 60000,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 5000,
+        applyDuration = 2000,
         -- health to add when used
         healthAmount = 0,
         -- inner core health added from 0 to 100
@@ -180,7 +182,7 @@ MedicineItems = {
         -- (-1 for complete cure)
         cureDuration = 60000,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 5000,
+        applyDuration = 2000,
         -- health to add when used
         healthAmount = 0,
         -- inner core health added from 0 to 100
@@ -282,7 +284,7 @@ MedicineItems = {
         -- (-1 for complete cure)
         cureDuration = -1,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 10000,
+        applyDuration = 2000,
         -- health to add when used
         healthAmount = 200,
         -- inner core health added from 0 to 100
@@ -295,6 +297,8 @@ MedicineItems = {
         animationDict = "mech_animal_interaction@horse@right@injection",
         animation = "injection_player",
         -- the next damage type, used for the bandaged state
+        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
+        
     },
     ['remedeinfectiondeux'] = {
         healProbability = {
@@ -303,7 +307,7 @@ MedicineItems = {
         -- (-1 for complete cure)
         cureDuration = -1,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 10000,
+        applyDuration = 2000,
         -- health to add when used
         healthAmount = 200,
         -- inner core health added from 0 to 100
@@ -316,6 +320,7 @@ MedicineItems = {
         animationDict = "mech_animal_interaction@horse@right@injection",
         animation = "injection_player",
         -- the next damage type, used for the bandaged state
+        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
     },
     ['remedeantidouleurun'] = {
         healProbability = {
@@ -324,7 +329,7 @@ MedicineItems = {
         -- (-1 for complete cure)
         cureDuration = -1,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 10000,
+        applyDuration = 2000,
         -- health to add when used
         healthAmount = 200,
         -- inner core health added from 0 to 100
@@ -337,6 +342,7 @@ MedicineItems = {
         animationDict = "mech_animal_interaction@horse@right@injection",
         animation = "injection_player",
         -- the next damage type, used for the bandaged state
+        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
     },
     ['remedeantidouleurdeux'] = {
         healProbability = {
@@ -345,7 +351,7 @@ MedicineItems = {
         -- (-1 for complete cure)
         cureDuration = -1,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 10000,
+        applyDuration = 2000,
         -- health to add when used
         healthAmount = 200,
         -- inner core health added from 0 to 100
@@ -358,6 +364,7 @@ MedicineItems = {
         animationDict = "mech_animal_interaction@horse@right@injection",
         animation = "injection_player",
         -- the next damage type, used for the bandaged state
+        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
     },
 }
 
@@ -366,11 +373,11 @@ ReviveItems = {
     ['syringe'] = {
         reviveProbability = 1.0,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 20000,
+        applyDuration = 10000,
         -- health to add when used
-        healthAmount = 200,
+        healthAmount = 0,
         -- inner core health added from 0 to 100
-        innerCoreHealth = 20,
+        innerCoreHealth = 0,
         -- if you don't want to use animation set those to nil and set scenario instead
         animationDict = "mech_revive@unapproved",
         animation = "revive",
