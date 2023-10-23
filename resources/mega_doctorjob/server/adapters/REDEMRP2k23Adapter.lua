@@ -68,7 +68,7 @@ if Config.framework == 'redemrp2k23' then
         end
         for itemName, item in pairs(ReviveItems) do
             if Config.printLogs then
-                print('ouais la zone>> registered revive item: ' .. itemName)
+                print('>> registered revive item: ' .. itemName)
             end
             
             RegisterNetEvent("RegisterUsableItem:" .. itemName, function (source)
