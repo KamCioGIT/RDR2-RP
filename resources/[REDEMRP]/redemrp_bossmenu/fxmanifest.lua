@@ -9,12 +9,12 @@ client_scripts {
 }
 
 server_scripts {
-    "@uiprompt/uiprompt.lua",
     '@oxmysql/lib/MySQL.lua',
     'server/main.lua'
 }
 
 client_exports {
+    "@uiprompt/uiprompt.lua",
     'JobLedgerWithdraw',
     'JobLedgerDeposit',
     'GetJobDuty',
