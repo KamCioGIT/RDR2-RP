@@ -93,7 +93,7 @@ Config.Herbs = {
         animPart = "",
         animDur = 0
     },
-    ["s_flyamush"] =  { 
+    ["COMPOSITE_LOOTABLE_PARASOL_MUSHROOM_DEF"] =  { 
         blipSprite = 0,
         blipName = "Ženšen",
         coords = {
@@ -373,7 +373,7 @@ Config.Herbs = {
         animPart = "",
         animDur = 0
     },
-    ["COMPOSITE_LOOTABLE_PARASOL_MUSHROOM_DEF"] = {
+    ["s_flyamush"] = {
         blipSprite = 0,
         blipName = "Ženšen",
         coords = {
