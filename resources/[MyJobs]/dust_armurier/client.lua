@@ -154,7 +154,7 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
     table.insert(elements, {
         label = Config.LabelW["save"] or "Valider",
         value = "save",
-        desc = "Valider les changements"
+        desc = "Valider les changements pour $"..CurrentPrice
     })
 
     MenuData.Open('default', GetCurrentResourceName(), 'customweapon', {
