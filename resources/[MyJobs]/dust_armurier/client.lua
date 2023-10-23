@@ -287,8 +287,8 @@ function MenuUpdateWeapon(data, menu, wepHash, Weapontype, ped, menu_catagory)
         Citizen.InvokeNative(0x74C9090FDD1BB48E, ped, model, wepHash, true)
         NewCompCache["commun"][data.current.category] = model
     end
-    if CurrentPrice ~= CalculatePrice() then
-        CurrentPrice = CalculatePrice()
+    if CurrentPrice ~= CalculatePrice(wepHash, Weapontype) then
+        CurrentPrice = CalculatePrice(wepHash, Weapontype)
         local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING",
             tostring(CurrentPrice .. "$"), Citizen.ResultAsLong())
         Citizen.InvokeNative(0xFA233F8FE190514C, str)
@@ -546,9 +546,9 @@ end)
 
 
 
-function CalculatePrice()
+function CalculatePrice(hash, type)
 	local price = 0
-    for k,v in pairs(weapon_comp["shared_components"]) do
+    for k,v in pairs(weapon_comp["shared_components"][type]) do
         print (k)
         if NewCompCache["commun"][k] then
             print (1)
@@ -558,7 +558,7 @@ function CalculatePrice()
             end
         end
     end
-    for k,v in pairs(weapon_comp["model_specific_components"]) do
+    for k,v in pairs(weapon_comp["model_specific_components"][hash]) do
         if NewCompCache["specific"][k] then
             if NewCompCache["specific"][k] > 0 then
                 price = price + Config.LabelPrice[k]
