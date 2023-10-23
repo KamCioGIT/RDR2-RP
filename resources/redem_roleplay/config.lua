@@ -8,7 +8,7 @@ Config.MapCrossName                         = "Repère"            -- Set the BL
 Config.DisableLootBoxes                     = true          -- Set to true to disable random loot boxes (base game)
 Config.DisableAimAssist                     = true          -- Set to true to disable aim assist on controllers (unfair for RP servers)
 
-Config.StartingCash                         = 15           -- The amount of cash to start with
+Config.StartingCash                         = 20           -- The amount of cash to start with
 Config.StartingBank                         = 0             -- The amount of bank money to start with
 
 

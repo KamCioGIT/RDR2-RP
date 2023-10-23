@@ -334,7 +334,7 @@ Citizen.CreateThread(function()
                     if #(PlayerPos - Config.Jobs[PlayerJob].MenuLocations) < 6.0 then
                         Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, Config.Jobs[PlayerJob].MenuLocations, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)--DrawMarker
                     end
-                    if #(PlayerPos - Config.Jobs[PlayerJob].MenuLocations) < 1.0 then
+                    if #(PlayerPos - Config.Jobs[PlayerJob].MenuLocations) < 2.0 then
                         print 'get'
                         bossPrompt:setActiveThisFrame(true)
                         if IsControlJustReleased(0, 0x760A9C6F) and not isInteracting then
