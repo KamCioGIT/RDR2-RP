@@ -1,6 +1,6 @@
 endpoint_add_tcp "0.0.0.0:30120"
 endpoint_add_udp "0.0.0.0:30120"
-sv_maxclients 48
+sv_maxclients 128
 set steam_webApiKey "D09A9514CF1BDA8EFA1B41D7809C25D8"
 sets tags "default, deployer, redemrp, redem-rp"
 
@@ -24,7 +24,7 @@ ensure spawnmanager
 ensure mapmanager
 ensure basic-gamemode 
 ensure chat
--- ensure ipl_tool
+#ensure ipl_tool
 exec resources/weathersync/permissions.cfg
 start weathersync
 start saltychat
@@ -33,6 +33,7 @@ start saltychat
 start uiprompt
 exec @spooner/permissions.cfg
 start spooner
+ensure [MEGA]
 
 # MySQL Driver
 ensure oxmysql
@@ -52,6 +53,8 @@ ensure [REDEMRP]
 ensure gumApi
 ensure gtp_safecracking
 ensure objectloader
+ensure Boost-Logs
+ensure redm-doorsearch
 
 # Dust Resources
 ensure dust_stable
@@ -66,19 +69,16 @@ ensure dust_vault
 ensure dust_usine
 ensure dust_mineur
 ensure dust_ferme
-ensure ts-trains
 ensure dust_rumors
 ensure [GUM]
-ensure redm-doorsearch
+# ensure redm-doorsearch
+ensure tm_animate
 ensure dust_marechal
--- ensure redm_emotes
 ensure dust_armurier
 ensure dust_banking
 ensure dust_telegram
 ensure dust_radial
-
-# MEGA
-ensure [MEGA]
+ensure dust_store
 ensure mega_doctorjob
 
 #MAPPING
@@ -87,4 +87,11 @@ ensure [MAPPING]
 ## Permissions ##
 add_ace group.admin command allow # allow all commands
 add_ace group.admin command.quit deny # but don't allow quit
-add_principal identifier.steam:11000010c04648e group.admin # add the admin to the group
+add_principal identifier.steam:11000010c04648e group.admin  # murphy
+add_principal identifier.steam:110000139a582ee group.admin # wade
+add_principal identifier.steam:1100001097c0e5f group.admin # pablo
+add_principal identifier.steam:11000014b649d23 group.mod # noob
+add_principal identifier.steam:1100001362ff63e group.mod # tibs
+add_principal identifier.steam:110000135b6710f group.mod # rezah
+add_principal identifier.steam:110000105dcfde9 group.mod # kala
+add_principal identifier.steam:110000141007e25 group.mod # pleyss
