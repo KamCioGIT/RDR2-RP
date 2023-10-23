@@ -70,6 +70,7 @@ if Config.framework == 'redemrp2k23' then
             if Config.printLogs then
                 print('>> registered revive item: ' .. itemName)
             end
+        end
             
             RegisterNetEvent("RegisterUsableItem:" .. itemName, function (source)
                 local itemConfig = ReviveItems[itemName]
