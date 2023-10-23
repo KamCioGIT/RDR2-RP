@@ -631,9 +631,9 @@ end
 
 function ChewingTobacco(buffed)
     PlaySoundFrontend("Core_Fill_Up", "Consumption_Sounds", true, 0)
-    FPrompt("Finish", 0x3B24C470, false)
-    LMPrompt("Do Something", 0x07B8BEAF, false)
-    EPrompt("Change Stance", 0xD51B784F, false)
+    FPrompt("Arrêter", 0x3B24C470, false)
+    LMPrompt("Faire quelquechose", 0x07B8BEAF, false)
+    EPrompt("Changer", 0xD51B784F, false)
     TriggerEvent("redemrp_inventory:closeinv")
     local ped = PlayerPedId()
     local x,y,z = table.unpack(GetEntityCoords(ped, true))
@@ -826,7 +826,7 @@ function ChewingTobacco(buffed)
     RemoveAnimDict("amb_misc@world_human_chew_tobacco@male_b@idle_d")
     Wait(100)
     ClearPedTasks(ped)
-    BoostStamina(25)
+    BoostStamina(10)
     if buffed then
         EagleEyeTonicChew()
     end

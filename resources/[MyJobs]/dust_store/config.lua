@@ -7,12 +7,15 @@ Config.Jobs = {
 Config.WorkingTime = 5000
 Config.DistanceToInteract = 1.5
 
-Config.Atelier = vector3(-1789.997, -387.5353, 156.1007) -- Creer toutes les balles
+Config.Atelier = {
+    [1] = vector3(-1789.997, -387.5353, 156.1007),
+    [2] = vector3(1329.512, -1290.322, 77.01747)
+}
+
 Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
 Config.CraftAnim = {
     "base_trans_base",
 }
-
 
 Config.BuyPain = {
     [1] = vector3(-816.855, -1226.588, 42.58243), -- bla
@@ -292,4 +295,22 @@ Config.CraftingsReceipe = {
         label = 'Soupe de champignon',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_bay_bolete.png', text = "Boletbai",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
+}
+
+Config.ImportPoint = {
+    [1]= vector3(2572.136, -1501.026, 45.96986), --- st denis
+    [2]= vector3(-825.8802, -1241.919, 43.53639), -- bla
+}
+
+Config.Import = {
+    ["sucre"] = 0.1,
+    ["cigarettes"] = 0.10,
+    ["cigar"] = 0.4,
+    ["coffee"] = 0.4,
+    ["dirty_whiskey"] = 0.4,
+    ["good_whisky"] = 0.6,
+    ["lemonade"] = 0.4,
+    ["tabacchiquer"] = 0.4,
+
+
 }
