@@ -48,7 +48,7 @@ end)
 
 RegisterServerEvent("gunstore:MaxRessourcesAmount", function(dataType)
     local _source = tonumber(source)
-    
+    print (dataType)
 	if Config.CraftingsReceipe[dataType].Itemtocraft == 1 then
 		local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
 		
