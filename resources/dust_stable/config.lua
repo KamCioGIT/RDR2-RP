@@ -115,24 +115,24 @@ Config.Stables = {
 Config.Buyhorse = {
 	Saint_Denis = {
 		pos = vector3(2525.539, -1432.664, 46.32558),
-		name = 'Achat',
+		name = 'Achatstdenis',
 		stable= 'buyhorse',
 	},
     Staff = {
 		pos = vector3(3364.299, -92.8988, 49.64944),
-		name = 'Achat',
+		name = 'Achatstaff',
 		stable= 'buyhorse',
 	},
 }
 Config.Buycart = {
 	-- Saint_Denis = {
 	-- 	pos = vector3(2502.023, -1487.874, 45.9691),
-	-- 	name = 'Achat',
+	-- 	name = 'Achatcartstdenis',
 	-- 	stable= 'buyhorse',
 	-- },
     	Staff = {
 		pos = vector3(3337.925, -73.60331, 47.93591),
-		name = 'Achat',
+		name = 'Achatcartstaff',
 		stable= 'buyhorse',
 	},
 }

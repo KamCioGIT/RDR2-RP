@@ -1003,19 +1003,19 @@ local cartprompt = UipromptGroup:new("Charrette")
 Uiprompt:new(0x156F7119, "Ouvrir", cartprompt)
 cartprompt:setActive(false)
 
-Citizen.CreateThread(function()
-    while true do
-        Wait(0)
-        local playerpos = GetEntityCoords(PlayerPedId())
-        for k, v in pairs(Config.Buyhorse) do
-            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
-                cartprompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, 0x156F7119) then
-                    buycart(v.stable)
-                    isInteracting = true
-                end
-            end
-        end
-    end
-end)
+-- Citizen.CreateThread(function()
+--     while true do
+--         Wait(0)
+--         local playerpos = GetEntityCoords(PlayerPedId())
+--         for k, v in pairs(Config.Buyhorse) do
+--             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+--                 cartprompt:setActiveThisFrame(true)
+--                 if IsControlJustReleased(0, 0x156F7119) then
+--                     buyhorse(v.stable)
+--                     isInteracting = true
+--                 end
+--             end
+--         end
+--     end
+-- end)
 
