@@ -22,316 +22,63 @@ Config.NotifyTime = 2000
 Config.RandomRewardCount = 1-- - If its 0 disabled. This function make random reward count from herbs and animals
 --Example you get 3 count from Wild Mint -> you here write 2. Now you get 2-3 counts from wild mint
 Config.Herbs = {
-    ["crp_cornstalks_bb_sim"] =  {
-        blipSprite = -675651933,
-        blipName = "Kukurice",
-        coords = {
-            {174.52, -189.88, 125.96, 15.0},
-            {1294.60, -2149.03, 57.30, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.5,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Corn", 1, "Kukuřice"},
-        },
-        animDict = "mech_pickup@plant@yarrow",
-        animPart = "base",
-        animDur = 2000
-    },
-	["s_inv_orchid_blackbat02"] =  {
+    ["COMPOSITE_LOOTABLE_BURDOCK_ROOT_DEF"] =  { 
         blipSprite = 0,
-        blipName = "Měsíční svit",
+        blipName = "Ženšen",
         coords = {
-            {-4322.75732421875,-3736.684326171875,-1.54399216175079, 15.0},
+            {634.2966, 1443.314, 185.551, 15.0},
+            {2008.353, 80.90195, 76.84789, 15.0},
+            {-1555.16, -137.1601, 126.1494, 15.0},
+            {-1731.651, -903.3646, 101.9832, 15.0}
         },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
+        maxSpawn = 7,--How much props is cached
+        propMax = 7,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
         randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"Moon_Herb", 1, "Měsíční svit"},
-        },
-        animDict = "mech_pickup@plant@yarrow",
-        animPart = "base",
-        animDur = 2000
-    },
-	["s_inv_orchid_nghtscnt_01x"] =  {
-        blipSprite = -675651933,
-        blipName = "Heřmánek",
-        coords = {
-            {-2311.007080078125,575.5375366210938,119.7043914794922, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Chamomile", 1, "Heřmánek"},
-        },
-        animDict = "mech_pickup@plant@yarrow",
-        animPart = "base",
-        animDur = 2000
-    },
-
-    ["rdr_bush_paradise_aa_sim"] =  {
-        blipSprite = -675651933,
-        blipName = "Indigo",
-        coords = {
-            {-3971.35, -2443.02, -9.07, 15.0},
-            {-3489.94, -1942.30, 5.2, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.5,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Indigo", 1, "Indigo"},
-        },
-        animDict = "mech_pickup@plant@berries",
-        animPart = "base",
-        animDur = 2000
-    },
-
-    ["s_milkweed01x"] =  {
-        blipSprite = -675651933,
-        blipName = "Chmel",
-        coords = {
-            {-2009.60, -1245.93, 113.30, 15.0},
-            {2213.79, 125.79, 62.88, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.2,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Hop", 1, "Chmel"},
-        },
-        animDict = "mech_pickup@plant@yarrow",
-        animPart = "base",
-        animDur = 2000
-    },
-
-    ["crp_potato_aa_sim"] =  {
-        blipSprite = -675651933,
-        blipName = "Brambory",
-        coords = {
-            {946.92, -1070.28, 60.15, 15.0},
-        },
-        maxSpawn = 10,
-        propMax = 5,
-        canGatherMore = 5,
-        grounded = 0.3,
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Potato", 1, "Brambory"},
-        },
-        animDict = "amb_misc@world_human_concertina_pickup@male_a@base",
-        animPart = "base",
-        animDur = 1000
-    },
-
-    ["crp_sugarcane_ac_sim"] =  {
-        blipSprite = -675651933,
-        blipName = "Cukrova trtina",
-        coords = {
-            {1543.63, -7047.65, 81.87, 15.0},
-        },
-        maxSpawn = 10,
-        propMax = 5,
-        canGatherMore = 1,
-        grounded = 0.2,
-
-        randomized = false,
-        items = {
-            {"Sugarcane", 1, "Cukrova trtina"},
-        },
-        animDict = "mech_pickup@plant@yarrow",
-        animPart = "base",
-        animDur = 2000
-    },
-
-    ["crp_sugarcane_ac_sim"] =  {
-        blipSprite = -675651933,
-        blipName = "Cukrova trtina",
-        coords = {
-            {1543.63, -7047.65, 81.87, 15.0},
-        },
-        maxSpawn = 10,
-        propMax = 5,
-        canGatherMore = 1,
-        grounded = 0.2,
-
-        randomized = false,
-        items = {
-            {"Sugarcane", 1, "Cukrova trtina"},
-        },
-        animDict = "mech_pickup@plant@yarrow",
-        animPart = "base",
-        animDur = 2000
-    },
-
-    ["p_watermelon01x"] =  {
-        blipSprite = -675651933,
-        blipName = "Melouny",
-        coords = {
-            {891.64, -7140.65, 64.89, 15.0},
-        },
-        maxSpawn = 10,
-        propMax = 5,
-        canGatherMore = 1,
-        grounded = 0.2,
-
-        randomized = false,
-        items = {
-            {"Melone", 1, "Melouny"},
-        },
-        animDict = "mech_pickup@plant@yarrow",
-        animPart = "base",
-        animDur = 2000
-    },
-
-    ["p_tree_banana_01_crt"] =  {
-        blipSprite = -675651933,
-        blipName = "Banany",
-        coords = {
-            {1134.29, -7301.16, 72.39, 15.0},
-            {686.94, -7476.93, 185.68, 15.0},
-        },
-        maxSpawn = 10,
-        propMax = 5,
-        canGatherMore = 5,
-        grounded = 0.2,
-
-        randomized = false,
-        items = {
-            {"Bannana", 1, "Banany"},
-        },
-        animDict = "mech_pickup@plant@orchid_tree",
-        animPart = "base",
-        animDur = 4500
-    },
-
-    ["rdr_bush_broad_aa_sim"] =  {
-        blipSprite = 0,
-        blipName = "Koka",
-        coords = {
-            {1621.03, -7050.09, 92.80, 15.0},
-            {1412.68, -7424.38, 97.93, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.2,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Coca", 1, "Koka"},
-        },
-        animDict = "mech_pickup@plant@yarrow",
-        animPart = "base",
-        animDur = 2000
-    },
-	
-    ["crp_tobaccoplant_bc_sim"] =  {
-        blipSprite = 0,
-        blipName = "Guarmský tabák",
-        coords = {
-            {735.33,-7103.82,47.09, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.2,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Guarma_Tobacco", 1, "Guarmský tabák"},
-        },
-        animDict = "mech_pickup@plant@yarrow",
-        animPart = "base",
-        animDur = 2000
-    },
-
-	["crp_wheat_dry_aa_sim"] =  {
-        blipSprite = 0,
-        blipName = "Obili",
-        coords = {
-            {1038.94, 217.62, 114.11, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.2,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Grain", 1, "Obili"},
-        },
-        animDict = "mech_pickup@plant@yarrow",
-        animPart = "base",
-        animDur = 2000
-    },
-
-    ["rdr_bush_hedgecore_aa"] =  {
-        blipSprite = -675651933,
-        blipName = "Vinná réva",
-        coords = {
-            {-1188.05, -1536.84, 78.35, 20.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.2,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Grape", 1, "Vinná réva"},
-        },
-        animDict = "mech_pickup@plant@yarrow",
-        animPart = "base",
-        animDur = 2000
-    },
-
-    ["COMPOSITE_LOOTABLE_MILKWEED_DEF"] =  {
-        blipSprite = -675651933,
-        blipName = "Jahody",
-        coords = {
-            {-1247.84, -215.87, 98.56, 15.0},
-            {-1852.62, 447.03, 114.40, 15.0},
-        },
-        maxSpawn = 10,
-        propMax = 5,
-        canGatherMore = 1,
-        grounded = 0.0,
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Strawberry", 1, "Jahody"},
+            {"barbane", 3, "Ženšen"},
         },
         animDict = "",
         animPart = "",
         animDur = 0
     },
-
-    ["COMPOSITE_LOOTABLE_WILD_CARROT_DEF"] =  {
+    ["COMPOSITE_LOOTABLE_HUMMINGBIRD_SAGE_DEF"] =  { 
         blipSprite = 0,
-        blipName = "Mrkev",
+        blipName = "zesen",
         coords = {
-            {1118.69, 963.67, 128.78, 15.0},
-            {-788.26, -850.73, 52.41, 15.0},
+            {125.9249, 982.7355, 210.9116, 15.0},
+            {2092.533, 116.5939, 70.97131, 15.0},
+            {2099.604, 537.5249, 118.0403, 15.0},
+            {-1236.328, -251.1011, 97.74142, 15.0},
+            {-2193.928, -229.0691, 190.4592, 15.0},
+            {-2262.983, -1381.816, 141.6076, 15.0}
+        },
+        maxSpawn = 6,--How much props is cached
+        propMax = 6,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
+        items = {
+            {"saugeducolibri", 3, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_WILD_MINT_DEF"] =  { 
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {981.2698, -1232.413, 59.98701, 15.0},
+            {2628.306, 640.9957, 73.90434, 15.0},
+            {1637.062, 1293.967, 157.1505, 15.0},
+            {-905.2833, -538.3448, 71.80321, 15.0},
+            {-1918.339, -1517.835, 105.9362, 15.0},
+            {-1774.071, -301.3089, 181.8485, 15.0}
+            
         },
         maxSpawn = 10,--How much props is cached
         propMax = 10,--Spawn max props on limit
@@ -340,884 +87,360 @@ Config.Herbs = {
 
         randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"Wild_Carrot", 1, "Mrkev"},
+            {"menthesauvage", 4, "Ženšen"},
         },
         animDict = "",
         animPart = "",
         animDur = 0
     },
-
-    ["COMPOSITE_LOOTABLE_INDIAN_TOBACCO_DEF"] =  {
-        blipSprite = -675651933,
-        blipName = "Indian Tobbaco",
-        coords = {
-            {2086.50, 817.83, 154.9, 15.0},
-            {-2451.71, -2787.23, 71.19, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Indian_Tobbaco", 1, "Indian Tobbaco"},
-        },
-        animDict = "",
-        animPart = "",
-        animDur = 0 
-    },
-
-    ["COMPOSITE_LOOTABLE_WILD_MINT_DEF"] =  {
-        blipSprite = -675651933,
-        blipName = "Máta",
-        coords = {
-            {1607.29, 2114.36, 315.80, 15.0},
-            {-830.84, -92.79, 75.42, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Wild_Mint", 1, "Máta"},
-        },
-        animDict = "",
-        animPart = "",
-        animDur = 0
-    },
-
-    ["COMPOSITE_LOOTABLE_RAMS_HEAD_DEF"] =  {
-        blipSprite = -675651933,
-        blipName = "Hlíva ústřičná",
-        coords = {
-            {2180.08, 1749.82, 119.01, 15.0},
-            {129.51, 1203.05, 183.14, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Rams_Head", 1, "Hlíva ústřičná"},
-        },
-        animDict = "",
-        animPart = "",
-        animDur = 0
-    },
-
-    ["COMPOSITE_LOOTABLE_PARASOL_MUSHROOM_DEF"] =  {
-        blipSprite = -675651933,
-        blipName = "Muchomůrka",
-        coords = {
-            {-3483.03, -2793.92, -4.80, 15.0},
-            {-2885.62, -236.60, 186.55, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Parasol_Mushroom", 1, "Muchomůrka"},
-        },
-        animDict = "",
-        animPart = "",
-        animDur = 0
-    },
-
-    ["COMPOSITE_LOOTABLE_HUMMINGBIRD_SAGE_DEF"] =  {
-        blipSprite = -675651933,
-        blipName = "Šalvěj",
-        coords = {
-            {-2175.12, -1755.21, 138.88, 15.0},
-            {-1904.82, 739.04, 149.39, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Hummingbird_Sage", 1, "Šalvěj"},
-        },
-        animDict = "",
-        animPart = "",
-        animDur = 0
-    },
-    ["COMPOSITE_LOOTABLE_EVERGREEN_HUCKLEBERRY_DEF"] =  {
-        blipSprite = -675651933,
-        blipName = "Vavřín",
-        coords = {
-            { 940.94, -453.47, 85.95, 15.0},
-            {2761.00, 1980.98, 161.73, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Evergreen_Huckleberry", 1, "Vavřín"},
-        },
-        animDict = "",
-        animPart = "",
-        animDur = 0
-    },
-
-    ["COMPOSITE_LOOTABLE_BLACK_BERRY_DEF"] =  {
-        blipSprite = -675651933,
-        blipName = "Boruvky",
-        coords = {
-            {-981.45, 176.43, 86.31, 15.0},
-            {-1648.68, -845.93, 94.31, 15.0},
-            {-1651.96, -1872.25, 80.97, 15.0},
-            {1115.07, 33.68, 89.57, 15.0}, 
-            {1200.83, -836.70, 79.55, 15.0},
-            {1989.62, 421.65, 115.70, 15.0},
-            {2289.05, 1446.60, 109.44, 15.0},
-            {717.08, 1497.26, 194.54, 15.0},
-        },
-        maxSpawn = 10,--How much props is cached
-        propMax = 5,--Spawn max props on limit
-        canGatherMore = 1,--How much you can gather 1 entity
-        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
-
-        randomized = false,--If you enable Randomized you get 1 from list
-        items = {
-            {"Blueberry", 5, "Borůvky"},
-        },
-        animDict = "",
-        animPart = "",
-        animDur = 0
-    },
-	["COMPOSITE_LOOTABLE_ALASKAN_GINSENG_ROOT_DEF"] =  { 
-        blipSprite = -675651933,
+    ["COMPOSITE_LOOTABLE_PARASOL_MUSHROOM_DEF"] =  { 
+        blipSprite = 0,
         blipName = "Ženšen",
         coords = {
-            {206.30, 1884.69, 206.19, 15.0},
+            {1370.721, -943.9273, 53.40933, 15.0},
+            {1823.693, -375.2607, 44.39895, 15.0},
+            {2118.517, 103.6463, 70.24908, 15.0},
+            {2505.32, 706.6677, 75.97889, 15.0}
         },
-        maxSpawn = 10,--How much props is cached
+        maxSpawn = 8,--How much props is cached
+        propMax = 8,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
+        items = {
+            {"coulemelle", 3, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_MILKWEED_DEF"] =  { 
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {2033.632, -1022.402, 43.35403, 15.0},
+            {2262.735, -385.3071, 42.34921, 15.0},
+            {-362.0679, 246.0696, 66.14816, 15.0}
+        },
+        maxSpawn = 8,--How much props is cached
+        propMax = 8,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
+        items = {
+            {"asclepiade", 3, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_ALASKAN_GINSENG_ROOT_DEF"] =  { 
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {-302.4985, 1026.319, 130.711, 15.0},
+            {-1483.752, 586.595, 115.9719, 15.0},
+            {-2174.6, -357.8328, 187.5935, 15.0},
+            {80.4672, 875.4934, 210.774, 15.0}
+
+
+        },
+        maxSpawn = 5,--How much props is cached
         propMax = 5,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
         randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"Alaskan_Ginseng", 1, "Ženšen"},
+            {"ginseng", 2, "Ženšen"},
         },
         animDict = "",
         animPart = "",
         animDur = 0
     },
-}
-
-Config.Animals = {
-    [GetHashKey("a_c_alligator_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 3, "Kvalitní maso"},
-            {"peauecailles", 1, "Velká Kůže"},
-            {"crocdecroco", 1, "Zvířecí Zub"},
-            {"graisseanimal", 2, "Zvířecí Zub"},
-        }
-    },    
-    [GetHashKey("a_c_alligator_03")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 1, "Kvalitní maso"},
-            {"peauecailles", 1, "Velká Kůže"},
-            {"graisseanimal", 1, "Zvířecí Zub"},
-        }
-    },   
-    [GetHashKey("a_c_armadillo_01")] =   {
-        randomized = false,
-        items = {
-            {"viandepetitmamifere", 1, "Maso"},
-            {"graisseanimal", 1, "Zvířecí Zub"},
-        }
-    },    
-    [GetHashKey("a_c_badger_01")] =   {
-        randomized = false,
-        items = {
-            {"viandepetitmamifere", 1, "Maso"},
-            {"petitefourure", 1, "Malá Kůže"},
-            {"dentrongeur", 1, "Zvířecí Zub"},
-            {"graisseanimal", 1, "Zvířecí Zub"},
-        }
-    },    
-    [GetHashKey("a_c_bat_01")] =   {
-        randomized = false,
-        items = {
-            {"viandepetitmamifere", 3, "Maso"},
-            {"graisseanimal", 1, "Zvířecí Zub"},
-            
-        }
-    },    
-    [GetHashKey("a_c_bear_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 4, "Kvalitní maso"},
-            {"peaupredateur", 3, "Velká Kůže"},
-            {"patteours", 1, "Medvědí Tlapa"},
-            {"graisseanimal", 4, "Zvířecí Lůj"},
-        }
-    },    
-    [GetHashKey("a_c_bearblack_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 2, "Kvalitní maso"},
-            {"peaupredateur", 1, "Velká Kůže"},
-            {"patteours", 1, "Medvědí Tlapa"},
-            {"graisseanimal", 2, "Zvířecí Lůj"},
-        }
-    },    
-    [GetHashKey("a_c_beaver_01")] =   {
-        randomized = false,
-        items = {
-            {"viandepetitmamifere", 1, "Kvalitní maso"},
-            {"petitefourure", 1, "Malá Kůže"},
-            {"queuedecastor", 1, "Malá Kůže"},
-            {"dentrongeur", 1, "Malá Kůže"},
-            {"graisseanimal", 1, "Roh"},
-        }
-    },    
-    [GetHashKey("a_c_bighornram_01")] =   {
-        randomized = false,
-        items = {
-            {"viande", 2, "Maso"},
-            {"peau", 1, "Malá Kůže"},
-            {"corne", 1, "Roh"},
-            {"graisseanimal", 1, "Roh"},
-        }
-    },    
-    [GetHashKey("a_c_boar_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 2, "Kvalitní maso"},
-            {"peau", 1, "Malá Kůže"},
-            {"graisseanimal", 2, "Zvířecí Lůj"},
-            {"defense", 2, "Zvířecí Lůj"},
-        }
-    },    
-    [GetHashKey("a_c_buck_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 3, "Kvalitní maso"},
-            {"peau", 1, "Velká Kůže"},
-            {"bois", 1, "Malé Paroží"}, 
-            {"graisseanimal", 2, "Malé Paroží"}, 
-            
-        }
-    },    
-    [GetHashKey("a_c_buffalo_01")] =   {
-        randomized = false,
-        items = {
-            {"viande", 5, "Kvalitní maso"},
-            {"peau", 2, "Velká Kůže"},
-            {"corne", 2, "Roh"},
-            {"graisseanimal", 5, "Zvířecí Lůj"},
-        }
-    },    
-    [GetHashKey("a_c_bull_01")] =   {
-        randomized = false,
-        items = {
-            {"viande", 4, "Kvalitní maso"},
-            {"peau", 1, "Velká Kůže"},
-            {"corne", 1, "Roh"},
-            {"graisseanimal", 3, "Velká Kůže"},
-
-        }
-    },    
-    [GetHashKey("a_c_cardinal_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 3, "Pírko"},
-            {"bec", 1, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_californiacondor_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 3, "Pírko"},
-            {"bec", 1, "Pírko"},
-            {"serre", 2, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_carolinaparakeet_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 3, "Pírko"},
-            {"bec", 1, "Pírko"},
-
-        }
-    },    
-    [GetHashKey("a_c_cedarwaxwing_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 2, "Pírko"},
-            {"bec", 1, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_chicken_01")] =   {
-        randomized = false,
-        items = {
-            {"viandevolaille", 2, "Maso"},
-            {"plume", 2, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_chipmunk_01")] =   {
-        randomized = false,
-        items = {
-            {"viandepetitmamifere", 1, "Maso"},
-            {"petitefourure", 1, "Malá Kůže"},
-            {"queueecureuil", 1, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_cougar_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 3, "Kvalitní maso"},
-            {"peaupredateur", 1, "Velká Kůže"},
-            {"griffe", 2, "Dráp"},
-        }
-    },    
-    [GetHashKey("a_c_cormorant_01")] =   {
-        randomized = false,
-        items = {
-            {"bec", 1, "Maso"},
-            {"plume", 2, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_cow")] =   {
-        randomized = false,
-        items = {
-            {"viande", 4, "Kvalitní maso"},
-            {"peau", 1, "Velká Kůže"},
-            {"corne", 1, "Roh"},
-            {"graisseanimal", 3, "Roh"},
-            
-        }
-    },    
-    [GetHashKey("a_c_coyote_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 2, "Maso"},
-            {"peaupredateur", 1, "Malá Kůže"},
-            {"graisseanimal", 1, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_crab_01")] =   {
-        randomized = false,
-        items = {
-            {"pincecrabe", 3, "Malá Kůže"},
-        }
-    
-    },    
-    [GetHashKey("a_c_crow_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 2, "Pírko"},
-            {"bec", 1, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_deer_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 2, "Kvalitní maso"},
-            {"peau", 1, "Velká Kůže"},
-            {"graisseanimal", 2, "Malé Paroží"},
-        }
-    },    
-    [GetHashKey("a_c_duck_01")] =   {
-        randomized = false,
-        items = {
-            {"viandevolaille", 2, "Maso"},
-            {"plume", 2, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_eagle_01")] =   {
-        randomized = false,
-        items = {
-            {"bec", 1, "Maso"},
-            {"plume", 5, "Pírko"},
-            {"serre", 2, "Dráp"},
-        }
-    },    
-    [GetHashKey("a_c_egret_01")] =   {
-        randomized = false,
-        items = {
-            {"bec", 1, "Maso"},
-            {"plume", 5, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_elk_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 5, "Kvalitní maso"},
-            {"peau", 1, "Velká Kůže"},
-            {"Bois", 2, "Velké Paroží"},
-            {"graisseanimal", 4, "Zvířecí Lůj"},
-        }
-    },    
-    [GetHashKey("a_c_fox_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 2, "Maso"},
-            {"peaupredateur", 1, "Malá Kůže"},
-            {"queuerenard", 1, "Zvířecí Zub"},
-        }
-    },    
-    [GetHashKey("a_c_frogbull_01")] =   {
-        randomized = false,
-        items = {
-            {"peauvisqueuse", 1, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_gilamonster_01")] =   {
-        randomized = false,
-        items = {
-            {"peauvisqueuse", 1, "Velká Kůže"},
-            {"glandevenin", 2, "Velká Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_goat_01")] =   {
-        randomized = false,
-        items = {
-            {"viande", 2, "Kvalitní maso"},
-            {"peau", 1, "Velká Kůže"},
-            {"corne", 1, "Roh"},
-            {"graisseanimal", 2, "Roh"},
-        }
-    },    
-    [GetHashKey("a_c_goosecanada_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_hawk_01")] =   {
-        randomized = false,
-        items = {
-            {"bec", 1, "Maso"},
-            {"plume", 5, "Pírko"},
-            {"serre", 2, "Dráp"},
-        }
-    },    
-    [GetHashKey("a_c_heron_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_iguana_01")] =   {
-        randomized = false,
-        items = {
-            {"viandereptile", 1, "Malá Kůže"},
-            {"peauvisqueuse", 1, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_iguanadesert_01")] =   {
-        randomized = false,
-        items = {
-            {"viandereptile", 1, "Malá Kůže"},
-            {"peauvisqueuse", 1, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_javelina_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 2, "Kvalitní maso"},
-            {"peau", 1, "Malá Kůže"},
-            {"graisseanimal", 1, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_loon_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 2, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_moose_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 6, "Kvalitní maso"},
-            {"peau", 1, "Malá Kůže"},
-            {"bois", 2, "Velké Paroží"},
-            {"graisseanimal", 4, "Zvířecí Lůj"},
-        }
-    },    
-    [GetHashKey("a_c_muskrat_01")] =   {
-        randomized = false,
-        items = {
-            {"viandepetitmamifere", 1, "Maso"},
-            {"petitefourure", 1, "Velká Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_oriole_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_owl_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_ox_01")] =   {
-        randomized = false,
-        items = {
-            {"viande", 4, "Kvalitní maso"},
-            {"peau", 1, "Velká Kůže"},
-            {"corne", 2, "Roh"},
-            {"graisseanimal", 3, "Roh"},
-        }
-    },    
-    [GetHashKey("a_c_panther_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 3, "Kvalitní maso"},
-            {"peaupredateur", 1, "Velká Kůže"},
-            {"griffe", 4, "Dráp"},
-        }
-    },    
-    [GetHashKey("a_c_parrot_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_pelican_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 4, "Pírko"},
-            {"bec", 1, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_pheasant_01")] =   {
-        randomized = false,
-        items = {
-            {"viandevolaille", 1, "Maso"},
-            {"plume", 4, "Pírko"},
-            {"serre", 2, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_pig_01")] =   {
-        randomized = false,
-        items = {
-            {"viande", 3, "Kvalitní maso"},
-            {"peau", 1, "Malá Kůže"},
-            {"graisseanimal", 3, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_pigeon")] =   {
-        randomized = false,
-        items = {
-            {"viandevolaille", 1, "Maso"},
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_possum_01")] =   {
-        randomized = false,
-        items = {
-            {"petitefourure", 1, "Velká Kůže"},
-        }
-    },    
-    [GetHashKey("vouturetahlesanciens")] =   {
-        randomized = false,
-        items = {
-            {"viandevolaille", 2, "Maso"},
-            {"plume", 4, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_pronghorn_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 2, "Kvalitní maso"},
-            {"peau", 1, "Malá Kůže"},
-            {"bois", 2, "Malé Paroží"},
-            {"graisseanimal", 2, "Malé Paroží"},
-        }
-    },    
-    [GetHashKey("a_c_quail_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 2, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_rabbit_01")] =   {
-        randomized = false,
-        items = {
-            {"viandepetitmamifere", 1, "Maso"},
-            {"petitefourure", 1, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_raccoon_01")] =   {
-        randomized = false,
-        items = {
-            {"viandepetitmamifere", 2, "Maso"},
-            {"petitefourure", 1, "Malá Kůže"},
-            {"dentrongeur", 1, "Zvířecí Zub"},
-            
-        }
-    },    
-    [GetHashKey("a_c_rat_01")] =   {
-        randomized = false,
-        items = {
-            {"petitefourure", 1, "Malá Kůže"},
-            {"dentrongeur", 1, "Zvířecí Zub"},
-        }
-    },    
-    [GetHashKey("a_c_raven_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 2, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_redfootedbooby_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 2, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_robin_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_rooster_01")] =   {
-        randomized = false,
-        items = {
-            {"viandevolaille", 2, "Maso"},
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_roseatespoonbill_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_seagull_01")] =   {
-        randomized = false,
-        items = {
-            {"plume", 2, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_sheep_01")] =   {
-        randomized = false,
-        items = {
-            {"viande", 3, "Kvalitní maso"},
-            {"peau", 1, "Malá Kůže"},
-            {"graisseanimal", 3, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_skunk_01")] =   {
-        randomized = false,
-        items = {
-            {"viandepetitmamifere", 1, "Maso"},
-            {"petitefourure", 1, "Malá Kůže"},
-            {"glandepuante", 1, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_snake_01")] =   {
-        randomized = false,
-        items = {
-            {"viandereptile", 1, "Malá Kůže"},
-            {"peauserpent", 1, "Malá Kůže"},
-            {"glandevenin", 2, "Hadí jed"},
-        }
-    },    
-    [GetHashKey("a_c_snakeblacktailrattle_01")] =   {
-        randomized = false,
-        items = {
-            {"viandereptile", 1, "Malá Kůže"},
-            {"peauserpent", 1, "Malá Kůže"},
-            {"glandevenin", 2, "Hadí jed"},
-        }
-    },    
-    [GetHashKey("a_c_snakeferdelance_01")] =   {
-        randomized = false,
-        items = {
-            {"viandereptile", 1, "Malá Kůže"},
-            {"peauserpent", 1, "Malá Kůže"},
-            {"glandevenin", 4, "Hadí jed"},
-        }
-    },    
-    [GetHashKey("a_c_snakewater_01")] =   {
-        randomized = false,
-        items = {
-            {"viandereptile", 1, "Malá Kůže"},
-            {"peauserpent", 1, "Malá Kůže"},
-            {"glandevenin", 2, "Hadí jed"},
-        }
-    },    
-    [GetHashKey("a_c_songbird_01")] =   {
-            randomized = false,
-            items = {
-                {"plume", 3, "Pírko"},
+    ["COMPOSITE_LOOTABLE_EVERGREEN_HUCKLEBERRY_DEF"] =  { 
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {941.0305, 85.52578, 111.9082, 15.0},
+            {1491.636, -1880.136, 50.86975, 15.0},
+            {-24.4986, -579.2489, 59.20609, 15.0},
+            {-1581.555, -715.8248, 134.1635, 15.0},
+            {-2172.017, -1458.004, 138.2527, 15.0},
+            {-796.1694, -845.8452, 53.48745, 15.0}
         },
-    },    
-    [GetHashKey("a_c_sparrow_01")] =   {
-        randomized = false,
+        maxSpawn = 10,--How much props is cached
+        propMax = 10,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"plume", 3, "Pírko"},
-        }
+            {"millefeuille", 3, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
     },
-    [GetHashKey("a_c_squirrel_01")] =   {
-        randomized = false,
+    ["COMPOSITE_LOOTABLE_CHANTERELLES_DEF"] =  { 
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {1309.872, -934.049, 53.68198, 15.0},
+            {1806.273, -537.7383, 42.75464, 15.0},
+            {1986.373, -1237.09, 42.67138, 15.0},
+            {-2223.153, -345.016, 180.5318, 15.0},
+            {-1839.789, -1080.536, 84.08539, 15.0}
+    
+        },
+        maxSpawn = 8,--How much props is cached
+        propMax = 8,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"viandepetitmamifere", 1, "Maso"},
-            {"petitefourure", 1, "Malá Kůže"},
-            {"queueecureuil", 1, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_toad_01")] =   {
-        randomized = false,
+            {"chanterelle", 2, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_RAMS_HEAD_DEF"] =  { 
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {2203.435, -191.4243, 47.75746, 15.0},
+            {-830.4506, 528.0355, 62.94004, 15.0},
+            {-2468.545, 470.9136, 144.224, 15.0},
+            {-1975.521, 684.8396, 123.636, 15.0},
+            {609.2662, 1463.395, 190.9937, 15.0}
+        },
+        maxSpawn = 6,--How much props is cached
+        propMax = 6,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"peauvisqueuse", 1, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_turkey_01")] =   {
-        randomized = false,
+            {"pouledesbois", 3, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_DESERT_SAGE_DEF"] =  { 
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {-733.5509, -1596.317, 54.26407, 15.0},
+            {-1134.55, -1401.119, 71.66103, 15.0},
+            {-753.8103, -834.6329, 51.96618, 15.0}
+        },
+        maxSpawn = 3,--How much props is cached
+        propMax = 3,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"viandevolaille", 2, "Maso"},
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_turkeywild_01")] =   {
-        randomized = false,
+            {"saugedudesert", 3, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_COMMON_BULRUSH_DEF"] =  { 
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {-1575.593, -1044.217, 66.48918, 15.0},
+            {-2747.818, -341.1842, 148.69, 15.0},
+            {-742.4996, -999.5875, 43.59007, 15.0},
+            {-432.2136, 43.71481, 43.29914, 15.0},
+            {-748.4709, 529.829, 57.08273, 15.0},
+            {-7.940222, 1513.159, 114.2799, 15.0},
+            {2363.588, -661.6688, 41.96912, 15.0},
+            {1745.068, -1170.501, 41.737, 15.0},
+            {672.7833, -1267.653, 43.98404, 15.0},
+            {177.8612, -608.237, 46.73311, 15.0}
+
+
+
+        },
+        maxSpawn = 10,--How much props is cached
+        propMax = 10,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"viandevolaille", 2, "Maso"},
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_turtlesnapping_01")] =   {
-        randomized = false,
+            {"jonccommun", 3, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_ENGLISH_MACE_DEF"] =  { 
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {1387.44, -1694.526, 67.42712, 15.0},
+            {2614.06, -452.0338, 42.52893, 15.0},
+            {-1712.851, -2483.187, 48.88267, 15.0},
+            {-1150.858, -739.7994, 66.30392, 15.0}
+        },
+        maxSpawn = 7,--How much props is cached
+        propMax = 7,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"viandereptile", 1, "Malá Kůže"},
-            {"peauvisqueuse", 1, "Malá Kůže"},
-            {"carapace", 1, "Malá Kůže"},
-            {"graisseanimal", 1, "Malá Kůže"},
-            
-        }
-    },    
-    [GetHashKey("a_c_vulture_01")] =   {
-        randomized = false,
+            {"achillevisqueuse", 3, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_WILD_FEVERFEW_DEF"] =  { 
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {1141.5, 620.3223, 94.32296, 15.0},
+            {2099.601, 98.6325, 70.67999, 15.0},
+            {980.3708, 76.83521, 106.147, 15.0},
+            {-1823.146, -954.3797, 108.086, 15.0},
+            {-1425.799, 226.543, 100.2333, 15.0}
+        
+        },
+        maxSpawn = 8,--How much props is cached
+        propMax = 8,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"viandevolaille", 2, "Maso"},
-            {"plume", 3, "Pírko"},
-            {"serre", 2, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_wolf")] =   {
-        randomized = false,
+            {"camomillesauvage", 3, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_BAY_BOLETE_DEF"] =  { 
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {31.85101, 1196.117, 180.7177, 15.0},
+            {1234.791, -256.5401, 96.95807, 15.0},
+            {-1244.951, -262.1152, 99.44203, 15.0}
+        },
+        maxSpawn = 10,--How much props is cached
+        propMax = 10,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"viandegibier", 3, "Kvalitní maso"},
-            {"peaupredateur", 1, "Malá Kůže"},
-            {"croc", 2, "Zvířecí Zub"},
-            {"graisseanimal", 3, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_wolf_medium")] =   {
-        randomized = false,
+            {"boletbai", 1, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_WINTERGREEN_BERRY_DEF"] =  { 
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {1671.244, 768.7167, 136.2882, 15.0},
+            {2393.585, -653.2073, 42.27081, 15.0},
+            {1687.751, -1168.159, 41.45555, 15.0},
+            {-1255.429, -90.68906, 84.14188, 15.0},
+            {-2193.763, 428.9289, 129.5555, 15.0}
+        },
+        maxSpawn = 8,--How much props is cached
+        propMax = 8,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"viandegibier", 2, "Kvalitní maso"},
-            {"peaupredateur", 1, "Malá Kůže"},
-            {"croc", 2, "Zvířecí Zub"},
-            {"graisseanimal", 1, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_wolf_small")] =   {
-        randomized = false,
+            {"baiedegaultherie", 5, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_PARASOL_MUSHROOM_DEF"] {
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {-2322.441, 92.69701, 221.4515, 15.0},
+            {-2257.022, -1344.283, 133.9821, 15.0},
+          
+        },
+        maxSpawn = 4,--How much props is cached
+        propMax = 4,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
         items = {
-        {"viandegibier", 1, "Kvalitní maso"},
-        {"peaupredateur", 1, "Malá Kůže"},
-        {"croc", 2, "Zvířecí Zub"},
-        {"graisseanimal", 1, "Malá Kůže"},
-        }
-    },    
-    [GetHashKey("a_c_woodpecker_01")] =   {
-        randomized = false,
+            {"champignontoxique", 2, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_OLEANDER_SAGE_DEF"] {
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {2353.372, -797.1579, 41.71259, 15.0},
+            {1898.907, -866.2166, 42.17447, 15.0},
+          
+        },
+        maxSpawn = 4,--How much props is cached
+        propMax = 4,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("a_c_woodpecker_02")] =   {
-        randomized = false,
+            {"laurierrose", 2, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
+    ["COMPOSITE_LOOTABLE_WILD_CARROT_DEF"] {
+        blipSprite = 0,
+        blipName = "Ženšen",
+        coords = {
+            {1460.549, -1149.898, 68.23778, 15.0},
+            {1488.161, -1935.285, 46.63864, 15.0},
+            {1488.161, -1935.285, 46.63864, 15.0},
+            {1009.51, -734.7998, 87.55134, 15.0},
+            {-1895.552, -330.5616, 184.6244, 15.0},
+            {-1131.67, -417.085, 104.1743, 15.0},
+            {-1305.521, 511.2329, 93.50326, 15.0},
+            {-1126.826, -482.9183, 90.74239, 15.0},
+            {-1126.826, -482.9183, 90.74239, 15.0},
+          
+        },
+        maxSpawn = 10,--How much props is cached
+        propMax = 10,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
         items = {
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("mp_a_c_alligator_01")] =   {
-        randomized = false,
-        items = {
-            {"viandereptile", 3, "Kvalitní maso"},
-            {"peauecailles", 1, "Velká Kůže"},
-            {"crocdecroco", 1, "Zvířecí Zub"},
-            {"graisseanimal", 2, "Zvířecí Zub"},
-        }
-    },    
-    [GetHashKey("mp_a_c_beaver_01")] =   {
-        randomized = false,
-        items = {
-            {"viandepetitmamifere", 1, "Kvalitní maso"},
-            {"petitefourure", 1, "Malá Kůže"},
-            {"queuedecastor", 1, "Malá Kůže"},
-            {"dentrongeur", 1, "Malá Kůže"},
-            {"graisseanimal", 1, "Roh"},
-        }
-    },    
-    [GetHashKey("mp_a_c_bighornram_01")] =   {
-        randomized = false,
-        items = {
-            {"viande", 2, "Maso"},
-            {"peau", 1, "Malá Kůže"},
-            {"corne", 1, "Roh"},
-            {"graisseanimal", 1, "Roh"},
-        }
-    },    
-    [GetHashKey("mp_a_c_boar_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 2, "Kvalitní maso"},
-            {"peau", 1, "Malá Kůže"},
-            {"graisseanimal", 2, "Zvířecí Lůj"},
-            {"defense", 2, "Zvířecí Lůj"},
-        }
-    },    
-    [GetHashKey("mp_a_c_buck_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 3, "Kvalitní maso"},
-            {"peau", 1, "Velká Kůže"},
-            {"bois", 1, "Malé Paroží"}, 
-            {"graisseanimal", 2, "Malé Paroží"}, 
-        }
-    },    
-    [GetHashKey("mp_a_c_chicken_01")] =   {
-        randomized = false,
-        items = {
-            {"viandevolaille", 2, "Maso"},
-            {"plume", 3, "Pírko"},
-        }
-    },    
-    [GetHashKey("mp_a_c_cougar_01")] =   {
-        randomized = false,
-        items = {
-            {"viandegibier", 3, "Kvalitní maso"},
-            {"peaupredateur", 1, "Velká Kůže"},
-            {"griffe", 2, "Dráp"},
-        }
-    },    
+            {"carrotesauvages", 5, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    },
 }

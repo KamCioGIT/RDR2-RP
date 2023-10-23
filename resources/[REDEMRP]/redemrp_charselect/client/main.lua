@@ -85,7 +85,7 @@ OpenCharacterMenu = function()
     },
     function(data, menu)
         if data.current.value == "new" then
-            if #CharsList < 2 then
+            if #CharsList < 1 then
                 MenuData.CloseAll()
                 SendNUIMessage({
                     new = true
