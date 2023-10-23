@@ -324,9 +324,6 @@ AddEventHandler('mega_doctorjob:healItemUsed', function (healItem)
             NPlayerSelector:deactivate()
             local itemConfig = MedicineItems[healItem]
             ClearPedTasks(PlayerPedId())
-            if tonumber(data.id) == GetPlayerServerId(NetworkGetPlayerIndexFromPed(PlayerPedId())) then
-                return
-            end 
             if itemConfig.scenario then
                 TaskStartScenarioInPlace(PlayerPedId(), GetHashKey(itemConfig.scenario), -1, true, false, false, false)
             else 
