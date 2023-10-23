@@ -370,13 +370,13 @@ AddEventHandler('mega_doctorjob:healItemUsed', function (healItem)
                             disease:setActive(false)
                             disease:stopEffect()
                         end
+                        TriggerServerEvent('mega_doctorjob:healItemUsedWebhook', healItem, healedDiseases)
                     end
                 end
             end
         end)
         NPlayerSelector:setRange(5)
         NPlayerSelector:activate()
-        TriggerServerEvent('mega_doctorjob:healItemUsedWebhook', healItem, healedDiseases)
     end)
 end)
 
