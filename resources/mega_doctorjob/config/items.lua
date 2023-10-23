@@ -27,7 +27,7 @@ MedicineItems = {
     },
     ['antibiotic'] = {
         healProbability = {
-            ['cold'] = 1.0 
+            ['cholera'] = 1.0 
         },
         -- milliseconds, time after the cure will stop working
         -- (-1 for complete cure)

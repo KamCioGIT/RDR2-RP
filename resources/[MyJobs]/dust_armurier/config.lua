@@ -26,6 +26,21 @@ Config.CraftArme = {
 }
 
 Config.CraftingsReceipe = {
+    ['repairkitweapon'] = {
+        type = 'armurerie',
+        Itemtocraft = 3,
+        ItemReceipe1Name = 'lingotfer',
+        ItemReceipe1Amount = 2,
+        ItemReceipe2Name = 'cuir',
+        ItemReceipe2Amount = 1,
+        ItemReceipe3Name = 'graisse',
+        ItemReceipe3Amount = 1,
+        ItemToGive = 'repairkitweapon',
+        Amount = 1,
+        WorkingTime = 10,
+        label = "Kit d'entretien",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de Gras",count = "x1"}}
+    },
     ['WEAPON_REVOLVER_CATTLEMAN'] = {
         type = 'armurerie',
         Itemtocraft = 4,
@@ -359,6 +374,47 @@ Config.LabelW = {
     ["MELEE_BLADE_ENGRAVING"] = "Gravure de lame",
     ["MELEE_BLADE_ENGRAVING_MATERIAL"] = "Matière de la gravure de lame",
     ["GRIP_TINT"] = "Teinte de la poignée",
+}
+
+Config.LabelPrice = {
+	["BARREL"] = 20,
+	["GRIP"] = 3,
+	["SIGHT"] = 5,
+	["CLIP"] = 3,
+	["TUBE"] = 3,
+	["WRAP"] = 5,
+	["FRAME_ENGRAVING"] = 10,
+	["MAG"] = 3,
+	["STOCK"] = 3,
+    ["CYLINDER_TINT"] = 10,
+	["BARREL_TINT"] = 10,
+	["TRIGGER_TINT"] = 10,
+	["TORCH_MATCHSTICK"] = 10,
+	["COMPONENT_FISHING_LINE"] = 10,
+	["TRIGGER_MATERIAL"] = 10,
+    ["SIGHT_MATERIAL"] = 10,
+    ["HAMMER_MATERIAL"] = 10,
+    ["FRAME_MATERIAL"] = 10,
+    ["FRAME_ENGRAVING_MATERIAL"] = 10,
+    ["BARREL_MATERIAL"] = 10,
+    ["BARREL_ENGRAVING"] = 10,
+    ["BARREL_ENGRAVING_MATERIAL"] = 10,
+    ["CYLINDER_MATERIAL"] = 10,
+    ["CYLINDER_ENGRAVING"] = 10,
+    ["CYLINDER_ENGRAVING_MATERIAL"] = 10,
+    ["GRIP_MATERIAL"] = 10,
+    ["GRIPSTOCK_ENGRAVING"] = 10,
+    ["GRIPSTOCK_TINT"] = 10,
+    ["BARREL_RIFLING"] = 10,
+    ["WRAP_MATERIAL"] = 10,
+    ["WRAP_TINT"] = 5,
+    ["STRAP"] = 5,
+    ["STRAP_TINT"] = 5,
+    ["SCOPE"] = 70,
+    ["MELEE_BLADE_MATERIAL"] = 10,
+    ["MELEE_BLADE_ENGRAVING"] = 5,
+    ["MELEE_BLADE_ENGRAVING_MATERIAL"] = 5,
+    ["GRIP_TINT"] = 10,
 }
 
 --- FRAME_VERTDATA = légendaire ---
