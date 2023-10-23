@@ -633,11 +633,11 @@ function buyhorse(stable)
         local elements = {}
         if stable == 'Stdenis_start' or stable == 'Startbla' then
             for k, v in pairs(Config.NoobHorses) do
-                table.insert(elements, {label = v.name, value = v.model, desc = v.desc, price= v.price})
+                table.insert(elements, {label = v.name, value = v.model, desc = "$"..v.price, price= v.price})
             end
         else
             for k, v in pairs(Config.BuyHorses) do
-                table.insert(elements, {label = v.name, value = v.model, desc = v.desc, price= v.price})
+                table.insert(elements, {label = v.name, value = v.model, desc = "$"..v.price, price= v.price})
             end
         end
 
@@ -676,7 +676,7 @@ function buycart(stable)
         local elements = {}
 
         for k, v in pairs(Config.Cart) do
-            table.insert(elements, {label = v.name, value = v.model, desc = v.desc, price = v.price})
+            table.insert(elements, {label = v.name, value = v.model, desc = "$"..v.price, price = v.price})
         end
         MenuData.Open('default', GetCurrentResourceName(), 'buycart', {
             title = "Acheter une charrette",
