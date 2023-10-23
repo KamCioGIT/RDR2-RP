@@ -32,46 +32,80 @@ Config.CampGrill = GetHashKey('p_cookgrate01x')
 Config.CampChaudron = GetHashKey('p_campfirecombined03x')
 
 Config.CraftingsReceipe = {
-    ['grossteakcuit'] = {
+    ['viandepetitmamiferecuite'] = {
         type = 'fire',
         Itemtocraft = 1,
-        ItemReceipe1Name = 'grossteak',
+        ItemReceipe1Name = 'viandepetitmamifere',
         ItemReceipe1Amount = 1,
-        ItemToGive = 'grossteakcuit',
+        ItemToGive = 'viandepetitmamiferecuite',
         Amount = 1,
-        WorkingTime = 1,
-        label = 'Gros Steak Cuit',
-        descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}
+        WorkingTime = 5,
+        label = 'Viande de petit gibier cuite',
+        descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_exotic_bird.png', text = "Viande de petit gibier",count = "x1"}
+    },
+       ['viandecuite'] = {
+        type = 'fire',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'viande',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'viandecuite',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Viande cuite',
+        descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef', text = "Viande crue",count = "x1"}
+    },
+       ['viandegibiercuite'] = {
+        type = 'fire',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'viandegibier',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'viandegibiercuite',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Venaison cuit',
+        descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison', text = "Venaison",count = "x1"}
+    },
 
-    },
-    ['grossteakcarottesauvage'] = {
-        type = 'cauldron',
-        Itemtocraft = 2,
-        ItemReceipe1Name = 'grossteak',
-        ItemReceipe1Amount = 1,
-        ItemReceipe2Name = 'Wild_Carrot',
-        ItemReceipe2Amount = 2,
-        ItemToGive = 'grossteakcarottesauvage',
-        Amount = 1,
-        WorkingTime = 1,
-        label = 'Gros Steak aux Carottes Sauvages',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_carrots.png', text = "Carotte Sauvage",count = "x2"}},
-    },
-    ['grossteakcarottesauvage'] = {
+    ['gibierherbe'] = {
         type = 'grill',
         Itemtocraft = 2,
-        ItemReceipe1Name = 'grossteak',
+        ItemReceipe1Name = 'viandegibier',
         ItemReceipe1Amount = 1,
-        ItemReceipe2Name = 'Wild_Carrot',
-        ItemReceipe2Amount = 2,
-        ItemToGive = 'grossteakcarottesauvage',
+        ItemReceipe2Name = 'herbesaromatiques',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'gibierherbe',
         Amount = 1,
-        WorkingTime = 1,
-        label = 'Nom affiché ',
-        desc = "Description"
+        WorkingTime = 5,
+        label = 'Viande aux herbes',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison.png', text = "Venaison",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_creeping_thyme.png', text = "Herbes aromatiques",count = "x1"}}
     },
-   
-}
+    ['viandeherbe'] = {
+        type = 'grill',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'viande',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'herbesaromatiques',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'viandeherbe',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Viande aux herbes',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_creeping_thyme.png', text = "Herbes aromatiques",count = "x1"}}
+    },
+    ['volailleherbe'] = {
+        type = 'grill',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'viandevolaille',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'herbesaromatiques',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'volailleherbe',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Viande aux herbes',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird.png', text = "Volaille",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_creeping_thyme.png', text = "Herbes aromatiques",count = "x1"}}
+    },
+    }
 
 
 Config.EauMaudite = {
