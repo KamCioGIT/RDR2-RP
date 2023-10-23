@@ -548,11 +548,9 @@ end)
 
 function CalculatePrice()
 	local price = 0
-    for k,v in pairs(weapon_comp["male"]) do
-        if NewCompCache[k].model or NewCompCache[k].texture then
-            if NewCompCache[k].model > 0 then
-                price = price + Config.LabelPrice[k]
-            end
+    if NewCompCache[k].model or NewCompCache[k].texture then
+        if NewCompCache[k].model > 0 then
+            price = price + Config.LabelPrice[k]
         end
     end
     return price
