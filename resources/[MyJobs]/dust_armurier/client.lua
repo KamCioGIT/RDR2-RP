@@ -74,6 +74,7 @@ function inspectcustom()
     local ped = PlayerPedId()
     local wep = GetCurrentPedWeaponEntityIndex(ped, 0)
     local _, wepHash = GetCurrentPedWeapon(ped, true, 0, true)
+    print (wepHash)
     local WeapType = GetWeaponType(wepHash)
     if wepHash == `WEAPON_UNARMED` then return end
     if WeapType == "SHOTGUN" then WeaponType = "LONGARM" end
