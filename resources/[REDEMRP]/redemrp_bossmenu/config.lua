@@ -69,7 +69,7 @@ Config.Jobs = {
         Name = "Armurerie de Rhodes",
         blisprite = -145868367,
         MenuLocations = 
-            vector3(1328.648, -1325.286, 77.94454)
+            vector3(1328.648, -1325.286, 76.94454)
         ,
         Grades = {
             [1] = {
@@ -92,7 +92,7 @@ Config.Jobs = {
         Name = "Armurerie de Strawberry",
         blisprite = -145868367,
         MenuLocations = 
-            vector3(-1843.087, -413.7095, 162.3547)
+            vector3(-1843.087, -413.7095, 161.3547)
         ,
         Grades = {
             [1] = {
@@ -115,7 +115,7 @@ Config.Jobs = {
         Name = "Écurie de Blackwater",
         blisprite = -1327110633,
         MenuLocations = 
-            vector3(-878.4421, -1361.514, 43.57775)
+            vector3(-878.4421, -1361.514, 42.57775)
         ,
         Grades = {
             [1] = {
@@ -138,7 +138,7 @@ Config.Jobs = {
         Name = "Écurie de Saint-Denis",
         blisprite = -1327110633,
         MenuLocations = 
-            vector3(2513.883, -1459.578, 46.36203)
+            vector3(2513.883, -1459.578, 45.36203)
         ,
         Grades = {
             [1] = {
@@ -161,7 +161,7 @@ Config.Jobs = {
         Name = "Usine",
         blisprite = 1576459965,
         MenuLocations = 
-            vector3(2324.79, -1456.619, 46.00994)
+            vector3(2324.79, -1456.619, 45.00994)
     ,
         Grades = {
             [1] = {
@@ -184,7 +184,7 @@ Config.Jobs = {
         Name = "Mine",
         blisprite = 1220803671,
         MenuLocations = 
-            vector3(2957.164, 1377.683, 56.3044)
+            vector3(2957.164, 1377.683, 55.3044)
         ,
         Grades = {
             [1] = {
@@ -207,7 +207,7 @@ Config.Jobs = {
         Name = "Ferme",
         blisprite = 552659337,
         MenuLocations = 
-            vector3(-1643.433, -1355.236, 84.45272)
+            vector3(-1643.433, -1355.236, 83.45272)
         ,
         Grades = {
             [1] = {
@@ -230,7 +230,7 @@ Config.Jobs = {
         Name = "General Store Strawberry",
         blisprite = 1475879922,
         MenuLocations = 
-            vector3(-1789.773, -384.8727, 160.3285)
+            vector3(-1789.773, -384.8727, 159.3285)
         ,
         Grades = {
             [1] = {
@@ -253,7 +253,7 @@ Config.Jobs = {
         Name = "General Store Rhodes",
         blisprite = 1475879922,
         MenuLocations = 
-            vector3(-1789.773, -384.8727, 160.3285)
+            vector3(1329.714, -1295.512, 76.02248)
         ,
         Grades = {
             [1] = {
@@ -276,7 +276,7 @@ Config.Jobs = {
         Name = "Forge",
         blisprite = -758970771,
         MenuLocations = 
-            vector3(-875.5815, -1291.787, 43.10154)
+            vector3(-875.5815, -1291.787, 42.10154)
         ,
         Grades = {
             [1] = {
@@ -302,7 +302,7 @@ Config.Jobs = {
         Name = "Saloon de Van Horn",
         blisprite = 1879260108,
         MenuLocations = 
-        vector3(2950.342, 529.1586, 45.33422)
+        vector3(2950.342, 529.1586, 44.33422)
         ,
         Grades = {
             [1] = {
@@ -325,7 +325,7 @@ Config.Jobs = {
         Name = "Saloon des faubourgs",
         blisprite = 1879260108,
         MenuLocations = 
-            vector3(2793.258, -1165.609, 47.93198)
+            vector3(2793.258, -1165.609, 46.93198)
         ,
         Grades = {
             [1] = {
@@ -347,7 +347,7 @@ Config.Jobs = {
         bigjob = "doctor",
         Name = "Cabinet de Saint-Denis",
         MenuLocations = 
-            vector3(2733.16, -1230.244, 50.37041)
+            vector3(2733.16, -1230.244, 49.37041)
         ,
         Grades = {
             [1] = {
@@ -370,7 +370,7 @@ Config.Jobs = {
         Name = "Presse",
         blisprite = 587827268,
         MenuLocations = 
-            vector3(2613.231, -1340.257, 50.13868)
+            vector3(2613.231, -1340.257, 49.13868)
         ,
         Grades = {
             [1] = {
@@ -393,7 +393,7 @@ Config.Jobs = {
         Name = "Apothicaire",
         blisprite = 669307703,
         MenuLocations = 
-            vector3(2627.889, -1351.214, 49.04772)
+            vector3(2627.889, -1351.214, 48.04772)
         ,
         Grades = {
             [1] = {
@@ -416,7 +416,7 @@ Config.Jobs = {
         Name = "Shériff",
         blisprite = 778811758,
         MenuLocations = 
-            vector3(1361.258, -1306.085, 77.7606)
+            vector3(1361.258, -1306.085, 76.7606)
         ,
         Grades = {
             [1] = {
@@ -442,7 +442,7 @@ Config.Jobs = {
         Name = "Shériff",
         blisprite = 778811758,
         MenuLocations = 
-            vector3(-768.0265, -1266.601, 44.05392)
+            vector3(-768.0265, -1266.601, 43.05392)
         ,
         Grades = {
             [1] = {
