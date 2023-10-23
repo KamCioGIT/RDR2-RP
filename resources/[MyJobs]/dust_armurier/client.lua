@@ -10,7 +10,7 @@ TriggerEvent("redemrp_menu_base:getData", function(call)
 end)
 
 
-
+local CurrentPrice = 0
 --- Définir si le joueur est armurier
 
 local getjob = false
@@ -172,10 +172,9 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
             OpenCategoryWeapon(data.current.value, wepHash, Weapontype, ped)
         else
             menu.close()
-            TriggerEvent("weapons:savecomp", NewCompCache, wep_uid)
+            TriggerServerEvent("dust_armurier:savecomp", NewCompCache, wep_uid, CurrentPrice)
             ClearPedTasks(PlayerPedId())
             isInteracting = false
-
         end
 
     end, function(data, menu)
@@ -546,27 +545,12 @@ end)
 
 
 
-function CalculatePrice(WeapType, name)
-    local weptype = WeapType
-    local wepname = GetHashKey(name)
+function CalculatePrice()
 	local price = 0
-
-    for k, v in pairs(weapon_comp["shared_components"][WeapType]) do
-        if NewCompCache["commun"][k] == nil then
-            NewCompCache["commun"][k] = {}
-            NewCompCache["commun"][k] = 0
-        end
-    end
-    for k, v in pairs(weapon_comp["model_specific_components"][_wephash]) do
-        if NewCompCache["specific"][k] == nil then
-            NewCompCache["specific"][k] = {}
-            NewCompCache["specific"][k] = 0
-        end
-    end
     for k,v in pairs(weapon_comp["male"]) do
         if NewCompCache[k].model or NewCompCache[k].texture then
             if NewCompCache[k].model > 0 then
-                price = price + Config.Price[k]
+                price = price + Config.LabelPrice[k]
             end
         end
     end

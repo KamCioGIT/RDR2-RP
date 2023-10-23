@@ -45,6 +45,16 @@ AddEventHandler('gunstore:AddItem', function(item, amount)
 
 end)
 
+RegisterServerEvent("dust_armurier:savecomp", function(NewCompCache, wep_uid, CurrentPrice)
+	local _source = tonumber(source)
+	local user = RedEM.GetPlayer(_source)
+	local money = user.money
+	local price = CurrentPrice
+	if money >= price then
+		user.RemoveMoney(price)
+		TriggerClientEvent("weapons:savecomp", _source, NewCompCache, wep_uid)
+	end
+end)
 
 RegisterServerEvent("gunstore:MaxRessourcesAmount", function(dataType)
     local _source = tonumber(source)
