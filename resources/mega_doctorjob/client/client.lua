@@ -318,7 +318,6 @@ end)
 
 RegisterNetEvent('mega_doctorjob:healItemUsed')
 AddEventHandler('mega_doctorjob:healItemUsed', function (healItem)
-    print 'yeeees'
     Citizen.CreateThread(function ()
         NPlayerSelector:onPlayerSelected(function (data)
             NPlayerSelector:deactivate()
