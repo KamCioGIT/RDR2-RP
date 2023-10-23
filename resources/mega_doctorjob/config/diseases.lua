@@ -440,50 +440,65 @@ DiseasesConfig = {
          ['AMMO_ARROW_POISON'] = 1.0,
       },
    },
-   -- ['cholera'] = {
-   --    name = 'cholera',
-   --    displayName = 'Cholera',
-   --    healthLossPerTick = 60,
-   --    tickRate = 1000,
-   --    effectRate = 60000,
-   --    -- time in milliseconds in which the disease will automatically stop, use -1 to make it last forever (until the player gets cured or bandaged)
-   --    autoHealTime = -1,
-   --    -- The infection level system works like coldness level:
-   --    -- it starts from zero and it gets increased every tick if you're in an infected area
-   --    -- when it reaches the maxInfectionLevel the player will get sick
-   --    -- for each tick the player is not inside the infected area, it will lose a infection point
-   --    -- small formula to get how much time it needs to be infected (you can use that for balancing)
-   --    -- timeNeeded(seconds) = (tickRate/1000) * maxInfectionLevel
-   --    -- to get the right maxInfectionLevel knowing the timeNeeded
-   --    -- maxInfectionLevel = timeNeeded(seconds) / (tickRate/1000)
-   --    maxInfectionLevel = 600,
-   --    -- probability is calculated every tick (tickRate)
-   --    -- higher tickrates and/or probability can make it easier to contract
-   --    -- adjust those settings as you prefer
-   --    infectionZonesProbability = {
-   --       { 
-   --          coords = vector3(-3663.84, -2611.92, -14.08), 
-   --          radius = 80.0,
-   --          infectionPoints = 1
-   --       }
-   --    },
-   --    language = {
-   --       started = "You feel weak and your stomach hurts a lot, you have a lot of nausea.",
-   --       autoHealed = "You're starting to feel better.",
-   --    },
-   --    -- Animations
-   --    vomitAnimationDict = 'amb_misc@world_human_vomit@male_a@idle_b',
-   --    vomitAnimation = 'idle_e',
-   --    stomachAnimationDict = 'mech_loco_m@character@arthur@fidgets@injured@action@unarmed',
-   --    stomachAnimation = 'pain_stomach',
-   --    -- Mandatory symptoms for the dashboard.
-   --    -- Those are basically hints for the doctor to understand which cure has do be administered to the patient.
-   --    symptoms = {
-   --       heartRate = 'Fast',
-   --       -- min and max values, body temps will be randomized between those values
-   --       bodyTemperatureRange = { 39.0, 41.0 }
-   --    }
-   -- },
+   ['cholera'] = {
+      name = 'cholera',
+      displayName = 'Cholera',
+      healthLossPerTick = 2,
+      tickRate = 1000,
+      effectRate = 60000,
+      -- time in milliseconds in which the disease will automatically stop, use -1 to make it last forever (until the player gets cured or bandaged)
+      autoHealTime = -1,
+      -- The infection level system works like coldness level:
+      -- it starts from zero and it gets increased every tick if you're in an infected area
+      -- when it reaches the maxInfectionLevel the player will get sick
+      -- for each tick the player is not inside the infected area, it will lose a infection point
+      -- small formula to get how much time it needs to be infected (you can use that for balancing)
+      -- timeNeeded(seconds) = (tickRate/1000) * maxInfectionLevel
+      -- to get the right maxInfectionLevel knowing the timeNeeded
+      -- maxInfectionLevel = timeNeeded(seconds) / (tickRate/1000)
+      maxInfectionLevel = 600,
+      -- probability is calculated every tick (tickRate)
+      -- higher tickrates and/or probability can make it easier to contract
+      -- adjust those settings as you prefer
+      infectionZonesProbability = {
+         { 
+            coords = vector3(-3663.84, -2611.92, -14.08), 
+            radius = 100.0,
+            infectionPoints = 1
+         },
+         { 
+            coords = vector3(-4784.085, -2725.046, -4.979008), 
+            radius = 80.0,
+            infectionPoints = 1
+         },
+         { 
+            coords = vector3(-5513.103, -2940.043, -2.113579), 
+            radius = 80.0,
+            infectionPoints = 1
+         },
+         { 
+            coords = vector3(-2373.098, -2383.648, 61.70686), 
+            radius = 80.0,
+            infectionPoints = 1
+         },
+      },
+      language = {
+         started = "Vous vous sentez faible et sentez des douleurs dans l'estomac.",
+         autoHealed = "Vous vous sentez mieux.",
+      },
+      -- Animations
+      vomitAnimationDict = 'amb_misc@world_human_vomit@male_a@idle_b',
+      vomitAnimation = 'idle_e',
+      stomachAnimationDict = 'mech_loco_m@character@arthur@fidgets@injured@action@unarmed',
+      stomachAnimation = 'pain_stomach',
+      -- Mandatory symptoms for the dashboard.
+      -- Those are basically hints for the doctor to understand which cure has do be administered to the patient.
+      symptoms = {
+         heartRate = 'Rapide',
+         -- min and max values, body temps will be randomized between those values
+         bodyTemperatureRange = { 39.0, 41.0 }
+      }
+   },
    ['snakeBite'] = {
       name = 'snakeBite',
       displayName = "Morsure de serpent",
