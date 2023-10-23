@@ -93,7 +93,7 @@ Config.Herbs = {
         animPart = "",
         animDur = 0
     },
-    ["COMPOSITE_LOOTABLE_PARASOL_MUSHROOM_DEF"] =  { 
+    ["s_flyamush"] =  { 
         blipSprite = 0,
         blipName = "Ženšen",
         coords = {
@@ -373,7 +373,7 @@ Config.Herbs = {
         animPart = "",
         animDur = 0
     },
-    ["COMPOSITE_LOOTABLE_PARASOL_MUSHROOM_DEF"] {
+    ["COMPOSITE_LOOTABLE_PARASOL_MUSHROOM_DEF"] = {
         blipSprite = 0,
         blipName = "Ženšen",
         coords = {
@@ -394,7 +394,7 @@ Config.Herbs = {
         animPart = "",
         animDur = 0
     },
-    ["COMPOSITE_LOOTABLE_OLEANDER_SAGE_DEF"] {
+    ["COMPOSITE_LOOTABLE_OLEANDER_SAGE_DEF"]= {
         blipSprite = 0,
         blipName = "Ženšen",
         coords = {
@@ -415,7 +415,7 @@ Config.Herbs = {
         animPart = "",
         animDur = 0
     },
-    ["COMPOSITE_LOOTABLE_WILD_CARROT_DEF"] {
+    ["COMPOSITE_LOOTABLE_WILD_CARROT_DEF"] ={
         blipSprite = 0,
         blipName = "Ženšen",
         coords = {
