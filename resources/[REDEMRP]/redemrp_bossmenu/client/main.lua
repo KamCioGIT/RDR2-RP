@@ -308,7 +308,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        Wait(2)
+        Wait(0)
         if Timeout then
             if GetGameTimer() - Timeout > 2000 then
                 Timeout = nil
@@ -352,8 +352,6 @@ Citizen.CreateThread(function()
 					end
 				end
             end
-        else
-            Wait(1000)
         end
     end
 end)
