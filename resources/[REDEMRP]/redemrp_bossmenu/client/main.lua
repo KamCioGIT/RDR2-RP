@@ -33,11 +33,8 @@ RegisterNetEvent("redemrp_bossmenu:client:ReceiveJob", function(job, grade)
     PlayerJob, PlayerJobgrade = job, grade
     print (PlayerJob, PlayerJobgrade)
     if Config.Jobs[job] then
-        print 'pass'
         if Config.Jobs[job].bigjob then
-            print 'pass2'
             local bigjob = Config.Jobs[job].bigjob
-            print (bigjob)
             TriggerEvent("dust_job:"..bigjob, PlayerJob, PlayerJobgrade)
         end
     end

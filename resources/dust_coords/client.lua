@@ -17,7 +17,7 @@ RegisterCommand("pos", function()
     else
         TriggerEvent('chatMessage', 'COORDINATES', {255, 0, 0}, "Arrêt de l'affichage des coordonnées.")
     end
-end, false)
+end)
 
 RegisterCommand('getpos', function()
     local coords, heading = GetEntityCoords(PlayerPedId()), GetEntityHeading(PlayerPedId())
