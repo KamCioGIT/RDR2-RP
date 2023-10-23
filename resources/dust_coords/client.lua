@@ -35,7 +35,7 @@ function DisplayCoordinates()
 
             local playerPed = PlayerId()
             local x, y, z = table.unpack(GetEntityCoords(GetPlayerPed(playerPed), true))
-            local heading = GetEntityHeading(playerPed)
+            local heading = GetEntityHeading(PlayerPedId())
             print(heading)
 
             --TriggerEvent('chatMessage', 'COORDINATES', {255, 0, 0}, string.format("X: %.2f, Y: %.2f, Z: %.2f", x, y, z))
