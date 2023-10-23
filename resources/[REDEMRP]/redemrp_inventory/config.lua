@@ -1434,7 +1434,7 @@ Config.Items = {
         imgsrc = "items/provision_meat_gamey_bird.png",
         type = "item_standard",
     },
-    ["Serre"] = {
+    ["serre"] = {
         label = "Serre",
         description = "",
         weight = 0.1,
@@ -1445,7 +1445,7 @@ Config.Items = {
         imgsrc = "items/provision_raven_claw.png",
         type = "item_standard",
     },
-    ["Bois"] = {
+    ["bois"] = {
         label = "Bois",
         description = "",
         weight = 0.3,
@@ -1577,7 +1577,7 @@ Config.Items = {
         imgsrc = "items/provision_cougar_fang.png",
         type = "item_standard",
     },
-    ["Barbane"] = {
+    ["barbane"] = {
         label = "Barbane",
         description = "",
         weight = 0.6,
@@ -1588,7 +1588,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_burdock_root.png",
         type = "item_standard",
     },
-    ["Saugeducolibri"] = {
+    ["saugeducolibri"] = {
         label = "Sauge du Colibri",
         description = "",
         weight = 0.6,
@@ -1610,7 +1610,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_wild_mint.png",
         type = "item_standard",
     },
-    ["Coulemelle"] = {
+    ["coulemelle"] = {
         label = "Coulemelle",
         description = "",
         weight = 0.6,
@@ -1621,7 +1621,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_parasol_mushroom.png",
         type = "item_standard",
     },
-    ["Asclepiade"] = {
+    ["asclepiade"] = {
         label = "Asclépiade",
         description = "",
         weight = 0.6,
@@ -1632,7 +1632,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_milkweed.png",
         type = "item_standard",
     },
-    ["Ginseng"] = {
+    ["ginseng"] = {
         label = "Ginseng",
         description = "",
         weight = 0.6,
@@ -1654,7 +1654,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_yarrow.png",
         type = "item_standard",
     },
-    ["Chanterelle"] = {
+    ["chanterelle"] = {
         label = "Chanterelle",
         description = "",
         weight = 0.6,
@@ -1665,7 +1665,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_chanterelles.png",
         type = "item_standard",
     },
-    ["Pouledesbois"] = {
+    ["pouledesbois"] = {
         label = "Poule des bois ",
         description = "",
         weight = 0.6,
@@ -1676,7 +1676,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_rams_head.png",
         type = "item_standard",
     },
-    ["Saugedudesert"] = {
+    ["saugedudesert"] = {
         label = "Sauge du desert",
         description = "",
         weight = 0.6,
@@ -1687,7 +1687,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_desert_sage.png",
         type = "item_standard",
     },
-    ["Jonccommun"] = {
+    ["jonccommun"] = {
         label = "Jonc commun",
         description = "",
         weight = 0.6,
@@ -1698,7 +1698,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_common_bulrush.png",
         type = "item_standard",
     },
-    ["Pavot"] = {
+    ["pavot"] = {
         label = "Pavot",
         description = "",
         weight = 0.6,
@@ -1709,7 +1709,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_prairie_poppy.png",
         type = "item_standard",
     },
-    ["Achillevisqueuse"] = {
+    ["achillevisqueuse"] = {
         label = "Achillé Visqueuse",
         description = "",
         weight = 0.6,
@@ -1720,7 +1720,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_english_mace.png",
         type = "item_standard",
     },
-    ["Camomillesauvage"] = {
+    ["camomillesauvage"] = {
         label = "Camomille sauvage",
         description = "",
         weight = 0.6,
@@ -1731,7 +1731,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_wild_feverfew.png",
         type = "item_standard",
     },
-    ["Boletbai"] = {
+    ["boletbai"] = {
         label = "Bolet-Baï",
         description = "",
         weight = 0.6,
@@ -1742,7 +1742,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_bay_bolete.png",
         type = "item_standard",
     },
-    ["Baiedegaultherie"] = {
+    ["baiedegaultherie"] = {
         label = "Baie de Gaultherie",
         description = "",
         weight = 0.6,
@@ -1753,7 +1753,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_wintergreen_berry.png",
         type = "item_standard",
     },
-    ["Patate"] = {
+    ["patate"] = {
         label = "Patate",
         description = "La pomme de terre",
         weight = 0.3,
@@ -1764,7 +1764,7 @@ Config.Items = {
         imgsrc = "items/consumable_bread_chunk.png",
         type = "item_standard",
     },
-    ["Raisin"] = {
+    ["raisin"] = {
         label = "Raisin",
         description = "",
         weight = 0.2,
@@ -1775,7 +1775,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_black_currant.png",
         type = "item_standard",
     },
-    ["Myrtille"] = {
+    ["myrtille"] = {
         label = "Myrtille",
         description = "",
         weight = 0.2,
@@ -1797,7 +1797,7 @@ Config.Items = {
         imgsrc = "items/consumable_herb_wild_carrots.png",
         type = "item_standard",
     },
-    ["Orchideearaignee"] = {
+    ["orchideearaignee"] = {
         label = "Orchidée Araignée",
         description = "",
         weight = 0.4,
@@ -1808,7 +1808,7 @@ Config.Items = {
         imgsrc = "items/orchid_spider.png",
         type = "item_standard",
     },
-    ["Sabotdelavierge"] = {
+    ["sabotdelavierge"] = {
         label = "Sabot de la vierge",
         description = "",
         weight = 0.4,
@@ -1819,7 +1819,7 @@ Config.Items = {
         imgsrc = "items/orchid_mf.png",
         type = "item_standard",
     },
-    ["Arethusebulbeuse"] = {
+    ["arethusebulbeuse"] = {
         label = "Aréthuse bulbeuse",
         description = "",
         weight = 0.4,
@@ -2670,7 +2670,7 @@ Config.Items = {
     imgsrc = "items/tomatosoup.png",
     type = "item_standard",
 },
-["Ragoutgibier"] = {
+["ragoutgibier"] = {
     label = "Ragoût",
     description = "De la viande, des légumes et de la joie",
     weight = 0.5,
@@ -2681,7 +2681,7 @@ Config.Items = {
     imgsrc = "items/hotcocoa.png",
     type = "item_standard",
 },
-["Ragoutviande"] = {
+["ragoutviande"] = {
     label = "Ragoût",
     description = "De la viande, des légumes et de la joie",
     weight = 0.5,
@@ -2692,7 +2692,7 @@ Config.Items = {
     imgsrc = "items/hotcocoa.png",
     type = "item_standard",
 },
-["Ragoutvolaille"] = {
+["ragoutvolaille"] = {
     label = "Ragoût",
     description = "De la viande, des légumes et de la joie",
     weight = 0.5,
@@ -3029,6 +3029,17 @@ Config.Items = {
     requireLvl = 0,
     limit = 2000,
     imgsrc = "items/consumable_coffee.png",
+    type = "item_standard",
+},
+["champignontoxique"] = {
+    label = "Lépiote Brun-rose",
+    description = "",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/consumable_herb_parasol_mushroom.png",
     type = "item_standard",
 },
 }
