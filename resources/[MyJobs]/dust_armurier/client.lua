@@ -549,15 +549,15 @@ end)
 function CalculatePrice()
 	local price = 0
     for k,v in pairs(weapon_comp["shared_components"]) do
-        if NewCompCache["commun"][k].model or NewCompCache["commun"][k].texture then
-            if NewCompCache["commun"][k].model > 0 then
+        if NewCompCache["commun"][k] then
+            if NewCompCache["commun"][k] > 0 then
                 price = price + Config.LabelPrice[k]
             end
         end
     end
     for k,v in pairs(weapon_comp["model_specific_components"]) do
-        if NewCompCache["specific"][k].model or NewCompCache["specific"][k].texture then
-            if NewCompCache["specific"][k].model > 0 then
+        if NewCompCache["specific"][k] then
+            if NewCompCache["specific"][k] > 0 then
                 price = price + Config.LabelPrice[k]
             end
         end
