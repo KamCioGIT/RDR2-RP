@@ -9,6 +9,7 @@ client_scripts {
 }
 
 server_scripts {
+    "@uiprompt/uiprompt.lua",
     '@oxmysql/lib/MySQL.lua',
     'server/main.lua'
 }
