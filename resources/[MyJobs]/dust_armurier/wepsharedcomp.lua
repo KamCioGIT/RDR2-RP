@@ -1228,7 +1228,7 @@ weapon_comp = {
         -- },
     },
 
-    [3676417164] = { -- WEAPON_MELEE_KNIFE
+    [-618550132] = { -- WEAPON_MELEE_KNIFE
         ["GRIP"] = {
           "COMPONENT_MELEE_KNIFE02_GRIP",
           "COMPONENT_MELEE_KNIFE13_GRIP",
