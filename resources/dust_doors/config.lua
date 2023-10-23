@@ -19,47 +19,82 @@ Config.Trapdoor = {
 }
 
 Config.DoorList = {
-	--
-	-- Valentine Sheriff Office
-	--
-
+--- cabinet st denis
 	{
-		authorizedJobs = { 'usine' },
-		doorid = 1988748538,
+		authorizedJobs = { 'doctor_stdenis' },
+		doorid = 82263429,
 		objCoords  = vector3(-276.04, 802.73, 118.41),
 		textCoords  = vector3(-275.02, 802.84, 119.43),
 		objYaw = 10.0,
 		locked = true,
 		distance = 3.0
 	},
+
 	{
-		authorizedJobs = { 'usine' },
-		doorid = 395506985,
-		objCoords  = vector3(-275.85, 812.02, 118.41),
+		textCoords = vector3(-308.11, 779.91, 118.96),
+		authorizedJobs = { 'doctor_stdenis' },
+		locked = false,
+		distance = 2.5,
+		doors = {
+			{
+				doorid = 994323006,
+				objCoords = vector3(2726.5541992188,-1234.8221435547,49.363960266113),
+				objYaw = 90.0,
+			},
+			{
+				doorid = 673153214,
+				objCoords = vector3(2724.8232421875,-1234.8221435547,49.363960266113),
+				objYaw = 270.0,
+			}
+		}
+	},
+
+	{
+		authorizedJobs = { 'doctor_stdenis' },
+		doorid = 1104407261,
+		objCoords  = vector3(2725.1469726563,-1221.6247558594,49.367805480957),
 		textCoords  = vector3(-277.06, 811.83, 119.38),
-		objYaw = -170.0,
+		objYaw = 180.0,
 		locked = true,
 		distance = 3.0
 	},
-	{
-		authorizedJobs = { 'usine' },
-		doorid = 1508776842,
-		objCoords  = vector3(-270.77, 810.02, 118.39),
-		textCoords  = vector3(-270.77, 810.02, 118.39),
-		objYaw = -80.0,
-		locked = true,
-		distance = 1.5
-	},
 
-	--cell area
+	---- presse 
 	{
-		authorizedJobs = { 'police' },
-		doorid = 535323366,
-		objCoords  = vector3(-275.03, 809.27, 118.36),
-		textCoords  = vector3(-274.89, 808.03, 119.39),
-		objYaw = -80.0,
-		locked = true,
-		distance = 2
+		textCoords = vector3(-308.11, 779.91, 118.96),
+		authorizedJobs = { 'presse' },
+		locked = false,
+		distance = 2.5,
+		doors = {
+			{
+				doorid = 3438582231,
+				objCoords = vector3(2626.15,-1338.11,49.17),
+				objYaw = 309.41,
+			},
+			{
+				doorid = 461125209,
+				objCoords = vector3(2624.76,-1336.43,49.17),
+				objYaw = 309.41,
+			}
+		}
+	},
+	{
+		textCoords = vector3(-308.11, 779.91, 118.96),
+		authorizedJobs = { 'presse' },
+		locked = false,
+		distance = 2.5,
+		doors = {
+			{
+				doorid = 2353368182,
+				objCoords = vector3(2604.73,-1348.04,49.13),
+				objYaw = 39.77,
+			},
+			{
+				doorid = 1913870354,
+				objCoords = vector3(2603.05,-1349.44,49.12),
+				objYaw = 40.0,
+			}
+		}
 	},
 	--cells
 	{
