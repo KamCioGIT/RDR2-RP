@@ -301,9 +301,9 @@ RemoveImap(-713587740)  -- Valentine -- Construction Material in Roadway -- http
 RequestImap(-1217078386) -- Valentine -- Wagons blocking road through Valentine -- https://gyazo.com/c6758dd8f86601eaeefef2b6ef69f38c -- https://gyazo.com/83e1fb7bb26402e6d6329777e7a766a9
 RequestImap(-1579403437) -- Valentine -- Wagon Parked in front of bank -- https://gyazo.com/5b08f55828e867f872552bb8881dc293
 RemoveImap(517553365) -- Valentine -- 2 Wagons, 1 in front of and behind of blue house across from Keane's Saloon.  -- https://gyazo.com/4444709e3cc069fddd8d4003d5f0caa3
-RequestImap(805009584) -- Valentine -- Western Barricades -- https://gyazo.com/631b61e44cae28d4c7c4391d1d7830a7
-RequestImap(-560409108) -- Valentine -- Eastern Barricades -- https://gyazo.com/45304e29a207805e373bcd921af6a668
-RequestImap(-518785376) -- Valentine -- Southern Barricades -- https://gyazo.com/2fa60fa4d76205783907e2eec98253ec
+RemoveImap(805009584) -- Valentine -- Western Barricades -- https://gyazo.com/631b61e44cae28d4c7c4391d1d7830a7
+RemoveImap(-560409108) -- Valentine -- Eastern Barricades -- https://gyazo.com/45304e29a207805e373bcd921af6a668
+RemoveImap(-518785376) -- Valentine -- Southern Barricades -- https://gyazo.com/2fa60fa4d76205783907e2eec98253ec
 
 --------------------------------                                   ############# -- Valentine Mainstreet Sheriffs Office -- ###############                                       ----------------------
 RequestImap(-1301569116) -- Valentine -- Sheriffs Office boarded up
@@ -665,11 +665,11 @@ RemoveImap(-158824350) -- Dirt in Small Plot (visually can't see it)
 
 ------------------------------------- Braithwaite Mansion
 --Mansion Interior
-RequestImap(1149195254)  --Brathwaite House Shell
-RemoveImap(-1643869063) -- House Burnt Down
-RequestImap(58066174)  -- Interior
-RequestImap(1601599776)  -- House on fire Smoke (Smoke and Burning Sounds Only)
-RequestImap(-437251660)  -- House of Fire Flames
+RemoveImap(1149195254)  --Brathwaite House Shell
+RequestImap(-1643869063) -- House Burnt Down
+RemoveImap(58066174)  -- Interior
+RemoveImap(1601599776)  -- House on fire Smoke (Smoke and Burning Sounds Only)
+RemoveImap(-437251660)  -- House of Fire Flames
 
 -- Mansion Exterior 
 RemoveImap(-1220264217)  -- Shurbs and Bushes
