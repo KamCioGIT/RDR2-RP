@@ -9,7 +9,7 @@ local NearAnything = false
 local FoundSomething = false
 local varString = CreateVarString(10, "LITERAL_STRING", "Boss Menu")
 local Timeout = nil
-
+local isInteracting = false
 
 Citizen.CreateThread(function()
     Wait(1000)
@@ -144,11 +144,13 @@ RegisterNetEvent("redemrp_bossmenu:client:OpenBossMenu", function()
                 end)
             elseif data.current.value == 'stash' then
                 MenuData.CloseAll()
+                isInteracting = false
                 TriggerServerEvent("redemrp_bossmenu:server:RequestBossStash")
             end
         end,
         function(data, menu)
             menu.close()
+            isInteracting = false
         end)
     end)
 end)
@@ -196,6 +198,7 @@ RegisterNetEvent("redemrp_bossmenu:client:ViewFireList", function(FireList)
             end,
             function(data, menu)
                 menu.close()
+                isInteracting = false
             end)
         end,
         function(data, menu)
@@ -241,10 +244,12 @@ RegisterNetEvent("redemrp_bossmenu:client:ViewOfflineFireList", function(FireLis
                     TriggerServerEvent("redemrp_bossmenu:server:FireMemberOffline", FiringIdentifier, FiringCharID)
                 elseif data.current.value == "cancel" then
                     menu.close()
+                    isInteracting = false
                 end
             end,
             function(data, menu)
                 menu.close()
+                isInteracting = false
             end)
         end,
         function(data, menu)
@@ -297,6 +302,7 @@ RegisterNetEvent("redemrp_bossmenu:client:ViewGradeList", function(FireList) ---
             end,
             function(data, menu)
                 menu.close()
+                isInteracting = false
             end)
         end,
         function(data, menu)
@@ -306,14 +312,14 @@ RegisterNetEvent("redemrp_bossmenu:client:ViewGradeList", function(FireList) ---
     end)
 end)
 
+
+local bossPrompt = UipromptGroup:new("Bureau")
+Uiprompt:new(0x760A9C6F, "Ouvrir", bossPrompt)
+bossPrompt:setActive(false)
+
 Citizen.CreateThread(function()
     while true do
         Wait(0)
-        if Timeout then
-            if GetGameTimer() - Timeout > 2000 then
-                Timeout = nil
-            end
-        end
         if PlayerJob and PlayerJobgrade then
             if Config.Jobs[PlayerJob] then
                 local PlayerPos = GetEntityCoords(PlayerPedId())
@@ -329,16 +335,10 @@ Citizen.CreateThread(function()
                         Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, Config.Jobs[PlayerJob].MenuLocations, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)--DrawMarker
                     end
                     if #(PlayerPos - Config.Jobs[PlayerJob].MenuLocations) < 1.0 then
-                        NearAnything = true
-                        FoundSomething = true
-                        if not BossMenuPromptShown then
-                            PromptSetEnabled(BossMenuPrompt, true)
-                            PromptSetVisible(BossMenuPrompt, true)
-                            BossMenuPromptShown = true
-                        end
-                        if PromptHasHoldModeCompleted(BossMenuPrompt) and not Timeout then
+                        bossPrompt:setActiveThisFrame(true)
+                        if IsControlJustReleased(0, 0x760A9C6F) then
+                            isInteracting = true
                             TriggerServerEvent("redemrp_bossmenu:server:RequestBossMenu")
-                            Timeout = GetGameTimer()
                         end
                     end
                 -- end
