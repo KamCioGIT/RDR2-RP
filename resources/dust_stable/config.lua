@@ -12,7 +12,7 @@ Config.Stables = {
 		name = 'Saint-Denis',
     },
 	buyhorse = {
-		pos = vector3(2493.225, -1398.888, 45.93799),
+		pos = vector3(2511.494, -1431.057, 46.26681),
 		name = 'buyhorse',
     },
 	cinematic = {
@@ -114,7 +114,7 @@ Config.Stables = {
 }
 Config.Buyhorse = {
 	Saint_Denis = {
-		pos = vector3(2503.784, -1403.029, 46.16075),
+		pos = vector3(2525.539, -1432.664, 46.32558),
 		name = 'Achat',
 		stable= 'buyhorse',
 	},
