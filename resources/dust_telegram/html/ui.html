@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="inbox">
+        <div class="header">
+           <div><h1 class="postoffice">Lafayette Express Wire</h1><img class="barre_sepa" src="barre_elem.png" alt="barre separatrice"></div>
+        </div>
+        <div class="inboxContainer">
+            <ul id="inboxList"></ul>
+        </div>
+        <button class="btn composetelegram">Envoyer un télégramme</button>
+        <button class="btn closePostoffice"></button>
+    </div>
+    <div class="compose">
+        <form method="POST" id="composeForm">
+        <a href="#" class="close_view">X</a>
+        <div class="telegram_header">
+            <div class="telegram_info">
+                <div class="Auteur_ecr">
+                    <input type="text" name="sender" id="sender" maxlength="50" placeholder="Votre Signature...">
+                </div>
+                <div  class="Receveur_ecr"> 
+                    <input type="text" name="recipientlastname" id="recipientlastname" maxlength="25" placeholder="Nom Destinataire...">
+                </div>
+                <div  class="Receveur_pre">
+                    <input type="text" name="recipientfirstname" id="recipientfirstname" maxlength="25" placeholder="Prénom Destinataire...">
+                </div>
+                <div class="Date">
+                    <span id="today"></span>
+                </div>
+            </div>
+        </div>
+        <input class="Objet_ecr" type="text" id="subject" maxlength="255" placeholder="Objet du telegramme...">
+        <textarea  class="Mel" name="" id="message" maxlength="455" cols="30" rows="8" placeholder="Votre message..."></textarea>
+        <div class="telegram_footer">
+            <button type="submit" name="send">Envoyer le télégramme</button>
+        </div>
+    </form>
+    </div>
+    <div class="view">
+        <a href="#" class="close_view">X</a>
+        <div class="telegram_header">
+            <div class="telegram_info">
+                <div class="Auteur">
+                    <span id="view_sender"></span>
+                </div>
+                <div class="Lieu">
+                    <span id="view_id"></span>
+                </div>
+                <div class="Receveur">
+                   <span id="view_recipient"></span>
+                </div>
+                <div class="Date">
+                    <span id="view_date"></span>
+                </div>
+            </div>
+        </div>
+        <p id="view_subject" class="Objet"></p>
+        <div><pre class="Mel" id="view_message"></pre></div>
+        <div class="telegram_footer"></div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

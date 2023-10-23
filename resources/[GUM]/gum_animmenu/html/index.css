@@ -1,0 +1,765 @@
+@font-face {
+    font-family: crock;
+    src: url(koala.ttf);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+
+
+* {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    box-sizing: inherit;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    background-size:cover;
+}
+
+#eye {
+    display: none;
+    position: absolute;
+    top: 49.9%;
+    left: 48.85%;
+    width: 60px;
+    height: 30px;
+    background-image: url('eye.png');
+    background-size: 100% 100%;
+}
+
+#nameItem {
+    display: block;
+    position:absolute;
+    bottom: 30px;
+    left: 40px;
+    font-size:20px;
+    color: white;
+}
+#animMenu {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+    width: 300px;
+    height: 450px;
+    top: 50%;
+    left: 70%;
+    transform: translate(0px, -50%);
+    /*background-color: #0a0a0acf;*/
+    background-image: url('itemlist.png');
+    border-radius: 0px;
+    background-size: 100% 100%;
+} 
+
+#propMenu {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 300px;
+    height: 450px;
+	top: 50%;
+    transform: translate(0px, -50%);
+    left: 14%;
+    background-image: url('itemlist.png');
+    background-size: 100% 100%;
+} 
+
+#radialFavorite {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 25%;
+	height: 40%;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+} 
+
+#textCenter {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    top: 18px;
+    left: 15px;
+    color: white;
+    text-align: center;
+    font-family: 'milonga';
+}
+#favorite1 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 38.3%;
+    left: 0%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite2 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 19%;
+    left: 4%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite3 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 4.8%;
+    left: 16%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite4 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 0%;
+    left: 33%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite5 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 38.3%;
+    left: 66%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite6 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 20%;
+    left: 62%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite7 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 5%;
+    left: 49.5%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite8 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 57%;
+    left: 62%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite9 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 72%;
+    left: 49%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+
+#favorite10 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 76.7%;
+    left: 33.1%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+
+#favorite11 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 57%;
+    left: 4%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite12 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 72%;
+    left: 16.8%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite13 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 38.5%;
+    left: 16.8%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite14 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 20%;
+    left: 32.8%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite15 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 38.5%;
+    left: 49.6%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+#favorite16 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 57.5%;
+    left: 32.8%;
+    font-size: 17px;
+    background-image: url('animButton.png');
+    background-size: 100% 100%;
+}
+
+#bindMenu {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+    width: 400px;
+    height: 280px;
+    top: 70%;
+    left: 47.5%;
+    transform: translate(-50%);
+    background-image: url(
+    'itemlist_large.png');
+    background-size: 100% 100%;
+} 
+#bindMenuCont li a {
+    position: absolute;
+    bottom: 9px;
+	width: 180px;
+    font-size: 17px;
+    color:white;
+    text-decoration: none;
+}
+#bindMenuCont {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+	width: 90%;
+    left: -15px;
+	height: 70%;
+	top: 40px;
+} 
+
+#favorite {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 30px;
+	height: 30px;
+    right: 10px;
+    background-image: url('favorite.png');
+    background-size: 100% 100%;
+} 
+#favorite:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 30px;
+	height: 30px;
+    right: 10px;
+    background-image: url('favoriteHover.png');
+    background-size: 100% 100%;
+    transition-duration: 0.2s;
+} 
+
+#animInput {
+    position: absolute;
+    background-color: black;
+    background-repeat: no-repeat;
+    width: 85%;
+    height: 25px;
+    font-size: 22px;
+    left: 20px;
+    top: 20px;
+    margin-bottom: 12px;
+    color: white;
+    font-family: 'milonga';
+    border: none;
+    font-size: 15px;
+  }
+  #animMenuCont li a {
+    position: absolute;
+    bottom: 9px;
+	width: 190px;
+    font-size: 15px;
+    color:white;
+    text-decoration: none;
+}
+#animMenuCont {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    width: 85%;
+    left: -15px;
+    height: 320px;
+    top: 90px;
+} 
+
+.item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width: 95%;
+    height: 40px;
+    margin: 5px;
+    color: white;
+    background-color: #1f1f1f;
+    /* background-image: url('button.png'); */
+    /* background-size: 100% 100%; */
+    text-decoration: none;
+    font-family: 'milonga' !important;
+}
+.item a {
+    font-family: 'milonga' !important; 
+
+}
+
+.item:hover {
+    background-color: #DC5858;
+    
+}
+.item:active {
+    background-color: #DC5858;
+}
+
+#item {
+    display: block;
+    position: relative;
+    width: 75%;
+    height: 40px;
+    margin: 5px;
+    top: 38px;
+    left: 30px;
+    color: white;
+    background-color: #1f1f1f;
+    text-decoration: none;
+    font-family: 'milonga' !important;
+    margin-top: 1.5vh;
+}
+#item:hover {
+    background-color: #DC5858;
+    cursor: pointer;
+}
+#item:active {
+    background-color: #DC5858;
+
+}
+
+
+#text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align:center;
+	width: 190px;
+    font-family: 'milonga' !important;
+    font-size: 15px !important;
+}
+
+input, span{
+    outline: none;
+    bottom:50px;
+    left:280px;
+    position:absolute;
+    width:40px;
+    color:white;
+}
+input{
+    background:transparent;
+    z-index:2;
+}
+
+#text {
+    position: absolute;
+    bottom: 1px;
+    right: 45px;
+    font-size: 20px;
+}
+
+#itemlist {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    width: 400px;
+    height: 580px;
+    background-image: url('itemlist.png');
+    background-size: 100% 100%;
+}
+
+#timer {
+    display: none;
+    position: absolute;
+    color: white;
+    font-size: 40px;
+    top: 55.9%;
+    left: 48.2%;
+}
+
+
+#propInput {
+    position: absolute;
+    background-color: black;
+    background-repeat: no-repeat;
+    width: 85%;
+    height: 25px;
+    font-size: 22px;
+    left: 20px;
+    top: 20px;
+    margin-bottom: 12px;
+    color: white;
+    font-family: 'milonga';
+    border: none;
+    font-size: 15px;
+  }
+
+  #propInput p {
+
+    color: #757575 !important;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-family: 'milonga';
+  }
+
+#propMenuCont li a {
+    position: absolute;
+    bottom: 9px;
+	width: 190px;
+    font-size: 15px;
+    color:white;
+    text-decoration: none;
+}
+#propMenuCont {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    width: 85%;
+    left: -15px;
+    height: 320px;
+    top: 90px;
+} 
+
+.item.muuri-item-dragging {
+    z-index: 3;
+}
+
+.item.muuri-item-releasing {
+    z-index: 2;
+}
+
+.item.muuri-item-hidden {
+    z-index: 0;
+}
+
+
+.bottom-right {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-size: 11px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(73, 73, 73); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b3b3b3; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    border-radius: 10px;
+    background: rgb(39, 39, 39); 
+}
+
+#favorite1:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 38.3%;
+    left: 0%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+
+#favorite2:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 19%;
+    left: 4%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+
+#favorite3:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 4.8%;
+    left: 16%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+
+#favorite4:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 0%;
+    left: 33%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+
+#favorite5:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 38.3%;
+    left: 66%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+
+#favorite6:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 20%;
+    left: 62%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+
+#favorite7:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 5%;
+    left: 49.5%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+
+#favorite8:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 57%;
+    left: 62%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+
+#favorite9:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 72%;
+    left: 49%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+
+#favorite10:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 76.7%;
+    left: 33.1%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+
+#favorite11:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 57%;
+    left: 4%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+
+#favorite12:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 72%;
+    left: 16.8%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+#favorite13:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 38.5%;
+    left: 16.8%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+#favorite14:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 20%;
+    left: 32.8%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+#favorite15:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 38.5%;
+    left: 49.6%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}
+#favorite16:hover {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    position: absolute;
+	width: 87px;
+	height: 87px;
+	top: 57.5%;
+    left: 32.8%;
+    font-size: 17px;
+    background-image: url('animButtonH.png');
+    background-size: 100% 100%;
+}/*

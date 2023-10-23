@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+
+@font-face {
+    font-family: 'RDR Lino Regular';
+    src: url("../fonts/RDR_Lino_Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hapna Slab Serif';
+    src: url("../fonts/Hapna_Slab_Serif.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chinese Rocks';
+    src: url("../fonts/chinese_rocks.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+input:focus {
+    outline: 0;
+}
+
+body, html, #app {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Hapna Slab Serif';
+    color: #fafafa;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6, hr, p {
+    margin: 0;
+    font-weight: normal;
+}
+
+h1 {
+    font-family: 'Milonga';
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: 'Milonga';
+}
+
+p {
+    font-family: 'Milonga';
+}
+
+button:focus {
+    outline: none;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: #2c2a21; 
+    border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #615C43; 
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #C1B681; 
+}
+
+#app {
+    padding: 100px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 60% 40%;
+    justify-content: space-between;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.patient, .notes {
+    width: 34vw;
+    height: 100%;
+    max-height: calc(100vh - 200px);
+    background: url('../img/bg.png');
+    background-size: 100% 100%;
+    margin: 0 25px;
+    padding: 50px;
+    box-shadow: 0px 0px 10px 8px #00000080;
+}
+
+.notes {
+    grid-column: 1/2;
+    padding: 50px 80px;
+
+    width: 53vw;
+    max-height: calc(100vh - 200px);
+    background: url('../img/bgdeux.png');
+    background-size: 100% 100%;
+    margin: 0 25px;
+    padding: 50px;
+}
+
+.notes .scrollable {
+    max-height: 95%;
+}
+
+.patient {
+    flex-basis: 40%;
+    grid-column: 2/3;
+}
+
+.title_lm {
+    text-align: center;
+    margin: auto;
+    margin-top: -2.5vh;
+}
+
+.title_lm_notes {
+    text-align: center;
+    margin: auto;
+    margin-top: -1.5vh;
+}
+
+.pb_un {
+    width: 15vw;
+    margin-top: 0.5vh;
+    height: 1.5vh;
+}
+
+.pb_deux {
+    width: 27vw;
+    margin-top: 1.5vh;
+}
+
+
+.header-group {
+    width: fit-content;
+}
+
+.header-group hr {
+    border-color: #615C43;
+    border: 2px solid #615C43;
+}
+
+.patient-info {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 100%;
+}
+
+.patient-info .header-group h1 {
+    font-size: 24px;
+}
+
+.silhouette {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.silhouette svg {
+    height: 100%;
+}
+
+.patient-parameters {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.patient-parameters .parameter {
+    margin: 15px 0;
+}
+
+.parameter p {
+    font-size: 17px;
+    margin-top: 5px;
+    color: #cacaca;
+    font-family: 'Hapna Slab Serif';
+}
+
+.rdr-button {
+    background: url('../img/box.png');
+    border: 0px;
+    background-size: 100% 100%;
+    color: #fafafa;
+    font-family: 'Milonga';
+    font-size: 24px;
+    width: 17vw;
+    max-width: 100%;
+    height: 80px;
+    margin: auto;
+    text-align: center;
+    transition: all .15s ease-out;
+}
+
+.rdr-button:hover {
+    background: url('../img/box-red.png');
+    background-size: 100% 100%;
+}
+
+#notes-toggle-wrapper {
+    margin-top: auto;
+}
+
+.fill-danger {
+    fill: #B62A2A;
+    animation-name: dangerPulse;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+}
+
+.fill-danger:hover {
+    fill: #B62A2A;
+}
+
+.text-danger {
+    color: #B62A2A;
+}
+
+.curable {
+    padding: 5px;
+    width: fit-content;
+    color: #fafafa;
+    font-family: 'Hapna Slab Serif';
+}
+
+.curable:hover {
+    color: #DC5757;
+}
+
+.text-warning {
+    color: #b6b62a;
+}
+
+@keyframes dangerPulse {
+    0% {
+        fill: #DC5757;
+    } 
+    50% {
+        fill: #B62A2A;
+    }
+    100% {
+        fill: #DC5757;
+    }
+}
+
+.note, #add-note {
+    margin-top: 20px;
+}
+
+.note {
+    border: 2px solid #615C43;
+    padding: 20px;
+    margin-right: 5px;
+    display: grid;
+    grid-template-rows: fit-content auto;
+    font-size: 18px;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.note-header h1 {
+    font-family: 'RDR Lino Regular';
+    font-size: 24px;
+}
+
+.note-content {
+    color: #cacaca;
+    max-width: 80%;
+}
+
+.header-right {
+    display: flex;
+    font-family: 'RDR Lino Regular';
+    align-items: center;
+    font-size: 24px;
+}
+
+.header-right img {
+    max-width: 24px;
+    margin-left: 25px;
+}
+
+.custom-modal {
+    color: #fafafa;
+    backdrop-filter: none;
+}
+
+.custom-modal .tingle-modal-box {
+    background: #1b1b1b;
+}
+
+.custom-modal .tingle-modal-box__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.custom-modal input {
+    height: 50px;
+    width: 100%;
+    margin: 15px 0;
+    background: #333333;
+    border-radius: 5px;
+    color: #cacaca;
+    border: 0;
+    padding: 10px 10px;
+    font-size: 16px;
+    font-family: 'Hapna Slab Serif' !important;
+}
+
+.custom-modal label {
+    font-size: 20px;
+    display: block;
+}
+
+.custom-modal input[type="checkbox"] {
+    width: 25px;
+    margin: 0;
+}
+
+.custom-modal .tingle-modal-box__footer {
+    background: #333333;
+}
+
+.custom-modal-submit {
+    background-color: #B21214;
+    font-family: 'RDR Lino Regular';
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.modal-form .form-group {
+    display: block;
+    padding: 10px;
+}
+
+.modal-form textarea {
+    background: #333333;
+    border: none;
+    resize: none;
+    width: 500px;
+    height: 250px;
+    border-radius: 5px;
+    outline: none;
+    padding: 5px;
+    margin-top: 15px;
+    color: #fafafa;
+    font-family: 'Hapna Slab Serif';
+    font-size: 18px;
+}
+
+.scale-hover:hover {
+    transform: scale(1.2);
+}
+
+.scale-hover {
+    transition: all .2s ease-out;
+}
+
+.scrollable {
+    height: 100%;
+    overflow-y: scroll;
+}

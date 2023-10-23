@@ -1,0 +1,133 @@
+@font-face {
+    font-family: crock;
+    src: url(crock.ttf);
+}
+
+* {
+    font-family: crock;
+    box-sizing: inherit;
+    touch-action: manipulation;
+}
+
+body {
+    background: none !important;
+    overflow: hidden;
+}
+div {
+    padding-left: 5%;
+    height: 78%;
+}
+img {
+    visibility : none;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background:transparent; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background:transparent; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    border-radius: 10px;
+    background:transparent; 
+}
+
+.align-left {
+    text-align: left;
+    left: -15px;
+}
+
+#header {
+    position: absolute;
+    top: 8%;
+    left: 35%;
+    font-size: 50px;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    z-index: 1;
+}
+
+#name {
+    display: block;
+    position: relative;
+    top: 1%;
+    left: -30%;
+}
+
+#textLink {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 58%;
+    height: 3%;
+    font-size: 1.1vw;
+    outline: none;
+    border:none;
+    background-color: rgba(2, 2, 2, 0.35);
+    color : rgb(255, 255, 255);
+    text-align: center;
+}
+#textLink::placeholder {
+    color: rgb(168, 168, 168);
+}
+
+#previewImage {
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    width: 11%;
+    height: 40%;
+    outline: none;
+    border:none;
+    background-image: url('images/placeholder.png');
+    background-size: 100% 100%;
+    z-index: 2;
+}
+
+#containerForData {
+    -webkit-user-drag: element;
+    display: grid;
+    overflow-y: auto;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 15%;
+    left: 14%;
+    width: 75%;
+    height: 80%;
+    background-color: transparent;
+    font-size: 0.8vw;
+    grid-template-columns: 30% 30% 30%;
+    grid-auto-rows: 70%;
+    text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+}
+ 
+#positionForImage {
+    position:absolute;
+    width: 25%;
+    height: 75%;
+    top: 15%;
+    left: 35%;
+    background-image: url('images/placeholder.png');
+    background-size: 100% 100%;
+}
+
+#posterSpecific {
+    display: block;
+    position: relative;
+    top:3%;
+    left: -15%;
+    width: 95%;
+    height: 90%;
+    background-color: transparent !important;
+    transition-duration: 200ms;
+}
+

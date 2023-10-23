@@ -1,0 +1,11 @@
+For bla_church_main_door1:
+Hex: 8C4B7357
+Decimal: 2353754967
+
+For bla_church_main_door2:
+Hex: E8DF7DE
+Decimal: 244185054
+
+For bla_church_back_door:
+Hex: 154D450C
+Decimal: 357385484

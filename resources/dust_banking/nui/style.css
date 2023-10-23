@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&family=Ewert&family=Great+Vibes&family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap%27');
+
+
+@font-face {
+    font-family: Bahianita;
+    src: url(https://fonts.gstatic.com/s/bahianita/v18/yYLr0hTb3vuqqsBUgxWdzTHU6NI.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: cursive;
+    src: url(https://cdn.discordapp.com/attachments/644631964774694942/738179761620123698/GOTHAM-BOLD.OTF);
+}
+
+body {
+    background: transparent !important;
+    margin-top: 80px;
+}
+
+.active.m-1 {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    color: #DC5858 !important;
+}
+.p-2{    
+    padding: 0px !important;
+    border-style: hidden !important;
+}
+* {
+    background-color: rgba(0, 0, 0, 0) !important;
+    border-color: rgba(0, 0, 0, 0) !important;
+}
+input {
+    border-bottom: 2px solid #615C43 !important;
+    font-size: 20px !important; 
+    font-family: 'Milonga', cursive;
+    color: #565656  !important;
+    letter-spacing: 0.25em !important;
+    font-weight: 900 !important;
+
+}
+.tab-pane{
+    padding: 25px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+button {
+    border-bottom: 2px solid #ffffff !important;
+    font-size: 20px !important; 
+    font-family: 'Beau Rivage', cursive;
+    color: #ffffff !important;
+    letter-spacing: 0.25em !important;
+    font-weight: 900 !important;
+}
+button:hover
+{
+    color: #DC5858 !important;
+    border-bottom: 2px solid #DC5858 !important;
+}
+.card-text{
+    font-family: 'Milonga', cursive !important;
+    color: #000 !important;
+    font-size: 20px !important;
+    letter-spacing: 0.25em !important;
+    font-weight: 900 !important;
+    font-style: normal !important;
+}
+
+.card-title{
+    font-family: 'Milonga', cursive !important;
+    text-shadow: 2px;
+    font-size: 20px !important;
+    letter-spacing: 0.15em !important;
+
+    font-weight: 900 !important;
+    font-style: normal !important;
+}
+
+#bankingContainer {
+    padding-top: 55px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 75px;
+    background-size: cover;
+    background-size: 100% 100% !important;
+    width: 1000px !important;
+    height: 850px !important;
+    font-family: 'Beau Rivage', cursive;
+    font-weight: 900;
+
+    background-image: url(./images/bkg_all.png);
+    letter-spacing: 0.25em;
+    display: none;
+    box-shadow: 0px 0px 10px 8px #00000080;
+}
+
+#bankingContainer2 {
+    padding-top: 55px;
+    padding-left: 125px;
+    padding-right: 125px;
+    padding-bottom: 75px;
+    background-size: cover;
+    background-size: 100% 100% !important;
+    width: 1100px !important;
+    height: 1000px !important;
+    font-family: 'Beau Rivage', cursive;
+    font-weight: 900;
+
+    background-image: url(./images/bkg.png);
+    letter-spacing: 0.25em;
+    display: none;
+}
+
+#v-pills-tabContent::-webkit-scrollbar,
+#v-pills-tabContent-atm::-webkit-scrollbar {
+    width: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: transparent
+}
+
+.title {
+    color: #DC5858;
+    border-left: 2px solid #DC5858;
+    font-family: 'Milonga', cursive;
+    
+}
+.col-3 {
+    padding:0px !important;
+}
+.mb-3{
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+#currentStatement {
+    background-color: #090909 !important; /* Couleur de fond de la table */
+    color: #615C43 !important; /* Couleur du texte de la table */
+    font-family: 'Milonga', cursive;
+}
+
+
+#navbar_elem
+{
+    justify-content: space-between;
+    width: 100%;
+}
+
+#navbar_title
+{
+    color: #f3f3f3;
+    text-align: center;
+    font-family: 'milonga';
+    margin-bottom: 2vh;
+    height: 5vh;
+    font-size: 40px;
+    letter-spacing: 0.25vw;
+
+
+}
+
+#navbar_line
+{
+    max-width: 100%;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.nav-pills .nav-link {
+    border-radius: .25rem;
+    font-size: 20px;
+    font-family: 'milonga';
+
+    letter-spacing: 0.5px;
+
+}
+
+
+#info_elem
+{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+    flex-direction: row;
+    flex-grow: 1;
+
+    color: #565656 !important;
+    margin-top: 35px;
+}
+
+#info_elem p
+{
+    letter-spacing: 0.2vw;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto
+{
+    padding: 0 !important;
+}
