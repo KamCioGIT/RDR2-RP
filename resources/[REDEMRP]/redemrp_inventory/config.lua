@@ -2918,6 +2918,53 @@ Config.Items = {
     imgsrc = "items/kit_mask_brown_sack.png",
     type = "item_standard",
 },
+
+------- feu de camp -----------
+["viandepetitmamiferecuite"] = {
+    label = "Viande petit gibier cuite",
+    description = "Petit mais consistant",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/consumable_meat_exotic_bird_cooked.png",
+    type = "item_standard",
+},
+["viandecuite"] = {
+    label = "Viande cuite",
+    description = "Sans épices ? Quel manque de goût",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/consumable_meat_prime_beef_cooked.png",
+    type = "item_standard",
+},
+["viandegibiercuite"] = {
+    label = "Venaison cuit",
+    description = "Sans épices ? Quel manque de goût",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/consumable_meat_mature_venison_cooked.png",
+    type = "item_standard",
+},
+["herbesaromatiques"] = {
+    label = "Herbes aromatiques",
+    description = "Des odeurs qui apaisent l'âme",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/consumable_herb_creeping_thyme.png",
+    type = "item_standard",
+},
+
 }
 
 
