@@ -13,6 +13,7 @@ client_scripts {
 
 server_scripts {
 	'wepsharedcomp.lua',
+	'config.lua',
 	'server.lua',
 	
 }
