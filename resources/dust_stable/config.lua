@@ -1002,26 +1002,26 @@ Config.BuyHorses = {
 
 
 Config.Cart = {
-	gatchuck= {
-		model = "gatchuck",
-		name = "Charrette",
-		desc = "Une Charrette",
-    },
-	cart01= {
-		model = "chuckwagon000x",
-		name = "Chuckwagon",
-		desc = "Une Charrette",
-    },
-	ArmySupplyWagon= {
-		model = "ArmySupplyWagon",
-		name = "Charrette de l'Union",
-		desc = "Une Charrette",
-    },
-	wagon03x= {
-		model = "wagon03x",
-		name = "Charrette de l'Union",
-		desc = "Une Charrette",
-    },
+	-- gatchuck= {
+	-- 	model = "gatchuck",
+	-- 	name = "Charrette",
+	-- 	desc = "Une Charrette",
+    -- },
+	-- cart01= {
+	-- 	model = "chuckwagon000x",
+	-- 	name = "Chuckwagon",
+	-- 	desc = "Une Charrette",
+    -- },
+	-- ArmySupplyWagon= {
+	-- 	model = "ArmySupplyWagon",
+	-- 	name = "Charrette de l'Union",
+	-- 	desc = "Une Charrette",
+    -- },
+	-- wagon03x= {
+	-- 	model = "wagon03x",
+	-- 	name = "Charrette de l'Union",
+	-- 	desc = "Une Charrette",
+    -- },
 }
 
 Config.Label = {
