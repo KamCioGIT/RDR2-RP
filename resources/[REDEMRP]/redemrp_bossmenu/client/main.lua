@@ -319,12 +319,12 @@ Citizen.CreateThread(function()
                 local PlayerPos = GetEntityCoords(PlayerPedId())
                 FoundSomething = false
                 local showPrompt = true
-                if Config.Jobs[PlayerJob].ShowPrompt then
-                    if Config.Jobs[PlayerJob].ShowPrompt == false then
-                        showPrompt = false
-                    end
-                end
-                if showPrompt then
+                -- if Config.Jobs[PlayerJob].ShowPrompt then
+                --     if Config.Jobs[PlayerJob].ShowPrompt == false then
+                --         showPrompt = false
+                --     end
+                -- end
+                -- if showPrompt then
                     if #(PlayerPos - Config.Jobs[PlayerJob].MenuLocations) < 6.0 then
                         Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, Config.Jobs[PlayerJob].MenuLocations, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)--DrawMarker
                     end
@@ -341,7 +341,7 @@ Citizen.CreateThread(function()
                             Timeout = GetGameTimer()
                         end
                     end
-                end
+                -- end
                 if not FoundSomething then
 					NearAnything = false
 					if BossMenuPromptShown then
