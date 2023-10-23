@@ -21,8 +21,8 @@ Config.CraftAnim = {
 
 
 Config.CraftArme = {
-    vector3(1328.833, -1323.346, 76.88589), --- rhodes
-    vector3(-1841.593, -414.5283, 161.2887),  --- straw
+    [1] = vector3(1328.833, -1323.346, 76.88589), --- rhodes
+    [2] = vector3(-1841.593, -414.5283, 161.2887),  --- straw
 }
 
 Config.CraftingsReceipe = {
