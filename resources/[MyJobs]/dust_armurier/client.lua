@@ -217,6 +217,7 @@ function OpenCategoryWeapon(menu_catagory, wepHash, Weapontype, ped)
         end
     end
     if menu_catagory == "specialweapon" then
+        print (wepHash)
         for k, v in pairs(weapon_comp["model_specific_components"][wepHash]) do
             if k ~= nil then
                 category = v
