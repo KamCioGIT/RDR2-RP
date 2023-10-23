@@ -6,4 +6,4 @@ dependency 'objectloader'
 
 file 'forge.xml'
 
-objectloader_map 'ann_mine.xml'
+objectloader_map 'forge.xml'
