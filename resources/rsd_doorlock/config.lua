@@ -4,7 +4,7 @@ Config = {}
 
 Config.rsdNUI = false -- If you use our RSD_NUI else natif prompt
 
-Config.DistanceDoor = 1.6 -- Distance check doors
+Config.DistanceDoor = 3.0 -- Distance check doors
 
 Config.KeyOpen = 0x760A9C6F --G
 Config.KeyBreak = 0xCEFD9220 --E
@@ -52,7 +52,7 @@ Config.Doors = {
         CloseRotation2 = 0, --Rotation when closed // if it's double doors else set 0
         locked = true, -- If you want the door to be locked at start
         breakable = true, -- If you want the door could be breaked with "Config.ItemBreak"
-        jobs = {"sheriff"}, --All Job that can acces to the door // set all if you don't want a job
+        jobs = {"sheriff_rhodes"}, --All Job that can acces to the door // set all if you don't want a job
         needkey = false, -- If you want to use an item "key"
         keys = '', --key item
     },
@@ -64,7 +64,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = false, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_rhodes"},
         needkey = false,
         keys = '',
     },
@@ -76,7 +76,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = true, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_rhodes"},
         needkey = false,
         keys = '',
     },
@@ -88,7 +88,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = true, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_rhodes"},
         needkey = false,
         keys = '',
     },
@@ -100,7 +100,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = true, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_rhodes"},
         needkey = false,
         keys = '',
     },
@@ -112,7 +112,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = true, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_rhodes"},
         needkey = false,
         keys = '',
     },
@@ -126,7 +126,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = false, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_rhodes"},
         needkey = false,
         keys = '',
     },
@@ -138,7 +138,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = false, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_rhodes"},
         needkey = false,
         keys = '',
     },
@@ -150,7 +150,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = true, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_rhodes"},
         needkey = false,
         keys = '',
     },
@@ -214,7 +214,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = true, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_bla"},
         needkey = false,
         keys = '',
     },
@@ -226,7 +226,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = true, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_bla"},
         needkey = false,
         keys = '',
     },
@@ -240,7 +240,7 @@ Config.Doors = {
         CloseRotation2 = 90.0,
         locked = true,
         breakable = false, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_bla"},
         needkey = false,
         keys = '',
     },
@@ -252,7 +252,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = false, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_bla"},
         needkey = false,
         keys = '',
     },
@@ -264,7 +264,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = true, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_bla"},
         needkey = false,
         keys = '',
     },
@@ -276,7 +276,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = true, 
-        jobs = {"sheriff"},
+        jobs = {"sheriff_bla"},
         needkey = false,
         keys = '',
     },
@@ -649,7 +649,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = false, 
-        jobs = {"doctor"},
+        jobs = {"doctor_stdenis"},
         needkey = false,
         keys = '',
     },
@@ -661,7 +661,7 @@ Config.Doors = {
         CloseRotation2 = 0,
         locked = true,
         breakable = false, 
-        jobs = {"doctor"},
+        jobs = {"doctor_stdenis"},
         needkey = false,
         keys = '',
     },
