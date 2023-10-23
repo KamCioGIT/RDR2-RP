@@ -35,7 +35,9 @@ end)
 local customwprompt = UipromptGroup:new("Armurier Atelier")
 Uiprompt:new(0x156F7119, "Travailler l'arme", customwprompt):setHoldMode(true)
 customwprompt:setActive(false)
-
+local craftprompt = UipromptGroup:new("Atelier")
+Uiprompt:new(0x760A9C6F, "Fabriquer", craftprompt)
+craftprompt:setActive(false)
 
 ----- Open Menu ----
 Citizen.CreateThread(function()
