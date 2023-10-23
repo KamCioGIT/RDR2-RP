@@ -18,14 +18,10 @@ local getgrade = 0
 
 RegisterNetEvent("dust_job:armurier")
 AddEventHandler("dust_job:armurier", function(job, grade)
-    for k, v in pairs(Config.Jobs) do
-        print(Config.Jobs[2])
+    for k, v in pairs(Config.JobArmurier) do
         if job == v then
             getjob = true
             getgrade = grade
-        else
-            getjob = false
-            getgrade = 0
         end
     end
 end)
