@@ -44,8 +44,8 @@ MedicineItems = {
             --cureExpired = "" -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
+        animationDict = "mech_animal_interaction@horse@right@injection",
+        animation = "injection_player",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
     },
@@ -68,8 +68,8 @@ MedicineItems = {
             --cureExpired = "" -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
+        animationDict = "mech_animal_interaction@horse@right@injection",
+        animation = "injection_player",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
     },
@@ -93,8 +93,8 @@ MedicineItems = {
             --cureExpired = "" -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
+        animationDict = "mech_animal_interaction@horse@right@injection",
+        animation = "injection_player",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
     },
@@ -117,8 +117,8 @@ MedicineItems = {
             --cureExpired = "" -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
+        animationDict = "mech_animal_interaction@horse@right@injection",
+        animation = "injection_player",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
     },
@@ -141,8 +141,8 @@ MedicineItems = {
             cureExpired = "La douleur revient." -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
+        animationDict = "mech_animal_interaction@horse@right@injection",
+        animation = "injection_player",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
         antidouleur = true
@@ -166,8 +166,8 @@ MedicineItems = {
             cureExpired = "La douleur revient." -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
+        animationDict = "mech_animal_interaction@horse@right@injection",
+        animation = "injection_player",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
         antidouleur = true
@@ -191,8 +191,8 @@ MedicineItems = {
             cureExpired = "La douleur revient." -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
+        animationDict = "mech_animal_interaction@horse@right@injection",
+        animation = "injection_player",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
         antidouleur = true
@@ -292,8 +292,8 @@ MedicineItems = {
             applied = "Vous vous sentez mieux.",
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
+        animationDict = "mech_animal_interaction@horse@right@injection",
+        animation = "injection_player",
         -- the next damage type, used for the bandaged state
     },
     ['remedeinfectiondeux'] = {
@@ -313,8 +313,8 @@ MedicineItems = {
             applied = "Vous vous sentez mieux.",
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
+        animationDict = "mech_animal_interaction@horse@right@injection",
+        animation = "injection_player",
         -- the next damage type, used for the bandaged state
     },
     ['remedeantidouleurun'] = {
@@ -334,8 +334,8 @@ MedicineItems = {
             applied = "Vous vous sentez mieux.",
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
+        animationDict = "mech_animal_interaction@horse@right@injection",
+        animation = "injection_player",
         -- the next damage type, used for the bandaged state
     },
     ['remedeantidouleurdeux'] = {
@@ -355,8 +355,8 @@ MedicineItems = {
             applied = "Vous vous sentez mieux.",
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
+        animationDict = "mech_animal_interaction@horse@right@injection",
+        animation = "injection_player",
         -- the next damage type, used for the bandaged state
     },
 }
