@@ -62,7 +62,7 @@ Citizen.CreateThread(function()
                 if #(playerpos - v) < Config.DistanceToInteract and not isInteracting then
                     craftprompt:setActiveThisFrame(true)
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerEvent("store:OpenBossMenu")
+                        TriggerEvent("gunstore:OpenBossMenu")
                     end
                 end
             end
