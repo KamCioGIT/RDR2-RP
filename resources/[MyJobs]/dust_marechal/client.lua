@@ -24,7 +24,7 @@ end)
 
 
 ------ PROMPT ------ 
-
+local CurrentPrice = 0
 local customprompt = UipromptGroup:new("Maréchal Ferrant")
 Uiprompt:new(0x156F7119, "Changer l'équipemement", customprompt):setHoldMode(true)
 customprompt:setActive(false)
@@ -115,10 +115,11 @@ function OpenCustomMenu(horse, horseid)
             OpenCategory(data.current.value, horse, horseid)
         else
             menu.close()
-            TriggerServerEvent("rdr_marechal:save", CompCache, horseid)
+            TriggerServerEvent("rdr_marechal:save", CompCache, horseid, CurrentPrice)
             OldCompCache = {}
             isInteracting = false
             FreezeEntityPosition(horse, false)
+            CurrentPrice = 0
 
         end
 
@@ -254,10 +255,11 @@ function OpenCustomCart(horse, horseid, model)
             OpenCategoryCart(data.current.value, horse, horseid, model)
         else
             menu.close()
-            TriggerServerEvent("rdr_marechal:save", CompCache, horseid)
+            TriggerServerEvent("rdr_marechal:save", CompCache, horseid, CurrentPrice)
             OldCompCache = {}
             isInteracting = false
             FreezeEntityPosition(horse, false)
+            CurrentPrice = 0
 
         end
 
@@ -351,6 +353,13 @@ function MenuUpdateCart(data, menu, horse, model)
             CompCache[data.current.category].hash = comp_cart[data.current.category][data.current.value].hash
         end
     end 
+    if CurrentPrice ~= CalculatePrice(2) then
+        CurrentPrice = CalculatePrice(2)
+        local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING",
+            tostring(CurrentPrice .. "$"), Citizen.ResultAsLong())
+        Citizen.InvokeNative(0xFA233F8FE190514C, str)
+        Citizen.InvokeNative(0xE9990552DEC71600)
+    end
     
 end
 
@@ -358,6 +367,13 @@ function MenuUpdateComp(data, menu, horse)
     NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
     if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
         CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+    end
+    if CurrentPrice ~= CalculatePrice(1) then
+        CurrentPrice = CalculatePrice(1)
+        local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING",
+            tostring(CurrentPrice .. "$"), Citizen.ResultAsLong())
+        Citizen.InvokeNative(0xFA233F8FE190514C, str)
+        Citizen.InvokeNative(0xE9990552DEC71600)
     end
 end
 
@@ -412,6 +428,28 @@ function deepcopy(orig)
         copy = orig
     end
     return copy
+end
+
+function CalculatePrice(type)
+	local price = 0
+    if type == 1 then
+        for k, v in pairs(comp_list) do
+            if CompCache[k].hash then
+                if CompCache[k].hash > 0 then
+                    price = price + Config.LabelPrice[k]
+                end
+            end
+        end
+    else
+        for k, v in pairs(comp_cart) do
+            if CompCache[k].hash then
+                if CompCache[k].hash > 0 then
+                    price = price + Config.LabelPrice[k]
+                end
+            end
+        end
+    end
+    return price
 end
 
 

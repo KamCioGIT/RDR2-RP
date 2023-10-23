@@ -175,6 +175,7 @@ function OpenCustomWMenu(wepHash, Weapontype, ped)
             TriggerServerEvent("dust_armurier:savecomp", NewCompCache, wep_uid, CurrentPrice)
             ClearPedTasks(PlayerPedId())
             isInteracting = false
+            CurrentPrice = 0
         end
 
     end, function(data, menu)
@@ -549,11 +550,8 @@ end)
 function CalculatePrice(hash, type)
 	local price = 0
     for k,v in pairs(weapon_comp["shared_components"][type]) do
-        print (k)
         if NewCompCache["commun"][k] then
-            print (1)
             if NewCompCache["commun"][k] > 0 then
-                print (Config.LabelPrice[k])
                 price = price + Config.LabelPrice[k]
             end
         end

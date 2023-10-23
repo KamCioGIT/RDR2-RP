@@ -81,3 +81,20 @@ Config.LabelCart = {
 	["liveries"] = "Peintures",
 	["extras"] = "Ajouts",
 }
+
+Config.LabelPrice = {
+	["saddle_horns"] = 4,
+	["horse_blankets"] = 3,
+	["horse_saddles"] = 5,
+	["HORSE_SADDLEBAGS"] = 5,
+	["saddle_stirrups"] = 2,
+	["horse_bedrolls"] = 2,
+	["horse_manes"] = 2,
+	["horse_bridles"] = 2,
+	["horse_accessories"] = 2,
+	["HORSE_TAILS"] = 2,
+	["tints"] = 3,
+	["propsets"] = 4,
+	["liveries"] = 4,
+	["extras"] = 4,
+}
