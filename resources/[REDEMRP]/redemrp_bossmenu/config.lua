@@ -213,7 +213,7 @@ Config.Jobs = {
         Name = "Forge",
         blisprite = -758970771,
         MenuLocations = 
-            vector3(-875.5815, -1291.787, 42.10154)
+            vector3(-873.6105, -1286.807, 43.1016)
         ,
         Grades = {
             [1] = {
