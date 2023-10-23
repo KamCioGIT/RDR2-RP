@@ -56,7 +56,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Colt 1873',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse Colt 1873",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme Colt 1873",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet Colt 1873",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon Colt 1873",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_REVOLVER_SCHOFIELD'] = {
         type = 'armurerie',
@@ -73,7 +73,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Smith & Wesson Model 3',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse Smith & Wesson Model 3",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme Smith & Wesson Model 3",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet Smith & Wesson Model 3",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon Smith & Wesson Model 3",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme ",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_REVOLVER_DOUBLEACTION'] = {
         type = 'armurerie',
@@ -90,7 +90,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = '1873 Chamelot-Delvigne',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse 1873 Chamelot-Delvigne",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme 1873 Chamelot-Delvigne",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet 1873 Chamelot-Delvigne",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon 1873 Chamelot-Delvigne",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_REVOLVER_LEMAT'] = {
         type = 'armurerie',
@@ -107,7 +107,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Lemat Revolver',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse Lemat Revolver",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme Lemat Revolver",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet Lemat Revolver",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon Lemat Revolver",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_REVOLVER_NAVY'] = {
         type = 'armurerie',
@@ -124,7 +124,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Colt 1851 Navy',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse Colt 1851 Navy",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme Colt 1851 Navy",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet Colt 1851 Navy",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon Colt 1851 Navy",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_PISTOL_VOLCANIC'] = {
         type = 'armurerie',
@@ -141,7 +141,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Smith & Wesson 1855',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse Smith & Wesson 1855",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme Smith & Wesson 1855",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier d'armement Smith & Wesson 1855",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon Smith & Wesson 1855",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_REPEATER_EVANS'] = {
         type = 'armurerie',
@@ -158,7 +158,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Evans',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Crosse Evans",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/repeaterframe.png', text = "Corps d'arme Evans",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier d'armement Evans",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Canon Evans",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/repeaterframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_REPEATER_CARBINE'] = {
         type = 'armurerie',
@@ -175,7 +175,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'M1865 Spencer',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Crosse M1865 Spencer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/repeaterframe.png', text = "Corps d'arme M1865 Spencer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier d'armement M1865 Spencer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Canon M1865 Spencer",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/repeaterframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_REPEATER_WINCHESTER'] = {
         type = 'armurerie',
@@ -192,7 +192,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Winchester 1873',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Crosse Winchester 1873",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/repeaterframe.png', text = "Corps d'arme Winchester 1873",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier d'armement Winchester 1873",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Canon Winchester 1873",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/repeaterframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_REPEATER_HENRY'] = {
         type = 'armurerie',
@@ -209,7 +209,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = '1860 Henry',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Crosse 1860 Henry",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/repeaterframe.png', text = "Corps d'arme 1860 Henry",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier d'armement 1860 Henry",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Canon 1860 Henry",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/repeaterframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/longbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_RIFLE_SPRINGFIELD'] = {
         type = 'armurerie',
@@ -226,7 +226,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Springfield Model 1873',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/shtgn_stock.png', text = "Crosse Springfield Model 1873",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/elephantrifleframe.png', text = "Corps d'arme Springfield Model 1873",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier d'armement Springfield Model 1873",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/lbarrel.png', text = "Canon Springfield Model 1873",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/shtgn_stock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/elephantrifleframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/lbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_SNIPERRIFLE_ROLLINGBLOCK'] = {
         type = 'armurerie',
@@ -243,7 +243,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Remington Rolling Block',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/shtgn_stock.png', text = "Crosse Remington Rolling Block",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/elephantrifleframe.png', text = "Corps d'arme Remington Rolling Block",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier d'armement Remington Rolling Block",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/lbarrel.png', text = "Canon Remington Rolling Block",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/shtgn_stock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/elephantrifleframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/lbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_SHOTGUN_DOUBLEBARREL'] = {
         type = 'armurerie',
@@ -260,7 +260,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Colt 1883',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/rptr_stock.png', text = "Crosse Colt 1883",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/elp_frame.png', text = "Corps d'arme Colt 1883",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier d'armement Colt 1883",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/elp_frame.png', text = "Canon Colt 1883",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/rptr_stock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/elp_frame.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/elp_frame.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_SHOTGUN_SAWEDOFF'] = {
         type = 'armurerie',
@@ -277,7 +277,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Colt 1883 Scié',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/riflestock.png', text = "Crosse Colt 1883 Scié",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme Colt 1883 Scié",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier d'armement Colt 1883 Scié",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon Colt 1883 Scié",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/riflestock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
 }
 
