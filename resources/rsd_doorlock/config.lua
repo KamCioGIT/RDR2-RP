@@ -54,7 +54,7 @@ Config.Doors = {
         breakable = true, -- If you want the door could be breaked with "Config.ItemBreak"
         jobs = {"sheriff"}, --All Job that can acces to the door // set all if you don't want a job
         needkey = false, -- If you want to use an item "key"
-        keys = 'police_key', --key item
+        keys = '', --key item
     },
     {
         door = 395506985,
@@ -66,7 +66,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 1508776842,
@@ -78,7 +78,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 535323366,
@@ -90,7 +90,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 295355979,
@@ -102,7 +102,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 193903155,
@@ -114,7 +114,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
 
     --RHODES--
@@ -128,7 +128,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 1614494720,
@@ -140,7 +140,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 1878514758,
@@ -152,7 +152,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
 
     --ST DENIS--
@@ -166,7 +166,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 1995743734,
@@ -178,7 +178,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 2515591150,
@@ -190,7 +190,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 3365520707,
@@ -202,7 +202,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
 
     --STRAWBERRY--
@@ -216,7 +216,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 1207903970,
@@ -228,7 +228,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
 
     --BLACKWATER--
@@ -242,7 +242,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 2810801921,
@@ -254,7 +254,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 2167775834,
@@ -266,7 +266,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 2514996158,
@@ -278,7 +278,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
 
     --ARMADILLO--
@@ -292,7 +292,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 4235597664,
@@ -304,7 +304,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     
 ---------------------------------------------------------------------------------
@@ -322,7 +322,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 2058564250,
@@ -334,7 +334,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 1634148892,
@@ -346,7 +346,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 3142122679,
@@ -358,7 +358,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 2513778780,
@@ -370,7 +370,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 3483244267,
@@ -382,7 +382,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
 
     --ST DENIS
@@ -396,7 +396,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 1751238140,
@@ -408,7 +408,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
 
     --BLACKWATER
@@ -422,7 +422,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 2117902999,
@@ -434,7 +434,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 1462330364,
@@ -446,7 +446,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
 
     --VALENTINE
@@ -460,7 +460,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 2343746133,
@@ -472,7 +472,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 1340831050,
@@ -484,7 +484,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 3718620420,
@@ -496,7 +496,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 334467483,
@@ -508,7 +508,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 576950805,
@@ -520,7 +520,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 2307914732,
@@ -532,7 +532,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
 
 
@@ -547,7 +547,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 3550475905,
@@ -559,7 +559,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
     {
         door = 1366165179,
@@ -571,7 +571,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'bank_key',
+        keys = '',
     },
 ---------------------------------------------------------------------------------
 
@@ -588,7 +588,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"doctor"},
         needkey = false,
-        keys = 'doctor_key',
+        keys = '',
     },
     {
         door = 4067537969,
@@ -600,7 +600,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"doctor"},
         needkey = false,
-        keys = 'doctor_key',
+        keys = '',
     },
     {
         door = 3439738919,
@@ -612,7 +612,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"doctor"},
         needkey = false,
-        keys = 'doctor_key',
+        keys = '',
     },
     {
         door = 925575409,
@@ -624,7 +624,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"doctor"},
         needkey = false,
-        keys = 'doctor_key',
+        keys = '',
     },
 
     --STRAWBERRY
@@ -638,7 +638,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"doctor"},
         needkey = false,
-        keys = 'doctor_key',
+        keys = '',
     },
     --ST DENIS
     {
@@ -651,7 +651,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"doctor"},
         needkey = false,
-        keys = 'doctor_key',
+        keys = '',
     },
     {
         door = 1289094734,
@@ -663,7 +663,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"doctor"},
         needkey = false,
-        keys = 'doctor_key',
+        keys = '',
     },
 ---------------------------------------------------------------------------------
 
@@ -680,7 +680,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon2"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 2452247196,
@@ -692,7 +692,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon2"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 2320881007,
@@ -704,7 +704,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon2"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 815031507,
@@ -716,7 +716,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon2"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
 
     --ST DENIS
@@ -730,7 +730,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon5"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 2999855503,
@@ -742,7 +742,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon5"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 3461406868,
@@ -754,7 +754,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon5"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 3856177940,
@@ -766,7 +766,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon5"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
 
     --TUMBLEWEED
@@ -780,7 +780,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 1322586500,
@@ -792,7 +792,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 2094297354,
@@ -804,7 +804,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 1892085175,
@@ -816,7 +816,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
 
     --RHODES
@@ -830,7 +830,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon4"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 3728169477,
@@ -842,7 +842,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon4"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 3047627494,
@@ -854,7 +854,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon4"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 3434364936,
@@ -866,7 +866,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon4"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
 
     --VALENTINE
@@ -880,7 +880,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon3"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 583884620,
@@ -892,7 +892,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon3"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 968874193,
@@ -904,7 +904,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon3"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
     {
         door = 1154795503,
@@ -916,7 +916,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"saloon3"},
         needkey = false,
-        keys = 'saloon_key',
+        keys = '',
     },
 ---------------------------------------------------------------------------------
 
@@ -933,7 +933,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
     {
         door = 906662604,
@@ -945,7 +945,7 @@ Config.Doors = {
         breakable = false, 
         jobs = {"sheriff"},
         needkey = false,
-        keys = 'police_key',
+        keys = '',
     },
 
 ---------------------------------------------------------------------------------
@@ -964,7 +964,7 @@ Config.Doors = {
         breakable = true, 
         jobs = {"gunsmith"},
         needkey = false,
-        keys = 'wep_key',
+        keys = '',
     }
 }
 

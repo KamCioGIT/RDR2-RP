@@ -3042,6 +3042,19 @@ Config.Items = {
     imgsrc = "items/consumable_herb_parasol_mushroom.png",
     type = "item_standard",
 },
+
+--- portes
+["lockpick"] = {
+    label = "Crochet",
+    description = "",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/kit_lightning_conductor.png",
+    type = "item_standard",
+},
 }
 
 
