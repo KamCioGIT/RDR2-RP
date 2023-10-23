@@ -118,10 +118,20 @@ Config.Buyhorse = {
 		name = 'Achat',
 		stable= 'buyhorse',
 	},
+    Staff = {
+		pos = vector3(3364.299, -92.8988, 49.64944),
+		name = 'Achat',
+		stable= 'buyhorse',
+	},
 }
 Config.Buycart = {
-	Saint_Denis = {
-		pos = vector3(2502.023, -1487.874, 45.9691),
+	-- Saint_Denis = {
+	-- 	pos = vector3(2502.023, -1487.874, 45.9691),
+	-- 	name = 'Achat',
+	-- 	stable= 'buyhorse',
+	-- },
+    	Staff = {
+		pos = vector3(3337.925, -73.60331, 47.93591),
 		name = 'Achat',
 		stable= 'buyhorse',
 	},
