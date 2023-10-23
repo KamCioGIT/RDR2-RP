@@ -336,7 +336,7 @@ Citizen.CreateThread(function()
                     end
                     if #(PlayerPos - Config.Jobs[PlayerJob].MenuLocations) < 1.0 then
                         bossPrompt:setActiveThisFrame(true)
-                        if IsControlJustReleased(0, 0x760A9C6F) then
+                        if IsControlJustReleased(0, 0x760A9C6F) and not isInteracting then
                             isInteracting = true
                             TriggerServerEvent("redemrp_bossmenu:server:RequestBossMenu")
                         end
