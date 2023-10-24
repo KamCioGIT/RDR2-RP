@@ -7,7 +7,7 @@ DutyCommandTimer = {}
 
 Citizen.CreateThread(function()
     while true do
-        Wait(1800000) -- 15 minutes
+        Wait(1800000) -- 
         DoPay()
     end
 end)
@@ -19,18 +19,15 @@ end)
 function DoPay()
     for _,playerId in ipairs(GetPlayers()) do
         local id = tonumber(playerId)
-        if Duty[id] then
-            local user = RedEM.GetPlayer(id)
-            if user then
-                local job, grade = user.getJob(), tonumber(user.getJobgrade())
-                if Config.Jobs[job] then
-                    if Config.Jobs[job].Grades[grade] then
-                        if Config.Jobs[job].Grades[grade].Pay then
-                            print(Config.Jobs[job].Grades[grade].Pay)
-                            local pay = Config.Jobs[job].Grades[grade].Pay
-                            TriggerClientEvent("RedEM:client:PlaySound", id, 1)
-                            user.AddBankMoney(pay)
-                        end
+        local user = RedEM.GetPlayer(id)
+        if user then
+            local job, grade = user.getJob(), tonumber(user.getJobgrade())
+            if Config.Jobs[job] then
+                if Config.Jobs[job].Grades[grade] then
+                    if Config.Jobs[job].Grades[grade].Pay then
+                        print(Config.Jobs[job].Grades[grade].Pay)
+                        local pay = Config.Jobs[job].Grades[grade].Pay
+                        user.AddBankMoney(pay)
                     end
                 end
             end
