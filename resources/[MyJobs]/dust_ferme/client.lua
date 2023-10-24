@@ -9,7 +9,9 @@ local isFarmer = false
 
 --- Définir si le joueur est fermier 
 RegisterNetEvent("dust_job:fermier")
-AddEventHandler("dust_job:fermier", function(job, grade)
+AddEventHandler("dust_job:fermier", function(j, g)
+    local job = j
+    local grade = g
     for k, v in pairs(Config.Jobs) do
         if job == v then
             isFarmer = true
