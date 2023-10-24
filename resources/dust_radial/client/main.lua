@@ -233,6 +233,33 @@ RegisterNetEvent("dust_radial:client:SetMaxAmount", function(value)
 end)
 
 
+RegisterNetEvent("dust_radial:CraftingAction")
+AddEventHandler("dust_radial:CraftingAction", function()
+    local playerPed = PlayerPedId()
+    local coords = GetEntityCoords(playerPed)
+    FreezeEntityPosition(playerPed, true)
+    isInteracting = true
+    RequestAnimDict(Config.AnimDict)
+    while not HasAnimDictLoaded(Config.AnimDict) do
+        Citizen.Wait(50)
+    end
+
+    for k,v in pairs(Config.CraftAnim) do
+        TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 1, 0, true)
+    end
+
+    local timer = GetGameTimer() + Config.WorkingTime
+    isInteracting = true
+
+    Citizen.CreateThread(function()
+        while GetGameTimer() < timer do 
+            Wait(0)
+        end
+        ClearPedTasks(PlayerPedId())
+        FreezeEntityPosition(playerPed, false)
+        isInteracting = false
+    end)    
+end)
 
 ---- recolte ressources 
 
