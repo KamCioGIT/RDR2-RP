@@ -116,7 +116,7 @@ function StartMission()
         --     Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Fournisseur")
         -- end
         while true do
-            Wait(2)
+            Wait(0)
             local playerPos = GetEntityCoords(PlayerPedId())
             for k, v in ipairs(Config.Atelier) do
                 if #(playerPos - v) < 10.0 then
