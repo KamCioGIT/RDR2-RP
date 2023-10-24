@@ -6,7 +6,7 @@ local isInBossMenu = false
 local showweath = false
 local isFarmer = false
 
-
+local getgrade = tonumber(0)
 --- Définir si le joueur est fermier 
 RegisterNetEvent("dust_job:fermier")
 AddEventHandler("dust_job:fermier", function(j, g)
@@ -17,8 +17,9 @@ AddEventHandler("dust_job:fermier", function(j, g)
             isFarmer = true
             startMission()
             cattle()
-            print(grade)
-            if grade >= 2 then
+            getgrade = tonumber(grade)
+            print(getgrade)
+            if getgrade >= 2 then
                 contremaitre()
             end
         end
