@@ -16,6 +16,7 @@ AddEventHandler("dust_job:fermier", function(job, grade)
             startMission()
             cattle()
             if grade >= 2 then
+                print'eee'
                 contremaitre()
             end
         end

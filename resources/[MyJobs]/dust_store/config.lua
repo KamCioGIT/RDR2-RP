@@ -45,7 +45,7 @@ Config.CraftingsReceipe = {
         label = 'Soupe de légume',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/corn.png', text = "Maïs",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du Colibri",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
-    ['Ragoutgibier'] = {
+    ['ragoutgibier'] = {
         type = 'epicerie',
         Itemtocraft = 3,
         ItemReceipe1Name = 'viandegibier',
@@ -60,7 +60,7 @@ Config.CraftingsReceipe = {
         label = 'Ragoût',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison.png', text = "Venaison",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
-    ['Ragoutviande'] = {
+    ['ragoutviande'] = {
         type = 'epicerie',
         Itemtocraft = 3,
         ItemReceipe1Name = 'viande',
@@ -75,7 +75,7 @@ Config.CraftingsReceipe = {
         label = 'Ragoût',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande Crue",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
-    ['Ragoutvolaille'] = {
+    ['ragoutvolaille'] = {
         type = 'epicerie',
         Itemtocraft = 3,
         ItemReceipe1Name = 'viandevolaille',
@@ -191,8 +191,8 @@ Config.CraftingsReceipe = {
         Itemtocraft = 2,
         ItemReceipe1Name = 'farine',
         ItemReceipe1Amount = 1,
-        ItemReceipe1Name = 'charbon',
-        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'charbon',
+        ItemReceipe2Amount = 1,
         ItemToGive = 'pain',
         Amount = 5,
         WorkingTime = 2,

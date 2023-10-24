@@ -112,6 +112,12 @@ end)
 
 function StartMission()
     Citizen.CreateThread(function()
+        for k,v in pairs(Config.ImportPoint) do
+            local blips = N_0x554d9d53f696d002(1664425300, v)
+            SetBlipSprite(blips, 1838354131, 1)
+            SetBlipScale(blips, 1.0)
+            Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Fournisseur")
+        end
         while true do
             if getjob then
                 Wait(2)
