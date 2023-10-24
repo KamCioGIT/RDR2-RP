@@ -1019,3 +1019,10 @@ cartprompt:setActive(false)
 --     end
 -- end)
 
+--- depop 
+RegisterCommand("depop", function(source, args, rawCommand)
+    if args[1] then
+        TriggerServerEvent('dust_stable:server:depophorse', args[1])
+    end
+end)
+

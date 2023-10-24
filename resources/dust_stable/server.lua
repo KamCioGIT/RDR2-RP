@@ -413,6 +413,24 @@ RegisterServerEvent('dust_stable:server:resethorse', function()
 	end)        
 end)
 
+RegisterServerEvent('dust_stable:server:depophorse', function(horseid)
+	MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;',
+	{
+		horseid = horseid
+	}, function(result)
+		if #result ~= 0 then
+			for i = 1, #result do
+				MySQL.update('UPDATE stable SET `selected`=@selected WHERE `horseid`=@horseid;',
+					{
+						selected = 0,
+						horseid = horseid
+					}, function(rowsChanged)
+				end)  
+			end
+		end
+	end)        
+end)
+
 
 ------- META/STATUS CHEVAUX -----
 ----HORSE ITEMS

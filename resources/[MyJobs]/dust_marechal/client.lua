@@ -29,10 +29,23 @@ local customprompt = UipromptGroup:new("Maréchal Ferrant")
 Uiprompt:new(0x156F7119, "Changer l'équipemement", customprompt):setHoldMode(true)
 customprompt:setActive(false)
 
-
+local importprompt = UipromptGroup:new("Fournisseur")
+Uiprompt:new(0x760A9C6F, "Acheter", importprompt)
+importprompt:setActive(false)
 ----- Open Menu ----
 function Customzones()
     if getjob then
+        for k, v in ipairs(Config.ImportPoint) do
+            if #(playerPos - v) < 10.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                importprompt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    TriggerEvent("marechal:OpenImportMenu")
+                end
+            end
+        end
         while true do
             Wait(0)
             local playerpos = GetEntityCoords(PlayerPedId())
@@ -455,3 +468,45 @@ end
 
 
 
+RegisterNetEvent("marechal:OpenImportMenu", function()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        local elements = {}
+
+
+        for k, v in pairs(Config.Import) do
+            table.insert(elements, {label = v.label.." $"..v.price, value = k, price = v.price})
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Marché",
+            subtext = "Acheter",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            TriggerServerEvent("marechal:buy", data.current.value, data.current.price)
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)
