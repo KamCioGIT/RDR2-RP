@@ -836,7 +836,7 @@ AddEventHandler("ferme:SelectCraftingAmount", function(dataType, menuData, menu)
 
     function(data, menu)
         if data.current.label == "Quantité" then
-            TriggerServerEvent("store:CraftItem", dataType, menu, data.current.value)
+            TriggerServerEvent("ferme:CraftItem", dataType, menu, data.current.value)
             menu.close()
             isInteracting = false
         end 
