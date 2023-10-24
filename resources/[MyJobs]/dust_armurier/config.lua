@@ -48,7 +48,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Amount = 1,
         ItemReceipe2Name = 'corpsdarmecattleman',
         ItemReceipe2Amount = 1,
-        ItemReceipe3Name = 'barilletcattleman',
+        ItemReceipe3Name = 'barrilletcattleman',
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'canoncattleman',
         ItemReceipe4Amount = 1,
@@ -56,7 +56,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Colt 1873',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "barrillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_REVOLVER_SCHOFIELD'] = {
         type = 'armurerie',
@@ -65,7 +65,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Amount = 1,
         ItemReceipe2Name = 'corpsdarmeschofield',
         ItemReceipe2Amount = 1,
-        ItemReceipe3Name = 'barilletschofield',
+        ItemReceipe3Name = 'barrilletschofield',
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'canonschofield',
         ItemReceipe4Amount = 1,
@@ -73,7 +73,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Smith & Wesson Model 3',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme ",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme ",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "barrillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_REVOLVER_DOUBLEACTION'] = {
         type = 'armurerie',
@@ -82,7 +82,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Amount = 1,
         ItemReceipe2Name = 'corpsdarmedoubleaction',
         ItemReceipe2Amount = 1,
-        ItemReceipe3Name = 'barilletdoubleaction',
+        ItemReceipe3Name = 'barrilletdoubleaction',
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'canondoubleaction',
         ItemReceipe4Amount = 1,
@@ -90,7 +90,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = '1873 Chamelot-Delvigne',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "barrillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_REVOLVER_LEMAT'] = {
         type = 'armurerie',
@@ -99,7 +99,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Amount = 1,
         ItemReceipe2Name = 'corpsdarmelemat',
         ItemReceipe2Amount = 1,
-        ItemReceipe3Name = 'barilletlemat',
+        ItemReceipe3Name = 'barrilletlemat',
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'canonlemat',
         ItemReceipe4Amount = 1,
@@ -107,7 +107,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Lemat Revolver',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps d'arme",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "barrillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_REVOLVER_NAVY'] = {
         type = 'armurerie',
@@ -116,7 +116,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Amount = 1,
         ItemReceipe2Name = 'corpsdarmenavy',
         ItemReceipe2Amount = 1,
-        ItemReceipe3Name = 'barilletnavy',
+        ItemReceipe3Name = 'barrilletnavy',
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'canonnavy',
         ItemReceipe4Amount = 1,
@@ -124,7 +124,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = 'Colt 1851 Navy',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "Barillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolvercylinder.png', text = "barrillet",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
     ['WEAPON_PISTOL_VOLCANIC'] = {
         type = 'armurerie',

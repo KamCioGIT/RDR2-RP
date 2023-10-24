@@ -152,7 +152,6 @@ RegisterServerEvent("gunstore:MaxRessourcesAmount", function(dataType)
 		local ItemData2 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
 		local ItemData3 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe3Name)
 		local ItemData4 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe4Name)
-		print(Config.CraftingsReceipe[dataType].ItemReceipe3Name)
 		
 		local Item1Amount = tonumber(ItemData.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount)
 		local Item2Amount = tonumber(ItemData2.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe2Amount)
@@ -169,7 +168,6 @@ RegisterServerEvent("gunstore:MaxRessourcesAmount", function(dataType)
 		if Item4Amount < lAmount then
 			lAmount = Item4Amount
 		end
-		print (Item1Amount, Item2Amount, Item3Amount, Item4Amount)
 		if Item1Amount >= 1 and Item2Amount >= 1 and Item3Amount >= 1 and Item4Amount >= 1 then
 			TriggerClientEvent("gunstore:client:SetMaxAmount", _source, math.floor(lAmount))
 		else

@@ -2378,7 +2378,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["barrilletcattleman"] = {
-    label = "Barillet Colt 1873",
+    label = "Barrillet Colt 1873",
     description = "",
     weight = 2,
     canBeDropped = true,
@@ -2389,7 +2389,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["barrilletschoffield"] = {
-    label = "Barillet Smith & Wesson Model 3",
+    label = "Barrillet Smith & Wesson Model 3",
     description = "",
     weight = 2,
     canBeDropped = true,
@@ -2400,7 +2400,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["barrilletdoubleaction"] = {
-    label = "Barillet 1873 Chamelot-Delvigne",
+    label = "Barrillet 1873 Chamelot-Delvigne",
     description = "",
     weight = 2,
     canBeDropped = true,
@@ -2411,7 +2411,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["barrilletlemat"] = {
-    label = "Barillet Lemat Revolver",
+    label = "Barrillet Lemat Revolver",
     description = "",
     weight = 2,
     canBeDropped = true,
@@ -2422,7 +2422,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["barrilletnavy"] = {
-    label = "Barillet Colt 1851 Navy",
+    label = "Barrillet Colt 1851 Navy",
     description = "",
     weight = 2,
     canBeDropped = true,
