@@ -119,7 +119,7 @@ RegisterServerEvent("store:MaxRessourcesAmount", function(dataType)
 		-- Calculez les quantités minimales (lAmount) et maximales (hAmount) parmi les trois articles.
 		local lAmount = math.min(rItem1Amount, rItem2Amount, rItem3Amount)
 		local hAmount = math.max(rItem1Amount, rItem2Amount, rItem3Amount)
-		
+		print (hAmount, lAmount)
 		if hAmount >= 1 and lAmount >= 1 then
 			TriggerClientEvent("store:client:SetMaxAmount", _source, math.floor(lAmount))
 		else 
