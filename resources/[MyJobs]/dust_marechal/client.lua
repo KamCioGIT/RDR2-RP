@@ -35,20 +35,26 @@ importprompt:setActive(false)
 ----- Open Menu ----
 function Customzones()
     if getjob then
-        for k, v in ipairs(Config.ImportPoint) do
-            if #(playerPos - v) < 10.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-            end
-            if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
-                importprompt:setActiveThisFrame(true)
-                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                    TriggerEvent("marechal:OpenImportMenu")
-                end
-            end
+        for k,v in pairs(Config.ImportPoint) do
+            local blips = N_0x554d9d53f696d002(1664425300, v)
+            SetBlipSprite(blips, 1838354131, 1)
+            SetBlipScale(blips, 1.0)
+            Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Fournisseur")
         end
         while true do
             Wait(0)
             local playerpos = GetEntityCoords(PlayerPedId())
+            for k, v in ipairs(Config.ImportPoint) do
+                if #(playerPos - v) < 10.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                end
+                if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                    importprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        TriggerEvent("marechal:OpenImportMenu")
+                    end
+                end
+            end
             for k, v in pairs(Config.Customzone) do
                 if #(playerpos - v ) < 7 and IsPedOnMount(PlayerPedId()) and not isInteracting then
                     customprompt:setActiveThisFrame(true)
