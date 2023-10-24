@@ -3,11 +3,7 @@ RedEM = exports["redem_roleplay"]:RedEM()
 local isInteracting = false
 
 
-local maxCraftAmountUsine = 0
-
-local souffreprompt = UipromptGroup:new("Souffre")
-Uiprompt:new(0x760A9C6F, "Récolter", souffreprompt)
-souffreprompt:setActive(false)
+local maxCraftAmountdoctor = 0
 
 local craftprompt = UipromptGroup:new("Atelier")
 Uiprompt:new(0x760A9C6F, "Fabriquer", craftprompt)
@@ -16,114 +12,19 @@ craftprompt:setActive(false)
 
 local getjob = false
 local getgrade = 0
-RegisterNetEvent("dust_job:usine")
-AddEventHandler("dust_job:usine", function(job, grade)
+RegisterNetEvent("dust_job:doctor")
+AddEventHandler("dust_job:doctor", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             getjob = true
             getgrade = grade
             StartMission()
-        else
-            getjob = false
-            getgrade = 0
         end
     end
 end)
 
 
-function StartMission()
-    Citizen.CreateThread(function()
-        while true do
-            if getjob then
-                Wait(2)
-                local playerPos = GetEntityCoords(PlayerPedId())
-                if #(playerPos - Config.RessourcesPointPos) < 6.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.RessourcesPointPos.x, Config.RessourcesPointPos.y, Config.RessourcesPointPos.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - Config.RessourcesPointPos) < Config.DistanceToInteract and not isInteracting then
-                    souffreprompt:setActiveThisFrame(true)
-                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        isInteracting = true
-                        SouffreRecolt()
-                    end
-                end
-
-                -- CREATE GUNPOWDER
-                if #(playerPos - Config.Atelier) < 10.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
-                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerEvent("usine:OpenBossMenu", "usineetabli")
-                    end
-                end
-
-
-                if #(playerPos - Config.Etabli) < 10.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Etabli, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - Config.Etabli) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
-                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerEvent("usine:OpenBossMenu", "usineetablideux")
-                    end
-                end
-
-                if #(playerPos - Config.Poudre) < 10.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Poudre, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - Config.Poudre) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
-                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerEvent("usine:OpenBossMenu", "usinepoudre")
-                    end
-                end
-
-                if #(playerPos - Config.Assembly) < 10.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Assembly, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - Config.Assembly) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
-                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerEvent("usine:OpenBossMenu", "usineassemblage")
-                    end
-                end
-            end
-        end
-    end)
-end
-
-function SouffreRecolt()
-    local playerPed = PlayerPedId()
-    local playerPos = GetEntityCoords(playerPed)
-    FreezeEntityPosition(playerPed, true)
-    RequestAnimDict(Config.RecolteSouffreDict)
-    while not HasAnimDictLoaded(Config.RecolteSouffreDict) do
-        Citizen.Wait(100)
-    end
-    TaskPlayAnim(PlayerPedId(), Config.RecolteSouffreDict, Config.RecolteSouffreAnim, 1.0, 1.0, -1, 0, 0, true, 0, false, 0, false)
-    local timer = GetGameTimer() + Config.WorkingTime
-    isInteracting = true
-    Citizen.CreateThread(function()
-        while GetGameTimer() < timer do 
-            Wait(0)
-        end
-        ClearPedTasks(playerPed)
-		FreezeEntityPosition(playerPed, false)
-        isInteracting = false
-        TriggerServerEvent('usine:AddItem', 'souffre', 1)
-    end)
-end
-
-
-AddEventHandler("onResourceStop", function(resourceName)
-    if resourceName ~= GetCurrentResourceName() then return end
-    PromptDelete(CraftMenuPrompt)
-end)
-
-
-RegisterNetEvent("usine:OpenBossMenu", function(menutype)
+RegisterNetEvent("doctor:OpenBossMenu", function()
     local Position = GetEntityCoords(PlayerPedId())
 
     Citizen.CreateThread(function()
@@ -148,23 +49,21 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
 
 
         for k, v in pairs(Config.CraftingsReceipe) do
-            if v.type == menutype then
-                table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
-            end
+            table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
-            title = "usine",
-            subtext = "C'est chaud",
+            title = "Cuisine",
+            subtext = "Laisse le cuisiner",
             align = 'top-right',
             elements = elements,
         },
 
         function(data, menu)
             MenuData.CloseAll()
-            TriggerServerEvent("usine:MaxRessourcesAmount", data.current.value)
+            TriggerServerEvent("doctor:MaxRessourcesAmount", data.current.value)
             Wait(150)
-            TriggerEvent("usine:SelectCraftingAmount", data.current.value, MenuData, menu)
+            TriggerEvent("doctor:SelectCraftingAmount", data.current.value, MenuData, menu)
             --
         end,
 
@@ -175,8 +74,8 @@ RegisterNetEvent("usine:OpenBossMenu", function(menutype)
     end)
 end)
 
-RegisterNetEvent("usine:CraftingAction")
-AddEventHandler("usine:CraftingAction", function()
+RegisterNetEvent("doctor:CraftingAction")
+AddEventHandler("doctor:CraftingAction", function()
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
     FreezeEntityPosition(playerPed, true)
@@ -203,8 +102,36 @@ AddEventHandler("usine:CraftingAction", function()
     end)    
 end)
 
-RegisterNetEvent("usine:SelectCraftingAmount")
-AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
+
+function StartMission()
+    Citizen.CreateThread(function()
+        while true do
+            Wait(0)
+            local playerPos = GetEntityCoords(PlayerPedId())
+            for k, v in ipairs(Config.Atelier) do
+                if #(playerPos - v) < 10.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                end
+                if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                    craftprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        TriggerEvent("doctor:OpenBossMenu")
+                    end
+                end
+            end
+        end
+    end)
+end
+
+
+
+AddEventHandler("onResourceStop", function(resourceName)
+    if resourceName ~= GetCurrentResourceName() then return end
+    PromptDelete(CraftMenuPrompt)
+end)
+
+RegisterNetEvent("doctor:SelectCraftingAmount")
+AddEventHandler("doctor:SelectCraftingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
     local Position = GetEntityCoords(PlayerPedId())
 
@@ -228,7 +155,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
         desc = "Se mettre au travail",
         type = 'slider',
         min = 0,
-        max = maxCraftAmountusine 
+        max = maxCraftAmountdoctor 
         },
     }
 
@@ -241,7 +168,7 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
 
     function(data, menu)
         if data.current.label == "Quantité" then
-            TriggerServerEvent("usine:CraftItem", dataType, menu, data.current.value)
+            TriggerServerEvent("doctor:CraftItem", dataType, menu, data.current.value)
             menu.close()
             isInteracting = false
         end 
@@ -253,6 +180,120 @@ AddEventHandler("usine:SelectCraftingAmount", function(dataType, menuData, menu)
     end)
 end)
 
-RegisterNetEvent("usine:client:SetMaxAmount", function(value)
-    maxCraftAmountusine = value
+RegisterNetEvent("doctor:client:SetMaxAmount", function(value)
+    print (value)
+    maxCraftAmountdoctor = value
+end)
+
+
+
+---- mortier
+RegisterNetEvent('doctor:mortier', function()
+    if getjob then
+        TriggerEvent("mortier:OpenBossMenu")
+    end
+end)
+
+RegisterNetEvent("mortier:OpenBossMenu", function()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local jobgrade = RedEM.GetPlayerData().jobgrade
+
+        local elements = {}
+
+
+        for k, v in pairs(Config.CraftingsReceipe) do
+            table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Mortier",
+            subtext = "Fabriquer",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            MenuData.CloseAll()
+            TriggerServerEvent("mortier:MaxRessourcesAmount", data.current.value)
+            Wait(150)
+            TriggerEvent("mortier:SelectCraftingAmount", data.current.value, MenuData, menu)
+            --
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)
+
+RegisterNetEvent("mortier:SelectCraftingAmount")
+AddEventHandler("mortier:SelectCraftingAmount", function(dataType, menuData, menu)
+    menuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+
+    local elements = {
+        { label = "Quantité", 
+        value = 0, 
+        desc = "Se mettre au travail",
+        type = 'slider',
+        min = 0,
+        max = maxCraftAmountdoctor 
+        },
+    }
+
+    menuData.Open('default', GetCurrentResourceName(), 'craft', {
+        title = "Atelier",
+        subtext = "Choisir la quantité",
+        align = 'top-right',
+        elements = elements,
+    },
+
+    function(data, menu)
+        if data.current.label == "Quantité" then
+            TriggerServerEvent("doctor:CraftItem", dataType, menu, data.current.value)
+            menu.close()
+            isInteracting = false
+        end 
+    end,
+
+    function(data, menu)
+        menu.close()
+        isInteracting = false
+    end)
+end)
+
+RegisterNetEvent("mortier:client:SetMaxAmount", function(value)
+    maxCraftAmountdoctor = value
 end)
