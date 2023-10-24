@@ -43,19 +43,6 @@ local MainMenus = {
     end
 }
 
-local BarberMenus = {
-    ["hair"] = function()
-        OpenHairMenu()
-    end,
-    ["makeup"] = function()
-        OpenMakeupMenu()
-    end,
-    ["save"] = function()
-        MenuData.CloseAll()
-        LoadedComponents = CreatorCache
-        TriggerServerEvent("rdr_creator:SaveSkin", CreatorCache)
-    end
-}
 local BodyFunctions = {
     ["head"] = function(target, data)
         -- print("test")
@@ -349,9 +336,9 @@ AddEventHandler('redemrp_skin:LoadSkinClient', function()
     TriggerServerEvent("RedEM:server:LoadSkin")
 end)
 
--- RegisterCommand('loadskin', function(source, args, raw)
---     TriggerServerEvent("RedEM:server:LoadSkin", true)
--- end)
+RegisterCommand('loadskin', function(source, args, raw)
+    TriggerServerEvent("RedEM:server:LoadSkin", true)
+end)
 
 function StartCreator()
     TriggerServerEvent("rdr_creator:SetPlayerBucket" , BucketId)
@@ -1972,6 +1959,12 @@ local BarberMenus = {
         MenuData.CloseAll()
         LoadedComponents = CreatorCache
         TriggerServerEvent("rdr_creator:SaveHair", CreatorCache.hair, CreatorCache.beard)
+        ExecuteCommand("loadskin")
+    end,
+    ["quit"] = function()
+        MenuData.CloseAll()
+        LoadedComponents = CreatorCache
+        ExecuteCommand("loadskin")
     end
 }
 
@@ -2032,6 +2025,11 @@ function BarberMenu()
     }, {
         label = "Valider",
         value = 'save',
+        desc = "Valider votre personnage"
+    },
+    {
+        label = "Quitter",
+        value = 'quit',
         desc = "Valider votre personnage"
     }}
 

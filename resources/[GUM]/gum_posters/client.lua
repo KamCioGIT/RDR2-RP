@@ -59,9 +59,10 @@ Citizen.CreateThread(function()
 			local dist = GetDistanceBetweenCoords(pCoords.x, pCoords.y, pCoords.z, v.coords[1], v.coords[2], v.coords[3], true)
 			if dist < 40.0 then
 				if posterBoard[k] == nil then
-					posterBoard[k] = CreateObject(Config.Posters[k].object, v.coords[1], v.coords[2], v.coords[3], true, true, false)
+					posterBoard[k] = CreateObject(Config.Posters[k].object, v.coords[1], v.coords[2], v.coords[3], false, true, false)
+					SetEntityHeading(posterBoard[k], v.coords[4])
 					while not DoesEntityExist(posterBoard[k]) do
-						Citizen.Wait(100)
+						Citizen.Wait(10)
 					end
 					SetEntityHeading(posterBoard[k], v.coords[4])
 				end

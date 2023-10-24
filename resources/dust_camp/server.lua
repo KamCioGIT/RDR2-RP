@@ -116,7 +116,12 @@ end)
 
 RegisterServerEvent("RegisterUsableItem:spit")
 AddEventHandler("RegisterUsableItem:spit", function(source)
-    TriggerClientEvent("cookfirespit", source)  
+    TriggerClientEvent("cookfirespit", source)
+	local _source = tonumber(source)
+	TriggerEvent("redemrp_inventory:getData", function(Inventory)
+		local ItemData = Inventory.getItem(_source, "spit")
+		ItemData.RemoveItem(1)
+	end)
 end)
 
 ----Meant to be used with the locker system

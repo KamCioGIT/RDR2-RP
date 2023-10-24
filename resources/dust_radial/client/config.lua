@@ -31,7 +31,7 @@ Config.CraftingsReceipe = {
         WorkingTime = 5,
     },
     ['arrow'] = {
-        label = "Flèches",
+        label = "10 Flèches",
         desc = "1 bois + 1 silex",
         ItemReceipe1Name = 'petitbois',
         ItemReceipe1Amount = 1,
@@ -79,6 +79,6 @@ Config.Fil = {
 
 Config.Bois = {
     [1] = vector3(-1833.874, -1786.273, 106.6543), --- bla
-    [2] = vector4(1198.268, -125.9232, 100.224), --- emerald
+    [2] = vector3(1198.268, -125.9232, 100.224), --- emerald
 
 }
