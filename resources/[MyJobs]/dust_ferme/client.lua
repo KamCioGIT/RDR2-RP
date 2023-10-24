@@ -12,8 +12,11 @@ AddEventHandler("dust_job:fermier", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             isFarmer = true
-            startMission()
-            cattle(grade)
+            TriggerEvent("dust_ferme:startMission")
+            TriggerEvent("dust_ferme:cattle")
+            if grade >= 2 then
+                contremaitre()
+            end
         end
     end
 end)
@@ -32,7 +35,7 @@ local depprompt = UipromptGroup:new("Blé")
 Uiprompt:new(0x760A9C6F, "Déposer", depprompt)
 depprompt:setActive(false)
 
-function startMission()
+RegisterNetEvent("dust_ferme:startMission", function()
     RequestModel(GetHashKey("crp_wheat_dry_aa_sim"))
     if HasModelLoaded(GetHashKey("crp_wheat_dry_aa_sim")) then
         Wait(10)
@@ -81,7 +84,7 @@ function startMission()
             end
         end
     end)
-end
+end)
 
 local retprompt = UipromptGroup:new("Farine")
 Uiprompt:new(0x760A9C6F, "Récupérer", retprompt)
@@ -223,7 +226,7 @@ Uiprompt:new(0x05CA7C52, "Gérer", farmprompt):setHoldMode(true)
 farmprompt:setActive(false)
 
 -- zone étable
-function cattle(grade)
+RegisterNetEvent("dust_ferme:cattle", function()
     for k,v in pairs(Config.Buycattle) do
         local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
         SetBlipSprite(blip, v.blip)
@@ -236,9 +239,6 @@ function cattle(grade)
         SetBlipSprite(blip, Config.BlipSprite)
         SetBlipScale(blip, 0.2)
         Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Pâturage"))
-    end
-    if grade >= 2 then
-        contremaitre()
     end
     while true do
         Wait(0)
@@ -265,7 +265,7 @@ function cattle(grade)
             end
         end
     end
-end
+end)
 
 -- menu base étable
 local cowlist = {}
