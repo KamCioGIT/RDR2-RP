@@ -8,21 +8,16 @@ local isFarmer = false
 
 
 --- Définir si le joueur est fermier 
-local getgrade = 0
 RegisterNetEvent("dust_job:fermier")
 AddEventHandler("dust_job:fermier", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             isFarmer = true
-            getgrade = grade
             startMission()
             cattle()
-            if getgrade >= 2 then
+            if grade >= 2 then
                 contremaitre()
             end
-        else
-            isFarmer = false
-            getgrade = 0
         end
     end
 end)
@@ -98,22 +93,20 @@ retprompt:setActive(false)
 
 function contremaitre() --- RETRAIT
     while true do
-        if isFarmer then
-            Wait(0)
-            local playerPos = GetEntityCoords(PlayerPedId())
-            for k, v in ipairs(Config.FarmerWithdrawalPos) do
-                if #(playerPos - v) < 6.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - v) < Config.DistanceToInteract then
-                    retprompt:setActiveThisFrame(true)
-                    if IsControlJustPressed(2, 0x760A9C6F) then 
-                        TriggerServerEvent('fermier:retStash')
-                    end
-                else end
+        Wait(0)
+        local playerPos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.FarmerWithdrawalPos) do
+            if #(playerPos - v) < 6.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
             end
+            if #(playerPos - v) < Config.DistanceToInteract then
+                retprompt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) then 
+                    TriggerServerEvent('fermier:retStash')
+                end
+            else end
         end
-    end
+end
 end
 
 
@@ -511,7 +504,7 @@ Citizen.CreateThread(function ()
                     end
                     if IsControlJustReleased(0, 0x760A9C6F) and Entity(entity).state.grazing ~= true then
                             ClearPedTasks(entity)
-                            local duration = math.random(60000, 120000)
+                            local duration = math.random(120000, 120000)
                             TaskGoToEntity(entity, PlayerPedId(), duration, 0.2, 2.0, 0, 0)
                             -- TaskFollowToOffsetOfEntity(entity, PlayerPedId(), 0.0, -3.0, 0.0, 1.0, duration, 100, 1, 1, 0, 0, 1)
                         -- guider

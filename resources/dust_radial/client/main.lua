@@ -243,6 +243,12 @@ Citizen.CreateThread(function()
         SetBlipScale(blips, 1.0)
         Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Petit bois")
 	end
+    for k,v in pairs(Config.Bois) do
+        local blips = N_0x554d9d53f696d002(1664425300, v)
+        SetBlipSprite(blips, 1904459580, 1)
+        SetBlipScale(blips, 1.0)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Bois")
+	end
     for k,v in pairs(Config.Fil) do
         local blips = N_0x554d9d53f696d002(1664425300, v)
         SetBlipSprite(blips, 960467426, 1)
@@ -260,6 +266,9 @@ end)
 local woodprompt = UipromptGroup:new("Petit Bois")
 Uiprompt:new(0x760A9C6F, "Récolter", woodprompt)
 woodprompt:setActive(false)
+local bigwoodprompt = UipromptGroup:new("Bois")
+Uiprompt:new(0x760A9C6F, "Récolter", bigwoodprompt)
+bigwoodprompt:setActive(false)
 local filprompt = UipromptGroup:new("Fil")
 Uiprompt:new(0x760A9C6F, "Récolter", filprompt)
 filprompt:setActive(false)
@@ -278,6 +287,16 @@ Citizen.CreateThread(function()
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
                     GiveRessource("petitbois", 1)
+                end
+            end
+        end
+
+        for k, pos in pairs(Config.Bois) do
+            if #(playerPos - pos) < 7.0 and not isInteracting then
+                bigwoodprompt:setActiveThisFrame(true)
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    isInteracting = true
+                    GiveRessource("bois", 1)
                 end
             end
         end

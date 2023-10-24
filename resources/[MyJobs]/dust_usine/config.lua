@@ -35,7 +35,7 @@ Config.CraftingsReceipe = {
 ['crossecattleman'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 1,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 4,
@@ -43,12 +43,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse Colt 1873',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}}
 },
 ['crosseschofield'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 1,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 4,
@@ -56,12 +56,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse Smith & Wesson Model 3',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}}
 },
 ['crossedoubleaction'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 1,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 4,
@@ -69,12 +69,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse 1873 Chamelot-Delvigne',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}}
 },
 ['crosselemat'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 3,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 5,
@@ -82,12 +82,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse Lemat revolver',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x5"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x5"}}
 },
 ['crossenavy'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 3,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 10,
@@ -95,12 +95,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse Colt 1851 Navy',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x10"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x10"}}
 },
 ['crossevolcanic'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 3,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 15,
@@ -108,12 +108,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse Smith and Wesson 1855',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
 ['crosseevans'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 10,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 15,
@@ -121,12 +121,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse Evans',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
 ['crossecarabine'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 10,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 15,
@@ -134,12 +134,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse M1865 Spencer',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
 ['crosselancaster'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 10,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 15,
@@ -147,12 +147,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse Winchester 1873',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
 ['crosselitchfield'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 10,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 15,
@@ -160,12 +160,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse 1860 Henry',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
 ['crossespringfield'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 10,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 15,
@@ -173,12 +173,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse Springfield Model 1873',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
 ['crosserollingblock'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 10,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 15,
@@ -186,12 +186,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse Rolling Block',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
 ['crossedoublecanon'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 10,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 10,
@@ -199,12 +199,12 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse Colt 1883',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
 ['crossecanonscie'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'Bois',
+    ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 3,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 10,
@@ -212,7 +212,7 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse Colt 1883 Scié',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x10"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x10"}}
 },
 
 
