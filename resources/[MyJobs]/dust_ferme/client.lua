@@ -14,7 +14,7 @@ AddEventHandler("dust_job:fermier", function(job, grade)
             isFarmer = true
             TriggerEvent("dust_ferme:startMission")
             TriggerEvent("dust_ferme:cattle")
-            if grade >= 2 then
+            if toonumber(grade) >= 2 then
                 contremaitre()
             end
         end
