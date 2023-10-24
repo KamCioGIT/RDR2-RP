@@ -72,7 +72,7 @@ AddEventHandler('store:AddItem', function(item, amount)
 end)
 
 
-RegisterServerEvent("store:MaxRessourcesAmount", function(dataType)
+RegisterServerEvent("store:MaxRessourcesAmount", function(source, dataType)
     local _source = tonumber(source)
 	print (datatype)
     
