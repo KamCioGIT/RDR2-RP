@@ -1458,7 +1458,7 @@ Config.Items = {
     },
     ["boiscerf"] = {
         label = "Bois de cerf",
-        description = "",provision_buck_antlers
+        description = "",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = false,
@@ -1982,6 +1982,17 @@ Config.Items = {
         requireLvl = 0,
         limit = 2000,
         imgsrc = "items/consumable_plymouth_gin.png",
+        type = "item_standard",
+    },
+    ["antivenin"] = {
+        label = "Antidote",
+        description = "En cas de morsure",
+        weight = 0.3,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/consumable_special_horse_medicine.png",
         type = "item_standard",
     },
     ["bandagecharbon"] = {

@@ -32,11 +32,11 @@ Config.CraftingsReceipe = {
     ['soupe'] = {
         type = 'epicerie',
         Itemtocraft = 4,
-        ItemReceipe1Name = 'Corn',
+        ItemReceipe1Name = 'Corn_Seed',
         ItemReceipe1Amount = 1,
         ItemReceipe2Name = 'patate',
         ItemReceipe2Amount = 1,
-        ItemReceipe3Name = 'Saugeducolibri',
+        ItemReceipe3Name = 'saugeducolibri',
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'charbon',
         ItemReceipe4Amount = 1,
@@ -44,9 +44,9 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Soupe de légume',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/corn.png', text = "Maïs",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du Colibri",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/corn.png', text = "Maïs",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du Colibri",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
-    ['ragoutgibier'] = {
+    ['Ragoutgibier'] = {
         type = 'epicerie',
         Itemtocraft = 3,
         ItemReceipe1Name = 'viandegibier',
@@ -59,9 +59,9 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison.png', text = "Venaison",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison.png', text = "Venaison",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
-    ['ragoutviande'] = {
+    ['Ragoutviande'] = {
         type = 'epicerie',
         Itemtocraft = 3,
         ItemReceipe1Name = 'viande',
@@ -74,9 +74,9 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande Crue",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande Crue",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
-    ['ragoutvolaille'] = {
+    ['Ragoutvolaille'] = {
         type = 'epicerie',
         Itemtocraft = 3,
         ItemReceipe1Name = 'viandevolaille',
@@ -89,7 +89,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird.png', text = "Volaille",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird.png', text = "Volaille",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['tourtegibier'] = {
         type = 'epicerie',
@@ -282,11 +282,11 @@ Config.CraftingsReceipe = {
     ['soupechampignon'] = {
         type = 'epicerie',
         Itemtocraft = 4,
-        ItemReceipe1Name = 'Boletbai',
+        ItemReceipe1Name = 'boletbai',
         ItemReceipe1Amount = 1,
-        ItemReceipe2Name = 'Coulemelle',
+        ItemReceipe2Name = 'coulemelle',
         ItemReceipe2Amount = 1,
-        ItemReceipe3Name = 'Chanterelle',
+        ItemReceipe3Name = 'chanterelle',
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'charbon',
         ItemReceipe4Amount = 1,
@@ -295,6 +295,21 @@ Config.CraftingsReceipe = {
         WorkingTime = 5,
         label = 'Soupe de champignon',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_bay_bolete.png', text = "Boletbai",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+    },
+    ['herbesaromatiques'] = {
+        type = 'epicerie',
+        Itemtocraft = 3,
+        ItemReceipe1Name = 'jonccommun',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'menthesauvage',
+        ItemReceipe2Amount = 1,
+        ItemReceipe3Name = 'saugeducolibri',
+        ItemReceipe3Amount = 1,
+        ItemToGive = 'herbesaromatiques',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Herbes Aromatiques',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_common_bulrush.png', text = "Jonc Commun",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe Sauvage",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du Colibri",count = "x1"}}
     },
 }
 

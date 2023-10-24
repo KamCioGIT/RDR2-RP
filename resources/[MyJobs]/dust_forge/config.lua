@@ -26,7 +26,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 10,
         label = 'Lingot de fer',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Pépite de fer",count = "x10"}}
     },
     ['lingotor'] = {
         type = 'forgeforge',
@@ -37,7 +37,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 30,
         label = "Lingot d'or",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/goldnugget.png', text = "Petite pépite d'or",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/goldnugget.png', text = "Petite pépite d'or",count = "x400"}}
     },
     ['smallvault'] = {
         type = 'forgeetabli',
@@ -52,7 +52,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 30,
         label = "Petit Coffre Fort",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/silverore.png', text = "Pépite de plomb",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/silverore.png', text = "Pépite de plomb",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
     },
     ['mediumvault'] = {
         type = 'forgeetabli',
@@ -67,7 +67,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 45,
         label = "Coffre Fort",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/silverore.png', text = "Pépite de plomb",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/silverore.png', text = "Pépite de plomb",count = "x60"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x20"}}
     },
     ['largevault'] = {
         type = 'forgeetabli',
@@ -82,7 +82,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 60,
         label = "Grand Coffre Fort",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/silverore.png', text = "Pépite de plomb",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/silverore.png', text = "Pépite de plomb",count = "x100"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x30"}}
     },
     ['WEAPON_MELEE_HAMMER'] = {
         type = 'forgeenclume',
@@ -97,7 +97,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 30,
         label = "Marteau",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
     },
     ['WEAPON_MELEE_HATCHET'] = {
         type = 'forgeenclume',
@@ -112,7 +112,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 30,
         label = "Hache",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
     },
     ['WEAPON_MELEE_KNIFE'] = {
         type = 'forgeenclume',
@@ -127,7 +127,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 10,
         label = "Couteau de chasse",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
     },
     ['WEAPON_MELEE_CLEAVER'] = {
         type = 'forgeenclume',
@@ -142,7 +142,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 20,
         label = "Hachoir",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x5"}}
     },
     ['WEAPON_MELEE_MACHETE'] = {
         type = 'forgeenclume',
@@ -157,7 +157,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 30,
         label = "Machette",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
     },
     ['goldramp'] = {
         type = 'forgeetabli',
@@ -174,7 +174,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 20,
         label = "Rampe de lavage",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de Gras",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/stick.png', text = "Petit Bois",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de Gras",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/stick.png', text = "Petit Bois",count = "x5"}}
     },
     ['batée'] = {
         type = 'forgeenclume',
@@ -187,7 +187,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 10,
         label = "Bâtée",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['Watering_Can'] = {
         type = 'forgeenclume',
@@ -200,7 +200,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 10,
         label = "Sceau",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['Teapot_Can'] = {
         type = 'forgeenclume',
@@ -213,7 +213,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 10,
         label = "Arrosoir",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['gourde'] = {
         type = 'forgeetabli',
@@ -226,7 +226,33 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 10,
         label = "Gourde",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x1"}}
+    },
+    ['cauldron'] = {
+        type = 'forgeenclume',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'ferpepite',
+        ItemReceipe1Amount = 5,
+        ItemReceipe2Name = 'charbon',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'cauldron',
+        Amount = 1,
+        WorkingTime = 10,
+        label = "Chaudron",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+    },
+    ['fercheval'] = {
+        type = 'forgeenclume',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'lingotfer',
+        ItemReceipe1Amount = 2,
+        ItemReceipe2Name = 'charbon',
+        ItemReceipe2Amount = 3,
+        ItemToGive = 'fercheval',
+        Amount = 1,
+        WorkingTime = 10,
+        label = "Fer à cheval",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
     },
     
     
