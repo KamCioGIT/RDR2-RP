@@ -105,8 +105,34 @@ Config.CraftingsReceipe = {
         label = 'Viande aux herbes',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird.png', text = "Volaille",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_creeping_thyme.png', text = "Herbes aromatiques",count = "x1"}}
     },
-    }
-
+    ['attelle'] = {
+        type = 'fire',
+        Itemtocraft = 3,
+        ItemReceipe1Name = 'cuir',
+        ItemReceipe1Amount = 2,
+        ItemReceipe2Name = 'petitbois',
+        ItemReceipe2Amount = 3,
+        ItemReceipe3Name = 'bandage',
+        ItemReceipe3Amount = 1,
+        ItemToGive = 'attelle',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Attelle',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x2"},{src = 'nui://redemrp_inventory/html/items/stick.png', text = "Petit Bois",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/bandage.png', text = "Bandage",count = "x1"}}
+    },
+        ['bandage'] = {
+        type = 'fire',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'fil',
+        ItemReceipe1Amount = 10,
+        ItemToGive = "bandage",
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Bandage',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_fsh_copper_spool.png', text = "Fil",count = "x10"}}
+    },
+}
+    
 
 Config.EauMaudite = {
     -2040708515, -- WATER_LANNAHECHEE_RIVER

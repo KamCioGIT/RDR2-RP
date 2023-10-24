@@ -45,21 +45,21 @@ Config.Language = {
 }
 
 Config.Prop = {
-	[1] = {name="Sheriff Badge 1", prop= "p_deputybadge01x", bone=31201, parameter={0.038, -0.14, -0.242, 75.5, 6.2, 38.1}, jobLock={}},
-	[2] = {name="Sheriff Badge 2", prop= "p_deputybadge01x", bone=30226, parameter={0.058, 0.125, 0.036, -116.0, -5.0, -6.0}, jobLock={}},
-	[3] = {name="Sheriff Badge 3", prop= "p_deputybadge01x", bone=30226, parameter={0.058, 0.121, 0.036, -116.0, -5.0, -6.0}, jobLock={}},
-	[4] = {name="Marshall Badge 1", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.115, 0.04, 163.0, 0.0, 342.0}, jobLock={}},
-	[5] = {name="Marshall Badge 2", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.12, 0.04, 163.0, 0.0, 358.0}, jobLock={}},
-	[6] = {name="Marshall Badge 3", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.165, 0.06, 168.0, 0.0, -8.0}, jobLock={}},
-	[7] = {name="Bag 1", prop= "p_ambpack01x", bone=41232, parameter={0.33, -0.12, -0.19, 0.00, -56.0, 0.00}, jobLock={}},
-	[8] = {name="Bag 2", prop= "p_ambpack02x", bone=41232, parameter={0.22, -0.1, -0.11, 6.0, -55.0, 0.0}, jobLock={}},
-	[9] = {name="Bag 3", prop= "p_ambpack04x", bone=41232, parameter={0.08, 0.0, 0.11, 88.0, -62.0, 0.0}, jobLock={}},
-	[10] = {name="Bag 4", prop= "p_bag01x", bone=22798, parameter={0.40, 0.05, -0.05, 180.0, 90.0, -70.0}, jobLock={}},
-	[11] = {name="Toulec", prop= "p_arrowbundle01x", bone=1058, parameter={0.0, -0.17, -0.21, -90.0, -20.0, -170.00}, jobLock={}},
-	[12] = {name="Guitar on back", prop="p_guitar01x", bone=37600, parameter={0.29, -0.12, -0.22, -5.0, -21.0, 0.0}, jobLock={}},
-	[13] = {name="Feather on head", prop="p_feather01x", bone=21030, parameter={0.12, -0.05, -0.07, 259.0, 0.0, 111.0}, jobLock={}},
-	[14] = {name="A straw in the mouth", prop="p_cs_haypiece01x", bone=21030, parameter={-0.014, 0.069, 0.009, 56.4, 900.0, 179.3}, jobLock={}},
-	[15] = {name="Arrows 2", prop= "p_arrowbundle02x", bone=1058, parameter={0.0, -0.17, -0.21, -90.0, -20.0, -170.00}, jobLock={}},
+	[1] = {name="Sheriff Badge 1", prop= "p_deputybadge01x", bone=31201, parameter={0.038, -0.14, -0.242, 75.5, 6.2, 38.1}, jobLock={"sheriff_rhodes", "sheriff_bla"}},
+	[2] = {name="Sheriff Badge 2", prop= "p_deputybadge01x", bone=30226, parameter={0.058, 0.125, 0.036, -116.0, -5.0, -6.0}, jobLock={"sheriff_rhodes", "sheriff_bla"}},
+	[3] = {name="Sheriff Badge 3", prop= "p_deputybadge01x", bone=30226, parameter={0.058, 0.121, 0.036, -116.0, -5.0, -6.0}, jobLock={"sheriff_rhodes", "sheriff_bla"}},
+	[4] = {name="Marshall Badge 1", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.115, 0.04, 163.0, 0.0, 342.0}, jobLock={"marshall"}},
+	[5] = {name="Marshall Badge 2", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.12, 0.04, 163.0, 0.0, 358.0}, jobLock={"marshall"}},
+	[6] = {name="Marshall Badge 3", prop= "s_badgeusmarshal01x", bone=30226, parameter={0.08, 0.165, 0.06, 168.0, 0.0, -8.0}, jobLock={"marshall"}},
+	[7] = {name="Sac 1", prop= "p_ambpack01x", bone=41232, parameter={0.33, -0.12, -0.19, 0.00, -56.0, 0.00}, jobLock={}},
+	[8] = {name="Sac 2", prop= "p_ambpack02x", bone=41232, parameter={0.22, -0.1, -0.11, 6.0, -55.0, 0.0}, jobLock={}},
+	[9] = {name="Sac 3", prop= "p_ambpack04x", bone=41232, parameter={0.08, 0.0, 0.11, 88.0, -62.0, 0.0}, jobLock={}},
+	[10] = {name="Sac 4", prop= "p_bag01x", bone=22798, parameter={0.40, 0.05, -0.05, 180.0, 90.0, -70.0}, jobLock={}},
+	[11] = {name="Carquois 1", prop= "p_arrowbundle01x", bone=1058, parameter={0.0, -0.17, -0.21, -90.0, -20.0, -170.00}, jobLock={}},
+	[12] = {name="Guitare dans le dos", prop="p_guitar01x", bone=37600, parameter={0.29, -0.12, -0.22, -5.0, -21.0, 0.0}, jobLock={}},
+	[13] = {name="Plume sur la tête", prop="p_feather01x", bone=21030, parameter={0.12, -0.05, -0.07, 259.0, 0.0, 111.0}, jobLock={}},
+	[14] = {name="Paille dans la bouvhe", prop="p_cs_haypiece01x", bone=21030, parameter={-0.014, 0.069, 0.009, 56.4, 900.0, 179.3}, jobLock={}},
+	[15] = {name="Carquois 2", prop= "p_arrowbundle02x", bone=1058, parameter={0.0, -0.17, -0.21, -90.0, -20.0, -170.00}, jobLock={}},
 }
 
 
