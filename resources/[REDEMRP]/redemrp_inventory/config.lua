@@ -1453,6 +1453,17 @@ Config.Items = {
         canBeUsed = false,
         requireLvl = 0,
         limit = 2000,
+        imgsrc = "items/wood.png",
+        type = "item_standard",
+    },
+    ["boiscerf"] = {
+        label = "Bois de cerf",
+        description = "",provision_buck_antlers
+        weight = 0.3,
+        canBeDropped = true,
+        canBeUsed = false,
+        requireLvl = 0,
+        limit = 2000,
         imgsrc = "items/provision_buck_antlers.png",
         type = "item_standard",
     },
@@ -1853,8 +1864,8 @@ Config.Items = {
         type = "item_standard",
     },
     ["concoctionendurance"] = {
-        label = "Concoction d'endurance",
-        description = "",
+        label = "Essence de térébenthine",
+        description = "Pour ceux manquant de vigueur",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = true,
@@ -1864,8 +1875,8 @@ Config.Items = {
         type = "item_standard",
     },
     ["concoctionanesthesiante "] = {
-        label = "Concoction anesthesiante",
-        description = "",
+        label = "Emulsion Anesthésiante'",
+        description = "Solution temporaire pour calmer la douleur",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = true,
@@ -1875,8 +1886,8 @@ Config.Items = {
         type = "item_standard",
     },
     ["concoctioncoagulation"] = {
-        label = "Concoction de coagulation",
-        description = "",
+        label = "Solution Coagulante",
+        description = "A appliquer sur une plaie",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = true,
@@ -1920,7 +1931,7 @@ Config.Items = {
     },
     ["poison"] = {
         label = "Poison",
-        description = "",
+        description = "A ne pas avaler par mégarde",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = true,
@@ -1930,8 +1941,8 @@ Config.Items = {
         type = "item_standard",
     },
     ["remedeinfection"] = {
-        label = "Reméde infection",
-        description = "",
+        label = "Concentré Antiputride",
+        description = "Soigne les infections",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = true,
@@ -1941,8 +1952,8 @@ Config.Items = {
         type = "item_standard",
     },
     ["remedeantidouleur"] = {
-        label = "Antidouleur",
-        description = "",
+        label = "Extrait de Camomille",
+        description = "Soigne les maux",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = true,
@@ -1952,8 +1963,8 @@ Config.Items = {
         type = "item_standard",
     },
     ["antidysentrie"] = {
-        label = "Antiparasitaires",
-        description = "",
+        label = "Remède Digestif",
+        description = "Règles les problèmes de bedon",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = true,
@@ -1964,7 +1975,7 @@ Config.Items = {
     },
     ["antidote"] = {
         label = "Antidote",
-        description = "",
+        description = "A boire d'urgence",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = true,
@@ -1972,6 +1983,46 @@ Config.Items = {
         limit = 2000,
         imgsrc = "items/consumable_plymouth_gin.png",
         type = "item_standard",
+    },
+    ["bandagecharbon"] = {
+        label = "Bandage au charbon",
+        description = "Bandage purifiant",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = true,
+        limit = 100,
+        imgsrc = "items/bandage.png",
+        type = "item_standard"
+    },
+    ["bandagepatate"] = {
+        label = "Bandage à la patate",
+        description = "Bandage aux vertues apaisantes",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = true,
+        limit = 100,
+        imgsrc = "items/bandage.png",
+        type = "item_standard"
+    },
+    ["attelle"] = {
+        label = "Attelle",
+        description = "Répare les vieux os",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = true,
+        limit = 100,
+        imgsrc = "items/generic_horse_equip_bedroll.png",
+        type = "item_standard"
+    },
+    ["mortier"] = {
+        label = "Mortier",
+        description = "Permet de créer les plus vils concoctions",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = true,
+        limit = 100,
+        imgsrc = "items/mortar.png",
+        type = "item_standard"
     },
     ["sucre"] = {
         label = "Sucre",
@@ -1986,7 +2037,7 @@ Config.Items = {
     },
     ["semencedetoreau"] = {
         label = "Semence bovine",
-        description = "",
+        description = "Curieuse idée",
         weight = 0.5,
         canBeDropped = true,
         canBeUsed = true,
