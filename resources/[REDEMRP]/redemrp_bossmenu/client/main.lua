@@ -331,6 +331,7 @@ Citizen.CreateThread(function()
                 --     end
                 -- end
                 -- if showPrompt then
+                if Config.Jobs[PlayerJob].MenuLocations then
                     if #(PlayerPos - Config.Jobs[PlayerJob].MenuLocations) < 6.0 then
                         Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, Config.Jobs[PlayerJob].MenuLocations, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)--DrawMarker
                     end
@@ -341,6 +342,7 @@ Citizen.CreateThread(function()
                             TriggerServerEvent("redemrp_bossmenu:server:RequestBossMenu")
                         end
                     end
+                end
                 -- end
                 if not FoundSomething then
 					NearAnything = false

@@ -6,6 +6,12 @@ Config.Jobs = {
     [3] = "doctor_stdenis",
 }
 
+Config.AnimDict = "amb_work@world_human_seat_chair@mortar_pestle@mortar@female_a@base"
+Config.CraftAnim = {
+    "base",
+}
+
+
 Config.Atelier = {
     vector3(2721.123, -1226.798, 50.36772), -- stdenis
     vector3(2629.656, -1354.371, 49.04771), -- apo st denis

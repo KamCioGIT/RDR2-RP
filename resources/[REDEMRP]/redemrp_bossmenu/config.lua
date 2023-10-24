@@ -302,6 +302,25 @@ Config.Jobs = {
             },
         }
     },
+    ["doctor"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de Saint-Denis",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
     ["presse"] = {
         bigjob = "presse",
         Name = "Presse",
