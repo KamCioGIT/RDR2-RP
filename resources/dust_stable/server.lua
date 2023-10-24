@@ -323,8 +323,8 @@ AddEventHandler("dust_stable:server:stockhorse", function(stable, horseid, value
 						{
 							gang = gang,
 							horseid = horseid
-						}, function(resultjob)
-							if #resultjob ~= 0 then
+						}, function(resultgang)
+							if #resultgang ~= 0 then
 								MySQL.update('UPDATE stable SET `stable`=@stable, `selected`=@selected, `meta`=@meta WHERE `horseid`=@horseid;',
 									{
 										stable = stable,
