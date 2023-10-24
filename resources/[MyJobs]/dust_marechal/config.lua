@@ -105,8 +105,5 @@ Config.Import = {
     ["brosse"] = {label= "Brosse", price = 1},
     ["horsemedicine"] = {label= "Remède pour cheval", price = 1},
     ["horsehaycube"] = {label= "Cube de foin", price = 0.3},
-    ["horsestimulant"] = {label= "Stimulant pour cheval", price = 3},
     ["horsereviver"] = {label= "Remontant pour cheval", price = 1},
-
-
 }
