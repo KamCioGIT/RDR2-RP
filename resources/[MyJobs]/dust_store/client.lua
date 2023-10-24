@@ -166,7 +166,7 @@ RegisterNetEvent("store:OpenImportMenu", function()
 
 
         for k, v in pairs(Config.Import) do
-            table.insert(elements, {label = v.label, value = k, price = v.price})
+            table.insert(elements, {label = v.label.." $"..v.price, value = k, price = v.price})
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
