@@ -1,5 +1,45 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
+
+Citizen.CreateThread(function() 
+	while true do
+		local player = PlayerPedId()
+		local pos = GetEntityCoords(player)
+		local bellrun = false
+		for component, data in pairs(Config.Trapdoor) do
+			if DoesObjectOfTypeExistAtCoords(pos, 40.0, GetHashKey(data.doorid)) then
+				data.obj = GetClosestObjectOfType(pos, 40.0, GetHashKey(data.doorid), false, false, false)
+				DeleteEntity(data.obj)
+				if not DoesObjectOfTypeExistAtCoords(pos, 40.0, GetHashKey("p_trapdoor02x")) then
+					data.prop = CreateObject("p_trapdoor02x", data.objCoords, false, false, true)
+					SetEntityRotation(data.prop, data.objPitchclose, 0, true)
+				end
+				if IsControlJustReleased(0, 0x760A9C6F) then
+					if data.trapopen == true then
+						SetEntityRotation(data.prop, data.objPitchclose, 0, true)
+						data.trapopen = true
+					else
+						SetEntityRotation(data.prop, data.objPitchopen, 0, true)
+						data.trapopen = true
+					end
+				end
+			end
+			if data.prop then
+				if IsControlJustReleased(0, 0x760A9C6F) then
+					if data.trapopen == true then
+						SetEntityRotation(data.prop, data.objPitchclose, 0, true)
+						data.trapopen = false
+					else
+						SetEntityRotation(data.prop, data.objPitchopen, 0, true)
+						data.trapopen = true
+					end
+				end
+			end
+		end
+		Citizen.Wait(10)
+	end
+end)
+
 local isInteracting = false
 
 

@@ -1,5 +1,20 @@
 Config = {}
 
+Config.Trapdoor = {
+	{
+		authorizedJobs = { 'straw_store' },
+		doorid = "p_trapdoor01x",
+		objCoords = vector3(-1790.7442626953125, -390.150390625, 159.28944396972656),
+		objPitchclose = vector3(0.0, 0.0, 145),
+		objPitchopen =  vector3(-90, 0.0, 145),
+		locked = false,
+		distance = 3.0
+	},
+
+}
+
+
+
 Config.Jobs = {
     [1] = "store_straw",
     [2] = "store_rhodes",
