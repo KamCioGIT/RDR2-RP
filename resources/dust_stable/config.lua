@@ -28,7 +28,7 @@ Config.Stables = {
 		name = 'Blackwater',
     },
 	Strawberry = {
-		pos = vector3(-1810.528, -564.4277, 155.9662),
+		pos = vector3(-1781.097, -439.7949, 155.1324),
 		name = 'Strawberry',
     },
 	Wapiti = {
