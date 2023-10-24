@@ -283,6 +283,8 @@ AddEventHandler("dust_stable:server:stockhorse", function(stable, horseid, value
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
 	local charid = user.charid
+	local job = user.job
+	local gang = user.gang
 	local _meta = {health = valueHealth, stamina = valueStamina}
 	MySQL.query('SELECT * FROM stable WHERE `identifier`=@identifier AND `charid`=@charid AND `horseid`=@horseid;',
 		{
@@ -300,6 +302,43 @@ AddEventHandler("dust_stable:server:stockhorse", function(stable, horseid, value
 					}, function(rowsChanged)
 						TriggerClientEvent("dust_stable:server:horsestocked", _source, type)
 				end)          
+			else
+						MySQL.query('SELECT * FROM stable WHERE `job`=@job AND `horseid`=@horseid;',
+				{
+					job = job,
+					horseid = horseid
+				}, function(resultjob)
+					if #resultjob ~= 0 then
+						MySQL.update('UPDATE stable SET `stable`=@stable, `selected`=@selected, `meta`=@meta WHERE `horseid`=@horseid;',
+							{
+								stable = stable,
+								selected = 0,
+								horseid = horseid,
+								meta = json.encode(_meta)
+							}, function(rowsChanged)
+								TriggerClientEvent("dust_stable:server:horsestocked", _source, type)
+						end)          
+					else
+						MySQL.query('SELECT * FROM stable WHERE `gang`=@gang AND `horseid`=@horseid;',
+						{
+							gang = gang,
+							horseid = horseid
+						}, function(resultjob)
+							if #resultjob ~= 0 then
+								MySQL.update('UPDATE stable SET `stable`=@stable, `selected`=@selected, `meta`=@meta WHERE `horseid`=@horseid;',
+									{
+										stable = stable,
+										selected = 0,
+										horseid = horseid,
+										meta = json.encode(_meta)
+									}, function(rowsChanged)
+										TriggerClientEvent("dust_stable:server:horsestocked", _source, type)
+								end)          
+							end
+								
+						end)
+					end
+				end)
 			end
 		end)
 end)
