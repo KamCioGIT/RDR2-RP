@@ -4,7 +4,7 @@ Config = {}
 
 Config.rsdNUI = false -- If you use our RSD_NUI else natif prompt
 
-Config.DistanceDoor = 2.0 -- Distance check doors
+Config.DistanceDoor = 1.7 -- Distance check doors
 
 Config.KeyOpen = 0x760A9C6F --G
 Config.KeyBreak = 0xCEFD9220 --E
