@@ -101,6 +101,12 @@ Config.LabelPrice = {
 	["extras"] = 4,
 }
 
+Config.ImportPoint = {
+    [1]= vector3(2572.136, -1501.026, 45.96986), --- st denis
+    [2]= vector3(-825.8802, -1241.919, 43.53639), -- bla
+}
+
+
 Config.Import = {
     ["brosse"] = {label= "Brosse", price = 1},
     ["horsemedicine"] = {label= "Remède pour cheval", price = 1},
