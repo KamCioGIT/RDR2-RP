@@ -43,7 +43,7 @@ Citizen.CreateThread(function()
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Stables) do
-            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+            if #(playerpos - v.pos ) < 4.5 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 stableprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x6319DB71) then
                     isInteracting = true
@@ -75,7 +75,7 @@ Citizen.CreateThread(function()
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Stables) do
-            if #(playerpos - v.pos ) < 7 and IsPedOnMount(PlayerPedId()) then
+            if #(playerpos - v.pos ) < 4.5 and IsPedOnMount(PlayerPedId()) then
                 storeprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x156F7119) then
                     local horse = GetMount(PlayerPedId())
@@ -86,7 +86,7 @@ Citizen.CreateThread(function()
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid, valueHealth, valueStamina, type)
                 end
             end
-            if #(playerpos - v.pos ) < 7 and IsPedInAnyVehicle(PlayerPedId(), 0) then
+            if #(playerpos - v.pos ) < 4.5 and IsPedInAnyVehicle(PlayerPedId(), 0) then
                 storeprompt:setActiveThisFrame(true)
                 if IsControlJustReleased(0, 0x156F7119) then
                     local cart = GetVehiclePedIsIn(PlayerPedId(), 0)

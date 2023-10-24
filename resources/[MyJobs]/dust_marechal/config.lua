@@ -55,9 +55,11 @@ Config.MenuCart = {
 
 Config.Customzone = {
 	vector3(2502.748, -1450.436, 46.31255), --- saint denis
+	vector3(-862.6442, -1366.734, 43.54885), --- bla
 }
 Config.Customcart = {
-	vector3(2500.031, -1419.292, 46.12471),
+	vector3(2500.031, -1419.292, 46.12471), --- st denis
+	vector3(-874.3425, -1365.805, 43.53065), -- bla
 }
 
 Config.OpenKey = "0x156F7119"
