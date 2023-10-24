@@ -1458,7 +1458,7 @@ Config.Items = {
     },
     ["boiscerf"] = {
         label = "Bois de cerf",
-        description = "",provision_buck_antlers
+        description = "",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = false,

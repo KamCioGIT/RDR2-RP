@@ -80,8 +80,8 @@ end)
 
 
 local bankprompt = UipromptGroup:new("Banque")
-Uiprompt:new(0x760A9C6F, "Compte personnel", bankprompt)
-Uiprompt:new(0xF3830D8E, "Compte d'entreprise", bankprompt)
+Uiprompt:new(0x6319DB71, "Compte personnel", bankprompt)
+Uiprompt:new(0x05CA7C52, "Compte d'entreprise", bankprompt)
 bankprompt:setActive(false)
 
 Citizen.CreateThread(function()
@@ -103,10 +103,10 @@ Citizen.CreateThread(function()
             local playerpos = GetEntityCoords(PlayerPedId())
             if #(playerpos - v.coords ) < 4 then
                 bankprompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, 0x760A9C6F) then
+                if IsControlJustReleased(0, 0x6319DB71) then
                     TriggerEvent("qbr-banking:openBankScreen", "savings")
                 end
-                if IsControlJustReleased(0, 0xF3830D8E) then
+                if IsControlJustReleased(0, 0x05CA7C52) then
                     TriggerEvent("qbr-banking:openBankScreen", "business")
                 end
             end 

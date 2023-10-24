@@ -31,7 +31,7 @@ Config.CraftingsReceipe = {
         WorkingTime = 5,
     },
     ['arrow'] = {
-        label = "Flèches",
+        label = "10 Flèches",
         desc = "1 bois + 1 silex",
         ItemReceipe1Name = 'petitbois',
         ItemReceipe1Amount = 1,
