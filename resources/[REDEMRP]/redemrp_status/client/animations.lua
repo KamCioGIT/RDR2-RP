@@ -2,7 +2,7 @@ function FPrompt(text, button, hold)
     Citizen.CreateThread(function()
         proppromptdisplayed=false
         PropPrompt=nil
-        local str = text or "Put Away"
+        local str = text or "Ranger"
         local buttonhash = button or 0x3B24C470
         local holdbutton = hold or false
         PropPrompt = PromptRegisterBegin()
@@ -19,7 +19,7 @@ end
 function LMPrompt(text, button, hold)
     Citizen.CreateThread(function()
         UsePrompt=nil
-        local str = text or "Use"
+        local str = text or "Utiliser"
         local buttonhash = button or 0x07B8BEAF
         local holdbutton = hold or false
         UsePrompt = PromptRegisterBegin()
@@ -36,7 +36,7 @@ end
 function EPrompt(text, button, hold)
     Citizen.CreateThread(function()
         ChangeStance=nil
-        local str = text or "Use"
+        local str = text or "Utiliser"
         local buttonhash = button or 0xD51B784F
         local holdbutton = hold or false
         ChangeStance = PromptRegisterBegin()
