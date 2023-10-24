@@ -168,6 +168,7 @@ RegisterServerEvent("gunstore:MaxRessourcesAmount", function(dataType)
 		if Item4Amount < lAmount then
 			lAmount = Item4Amount
 		end
+		print (Item1Amount, Item2Amount, Item3Amount, Item4Amount)
 		if Item1Amount >= 1 and Item2Amount >= 1 and Item3Amount >= 1 and Item4Amount >= 1 then
 			TriggerClientEvent("gunstore:client:SetMaxAmount", _source, math.floor(lAmount))
 		else
