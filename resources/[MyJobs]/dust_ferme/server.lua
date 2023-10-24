@@ -25,7 +25,7 @@ end)
 
 RegisterServerEvent("fermier:retStash", function()
     local _source = source
-	if RedEM.GetPlayer(source).jobgrade > 1 then
+	if tonumber(RedEM.GetPlayer(_source).jobgrade) > 1 then
         TriggerClientEvent("redemrp_inventory:OpenStash", _source, "ret_fermier", 3000.0)
     end
 end)
