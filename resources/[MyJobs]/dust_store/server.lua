@@ -74,8 +74,6 @@ end)
 
 RegisterServerEvent("store:MaxRessourcesAmount", function(dataType)
     local _source = tonumber(source)
-	print (dataType)
-	print(Config.CraftingsReceipe[dataType].Itemtocraft)
     
 	if Config.CraftingsReceipe[dataType].Itemtocraft == 1 then
 		local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
@@ -112,40 +110,50 @@ RegisterServerEvent("store:MaxRessourcesAmount", function(dataType)
 		local ItemData2 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
 		local ItemData3 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe3Name)
 		
-		local rItem1Amount = tonumber(ItemData.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount)
-		local rItem2Amount = tonumber(ItemData2.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe2Amount)
-		local rItem3Amount = tonumber(ItemData3.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe3Amount)
-		
-		-- Calculez les quantités minimales (lAmount) et maximales (hAmount) parmi les trois articles.
-		local lAmount = math.min(rItem1Amount, rItem2Amount, rItem3Amount)
-		local hAmount = math.max(rItem1Amount, rItem2Amount, rItem3Amount)
-		print (hAmount, lAmount)
-		if hAmount >= 1 and lAmount >= 1 then
+		local Item1Amount = tonumber(ItemData.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount)
+		local Item2Amount = tonumber(ItemData2.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe2Amount)
+		local Item3Amount = tonumber(ItemData3.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe3Amount)
+
+		local lAmount = Item1Amount
+		if Item2Amount < lAmount then
+			lAmount = Item2Amount
+		end
+		if Item3Amount < lAmount then
+			lAmount = Item3Amount
+		end
+		print (Item1Amount, Item2Amount, Item3Amount, lAmount)
+		if Item1Amount >= 1 and Item2Amount >= 1 and Item3Amount >= 1 then
 			TriggerClientEvent("store:client:SetMaxAmount", _source, math.floor(lAmount))
-		else 
-			TriggerClientEvent("store:client:SetMaxAmount", _source, 0)
-		end	
-	elseif Config.CraftingsReceipe[dataType].Itemtocraft == 4 then
-		local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
-		local ItemData2 = data.getItem(__source, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
-		local ItemData3 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe3Name)
-		local ItemData4 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe4Name)
-		
-		local rItem1Amount = tonumber(ItemData.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount)
-		local rItem2Amount = tonumber(ItemData2.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe2Amount)
-		local rItem3Amount = tonumber(ItemData3.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe3Amount)
-		local rItem4Amount = tonumber(ItemData4.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe4Amount)
-		
-		-- Calculez les quantités minimales (lAmount) et maximales (hAmount) parmi les quatre articles.
-		local lAmount = math.min(rItem1Amount, rItem2Amount, rItem3Amount, rItem4Amount)
-		local hAmount = math.max(rItem1Amount, rItem2Amount, rItem3Amount, rItem4Amount)
-		
-		if hAmount >= 1 and lAmount >= 1 then
-			TriggerClientEvent("store:client:SetMaxAmount", _source, math.floor(lAmount))
-		else 
+		else
 			TriggerClientEvent("store:client:SetMaxAmount", _source, 0)
 		end
-	end	
+	elseif Config.CraftingsReceipe[dataType].Itemtocraft == 4 then
+		local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
+		local ItemData2 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
+		local ItemData3 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe3Name)
+		local ItemData4 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe3Name)
+		
+		local Item1Amount = tonumber(ItemData.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount)
+		local Item2Amount = tonumber(ItemData2.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe2Amount)
+		local Item3Amount = tonumber(ItemData3.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe3Amount)
+		local Item4Amount = tonumber(ItemData4.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe4Amount)
+
+		local lAmount = Item1Amount
+		if Item2Amount < lAmount then
+			lAmount = Item2Amount
+		end
+		if Item3Amount < lAmount then
+			lAmount = Item3Amount
+		end
+		if Item4Amount < lAmount then
+			lAmount = Item4Amount
+		end
+		if Item1Amount >= 1 and Item2Amount >= 1 and Item3Amount >= 1 and Item4Amount >= 1 then
+			TriggerClientEvent("store:client:SetMaxAmount", _source, math.floor(lAmount))
+		else
+			TriggerClientEvent("store:client:SetMaxAmount", _source, 0)
+		end
+	end
 
 end)
 
