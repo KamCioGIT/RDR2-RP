@@ -1852,7 +1852,7 @@ Config.Items = {
         imgsrc = "items/orchid_acunastar.png",
         type = "item_standard",
     },
-    ["Laurierrose"] = {
+    ["laurierrose"] = {
         label = "Laurier rose",
         description = "",
         weight = 0.6,
