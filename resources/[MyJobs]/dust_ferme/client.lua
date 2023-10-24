@@ -6,22 +6,14 @@ local isInBossMenu = false
 local showweath = false
 local isFarmer = false
 
-local getgrade = tonumber(0)
 --- Définir si le joueur est fermier 
 RegisterNetEvent("dust_job:fermier")
-AddEventHandler("dust_job:fermier", function(j, g)
-    local job = j
-    local grade = g
+AddEventHandler("dust_job:fermier", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             isFarmer = true
             startMission()
-            cattle()
-            getgrade = tonumber(grade)
-            print(getgrade)
-            if getgrade >= 2 then
-                contremaitre()
-            end
+            cattle(grade)
         end
     end
 end)
@@ -231,7 +223,7 @@ Uiprompt:new(0x05CA7C52, "Gérer", farmprompt):setHoldMode(true)
 farmprompt:setActive(false)
 
 -- zone étable
-function cattle()
+function cattle(grade)
     for k,v in pairs(Config.Buycattle) do
         local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
         SetBlipSprite(blip, v.blip)
@@ -244,6 +236,9 @@ function cattle()
         SetBlipSprite(blip, Config.BlipSprite)
         SetBlipScale(blip, 0.2)
         Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Pâturage"))
+    end
+    if grade >= 2 then
+        contremaitre()
     end
     while true do
         Wait(0)
