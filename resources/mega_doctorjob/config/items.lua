@@ -277,7 +277,7 @@ MedicineItems = {
         -- the next damage type, used for the bandaged state
         damageType = 'bandaged'
     },
-    ['remedeinfectionun'] = {
+    ['remedeinfection'] = {
         healProbability = {
         },
         -- milliseconds, time after the cure will stop working
@@ -300,7 +300,7 @@ MedicineItems = {
         allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
         
     },
-    ['remedeinfectiondeux'] = {
+    ['remedeantidouleur'] = {
         healProbability = {
         },
         -- milliseconds, time after the cure will stop working
@@ -322,49 +322,84 @@ MedicineItems = {
         -- the next damage type, used for the bandaged state
         allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
     },
-    ['remedeantidouleurun'] = {
+    ['bandagepatate'] = {
         healProbability = {
+            ['bleeding'] = 1.0,
         },
         -- milliseconds, time after the cure will stop working
         -- (-1 for complete cure)
-        cureDuration = -1,
+        cureDuration = 180000,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 2000,
+        applyDuration = 10000,
         -- health to add when used
         healthAmount = 200,
         -- inner core health added from 0 to 100
         innerCoreHealth = 100,
         language = {
-            applying = "Ingestion du remède ...",
-            applied = "Vous vous sentez mieux.",
+            cureExpired = "Votre bandage est tombé, vous saignez à nouveau. Appliquez un bandage et allez voir un docteur.",
+            applying = "Application d'un bandage...",
+            applied = "Vous avez appliqué un bandage.",
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "mech_animal_interaction@horse@right@injection",
-        animation = "injection_player",
+        animationDict = nil,
+        animation = nil,
+        -- if you don't want to use scenario set it to nil
+        scenario = 'WORLD_HUMAN_CROUCH_INSPECT',
         -- the next damage type, used for the bandaged state
+        damageType = 'bandaged',
         allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
     },
-    ['remedeantidouleurdeux'] = {
+    ['bandagecharbon'] = {
         healProbability = {
+            ['bleeding'] = 1.0,
         },
         -- milliseconds, time after the cure will stop working
         -- (-1 for complete cure)
-        cureDuration = -1,
+        cureDuration = 180000,
         -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 2000,
+        applyDuration = 10000,
         -- health to add when used
         healthAmount = 200,
         -- inner core health added from 0 to 100
         innerCoreHealth = 100,
         language = {
-            applying = "Ingestion du remède ...",
-            applied = "Vous vous sentez mieux.",
+            cureExpired = "Votre bandage est tombé, vous saignez à nouveau. Appliquez un bandage et allez voir un docteur.",
+            applying = "Application d'un bandage...",
+            applied = "Vous avez appliqué un bandage.",
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "mech_animal_interaction@horse@right@injection",
-        animation = "injection_player",
+        animationDict = nil,
+        animation = nil,
+        -- if you don't want to use scenario set it to nil
+        scenario = 'WORLD_HUMAN_CROUCH_INSPECT',
         -- the next damage type, used for the bandaged state
+        damageType = 'bandaged',
         allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
+    },
+    ['attelle'] = {
+        healProbability = {
+            ['brokenBone'] = 1.0,
+        },
+        -- milliseconds, time after the cure will stop working
+        -- (-1 for complete cure)
+        cureDuration = -1,
+        -- milliseconds, time it takes to apply medication (progressbar)
+        applyDuration = 10000,
+        -- health to add when used
+        healthAmount = 200,
+        -- inner core health added from 0 to 100
+        innerCoreHealth = 100,
+        language = {
+            cureExpired = "Votre bandage est tombé, vous saignez à nouveau. Appliquez un bandage et allez voir un docteur.",
+            applying = "Application d'une attelle...",
+            applied = "Vous avez appliqué une attelle.",
+        },
+        -- if you don't want to use animation set those to nil and set scenario instead
+        animationDict = nil,
+        animation = nil,
+        -- if you don't want to use scenario set it to nil
+        scenario = 'WORLD_HUMAN_CROUCH_INSPECT',
+        -- the next damage type, used for the bandaged state
     },
 }
 
