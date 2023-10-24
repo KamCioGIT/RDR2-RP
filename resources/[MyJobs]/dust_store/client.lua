@@ -5,9 +5,9 @@ local isInteracting = false
 
 local maxCraftAmountstore = 0
 
-local souffreprompt = UipromptGroup:new("Souffre")
-Uiprompt:new(0x760A9C6F, "Récolter", souffreprompt)
-souffreprompt:setActive(false)
+local importprompt = UipromptGroup:new("Fournisseur")
+Uiprompt:new(0x760A9C6F, "Acheter", importprompt)
+importprompt:setActive(false)
 
 local craftprompt = UipromptGroup:new("Atelier")
 Uiprompt:new(0x760A9C6F, "Fabriquer", craftprompt)
@@ -134,7 +134,7 @@ function StartMission()
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
+                    importprompt:setActiveThisFrame(true)
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         TriggerEvent("store:OpenImportMenu")
                     end
@@ -166,7 +166,7 @@ RegisterNetEvent("store:OpenImportMenu", function()
 
 
         for k, v in pairs(Config.Import) do
-            table.insert(elements, {label = v.label, value = k, price = v})
+            table.insert(elements, {label = v.label, value = k, price = v.price})
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
