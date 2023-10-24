@@ -243,6 +243,7 @@ AddEventHandler("store:SelectCraftingAmount", function(dataType, menuData, menu)
 end)
 
 RegisterNetEvent("store:client:SetMaxAmount", function(value)
+    print (value)
     maxCraftAmountstore = value
 end)
 

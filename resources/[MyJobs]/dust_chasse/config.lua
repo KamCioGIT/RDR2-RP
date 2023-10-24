@@ -16,6 +16,11 @@ Config.Boucher =
     vector3(-86.35107, 1550.303, 114.8319),  --- Camp natif
 }
 
+Config.Relais = 
+{    
+    vector3(-1982.628, -1619.964, 118.0835), -- Manzanita
+}
+
 Config.Craftcuir = {vector3(-1970.758, -1641.776, 117.1183), vector3(-92.08035, 1552.082, 115.7228)}
 
 -- Config.Craftviande = vector3(-1986.814, -1642.825, 117.1306)
