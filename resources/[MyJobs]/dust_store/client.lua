@@ -23,9 +23,6 @@ AddEventHandler("dust_job:store", function(job, grade)
             getjob = true
             getgrade = grade
             StartMission()
-        else
-            getjob = false
-            getgrade = 0
         end
     end
 end)
@@ -112,36 +109,34 @@ end)
 
 function StartMission()
     Citizen.CreateThread(function()
-        for k,v in pairs(Config.ImportPoint) do
-            local blips = N_0x554d9d53f696d002(1664425300, v)
-            SetBlipSprite(blips, 1838354131, 1)
-            SetBlipScale(blips, 1.0)
-            Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Fournisseur")
-        end
+        -- for k,v in pairs(Config.ImportPoint) do
+        --     local blips = N_0x554d9d53f696d002(1664425300, v)
+        --     SetBlipSprite(blips, 1838354131, 1)
+        --     SetBlipScale(blips, 1.0)
+        --     Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Fournisseur")
+        -- end
         while true do
-            if getjob then
-                Wait(2)
-                local playerPos = GetEntityCoords(PlayerPedId())
-                for k, v in ipairs(Config.Atelier) do
-                    if #(playerPos - v) < 10.0 then
-                        Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                    end
-                    if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
-                        craftprompt:setActiveThisFrame(true)
-                        if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                            TriggerEvent("store:OpenBossMenu")
-                        end
+            Wait(2)
+            local playerPos = GetEntityCoords(PlayerPedId())
+            for k, v in ipairs(Config.Atelier) do
+                if #(playerPos - v) < 10.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                end
+                if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                    craftprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        TriggerEvent("store:OpenBossMenu")
                     end
                 end
-                for k, v in ipairs(Config.ImportPoint) do
-                    if #(playerPos - v) < 10.0 then
-                        Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                    end
-                    if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
-                        craftprompt:setActiveThisFrame(true)
-                        if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                            TriggerEvent("store:OpenBossMenu")
-                        end
+            end
+            for k, v in ipairs(Config.ImportPoint) do
+                if #(playerPos - v) < 10.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                end
+                if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                    craftprompt:setActiveThisFrame(true)
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        TriggerEvent("store:OpenImportMenu")
                     end
                 end
             end
