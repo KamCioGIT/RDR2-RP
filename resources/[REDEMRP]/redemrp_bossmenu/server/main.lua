@@ -22,10 +22,11 @@ function DoPay()
         if Duty[id] then
             local user = RedEM.GetPlayer(id)
             if user then
-                local job, grade = user.getJob(), user.getJobgrade()
+                local job, grade = user.getJob(), tonumber(user.getJobgrade())
                 if Config.Jobs[job] then
                     if Config.Jobs[job].Grades[grade] then
                         if Config.Jobs[job].Grades[grade].Pay then
+                            print(Config.Jobs[job].Grades[grade].Pay)
                             local pay = Config.Jobs[job].Grades[grade].Pay
                             TriggerClientEvent("RedEM:client:PlaySound", id, 1)
                             user.AddBankMoney(pay)
