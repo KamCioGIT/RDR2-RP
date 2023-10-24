@@ -10,12 +10,12 @@ local isFarmer = false
 --- Définir si le joueur est fermier 
 RegisterNetEvent("dust_job:fermier")
 AddEventHandler("dust_job:fermier", function(job, grade)
+    print(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
             isFarmer = true
             startMission()
             cattle()
-            print (grade)
             if grade >= 2 then
                 contremaitre()
             end
