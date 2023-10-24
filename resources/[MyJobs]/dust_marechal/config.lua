@@ -113,3 +113,5 @@ Config.Import = {
     ["horsehaycube"] = {label= "Cube de foin", price = 0.3},
     ["horsereviver"] = {label= "Remontant pour cheval", price = 1},
 }
+
+Config.DistanceToInteract = 1.5
