@@ -33,7 +33,7 @@ Config.CraftingsReceipe = {
         Itemtocraft = 4,
         ItemReceipe1Name = 'Corn',
         ItemReceipe1Amount = 1,
-        ItemReceipe2Name = 'Patate',
+        ItemReceipe2Name = 'patate',
         ItemReceipe2Amount = 1,
         ItemReceipe3Name = 'Saugeducolibri',
         ItemReceipe3Amount = 1,
@@ -43,14 +43,14 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Soupe de légume',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/corn.png', text = "Maïs",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du Colibri",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/corn.png', text = "Maïs",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du Colibri",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['Ragoutgibier'] = {
         type = 'epicerie',
         Itemtocraft = 3,
         ItemReceipe1Name = 'viandegibier',
         ItemReceipe1Amount = 1,
-        ItemReceipe2Name = 'Patate',
+        ItemReceipe2Name = 'patate',
         ItemReceipe2Amount = 1,
         ItemReceipe3Name = 'charbon',
         ItemReceipe3Amount = 1,
@@ -58,14 +58,14 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison.png', text = "Venaison",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison.png', text = "Venaison",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['Ragoutviande'] = {
         type = 'epicerie',
         Itemtocraft = 3,
         ItemReceipe1Name = 'viande',
         ItemReceipe1Amount = 1,
-        ItemReceipe2Name = 'Patate',
+        ItemReceipe2Name = 'patate',
         ItemReceipe2Amount = 1,
         ItemReceipe3Name = 'charbon',
         ItemReceipe3Amount = 1,
@@ -73,14 +73,14 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande Crue",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande Crue",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['Ragoutvolaille'] = {
         type = 'epicerie',
         Itemtocraft = 3,
         ItemReceipe1Name = 'viandevolaille',
         ItemReceipe1Amount = 1,
-        ItemReceipe2Name = 'Patate',
+        ItemReceipe2Name = 'patate',
         ItemReceipe2Amount = 1,
         ItemReceipe3Name = 'charbon',
         ItemReceipe3Amount = 1,
@@ -88,7 +88,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird.png', text = "Volaille",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird.png', text = "Volaille",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['tourtegibier'] = {
         type = 'epicerie',
