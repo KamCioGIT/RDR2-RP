@@ -72,7 +72,7 @@ MedicineItems = {
         animation = "injection_player",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
-        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
+        allowedJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC' }
     },
     ['antidote'] = {
         healProbability = {
@@ -98,7 +98,7 @@ MedicineItems = {
         animation = "injection_player",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
-        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
+        allowedJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC' }
     },
     ['antidysentrie'] = {
         healProbability = {
@@ -297,7 +297,7 @@ MedicineItems = {
         animationDict = "mech_animal_interaction@horse@right@injection",
         animation = "injection_player",
         -- the next damage type, used for the bandaged state
-        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
+        allowedJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC' }
         
     },
     ['remedeantidouleur'] = {
@@ -320,7 +320,7 @@ MedicineItems = {
         animationDict = "mech_animal_interaction@horse@right@injection",
         animation = "injection_player",
         -- the next damage type, used for the bandaged state
-        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
+        allowedJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC' }
     },
     ['bandagepatate'] = {
         healProbability = {
@@ -347,7 +347,7 @@ MedicineItems = {
         scenario = 'WORLD_HUMAN_CROUCH_INSPECT',
         -- the next damage type, used for the bandaged state
         damageType = 'bandaged',
-        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
+        allowedJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC' }
     },
     ['bandagecharbon'] = {
         healProbability = {
@@ -374,7 +374,7 @@ MedicineItems = {
         scenario = 'WORLD_HUMAN_CROUCH_INSPECT',
         -- the next damage type, used for the bandaged state
         damageType = 'bandaged',
-        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
+        allowedJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC' }
     },
     ['attelle'] = {
         healProbability = {
@@ -422,6 +422,6 @@ ReviveItems = {
             applying = "Injection de la seringue...",
         },
         -- allowed jobs to use it, if you want it to be usable for anyone just leave it empty
-        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla' }
+        allowedJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC' }
     }
 }
