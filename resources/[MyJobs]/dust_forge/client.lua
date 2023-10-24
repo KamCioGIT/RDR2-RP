@@ -22,13 +22,9 @@ AddEventHandler("dust_job:forge", function(job, grade)
     for k, v in pairs(Config.Jobs) do
 
         if job == v then
-            print 'yesss'
             getjob = true
             getgrade = grade
             StartMission()
-        else
-            getjob = false
-            getgrade = 0
         end
     end
 end)

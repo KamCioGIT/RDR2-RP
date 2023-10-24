@@ -633,11 +633,11 @@ function buyhorse(stable)
         local elements = {}
         if stable == 'Stdenis_start' or stable == 'Startbla' then
             for k, v in pairs(Config.NoobHorses) do
-                table.insert(elements, {label = v.name, value = v.model, desc = "Prix:  $"..v.price, price= v.price})
+                table.insert(elements, {label = v.name, value = v.model, desc = "Prix:  $"..v.price, price = v.price})
             end
         else
             for k, v in pairs(Config.BuyHorses) do
-                table.insert(elements, {label = v.name, value = v.model, desc = "Prix:  $"..v.price, price= v.price})
+                table.insert(elements, {label = v.name, value = v.model, desc = "Prix:  $"..v.price, price = v.price})
             end
         end
 

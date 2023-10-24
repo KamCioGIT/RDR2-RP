@@ -187,7 +187,7 @@ AddEventHandler(
 		local numBase1 = math.random(0, 9999)
 		local generetedUid = string.format("%03d%04d", numBase0, numBase1)
 		local currentMoney = user.money
-		local removeMoney = 0
+		local removeMoney = price
 		if currentMoney >= removeMoney then
 			user.removeMoney(removeMoney)
 			if type == "horse" then
