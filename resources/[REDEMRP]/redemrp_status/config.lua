@@ -206,7 +206,7 @@ Config.Items = {
             Eat()
         end
     },
-    ["volaillecuite"] = {
+    ["viandevolaillecuite"] = {
         hunger = 30,
         thirst = 0,
         action = function(source, name)
