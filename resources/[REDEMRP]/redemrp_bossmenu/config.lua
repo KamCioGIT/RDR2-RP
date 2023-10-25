@@ -370,7 +370,7 @@ Config.Jobs = {
     ["sheriff_rhodes"] = {
         bigjob = "sheriff",
         Name = "Shériff",
-        blisprite = 778811758,
+        blisprite = -693644997,
         MenuLocations = 
             vector3(1361.258, -1306.085, 76.7606)
         ,
@@ -396,7 +396,7 @@ Config.Jobs = {
     ["sheriff_bla"] = {
         bigjob = "sheriff",
         Name = "Shériff",
-        blisprite = 778811758,
+        blisprite = -693644997,
         MenuLocations = 
             vector3(-768.0265, -1266.601, 43.05392)
         ,

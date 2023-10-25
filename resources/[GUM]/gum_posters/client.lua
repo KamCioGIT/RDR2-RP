@@ -252,7 +252,7 @@ Citizen.CreateThread(function()
 	for k,v in pairs(Config.Posters) do
 		if v.blip then
 			local blips = N_0x554d9d53f696d002(1664425300, v.coords[1], v.coords[2], v.coords[3])
-			SetBlipSprite(blips, 1735233562, 1)
+			SetBlipSprite(blips, -1636832113, 1)
 			SetBlipScale(blips, 1.0)
 			Citizen.InvokeNative(0x9CB1A1623062F402, blips, ""..v.name.."")
 		end
