@@ -1106,7 +1106,7 @@ Config.Items = {
     },
     ----- DOCTORS ---- 
     ["syringe"] = {
-        label = "Seringue",
+        label = "Seringue de digitaline",
         description = "De quoi remettre quelqu'un d'aplomb",
         weight = 0.1,
         canBeDropped = true,

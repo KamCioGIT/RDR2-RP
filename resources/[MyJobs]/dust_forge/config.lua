@@ -254,8 +254,19 @@ Config.CraftingsReceipe = {
         label = "Fer à cheval",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
     },
-    
-    
+    ['WEAPON_LASSO'] = {
+        type = 'forgeetabli',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'cuir',
+        ItemReceipe1Amount = 40,
+        ItemReceipe2Name = 'graisse',
+        ItemReceipe2Amount = 5,
+        ItemToGive = 'fercheval',
+        Amount = 1,
+        WorkingTime = 10,
+        label = "Lasso",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x3"}}
+    },
     
     
     
