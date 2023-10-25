@@ -1635,6 +1635,7 @@ AddEventHandler('rdr_clothes_store:clotheitem', function(ClothesComponents)
         if next(ClothesComponents) == nil then
             return
         end
+        print 'yyy'
         ClothesCache = ClothesComponents
         for k, v in pairs(ClothesComponents) do
             if v ~= nil then
