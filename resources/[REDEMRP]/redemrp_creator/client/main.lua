@@ -211,8 +211,8 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
             _Target = PlayerPedId()
             LoadedComponents = _SkinData
         end
-        -- SetEntityHealth(_Target, health) -- Set health back to what it was
-        -- Citizen.InvokeNative( 0xC6258F41D86676E0, _Target, 0, healthCore) -- Set Health Core back to what it was
+        SetEntityHealth(_Target, health) -- Set health back to what it was
+        Citizen.InvokeNative( 0xC6258F41D86676E0, _Target, 0, healthCore) -- Set Health Core back to what it was
         print("Loading...")
         -- print(_Target, PlayerPedId())
         FixIssues(_Target, _SkinData)
