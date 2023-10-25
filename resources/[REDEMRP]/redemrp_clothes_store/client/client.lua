@@ -1630,9 +1630,11 @@ AddEventHandler('rdr_clothes_store:clotheitem', function(ClothesComponents)
         local _Target = PlayerPedId()
         local LoadingCheck = false
         if type(ClothesComponents) ~= "table" then
+            print 'rrr'
             return
         end
         if next(ClothesComponents) == nil then
+            print 'ttt'
             return
         end
         print 'yyy'
