@@ -82,7 +82,7 @@ Citizen.CreateThread(function()
                 local Position = GetEntityCoords(playerPed)
                 while true do
                     Citizen.Wait(Config.WorkingTime)
-                    if #(Position - GetEntityCoords(PlayerPedId())) < 1.0 then
+                    if #(Position - GetEntityCoords(PlayerPedId())) < 1.0  and not SearchingForGold then
                         TriggerServerEvent('dust-or:server:ramp')
                     else
                         isInteracting = false
@@ -204,7 +204,6 @@ end)
 ---------------- RAMP ------------------
 RegisterNetEvent('goldramp')
 AddEventHandler('goldramp', function()
-    print (spawnramp)
     if spawnramp == false then
         if goldramp ~= 0 then
             SetEntityAsMissionEntity(goldramp)
