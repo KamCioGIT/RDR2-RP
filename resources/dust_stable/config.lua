@@ -150,7 +150,7 @@ Startstdenis = {
 	stable= 'Stdenis_start',
 },
 Startbla = {
-	pos = vector3(-867.3267, -1379.291, 43.65512),
+	pos = vector3(-879.2835, -1376.261, 43.71529),
 	name = 'Achat',
 	stable= 'Startbla',
 },
