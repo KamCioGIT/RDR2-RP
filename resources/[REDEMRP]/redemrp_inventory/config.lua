@@ -3104,6 +3104,29 @@ Config.Items = {
     imgsrc = "items/consumable_herb_parasol_mushroom.png",
     type = "item_standard",
 },
+---- saloon 
+["gin"] = {
+    label = "Gin",
+    description = "",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/consumable_gin.png",
+    type = "item_standard",
+},
+["mezcal"] = {
+    label = "Mezcal",
+    description = "",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/consumable_potent_tonic.png",
+    type = "item_standard",
+},
 
 --- portes
 ["lockpick"] = {

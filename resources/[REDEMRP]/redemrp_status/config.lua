@@ -33,6 +33,26 @@ Config.Items = {
             ChewingTobacco(false)
         end
     },
+    ["gin"] = {
+        hunger = 0,
+        thirst = 50,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Gin()
+        end
+    },
+    ["mezcal"] = {
+        hunger = 0,
+        thirst = 50,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Rum()
+        end
+    },
     ["wine"] = {
         hunger = 0,
         thirst = 15,
