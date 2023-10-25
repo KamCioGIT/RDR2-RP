@@ -23,10 +23,6 @@ Config.Stables = {
 		pos = vector3(2557.551, -789.9655, 42.35028),
 		name = 'cinematic',
     },
-	Blackwater = {
-		pos = vector3(-885.1912, -1362.12, 43.49583),
-		name = 'Blackwater',
-    },
 	Strawberry = {
 		pos = vector3(-1781.097, -439.7949, 155.1324),
 		name = 'Strawberry',
@@ -112,7 +108,7 @@ Config.Stables = {
 		name = 'Stdenis_start',
     },
 	Startbla = {
-		pos = vector3(-873.7465, -1382.578, 43.5629),
+		pos = vector3(-885.1912, -1362.12, 43.49583),
 		name = 'Startbla',
     },
 }
