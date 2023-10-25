@@ -3024,6 +3024,17 @@ Config.Items = {
     imgsrc = "items/consumable_meat_stringy_cooked.png",
     type = "item_standard",
 },
+["viandevolaillecuite"] = {
+    label = "Volaille cuite",
+    description = "Elle aurait du savoir voler",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/consumable_meat_plump_bird_cooked.png",
+    type = "item_standard",
+},
 ["herbesaromatiques"] = {
     label = "Herbes aromatiques",
     description = "Des odeurs qui apaisent l'âme",

@@ -65,6 +65,17 @@ Config.CraftingsReceipe = {
         label = 'Venaison cuit',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison', text = "Venaison",count = "x1"}
     },
+    ['viandevolaillecuite'] = {
+        type = 'fire',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'viandevolaille',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'viandevolaillecuite',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Volaille cuit',
+        descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird', text = "Volaille",count = "x1"}
+    },
     ['viandereptilecuite'] = {
         type = 'fire',
         Itemtocraft = 1,
