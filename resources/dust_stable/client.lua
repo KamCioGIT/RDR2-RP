@@ -83,7 +83,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 4.5 and IsPedOnMount(PlayerPedId()) then
                 -- storeprompt:setActiveThisFrame(true)
-                DrawTxt("Appuyez sur G", 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
+                DrawTxt("Appuyez sur G", 0.50, 0.90, 0.40, 0.40, true, 255, 255, 255, 255, true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
