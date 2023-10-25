@@ -116,7 +116,7 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_MILKWEED_DEF"] =  { 
-        blipSprite = 1364029453,
+        blipSprite = 0,
         blipName = "asclepiade",
         coords = {
             {2033.632, -1022.402, 43.35403, 15.0},
