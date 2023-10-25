@@ -72,7 +72,7 @@ end)
 
 
 -- local storeprompt = UipromptGroup:new("Écurie")
--- Uiprompt:new(0x760A9C6F, "Mettre à l'écurie", storeprompt)
+-- Uiprompt:new(0xC7B5340A, "Mettre à l'écurie", storeprompt)
 -- storeprompt:setActive(false)
 
 
@@ -83,8 +83,8 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 4.5 and IsPedOnMount(PlayerPedId()) then
                 -- storeprompt:setActiveThisFrame(true)
-                DrawTxt("Appuyez sur G", 0.50, 0.90, 0.40, 0.40, true, 255, 255, 255, 255, true)
-                if IsControlJustReleased(0, 0x760A9C6F) then
+                DrawTxt("Appuyez sur Entrée", 0.50, 0.90, 0.40, 0.40, true, 255, 255, 255, 255, true)
+                if IsControlJustReleased(0, 0xC7B5340A) then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
                     local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, horse, 0)
@@ -95,8 +95,8 @@ Citizen.CreateThread(function()
             end
             if #(playerpos - v.pos ) < 4.5 and IsPedInAnyVehicle(PlayerPedId(), 0) then
                 -- storeprompt:setActiveThisFrame(true)
-                TriggerEvent('redem_roleplay:Tip', "Appuyez sur G", 1)
-                if IsControlJustReleased(0, 0x760A9C6F) then
+                DrawTxt("Appuyez sur Entrée", 0.50, 0.90, 0.40, 0.40, true, 255, 255, 255, 255, true)
+                if IsControlJustReleased(0, 0xC7B5340A) then
                     local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
                     local cartid = Entity(cart).state.horseid
                     local type = "cart"
