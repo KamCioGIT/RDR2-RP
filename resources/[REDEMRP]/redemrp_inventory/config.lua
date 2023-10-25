@@ -3013,6 +3013,17 @@ Config.Items = {
     imgsrc = "items/consumable_meat_mature_venison_cooked.png",
     type = "item_standard",
 },
+["viandereptilecuite"] = {
+    label = "Viande de reptile cuite",
+    description = "Pour les aventuriers",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/consumable_meat_stringy_cooked.png",
+    type = "item_standard",
+},
 ["herbesaromatiques"] = {
     label = "Herbes aromatiques",
     description = "Des odeurs qui apaisent l'âme",

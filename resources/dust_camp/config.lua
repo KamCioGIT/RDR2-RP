@@ -65,6 +65,17 @@ Config.CraftingsReceipe = {
         label = 'Venaison cuit',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison', text = "Venaison",count = "x1"}
     },
+    ['viandereptilecuite'] = {
+        type = 'fire',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'viandereptile',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'viandereptilecuite',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Viande de reptile cuite',
+        descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_stringy', text = "Viande de reptile",count = "x1"}
+    },
 
     ['gibierherbe'] = {
         type = 'grill',
