@@ -75,7 +75,7 @@ RedEM.RegisterCallback('qbr-banking:getBusinessInformation', function(source, cb
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
-    if (xPlayer) and xPlayer.jobgrade >= 3 then
+    if (xPlayer) and tonumber(xPlayer.jobgrade) >= 3 then
         MySQL.query('SELECT * FROM bank_accounts WHERE job = ? AND account_type = ?', { xPlayer.job, 'Business' }, function(result)
             if #result ~= 0 then
                 local accountid = result[1].accountid
@@ -116,7 +116,7 @@ AddEventHandler('qbr-banking:createSavingsAccount', function()
     elseif info == "business" then
         local job = xPlayer.job
         local jobgrade = xPlayer.jobgrade
-        if jobgrade >= 3 then
+        if tonumber(jobgrade) >= 3 then
             local success = createbusinessAccount(job)
             repeat Wait(0) until success ~= nil
             TriggerClientEvent('qbr-banking:openBankScreen', src, 'business')
@@ -185,7 +185,7 @@ AddEventHandler('qbr-banking:createBusinessAccount', function()
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
     local job = xPlayer.job
-    local jobgrade = xPlayer.jobgrade
+    local jobgrade = tonumber(xPlayer.jobgrade)
     if jobgrade >= 3 then
         local success = createbusinessAccount(job)
         repeat Wait(0) until success ~= nil

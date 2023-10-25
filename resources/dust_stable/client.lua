@@ -138,7 +138,7 @@ function OpenStable(menutype, stable)
 
         if _menutype == 'Ouvrir' then
             for k, v in pairs(horselist) do
-                if v.stable == stable then
+                if tostring(v.stable) == tostring(stable) then
                     table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
                 end
             end
