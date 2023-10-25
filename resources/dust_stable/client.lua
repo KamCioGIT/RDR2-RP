@@ -83,7 +83,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 4.5 and IsPedOnMount(PlayerPedId()) then
                 -- storeprompt:setActiveThisFrame(true)
-                TriggerEvent('redem_roleplay:Tip', "Appuyez sur G", 1)
+                TriggerEvent('redem_roleplay:Tip', "Appuyez sur G", 0)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
@@ -95,7 +95,7 @@ Citizen.CreateThread(function()
             end
             if #(playerpos - v.pos ) < 4.5 and IsPedInAnyVehicle(PlayerPedId(), 0) then
                 -- storeprompt:setActiveThisFrame(true)
-                TriggerEvent('redem_roleplay:Tip', "Appuyez sur G", 1)
+                TriggerEvent('redem_roleplay:Tip', "Appuyez sur G", 0)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
                     local cartid = Entity(cart).state.horseid
