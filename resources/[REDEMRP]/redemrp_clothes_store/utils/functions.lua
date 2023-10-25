@@ -133,6 +133,7 @@ end
 
 function NativeUpdatePedVariation(ped)
     Citizen.InvokeNative(0x704C908E9C405136, ped)
+    Citizen.InvokeNative(0xAAB86462966168CE, ped, true) -- UNKNOWN "Fixes outfit"- always paired with _UPDATE_PED_VARIATION
     Citizen.InvokeNative(0xCC8CA3E88256E58F, ped, false, true, true, true, false)
     while not NativeHasPedComponentLoaded(ped) do
         Wait(1)
