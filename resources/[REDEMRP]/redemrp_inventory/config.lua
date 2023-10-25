@@ -96,6 +96,15 @@ Config.Items = {
         imgsrc = "items/weapon_revolver_navy.png",
         type = "item_weapon",
     },
+    ["WEAPON_REVOLVER_NAVY_CROSSOVER"] = {
+        label = "Colt 1851 Navy",
+        description = "L'arme favorite d'un vieux briscard",
+        weight = 10,
+        canBeDropped = true,
+                weaponHash = GetHashKey("WEAPON_REVOLVER_NAVY_CROSSOVER"),
+        imgsrc = "items/weapon_revolver_navy_crossover.png",
+        type = "item_weapon",
+    },
     ["WEAPON_PISTOL_VOLCANIC"] = {
         label = "Smith & Wesson 1855",
         description = "Une carabine de poche",
