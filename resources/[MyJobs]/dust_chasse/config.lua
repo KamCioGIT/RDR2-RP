@@ -21,7 +21,7 @@ Config.Relais =
     vector3(-1982.628, -1619.964, 118.0835), -- Manzanita
 }
 
-Config.Craftcuir = {vector3(-1970.758, -1641.776, 117.1183), vector3(-92.08035, 1552.082, 115.7228)}
+Config.Craftcuir = {vector3(-1970.758, -1641.776, 117.1183), vector3(-92.08035, 1552.082, 115.7228), vector3(-1972.92, -1634.835, 117.2469)}
 
 -- Config.Craftviande = vector3(-1986.814, -1642.825, 117.1306)
 
