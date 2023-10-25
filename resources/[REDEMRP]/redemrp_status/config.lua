@@ -206,6 +206,26 @@ Config.Items = {
             Eat()
         end
     },
+    ["viandevolaillecuite"] = {
+        hunger = 30,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Eat()
+        end
+    },
+    ["viandereptilecuite"] = {
+        hunger = 30,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Eat()
+        end
+    },
     ["gibierherbe"] = {
         hunger = 50,
         thirst = 0,
