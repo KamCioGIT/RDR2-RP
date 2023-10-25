@@ -115,7 +115,7 @@ function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
 	Citizen.InvokeNative(0xADA9255D, 25); -- Font
     DisplayText(str, x, y)
 
-    local factor = (string.len(tostring(str))) / 200
+    local factor = (string.len(tostring(str))) / 180
     DrawTexture("honor_display", "honor_bg", x, y + 0.018, 0.035 + factor, 0.04, 0.1, 0, 0, 0, 100, 0)
 end
 
