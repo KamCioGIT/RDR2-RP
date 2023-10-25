@@ -65,7 +65,28 @@ Config.CraftingsReceipe = {
         label = 'Venaison cuit',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison', text = "Venaison",count = "x1"}
     },
-
+    ['viandevolaillecuite'] = {
+        type = 'fire',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'viandevolaille',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'viandevolaillecuite',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Volaille cuit',
+        descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird', text = "Volaille",count = "x1"}
+    },
+    ['viandereptilecuite'] = {
+        type = 'fire',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'viandereptile',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'viandereptilecuite',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Viande de reptile cuite',
+        descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_stringy', text = "Viande de reptile",count = "x1"}
+    },
     ['gibierherbe'] = {
         type = 'grill',
         Itemtocraft = 2,
@@ -120,7 +141,7 @@ Config.CraftingsReceipe = {
         label = 'Attelle',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x2"},{src = 'nui://redemrp_inventory/html/items/stick.png', text = "Petit Bois",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/bandage.png', text = "Bandage",count = "x1"}}
     },
-        ['bandage'] = {
+    ['bandage'] = {
         type = 'fire',
         Itemtocraft = 1,
         ItemReceipe1Name = 'fil',
