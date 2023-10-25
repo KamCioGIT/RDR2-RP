@@ -1081,7 +1081,7 @@ Config.Animals = {
     [GetHashKey("mp_a_c_alligator_01")] =   {
         randomized = false,
         items = {
-            {"viandeanimalsangfroid", 3, "Kvalitní maso"},
+            {"viandereptile", 3, "Kvalitní maso"},
             {"peauecailles", 1, "Velká Kůže"},
 			{"crocdecroco", 1, "Zvířecí Zub"},
             {"graisseanimal", 2, "Zvířecí Zub"},
