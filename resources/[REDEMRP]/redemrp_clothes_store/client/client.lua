@@ -1622,3 +1622,88 @@ RegisterNetEvent("redemrp_clothes_store:putMask", function(model, texture)
         Maskon = true
     end
 end)
+
+
+RegisterNetEvent('rdr_clothes_store:clotheitem')
+AddEventHandler('rdr_clothes_store:clotheitem', function(ClothesComponents)
+    Citizen.CreateThread(function()
+        local _Target = PlayerPedId()
+        local LoadingCheck = false
+        if type(ClothesComponents) ~= "table" then
+            return
+        end
+        if next(ClothesComponents) == nil then
+            return
+        end
+        ClothesCache = ClothesComponents
+        for k, v in pairs(ClothesComponents) do
+            if v ~= nil then
+                local id = tonumber(v.model)
+                if id >= 1 then
+                    if IsPedMale(_Target) then
+                        if clothes_list["male"][k] ~= nil then
+                            if clothes_list["male"][k][tonumber(v.model)] ~= nil then
+                                if clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
+                                    if clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)]["is_multiplayer"] == true then
+                                        NativeSetPedComponentEnabled(_Target, tonumber(
+                                            clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].hash), false,
+                                            true, true)
+                                    elseif clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)]["is_multiplayer"] == false then
+                                        local drawable = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].drawable
+                                        local albedo = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].albedo
+                                        local normal = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].normal
+                                        local material = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].material
+                                        local palette = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].palette
+                                        local tint0 = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].tint0
+                                        local tint1 = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].tint1
+                                        local tint2 = clothes_list["male"][k][tonumber(v.model)][tonumber(v.texture)].tint2
+                                        UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                                    end
+                                end
+                            end
+                        end
+                    else
+                        if clothes_list["female"][k] ~= nil then
+                            if clothes_list["female"][k][tonumber(v.model)] ~= nil then
+                                if clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)] ~= nil then
+                                    if clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)]["is_multiplayer"] == true then
+                                    NativeSetPedComponentEnabled(_Target, tonumber(
+                                        clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].hash), false,
+                                        true, true)
+                                    elseif clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)]["is_multiplayer"] == false then
+                                        local drawable = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].drawable
+                                        local albedo = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].albedo
+                                        local normal = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].normal
+                                        local material = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].material
+                                        local palette = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].palette
+                                        local tint0 = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].tint0
+                                        local tint1 = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].tint1
+                                        local tint2 = clothes_list["female"][k][tonumber(v.model)][tonumber(v.texture)].tint2
+                                        UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                                    end
+                                end
+                            end
+
+                        end
+                    end
+                else
+                    if category == "cloaks" then
+                        local category = GetHashKey("ponchos")
+                        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), category, 0)
+                        NativeUpdatePedVariation(PlayerPedId())
+            
+                    elseif category == "pants" or category == "boots" then
+                        NativeSetPedComponentEnabled(PlayerPedId(), exports.redemrp_creator:GetBodyCurrentComponentHash("BODIES_LOWER"),
+                            false, true, true)
+                    elseif category == "shirts_full" then
+                        NativeSetPedComponentEnabled(PlayerPedId(), exports.redemrp_creator:GetBodyCurrentComponentHash("BODIES_UPPER"),
+                            false, true, true)
+                    else
+                        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
+                        NativeUpdatePedVariation(PlayerPedId())
+                    end
+                end
+            end
+        end
+    end)
+end)

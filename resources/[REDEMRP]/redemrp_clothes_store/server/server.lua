@@ -114,7 +114,7 @@ AddEventHandler("RegisterUsableItem:clothes", function(source, _data)
                 charid = charid
             }, function(done)
             end)
-            TriggerClientEvent("rdr_clothes_store:ApplyClothes", _source, call)
+            TriggerClientEvent("rdr_clothes_store:clotheitem", _source, call)
         end
     end)
 end)
