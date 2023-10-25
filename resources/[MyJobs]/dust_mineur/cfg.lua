@@ -47,8 +47,6 @@ Config.RessourcesPoints =
 
 
 
-
-
 }
 
 Config.p1 = { x = 2754.291, y = 1358.377, z = 68.368 }
@@ -59,9 +57,9 @@ Config.p5 = { x = 2767.958, y = 1382.240, z = 67.929 }
 
 Config.Loottable = {
     ["charbon"] = {amount = 1, chance = 25},
-    ["ferbrut"] = {amount = 1, chance = 25},
-    ["cuivrebrut"] = {amount = 1, chance = 20},
-    ["zincbrut"] = {amount = 1, chance = 15},
-    ["plombbrut"] = {amount = 1, chance = 15},
+    ["ferbrut"] = {amount = 2, chance = 25},
+    ["cuivrebrut"] = {amount = 2, chance = 20},
+    ["zincbrut"] = {amount = 2, chance = 15},
+    ["plombbrut"] = {amount = 2, chance = 15},
 
 }
