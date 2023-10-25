@@ -1022,6 +1022,7 @@ Config.Cart = {
 		model = "gatchuck",
 		name = "Charrette",
 		desc = "Une Charrette",
+        price = 50,
     },
 	cart01= {
 		model = "chuckwagon000x",
