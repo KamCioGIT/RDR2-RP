@@ -464,6 +464,7 @@ Config.Animals = {
         items = {
             {"viandepetitmamifere", 1, "Maso"},
             {"graisse", 1, "Zvířecí Zub"},
+            }
         }
     },    
     [GetHashKey("a_c_badger_01")] =   {
@@ -520,7 +521,6 @@ Config.Animals = {
             {"viandegibier", 2, "Kvalitní maso"},
 			{"graisse", 3, "Zvířecí Lůj"},
             {"defense", 2, "Zvířecí Lůj"},
-        }
         }
     },    
     [GetHashKey("a_c_buck_01")] =   {
