@@ -23,7 +23,7 @@ end)
 RegisterNetEvent("dust_rumors:server:askRumor")
 AddEventHandler("dust_rumors:server:askRumor", function()
     local _source = source
-    local rumorsTable = {}
+    rumorsTable = {}
     MySQL.query('SELECT * FROM rumors;', {}, function(result)
         if #result ~= 0 then
             for i = 1, #result do
@@ -41,6 +41,7 @@ AddEventHandler("dust_rumors:server:askRumor", function()
                 end
 			end
             TriggerClientEvent("dust_rumors:client:getRumor", _source, rumorsTable)
+            rumorsTable = {}
         end
     end)
 end)

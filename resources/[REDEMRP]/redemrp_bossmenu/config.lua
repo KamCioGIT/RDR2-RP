@@ -234,9 +234,9 @@ Config.Jobs = {
 
 ----- ----- ----- -----
 
-    ["saloon_vh"] = {
+    ["saloon_kala"] = {
         bigjob = "saloon",
-        Name = "Saloon de Van Horn",
+        Name = "Saloon La Dernière Chance",
         blisprite = 1879260108,
         MenuLocations = 
         vector3(2950.342, 529.1586, 44.33422)

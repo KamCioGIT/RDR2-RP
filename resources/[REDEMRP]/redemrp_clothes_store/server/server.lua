@@ -115,7 +115,6 @@ AddEventHandler("RegisterUsableItem:clothes", function(source, _data)
             }, function(done)
             end)
             TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
-            TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
         end
     end)
 end)

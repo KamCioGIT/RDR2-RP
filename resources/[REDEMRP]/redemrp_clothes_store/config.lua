@@ -22,9 +22,9 @@ Config.Zones = {
 Config.Cloakroom = {
 	-- vector3(-171.7564, 638.16632, 114.08965), -- VALENTINE
 	-- vector3(-1816.561, -367.8912, 163.29634), -- STRAWBERRY
-	vector3(-767.4958, -1291.484, 43.83496), -- BLACKWATER
+	-- vector3(-767.4958, -1291.484, 43.83496), -- BLACKWATER
 	-- vector3(1216.392, -1256.645, 75.06288), -- RHODES
-	vector3(2556.49,-1160.14,53.74), -- SAINT DENIS
+	-- vector3(2556.49,-1160.14,53.74), -- SAINT DENIS
 	-- vector3(-3727.226, -2610.616, -12.93387), -- Armadillo
 	-- vector3(-5508.13, -2913.663, -1.751304), -- Tumbleweed
 	-- vector3(2002.7088, -5505.448, 44.389133), -- Guarma Wedding 1
