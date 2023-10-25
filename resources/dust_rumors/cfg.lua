@@ -8,6 +8,6 @@ Config.ShareRumorSpot = {
     vector3(2931.716, 1302.213, 46.10941), -- ANNESBOURG
 }
 
-Config.RumorPrice = 0.5
+Config.RumorPrice = 0.1
 Config.Rumorstime = 5 -- en minutes
 Config.RefreshRumors = 10000 -- en ms
