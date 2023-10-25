@@ -147,10 +147,10 @@ Config.FarmingJobCoords = {
 	fermier = {
 		blipSprite = 0,
 		coords = {
-			vector3(-1660.178, -1436.658, 83.94161),
-			vector3(-1716.152, -1433.721, 87.38195),
-			vector3(-1708.247, -1476.26, 85.43214),
-			vector3(-1660.794, -1492.396, 83.56689),
+			vector3(-1716.464, -1488.954, 85.0299),
+			vector3(-1541.294, -1503.789, 89.633),
+			vector3(-1527.488, -1220.359, 75.76779),
+			vector3(-1765.553, -1289.839, 91.92556),
 		},
 		count = 100,
 		protect = true,
@@ -786,7 +786,7 @@ Config.FarmHerbs = {
 		herbToSeed = 3,
 		multipleEvent = "gum_farming:useSeed",--argument is herbSeed, herbName, herbCount
 		herbName = "Brambora",
-		herbItem = "Potato",
+		herbItem = "patate",
 		potStageProps = {--Stage is calculated automaticaly from grow time
 			[1] = {"p_potato01x", 301},
 			[2] = {"p_potato01x", 250},
@@ -801,10 +801,10 @@ Config.FarmHerbs = {
 		fertilizer = {1, 2},--Empty is disabled,
 		quality = 100,--Disabled quality system is 0 
 		rewardItem = {--If you have disabled quality set [XX] to [0]
-			[80] = {"Potato", 5},--Upper 80% to 100
-			[50] = {"Potato", 3},--Upper 50% to 80
-			[25] = {"Potato", 2},--Upper 0% to 50
-			[0] = {"Potato", 1},--Upper 0% to 25
+			[80] = {"patate", 5},--Upper 80% to 100
+			[50] = {"patate", 3},--Upper 50% to 80
+			[25] = {"patate", 2},--Upper 0% to 50
+			[0] = {"patate", 1},--Upper 0% to 25
 		},
 		grounded = 0.0,--downgrade under ground
 	},

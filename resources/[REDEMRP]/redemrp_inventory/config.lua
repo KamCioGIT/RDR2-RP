@@ -1196,6 +1196,17 @@ Config.Items = {
         imgsrc = "items/cornseed.png",
         type = "item_standard",
     },
+    ["Potato_Seed"] = {
+        label = "Patate germée",
+        description = "Une petite patate",
+        weight = 0.1,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/potato.png",
+        type = "item_standard",
+    },
     ["Corn"] = {
         label = "Maïs",
         description = "Du bon Maïs",

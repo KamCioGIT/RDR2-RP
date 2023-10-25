@@ -35,12 +35,22 @@ local depprompt = UipromptGroup:new("Blé")
 Uiprompt:new(0x760A9C6F, "Déposer", depprompt)
 depprompt:setActive(false)
 
+local importprompt = UipromptGroup:new("Fournisseur")
+Uiprompt:new(0x760A9C6F, "Acheter", importprompt)
+importprompt:setActive(false)
+
 RegisterNetEvent("dust_ferme:startMission", function()
     RequestModel(GetHashKey("crp_wheat_dry_aa_sim"))
     if HasModelLoaded(GetHashKey("crp_wheat_dry_aa_sim")) then
         Wait(10)
     end
     GetRandomRessourcePoint()
+    for k,v in pairs(Config.ImportPoint) do
+        local blips = N_0x554d9d53f696d002(1664425300, v)
+        SetBlipSprite(blips, 1838354131, 1)
+        SetBlipScale(blips, 1.0)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Fournisseur")
+    end
     Citizen.CreateThread(function() --- MINERAI
         while true do
             if isFarmer then
@@ -70,6 +80,17 @@ RegisterNetEvent("dust_ferme:startMission", function()
                             TriggerServerEvent('fermier:depStash')
                         end
                     else end
+                    for k, v in ipairs(Config.ImportPoint) do
+                        if #(playerPos - v) < 10.0 then
+                            Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                        end
+                        if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                            importprompt:setActiveThisFrame(true)
+                            if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                                TriggerEvent("fermier:OpenImportMenu")
+                            end
+                        end
+                    end
                 end
 
                 if #(playerPos - Config.Atelier) < 10.0 then
@@ -850,4 +871,47 @@ end)
 
 RegisterNetEvent("ferme:client:SetMaxAmount", function(value)
     maxCraftAmountstore = value
+end)
+
+RegisterNetEvent("fermier:OpenImportMenu", function()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        local elements = {}
+
+
+        for k, v in pairs(Config.Import) do
+            table.insert(elements, {label = v.label.." $"..v.price, value = k, price = v.price})
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Marché",
+            subtext = "Acheter",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            TriggerServerEvent("fermier:buy", data.current.value, data.current.price)
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
 end)

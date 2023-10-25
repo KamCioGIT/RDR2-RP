@@ -6,7 +6,6 @@ Config.Jobs = {
 
 Config.FarmerDepositPos = { vector3(-1605.754, -1374.691, 82.95718)} -- 
 Config.FarmerWithdrawalPos = { vector3(-1608.229, -1368.804, 82.98436)}
-Config.DistanceToInteract = 2.2
 
 Config.PointSprite = 2033377404
 
@@ -221,4 +220,15 @@ Config.CraftingsReceipe = {
 	
     
     
+}
+
+Config.ImportPoint = {
+    [1]= vector3(2572.136, -1501.026, 45.96986), --- st denis
+    [2]= vector3(-825.8802, -1241.919, 43.53639), -- bla
+}
+
+
+Config.Import = {
+    ["Corn_Seed"] = {label= "Graine de Maïs", price = 0.03},
+	["Potato_Seed"] = {label= "Graine de Maïs", price = 0.03},
 }
