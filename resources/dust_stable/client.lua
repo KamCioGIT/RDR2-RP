@@ -83,7 +83,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 4.5 and IsPedOnMount(PlayerPedId()) then
                 -- storeprompt:setActiveThisFrame(true)
-                TriggerEvent('redem_roleplay:Tip', "Appuyez sur G", 2)
+                DrawTxt("Appuyez sur G", 0.50, 0.90, 0.45, 0.45, true, 255, 255, 255, 255, true)
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     local horse = GetMount(PlayerPedId())
                     local horseid = Entity(horse).state.horseid
@@ -106,6 +106,28 @@ Citizen.CreateThread(function()
         end
     end
 end)
+function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
+    local str = CreateVarString(10, "LITERAL_STRING", str)
+    SetTextScale(w, h)
+    SetTextColor(math.floor(col1), math.floor(col2), math.floor(col3), math.floor(a))
+	SetTextCentre(centre)
+    if enableShadow then SetTextDropshadow(1, 0, 0, 0, 255) end
+	Citizen.InvokeNative(0xADA9255D, 1); -- Font
+    DisplayText(str, x, y)
+
+    local lineLength = string.len(str) / 100 * 0.70
+    DrawTexture("honor_display", "honor_bg", x, y + 0.018, lineLength, 0.04, 0.1, 0, 0, 0, 100, 0)
+end
+
+
+function DrawTexture(textureStreamed,textureName,x, y, width, height,rotation,r, g, b, a, p11)
+    if not HasStreamedTextureDictLoaded(textureStreamed) then
+       RequestStreamedTextureDict(textureStreamed, false);
+    else
+        DrawSprite(textureStreamed, textureName, x, y, width, height, rotation, r, g, b, a, p11);
+    end
+end
+
 ---- Refresh DB Stable ----
 
 local horselist = {}
