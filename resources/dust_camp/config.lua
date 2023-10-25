@@ -130,7 +130,7 @@ Config.CraftingsReceipe = {
         label = 'Attelle',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x2"},{src = 'nui://redemrp_inventory/html/items/stick.png', text = "Petit Bois",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/bandage.png', text = "Bandage",count = "x1"}}
     },
-        ['bandage'] = {
+    ['bandage'] = {
         type = 'fire',
         Itemtocraft = 1,
         ItemReceipe1Name = 'fil',
