@@ -82,3 +82,24 @@ Config.Bois = {
     [2] = vector3(1198.268, -125.9232, 100.224), --- emerald
 
 }
+
+
+Config.Price = {
+    [GetHashKey("Strawberry")] = {
+        ["moonshine"] = 0.5,
+        ["pavot"] = 0.3,
+    },
+    [GetHashKey("Rhodes")] = {
+        ["moonshine"] = 0.5,
+        ["pavot"] = 0.3,
+    },
+    [GetHashKey("StDenis")] = {
+        ["moonshine"] = 0.5,
+        ["pavot"] = 0.3,
+        ["cuir"] = 0.07,
+    },
+    [GetHashKey("Blackwater")] = {
+        ["moonshine"] = 0.5,
+        ["pavot"] = 0.3,
+    },
+}
