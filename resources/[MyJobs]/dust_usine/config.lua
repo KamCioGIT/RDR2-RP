@@ -977,7 +977,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Name = 'douille',
     ItemReceipe2Amount = 1,
     ItemToGive = 'ammo_revolver',
-    Amount = 1,
+    Amount = 10,
     WorkingTime = 5,
     label = 'Balles de Revolver',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
@@ -990,7 +990,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Name = 'douille',
     ItemReceipe2Amount = 1,
     ItemToGive = 'ammo_pistolet',
-    Amount = 1,
+    Amount = 10,
     WorkingTime = 5,
     label = 'Balles de Pistolet',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
@@ -1003,7 +1003,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Name = 'douille',
     ItemReceipe2Amount = 1,
     ItemToGive = 'ammo_repeater',
-    Amount = 1,
+    Amount = 10,
     WorkingTime = 5,
     label = 'Balles de Carabine',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
@@ -1016,7 +1016,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Name = 'douille',
     ItemReceipe2Amount = 1,
     ItemToGive = 'ammo_shotgun',
-    Amount = 1,
+    Amount = 10,
     WorkingTime = 5,
     label = 'Chevrotine',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
@@ -1029,7 +1029,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Name = 'douille',
     ItemReceipe2Amount = 1,
     ItemToGive = 'ammo_rifle',
-    Amount = 1,
+    Amount = 10,
     WorkingTime = 5,
     label = 'Balles de fusil',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
