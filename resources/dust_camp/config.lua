@@ -76,7 +76,6 @@ Config.CraftingsReceipe = {
         label = 'Viande de reptile cuite',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_stringy', text = "Viande de reptile",count = "x1"}
     },
-
     ['gibierherbe'] = {
         type = 'grill',
         Itemtocraft = 2,
