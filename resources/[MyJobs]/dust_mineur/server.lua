@@ -7,10 +7,10 @@ TriggerEvent("redemrp_inventory:getData",function(call)
 end)
 
 RegisterServerEvent('mineur:additem')
-AddEventHandler('mineur:additem', function(item) 
+AddEventHandler('mineur:additem', function(item, amount) 
 	local _source = source
 	local ItemData = data.getItem(_source, item)
-	ItemData.AddItem(1)
+	ItemData.AddItem(amount)
 end)
 
 

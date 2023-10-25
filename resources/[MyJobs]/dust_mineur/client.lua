@@ -150,18 +150,19 @@ function GivePlayerRessource()
     print (rand)
     if rand <= 25 then
         Wait(200)
-        TriggerServerEvent('mineur:additem', "charbon")
+        local amount = math.random(1,2)
+        TriggerServerEvent('mineur:additem', "charbon", amount)
     elseif rand > 25 and rand <= 50 then
         Wait(200)
-        TriggerServerEvent('mineur:additem', "ferbrut")
+        TriggerServerEvent('mineur:additem', "ferbrut", 1)
     elseif rand > 50 and rand <= 70 then
         Wait(200)
-        TriggerServerEvent('mineur:additem', "cuivrebrut")
+        TriggerServerEvent('mineur:additem', "cuivrebrut", 1)
     elseif rand > 70 and rand <= 85 then
         Wait(200)
-        TriggerServerEvent('mineur:additem', "zincbrut")
+        TriggerServerEvent('mineur:additem', "zincbrut", 1)
     elseif rand > 85 and rand <= 100 then
         Wait(200)
-        TriggerServerEvent('mineur:additem', "plombbrut")
+        TriggerServerEvent('mineur:additem', "plombbrut", 1)
     end
 end
