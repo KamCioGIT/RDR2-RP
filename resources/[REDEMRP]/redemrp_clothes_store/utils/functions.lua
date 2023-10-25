@@ -172,3 +172,28 @@ end
 function UpdateShopItemWearableState(ped, shopItemHash, wearableStateHash, isMultiplayer)
     Citizen.InvokeNative(0x66B957AAC2EAAEAB, ped, shopItemHash, wearableStateHash, 0, isMultiplayer, 1)
 end
+
+function FixIssues(target)
+    if IsPedMale(target) then
+        Citizen.InvokeNative(0x77FF8D35EEC6BBC4, target, 0, 0)
+        NativeUpdatePedVariation(target)
+        NativeSetPedComponentEnabled(target, tonumber(ComponentsMale["BODIES_UPPER"][1]), false, true, true)
+        NativeSetPedComponentEnabled(target, tonumber(ComponentsMale["BODIES_LOWER"][1]), false, true, true)
+        NativeSetPedComponentEnabled(target, tonumber(ComponentsMale["heads"][1]), false, true, true)
+        NativeSetPedComponentEnabled(target, tonumber(ComponentsMale["eyes"][1]), false, true, true)
+        texture_types["male"].albedo = GetHashKey("mp_head_mr1_sc08_c0_000_ab")
+        Citizen.InvokeNative(0xD710A5007C2AC539, target, 0x1D4C528A, 0)
+    else
+        Citizen.InvokeNative(0x77FF8D35EEC6BBC4, target, 7, true)
+        NativeUpdatePedVariation(target)
+        NativeSetPedComponentEnabled(target, tonumber(ComponentsFemale["BODIES_UPPER"][1]), false, true, true)
+        NativeSetPedComponentEnabled(target, tonumber(ComponentsFemale["BODIES_LOWER"][1]), false, true, true)
+        NativeSetPedComponentEnabled(target, tonumber(ComponentsFemale["heads"][1]), false, true, true)
+        NativeSetPedComponentEnabled(target, tonumber(ComponentsFemale["eyes"][1]), false, true, true)
+        -- NativeSetPedComponentEnabled( target, 0x1EECD215, false, true, true)
+        texture_types["female"].albedo = GetHashKey("mp_head_fr1_sc08_c0_000_ab")
+    end
+    Citizen.InvokeNative(0xD710A5007C2AC539, target, 0x3F1F01E5, 0)
+    Citizen.InvokeNative(0xD710A5007C2AC539, target, 0xDA0E2C55, 0)
+    NativeUpdatePedVariation(target)
+end

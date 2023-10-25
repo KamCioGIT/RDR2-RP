@@ -5,8 +5,8 @@ TriggerEvent("redemrp_inventory:getData",function(call)
     data = call
 end)
 
-RegisterServerEvent('store:CraftItem')
-AddEventHandler('store:CraftItem', function(itemNameStr, menu, amount)
+RegisterServerEvent('saloon:CraftItem')
+AddEventHandler('saloon:CraftItem', function(itemNameStr, menu, amount)
 	local _source = tonumber(source)
 	
 	for i = 1, amount, 1 do
@@ -57,14 +57,14 @@ AddEventHandler('store:CraftItem', function(itemNameStr, menu, amount)
 				end
 			end
 		end)
-				TriggerClientEvent("store:CraftingAction", _source)
+				TriggerClientEvent("saloon:CraftingAction", _source)
 
 		Citizen.Wait(Config.WorkingTime)
 	end
 end)
 
-RegisterServerEvent('store:AddItem')
-AddEventHandler('store:AddItem', function(item, amount)
+RegisterServerEvent('saloon:AddItem')
+AddEventHandler('saloon:AddItem', function(item, amount)
 	local _source = tonumber(source)
 	local ItemData = data.getItem(_source, item)
 	ItemData.AddItem(amount)
@@ -72,7 +72,7 @@ AddEventHandler('store:AddItem', function(item, amount)
 end)
 
 
-RegisterServerEvent("store:MaxRessourcesAmount", function(dataType)
+RegisterServerEvent("saloon:MaxRessourcesAmount", function(dataType)
     local _source = tonumber(source)
     
 	if Config.CraftingsReceipe[dataType].Itemtocraft == 1 then
@@ -81,9 +81,9 @@ RegisterServerEvent("store:MaxRessourcesAmount", function(dataType)
 		local rItem1Amount = tonumber(ItemData.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount)
 		
 		if rItem1Amount >= 1 then
-			TriggerClientEvent("store:client:SetMaxAmount", _source, math.floor(rItem1Amount))
+			TriggerClientEvent("saloon:client:SetMaxAmount", _source, math.floor(rItem1Amount))
 		else 
-			TriggerClientEvent("store:client:SetMaxAmount", _source, 0)
+			TriggerClientEvent("saloon:client:SetMaxAmount", _source, 0)
 		end
 	elseif Config.CraftingsReceipe[dataType].Itemtocraft == 2 then
 		local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
@@ -101,9 +101,9 @@ RegisterServerEvent("store:MaxRessourcesAmount", function(dataType)
 		end
 	
 		if hAmount >= 1 and lAmount >= 1 then
-			TriggerClientEvent("store:client:SetMaxAmount", _source, math.floor(lAmount))
+			TriggerClientEvent("saloon:client:SetMaxAmount", _source, math.floor(lAmount))
 		else 
-			TriggerClientEvent("store:client:SetMaxAmount", _source, 0)
+			TriggerClientEvent("saloon:client:SetMaxAmount", _source, 0)
 		end
 	elseif Config.CraftingsReceipe[dataType].Itemtocraft == 3 then
 		local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
@@ -123,9 +123,9 @@ RegisterServerEvent("store:MaxRessourcesAmount", function(dataType)
 		end
 		print (Item1Amount, Item2Amount, Item3Amount, lAmount)
 		if Item1Amount >= 1 and Item2Amount >= 1 and Item3Amount >= 1 then
-			TriggerClientEvent("store:client:SetMaxAmount", _source, math.floor(lAmount))
+			TriggerClientEvent("saloon:client:SetMaxAmount", _source, math.floor(lAmount))
 		else
-			TriggerClientEvent("store:client:SetMaxAmount", _source, 0)
+			TriggerClientEvent("saloon:client:SetMaxAmount", _source, 0)
 		end
 	elseif Config.CraftingsReceipe[dataType].Itemtocraft == 4 then
 		local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
@@ -149,16 +149,16 @@ RegisterServerEvent("store:MaxRessourcesAmount", function(dataType)
 			lAmount = Item4Amount
 		end
 		if Item1Amount >= 1 and Item2Amount >= 1 and Item3Amount >= 1 and Item4Amount >= 1 then
-			TriggerClientEvent("store:client:SetMaxAmount", _source, math.floor(lAmount))
+			TriggerClientEvent("saloon:client:SetMaxAmount", _source, math.floor(lAmount))
 		else
-			TriggerClientEvent("store:client:SetMaxAmount", _source, 0)
+			TriggerClientEvent("saloon:client:SetMaxAmount", _source, 0)
 		end
 	end
 
 end)
 
 
-RegisterNetEvent("store:buypain", function(item, price)
+RegisterNetEvent("saloon:buypain", function(item, price)
 	local _source = tonumber(source)
 	local user = RedEM.GetPlayer(_source)
 	local ItemData = data.getItem(_source, item)
