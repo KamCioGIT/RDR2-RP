@@ -83,7 +83,7 @@ RegisterNetEvent("forge:OpenBossMenu", function(menutype)
 end)
 
 RegisterNetEvent("forge:CraftingAction")
-AddEventHandler("forge:CraftingAction", function(time)
+AddEventHandler("forge:CraftingAction", function()
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
     FreezeEntityPosition(playerPed, true)
@@ -97,7 +97,7 @@ AddEventHandler("forge:CraftingAction", function(time)
         TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 1, 0, true)
     end
 
-    local timer = GetGameTimer() + (time * 1000)
+    local timer = GetGameTimer() + Config.WorkingTime
     isInteracting = true
 
     Citizen.CreateThread(function()
