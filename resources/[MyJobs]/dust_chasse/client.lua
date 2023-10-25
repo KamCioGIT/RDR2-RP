@@ -64,7 +64,6 @@ function depviande() -- Carcasse into viande
                             Wait(3000)
                             ClearPedTasks(playerPed)
                             TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["viande"], 1)
-                            TriggerServerEvent("boucher:serveur:giveitem", "graisse", 1)
                         end
                     elseif quality ~= false then                   
                         local deleted = DeleteThis(holding)
@@ -78,7 +77,6 @@ function depviande() -- Carcasse into viande
                             Wait(3000)
                             ClearPedTasks(playerPed)
                             TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["viande"], (quality + 1))
-                            TriggerServerEvent("boucher:serveur:giveitem", "graisse", (quality + 1))
                         end
                     end
                 end
