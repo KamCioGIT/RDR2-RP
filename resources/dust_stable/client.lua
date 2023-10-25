@@ -116,7 +116,7 @@ function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
     DisplayText(str, x, y)
 
     local factor = (string.len(tostring(str))) / 250
-    DrawTexture("honor_display", "honor_bg", x, y + 0.018, 0.015 + factor, 0.04, 0.1, 0, 0, 0, 100, 0)
+    DrawTexture("honor_display", "honor_bg", x, y + 0.018, 0.030 + factor, 0.04, 0.1, 0, 0, 0, 100, 0)
 end
 
 
