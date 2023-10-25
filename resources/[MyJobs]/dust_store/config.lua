@@ -61,7 +61,7 @@ Config.CraftingsReceipe = {
         label = 'Soupe de légume',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/corn.png', text = "Maïs",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du Colibri",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
-    ['Ragoutgibier'] = {
+    ['ragoutgibier'] = {
         type = 'epicerie',
         Itemtocraft = 3,
         ItemReceipe1Name = 'viandegibier',
@@ -70,13 +70,13 @@ Config.CraftingsReceipe = {
         ItemReceipe2Amount = 1,
         ItemReceipe3Name = 'charbon',
         ItemReceipe3Amount = 1,
-        ItemToGive = 'Ragoutgibier',
+        ItemToGive = 'ragoutgibier',
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison.png', text = "Venaison",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
-    ['Ragoutviande'] = {
+    ['ragoutviande'] = {
         type = 'epicerie',
         Itemtocraft = 3,
         ItemReceipe1Name = 'viande',
@@ -85,13 +85,13 @@ Config.CraftingsReceipe = {
         ItemReceipe2Amount = 1,
         ItemReceipe3Name = 'charbon',
         ItemReceipe3Amount = 1,
-        ItemToGive = 'Ragoutviande',
+        ItemToGive = 'ragoutviande',
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande Crue",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
-    ['Ragoutvolaille'] = {
+    ['ragoutvolaille'] = {
         type = 'epicerie',
         Itemtocraft = 3,
         ItemReceipe1Name = 'viandevolaille',
@@ -100,7 +100,7 @@ Config.CraftingsReceipe = {
         ItemReceipe2Amount = 1,
         ItemReceipe3Name = 'charbon',
         ItemReceipe3Amount = 1,
-        ItemToGive = 'Ragoutvolaille',
+        ItemToGive = 'ragoutvolaille',
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût',
