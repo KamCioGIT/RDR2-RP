@@ -109,11 +109,10 @@ end)
 function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
     local str = CreateVarString(10, "LITERAL_STRING", str)
     SetTextScale(w, h)
-    SetTextFontForCurrentCommand(25)
     SetTextColor(math.floor(col1), math.floor(col2), math.floor(col3), math.floor(a))
 	SetTextCentre(centre)
     if enableShadow then SetTextDropshadow(1, 0, 0, 0, 255) end
-	Citizen.InvokeNative(0xADA9255D, 1); -- Font
+	Citizen.InvokeNative(0xADA9255D, 25); -- Font
     DisplayText(str, x, y)
 
     local lineLength = string.len(str) / 100 * 0.70
