@@ -114,7 +114,8 @@ AddEventHandler("RegisterUsableItem:clothes", function(source, _data)
                 charid = charid
             }, function(done)
             end)
-            TriggerClientEvent("rdr_clothes_store:clotheitem", _source, call)
+            local _clothes = json.decode(call)
+            TriggerClientEvent("rdr_clothes_store:clotheitem", _source, _clothes)
         end
     end)
 end)

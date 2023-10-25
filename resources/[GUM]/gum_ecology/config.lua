@@ -443,3 +443,700 @@ Config.Herbs = {
         animDur = 0
     },
 }
+
+Config.Animals = {
+    [GetHashKey("a_c_alligator_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 3, "Kvalitní maso"},
+            {"peauecailles", 1, "Velká Kůže"},
+			{"crocdecroco", 1, "Zvířecí Zub"},
+            {"graisseanimal", 2, "Zvířecí Zub"},
+        }
+    },    
+    [GetHashKey("a_c_alligator_03")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 1, "Kvalitní maso"},
+            {"peauecailles", 1, "Velká Kůže"},
+			{"graisseanimal", 1, "Zvířecí Zub"},
+    },   
+    [GetHashKey("a_c_armadillo_01")] =   {
+        randomized = false,
+        items = {
+            {"viandepetitmamifere", 1, "Maso"},
+            {"graisseanimal", 1, "Zvířecí Zub"},
+        }
+    },    
+    [GetHashKey("a_c_badger_01")] =   {
+        randomized = false,
+        items = {
+            {"viandepetitmamifere", 1, "Maso"},
+            {"petitefourure", 1, "Malá Kůže"},
+			{"dentrongeur", 1, "Zvířecí Zub"},
+            {"graisseanimal", 1, "Zvířecí Zub"},
+        }
+    },    
+    [GetHashKey("a_c_bat_01")] =   {
+        randomized = false,
+        items = {
+            {"viandepetitmamifere", 3, "Maso"},
+            {"graisseanimal", 1, "Zvířecí Zub"},
+         
+        }
+    },    
+    [GetHashKey("a_c_bear_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 4, "Kvalitní maso"},
+            {"peaupredateur", 3, "Velká Kůže"},
+			{"patteours", 1, "Medvědí Tlapa"},
+			{"graisseanimal", 4, "Zvířecí Lůj"},
+        }
+    },    
+    [GetHashKey("a_c_bearblack_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 2, "Kvalitní maso"},
+            {"peaupredateur", 1, "Velká Kůže"},
+		    {"patteours", 1, "Medvědí Tlapa"},
+			{"graisseanimal", 2, "Zvířecí Lůj"},
+        }
+    },    
+    [GetHashKey("a_c_beaver_01")] =   {
+        randomized = false,
+        items = {
+            {"viandepetitmamifere", 1, "Kvalitní maso"},
+            {"petitefourure", 1, "Malá Kůže"},
+            {"queuedecastor", 1, "Malá Kůže"},
+            {"dentrongeur", 1, "Malá Kůže"},
+            {"graisseanimal", 1, "Roh"},
+        }
+    },    
+    [GetHashKey("a_c_bighornram_01")] =   {
+        randomized = false,
+        items = {
+            {"viande", 2, "Maso"},
+            {"peau", 1, "Malá Kůže"},
+			{"corne", 1, "Roh"},
+            {"graisseanimal", 1, "Roh"},
+        }
+    },    
+    [GetHashKey("a_c_boar_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 2, "Kvalitní maso"},
+            {"peau", 1, "Malá Kůže"},
+			{"graisseanimal", 2, "Zvířecí Lůj"},
+            {"defense", 2, "Zvířecí Lůj"},
+        }
+        }
+    },    
+    [GetHashKey("a_c_buck_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 3, "Kvalitní maso"},
+            {"peau", 1, "Velká Kůže"},
+			{"bois", 1, "Malé Paroží"}, 
+            {"graisseanimal", 2, "Malé Paroží"}, 
+            
+        }
+    },    
+    [GetHashKey("a_c_buffalo_01")] =   {
+        randomized = false,
+        items = {
+            {"viande", 5, "Kvalitní maso"},
+            {"peau", 2, "Velká Kůže"},
+			{"corne", 2, "Roh"},
+			{"graisseanimal", 5, "Zvířecí Lůj"},
+        }
+    },    
+    [GetHashKey("a_c_bull_01")] =   {
+        randomized = false,
+        items = {
+            {"viande", 4, "Kvalitní maso"},
+            {"peau", 1, "Velká Kůže"},
+			{"corne", 1, "Roh"},
+            {"graisseanimal", 3, "Velká Kůže"},
+
+        }
+    },    
+    [GetHashKey("a_c_cardinal_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+            {"bec", 1, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_californiacondor_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+            {"bec", 1, "Pírko"},
+            {"serre", 2, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_carolinaparakeet_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+            {"bec", 1, "Pírko"},
+
+        }
+    },    
+    [GetHashKey("a_c_cedarwaxwing_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 2, "Pírko"},
+            {"bec", 1, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_chicken_01")] =   {
+        randomized = false,
+        items = {
+            {"viandevolaille", 2, "Maso"},
+            {"plume", 2, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_chipmunk_01")] =   {
+        randomized = false,
+        items = {
+            {"viandepetitmamifere", 1, "Maso"},
+            {"petitefourure", 1, "Malá Kůže"},
+            {"queueecureuil", 1, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_cougar_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 3, "Kvalitní maso"},
+            {"peaupredateur", 1, "Velká Kůže"},
+			{"griffe", 2, "Dráp"},
+        }
+    },    
+    [GetHashKey("a_c_cormorant_01")] =   {
+        randomized = false,
+        items = {
+            {"bec", 1, "Maso"},
+            {"plume", 2, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_cow")] =   {
+        randomized = false,
+        items = {
+            {"viande", 4, "Kvalitní maso"},
+            {"peau", 1, "Velká Kůže"},
+			{"corne", 1, "Roh"},
+            {"graisseanimal", 3, "Roh"},
+            
+        }
+    },    
+    [GetHashKey("a_c_coyote_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 2, "Maso"},
+            {"peaupredateur", 1, "Malá Kůže"},
+            {"graisseanimal", 1, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_crab_01")] =   {
+        randomized = false,
+        items = {
+            {"pincecrabe", 3, "Malá Kůže"},
+        }
+    
+    },    
+    [GetHashKey("a_c_crow_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 2, "Pírko"},
+            {"bec", 1, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_deer_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 2, "Kvalitní maso"},
+            {"peau", 1, "Velká Kůže"},
+			{"graisseanimal", 2, "Malé Paroží"},
+        }
+    },    
+    [GetHashKey("a_c_duck_01")] =   {
+        randomized = false,
+        items = {
+            {"viandevolaille", 2, "Maso"},
+            {"plume", 2, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_eagle_01")] =   {
+        randomized = false,
+        items = {
+            {"bec", 1, "Maso"},
+            {"plume", 5, "Pírko"},
+			{"serre", 2, "Dráp"},
+        }
+    },    
+    [GetHashKey("a_c_egret_01")] =   {
+        randomized = false,
+        items = {
+            {"bec", 1, "Maso"},
+            {"plume", 5, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_elk_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 5, "Kvalitní maso"},
+            {"peau", 1, "Velká Kůže"},
+			{"Bois", 2, "Velké Paroží"},
+			{"graisseanimal", 4, "Zvířecí Lůj"},
+        }
+    },    
+    [GetHashKey("a_c_fox_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 2, "Maso"},
+            {"peaupredateur", 1, "Malá Kůže"},
+			{"queuerenard", 1, "Zvířecí Zub"},
+        }
+    },    
+    [GetHashKey("a_c_frogbull_01")] =   {
+        randomized = false,
+        items = {
+            {"peauvisqueuse", 1, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_gilamonster_01")] =   {
+        randomized = false,
+        items = {
+            {"peauvisqueuse", 1, "Velká Kůže"},
+            {"glandevenin", 2, "Velká Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_goat_01")] =   {
+        randomized = false,
+        items = {
+            {"viande", 2, "Kvalitní maso"},
+            {"peau", 1, "Velká Kůže"},
+			{"corne", 1, "Roh"},
+            {"graisseanimal", 2, "Roh"},
+        }
+    },    
+    [GetHashKey("a_c_goosecanada_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_hawk_01")] =   {
+        randomized = false,
+        items = {
+            {"bec", 1, "Maso"},
+            {"plume", 5, "Pírko"},
+			{"serre", 2, "Dráp"},
+        }
+    },    
+    [GetHashKey("a_c_heron_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_iguana_01")] =   {
+        randomized = false,
+        items = {
+            {"peauvisqueuse", 1, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_iguanadesert_01")] =   {
+        randomized = false,
+        items = {
+            {"peauvisqueuse", 1, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_javelina_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 2, "Kvalitní maso"},
+            {"peau", 1, "Malá Kůže"},
+            {"graisseanimal", 1, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_loon_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 2, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_moose_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 6, "Kvalitní maso"},
+            {"peau", 1, "Malá Kůže"},
+			{"bois", 2, "Velké Paroží"},
+			{"graisseanimal", 4, "Zvířecí Lůj"},
+        }
+    },    
+    [GetHashKey("a_c_muskrat_01")] =   {
+        randomized = false,
+        items = {
+            {"viandepetitmamifere", 1, "Maso"},
+            {"petitefourure", 1, "Velká Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_oriole_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_owl_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_ox_01")] =   {
+        randomized = false,
+        items = {
+            {"viande", 4, "Kvalitní maso"},
+            {"peau", 1, "Velká Kůže"},
+			{"corne", 2, "Roh"},
+            {"graisseanimal", 3, "Roh"},
+        }
+    },    
+    [GetHashKey("a_c_panther_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 3, "Kvalitní maso"},
+            {"peaupredateur", 1, "Velká Kůže"},
+			{"griffe", 4, "Dráp"},
+        }
+    },    
+    [GetHashKey("a_c_parrot_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_pelican_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 4, "Pírko"},
+            {"bec", 1, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_pheasant_01")] =   {
+        randomized = false,
+        items = {
+            {"volaille", 1, "Maso"},
+            {"plume", 4, "Pírko"},
+            {"serre", 2, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_pig_01")] =   {
+        randomized = false,
+        items = {
+            {"viande", 3, "Kvalitní maso"},
+            {"peau", 1, "Malá Kůže"},
+            {"graisseanimal", 3, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_pigeon")] =   {
+        randomized = false,
+        items = {
+            {"volaille", 1, "Maso"},
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_possum_01")] =   {
+        randomized = false,
+        items = {
+            {"petitefourure", 1, "Velká Kůže"},
+        }
+    },    
+    [GetHashKey("vouturetahlesanciens")] =   {
+        randomized = false,
+        items = {
+            {"volaille", 2, "Maso"},
+            {"plume", 4, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_pronghorn_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 2, "Kvalitní maso"},
+            {"peau", 1, "Malá Kůže"},
+			{"bois", 2, "Malé Paroží"},
+            {"graisseanimal", 2, "Malé Paroží"},
+        }
+    },    
+    [GetHashKey("a_c_quail_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 2, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_rabbit_01")] =   {
+        randomized = false,
+        items = {
+            {"viandepetitmamifere", 1, "Maso"},
+            {"petitefourure", 1, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_raccoon_01")] =   {
+        randomized = false,
+        items = {
+            {"viandepetitmamifere", 2, "Maso"},
+            {"petitefourure", 1, "Malá Kůže"},
+			{"dentrongeur", 1, "Zvířecí Zub"},
+			
+        }
+    },    
+    [GetHashKey("a_c_rat_01")] =   {
+        randomized = false,
+        items = {
+            {"petitefourure", 1, "Malá Kůže"},
+            {"dentrongeur", 1, "Zvířecí Zub"},
+        }
+    },    
+    [GetHashKey("a_c_raven_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 2, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_redfootedbooby_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 2, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_robin_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_rooster_01")] =   {
+        randomized = false,
+        items = {
+            {"volaille", 2, "Maso"},
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_roseatespoonbill_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_seagull_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 2, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_sheep_01")] =   {
+        randomized = false,
+        items = {
+            {"viande", 3, "Kvalitní maso"},
+            {"peau", 1, "Malá Kůže"},
+            {"graisseanimal", 3, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_skunk_01")] =   {
+        randomized = false,
+        items = {
+            {"viandepetitmamifere", 1, "Maso"},
+            {"petitefourure", 1, "Malá Kůže"},
+            {"glandepuante", 1, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_snake_01")] =   {
+        randomized = false,
+        items = {
+            {"peauserpent", 1, "Malá Kůže"},
+            {"glandevenin", 2, "Hadí jed"},
+        }
+    },    
+    [GetHashKey("a_c_snakeblacktailrattle_01")] =   {
+        randomized = false,
+        items = {
+            {"peauserpent", 1, "Malá Kůže"},
+            {"glandevenin", 2, "Hadí jed"},
+        }
+    },    
+    [GetHashKey("a_c_snakeferdelance_01")] =   {
+        randomized = false,
+        items = {
+            {"peauserpent", 1, "Malá Kůže"},
+            {"glandevenin", 4, "Hadí jed"},
+        }
+    },    
+    [GetHashKey("a_c_snakewater_01")] =  {
+        randomized = false,
+        items = {
+            {"peauserpent", 1, "Malá Kůže"},
+            {"glandevenin", 2, "Hadí jed"},
+        }
+    },    
+    [GetHashKey("a_c_songbird_01")] =   {
+            randomized = false,
+            items = {
+                {"plume", 3, "Pírko"},
+        },
+    },    
+    [GetHashKey("a_c_sparrow_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+        }
+    },
+    [GetHashKey("a_c_squirrel_01")] =   {
+        randomized = false,
+        items = {
+            {"viandepetitmamifere", 1, "Maso"},
+            {"petitefourure", 1, "Malá Kůže"},
+            {"queueecureuil", 1, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_toad_01")] =   {
+        randomized = false,
+        items = {
+            {"peauvisqueuse", 1, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_turkey_01")] =   {
+        randomized = false,
+        items = {
+            {"volaille", 2, "Maso"},
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_turkeywild_01")] =   {
+        randomized = false,
+        items = {
+            {"volaille", 2, "Maso"},
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_turtlesnapping_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 2, "Maso"},
+            {"peauvisqueuse", 1, "Malá Kůže"},
+            {"carapace", 1, "Malá Kůže"},
+            {"graisseanimal", 1, "Malá Kůže"},
+            
+        }
+    },    
+    [GetHashKey("a_c_vulture_01")] =   {
+        randomized = false,
+        items = {
+            {"volaile", 2, "Maso"},
+            {"plume", 3, "Pírko"},
+            {"serre", 2, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_wolf")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 3, "Kvalitní maso"},
+            {"peaupredateur", 1, "Malá Kůže"},
+			{"croc", 2, "Zvířecí Zub"},
+            {"graisseanimal", 3, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_wolf_medium")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 2, "Kvalitní maso"},
+            {"peaupredateur", 1, "Malá Kůže"},
+			{"croc", 2, "Zvířecí Zub"},
+            {"graisseanimal", 1, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_wolf_small")] =   {
+        randomized = false,
+        items = {
+        {"viandegibier", 1, "Kvalitní maso"},
+        {"peaupredateur", 1, "Malá Kůže"},
+        {"croc", 2, "Zvířecí Zub"},
+        {"graisseanimal", 1, "Malá Kůže"},
+        }
+    },    
+    [GetHashKey("a_c_woodpecker_01")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("a_c_woodpecker_02")] =   {
+        randomized = false,
+        items = {
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("mp_a_c_alligator_01")] =   {
+        randomized = false,
+        items = {
+            {"viandereptile", 3, "Kvalitní maso"},
+            {"peauecailles", 1, "Velká Kůže"},
+			{"crocdecroco", 1, "Zvířecí Zub"},
+            {"graisseanimal", 2, "Zvířecí Zub"},
+        }
+    },    
+    [GetHashKey("mp_a_c_beaver_01")] =   {
+        randomized = false,
+        items = {
+            {"viandepetitmamifere", 1, "Kvalitní maso"},
+            {"petitefourure", 1, "Malá Kůže"},
+            {"queuedecastor", 1, "Malá Kůže"},
+            {"dentrongeur", 1, "Malá Kůže"},
+            {"graisseanimal", 1, "Roh"},
+        }
+    },    
+    [GetHashKey("mp_a_c_bighornram_01")] =   {
+        randomized = false,
+        items = {
+            {"viande", 2, "Maso"},
+            {"peau", 1, "Malá Kůže"},
+			{"corne", 1, "Roh"},
+            {"graisseanimal", 1, "Roh"},
+        }
+    },    
+    [GetHashKey("mp_a_c_boar_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 2, "Kvalitní maso"},
+            {"peau", 1, "Malá Kůže"},
+			{"graisseanimal", 2, "Zvířecí Lůj"},
+            {"defense", 2, "Zvířecí Lůj"},
+        }
+    },    
+    [GetHashKey("mp_a_c_buck_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 3, "Kvalitní maso"},
+            {"peau", 1, "Velká Kůže"},
+			{"bois", 1, "Malé Paroží"}, 
+            {"graisseanimal", 2, "Malé Paroží"}, 
+        }
+    },    
+    [GetHashKey("mp_a_c_chicken_01")] =   {
+        randomized = false,
+        items = {
+            {"volaille", 2, "Maso"},
+            {"plume", 3, "Pírko"},
+        }
+    },    
+    [GetHashKey("mp_a_c_cougar_01")] =   {
+        randomized = false,
+        items = {
+            {"viandegibier", 3, "Kvalitní maso"},
+            {"peaupredateur", 1, "Velká Kůže"},
+			{"griffe", 2, "Dráp"},
+        }
+    },    
+}
