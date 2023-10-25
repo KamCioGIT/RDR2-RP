@@ -23,8 +23,8 @@ Config.RandomRewardCount = 1-- - If its 0 disabled. This function make random re
 --Example you get 3 count from Wild Mint -> you here write 2. Now you get 2-3 counts from wild mint
 Config.Herbs = {
     ["COMPOSITE_LOOTABLE_BURDOCK_ROOT_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "barbane",
         coords = {
             {634.2966, 1443.314, 185.551, 15.0},
             {2008.353, 80.90195, 76.84789, 15.0},
@@ -45,8 +45,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_HUMMINGBIRD_SAGE_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "zesen",
+        blipSprite = 1364029453,
+        blipName = "sauge colibri",
         coords = {
             {125.9249, 982.7355, 210.9116, 15.0},
             {2092.533, 116.5939, 70.97131, 15.0},
@@ -69,8 +69,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_WILD_MINT_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "menthe sauvage",
         coords = {
             {981.2698, -1232.413, 59.98701, 15.0},
             {2628.306, 640.9957, 73.90434, 15.0},
@@ -94,8 +94,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_PARASOL_MUSHROOM_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "coulemelle",
         coords = {
             {1370.721, -943.9273, 53.40933, 15.0},
             {1823.693, -375.2607, 44.39895, 15.0},
@@ -116,8 +116,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_MILKWEED_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "asclepiade",
         coords = {
             {2033.632, -1022.402, 43.35403, 15.0},
             {2262.735, -385.3071, 42.34921, 15.0},
@@ -137,8 +137,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_ALASKAN_GINSENG_ROOT_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "ginseng",
         coords = {
             {-302.4985, 1026.319, 130.711, 15.0},
             {-1483.752, 586.595, 115.9719, 15.0},
@@ -161,8 +161,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_EVERGREEN_HUCKLEBERRY_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "millefeuille",
         coords = {
             {941.0305, 85.52578, 111.9082, 15.0},
             {1491.636, -1880.136, 50.86975, 15.0},
@@ -185,8 +185,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_CHANTERELLES_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "chanterelle",
         coords = {
             {1309.872, -934.049, 53.68198, 15.0},
             {1806.273, -537.7383, 42.75464, 15.0},
@@ -209,8 +209,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_RAMS_HEAD_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "pouledesbois",
         coords = {
             {2203.435, -191.4243, 47.75746, 15.0},
             {-830.4506, 528.0355, 62.94004, 15.0},
@@ -232,8 +232,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_DESERT_SAGE_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "saugedudesert",
         coords = {
             {-733.5509, -1596.317, 54.26407, 15.0},
             {-1134.55, -1401.119, 71.66103, 15.0},
@@ -253,8 +253,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_COMMON_BULRUSH_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "jonccommun",
         coords = {
             {-1575.593, -1044.217, 66.48918, 15.0},
             {-2747.818, -341.1842, 148.69, 15.0},
@@ -284,8 +284,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_ENGLISH_MACE_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "achillevisqueuse",
         coords = {
             {1387.44, -1694.526, 67.42712, 15.0},
             {2614.06, -452.0338, 42.52893, 15.0},
@@ -306,8 +306,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_WILD_FEVERFEW_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "camomillesauvage",
         coords = {
             {1141.5, 620.3223, 94.32296, 15.0},
             {2099.601, 98.6325, 70.67999, 15.0},
@@ -330,8 +330,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_BAY_BOLETE_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "boletbai",
         coords = {
             {31.85101, 1196.117, 180.7177, 15.0},
             {1234.791, -256.5401, 96.95807, 15.0},
@@ -351,8 +351,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_WINTERGREEN_BERRY_DEF"] =  { 
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "baiedegaultherie",
         coords = {
             {1671.244, 768.7167, 136.2882, 15.0},
             {2393.585, -653.2073, 42.27081, 15.0},
@@ -374,8 +374,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["s_flyamush"] = {
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "champignontoxique",
         coords = {
             {-2322.441, 92.69701, 221.4515, 15.0},
             {-2257.022, -1344.283, 133.9821, 15.0},
@@ -395,8 +395,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_OLEANDER_SAGE_DEF"]= {
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "laurierrose",
         coords = {
             {2353.372, -797.1579, 41.71259, 15.0},
             {1898.907, -866.2166, 42.17447, 15.0},
@@ -416,8 +416,8 @@ Config.Herbs = {
         animDur = 0
     },
     ["COMPOSITE_LOOTABLE_WILD_CARROT_DEF"] ={
-        blipSprite = 0,
-        blipName = "Ženšen",
+        blipSprite = 1364029453,
+        blipName = "carrotesauvages",
         coords = {
             {1460.549, -1149.898, 68.23778, 15.0},
             {1488.161, -1935.285, 46.63864, 15.0},
