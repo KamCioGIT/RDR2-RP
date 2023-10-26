@@ -184,7 +184,7 @@ function OpenStable(menutype, stable)
             if _menutype == 'Ouvrir' then
                 if data.current.value then
                     TriggerServerEvent("dust_stable:server:askcomponents", data.current.value)
-                    Wait(500)
+                    Wait(10)
                     for k, v in pairs(horselist) do
                         if v.id == data.current.value then
                             if v.type == "horse" then
@@ -508,7 +508,6 @@ function spawncart(model, name, horseid, stashid)
     if initializing then
         return
     end
-
     local ped = PlayerPedId()
     local pCoords = GetEntityCoords(ped)
     local modelHash = GetHashKey(model)
@@ -517,6 +516,7 @@ function spawncart(model, name, horseid, stashid)
     if not HasModelLoaded(modelHash) then
         RequestModel(modelHash)
         while not HasModelLoaded(modelHash) do
+            print('boucle')
             Citizen.Wait(10)
         end
     end
@@ -560,6 +560,7 @@ function spawncart(model, name, horseid, stashid)
 
     table.insert(spawnedhorses, cart)
     initializing = false
+    print 'spawned'
 end
 
 
@@ -737,7 +738,7 @@ function buycart(stable)
                 end
             end
             local type = "cart"
-            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type, price)
+            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type, data.current.price)
             isInteracting = false
         end,
 

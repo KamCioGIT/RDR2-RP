@@ -10,7 +10,7 @@ RegisterServerEvent('fermier:addble')
 AddEventHandler('fermier:addble', function() 
 	local _source = source
 	local ItemData = data.getItem(_source, 'ble')
-	local amount = math.random(4)
+	local amount = math.random(2)
 	ItemData.AddItem(amount)
 end)
 
@@ -39,7 +39,7 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(2000)
-		TriggerEvent("redemrp_inventory:server:removeitemstash", "ble", 2, {}, "dep_fermier","farine", 1, {}, "ret_fermier")
+		TriggerEvent("redemrp_inventory:server:removeitemstash", "ble", 5, {}, "dep_fermier","farine", 1, {}, "ret_fermier")
 	end
 end)
 

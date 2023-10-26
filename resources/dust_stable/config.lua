@@ -1082,19 +1082,19 @@ Config.Cart = {
         price = 80,
     },
     coach02= {
-		model = "coach02",
+		model = "coach2",
 		name = "Grande Dilligence",
 		desc = "Ces quatres chevaux vous emmèneront loin",
         price = 200,
     },
     coach03= {
-		model = "coach03",
+		model = "coach3",
 		name = "Grande calèche",
 		desc = "Pour les notables de Saint-Denis",
         price = 120,
     },
     coach05= {
-		model = "coach05",
+		model = "coach5",
 		name = "Petite calèche",
 		desc = "Pour les notables de Saint-Denis",
         price = 100,
