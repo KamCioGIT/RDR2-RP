@@ -508,7 +508,6 @@ function spawncart(model, name, horseid, stashid)
     if initializing then
         return
     end
-    print 'spawn'
     local ped = PlayerPedId()
     local pCoords = GetEntityCoords(ped)
     local modelHash = GetHashKey(model)
@@ -517,6 +516,7 @@ function spawncart(model, name, horseid, stashid)
     if not HasModelLoaded(modelHash) then
         RequestModel(modelHash)
         while not HasModelLoaded(modelHash) do
+            print('boucle')
             Citizen.Wait(10)
         end
     end
