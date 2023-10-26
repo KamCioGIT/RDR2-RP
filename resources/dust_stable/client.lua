@@ -187,12 +187,9 @@ function OpenStable(menutype, stable)
                     Wait(10)
                     for k, v in pairs(horselist) do
                         if v.id == data.current.value then
-                            print 'yes'
-                            print (v.type)
                             if v.type == "horse" then
                                 spawnhorse(v.race, v.name, v.id, v.stashid)
                             elseif v.type == "cart" then
-                                print(v.race, v.name, v.id, v.stashid)
                                 spawncart(v.race, v.name, v.id, v.stashid)
                             end
                         end
@@ -511,7 +508,7 @@ function spawncart(model, name, horseid, stashid)
     if initializing then
         return
     end
-
+    print 'spawn'
     local ped = PlayerPedId()
     local pCoords = GetEntityCoords(ped)
     local modelHash = GetHashKey(model)
@@ -563,6 +560,7 @@ function spawncart(model, name, horseid, stashid)
 
     table.insert(spawnedhorses, cart)
     initializing = false
+    print 'spawned'
 end
 
 
