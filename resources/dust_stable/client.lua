@@ -187,6 +187,7 @@ function OpenStable(menutype, stable)
                     Wait(500)
                     for k, v in pairs(horselist) do
                         if v.id == data.current.value then
+                            print(v.type)
                             if v.type == "horse" then
                                 spawnhorse(v.race, v.name, v.id, v.stashid)
                             elseif v.type == "cart" then
