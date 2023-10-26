@@ -193,6 +193,12 @@ cattleprompt:setActive(false)
 
 --- zone achat
 Citizen.CreateThread(function()
+    RequestModel(GetHashKey("p_well02x"))
+    if HasModelLoaded(GetHashKey("p_well02x")) then
+        Wait(10)
+    end
+    well = CreateObject(GetHashKey("p_well02x"), Config.CoordsPuit, false, true, true)
+    PlaceObjectOnGroundProperly(well)
     while true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
