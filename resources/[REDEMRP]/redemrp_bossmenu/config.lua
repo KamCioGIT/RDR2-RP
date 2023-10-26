@@ -422,8 +422,10 @@ Config.Jobs = {
 
 }
 
+Config.DistanceToInteract = 2.0
+
 Config.ExportPoint = {
-    vector3(-783.3221, -1234.487, 43.54176), -- bla
+    vector3(-783.3221, -1234.487, 42.54176), -- bla
 
 }
 
