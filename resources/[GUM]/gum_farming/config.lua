@@ -60,8 +60,8 @@ Config.Wagons_Support = {
 }
 
 Config.UpdateTime = 15--Every 15 min update state
-Config.FertilizerOnUpdate = 1--Count down %
-Config.WaterOnUpdate = 1--Count down %
+Config.FertilizerOnUpdate = 3--Count down %
+Config.WaterOnUpdate = 3--Count down %
 
 Config.UnderQuality = 10--Under 30% Ferti or Water
 
