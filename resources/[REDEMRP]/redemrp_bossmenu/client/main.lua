@@ -470,8 +470,8 @@ RegisterNetEvent("dust_export:OpenExportMenu", function(selltable)
 end)
 
 
-RegisterNetEvent("dust_export:SelectCraftingAmount")
-AddEventHandler("dust_export:SelectCraftingAmount", function(dataType, menuData, menu)
+RegisterNetEvent("dust_export:SelectSellingAmount")
+AddEventHandler("dust_export:SelectSellingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
     local Position = GetEntityCoords(PlayerPedId())
 
