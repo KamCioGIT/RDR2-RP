@@ -426,13 +426,13 @@ Config.DistanceToInteract = 2.0
 
 Config.ExportPoint = {
     vector3(-783.3221, -1234.487, 42.54176), -- bla
-    vector3(2671.887, -1508.395, 45.96954) -- st denis 
-    
+    vector3(2671.887, -1508.395, 44.96954) -- st denis 
+
 
 }
 Config.ExportNPC = {
-    ["blackwater"] = {heading = 216.50 , coords = vector3(-783.7773, -1233.145, 43.53811)},
-    ["stdenis"] = {heading = 75.79538 , coords = vector3(2672.653, -1509.107, 45.96952)},
+    ["blackwater"] = {heading = 216.50 , coords = vector3(-783.7773, -1233.145, 42.53811)},
+    ["stdenis"] = {heading = 75.79538 , coords = vector3(2672.653, -1509.107, 44.96952)},
 }
 
 Config.Export = {
