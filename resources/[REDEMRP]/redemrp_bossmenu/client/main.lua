@@ -30,7 +30,6 @@ Citizen.CreateThread(function()
             FreezeEntityPosition(ped, true)
             SetBlockingOfNonTemporaryEvents(ped, true)
             SetModelAsNoLongerNeeded(GetHashKey("mp_u_m_m_fos_dockworker_01"))
-            table.insert(npcs, ped)
     end
     for k,v in pairs(Config.Jobs) do
         if v.blisprite then
