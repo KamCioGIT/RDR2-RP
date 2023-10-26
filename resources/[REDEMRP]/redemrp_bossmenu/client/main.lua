@@ -13,6 +13,24 @@ local isInteracting = false
 
 Citizen.CreateThread(function()
     Wait(1000)
+    for k,v in pairs(Config.ExportNPC) do
+            local model = RequestModel(GetHashKey("mp_u_m_m_fos_dockworker_01"))
+
+            while not HasModelLoaded(GetHashKey("mp_u_m_m_fos_dockworker_01")) do
+                Wait(100)
+            end
+    
+            local spawnCoords = v.coords
+            local ped = CreatePed(GetHashKey("mp_u_m_m_fos_dockworker_01"), spawnCoords.x, spawnCoords.y, spawnCoords.z, v.heading, false, true, true, true)
+            Citizen.InvokeNative(0x283978A15512B2FE, ped, true)
+            SetEntityNoCollisionEntity(PlayerPedId(), ped, false)
+            SetEntityCanBeDamaged(ped, false)
+            SetEntityInvincible(ped, true)
+            Wait(2000)
+            FreezeEntityPosition(ped, true)
+            SetBlockingOfNonTemporaryEvents(ped, true)
+            SetModelAsNoLongerNeeded(GetHashKey("mp_u_m_m_fos_dockworker_01"))
+    end
     for k,v in pairs(Config.Jobs) do
         if v.blisprite then
             local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.MenuLocations)
