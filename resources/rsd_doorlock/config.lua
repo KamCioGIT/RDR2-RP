@@ -1216,6 +1216,18 @@ Config.Doors = {
         needkey = false,
         keys = '',
     },
+    {
+        door = 818583340,
+        CloseRotation = 325,
+        DoorCoord  = vector3(-1649.2072753906,-1359.2379150391,83.464546203613),
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {"fermier"},
+        needkey = false,
+        keys = '',
+    },
 }
 
 --UNLOCK DOORS 
