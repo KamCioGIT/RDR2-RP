@@ -107,20 +107,20 @@ Config.Boucherie = {
 
 Config.RewardBoucherie = {
 	["a_c_cow"] = {
-		[0] = {viande = 'viande', viandeamount = 2, cuir = 'cuirbovin', cuiramount = 2, graisseamount = 2},
-		[1] = {viande = 'viande', viandeamount = 4, cuir = 'cuirbovin', cuiramount = 4, graisseamount = 4},
-		[2] = {viande = 'viande', viandeamount = 6, cuir = 'cuirbovin', cuiramount = 6, graisseamount = 6},
-		[3] = {viande = 'viande', viandeamount = 8, cuir = 'cuirbovin', cuiramount = 8, graisseamount = 8},
-		[4] = {viande = 'viande', viandeamount = 10, cuir = 'cuirbovin', cuiramount = 10, graisseamount = 10},
-		[5] = {viande = 'viande', viandeamount = 12, cuir = 'cuirbovin', cuiramount = 12, graisseamount = 12},
+		[0] = {viande = 'viandebovine', viandeamount = 1, cuir = 'cuir', cuiramount = 2, graisseamount = 2},
+		[1] = {viande = 'viandebovine', viandeamount = 3, cuir = 'cuir', cuiramount = 4, graisseamount = 4},
+		[2] = {viande = 'viandebovine', viandeamount = 5, cuir = 'cuir', cuiramount = 6, graisseamount = 6},
+		[3] = {viande = 'viandebovine', viandeamount = 7, cuir = 'cuir', cuiramount = 8, graisseamount = 8},
+		[4] = {viande = 'viandebovine', viandeamount = 9, cuir = 'cuir', cuiramount = 10, graisseamount = 10},
+		[5] = {viande = 'viandebovine', viandeamount = 10, cuir = 'cuir', cuiramount = 12, graisseamount = 12},
 	},
 	["a_c_bull_01"] = {
-		[0] = {viande = 'viande', viandeamount = 4, cuir = 'cuirbovin',  cuiramount = 4, graisseamount = 4},
-		[1] = {viande = 'viande', viandeamount = 8, cuir = 'cuirbovin',  cuiramount = 8, graisseamount = 8},
-		[2] = {viande = 'viande', viandeamount = 12, cuir = 'cuirbovin',  cuiramount = 12, graisseamount = 12},
-		[3] = {viande = 'viande', viandeamount = 16, cuir = 'cuirbovin',  cuiramount = 16, graisseamount = 16},
-		[4] = {viande = 'viande', viandeamount = 20, cuir = 'cuirbovin',  cuiramount = 20, graisseamount = 20},
-		[5] = {viande = 'viande', viandeamount = 24, cuir = 'cuirbovin',  cuiramount = 24, graisseamount = 24},
+		[0] = {viande = 'viandebovine', viandeamount = 4, cuir = 'cuir',  cuiramount = 4, graisseamount = 4},
+		[1] = {viande = 'viandebovine', viandeamount = 8, cuir = 'cuir',  cuiramount = 8, graisseamount = 8},
+		[2] = {viande = 'viandebovine', viandeamount = 12, cuir = 'cuir',  cuiramount = 12, graisseamount = 12},
+		[3] = {viande = 'viandebovine', viandeamount = 16, cuir = 'cuir',  cuiramount = 16, graisseamount = 16},
+		[4] = {viande = 'viandebovine', viandeamount = 20, cuir = 'cuir',  cuiramount = 20, graisseamount = 20},
+		[5] = {viande = 'viandebovine', viandeamount = 24, cuir = 'cuir',  cuiramount = 24, graisseamount = 24},
 	},
 
 }
