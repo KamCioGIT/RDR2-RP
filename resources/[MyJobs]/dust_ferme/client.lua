@@ -300,7 +300,7 @@ RegisterNetEvent("dust_ferme:getcow")
 AddEventHandler("dust_ferme:getcow", function(horseid, nom, model, pos, _race)
     cowlist = {}
     Wait(50)
-    table.insert(cowlist, {id = horseid, name = nom, race = model, stable = pos, lib = _race})
+    table.insert(cowlist, {id = horseid, name = nom, race = model, stable = pos, lib = _race, level = lvl, cd = cool})
 end)
 
 function OpenFarmStable(menutype, stable)
@@ -327,7 +327,13 @@ function OpenFarmStable(menutype, stable)
             for k, v in pairs(cowlist) do
                 if stable then
                     if v.stable == stable then
-                        table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
+                        if v.level == 5 then
+                            table.insert(elements, {label = v.name, value = v.id, desc = "La bête est bien dodue !  "..v.lib.." ID: " ..v.id})
+                        elseif v.cd == false then
+                            table.insert(elements, {label = v.name, value = v.id, desc = "La bête a faim !  "..v.lib.." ID: " ..v.id})
+                        elseif v.cd == true then
+                            table.insert(elements, {label = v.name, value = v.id, desc = "La bête a bien mangé !  "..v.lib.." ID: " ..v.id})
+                        end
                     end
                 else
                     table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
@@ -681,10 +687,10 @@ end)
 -- menu pour vendre connecté à l'étable
 local boucherielist = {}
 RegisterNetEvent("dust_ferme:getcowboucherie")
-AddEventHandler("dust_ferme:getcowboucherie", function(horseid, nom, model, pos, _race)
+AddEventHandler("dust_ferme:getcowboucherie", function(horseid, nom, model, pos, _race, lvl, cool)
     boucherielist = {}
     Wait(50)
-    table.insert(boucherielist, {id = horseid, name = nom, race = model, stable = pos, lib = _race})
+    table.insert(boucherielist, {id = horseid, name = nom, race = model, stable = pos, lib = _race, level = lvl, cd = cool})
 end)
 
 function OpenBoucherie()

@@ -805,7 +805,7 @@ Config.Animals = {
     [GetHashKey("a_c_pheasant_01")] =   {
         randomized = false,
         items = {
-            {"volaille", 1, "Maso"},
+            {"viandevolaille", 1, "Maso"},
             {"plume", 4, "Pírko"},
             {"serre", 2, "Pírko"},
         }
@@ -820,7 +820,7 @@ Config.Animals = {
     [GetHashKey("a_c_pigeon")] =   {
         randomized = false,
         items = {
-            {"volaille", 1, "Maso"},
+            {"viandevolaille", 1, "Maso"},
             {"plume", 3, "Pírko"},
         }
     },    
@@ -833,7 +833,7 @@ Config.Animals = {
     [GetHashKey("vouturetahlesanciens")] =   {
         randomized = false,
         items = {
-            {"volaille", 1, "Maso"},
+            {"viandevolaille", 1, "Maso"},
             {"plume", 4, "Pírko"},
         }
     },    
@@ -892,7 +892,7 @@ Config.Animals = {
     [GetHashKey("a_c_rooster_01")] =   {
         randomized = false,
         items = {
-            {"volaille", 1, "Maso"},
+            {"viandevolaille", 1, "Maso"},
             {"plume", 3, "Pírko"},
         }
     },    
@@ -978,14 +978,14 @@ Config.Animals = {
     [GetHashKey("a_c_turkey_01")] =   {
         randomized = false,
         items = {
-            {"volaille", 1, "Maso"},
+            {"viandevolaille", 1, "Maso"},
             {"plume", 3, "Pírko"},
         }
     },    
     [GetHashKey("a_c_turkeywild_01")] =   {
         randomized = false,
         items = {
-            {"volaille", 1, "Maso"},
+            {"viandevolaille", 1, "Maso"},
             {"plume", 3, "Pírko"},
         }
     },    
@@ -1086,7 +1086,7 @@ Config.Animals = {
     [GetHashKey("mp_a_c_chicken_01")] =   {
         randomized = false,
         items = {
-            {"volaille", 1, "Maso"},
+            {"viandevolaille", 1, "Maso"},
             {"plume", 3, "Pírko"},
         }
     },    

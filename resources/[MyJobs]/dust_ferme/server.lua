@@ -79,7 +79,16 @@ AddEventHandler(
 						local model = result[i].model
 						local stable = result[i].stable
 						local race = result[i].race
-						TriggerClientEvent("dust_ferme:getcow", _source, cowid, name, model, stable, race)
+						local cd = os.time()
+						local level = result[i].level
+						local savedDate = result[i].date / 1000 -- Remplacez ceci par la date de votre base de données
+						local timeDifference = os.difftime(cd, savedDate)
+						if timeDifference >= 64800 then
+							cooldown = false
+						else
+							cooldown = true
+						end
+						TriggerClientEvent("dust_ferme:getcow", _source, cowid, name, model, stable, race, level, cooldown)
 					end
 				end                    
 			end
@@ -304,7 +313,16 @@ AddEventHandler(
 						local model = result[i].model
 						local stable = result[i].stable
 						local race = result[i].race
-						TriggerClientEvent("dust_ferme:getcowboucherie", _source, cowid, name, model, stable, race)
+						local cd = os.time()
+						local level = result[i].level
+						local savedDate = result[i].date / 1000 -- Remplacez ceci par la date de votre base de données
+						local timeDifference = os.difftime(cd, savedDate)
+						if timeDifference >= 64800 then
+							cooldown = false
+						else
+							cooldown = true
+						end
+						TriggerClientEvent("dust_ferme:getcowboucherie", _source, cowid, name, model, stable, race, level, cooldown)
 					end
 				end                    
 			end
