@@ -718,7 +718,7 @@ function buycart(stable)
         local elements = {}
 
         for k, v in pairs(Config.Cart) do
-            table.insert(elements, {label = v.name, value = v.model, desc = "Prix:  $"})
+            table.insert(elements, {label = v.name, value = v.model, desc = "Prix:  $"..v.price, price = v.price})
         end
         MenuData.Open('default', GetCurrentResourceName(), 'buycart', {
             title = "Acheter une charrette",
