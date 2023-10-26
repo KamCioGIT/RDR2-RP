@@ -268,7 +268,7 @@ RegisterNetEvent("dust_ferme:cattle", function()
             for k, v in pairs(Config.FarmStables) do
                 if #(playerpos - v.pos ) < 7 and not isInteracting then
                     TriggerEvent('dust_presskey', "Appuyez sur G")
-                    if IsControlJustReleased(0, 0x6319DB71) then
+                    if IsControlJustReleased(0, 0x760A9C6F) then
                         isInteracting = true
                         local menutype = "Ouvrir"
                         TriggerServerEvent("dust_ferme:server:askcow")
@@ -281,7 +281,7 @@ RegisterNetEvent("dust_ferme:cattle", function()
             for k, v in pairs(Config.Certif) do
                 if #(playerpos - v) < 7 and not isInteracting then
                     TriggerEvent('dust_presskey', "Appuyez sur G")
-                    if IsControlJustReleased(0, 0x6319DB71) then
+                    if IsControlJustReleased(0, 0x760A9C6F) then
                         isInteracting = true
                         local menutype = "Bétail"
                         TriggerServerEvent("dust_ferme:server:askcow")
