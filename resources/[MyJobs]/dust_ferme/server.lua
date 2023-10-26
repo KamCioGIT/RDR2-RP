@@ -79,21 +79,15 @@ AddEventHandler(
 						local model = result[i].model
 						local stable = result[i].stable
 						local race = result[i].race
-						if result[i].date and type(result[i].date) == "number" then
-							-- Vérifier si la date est un nombre entier
-							local savedDate = result[i].date
-							local currentTimestamp = os.time()
-							local timeDifference = os.difftime(currentTimestamp, savedDate)
-						
-							if timeDifference >= 64800 then
-								cooldown = false
-							else
-								cooldown = true
-							end
+						local cd = os.time()
+						local level = result[i].level
+						local savedDate = result[i].date / 1000 -- Remplacez ceci par la date de votre base de données
+						local timeDifference = os.difftime(cd, savedDate)
+						if timeDifference >= 64800 then
+							print ('yesss')
 						else
-							cooldown = false
+							print 'yyyyyyy'
 						end
-						
 						TriggerClientEvent("dust_ferme:getcow", _source, cowid, name, model, stable, race, level, cooldown)
 					end
 				end                    
