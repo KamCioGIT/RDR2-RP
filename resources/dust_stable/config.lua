@@ -145,7 +145,7 @@ Config.Buycart = {
 		stable= 'buyhorse',
 	},
     Bla = {
-		pos = vector4(-878.5054, -1365.022, 42.52768),
+		pos = vector3(-878.5054, -1365.022, 42.52768),
 		name = 'Achatstaff',
 		stable= 'buybla',
 	},
