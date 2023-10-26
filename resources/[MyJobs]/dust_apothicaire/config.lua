@@ -16,10 +16,10 @@ Config.CraftAnim = {
 
 Config.WorkingTime = 5000
 Config.Atelier = {
-    vector3(2721.123, -1226.798, 50.36772), -- stdenis
-    vector3(2629.656, -1354.371, 49.04771), -- apo st denis
-    vector3(-782.6106, -1306.656, 43.79617), --- bla
-    vector3(-155.4652, 1491.255, 116.1591), ---- indien
+    vector3(2721.123, -1226.798, 49.36772), -- stdenis
+    vector3(2629.656, -1354.371, 48.04771), -- apo st denis
+    vector3(-782.6106, -1306.656, 42.79617), --- bla
+    vector3(-155.4652, 1491.255, 115.1591), ---- indien
 }
 
 Config.ItemMortier = "mortier"

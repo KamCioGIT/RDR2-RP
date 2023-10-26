@@ -66,10 +66,6 @@ function HandsUpAnim()
 end
 
 ----- Fouiller ------ 
-RegisterCommand("fouiller", function()
-    TriggerEvent("redemrp_inventory:SearchPlayer")
-end)
---
 -- Main radial menus that are available to everyone.
 
 lib.addRadialItem({
@@ -127,6 +123,22 @@ lib.addRadialItem({
     icon = 'hammer',
     onSelect = function()
       TriggerEvent("radial:OpenBossMenu")
+    end
+  },
+  {
+    id = 'craft',
+    label = "Fabriquer",
+    icon = 'hammer',
+    onSelect = function()
+      TriggerEvent("radial:OpenBossMenu")
+    end
+  },
+  {
+    id = 'sell',
+    label = "Vendre",
+    icon = 'handshake',
+    onSelect = function()
+      TriggerEvent("sellnpc:SellNPC")
     end
   },
 })
@@ -392,3 +404,131 @@ function DrawTexture(textureStreamed,textureName,x, y, width, height,rotation,r,
         DrawSprite(textureStreamed, textureName, x, y, width, height, rotation, r, g, b, a, p11);
     end
 end
+
+
+
+----- vente au pnj
+
+local isSelling = false
+RegiserNetEvent("sellnpc:SellNPC", function()
+    if isSelling then
+        isSelling = false
+    else
+        TriggerServerEvent("sellnpc:checkitem")
+    end
+end)
+
+RegisterNetEvent("sellnpc:SellMenu", function(items)
+    local Position = GetEntityCoords(PlayerPedId())
+  
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+  
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+  
+        local elements = {}
+        for k, v in pairs(items) do
+          table.insert(elements, {label = v.label, value = k, desc = "Ne vous faites pas voir en train de vendre !"})
+        end
+  
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Vendre",
+            subtext = "Que voulez-vous vendre ?",
+            align = 'top-right',
+            elements = elements,
+        },
+  
+        function(data, menu)
+            MenuData.CloseAll()
+            isSelling = true
+            Itemtosell = data.current.value
+        end,
+  
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+  end)
+
+--- detection pnj
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        if isSelling then
+            local current_town = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 1)
+            for k, v in pairs(Config.Price) do
+                if k == current_town then
+                    local itemSet = CreateItemset(true)
+                    local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 7.0, itemSet, 1, Citizen.ResultAsInteger())
+                
+                    if size > 0 then
+                        for index = 0, size - 1 do
+                            local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
+                            local model = GetEntityModel(entity)
+
+                            local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
+                            if IsEntityAPed(entity) and not IsPedAPlayer(entity) and not Citizen.InvokeNative(0x9A100F1CF4546629, entity) then
+                                if PlayerPedId() ~= entity then 
+                                    if IsEntityDead(entity) == false then
+                                        if boolA ~= nil and boolA == false then
+                                            if currentrumors ~= nil and #currentrumors > 0 then
+                                                TriggerEvent("sellnpc:activateselling", entity)
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                            local playerPosition = GetEntityCoords(PlayerPedId())
+                            local entityPos = GetEntityCoords(entity)
+                            if #(playerPosition - entityPos) < 1.5 then 
+                                if Entity(entity).state.canbuy == true then
+                                    TriggerEvent('dust_presskey', "Appuyez sur G pour vendre")
+                                    if IsControlJustReleased(0, 0x760A9C6F) then
+                                        TriggerServerEvent("sellnpc:sell")
+                                        Entity(entity).state.canbuy = false
+                                    end
+                                end
+                            end
+                        end
+                    end
+
+                    if IsItemsetValid(itemSet) then
+                        DestroyItemset(itemSet)
+                    end
+                end
+            end
+        end
+    end
+end)
+
+
+-- state pnj
+local isEventRunning = {}
+RegisterNetEvent("sellnpc:activateselling",function(ent)
+    if not isEventRunning[ent] then
+        isEventRunning[ent] = true
+        local timer = GetGameTimer() + Config.RefreshRumors
+        local chance = math.random(0, 100)
+        while GetGameTimer() < timer do
+            Wait(0)
+            if chance >= 50 then
+                Entity(ent).state.canbuy = true
+            end
+        end
+        isEventRunning[ent] = false
+    end
+end)
+
+-- sell

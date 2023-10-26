@@ -7,11 +7,11 @@ Config.Jobs = {
 }
 
 Config.WorkingTime = 5000
-Config.DistanceToInteract = 1.5
+Config.DistanceToInteract = 2.0
 
 Config.Atelier = {
-    [1] = vector3(2940.411, 523.3466, 45.33625),
-    [2] = vector3(2795.335, -1168.009, 47.92803)
+    [1] = vector3(2940.411, 523.3466, 44.33625),
+    [2] = vector3(2795.335, -1168.009, 46.92803)
 }
 
 Config.AnimDict = "script_rc@chnt1@ig@ig2_hosea_cook_eat"

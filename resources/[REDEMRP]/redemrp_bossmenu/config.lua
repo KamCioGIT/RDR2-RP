@@ -421,3 +421,13 @@ Config.Jobs = {
     },
 
 }
+
+Config.ExportPoint = {
+    
+
+}
+
+Config.Export = {
+    ["lingotfer"] = {label= "Lingot de fer", price = 0.5},
+
+}
