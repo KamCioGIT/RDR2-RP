@@ -186,8 +186,9 @@ function OpenStable(menutype, stable)
                     TriggerServerEvent("dust_stable:server:askcomponents", data.current.value)
                     Wait(500)
                     for k, v in pairs(horselist) do
+                        print(v.id)
                         if v.id == data.current.value then
-                            print(v.type)
+                            print 'yes'
                             if v.type == "horse" then
                                 spawnhorse(v.race, v.name, v.id, v.stashid)
                             elseif v.type == "cart" then
