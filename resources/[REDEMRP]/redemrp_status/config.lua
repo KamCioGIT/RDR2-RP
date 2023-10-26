@@ -177,7 +177,7 @@ Config.Items = {
 
     ---- recette camp ---- 
     ["viandepetitmamiferecuite"] = {
-        hunger = 20,
+        hunger = 7,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -187,7 +187,7 @@ Config.Items = {
         end
     },
     ["viandecuite"] = {
-        hunger = 30,
+        hunger = 10,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -197,7 +197,7 @@ Config.Items = {
         end
     },
     ["viandegibiercuite"] = {
-        hunger = 30,
+        hunger = 10,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -207,7 +207,7 @@ Config.Items = {
         end
     },
     ["viandevolaillecuite"] = {
-        hunger = 30,
+        hunger = 10,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -217,7 +217,7 @@ Config.Items = {
         end
     },
     ["viandereptilecuite"] = {
-        hunger = 30,
+        hunger = 10,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -227,7 +227,7 @@ Config.Items = {
         end
     },
     ["gibierherbe"] = {
-        hunger = 50,
+        hunger = 20,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -237,7 +237,7 @@ Config.Items = {
         end
     },
     ["viandeherbe"] = {
-        hunger = 50,
+        hunger = 20,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -247,7 +247,7 @@ Config.Items = {
         end
     },
     ["volailleherbe"] = {
-        hunger = 50,
+        hunger = 20,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -298,7 +298,7 @@ Config.Items = {
         end
     },
     ["tourtegibier"] = {
-        hunger = 100,
+        hunger = 80,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -308,7 +308,7 @@ Config.Items = {
         end
     },
     ["tourteviande"] = {
-        hunger = 100,
+        hunger = 80,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -318,7 +318,7 @@ Config.Items = {
         end
     },
     ["tourtevolaille"] = {
-        hunger = 100,
+        hunger = 80,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -328,7 +328,7 @@ Config.Items = {
         end
     },
     ["brochettegibier"] = {
-        hunger = 40,
+        hunger = 15,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -338,7 +338,7 @@ Config.Items = {
         end
     },
     ["brochetteviande"] = {
-        hunger = 40,
+        hunger = 15,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -348,7 +348,7 @@ Config.Items = {
         end
     },
     ["brochettevolaille"] = {
-        hunger = 40,
+        hunger = 15,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -358,7 +358,7 @@ Config.Items = {
         end
     },
     ["pain"] = {
-        hunger = 30,
+        hunger = 15,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -388,8 +388,8 @@ Config.Items = {
         end
     },
     ["soupechampignon"] = {
-        hunger = 100,
-        thirst = 100,
+        hunger = 70,
+        thirst = 70,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
