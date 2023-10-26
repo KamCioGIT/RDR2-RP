@@ -2004,6 +2004,17 @@ Config.Items = {
         imgsrc = "items/consumable_plymouth_gin.png",
         type = "item_standard",
     },
+    ["antibiotic"] = {
+        label = "Solution antibiotique",
+        description = "A boire d'urgence",
+        weight = 0.3,
+        canBeDropped = true,
+        canBeUsed = true,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/consumable_plymouth_gin.png",
+        type = "item_standard",
+    },
     ["antivenin"] = {
         label = "Antidote",
         description = "En cas de morsure",
