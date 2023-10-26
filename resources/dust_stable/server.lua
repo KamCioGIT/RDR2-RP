@@ -60,6 +60,7 @@ AddEventHandler(
 						local race = result[i].race
 						local stashid = result[i].stashid
 						local type = result[i].type
+						print(type)
 						TriggerClientEvent("dust_stable:server:gethorse", _source, horseid, name, model, stable, race, stashid, type)
 					end
 				end                    
