@@ -4,8 +4,11 @@ Config.Jobs = {
     [1] = "marechal_stdenis",
 	[2] = "marechal_bla",
 }
-
-
+Config.Certif = {
+    vector3(-809.87, -1277.221, 43.63772), --- bla 
+    vector3(1291.767, -1297.731, 77.0575), --- rhodes
+    vector3(2638.67, -1292.944, 52.25156), --- stdenis
+}
 Config.Stables = {
 	Saint_Denis = {
 		pos = vector3(2512.26, -1431.108, 46.27571),

@@ -57,7 +57,7 @@ RegisterNetEvent("dust_ferme:startMission", function()
                 Wait(0)
                 local playerPos = GetEntityCoords(PlayerPedId())
                 if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isInteracting then
-                    bleprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(0, 0x760A9C6F) and not isInteracting then 
                         StartMining()
                     end
@@ -75,7 +75,7 @@ RegisterNetEvent("dust_ferme:startMission", function()
                         Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                     end
                     if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
-                        depprompt:setActiveThisFrame(true)
+                        TriggerEvent('dust_presskey', "Appuyez sur G")
                         if IsControlJustPressed(2, 0x760A9C6F) then 
                             TriggerServerEvent('fermier:depStash')
                         end
@@ -85,7 +85,7 @@ RegisterNetEvent("dust_ferme:startMission", function()
                             Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                         end
                         if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
-                            importprompt:setActiveThisFrame(true)
+                            TriggerEvent('dust_presskey', "Appuyez sur G")
                             if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                                 TriggerEvent("fermier:OpenImportMenu")
                             end
@@ -97,7 +97,7 @@ RegisterNetEvent("dust_ferme:startMission", function()
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         TriggerEvent("ferme:OpenBossMenu")
                     end
@@ -120,7 +120,7 @@ function contremaitre() --- RETRAIT
                 Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
             end
             if #(playerPos - v) < Config.DistanceToInteract then
-                retprompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) then 
                     TriggerServerEvent('fermier:retStash')
                 end
@@ -198,7 +198,7 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Buycattle) do
             if #(playerpos - v.pos ) < 5 and not isInteracting then
-                cattleprompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     buycow(v.stable)
                     isInteracting = true
@@ -267,7 +267,7 @@ RegisterNetEvent("dust_ferme:cattle", function()
             local playerpos = GetEntityCoords(PlayerPedId())
             for k, v in pairs(Config.FarmStables) do
                 if #(playerpos - v.pos ) < 7 and not isInteracting then
-                    farmprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustReleased(0, 0x6319DB71) then
                         isInteracting = true
                         local menutype = "Ouvrir"
@@ -275,14 +275,20 @@ RegisterNetEvent("dust_ferme:cattle", function()
                         Wait(200)
                         OpenFarmStable(menutype, v.name)
                     end
-                    if farmprompt:hasHoldModeJustCompleted() then
+                end
+            end
+
+            for k, v in pairs(Config.Certif) do
+                if #(playerpos - v) < 7 and not isInteracting then
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
+                    if IsControlJustReleased(0, 0x6319DB71) then
                         isInteracting = true
                         local menutype = "Bétail"
                         TriggerServerEvent("dust_ferme:server:askcow")
                         Wait(200)
-                        OpenFarmStable(menutype, v.name)
+                        OpenFarmStable(menutype, nil)
                     end
-                end 
+                end
             end
         end
     end
@@ -319,7 +325,11 @@ function OpenFarmStable(menutype, stable)
 
         if _menutype == 'Ouvrir' then
             for k, v in pairs(cowlist) do
-                if v.stable == stable then
+                if stable then
+                    if v.stable == stable then
+                        table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
+                    end
+                else
                     table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
                 end
             end
@@ -383,7 +393,11 @@ function OpenFarmStable(menutype, stable)
                     MenuData.CloseAll()
                     local elements = {}
                     for k, v in pairs(cowlist) do
-                        if v.stable == stable then
+                        if stable then
+                            if v.stable == stable then
+                                table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
+                            end
+                        else
                             table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
                         end
                     end
@@ -652,8 +666,8 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Boucherie) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
-                boucherieprompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, 0x6319DB71) then
+                TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustReleased(0, 0x760A9C6F) then
                     isInteracting = true
                     TriggerServerEvent("dust_ferme:server:askcowboucherie")
                     Wait(200)

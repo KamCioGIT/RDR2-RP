@@ -32,7 +32,7 @@ Citizen.CreateThread(function()
             if #(playerPos - v) < 6.0 then
                 Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 2.2, 2.2, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
                 if #(playerPos - v) < 2.2 then
-                    depviandeprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustReleased(0, 0x760A9C6F) then 
                         depviande()
                     end
@@ -98,7 +98,7 @@ Citizen.CreateThread(function()
             if #(playerPos - v) < 6.0 then
                 Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 2.2, 2.2, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
                 if #(playerPos - v) < 2.2 then
-                    deppeauprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustReleased(0, 0x760A9C6F) then 
                         deppeau()
                     end

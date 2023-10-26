@@ -42,7 +42,7 @@ function startMission()
                 Wait(0)
                 local playerPos = GetEntityCoords(PlayerPedId())
                 if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isMining then
-                    mineraiprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(0, 0x760A9C6F) and not isMining then 
                         StartMining()
                     end
@@ -60,7 +60,7 @@ function startMission()
                         Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                     end
                     if #(playerPos - v) < Config.DistanceToInteract then
-                        depprompt:setActiveThisFrame(true)
+                        TriggerEvent('dust_presskey', "Appuyez sur G")
                         if IsControlJustPressed(2, 0x760A9C6F) then 
                             TriggerServerEvent('mineur:server:mineur:depStash')
                         end
@@ -85,7 +85,7 @@ function contremaitre() --- RETRAIT
                     Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - v) < Config.DistanceToInteract then
-                    retprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) then 
                         TriggerServerEvent('mineur:server:mineur:retStash')
                     end

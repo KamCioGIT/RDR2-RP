@@ -919,8 +919,9 @@ Citizen.CreateThread(
                     if distance <= 1.2 then
                         if not PromptActive then
                             TaskLookAtEntity(playerPed, v.obj, 3000, 2048, 3)
-                            local PromptGroupName = CreateVarString(10, "LITERAL_STRING", v.label)
-                            PromptSetActiveGroupThisFrame(PickupPromptGroup, PromptGroupName)
+                            -- local PromptGroupName = CreateVarString(10, "LITERAL_STRING", v.label)
+                            -- PromptSetActiveGroupThisFrame(PickupPromptGroup, PromptGroupName)
+                            TriggerEvent('dust_presskey', "Appuyez sur Entrée pour rammaser"..v.label)
                             if IsControlJustReleased(0, 0xC7B5340A) then
                                 PromptActive = true
                                 TriggerServerEvent("redemrp_inventory:onPickup", k)

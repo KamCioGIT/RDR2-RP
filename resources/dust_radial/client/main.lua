@@ -310,7 +310,7 @@ Citizen.CreateThread(function()
         local playerPos = GetEntityCoords(PlayerPedId())
         for k, pos in pairs(Config.PetitBois) do
             if #(playerPos - pos) < 7.0 and not isInteracting then
-                woodprompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
                     GiveRessource("petitbois", 1)
@@ -320,7 +320,7 @@ Citizen.CreateThread(function()
 
         for k, pos in pairs(Config.Bois) do
             if #(playerPos - pos) < 7.0 and not isInteracting then
-                bigwoodprompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
                     GiveRessource("bois", 1)
@@ -330,7 +330,7 @@ Citizen.CreateThread(function()
 
         for k, pos in pairs(Config.Fil) do
             if #(playerPos - pos) < 7.0 and not isInteracting then
-                filprompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
                     GiveRessource("fil", 1)
@@ -340,7 +340,7 @@ Citizen.CreateThread(function()
 
         for k, pos in pairs(Config.Silex) do
             if #(playerPos - pos) < 7.0 and not isInteracting then
-                silexprompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
                     GiveRessource("silex", 1)

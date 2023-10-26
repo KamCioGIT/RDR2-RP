@@ -178,7 +178,7 @@ function StartMission()
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         TriggerEvent("forge:OpenBossMenu", "forgeetabli")
                     end
@@ -189,7 +189,7 @@ function StartMission()
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Enclume, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - Config.Enclume) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         TriggerEvent("forge:OpenBossMenu", "forgeenclume")
                     end
@@ -199,7 +199,7 @@ function StartMission()
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Forge, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - Config.Forge) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         TriggerEvent("forge:OpenBossMenu", "forgeforge")
                     end

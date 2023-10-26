@@ -31,7 +31,7 @@ Citizen.CreateThread(function()
         local pcoords = GetEntityCoords(PlayerPedId())
         for k, v in ipairs(Config.postoffice) do
             if Vdist(pcoords, v.coords) < 1.5 then
-                postPrompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     TogglePost(v.name)
                 end

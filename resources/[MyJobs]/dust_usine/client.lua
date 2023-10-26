@@ -41,7 +41,7 @@ function StartMission()
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.RessourcesPointPos.x, Config.RessourcesPointPos.y, Config.RessourcesPointPos.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - Config.RessourcesPointPos) < Config.DistanceToInteract and not isInteracting then
-                    souffreprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         isInteracting = true
                         SouffreRecolt()
@@ -53,7 +53,7 @@ function StartMission()
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         TriggerEvent("usine:OpenBossMenu", "usineetabli")
                     end
@@ -64,7 +64,7 @@ function StartMission()
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Etabli, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - Config.Etabli) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         TriggerEvent("usine:OpenBossMenu", "usineetablideux")
                     end
@@ -74,7 +74,7 @@ function StartMission()
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Poudre, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - Config.Poudre) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         TriggerEvent("usine:OpenBossMenu", "usinepoudre")
                     end
@@ -84,7 +84,7 @@ function StartMission()
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Assembly, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - Config.Assembly) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         TriggerEvent("usine:OpenBossMenu", "usineassemblage")
                     end

@@ -113,7 +113,7 @@ function StartMission()
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
                 if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
-                    craftprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         TriggerEvent("doctor:OpenBossMenu")
                     end

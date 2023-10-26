@@ -75,9 +75,11 @@ Config.FarmStables = {
 		pos = vector3(2162.463, -1307.915, 42.45642),
 		name = 'Boucherie',
     },
-
 }
 
+Config.Certif = {
+	vector3(-1596.721, -1410.823, 82.06824), --- ferme
+}
 
 Config.Paturages = {
     [1] = {
@@ -230,5 +232,5 @@ Config.ImportPoint = {
 
 Config.Import = {
     ["Corn_Seed"] = {label= "Graine de Maïs", price = 0.03},
-	["Potato_Seed"] = {label= "Graine de Maïs", price = 0.03},
+	["Potato_Seed"] = {label= "Patate germée", price = 0.03},
 }

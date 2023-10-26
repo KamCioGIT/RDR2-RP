@@ -33,10 +33,10 @@ end)
 
 ----- INTERACT WITH STABLE ----
 
-local stableprompt = UipromptGroup:new("Écurie")
-Uiprompt:new(0x6319DB71, "Ouvrir", stableprompt)
-Uiprompt:new(0x05CA7C52, "Gérer", stableprompt):setHoldMode(true)
-stableprompt:setActive(false)
+-- local stableprompt = UipromptGroup:new("Écurie")
+-- Uiprompt:new(0x6319DB71, "Ouvrir", stableprompt)
+-- Uiprompt:new(0x05CA7C52, "Gérer", stableprompt):setHoldMode(true)
+-- stableprompt:setActive(false)
 
 Citizen.CreateThread(function()
     for k, v in pairs(Config.Stables) do
@@ -50,22 +50,27 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Stables) do
             if #(playerpos - v.pos ) < 4.5 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
-                stableprompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, 0x6319DB71) then
+                TriggerEvent('dust_presskey', "Appuyez sur Entrée")
+                if IsControlJustReleased(0, 0xC7B5340A) then
                     isInteracting = true
                     local menutype = "Ouvrir"
                     TriggerServerEvent("dust_stable:server:askhorse")
                     Wait(200)
                     OpenStable(menutype, v.name)
                 end
-                if stableprompt:hasHoldModeJustCompleted() then
+            end
+        end
+        for k, v in pairs(Config.Certif) do
+            if #(playerpos - v ) < 4.5 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+                TriggerEvent('dust_presskey', "Appuyez sur Entrée")
+                if IsControlJustReleased(0, 0xC7B5340A) then
                     isInteracting = true
                     local menutype = "Chevaux"
                     TriggerServerEvent("dust_stable:server:askhorse")
                     Wait(200)
-                    OpenStable(menutype, v.name)
+                    OpenStable(menutype, nil)
                 end
-            end 
+            end
         end
     end
 end)
@@ -141,7 +146,11 @@ function OpenStable(menutype, stable)
 
         if _menutype == 'Ouvrir' then
             for k, v in pairs(horselist) do
-                if tostring(v.stable) == tostring(stable) then
+                if stable then
+                    if tostring(v.stable) == tostring(stable) then
+                        table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
+                    end
+                else
                     table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
                 end
             end
@@ -216,7 +225,11 @@ function OpenStable(menutype, stable)
                     MenuData.CloseAll()
                     local elements = {}
                     for k, v in pairs(horselist) do
-                        if v.stable == stable then
+                        if stable then
+                            if tostring(v.stable) == tostring(stable) then
+                                table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
+                            end
+                        else
                             table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
                         end
                     end
@@ -260,7 +273,11 @@ function OpenStable(menutype, stable)
                     MenuData.CloseAll()
                     local elements = {}
                     for k, v in pairs(horselist) do
-                        if v.stable == stable then
+                        if stable then
+                            if tostring(v.stable) == tostring(stable) then
+                                table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
+                            end
+                        else
                             table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
                         end
                     end
@@ -324,7 +341,11 @@ function OpenStable(menutype, stable)
                     MenuData.CloseAll()
                     local elements = {}
                     for k, v in pairs(horselist) do
-                        if v.stable == stable then
+                        if stable then
+                            if tostring(v.stable) == tostring(stable) then
+                                table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
+                            end
+                        else
                             table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
                         end
                     end
@@ -583,9 +604,9 @@ end)
 
 ------ ACHAT CHEVAL ------ 
 
-local AchatPrompt = UipromptGroup:new("Écurie")
-Uiprompt:new(0x156F7119, "Acheter", AchatPrompt)
-AchatPrompt:setActive(false)
+-- local AchatPrompt = UipromptGroup:new("Écurie")
+-- Uiprompt:new(0x156F7119, "Acheter", AchatPrompt)
+-- AchatPrompt:setActive(false)
 
 function Buy()
     while true do
@@ -593,8 +614,8 @@ function Buy()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Buyhorse) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
-                AchatPrompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, 0x156F7119) then
+                TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustReleased(0, 0x760A9C6F) then
                     buyhorse(v.stable)
                     isInteracting = true
                 end
@@ -602,8 +623,8 @@ function Buy()
         end
         for k, v in pairs(Config.Buycart) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
-                AchatPrompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, 0x156F7119) then
+                TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustReleased(0, 0x760A9C6F) then
                     buycart(v.stable)
                     isInteracting = true
                 end
@@ -624,8 +645,8 @@ Citizen.CreateThread(function()
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.NoobPos) do
             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
-                AchatPrompt:setActiveThisFrame(true)
-                if IsControlJustReleased(0, 0x156F7119) then
+                TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustReleased(0, 0x760A9C6F) then
                     buyhorse(v.stable)
                     isInteracting = true
                 end
@@ -751,9 +772,9 @@ AddEventHandler('txAdmin:events:serverShuttingDown', function()
 end)
 
 ---- LOOT STASHES ---
-local saddleprompt = UipromptGroup:new("Sacoches")
-Uiprompt:new(0x760A9C6F, "Ouvrir", saddleprompt)
-saddleprompt:setActive(false)
+-- local saddleprompt = UipromptGroup:new("Sacoches")
+-- Uiprompt:new(0x760A9C6F, "Ouvrir", saddleprompt)
+-- saddleprompt:setActive(false)
 
 Citizen.CreateThread(function()
     while true do
@@ -765,7 +786,7 @@ Citizen.CreateThread(function()
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.saddle == "true" and not IsPedOnMount(PlayerPedId()) then
-                    saddleprompt:setActiveThisFrame(true)
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustReleased(0, 0x760A9C6F) then
                         -- Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_LootSaddleBags"), 0, 1)
                         TriggerEvent("redemrp_inventory:OpenStash", Entity(entity).state.stashid, 10.0)
@@ -788,9 +809,9 @@ Citizen.CreateThread(function()
     end
 end)
 
-local charretteprompt = UipromptGroup:new("Charrette")
-Uiprompt:new(0x760A9C6F, "Ouvrir", charretteprompt)
-charretteprompt:setActive(false)
+-- local charretteprompt = UipromptGroup:new("Charrette")
+-- Uiprompt:new(0x760A9C6F, "Ouvrir", charretteprompt)
+-- charretteprompt:setActive(false)
 
 Citizen.CreateThread(function()
     while true do
@@ -799,7 +820,7 @@ Citizen.CreateThread(function()
         local cart = lib.getClosestVehicle(coords, 3.0, false)
         if cart then
             if Entity(cart).state.stashid then
-                charretteprompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     TriggerEvent("redemrp_inventory:OpenStash", Entity(cart).state.stashid, Entity(cart).state.stashweight)
                 end
@@ -1018,8 +1039,8 @@ cartprompt:setActive(false)
 --         local playerpos = GetEntityCoords(PlayerPedId())
 --         for k, v in pairs(Config.Buyhorse) do
 --             if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
---                 cartprompt:setActiveThisFrame(true)
---                 if IsControlJustReleased(0, 0x156F7119) then
+--                 TriggerEvent('dust_presskey', "Appuyez sur G")
+--                 if IsControlJustReleased(0, 0x760A9C6F) then
 --                     buyhorse(v.stable)
 --                     isInteracting = true
 --                 end

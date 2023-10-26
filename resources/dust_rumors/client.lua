@@ -124,7 +124,7 @@ Citizen.CreateThread(function()
         local playerPosition = GetEntityCoords(PlayerPedId())
         for k,v in pairs(Config.ShareRumorSpot) do 
             if #(playerPosition - v) < 2 and not isInteracting then 
-                rumorPrompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     isInteracting = true
                     FreezeEntityPosition(PlayerPedId(), true)

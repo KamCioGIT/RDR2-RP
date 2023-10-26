@@ -756,7 +756,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Zones) do
             local dist = Vdist(coords, v)
             if dist < 2 then
-                clothesprompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     TriggerServerEvent("rdr_clothes_store:LoadClothes", 2)
                 end
@@ -780,7 +780,7 @@ cloakprompt:setActive(false)
          for k,v in pairs(Config.Cloakroom) do
              local dist =  Vdist(coords, v)
              if dist < 2 then
-                cloakprompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
 
                 if IsControlJustReleased(0, 0x760A9C6F) then
                      TriggerEvent('rdr_clothes_store:OpenOutfits')
@@ -864,7 +864,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Hat) do
             local dist = Vdist(coords, v)
             if dist < 2 then
-                hatprompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     TriggerServerEvent("rdr_clothes_store:LoadClothes", 3)
                 end
@@ -1253,7 +1253,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.Mask) do
             local dist = Vdist(coords, v)
             if dist < 2 then
-                Maskprompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     TriggerServerEvent("rdr_clothes_store:LoadClothes", 4)
                 end
