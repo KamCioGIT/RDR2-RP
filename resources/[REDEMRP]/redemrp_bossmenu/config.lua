@@ -423,7 +423,7 @@ Config.Jobs = {
 }
 
 Config.ExportPoint = {
-    vector3(-780.7111, -1232.959, 43.53933), -- bla
+    vector3(-783.3221, -1234.487, 43.54176), -- bla
 
 }
 
