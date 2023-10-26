@@ -80,15 +80,18 @@ AddEventHandler(
 						local stable = result[i].stable
 						local race = result[i].race
 						local savedDate = result[i].date  -- Assurez-vous que result[i].date est déjà un timestamp Unix (nombre entier)
-						local currentTimestamp = os.time()
-						local timeDifference = os.difftime(currentTimestamp, savedDate)
-						
-						if timeDifference >= 64800 then
-							cooldown = false
+						print (savedDate)
+						if savedDate ~= nil then
+							local currentTimestamp = os.time()
+							local timeDifference = os.difftime(currentTimestamp, savedDate)
+							if timeDifference >= 64800 then
+								cooldown = false
+							else
+								cooldown = true
+							end
 						else
-							cooldown = true
-						end
-						
+							cooldown = false
+						end 
 						TriggerClientEvent("dust_ferme:getcow", _source, cowid, name, model, stable, race, level, cooldown)
 					end
 				end                    
