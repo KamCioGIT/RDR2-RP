@@ -32,7 +32,6 @@ RegisterNetEvent('redemrp_charselect:SpawnCharacter', function(new)
     Citizen.Wait(1000)
     DestroyAllCams()
     TriggerServerEvent("redemrp_respawn:CheckPos")
-    TriggerServerEvent("contrat:checkjob")
 end)
 
 local isHidden = false
