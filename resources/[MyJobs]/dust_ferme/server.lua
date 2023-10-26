@@ -84,9 +84,9 @@ AddEventHandler(
 						local savedDate = result[i].date / 1000 -- Remplacez ceci par la date de votre base de données
 						local timeDifference = os.difftime(cd, savedDate)
 						if timeDifference >= 64800 then
-							print ('yesss')
+							cooldown = false
 						else
-							print 'yyyyyyy'
+							cooldown = true
 						end
 						TriggerClientEvent("dust_ferme:getcow", _source, cowid, name, model, stable, race, level, cooldown)
 					end
