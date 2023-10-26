@@ -81,7 +81,7 @@ AddEventHandler(
 						local race = result[i].race
 						local savedDate = result[i].date  -- Assurez-vous que result[i].date est déjà un timestamp Unix (nombre entier)
 						print (savedDate)
-						if savedDate ~= nil then
+						if savedDate then
 							local currentTimestamp = os.time()
 							local timeDifference = os.difftime(currentTimestamp, savedDate)
 							if timeDifference >= 64800 then
