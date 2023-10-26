@@ -2752,7 +2752,7 @@ Config.Items = {
     imgsrc = "items/cherrypie.png",
     type = "item_standard",
 },
-["viandehache"] = {
+["viandehachee"] = {
     label = "Viande hâchée",
     description = "De quoi ça provient ?",
     weight = 0.1,
