@@ -192,8 +192,8 @@ function OpenStable(menutype, stable)
                             if v.type == "horse" then
                                 spawnhorse(v.race, v.name, v.id, v.stashid)
                             elseif v.type == "cart" then
-                                spawncart(v.race, v.name, v.id, v.stashid)
                                 print(v.race, v.name, v.id, v.stashid)
+                                spawncart(v.race, v.name, v.id, v.stashid)
                             end
                         end
                         Wait(100)
