@@ -199,7 +199,7 @@ Citizen.CreateThread(function()
     end
     well = CreateObject(GetHashKey("p_well02x"), Config.CoordsPuit, false, true, true)
     PlaceObjectOnGroundProperly(well)
-    FreezeEntityPosition(well)
+    FreezeEntityPosition(well, true)
     while true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
