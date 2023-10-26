@@ -32,9 +32,9 @@ Config.LargeVault = GetHashKey("p_safe01") ---- Ancien -1212348817
 
 Config.DistanceAffichage = 100.0
 
-Config.SmallWeight = 50.0
-Config.MediumWeight = 100.0
-Config.LargeWeight = 1500.0
+Config.SmallWeight = 70.0
+Config.MediumWeight = 200.0
+Config.LargeWeight = 600.0
 
 Config.SafeDict = "mech_pickup@loot@vaults@med@safecrack@base"
 Config.SafeAnim = "base"
