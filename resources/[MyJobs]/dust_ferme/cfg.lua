@@ -8,10 +8,7 @@ Config.FarmerDepositPos = { vector3(-1605.754, -1374.691, 82.95718)} --
 Config.FarmerWithdrawalPos = { vector3(-1608.229, -1368.804, 82.98436)}
 
 Config.PointSprite = 2033377404
-Config.CoordsPuit = {
-	vector3(-1650.112548828125, -1396.508544921875, 82.43363189697266),
-
-}
+Config.CoordsPuit = vector3(-1650.112548828125, -1396.508544921875, 82.43363189697266),
 
 Config.GatherDict = 'mech_pickup@plant@milkweed'
 Config.GatherAnim = 'stn_pick'
