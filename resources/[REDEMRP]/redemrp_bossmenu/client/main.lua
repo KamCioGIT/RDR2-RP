@@ -31,12 +31,14 @@ RegisterNetEvent("redemrp_bossmenu:client:ReceiveJob", function(job, grade)
     PromptSetVisible(BossMenuPrompt, false)
     BossMenuPromptShown = false
     PlayerJob, PlayerJobgrade = job, grade
-    print (PlayerJob, PlayerJobgrade)
     if Config.Jobs[job] then
         if Config.Jobs[job].bigjob then
             local bigjob = Config.Jobs[job].bigjob
             TriggerEvent("dust_job:"..bigjob, PlayerJob, PlayerJobgrade)
         end
+    end
+    if PlayerJobgrade > 3 then
+        TriggerEvent("dust_export:getaccess")
     end
 end)
 
@@ -391,3 +393,132 @@ function GetClosestPlayer()
     end
     return closestPlayer, closestDistance
 end
+
+
+--- export
+
+RegisterNetEvent("dust_export:getaccess", function()
+    if Config.ExportPoint then
+        for k, v in pairs(Config.ExportPoint) do
+            local blip = Citizen.InvokeNative(0x554d9d53f696d002, 1664425300, v)
+            SetBlipSprite(blip, 688589278, 1)
+            Citizen.InvokeNative(0x9CB1A1623062F402, blip, "Exportateur")
+        end
+    end
+    while true do
+        Citizen.Wait(1)
+        local pcoords = GetEntityCoords(PlayerPedId())
+        for k, v in ipairs(Config.ExportPoint) do
+            if #(pcoords - v) < 10.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if Vdist(pcoords, v) < 2.0 then
+                TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustReleased(0, 0x760A9C6F) then
+                    TriggerServerEvent("dust_export:chekitem")
+                end
+            end
+        end
+    end
+end)
+
+RegisterNetEvent("dust_export:OpenExportMenu", function(selltable)
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        local elements = {}
+
+
+        for k, v in pairs(selltable) do
+            table.insert(elements, {label = v.label.." $"..v.price, value = k, price = v.price})
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Exportateur",
+            subtext = "Vendre",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            MenuData.CloseAll()
+            TriggerServerEvent("dust_export:MaxRessourcesAmount", data.current.value)
+            Wait(150)
+            TriggerEvent("dust_export:SelectSellingAmount", data.current.value, MenuData, menu)
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)
+
+
+RegisterNetEvent("dust_export:SelectCraftingAmount")
+AddEventHandler("dust_export:SelectCraftingAmount", function(dataType, menuData, menu)
+    menuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+
+    local elements = {
+        { label = "Quantité", 
+        value = 0, 
+        desc = "Vendre",
+        type = 'slider',
+        min = 0,
+        max = maxsellamount 
+        },
+    }
+
+    menuData.Open('default', GetCurrentResourceName(), 'craft', {
+        title = "Exportateur",
+        subtext = "Choisir la quantité",
+        align = 'top-right',
+        elements = elements,
+    },
+
+    function(data, menu)
+        if data.current.label == "Quantité" then
+            TriggerServerEvent("dust_export:SellItem", dataType, menu, data.current.value)
+            menu.close()
+            isInteracting = false
+        end 
+    end,
+
+    function(data, menu)
+        menu.close()
+        isInteracting = false
+    end)
+end)
+
+RegisterNetEvent("dust_export:client:SetMaxAmount", function(value)
+    maxsellamount = value
+end)

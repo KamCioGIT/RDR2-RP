@@ -419,3 +419,42 @@ AddEventHandler(
         end
     end
 )
+
+
+
+RegisterServerEvent("dust_export:chekitem", function()
+    local _source = tonumber(source)
+    local selltable = {} 
+	for k, v in pairs(Config.Export) do
+        local ItemData = data.getItem(_source, k)
+        local ItemAmount = tonumber(ItemData.ItemAmount)
+        if ItemAmount >= 1 then
+            selltable[k] = v
+        end
+	end
+
+	TriggerClientEvent("dust_export:OpenExportMenu", _source, selltable)
+end)
+
+RegisterServerEvent("dust_export:MaxRessourcesAmount", function(dataType)
+    local _source = tonumber(source)
+    
+    local ItemData = data.getItem(_source, Config.Export[dataType])
+    local ItemAmount = tonumber(ItemData.ItemAmount)
+
+	if ItemAmount >= 1 then
+		TriggerClientEvent("dust_export:client:SetMaxAmount", _source, math.floor(ItemAmount))
+	else 
+		TriggerClientEvent("dust_export:client:SetMaxAmount", _source, 0)
+	end
+end)
+
+RegisterServerEvent('dust_export:SellItem')
+AddEventHandler('dust_export:SellItem', function(itemNameStr, menu, amount)
+	local _source = tonumber(source)
+    local user = RedEM.GetPlayer(_source)
+    local ItemData = data.getItem(_source, itemNameStr)
+    if ItemData.RemoveItem(amount) then
+        user.AddMoney(Config.Export[itemNameStr].price * amount)
+    end
+end)

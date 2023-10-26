@@ -82,7 +82,7 @@ RegisterNetEvent("rumors:DrawText3D",function(ent)
         local chance = math.random(0, 100)
         while GetGameTimer() < timer do
             Wait(0)
-            if chance >= 33 then
+            if chance >= 50 then
                 local playerPosition = GetEntityCoords(PlayerPedId())
                 local entityPos = GetEntityCoords(ent) 
                 boneCoord = GetWorldPositionOfEntityBone(ent, 31086)

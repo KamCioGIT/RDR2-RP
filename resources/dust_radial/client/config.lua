@@ -86,20 +86,20 @@ Config.Bois = {
 
 Config.Price = {
     [GetHashKey("Strawberry")] = {
-        ["moonshine"] = 0.5,
-        ["pavot"] = 0.3,
+        ["moonshine"] = {label="Moonshine", price = 0.5},
+        ["pavot"] = {label="Moonshine", price = 0.5},
     },
     [GetHashKey("Rhodes")] = {
-        ["moonshine"] = 0.5,
-        ["pavot"] = 0.3,
+        ["moonshine"] = {label="Moonshine", price = 0.5},
+        ["pavot"] = {label="Moonshine", price = 0.5},
     },
     [GetHashKey("StDenis")] = {
-        ["moonshine"] = 0.5,
-        ["pavot"] = 0.3,
-        ["cuir"] = 0.07,
+        ["moonshine"] = {label="Moonshine", price = 0.5},
+        ["pavot"] = {label="Moonshine", price = 0.5},
+        ["cuir"] = {label="Moonshine", price = 0.5},
     },
     [GetHashKey("Blackwater")] = {
-        ["moonshine"] = 0.5,
-        ["pavot"] = 0.3,
+        ["moonshine"] = {label="Moonshine", price = 0.5},
+        ["pavot"] = {label="Moonshine", price = 0.5},
     },
 }
