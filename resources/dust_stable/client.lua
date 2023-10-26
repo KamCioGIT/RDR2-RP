@@ -619,7 +619,10 @@ function Buy()
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.Buyhorse) do
-            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+            if #(playerpos - v.pos) < 10.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.pos, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if #(playerpos - v.pos ) < Config.DistanceToInteract and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     buyhorse(v.stable)
@@ -628,7 +631,10 @@ function Buy()
             end
         end
         for k, v in pairs(Config.Buycart) do
-            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+            if #(playerpos - v.pos) < 10.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.pos, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if #(playerpos - v.pos ) < Config.DistanceToInteract and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     buycart(v.stable)
