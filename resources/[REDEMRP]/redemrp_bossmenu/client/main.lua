@@ -457,6 +457,7 @@ RegisterNetEvent("dust_export:OpenExportMenu", function(selltable)
 
         function(data, menu)
             MenuData.CloseAll()
+            print(data.current.value)
             TriggerServerEvent("dust_export:MaxRessourcesAmount", data.current.value)
             Wait(150)
             TriggerEvent("dust_export:SelectSellingAmount", data.current.value, MenuData, menu)
