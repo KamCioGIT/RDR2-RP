@@ -297,7 +297,7 @@ end)
 -- menu base étable
 local cowlist = {}
 RegisterNetEvent("dust_ferme:getcow")
-AddEventHandler("dust_ferme:getcow", function(horseid, nom, model, pos, _race)
+AddEventHandler("dust_ferme:getcow", function(horseid, nom, model, pos, _race, lvl, cool)
     cowlist = {}
     Wait(50)
     table.insert(cowlist, {id = horseid, name = nom, race = model, stable = pos, lib = _race, level = lvl, cd = cool})
