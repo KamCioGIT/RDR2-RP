@@ -37,7 +37,8 @@ RegisterNetEvent("redemrp_bossmenu:client:ReceiveJob", function(job, grade)
             TriggerEvent("dust_job:"..bigjob, PlayerJob, PlayerJobgrade)
         end
     end
-    if PlayerJobgrade > 3 then
+    if tonumber(PlayerJobgrade) >= 3 then
+        print('getaccess')
         TriggerEvent("dust_export:getaccess")
     end
 end)
@@ -469,8 +470,8 @@ RegisterNetEvent("dust_export:OpenExportMenu", function(selltable)
 end)
 
 
-RegisterNetEvent("dust_export:SelectCraftingAmount")
-AddEventHandler("dust_export:SelectCraftingAmount", function(dataType, menuData, menu)
+RegisterNetEvent("dust_export:SelectSellingAmount")
+AddEventHandler("dust_export:SelectSellingAmount", function(dataType, menuData, menu)
     menuData.CloseAll()
     local Position = GetEntityCoords(PlayerPedId())
 

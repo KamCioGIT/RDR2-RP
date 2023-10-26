@@ -1,5 +1,11 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
+
+data = {}
+TriggerEvent("redemrp_inventory:getData",function(call)
+    data = call
+end)
+
 SettingGrade = {}
 Duty = {}
 JobLedgers = {}
@@ -438,10 +444,8 @@ end)
 
 RegisterServerEvent("dust_export:MaxRessourcesAmount", function(dataType)
     local _source = tonumber(source)
-    
-    local ItemData = data.getItem(_source, Config.Export[dataType])
+    local ItemData = data.getItem(_source, dataType)
     local ItemAmount = tonumber(ItemData.ItemAmount)
-
 	if ItemAmount >= 1 then
 		TriggerClientEvent("dust_export:client:SetMaxAmount", _source, math.floor(ItemAmount))
 	else 
