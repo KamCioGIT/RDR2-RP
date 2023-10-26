@@ -38,6 +38,7 @@ RegisterNetEvent("redemrp_bossmenu:client:ReceiveJob", function(job, grade)
         end
     end
     if PlayerJobgrade > 3 then
+        print('getaccess')
         TriggerEvent("dust_export:getaccess")
     end
 end)
