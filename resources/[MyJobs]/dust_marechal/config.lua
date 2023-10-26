@@ -102,7 +102,7 @@ Config.LabelPrice = {
 }
 
 Config.ImportPoint = {
-    [1]= vector3(2572.136, -1501.026, 45.96986), --- st denis
+    [1]= vector3(2669.003, -1522.059, 45.96976), --- st denis
     [2]= vector3(-825.8802, -1241.919, 43.53639), -- bla
 }
 

@@ -430,6 +430,12 @@ Config.ExportPoint = {
 
 
 }
+Config.ImportNPC = {
+    ["blackwater"] = {heading = 305.5272 , coords = vector3(-828.5374, -1243.587, 43.55648)},
+    ["stdenis"] = {heading = 292.8161 , coords = vector3(2668.192, -1522.695, 45.96976)},
+}
+
+
 Config.ExportNPC = {
     ["blackwater"] = {heading = 216.50 , coords = vector3(-783.7773, -1233.145, 42.53811)},
     ["stdenis"] = {heading = 75.79538 , coords = vector3(2672.653, -1509.107, 44.96952)},

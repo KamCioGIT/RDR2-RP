@@ -479,10 +479,10 @@ Config.FarmHerbs = {
 		fertilizer = {1, 2},--Empty is disabled,
 		quality = 100,--Disabled quality system is 0 
 		rewardItem = {--If you have disabled quality set [XX] to [0]
-			[80] = {"Corn", 5},--Upper 80% to 100
-			[50] = {"Corn", 3},--Upper 50% to 80
-			[25] = {"Corn", 2},--Upper 25% to 50
-			[0] = {"Corn", 1},--Upper 0% to 25
+			[80] = {"Corn", 3},--Upper 80% to 100
+			[50] = {"Corn", 2},--Upper 50% to 80
+			[25] = {"Corn", 1},--Upper 25% to 50
+			[0] = {"Corn", 0},--Upper 0% to 25
 		},
 		grounded = 0.0,--downgrade under ground
 	},
@@ -801,10 +801,10 @@ Config.FarmHerbs = {
 		fertilizer = {1, 2},--Empty is disabled,
 		quality = 100,--Disabled quality system is 0 
 		rewardItem = {--If you have disabled quality set [XX] to [0]
-			[80] = {"patate", 5},--Upper 80% to 100
-			[50] = {"patate", 3},--Upper 50% to 80
-			[25] = {"patate", 2},--Upper 0% to 50
-			[0] = {"patate", 1},--Upper 0% to 25
+			[80] = {"patate", 3},--Upper 80% to 100
+			[50] = {"patate", 2},--Upper 50% to 80
+			[25] = {"patate", 1},--Upper 0% to 50
+			[0] = {"patate", 0},--Upper 0% to 25
 		},
 		grounded = 0.0,--downgrade under ground
 	},
@@ -828,10 +828,10 @@ Config.FarmHerbs = {
 		fertilizer = {1, 2},--Empty is disabled,
 		quality = 100,--Disabled quality system is 0 
 		rewardItem = {--If you have disabled quality set [XX] to [0]
-			[80] = {"Tomato", 5},--Upper 80% to 100
-			[50] = {"Tomato", 3},--Upper 50% to 80
-			[25] = {"Tomato", 2},--Upper 0% to 50
-			[0] = {"Tomato", 1},--Upper 0% to 25
+			[80] = {"Tomato", 3},--Upper 80% to 100
+			[50] = {"Tomato", 2},--Upper 50% to 80
+			[25] = {"Tomato", 1},--Upper 0% to 50
+			[0] = {"Tomato", 0},--Upper 0% to 25
 		},
 		grounded = 0.0,--downgrade under ground
 	},
