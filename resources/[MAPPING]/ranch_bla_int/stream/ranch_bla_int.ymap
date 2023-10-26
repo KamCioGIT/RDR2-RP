@@ -10,8 +10,8 @@
 		<Item type="CEntityDef">
 			<archetypeName>p_well02x</archetypeName>
 			<flags value="1572897"/>
-			<position x="-1665.624268" y="-1377.478760" z="82.912628"/>
-			<rotation w="0.885398" x="0.000000" y="-0.000000" z="-0.464834"/>
+			<position x="-1634.056885" y="-1384.038452" z="82.477257"/>
+			<rotation w="0.991929" x="-0.041624" y="-0.015665" z="-0.118737"/>
 			<scaleXY value="1"/>
 			<scaleZ value="1"/>
 			<parentIndex value="-1"/>
