@@ -141,7 +141,7 @@ Config.Jobs = {
     },
     ["fermier"] = {
         bigjob = "fermier",
-        Name = "Ferme",
+        Name = "Ranch McAllister",
         blisprite = 552659337,
         MenuLocations = 
             vector3(-1643.433, -1355.236, 83.45272)

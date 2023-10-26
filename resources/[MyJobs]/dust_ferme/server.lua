@@ -79,15 +79,21 @@ AddEventHandler(
 						local model = result[i].model
 						local stable = result[i].stable
 						local race = result[i].race
-						local cd = os.time()
-						local level = result[i].level
-						local savedDate = math.floor(result[i].date / 1000)  -- Remplacez ceci par la date de votre base de données
-						local timeDifference = os.difftime(cd, savedDate)
+						-- Convertir une date datetime en timestamp Unix
+						local dateStr = result[i].date -- Assurez-vous que ceci est une chaîne au format datetime
+						local pattern = "(%d+)-(%d+)-(%d+) (%d+):(%d+):(%d+)"
+						local year, month, day, hour, min, sec = dateStr:match(pattern)
+						local timestamp = os.time({year = year, month = month, day = day, hour = hour, min = min, sec = sec})
+
+						local currentTimestamp = os.time()
+						local timeDifference = os.difftime(currentTimestamp, timestamp)
+
 						if timeDifference >= 64800 then
 							cooldown = false
 						else
 							cooldown = true
 						end
+
 						TriggerClientEvent("dust_ferme:getcow", _source, cowid, name, model, stable, race, level, cooldown)
 					end
 				end                    
