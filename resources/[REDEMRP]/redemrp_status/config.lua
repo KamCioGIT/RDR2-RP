@@ -267,7 +267,7 @@ Config.Items = {
             EatBowl()
         end
     },
-    ["Ragoutgibier"] = {
+    ["ragoutgibier"] = {
         hunger = 50,
         thirst = 50,
         action = function(source, name)
@@ -277,7 +277,7 @@ Config.Items = {
             EatBowl()
         end
     },
-    ["Ragoutviande"] = {
+    ["ragoutviande"] = {
         hunger = 50,
         thirst = 50,
         action = function(source, name)
@@ -287,7 +287,7 @@ Config.Items = {
             EatBowl()
         end
     },
-    ["Ragoutvolaille"] = {
+    ["ragoutvolaille"] = {
         hunger = 50,
         thirst = 50,
         action = function(source, name)
