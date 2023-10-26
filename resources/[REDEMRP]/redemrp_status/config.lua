@@ -397,6 +397,36 @@ Config.Items = {
             EatBowl()
         end
     },
+    ["beefsteakpatate"] = {
+        hunger = 100,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Eat()
+        end
+    },
+    ["boeufaugin"] = {
+        hunger = 100,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Eat()
+        end
+    },
+    ["cotedeboeuf"] = {
+        hunger = 100,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Eat()
+        end
+    },
     ---- ferme
     ["bouteillelait"] = {
         hunger = 0,
