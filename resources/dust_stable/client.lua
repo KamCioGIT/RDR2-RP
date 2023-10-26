@@ -737,7 +737,7 @@ function buycart(stable)
                 end
             end
             local type = "cart"
-            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type, price)
+            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type, data.current.price)
             isInteracting = false
         end,
 
