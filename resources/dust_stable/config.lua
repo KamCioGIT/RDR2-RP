@@ -127,12 +127,13 @@ Config.Buyhorse = {
 		stable= 'buyhorse',
 	},
     Bla = {
-		pos = vector3(-944.1528, -1333.534, 50.67882),
+		pos = vector3(-944.1528, -1333.534, 49.67882),
 		name = 'Achatstaff',
 		stable= 'buybla',
 	},
     
 }
+
 Config.Buycart = {
 	Saint_Denis = {
 		pos = vector3(2502.023, -1487.874, 45.9691),
@@ -145,7 +146,7 @@ Config.Buycart = {
 		stable= 'buyhorse',
 	},
     Bla = {
-		pos = vector4(-878.5054, -1365.022, 42.52768),
+		pos = vector3(-878.5054, -1365.022, 42.52768),
 		name = 'Achatstaff',
 		stable= 'buybla',
 	},
