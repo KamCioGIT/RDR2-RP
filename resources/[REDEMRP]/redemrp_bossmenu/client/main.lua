@@ -37,7 +37,7 @@ RegisterNetEvent("redemrp_bossmenu:client:ReceiveJob", function(job, grade)
             TriggerEvent("dust_job:"..bigjob, PlayerJob, PlayerJobgrade)
         end
     end
-    if tonumber(PlayerJobgrade) > 3 then
+    if tonumber(PlayerJobgrade) >= 3 then
         print('getaccess')
         TriggerEvent("dust_export:getaccess")
     end
