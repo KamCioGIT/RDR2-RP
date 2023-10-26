@@ -177,7 +177,7 @@ Config.CraftingsReceipe = {
     ['ragoutviande'] = {
         type = 'cuisineferme',
         Itemtocraft = 3,
-        ItemReceipe1Name = 'viandehachee',
+        ItemReceipe1Name = 'viandehache',
         ItemReceipe1Amount = 3,
         ItemReceipe2Name = 'patate',
         ItemReceipe2Amount = 1,
@@ -189,45 +189,45 @@ Config.CraftingsReceipe = {
         label = 'Ragoût',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande Crue",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
-    ['viandehachee'] = {
+    ['viandehache'] = {
         type = 'cuisineferme',
         Itemtocraft = 1,
         ItemReceipe1Name = 'viandevol',
         ItemReceipe1Amount = 1,
-        ItemToGive = 'viandehachee',
+        ItemToGive = 'viandehache',
         Amount = 1,
         WorkingTime = 1,
         label = 'Viande hâchée',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande crue",count = "x1"}}
     },
-    ['viandehacheegibier'] = {
+    ['viandehachegibier'] = {
         type = 'cuisineferme',
         Itemtocraft = 1,
         ItemReceipe1Name = 'viandegibier',
         ItemReceipe1Amount = 1,
-        ItemToGive = 'viandehachee',
+        ItemToGive = 'viandehache',
         Amount = 1,
         WorkingTime = 1,
         label = 'Viande hâchée',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison.png', text = "Venaison",count = "x1"}}
     },
-    ['viandehacheepetitgibier'] = {
+    ['viandehachepetitgibier'] = {
         type = 'cuisineferme',
         Itemtocraft = 1,
         ItemReceipe1Name = 'viandepetitmamifere',
         ItemReceipe1Amount = 2,
-        ItemToGive = 'viandehachee',
+        ItemToGive = 'viandehache',
         Amount = 1,
         WorkingTime = 1,
         label = 'Viande hâchée',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_exotic_bird.png', text = "Viande de petit gibier",count = "x2"}}
     },
-    ['viandehacheereptile'] = {
+    ['viandehachereptile'] = {
         type = 'cuisineferme',
         Itemtocraft = 1,
         ItemReceipe1Name = 'viandereptile',
         ItemReceipe1Amount = 1,
-        ItemToGive = 'viandehachee',
+        ItemToGive = 'viandehache',
         Amount = 1,
         WorkingTime = 1,
         label = 'Viande hâchée',
