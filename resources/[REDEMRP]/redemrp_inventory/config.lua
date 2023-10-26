@@ -1265,14 +1265,14 @@ Config.Items = {
         type = "item_standard",
     },
     ["viandebovine"] = {
-        label = "Viande bovine",
-        description = "Pour préparer des bons petits plats",
+        label = "Viande Bovine",
+        description = "Destinée au plus fin des palais",
         weight = 0.2,
         canBeDropped = true,
         canBeUsed = false,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/provision_meat_prime_beef.png",
+        imgsrc = "items/provision_meat_big_game.png",
         type = "item_standard",
     },
     ----- telegram
