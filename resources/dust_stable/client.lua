@@ -45,6 +45,12 @@ Citizen.CreateThread(function()
         SetBlipScale(blips, 1.0)
         Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Écurie")
     end
+    for k,v in pairs(Config.Certif) do
+        local blips = N_0x554d9d53f696d002(1664425300, v)
+        SetBlipSprite(blips, -361388975, 1)
+        SetBlipScale(blips, 1.0)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Gestion des chevaux")
+    end
     while true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
@@ -61,7 +67,7 @@ Citizen.CreateThread(function()
             end
         end
         for k, v in pairs(Config.Certif) do
-            if #(playerpos - v ) < 4.5 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+            if #(playerpos - v ) < 1.5 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur Entrée")
                 if IsControlJustReleased(0, 0xC7B5340A) then
                     isInteracting = true
@@ -786,8 +792,8 @@ Citizen.CreateThread(function()
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
                 if Entity(entity).state.saddle == "true" and not IsPedOnMount(PlayerPedId()) then
-                    TriggerEvent('dust_presskey', "Appuyez sur G")
-                    if IsControlJustReleased(0, 0x760A9C6F) then
+                    -- TriggerEvent('dust_presskey', "Appuyez sur G")
+                    if IsControlJustReleased(0, 0xC1989F95) then
                         -- Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_LootSaddleBags"), 0, 1)
                         TriggerEvent("redemrp_inventory:OpenStash", Entity(entity).state.stashid, 10.0)
                         local oldpos = GetEntityCoords(entity)
@@ -820,8 +826,8 @@ Citizen.CreateThread(function()
         local cart = lib.getClosestVehicle(coords, 3.0, false)
         if cart then
             if Entity(cart).state.stashid then
-                TriggerEvent('dust_presskey', "Appuyez sur G")
-                if IsControlJustReleased(0, 0x760A9C6F) then
+                -- TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustReleased(0, 0xC1989F95) then
                     TriggerEvent("redemrp_inventory:OpenStash", Entity(cart).state.stashid, Entity(cart).state.stashweight)
                 end
             end
