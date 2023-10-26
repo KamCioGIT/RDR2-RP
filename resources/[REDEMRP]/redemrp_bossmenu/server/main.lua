@@ -444,10 +444,10 @@ end)
 
 RegisterServerEvent("dust_export:MaxRessourcesAmount", function(dataType)
     local _source = tonumber(source)
-    
+    print (dataType)
     local ItemData = data.getItem(_source, dataType)
     local ItemAmount = tonumber(ItemData.ItemAmount)
-
+    print (ItemAmount)
 	if ItemAmount >= 1 then
 		TriggerClientEvent("dust_export:client:SetMaxAmount", _source, math.floor(ItemAmount))
 	else 
