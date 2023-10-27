@@ -347,7 +347,7 @@ Config.CraftingsReceipe = {
         label = 'Herbes Aromatiques',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_common_bulrush.png', text = "Jonc Commun",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe Sauvage",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du Colibri",count = "x1"}}
     },
-    ['viandehache'] = {
+    ['viandehachee'] = {
         type = 'epicerie',
         Itemtocraft = 1,
         ItemReceipe1Name = 'viandevolaille',

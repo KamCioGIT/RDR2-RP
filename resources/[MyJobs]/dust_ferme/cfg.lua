@@ -177,7 +177,7 @@ Config.CraftingsReceipe = {
     ['ragoutviande'] = {
         type = 'cuisineferme',
         Itemtocraft = 3,
-        ItemReceipe1Name = 'viandehache',
+        ItemReceipe1Name = 'viandehachee',
         ItemReceipe1Amount = 3,
         ItemReceipe2Name = 'patate',
         ItemReceipe2Amount = 1,
@@ -189,7 +189,7 @@ Config.CraftingsReceipe = {
         label = 'Ragoût',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande Crue",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
-    ['viandehache'] = {
+    ['viandehachee'] = {
         type = 'cuisineferme',
         Itemtocraft = 1,
         ItemReceipe1Name = 'viandevol',
@@ -200,7 +200,7 @@ Config.CraftingsReceipe = {
         label = 'Viande hâchée',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande crue",count = "x1"}}
     },
-    ['viandehachegibier'] = {
+    ['viandehacheegibier'] = {
         type = 'cuisineferme',
         Itemtocraft = 1,
         ItemReceipe1Name = 'viandegibier',
@@ -211,7 +211,7 @@ Config.CraftingsReceipe = {
         label = 'Viande hâchée',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison.png', text = "Venaison",count = "x1"}}
     },
-    ['viandehachepetitgibier'] = {
+    ['viandehacheepetitgibier'] = {
         type = 'cuisineferme',
         Itemtocraft = 1,
         ItemReceipe1Name = 'viandepetitmamifere',
@@ -222,7 +222,7 @@ Config.CraftingsReceipe = {
         label = 'Viande hâchée',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_exotic_bird.png', text = "Viande de petit gibier",count = "x2"}}
     },
-    ['viandehachereptile'] = {
+    ['viandehacheereptile'] = {
         type = 'cuisineferme',
         Itemtocraft = 1,
         ItemReceipe1Name = 'viandereptile',
