@@ -74,7 +74,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Viande Crue",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_rc_quartz_chunk.png', text = "Viande Hâchée",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['tourteviande'] = {
         type = 'epicerie',
@@ -91,7 +91,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Tourte à la viande',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_rc_quartz_chunk.png', text = "Viande hâchée",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_creeping_thyme.png', text = "Herbes aromatiques",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_rc_quartz_chunk.png', text = "Viande hâchée",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_creeping_thyme.png', text = "Herbes aromatiques",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['brochettegibier'] = {
         type = 'epicerie',
@@ -350,9 +350,9 @@ Config.CraftingsReceipe = {
     ['viandehachee'] = {
         type = 'epicerie',
         Itemtocraft = 1,
-        ItemReceipe1Name = 'viandevolaille',
+        ItemReceipe1Name = 'viande',
         ItemReceipe1Amount = 1,
-        ItemToGive = 'viandehache',
+        ItemToGive = 'viandehachee',
         Amount = 1,
         WorkingTime = 1,
         label = 'Viande hâchée',
@@ -363,7 +363,7 @@ Config.CraftingsReceipe = {
         Itemtocraft = 1,
         ItemReceipe1Name = 'viandegibier',
         ItemReceipe1Amount = 1,
-        ItemToGive = 'viandehache',
+        ItemToGive = 'viandehachee',
         Amount = 1,
         WorkingTime = 1,
         label = 'Viande hâchée',
@@ -374,7 +374,7 @@ Config.CraftingsReceipe = {
         Itemtocraft = 1,
         ItemReceipe1Name = 'viandepetitmamifere',
         ItemReceipe1Amount = 2,
-        ItemToGive = 'viandehache',
+        ItemToGive = 'viandehachee',
         Amount = 1,
         WorkingTime = 1,
         label = 'Viande hâchée',
@@ -385,11 +385,22 @@ Config.CraftingsReceipe = {
         Itemtocraft = 1,
         ItemReceipe1Name = 'viandereptile',
         ItemReceipe1Amount = 1,
-        ItemToGive = 'viandehache',
+        ItemToGive = 'viandehachee',
         Amount = 1,
         WorkingTime = 1,
         label = 'Viande hâchée',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_stringy.png', text = "Viande de reptile",count = "x1"}}
+    },
+    ['viandehacheevolaille'] = {
+        type = 'cuisineferme',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'viandevolaille',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'viandehachee',
+        Amount = 1,
+        WorkingTime = 1,
+        label = 'Viande hâchée',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird.png', text = "Volaille",count = "x1"}}
     },
 }
 
