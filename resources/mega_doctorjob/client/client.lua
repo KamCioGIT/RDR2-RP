@@ -318,11 +318,9 @@ end)
 
 RegisterNetEvent('mega_doctorjob:healItemUsed')
 AddEventHandler('mega_doctorjob:healItemUsed', function (healItem)
-    print 'yeeees'
     Citizen.CreateThread(function ()
-        NPlayerSelector:onPlayerSelected(function (data)
-            NPlayerSelector:deactivate()
-            local itemConfig = MedicineItems[healItem]
+        local itemConfig = MedicineItems[healItem]
+        if itemConfig.syringe == false then
             ClearPedTasks(PlayerPedId())
             if itemConfig.scenario then
                 TaskStartScenarioInPlace(PlayerPedId(), GetHashKey(itemConfig.scenario), -1, true, false, false, false)
@@ -372,9 +370,63 @@ AddEventHandler('mega_doctorjob:healItemUsed', function (healItem)
                     end
                 end
             end
-        end)
-        NPlayerSelector:setRange(5)
-        NPlayerSelector:activate()
+        else
+            NPlayerSelector:onPlayerSelected(function (data)
+                NPlayerSelector:deactivate()
+                
+                ClearPedTasks(PlayerPedId())
+                if itemConfig.scenario then
+                    TaskStartScenarioInPlace(PlayerPedId(), GetHashKey(itemConfig.scenario), -1, true, false, false, false)
+                else 
+                    PlayAnimation(PlayerPedId(), itemConfig.animationDict, itemConfig.animation, itemConfig.applyDuration, 31)
+                end
+                FreezeEntityPosition(PlayerPedId(), true)
+                exports['mega_progressbars']:DisplayProgressBar(itemConfig.applyDuration, itemConfig.language.applying)
+                FreezeEntityPosition(PlayerPedId(), false)
+                TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle, itemConfig.language.applied, 5000, 'health')
+                ClearPedTasks(PlayerPedId())
+                TriggerServerEvent('mega_doctorjob:healPlayer', data.id, itemConfig.healthAmount, itemConfig.innerCoreHealth)
+                local itemHealProbabilities = MedicineItems[healItem].healProbability
+                local healedDiseases = {} -- just for webhooks data
+                for diseaseID, healProb in pairs(itemHealProbabilities) do
+                    local disease = DiseasesManager:getDisease(diseaseID)
+                    if disease:getActive() then
+                        local random = math.random()
+                        if random <= healProb then
+                            table.insert(healedDiseases, disease.config.displayName)
+                            local initialDamageType = disease._data.damageType
+                            if itemConfig.damageType then
+                                disease._data.damageType = itemConfig.damageType
+                            end
+                            if itemConfig.antidouleur then
+                                disease._data.antidouleur = itemConfig.antidouleur
+                            end
+                            if itemConfig.cureDuration ~= -1 then
+                                Citizen.CreateThread(function ()
+                                    disease:setPaused(true)
+                                    Citizen.Wait(itemConfig.cureDuration)
+                                    if disease._data.active then
+                                        -- if it's still on item's damage type no doctor healed him
+                                        -- otherwise the doctor is already healing him and must be restarted
+                                        if disease._data.damageType == itemConfig.damageType then
+                                            TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle, itemConfig.language.cureExpired, 5000, 'health')
+                                            disease._data.damageType = initialDamageType
+                                            disease:setPaused(false)
+                                        end
+                                    end
+                                end)
+                            else 
+                                disease:setActive(false)
+                                disease:stopEffect()
+                            end
+                            TriggerServerEvent('mega_doctorjob:healItemUsedWebhook', healItem, healedDiseases)
+                        end
+                    end
+                end
+            end)
+            NPlayerSelector:setRange(5)
+            NPlayerSelector:activate()
+        end
     end)
 end)
 

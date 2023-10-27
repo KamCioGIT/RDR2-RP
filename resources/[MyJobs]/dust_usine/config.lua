@@ -45,14 +45,14 @@ Config.CraftingsReceipe = {
     label = 'Crosse Colt 1873',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}}
 },
-['crosseschofield'] = {
+['crosseschoffield'] = {
     type = 'usineetabli',
     Itemtocraft = 2,
     ItemReceipe1Name = 'bois',
     ItemReceipe1Amount = 1,
     ItemReceipe2Name = 'ferpepite',
     ItemReceipe2Amount = 4,
-    ItemToGive = 'crosseschofield',
+    ItemToGive = 'crosseschoffield',
     Amount = 1,
     WorkingTime = 20,
     label = 'Crosse Smith & Wesson Model 3',
@@ -245,7 +245,7 @@ Config.CraftingsReceipe = {
     ItemReceipe3Amount = 4,
     ItemReceipe4Name = 'charbon',
     ItemReceipe4Amount = 1,
-    ItemToGive = 'corpsdarmeschofield',
+    ItemToGive = 'corpsdarmeschoffield',
     Amount = 1,
     WorkingTime = 20,
     label = "Corps d'arme Smith & Wesson model 3",

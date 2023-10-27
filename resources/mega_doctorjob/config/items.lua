@@ -1,5 +1,6 @@
 MedicineItems = {
     ['bandage'] = {
+        syringe = false,
         healProbability = {
             ['bleeding'] = 1.0,
         },
@@ -26,6 +27,7 @@ MedicineItems = {
         damageType = 'bandaged'
     },
     ['antibiotic'] = {
+        syringe = false,
         healProbability = {
             ['cholera'] = 1.0 
         },
@@ -44,12 +46,13 @@ MedicineItems = {
             --cureExpired = "" -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "mech_animal_interaction@horse@right@injection",
-        animation = "injection_player",
+        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
+        animation = "idle_a",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
     },
     ['antivenin'] = {
+        syringe = false,
         healProbability = {
             ['snakeBite'] = 1.0 
         },
@@ -68,13 +71,13 @@ MedicineItems = {
             --cureExpired = "" -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "mech_animal_interaction@horse@right@injection",
-        animation = "injection_player",
+        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
+        animation = "idle_a",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
-        allowedJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC' }
     },
     ['antidote'] = {
+        syringe = false,
         healProbability = {
             ['poison'] = 1.0,
             ['poisonarrow'] = 1.0 
@@ -94,13 +97,13 @@ MedicineItems = {
             --cureExpired = "" -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "mech_animal_interaction@horse@right@injection",
-        animation = "injection_player",
+        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
+        animation = "idle_a",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
-        allowedJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC' }
     },
     ['antidysentrie'] = {
+        syringe = false,
         healProbability = {
             ['dysentrie'] = 1.0 
         },
@@ -119,12 +122,13 @@ MedicineItems = {
             --cureExpired = "" -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "mech_animal_interaction@horse@right@injection",
-        animation = "injection_player",
+        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
+        animation = "idle_a",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
     },
     ['concoctionanesthesianteun'] = {
+        syringe = false,
         healProbability = {
             ['bleeding'] = 1.0 
         },
@@ -143,13 +147,14 @@ MedicineItems = {
             cureExpired = "La douleur revient." -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "mech_animal_interaction@horse@right@injection",
-        animation = "injection_player",
+        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
+        animation = "idle_a",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
         antidouleur = true
     },
     ['concoctionanesthesiantedeux'] = {
+        syringe = false,
         healProbability = {
             ['bleeding'] = 1.0 
         },
@@ -168,13 +173,14 @@ MedicineItems = {
             cureExpired = "La douleur revient." -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "mech_animal_interaction@horse@right@injection",
-        animation = "injection_player",
+        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
+        animation = "idle_a",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
         antidouleur = true
     },
     ['concoctionanesthesiantetrois'] = {
+        syringe = false,
         healProbability = {
             ['bleeding'] = 1.0 
         },
@@ -193,13 +199,14 @@ MedicineItems = {
             cureExpired = "La douleur revient." -- no need for that if cureDuration is -1
         },
         -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "mech_animal_interaction@horse@right@injection",
-        animation = "injection_player",
+        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
+        animation = "idle_a",
         -- if you don't want to use scenario set it to nil
         scenario = nil,
         antidouleur = true
     },
     ['concoctioncoagulationun'] = {
+        syringe = false,
         healProbability = {
             ['bleeding'] = 1.0,
         },
@@ -226,6 +233,7 @@ MedicineItems = {
         damageType = 'bandaged'
     },
     ['concoctioncoagulationdeux'] = {
+        syringe = false,
         healProbability = {
             ['bleeding'] = 1.0,
         },
@@ -252,6 +260,7 @@ MedicineItems = {
         damageType = 'bandaged'
     },
     ['concoctioncoagulationtrois'] = {
+        syringe = false,
         healProbability = {
             ['bleeding'] = 1.0,
         },
@@ -278,6 +287,7 @@ MedicineItems = {
         damageType = 'bandaged'
     },
     ['remedeinfection'] = {
+        syringe = true,
         healProbability = {
         },
         -- milliseconds, time after the cure will stop working
@@ -301,6 +311,7 @@ MedicineItems = {
         
     },
     ['remedeantidouleur'] = {
+        syringe = true,
         healProbability = {
         },
         -- milliseconds, time after the cure will stop working
@@ -323,6 +334,7 @@ MedicineItems = {
         allowedJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC' }
     },
     ['bandagepatate'] = {
+        syringe = false,
         healProbability = {
             ['bleeding'] = 1.0,
         },
@@ -347,9 +359,9 @@ MedicineItems = {
         scenario = 'WORLD_HUMAN_CROUCH_INSPECT',
         -- the next damage type, used for the bandaged state
         damageType = 'bandaged',
-        allowedJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC' }
     },
     ['bandagecharbon'] = {
+        syringe = false,
         healProbability = {
             ['bleeding'] = 1.0,
         },
@@ -374,9 +386,9 @@ MedicineItems = {
         scenario = 'WORLD_HUMAN_CROUCH_INSPECT',
         -- the next damage type, used for the bandaged state
         damageType = 'bandaged',
-        allowedJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC' }
     },
     ['attelle'] = {
+        syringe = false,
         healProbability = {
             ['brokenBone'] = 1.0,
         },

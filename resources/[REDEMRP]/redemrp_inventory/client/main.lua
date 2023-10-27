@@ -708,6 +708,7 @@ RegisterNetEvent(
         local ped = PlayerPedId()
         local coords = GetEntityCoords(ped)
         local forward = GetEntityForwardVector(ped)
+        -- local x, y, z = table.unpack(coords + forward * 1.6)
         local x, y, z = table.unpack(coords + forward * 1.6)
         while not HasModelLoaded(GetHashKey("p_cs_dirtybag01x")) do
             Wait(500)
@@ -740,6 +741,7 @@ RegisterNetEvent(
         local ped = PlayerPedId()
         local coords = GetEntityCoords(ped)
         local forward = GetEntityForwardVector(ped)
+        -- local x, y, z = table.unpack(coords + forward * 1.6)
         local x, y, z = table.unpack(coords + forward * 1.6)
         while not HasModelLoaded(GetHashKey("p_telegram01x")) do
             Wait(500)
@@ -772,6 +774,7 @@ RegisterNetEvent(
         local ped = PlayerPedId()
         local coords = GetEntityCoords(ped)
         local forward = GetEntityForwardVector(ped)
+        -- local x, y, z = table.unpack(coords + forward * 1.6)
         local x, y, z = table.unpack(coords + forward * 1.6)
         while not HasModelLoaded(GetHashKey("p_ammoboxhalf01x")) do
             Wait(500)
@@ -804,6 +807,7 @@ RegisterNetEvent(
         local ped = PlayerPedId()
         local coords = GetEntityCoords(ped)
         local forward = GetEntityForwardVector(ped)
+        -- local x, y, z = table.unpack(coords + forward * 1.6)
         local x, y, z = table.unpack(coords + forward * 1.6)
         while not HasModelLoaded(GetHashKey("s_lootableammocase")) do
             Wait(500)

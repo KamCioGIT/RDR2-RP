@@ -93,6 +93,8 @@ RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
     --Citizen.InvokeNative(0xFDB74C9CC54C3F37, 0.0)
     DestroyAllCams(true)
     Wait(1000)
+    Citizen.InvokeNative(0x923583741DC87BCE, PlayerPedId(), 'default')
+    Citizen.InvokeNative(0x89F5E7ADECCCB49C, PlayerPedId(), 'injured_general')
     TriggerEvent("redemrp_respawn:respawnCoords", GetEntityCoords(PlayerPedId()))
     TriggerServerEvent("RedEM:server:LoadSkin")
 end)
@@ -181,9 +183,9 @@ Citizen.CreateThread(function()
                 Wait(0)
                 ProcessCamControls()
                 if not ConfirmingRespawn then
-                    DrawTxt("Press E to Respawn", 0.50, 0.45, 0.8, 0.8, true, 255, 255, 255, 255, true)
+                    DrawTxt("Appuyer sur E pour vous relever", 0.50, 0.45, 0.8, 0.8, true, 255, 255, 255, 255, true)
                 else
-                    DrawTxt("Are you sure~n~you want to respawn?~n~(~pa~E~q~) Yes~n~(~pa~BACKSPACE~q~) No", 0.50, 0.45, 0.8, 0.8, true, 255, 255, 255, 255, true)
+                    DrawTxt("~n~(~pa~E~q~) Valider~n~(~pa~BACKSPACE~q~) Annuler", 0.50, 0.45, 0.8, 0.8, true, 255, 255, 255, 255, true)
                 end
                 if IsControlJustReleased(0, 0xDFF812F9) then
                     if not ConfirmingRespawn then
