@@ -469,10 +469,8 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
         if isSelling then
             local current_town = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
-            print (current_town)
             for k, v in pairs(Config.Price) do
                 if k == current_town then
-                    print 'town'
                     local itemSet = CreateItemset(true)
                     local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 7.0, itemSet, 1, Citizen.ResultAsInteger())
                 
@@ -487,6 +485,7 @@ Citizen.CreateThread(function()
                                     if IsEntityDead(entity) == false then
                                         if boolA ~= nil and boolA == false then
                                             if currentrumors ~= nil and #currentrumors > 0 then
+                                                print ("activate")
                                                 TriggerEvent("sellnpc:activateselling", entity)
                                             end
                                         end
@@ -496,6 +495,7 @@ Citizen.CreateThread(function()
                             local playerPosition = GetEntityCoords(PlayerPedId())
                             local entityPos = GetEntityCoords(entity)
                             if #(playerPosition - entityPos) < 1.5 then 
+                                print (Entity(ent).state.canbuy)
                                 if Entity(entity).state.canbuy == true then
                                     TriggerEvent('dust_presskey', "Appuyez sur G pour vendre")
                                     if IsControlJustReleased(0, 0x760A9C6F) then
