@@ -522,6 +522,7 @@ end)
 
 RegisterNetEvent("sellnpc:animate",function()
     SellingAction = true
+    print 'ah ouaios'
     RequestAnimDict(Config.SellDict)
     while not HasAnimDictLoaded(Config.SellDict) do
         Citizen.Wait(100)
