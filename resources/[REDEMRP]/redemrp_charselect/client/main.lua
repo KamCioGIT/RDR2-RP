@@ -12,6 +12,7 @@ local CharsList = nil
 local SelectingChar = nil
 local SelectingPed = nil
 local LightOn = false
+local perm = nil
 
 local effectName
 
@@ -84,12 +85,22 @@ OpenCharacterMenu = function()
     },
     function(data, menu)
         if data.current.value == "new" then
-            if #CharsList < 1 then
-                MenuData.CloseAll()
-                SendNUIMessage({
-                    new = true
-                })
-                SetNuiFocus(true, true)
+            if perm == "superadmin" or perm == "admin" or perm == "mod" then
+                if #CharsList < 4 then
+                    MenuData.CloseAll()
+                    SendNUIMessage({
+                        new = true
+                    })
+                    SetNuiFocus(true, true)
+                end
+            else
+                if #CharsList < 1 then
+                    MenuData.CloseAll()
+                    SendNUIMessage({
+                        new = true
+                    })
+                    SetNuiFocus(true, true)
+                end
             end
         else
             print("Personnage: "..data.current.value)
@@ -239,10 +250,11 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent('redemrp_charselect:openSelectionMenu', function(characters,skins,clothes)
+RegisterNetEvent('redemrp_charselect:openSelectionMenu', function(characters,skins,clothes, permission)
     Citizen.CreateThread(function()
         --CharScene = math.random(1,#Config.CharScenes)
         --Config.CharScenes[CharScene] = shuffle(Config.CharScenes[CharScene])
+        perm = permission
         CharScene = 4
         Config.CharScenes[CharScene] = shuffle(Config.CharScenes[CharScene])
         SetEntityAlpha(PlayerPedId(), 0)
