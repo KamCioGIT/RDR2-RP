@@ -1176,10 +1176,10 @@ Config.Doors = {
 
     {
         door = 752949299,
-        CloseRotation = 265,
+        CloseRotation = 0,
         DoorCoord  = vector3(-873.94134521484,-1293.244140625,42.106128692627),
         door2 = 1538487767,
-        CloseRotation2 = 93,
+        CloseRotation2 = 0,
         locked = true,
         breakable = false, 
         jobs = {"forge"},
