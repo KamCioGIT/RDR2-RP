@@ -498,7 +498,6 @@ Citizen.CreateThread(function()
                                 if canbuy[entity] == true and canbuy[entity] ~= false then
                                     TriggerEvent('dust_presskey', "Appuyez sur G pour vendre")
                                     if IsControlJustReleased(0, 0x760A9C6F) then
-                                        canbuy[entity] = false
                                         TriggerEvent("sellnpc:activatecd", entity)
                                         TriggerServerEvent("sellnpc:sell")
                                     end
@@ -531,6 +530,7 @@ RegisterNetEvent("sellnpc:activateselling",function(ent)
             end
         end
         isEventRunning[ent] = false
+        canbuy[ent] = false
     end
 end)
 
