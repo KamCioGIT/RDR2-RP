@@ -457,9 +457,9 @@ Config.CraftingsReceipe = {
 
 
 },
---Barillet--
+--barrillet--
 
-['barilletcattleman'] = {
+['barrilletcattleman'] = {
     type = 'usineetabli',
     Itemtocraft = 3,
     ItemReceipe1Name = 'cuivrepepite',
@@ -468,13 +468,13 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 4,
     ItemReceipe3Name = 'charbon',
     ItemReceipe3Amount = 1,
-    ItemToGive = 'barilletcattleman',
+    ItemToGive = 'barrilletcattleman',
     Amount = 1,
     WorkingTime = 20,
-    label = 'Barillet Colt 1873',
+    label = 'barrillet Colt 1873',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
 },
-['barilletschoffield'] = {
+['barrilletschoffield'] = {
     type = 'usineetabli',
     Itemtocraft = 3,
     ItemReceipe1Name = 'cuivrepepite',
@@ -483,13 +483,13 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 4,
     ItemReceipe3Name = 'charbon',
     ItemReceipe3Amount = 1,
-    ItemToGive = 'barilletschoffield',
+    ItemToGive = 'barrilletschoffield',
     Amount = 1,
     WorkingTime = 20,
-    label = 'Barillet Smith & Wesson Model 3',
+    label = 'barrillet Smith & Wesson Model 3',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
 },
-['barilletdoubleaction'] = {
+['barrilletdoubleaction'] = {
     type = 'usineetabli',
     Itemtocraft = 4,
     ItemReceipe1Name = 'cuivrepepite',
@@ -500,13 +500,13 @@ Config.CraftingsReceipe = {
     ItemReceipe3Amount = 1,
     ItemReceipe4Name = 'charbon',
     ItemReceipe4Amount = 3,
-    ItemToGive = 'barilletdoubleaction',
+    ItemToGive = 'barrilletdoubleaction',
     Amount = 1,
     WorkingTime = 20,
-    label = 'Barillet 1873 Chamelot-Delvigne',
+    label = 'barrillet 1873 Chamelot-Delvigne',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x15"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x12"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
 },
-['barilletlemat'] = {
+['barrilletlemat'] = {
     type = 'usineetabli',
     Itemtocraft = 4,
     ItemReceipe1Name = 'cuivrepepite',
@@ -517,13 +517,13 @@ Config.CraftingsReceipe = {
     ItemReceipe3Amount = 5,
     ItemReceipe4Name = 'charbon',
     ItemReceipe4Amount = 10,
-    ItemToGive = 'barilletlemat',
+    ItemToGive = 'barrilletlemat',
     Amount = 1,
     WorkingTime = 20,
-    label = 'Barillet Lemat revolver',
+    label = 'barrillet Lemat revolver',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x15"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
-['barilletnavy'] = {
+['barrilletnavy'] = {
     type = 'usineetabli',
     Itemtocraft = 4,
     ItemReceipe1Name = 'cuivrepepite',
@@ -534,10 +534,10 @@ Config.CraftingsReceipe = {
     ItemReceipe3Amount = 10,
     ItemReceipe4Name = 'charbon',
     ItemReceipe4Amount = 10,
-    ItemToGive = 'barilletnavy',
+    ItemToGive = 'barrilletnavy',
     Amount = 1,
     WorkingTime = 20,
-    label = 'Barillet Colt 1851 Navy',
+    label = 'barrillet Colt 1851 Navy',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x15"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
 
