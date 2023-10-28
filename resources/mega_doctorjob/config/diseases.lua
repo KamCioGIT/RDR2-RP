@@ -515,7 +515,7 @@ DiseasesConfig = {
          autoHealed = "Les effets du venin se sont dissipés",
       },
       -- Probability of getting poisoned after being bitten (0.0 - 1.0)
-      poisonousBiteProbability = 0.5,
+      poisonousBiteProbability = 0.33,
       -- Animations
       vomitAnimationDict = 'amb_misc@world_human_vomit@male_a@idle_b',
       vomitAnimation = 'idle_e',
