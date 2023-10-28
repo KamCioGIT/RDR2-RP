@@ -495,10 +495,10 @@ Citizen.CreateThread(function()
                             local playerPosition = GetEntityCoords(PlayerPedId())
                             local entityPos = GetEntityCoords(entity)
                             if #(playerPosition - entityPos) < 1.5 then 
-                                if canbuy[entity] then
+                                if canbuy[entity] == true and canbuy[entity] ~= false then
                                     TriggerEvent('dust_presskey', "Appuyez sur G pour vendre")
                                     if IsControlJustReleased(0, 0x760A9C6F) then
-                                        canbuy[entity] = nil
+                                        canbuy[entity] = false
                                         TriggerEvent("sellnpc:activatecd", entity)
                                         TriggerServerEvent("sellnpc:sell")
                                     end
