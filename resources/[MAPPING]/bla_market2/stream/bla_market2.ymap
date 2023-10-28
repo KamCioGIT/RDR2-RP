@@ -3188,21 +3188,6 @@
 			<artificialAmbientOcclusion value="255"/>
 		</Item>
 		<Item type="CEntityDef">
-			<archetypeName>des_mg_pokertable</archetypeName>
-			<flags value="1572897"/>
-			<position x="-832.500427" y="-1224.723877" z="46.782417"/>
-			<rotation w="0.999351" x="0.000000" y="-0.000000" z="-0.036020"/>
-			<scaleXY value="1"/>
-			<scaleZ value="1"/>
-			<parentIndex value="-1"/>
-			<lodDist value="500"/>
-			<childLodDist value="500"/>
-			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
-			<numChildren value="0"/>
-			<ambientOcclusionMultiplier value="255"/>
-			<artificialAmbientOcclusion value="255"/>
-		</Item>
-		<Item type="CEntityDef">
 			<archetypeName>p_lantern09x</archetypeName>
 			<flags value="1572897"/>
 			<position x="-819.144287" y="-1234.595581" z="43.585388"/>

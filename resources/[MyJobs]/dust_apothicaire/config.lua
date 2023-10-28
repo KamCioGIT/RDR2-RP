@@ -14,6 +14,8 @@ Config.CraftAnim = {
     "base",
 }
 
+Config.DistanceToInteract = 1.7
+
 Config.WorkingTime = 5000
 Config.Atelier = {
     vector3(2721.123, -1226.798, 49.36772), -- stdenis
