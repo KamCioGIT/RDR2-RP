@@ -115,6 +115,7 @@ AddEventHandler("RegisterUsableItem:clothes", function(source, _data)
             }, function(done)
             end)
             local _clothes = json.decode(call)
+            TriggerEvent("RedEM:server:LoadSkin")
             TriggerClientEvent("rdr_clothes_store:clotheitem", _source, _clothes)
         end
     end)
