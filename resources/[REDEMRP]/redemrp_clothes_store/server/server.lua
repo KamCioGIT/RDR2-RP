@@ -106,7 +106,7 @@ AddEventHandler("RegisterUsableItem:clothes", function(source, _data)
     local user = RedEM.GetPlayer(_source)
     local identifier = user.identifier
     local charid = user.charid
-    TriggerEvent('rdr_clothes_store:retrieveOutfitsclothes', identifier, charid, id, function(call)
+    TriggerEvent('rdr_clothes_store:retrieveOutfitsclothes', id, function(call)
         if call then
             MySQL.update("UPDATE clothes SET `clothes`=@call WHERE `identifier`=@identifier AND `charid`=@charid", {
                 call = call,
