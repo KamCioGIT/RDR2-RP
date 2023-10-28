@@ -60,7 +60,6 @@ AddEventHandler('dust_radial:CraftItem', function(itemNameStr, menu, amount)
 	for i = 1, amount, 1
 	do
 		if ItemData.RemoveItem(Config.CraftingsReceipe[itemNameStr].ItemReceipe1Amount) and ItemData2.RemoveItem(Config.CraftingsReceipe[itemNameStr].ItemReceipe2Amount) then
-			print("Item removed " .. i)
 			Citizen.CreateThread(function()
 				TriggerClientEvent("dust_radial:CraftingAction", _source)
 				local ItemDatagive = data.getItem(_source, Config.CraftingsReceipe[itemNameStr].ItemToGive)
@@ -80,4 +79,18 @@ AddEventHandler('dust_radial:AddItem', function(item, amount)
 	local ItemData = data.getItem(_source, item)
 	ItemData.AddItem(amount)
 
+end)
+
+
+RegisterServerEvent("sellnpc:checkitem", function ()
+	local _source = source
+	local itemstosell = {}
+	for k, v in pairs(Config.Price[GetHashKey("Strawberry")]) do
+		local ItemData = data.getItem(_source, k)
+		local amount = tonumber(ItemData.ItemAmount)
+		if amount >= 1 then
+			itemstosell[k] = {amt = amount, label = v.label, price = v.price}
+		end
+	end
+	TriggerClientEvent("sellnpc:SellMenu", _source, itemstosell)
 end)

@@ -439,7 +439,7 @@ RegisterNetEvent("sellnpc:SellMenu", function(items)
   
         local elements = {}
         for k, v in pairs(items) do
-          table.insert(elements, {label = v.label, value = k, desc = "Ne vous faites pas voir en train de vendre !"})
+          table.insert(elements, {label = v.amt.. " " .. v.label, value = k, desc = "Ne vous faites pas voir en train de vendre !"})
         end
   
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
