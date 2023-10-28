@@ -498,7 +498,7 @@ Citizen.CreateThread(function()
                             local playerPosition = GetEntityCoords(PlayerPedId())
                             local entityPos = GetEntityCoords(entity)
                             if #(playerPosition - entityPos) < 1.5 and not SellingAction then 
-                                if canbuy[entity] == true and cooldown[entity] == false then
+                                if canbuy[entity] == true and not cooldown[entity] then
                                     TriggerEvent('dust_presskey', "Appuyez sur G pour vendre")
                                     if IsControlJustReleased(0, 0x760A9C6F) then
                                         TriggerEvent("sellnpc:activatecd", entity)
@@ -543,7 +543,7 @@ RegisterNetEvent("sellnpc:activateselling",function(ent)
         local hasAlreadyBought = false
         while GetGameTimer() < timer do
             Wait(0)
-            if chance >= 50 and cooldown[ent] == false and not hasAlreadyBought then
+            if chance >= 50 and not cooldown[ent]  and not hasAlreadyBought then
                 canbuy[ent] = true
                 hasAlreadyBought = true
             end
