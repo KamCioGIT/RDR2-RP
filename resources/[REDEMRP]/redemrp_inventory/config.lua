@@ -1311,17 +1311,6 @@ Config.Items = {
         imgsrc = "items/provision_meat_prime_beef.png",
         type = "item_standard",
     },
-    ["graisseanimal"] = {
-        label = "Graisse animale",
-        description = "Utile dans un grand nombre de recette",
-        weight = 0.1,
-        canBeDropped = true,
-        canBeUsed = false,
-        requireLvl = 0,
-        limit = 2000,
-        imgsrc = "items/generic_animal_fat.png",
-        type = "item_standard",
-    },
     ["peau"] = {
         label = "Peau",
         description = "Splendide une fois tannée",

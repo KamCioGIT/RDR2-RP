@@ -146,7 +146,7 @@ Config.CraftingsReceipe = {
         ItemReceipe2Name = 'charbon',
         ItemReceipe2Amount = 1,
         ItemToGive = 'pain',
-        Amount = 5,
+        Amount = 2,
         WorkingTime = 2,
         label = 'Pain',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
