@@ -543,7 +543,7 @@ RegisterNetEvent("sellnpc:activateselling",function(ent)
         local hasAlreadyBought = false
         while GetGameTimer() < timer do
             Wait(0)
-            if chance >= 50 and not cooldown[ent] and not hasAlreadyBought then
+            if chance >= 50 and cooldown[ent] == false and not hasAlreadyBought then
                 canbuy[ent] = true
                 hasAlreadyBought = true
             end
