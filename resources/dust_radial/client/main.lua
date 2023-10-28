@@ -543,6 +543,7 @@ RegisterNetEvent("sellnpc:activateselling",function(ent)
 end)
 
 RegisterNetEvent("sellnpc:activatecd",function(ent)
+    canbuy[ent] = false
     local timer = GetGameTimer() + Config.Cooldown
     while GetGameTimer() < timer do
         Wait(0)
