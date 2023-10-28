@@ -332,7 +332,7 @@ AddEventHandler('mega_doctorjob:healItemUsed', function (healItem)
             FreezeEntityPosition(PlayerPedId(), false)
             TriggerEvent('mega_notify:notifyRight', Config.language.notificationTitle, itemConfig.language.applied, 5000, 'health')
             ClearPedTasks(PlayerPedId())
-            TriggerServerEvent('mega_doctorjob:healPlayer', data.id, itemConfig.healthAmount, itemConfig.innerCoreHealth)
+            TriggerServerEvent('mega_doctorjob:healPlayer', nil, itemConfig.healthAmount, itemConfig.innerCoreHealth)
             local itemHealProbabilities = MedicineItems[healItem].healProbability
             local healedDiseases = {} -- just for webhooks data
             for diseaseID, healProb in pairs(itemHealProbabilities) do
@@ -363,7 +363,6 @@ AddEventHandler('mega_doctorjob:healItemUsed', function (healItem)
                                 end
                             end)
                         else 
-                            print 'stop'
                             disease:setActive(false)
                             disease:stopEffect()
                         end
