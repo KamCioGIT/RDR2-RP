@@ -523,6 +523,7 @@ end)
 RegisterNetEvent("sellnpc:animate",function(ent)
     SellingAction = true
     ClearPedTasks(ent)
+    FreezeEntityPosition(ent, true)
     RequestAnimDict(Config.SellDict)
     while not HasAnimDictLoaded(Config.SellDict) do
         Citizen.Wait(100)
@@ -530,7 +531,7 @@ RegisterNetEvent("sellnpc:animate",function(ent)
     TaskPlayAnim(PlayerPedId(), Config.SellDict, Config.SellAnim, 1.0, 1.0, -1, 25, 0, true, 0, false, 0, false)  
     Wait(2000)
     ClearPedTasks(PlayerPedId())
-    
+    FreezeEntityPosition(ent, false)
     SellingAction = false
 end)
 

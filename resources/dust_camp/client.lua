@@ -617,7 +617,7 @@ Citizen.CreateThread(function()
             if GetEntityModel(entities) == GetHashKey("p_waterpump01x") then
                 local playerCd = GetEntityCoords(PlayerPedId())
                 local pumpCd = GetEntityCoords(entities)
-                if GetDistanceBetweenCoords(playerCd.x, playerCd.y, playerCd.z, pumpCd.x, pumpCd.y, pumpCd.z, false) < 10.0 then
+                if GetDistanceBetweenCoords(playerCd.x, playerCd.y, playerCd.z, pumpCd.x, pumpCd.y, pumpCd.z, false) < 1.5 then
                     searched = true
                     pumpEntities[entities] = true
                 end
