@@ -19,12 +19,11 @@ RegisterServerEvent("redemrp_charselect:getCharacters", function()
     MySQL.query('SELECT * FROM characters WHERE `identifier`=@identifier;', {identifier = id}, function(result)
         MySQL.query('SELECT * FROM skins WHERE `identifier`=@identifier;', {identifier = id}, function(result2)
             MySQL.query('SELECT * FROM clothes WHERE `identifier`=@identifier;', {identifier = id}, function(result3)
-                MySQL.query('SELECT * FROM permissions WHERE `identifier`=@identifier;', {identifier = id}, function(result4)
-                    if result4[1] ~= nil then
-                        perm = result4[1].permissiongroup
-                    end
-                        TriggerClientEvent('redemrp_charselect:openSelectionMenu', _source, result, result2, result3, perm)
-                end)
+                local result4 = MySQL.query.await('SELECT * FROM bank_accounts WHERE identifier = ?', {id})
+                if result4[1] ~= nil then
+                    perm = result4[1].permissiongroup
+                end
+                    TriggerClientEvent('redemrp_charselect:openSelectionMenu', _source, result, result2, result3, perm)
             end)
         end)
     end)
