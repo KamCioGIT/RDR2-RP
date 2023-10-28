@@ -413,9 +413,7 @@ local isSelling = false
 RegisterNetEvent("sellnpc:SellNPC", function()
     if isSelling then
         isSelling = false
-        print 'stop'
-        TriggerEvent("redem_roleplay:NotifyRight", "Vous avez arrêtez de vendre.", 3000)
-
+        TriggerEvent("redem_roleplay:NotifyLeft", "Vente", "Vous avez arrêté de vendre !", "scoretimer_textures", "scoretimer_generic_cross", 4000)
     else
         TriggerServerEvent("sellnpc:checkitem")
     end
