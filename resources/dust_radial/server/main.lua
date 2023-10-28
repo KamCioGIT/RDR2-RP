@@ -98,6 +98,7 @@ RegisterServerEvent("sellnpc:sell", function(zone, Itemtosell)
 	local User = RedEM.GetPlayer(_source)
 	local ItemData = data.getItem(_source, Itemtosell)
 	if ItemData.RemoveItem(1) then
+		Wait(2000)
 		User.addMoney(Config.Price[zone][Itemtosell].price)
 	end
 end)
