@@ -204,9 +204,7 @@ function OpenStable(menutype, stable)
                     MenuData.CloseAll()
                     local elements = {}
                     for k, v in pairs(horselist) do
-                        if v.stable == stable then
-                            table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
-                        end
+                        table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
                     end
                     MenuData.Open('default', GetCurrentResourceName(), 'sell', {
                         title = "Vendre",
