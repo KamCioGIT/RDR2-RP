@@ -468,8 +468,8 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         if isSelling then
-            print 'isselling'
             local current_town = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 1)
+            
             for k, v in pairs(Config.Price) do
                 if k == current_town then
                     print 'town'
