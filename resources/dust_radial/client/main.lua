@@ -468,7 +468,7 @@ Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
         if isSelling then
-            local current_town = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 1)
+            local current_town = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
             print (current_town)
             for k, v in pairs(Config.Price) do
                 if k == current_town then
