@@ -502,7 +502,7 @@ Citizen.CreateThread(function()
                                     TriggerEvent('dust_presskey', "Appuyez sur G pour vendre")
                                     if IsControlJustReleased(0, 0x760A9C6F) then
                                         TriggerEvent("sellnpc:activatecd", entity)
-                                        TriggerEvent("sellnpc:animate")
+                                        TriggerEvent("sellnpc:animate", entity)
                                         TriggerServerEvent("sellnpc:sell", current_town, Itemtosell)
                                     end
                                 end
@@ -520,9 +520,9 @@ Citizen.CreateThread(function()
 end)
 -- state pnj
 
-RegisterNetEvent("sellnpc:animate",function()
+RegisterNetEvent("sellnpc:animate",function(ent)
     SellingAction = true
-    print 'ah ouaios'
+    ClearPedTasks(ent)
     RequestAnimDict(Config.SellDict)
     while not HasAnimDictLoaded(Config.SellDict) do
         Citizen.Wait(100)
@@ -530,6 +530,7 @@ RegisterNetEvent("sellnpc:animate",function()
     TaskPlayAnim(PlayerPedId(), Config.SellDict, Config.SellAnim, 1.0, 1.0, -1, 25, 0, true, 0, false, 0, false)  
     Wait(2000)
     ClearPedTasks(PlayerPedId())
+    
     SellingAction = false
 end)
 

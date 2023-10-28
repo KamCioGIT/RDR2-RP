@@ -363,6 +363,7 @@ AddEventHandler('mega_doctorjob:healItemUsed', function (healItem)
                                 end
                             end)
                         else 
+                            print 'stop'
                             disease:setActive(false)
                             disease:stopEffect()
                         end
