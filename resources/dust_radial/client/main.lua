@@ -487,9 +487,7 @@ Citizen.CreateThread(function()
                                 if PlayerPedId() ~= entity then 
                                     if IsEntityDead(entity) == false then
                                         if boolA ~= nil and boolA == false then
-                                            if currentrumors ~= nil and #currentrumors > 0 then
-                                                TriggerEvent("sellnpc:activateselling", entity)
-                                            end
+                                            TriggerEvent("sellnpc:activateselling", entity)
                                         end
                                     end
                                 end
