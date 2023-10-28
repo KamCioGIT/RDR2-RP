@@ -320,7 +320,6 @@ Citizen.CreateThread(function()
                     SetEntityHeading(prop, tonumber(v.head))
                     PlaceObjectOnGroundProperly(prop)
                     FreezeEntityPosition(prop, true)
-                    print "spawn"
                     v.spawn = 'true'
                     v.object = prop
                 end

@@ -3224,6 +3224,17 @@ Config.Items = {
     imgsrc = "items/consumable_potent_tonic.png",
     type = "item_standard",
 },
+["beer"] = {
+    label = "Bière",
+    description = "",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/beer.png",
+    type = "item_standard",
+},
 
 --- portes
 ["lockpick"] = {

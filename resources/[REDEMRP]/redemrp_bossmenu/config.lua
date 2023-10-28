@@ -321,6 +321,85 @@ Config.Jobs = {
             },
         }
     },
+    ["doctor_NC"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de NC",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["doctor_DM"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de DM",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["doctor_CG"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de CG",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["doctor_bla"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de Saint-Denis",
+        MenuLocations = 
+        vector3(-782.6881, -1306.694, 43.79616)
+    ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
     ["presse"] = {
         bigjob = "presse",
         Name = "Presse",

@@ -6,6 +6,7 @@ Config.ShareRumorSpot = {
     vector3(1231.654, -1276.812, 77.12277), -- RHODES
     vector3(2753.191, -1384.629, 47.23839), -- SAINT DENIS
     vector3(2931.716, 1302.213, 46.10941), -- ANNESBOURG
+    vector3(2992.194, 569.4253, 44.47285), -- van horn
 }
 
 Config.RumorPrice = 0.1

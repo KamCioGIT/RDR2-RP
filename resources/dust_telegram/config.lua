@@ -9,6 +9,8 @@ Config.postoffice = {
     { name = "Rhodes", blip = 1475382911, coords = vector3(1225.51, -1293.999, 76.909), radius = 1.5 },
     { name = "Van Horn", blip = 1475382911, coords = vector3(2986.006, 568.6345, 44.62764), radius = 1.5 },
     { name = "Strawberry", blip = 1475382911, coords =  vector3(-1767.434, -381.4054, 157.7319), radius = 1.5 },
+    { name = "Annesburg", blip = 1475382911, coords = vector3(2939.433, 1288.489, 44.65283), radius = 1.5 },
+
 }
 
 

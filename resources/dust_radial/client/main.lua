@@ -410,7 +410,7 @@ end
 ----- vente au pnj
 
 local isSelling = false
-RegiserNetEvent("sellnpc:SellNPC", function()
+RegisterNetEvent("sellnpc:SellNPC", function()
     if isSelling then
         isSelling = false
     else
