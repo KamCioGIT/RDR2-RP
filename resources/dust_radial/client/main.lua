@@ -515,16 +515,6 @@ Citizen.CreateThread(function()
         end
     end
 end)
-
-Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
-        if isSelling then
-            Citizen.Wait(60*1000)
-            cooldown = {}
-        end
-    end
-end)
 -- state pnj
 
 RegisterNetEvent("sellnpc:activateselling",function(ent)
