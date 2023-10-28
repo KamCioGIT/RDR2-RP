@@ -495,7 +495,7 @@ Citizen.CreateThread(function()
                             local playerPosition = GetEntityCoords(PlayerPedId())
                             local entityPos = GetEntityCoords(entity)
                             if #(playerPosition - entityPos) < 1.5 then 
-                                print (Entity(ent).state.canbuy)
+                                print (Entity(entity).state.canbuy)
                                 if Entity(entity).state.canbuy == true then
                                     TriggerEvent('dust_presskey', "Appuyez sur G pour vendre")
                                     if IsControlJustReleased(0, 0x760A9C6F) then
