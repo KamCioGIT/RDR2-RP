@@ -10,10 +10,6 @@ Config.Certif = {
     vector3(2638.67, -1292.944, 52.25156), --- stdenis
 }
 Config.Stables = {
-	Saint_Denis = {
-		pos = vector3(2512.26, -1431.108, 46.27571),
-		name = 'Saint-Denis',
-    },
 	buyhorse = {
 		pos = vector3(2511.494, -1431.057, 46.26681),
 		name = 'buyhorse',
@@ -21,10 +17,6 @@ Config.Stables = {
     buybla = {
 		pos = vector3(-951.3615, -1340.261, 50.63528),
 		name = 'buybla',
-    },
-	cinematic = {
-		pos = vector3(2557.551, -789.9655, 42.35028),
-		name = 'cinematic',
     },
 	Strawberry = {
 		pos = vector3(-1781.097, -439.7949, 155.1324),
@@ -107,7 +99,7 @@ Config.Stables = {
 		name = 'Stdenis_roturier',
     },
 	Stdenis_start = {
-		pos = vector3(2469.786, -1326.781, 46.62349),
+		pos = vector3(2470.057, -1331.795, 46.65237),
 		name = 'Stdenis_start',
     },
 	Startbla = {
