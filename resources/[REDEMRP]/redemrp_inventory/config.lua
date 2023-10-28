@@ -1894,7 +1894,7 @@ Config.Items = {
         imgsrc = "items/consumable_special_restorative.png",
         type = "item_standard",
     },
-    ["concoctionanesthesiante "] = {
+    ["concoctionanesthesiante"] = {
         label = "Emulsion Anesthésiante'",
         description = "Solution temporaire pour calmer la douleur",
         weight = 0.3,

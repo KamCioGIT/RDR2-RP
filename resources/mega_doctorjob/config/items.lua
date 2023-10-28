@@ -127,7 +127,7 @@ MedicineItems = {
         -- if you don't want to use scenario set it to nil
         scenario = nil,
     },
-    ['concoctionanesthesianteun'] = {
+    ['concoctionanesthesiante'] = {
         syringe = false,
         healProbability = {
             ['bleeding'] = 1.0 
@@ -153,113 +153,7 @@ MedicineItems = {
         scenario = nil,
         antidouleur = true
     },
-    ['concoctionanesthesiantedeux'] = {
-        syringe = false,
-        healProbability = {
-            ['bleeding'] = 1.0 
-        },
-        -- milliseconds, time after the cure will stop working
-        -- (-1 for complete cure)
-        cureDuration = 60000,
-        -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 2000,
-        -- health to add when used
-        healthAmount = 0,
-        -- inner core health added from 0 to 100
-        innerCoreHealth = 0,
-        language = {
-            applying = "Ingestion de la concoction...",
-            applied = "Votre douleur s'estompe.",
-            cureExpired = "La douleur revient." -- no need for that if cureDuration is -1
-        },
-        -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
-        -- if you don't want to use scenario set it to nil
-        scenario = nil,
-        antidouleur = true
-    },
-    ['concoctionanesthesiantetrois'] = {
-        syringe = false,
-        healProbability = {
-            ['bleeding'] = 1.0 
-        },
-        -- milliseconds, time after the cure will stop working
-        -- (-1 for complete cure)
-        cureDuration = 60000,
-        -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 2000,
-        -- health to add when used
-        healthAmount = 0,
-        -- inner core health added from 0 to 100
-        innerCoreHealth = 0,
-        language = {
-            applying = "Ingestion de la concoction...",
-            applied = "Votre douleur s'estompe.",
-            cureExpired = "La douleur revient." -- no need for that if cureDuration is -1
-        },
-        -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
-        animation = "idle_a",
-        -- if you don't want to use scenario set it to nil
-        scenario = nil,
-        antidouleur = true
-    },
-    ['concoctioncoagulationun'] = {
-        syringe = false,
-        healProbability = {
-            ['bleeding'] = 1.0,
-        },
-        -- milliseconds, time after the cure will stop working
-        -- (-1 for complete cure)
-        cureDuration = 300000,
-        -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 10000,
-        -- health to add when used
-        healthAmount = 0,
-        -- inner core health added from 0 to 100
-        innerCoreHealth = 0,
-        language = {
-            cureExpired = "Le baume ne fait plus effet, vous saignez à nouveau.",
-            applying = "Application d'un baume...",
-            applied = "Vous avez arrêtez le saignement.",
-        },
-        -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = nil,
-        animation = nil,
-        -- if you don't want to use scenario set it to nil
-        scenario = 'WORLD_HUMAN_CROUCH_INSPECT',
-        -- the next damage type, used for the bandaged state
-        damageType = 'bandaged'
-    },
-    ['concoctioncoagulationdeux'] = {
-        syringe = false,
-        healProbability = {
-            ['bleeding'] = 1.0,
-        },
-        -- milliseconds, time after the cure will stop working
-        -- (-1 for complete cure)
-        cureDuration = 300000,
-        -- milliseconds, time it takes to apply medication (progressbar)
-        applyDuration = 10000,
-        -- health to add when used
-        healthAmount = 0,
-        -- inner core health added from 0 to 100
-        innerCoreHealth = 0,
-        language = {
-            cureExpired = "Le baume ne fait plus effet, vous saignez à nouveau.",
-            applying = "Application d'un baume...",
-            applied = "Vous avez arrêtez le saignement.",
-        },
-        -- if you don't want to use animation set those to nil and set scenario instead
-        animationDict = nil,
-        animation = nil,
-        -- if you don't want to use scenario set it to nil
-        scenario = 'WORLD_HUMAN_CROUCH_INSPECT',
-        -- the next damage type, used for the bandaged state
-        damageType = 'bandaged'
-    },
-    ['concoctioncoagulationtrois'] = {
+    ['concoctioncoagulation'] = {
         syringe = false,
         healProbability = {
             ['bleeding'] = 1.0,
