@@ -469,6 +469,7 @@ RegisterNetEvent("sellnpc:SellMenu", function(items)
 local isEventRunning = {}
 local canbuy = {}
 local cooldown = {}
+local SellingAction = false
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
@@ -496,11 +497,12 @@ Citizen.CreateThread(function()
                             end
                             local playerPosition = GetEntityCoords(PlayerPedId())
                             local entityPos = GetEntityCoords(entity)
-                            if #(playerPosition - entityPos) < 1.5 then 
+                            if #(playerPosition - entityPos) < 1.5 and not SellingAction then 
                                 if canbuy[entity] == true and canbuy[entity] ~= false then
                                     TriggerEvent('dust_presskey', "Appuyez sur G pour vendre")
                                     if IsControlJustReleased(0, 0x760A9C6F) then
                                         TriggerEvent("sellnpc:activatecd", entity)
+                                        TriggerEvent("sellnpc:animate")
                                         TriggerServerEvent("sellnpc:sell", current_town, Itemtosell)
                                     end
                                 end
@@ -517,6 +519,18 @@ Citizen.CreateThread(function()
     end
 end)
 -- state pnj
+
+RegisterNetEvent("sellnpc:animate",function()
+    SellingAction = true
+    RequestAnimDict(Config.SellDict)
+    while not HasAnimDictLoaded(Config.SellDict) do
+        Citizen.Wait(100)
+    end
+    TaskPlayAnim(PlayerPedId(), Config.SellDict, Config.SellAnim, 1.0, 1.0, -1, 25, 0, true, 0, false, 0, false)  
+    Wait(3000)
+    ClearPedTasks(PlayerPedId())
+    SellingAction = false
+end)
 
 RegisterNetEvent("sellnpc:activateselling",function(ent)
     if not isEventRunning[ent] then

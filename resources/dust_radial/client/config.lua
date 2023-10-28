@@ -83,6 +83,11 @@ Config.Bois = {
 
 }
 
+Config.SellDict = "script_common@mth_generic_enters@give_item_satchel@rhand@generic@in_place"
+Config.SellAnim = {
+    "enter_rf",
+}
+
 
 Config.SellTime = 10000
 
