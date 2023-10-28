@@ -1884,7 +1884,7 @@ Config.Items = {
         type = "item_standard",
     },
     ["concoctionanesthesiante"] = {
-        label = "Emulsion Anesthésiante'",
+        label = "Emulsion Anesthésiante",
         description = "Solution temporaire pour calmer la douleur",
         weight = 0.3,
         canBeDropped = true,
@@ -2962,8 +2962,7 @@ Config.Items = {
     imgsrc = "items/gold.png",
     type = "item_standard"
 },
-["WEAPON_MELEE_HAMMER"] =
-{
+["WEAPON_MELEE_HAMMER"] = {
     label = "Marteau",
     description = "Attention aux doigts",
     weight = 1.0,
