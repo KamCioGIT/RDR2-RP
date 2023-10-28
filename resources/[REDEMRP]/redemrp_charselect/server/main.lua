@@ -20,8 +20,7 @@ RegisterServerEvent("redemrp_charselect:getCharacters", function()
         MySQL.query('SELECT * FROM skins WHERE `identifier`=@identifier;', {identifier = id}, function(result2)
             MySQL.query('SELECT * FROM clothes WHERE `identifier`=@identifier;', {identifier = id}, function(result3)
                 MySQL.query('SELECT * FROM permissions WHERE `identifier`=@identifier;', {identifier = id}, function(result4)
-                print (result4[1].permissiongroup)
-                local prem = result4[1].permissiongroup
+                local perm = result4[1].permissiongroup
                 TriggerClientEvent('redemrp_charselect:openSelectionMenu', _source, result, result2, result3, perm)
                 end)
             end)
