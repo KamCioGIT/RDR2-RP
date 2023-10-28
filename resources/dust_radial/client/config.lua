@@ -87,7 +87,8 @@ Config.Bois = {
 Config.Price = {
     [GetHashKey("Strawberry")] = {
         ["moonshine"] = {label="Moonshine", price = 0.5},
-        ["pavot"] = {label="Moonshine", price = 0.5},
+        ["pavot"] = {label="Pavot", price = 0.5},
+        ["cuir"] = {label="Cuir", price = 0.5},
     },
     [GetHashKey("Rhodes")] = {
         ["moonshine"] = {label="Moonshine", price = 0.5},
