@@ -501,8 +501,6 @@ Citizen.CreateThread(function()
                                         canbuy[entity] = false
                                         TriggerEvent("sellnpc:activatecd", entity)
                                         TriggerServerEvent("sellnpc:sell")
-                                        
-                                        
                                     end
                                 end
                             end
@@ -545,6 +543,7 @@ RegisterNetEvent("sellnpc:activateselling",function(ent)
 end)
 
 RegisterNetEvent("sellnpc:activatecd",function(ent)
+    print 'cd'
     local timer = GetGameTimer() + Config.Cooldown
     while GetGameTimer() < timer do
         Wait(0)
