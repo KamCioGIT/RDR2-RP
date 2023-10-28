@@ -464,6 +464,9 @@ RegisterNetEvent("sellnpc:SellMenu", function(items)
   end)
 
 --- detection pnj
+local isEventRunning = {}
+local canbuy = {}
+local cooldown = {}
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(0)
@@ -485,7 +488,6 @@ Citizen.CreateThread(function()
                                     if IsEntityDead(entity) == false then
                                         if boolA ~= nil and boolA == false then
                                             if currentrumors ~= nil and #currentrumors > 0 then
-                                                print ("activate")
                                                 TriggerEvent("sellnpc:activateselling", entity)
                                             end
                                         end
@@ -495,12 +497,12 @@ Citizen.CreateThread(function()
                             local playerPosition = GetEntityCoords(PlayerPedId())
                             local entityPos = GetEntityCoords(entity)
                             if #(playerPosition - entityPos) < 1.5 then 
-                                print (Entity(entity).state.canbuy)
-                                if Entity(entity).state.canbuy == true then
+                                if canbuy[entity] == true then
                                     TriggerEvent('dust_presskey', "Appuyez sur G pour vendre")
                                     if IsControlJustReleased(0, 0x760A9C6F) then
                                         TriggerServerEvent("sellnpc:sell")
-                                        Entity(entity).state.canbuy = false
+                                        canbuy[entity] = false
+                                        TriggerEvent("sellnpc:activatecd", entity)
                                     end
                                 end
                             end
@@ -516,9 +518,17 @@ Citizen.CreateThread(function()
     end
 end)
 
-
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        if isSelling then
+            Citizen.Wait(60*1000)
+            cooldown = {}
+        end
+    end
+end)
 -- state pnj
-local isEventRunning = {}
+
 RegisterNetEvent("sellnpc:activateselling",function(ent)
     if not isEventRunning[ent] then
         isEventRunning[ent] = true
@@ -526,12 +536,20 @@ RegisterNetEvent("sellnpc:activateselling",function(ent)
         local chance = math.random(0, 100)
         while GetGameTimer() < timer do
             Wait(0)
-            if chance >= 50 then
-                Entity(ent).state.canbuy = true
+            if chance >= 50 and not cooldown[ent] then
+                canbuy[ent] = true
             end
         end
         isEventRunning[ent] = false
     end
+end)
+
+RegisterNetEvent("sellnpc:activatecd",function(ent)
+    local timer = GetGameTimer() + Config.Cooldown
+    while GetGameTimer() < timer do
+        Wait(0)
+    end
+    cooldown[ent] = false
 end)
 
 -- sell

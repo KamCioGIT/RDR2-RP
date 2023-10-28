@@ -86,6 +86,8 @@ Config.Bois = {
 
 Config.SellTime = 10000
 
+Config.Cooldown = 60000
+
 Config.Price = {
     [GetHashKey("Strawberry")] = {
         ["moonshine"] = {label="Moonshine", price = 0.5},
