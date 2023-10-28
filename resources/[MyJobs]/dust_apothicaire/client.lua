@@ -78,16 +78,12 @@ RegisterNetEvent("doctor:CraftingAction")
 AddEventHandler("doctor:CraftingAction", function()
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
-    FreezeEntityPosition(playerPed, true)
     isInteracting = true
     RequestAnimDict(Config.AnimDict)
     while not HasAnimDictLoaded(Config.AnimDict) do
         Citizen.Wait(50)
     end
-
-    for k,v in pairs(Config.CraftAnim) do
-        TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 25, 0, true)
-    end
+    TaskPlayAnim(playerPed, Config.AnimDict, Config.CraftAnim, 4.0, 4.0, -1, 25, 0, true)
 
     local timer = GetGameTimer() + Config.WorkingTime
     isInteracting = true
@@ -97,7 +93,6 @@ AddEventHandler("doctor:CraftingAction", function()
             Wait(0)
         end
         ClearPedTasks(PlayerPedId())
-        FreezeEntityPosition(playerPed, false)
         isInteracting = false
     end)    
 end)
