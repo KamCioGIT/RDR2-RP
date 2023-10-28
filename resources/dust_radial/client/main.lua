@@ -471,6 +471,7 @@ Citizen.CreateThread(function()
             local current_town = Citizen.InvokeNative(0x43AD8FC02B429D33, x, y, z, 1)
             for k, v in pairs(Config.Price) do
                 if k == current_town then
+                    print 'town'
                     local itemSet = CreateItemset(true)
                     local size = Citizen.InvokeNative(0x59B57C4B06531E1E, GetEntityCoords(PlayerPedId()), 7.0, itemSet, 1, Citizen.ResultAsInteger())
                 
@@ -520,7 +521,7 @@ local isEventRunning = {}
 RegisterNetEvent("sellnpc:activateselling",function(ent)
     if not isEventRunning[ent] then
         isEventRunning[ent] = true
-        local timer = GetGameTimer() + Config.RefreshRumors
+        local timer = GetGameTimer() + Config.SellTime
         local chance = math.random(0, 100)
         while GetGameTimer() < timer do
             Wait(0)
