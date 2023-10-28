@@ -4,8 +4,6 @@ local identifierUsed = 'steam'
 
 RegisterServerEvent("redemrp_charselect:getCharacters", function()
     local _source = source
-    local Player = RedEM.GetPlayer(_source)
-    local perm = Player.GetGroup()
     local id
     for k,v in ipairs(GetPlayerIdentifiers(_source))do
         if string.sub(v, 1, string.len(identifierUsed .. ":")) == (identifierUsed .. ":") then
@@ -21,8 +19,8 @@ RegisterServerEvent("redemrp_charselect:getCharacters", function()
     MySQL.query('SELECT * FROM characters WHERE `identifier`=@identifier;', {identifier = id}, function(result)
         MySQL.query('SELECT * FROM skins WHERE `identifier`=@identifier;', {identifier = id}, function(result2)
             MySQL.query('SELECT * FROM clothes WHERE `identifier`=@identifier;', {identifier = id}, function(result3)
-                
-                
+                MySQL.query('SELECT * FROM permissions WHERE `identifier`=@identifier;', {identifier = id}, function(perm)
+                print (perm)
                 TriggerClientEvent('redemrp_charselect:openSelectionMenu', _source, result, result2, result3, perm)
             end)
         end)
