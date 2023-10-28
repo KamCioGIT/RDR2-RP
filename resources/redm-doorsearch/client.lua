@@ -20,7 +20,7 @@ RegisterNetEvent("doorsearch:search", function()
 
 		for door, info in pairs(doorhashes) do
 			if #(coords - vector3(info[4], info[5], info[6])) <= 2.0 then
-				local heading = GetEntityHeading(door)
+				local heading = GetEntityRotation(door, 0)
 				print(door, heading)
 			end
 
