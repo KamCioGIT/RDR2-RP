@@ -410,9 +410,11 @@ end
 ----- vente au pnj
 
 local isSelling = false
+local Itemtosell = nil
 RegisterNetEvent("sellnpc:SellNPC", function()
     if isSelling then
         isSelling = false
+        Itemtosell = nil
         TriggerEvent("redem_roleplay:NotifyLeft", "Vente", "Vous avez arrêté de vendre !", "scoretimer_textures", "scoretimer_generic_cross", 4000)
     else
         TriggerServerEvent("sellnpc:checkitem")
@@ -499,7 +501,7 @@ Citizen.CreateThread(function()
                                     TriggerEvent('dust_presskey', "Appuyez sur G pour vendre")
                                     if IsControlJustReleased(0, 0x760A9C6F) then
                                         TriggerEvent("sellnpc:activatecd", entity)
-                                        TriggerServerEvent("sellnpc:sell")
+                                        TriggerServerEvent("sellnpc:sell", current_town, Itemtosell)
                                     end
                                 end
                             end

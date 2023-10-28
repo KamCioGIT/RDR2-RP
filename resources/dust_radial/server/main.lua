@@ -74,11 +74,9 @@ end)
 
 RegisterServerEvent('dust_radial:AddItem')
 AddEventHandler('dust_radial:AddItem', function(item, amount)
-	print (item, amount)
 	local _source = tonumber(source)
 	local ItemData = data.getItem(_source, item)
 	ItemData.AddItem(amount)
-
 end)
 
 
@@ -93,4 +91,13 @@ RegisterServerEvent("sellnpc:checkitem", function ()
 		end
 	end
 	TriggerClientEvent("sellnpc:SellMenu", _source, itemstosell)
+end)
+
+RegisterServerEvent("sellnpc:sell", function(zone, Itemtosell)
+	local _source = tonumber(source)
+	local User = RedEM.GetPlayer(_source)
+	local ItemData = data.getItem(_source, Itemtosell)
+	if ItemData.RemoveItem(1) then
+		User.addMoney(Config.Price[zone][Itemtosell].price)
+	end
 end)
