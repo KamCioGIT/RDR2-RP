@@ -1209,7 +1209,7 @@ AddEventHandler("redemrp_inventory:server:removeitemstash", function(name, amoun
                             table.remove(stash, id)
                         end
                         output = true
-                    else output = false return end
+                    else return end
                 end
             end
         else return end
@@ -1255,7 +1255,6 @@ AddEventHandler("redemrp_inventory:server:removeitemstashbis", function(name, am
     local _namebis = namebis
     local _amount = tonumber(amount)
     local _amountbis = tonumber(amountbis)
-    local _meta = meta or {}
     local output = false
     if _amount >= 0 and _amountbis >= 0 then
         local itemData = Config.Items[_name]
@@ -1274,12 +1273,12 @@ AddEventHandler("redemrp_inventory:server:removeitemstashbis", function(name, am
             if itemData.type == "item_standard" and itemDatabis.type == "item_standard" then
                 if _amount > 0 and _amountbis > 0 then
                     if item.getAmount() >= _amount and itembis.getAmount() >= _amountbis then
-                        item.removeAmount(_amount)
-                        itembis.removeAmount(_amountbis)
-                        table.remove(stash, id)
-                        table.remove(stash, idbis)
+                        if item.removeAmount(_amount) and itembis.removeAmount(_amountbis) then
+                            table.remove(stash, id)
+                            table.remove(stash, idbis)
+                        end
                         output = true
-                    else output = false return end
+                    else return end
                 end
             end
         else return end
@@ -1349,14 +1348,13 @@ AddEventHandler("redemrp_inventory:server:removeitemstashter", function(name, am
             if itemData.type == "item_standard" and itemDatabis.type == "item_standard" and itemDatater.type == "item_standard" then
                 if _amount > 0 and _amountbis > 0 and _amountter > 0 then
                     if item.getAmount() >= _amount and itembis.getAmount() >= _amountbis and itemter.getAmount() >= _amountter then
-                        item.removeAmount(_amount)
-                        itembis.removeAmount(_amountbis)
-                        itemter.removeAmount(_amountter)
-                        table.remove(stash, id)
-                        table.remove(stash, idbis)
-                        table.remove(stash, idter)
+                        if item.removeAmount(_amount) and itembis.removeAmount(_amountbis) and itemter.removeAmount(_amountter) then
+                            table.remove(stash, id)
+                            table.remove(stash, idbis)
+                            table.remove(stash, idter)
+                        end
                         output = true
-                    else output = false return end
+                    else return end
                 end
             end
         else return end
