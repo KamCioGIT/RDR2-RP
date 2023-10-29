@@ -51,7 +51,7 @@ Citizen.CreateThread(function()
             if #(playerPos - v.input) < Config.DistanceToInteract and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                    TriggerClientEvent("redemrp_inventory:OpenStash", _source, "dep_moo"..v.group, 3000.0)
+                    TriggerClientEvent("redemrp_inventory:OpenStash", _source, "dep_moo_"..v.group, 3000.0)
                 end
             end
             if #(playerPos - v.output) < 10.0 then
@@ -60,7 +60,7 @@ Citizen.CreateThread(function()
             if #(playerPos - v.output) < Config.DistanceToInteract and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                    TriggerClientEvent("redemrp_inventory:OpenStash", _source, "ret_moo"..v.group, 3000.0)
+                    TriggerClientEvent("redemrp_inventory:OpenStash", _source, "ret_moo_"..v.group, 3000.0)
                 end
             end
         end
