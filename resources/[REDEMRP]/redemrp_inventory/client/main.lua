@@ -32,10 +32,10 @@ local WeaponsWithoutAmmo = {
 	["WEAPON_LASSO"] = true,
     ["WEAPON_LASSO_IMPROVED"] = true,
 
-	-- ["WEAPON_MELEE_CLEAVER"] = true,
-    -- ["WEAPON_MELEE_HATCHET"] = true,
-    -- ["WEAPON_MELEE_HATCHET_HUNTER"] = true,
-    -- ["WEAPON_MELEE_HATCHET_DOUBLE_BIT"] = true,
+	["WEAPON_MELEE_CLEAVER"] = true,
+    ["WEAPON_MELEE_HATCHET"] = true,
+    ["WEAPON_MELEE_HATCHET_HUNTER"] = true,
+    ["WEAPON_MELEE_HATCHET_DOUBLE_BIT"] = true,
 
     ["WEAPON_MELEE_LANTERN"] = true,
 	["WEAPON_MELEE_LANTERN_ELECTRIC"] = true,
@@ -43,7 +43,7 @@ local WeaponsWithoutAmmo = {
 
 	["WEAPON_MELEE_TORCH"] = true,
 
-    -- ["WEAPON_KIT_BINOCULARS"] = true,
+    ["WEAPON_KIT_BINOCULARS"] = true,
 }
 
 local SpecialWeapon = {
