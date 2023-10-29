@@ -490,4 +490,6 @@ Config.DamageModifier = {
 
     [-2002235300]                        = 0.7,          -- bow
     [115405099]                        = 1.0,          -- bow improved
+
+    [-1569615261]                        = 1.5,          -- poings
 }
