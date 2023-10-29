@@ -8,7 +8,7 @@ Config.AtelierMoonshine = {
 }
 
 Config.AlambicMoonshine = {
-    [1] = {input = vector3(-1061.538, -2511.738, 75.05264), output = vector3(-1062.354, -2507.31, 74.99416), name = test},
+    [1] = {input = vector3(-1061.538, -2511.738, 75.05264), output = vector3(-1062.354, -2507.31, 74.99416), name = "test"},
 }
 
 Config.AtelierOpium = {
