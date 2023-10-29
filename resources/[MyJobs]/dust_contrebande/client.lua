@@ -51,7 +51,7 @@ Citizen.CreateThread(function()
             if #(playerPos - v.input) < Config.DistanceToInteract and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                    TriggerServerEvent('moonshine:depStash', v.group)
+                    TriggerClientEvent("redemrp_inventory:OpenStash", _source, "dep_moo"..v.group, 3000.0)
                 end
             end
             if #(playerPos - v.output) < 10.0 then
@@ -60,7 +60,7 @@ Citizen.CreateThread(function()
             if #(playerPos - v.output) < Config.DistanceToInteract and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                    TriggerServerEvent('moonshine:retStash', v.group)
+                    TriggerClientEvent("redemrp_inventory:OpenStash", _source, "ret_moo"..v.group, 3000.0)
                 end
             end
         end
@@ -69,27 +69,6 @@ Citizen.CreateThread(function()
 end)
 
 
-function SouffreRecolt()
-    local playerPed = PlayerPedId()
-    local playerPos = GetEntityCoords(playerPed)
-    FreezeEntityPosition(playerPed, true)
-    RequestAnimDict(Config.RecolteSouffreDict)
-    while not HasAnimDictLoaded(Config.RecolteSouffreDict) do
-        Citizen.Wait(100)
-    end
-    TaskPlayAnim(PlayerPedId(), Config.RecolteSouffreDict, Config.RecolteSouffreAnim, 1.0, 1.0, -1, 0, 0, true, 0, false, 0, false)
-    local timer = GetGameTimer() + Config.WorkingTime
-    isInteracting = true
-    Citizen.CreateThread(function()
-        while GetGameTimer() < timer do 
-            Wait(0)
-        end
-        ClearPedTasks(playerPed)
-		FreezeEntityPosition(playerPed, false)
-        isInteracting = false
-        TriggerServerEvent('contrebande:AddItem', 'souffre', 1)
-    end)
-end
 
 
 AddEventHandler("onResourceStop", function(resourceName)
@@ -161,9 +140,7 @@ AddEventHandler("contrebande:CraftingAction", function()
         Citizen.Wait(50)
     end
 
-    for k,v in pairs(Config.CraftAnim) do
-        TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 1, 0, true)
-    end
+    TaskPlayAnim(playerPed, Config.AnimDict, Config.CraftAnim, 4.0, 4.0, -1, 1, 0, true)
 
     local timer = GetGameTimer() + Config.WorkingTime
     isInteracting = true

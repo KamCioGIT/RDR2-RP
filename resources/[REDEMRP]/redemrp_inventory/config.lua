@@ -3433,6 +3433,17 @@ Config.Items = {
     imgsrc = "items/provision_moonshine_poison.png",
     type = "item_standard",
 },
+["grainepavot"] = {
+    label = "Graine de Pavot",
+    description = "Le début de biens des choses",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/seed.png",
+    type = "item_standard",
+},
 ["pavot"] = {
     label = "Pavot",
     description = "Une forte odeur s'en dégage",

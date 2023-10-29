@@ -6,26 +6,19 @@ TriggerEvent("redemrp_inventory:getData",function(call)
 end)
 
 
-RegisterServerEvent("moonshine:depStash", function(group)
-    local _source = source
-	if RedEM.GetPlayer(source).job == "fermier" then
-        TriggerClientEvent("redemrp_inventory:OpenStash", _source, "dep_moo"..group, 3000.0)
-    end
-end)
-
-
-RegisterServerEvent("moonshine:retStash", function(group)
-    local _source = source
-	if tonumber(RedEM.GetPlayer(_source).jobgrade) > 1 then
-        TriggerClientEvent("redemrp_inventory:OpenStash", _source, "ret_moo"..group, 3000.0)
-    end
-end)
-
 
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(2000)
-		-- TriggerEvent("redemrp_inventory:server:removeitemstash", "moût", 2, {}, "dep_moo"..group,"moonshine", 1, {}, "ret_moo"..group)
+		-- TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "mout", 1, {}, "dep_moo"..group,"moonshine", 1, {}, "ret_moo"..group)
+		-- TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromebayou", 1, {}"dep_moo"..group,"moonshinebayou", 1, {}, "ret_moo"..group)
+		-- TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "arometrappeur", 1, {}"dep_moo"..group,"moonshinetrappeur", 1, {}, "ret_moo"..group)
+		-- TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromecueilleur", 1, {}"dep_moo"..group,"moonshinecueilleur", 1, {}, "ret_moo"..group)
+		-- TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromeforet", 1, {}"dep_moo"..group,"moonshineforet", 1, {}, "ret_moo"..group)
+		-- TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromefongique", 1, {}"dep_moo"..group,"moonshinefongique", 1, {}, "ret_moo"..group)
+		-- TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromecitadin", 1, {}"dep_moo"..group,"moonshinecitadin", 1, {}, "ret_moo"..group)
+		-- TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromepeignecul", 1, {}"dep_moo"..group,"moonshinepeignecul", 1, {}, "ret_moo"..group)
+		-- TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromemexicain", 1, {}"dep_moo"..group,"moonshinemexicaine", 1, {}, "ret_moo"..group)
 	end
 end)
 

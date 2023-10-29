@@ -785,7 +785,7 @@ Config.FarmHerbs = {
 		multipleUse = true,
 		herbToSeed = 3,
 		multipleEvent = "gum_farming:useSeed",--argument is herbSeed, herbName, herbCount
-		herbName = "Brambora",
+		herbName = "Pomme de terre",
 		herbItem = "patate",
 		potStageProps = {--Stage is calculated automaticaly from grow time
 			[1] = {"p_potato01x", 301},
@@ -812,7 +812,7 @@ Config.FarmHerbs = {
 		multipleUse = true,
 		herbToSeed = 3,
 		multipleEvent = "gum_farming:useSeed",--argument is herbSeed, herbName, herbCount
-		herbName = "Rajče",
+		herbName = "Tomate",
 		herbItem = "Tomato",
 		potStageProps = {--Stage is calculated automaticaly from grow time
 			[1] = {"crp_tomatoes_aa_sim", 301},
@@ -969,6 +969,33 @@ Config.FarmHerbs = {
 	-- 	},
 	-- 	grounded = 0.0,--downgrade under ground
 	-- },
+	["grainepavot"] = {
+		multipleUse = true,
+		herbToSeed = 3,
+		multipleEvent = "gum_farming:useSeed",--argument is herbSeed, herbName, herbCount
+		herbName = "Pavot",
+		herbItem = "Pavot",
+		potStageProps = {--Stage is calculated automaticaly from grow time
+			[1] = {"s_prairiepoppypicked01x", 301},
+			[2] = {"s_inv_prariepoppy01dx", 250},
+			[3] = {"prariepoppy_p", 100},
+			[4] = {"prariepoppy_p", -1},
+		},
+		weatherAffect = true,--If is rain -> automaticaly water herb
+		growTime = 90,--480 min time without affecting temp
+		temperatureSlow = 0,--Slow for grow
+		temperatureGood = {-3, 30},--Good for grow
+		temperatureHot = 30,--2x more watering
+		fertilizer = {1, 2},--Empty is disabled,
+		quality = 100,--Disabled quality system is 0 
+		rewardItem = {--If you have disabled quality set [XX] to [0]
+			[80] = {"pavot", 3},--Upper 80% to 100
+			[50] = {"pavot", 2},--Upper 50% to 80
+			[25] = {"pavot", 1},--Upper 0% to 50
+			[0] = {"pavot", 0},--Upper 0% to 25
+		},
+		grounded = 0.0,--downgrade under ground
+	},
 }
 
 
