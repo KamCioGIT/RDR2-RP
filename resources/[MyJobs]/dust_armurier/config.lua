@@ -503,6 +503,6 @@ Config.DamageModifier = {
     [680856689]                        = 1.0,          -- machete
     [-1774451313]                        = 1.0,          -- machete collec
     [1953585457]                        = 1.0,          -- machete horror
-    [-295349450]                        = 1.0,          -- hammer
+    [-295349450]                        = 0.8,          -- hammer
     
 }
