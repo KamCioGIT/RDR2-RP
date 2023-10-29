@@ -1506,7 +1506,7 @@ Config.Items = {
         type = "item_standard",
     },
     ["glandevenin"] = {
-        label = "Glande",
+        label = "Glande à venin",
         description = "",
         weight = 0.2,
         canBeDropped = true,
@@ -3334,6 +3334,17 @@ Config.Items = {
     imgsrc = "items/blackberry_moonshine.png",
     type = "item_standard",
 },
+["laudanum"] = {
+    label = "Laudanum",
+    description = "Traite les vomissements carabinés",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/opium2.png",
+    type = "item_standard",
+},
 ["mout"] = {
     label = "Moût",
     description = "Une purée de végétaux",
@@ -3452,7 +3463,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/brisket.png",
+    imgsrc = "items/opium_smokable.png",
     type = "item_standard",
 },
 ["laitpavot"] = {
