@@ -1994,7 +1994,7 @@ Config.Items = {
         type = "item_standard",
     },
     ["antibiotic"] = {
-        label = "Solution antibiotique",
+        label = "Remède Goodwin",
         description = "A boire d'urgence",
         weight = 0.3,
         canBeDropped = true,
