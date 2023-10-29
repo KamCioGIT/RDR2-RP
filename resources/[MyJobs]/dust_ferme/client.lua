@@ -542,7 +542,7 @@ Citizen.CreateThread(function ()
                         stopPrompt = SetupPrompt(1, 0x8CC9CD42, id, "S'arrêter")
                     end
                     if not laitPrompt then
-                        laitPrompt = SetupPrompt(1, 0x80F28E95, id, "Traire")
+                        laitPrompt = SetupPrompt(1, 0xF1301666, id, "Traire")
                     end
                     if IsControlJustReleased(0, 0x8CC9CD42) and Entity(entity).state.grazing ~= true then
                         ClearPedTasks(entity)
@@ -574,7 +574,7 @@ Citizen.CreateThread(function ()
                             end
                         end
                     end
-                    if IsControlJustReleased(0, 0x80F28E95) then
+                    if IsControlJustReleased(0, 0xF1301666) then
                         for k, v in pairs(Config.Lait) do
                             if #(targetCoords - v.pos) < 7 then
                                 if  #(targetCoords - playerCoords) < 3.0 then
