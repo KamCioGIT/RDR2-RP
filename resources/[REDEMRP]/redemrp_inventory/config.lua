@@ -291,8 +291,8 @@ Config.Items = {
     --MELEE WEAPONS
     ["WEAPON_MELEE_HATCHET_HUNTER"] =
 	{
-		label = "Hunter Hatchet",
-		description = "Hunting Wild Animals",
+		label = "Hache de chasseur",
+		description = "Utile dans les pires moments",
 		weight = 1.0,
 		canBeDropped = true,
 		requireLvl = 1,
@@ -454,8 +454,8 @@ Config.Items = {
         type = "item_weapon"
     },
     ["WEAPON_BOW_IMPROVED"] = {
-        label = "Improved Bow",
-        description = "Improved Bow",
+        label = "Arc Amélioré",
+        description = "",
         weight = 0.25,
         canBeDropped = true,
         weaponHash = GetHashKey("WEAPON_BOW_IMPROVED"),

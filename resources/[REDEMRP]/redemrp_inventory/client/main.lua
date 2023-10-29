@@ -32,6 +32,21 @@ local WeaponsWithoutAmmo = {
 	["WEAPON_LASSO"] = true,
     ["WEAPON_LASSO_IMPROVED"] = true,
 
+	-- ["WEAPON_MELEE_CLEAVER"] = true,
+    -- ["WEAPON_MELEE_HATCHET"] = true,
+    -- ["WEAPON_MELEE_HATCHET_HUNTER"] = true,
+    -- ["WEAPON_MELEE_HATCHET_DOUBLE_BIT"] = true,
+
+    ["WEAPON_MELEE_LANTERN"] = true,
+	["WEAPON_MELEE_LANTERN_ELECTRIC"] = true,
+    ["WEAPON_MELEE_LANTERN_HALLOWEEN"] = true,
+
+	["WEAPON_MELEE_TORCH"] = true,
+
+    -- ["WEAPON_KIT_BINOCULARS"] = true,
+}
+
+local SpecialWeapon = {
 	["WEAPON_MELEE_CLEAVER"] = true,
     ["WEAPON_MELEE_HATCHET"] = true,
     ["WEAPON_MELEE_HATCHET_HUNTER"] = true,
@@ -44,6 +59,7 @@ local WeaponsWithoutAmmo = {
 	["WEAPON_MELEE_TORCH"] = true,
 
     ["WEAPON_KIT_BINOCULARS"] = true,
+    ["WEAPON_THROWN_TOMAHAWK"] = true,
 }
 
 RegisterNetEvent('redemrp_inventory:close_inventory')
@@ -296,9 +312,9 @@ function ReloadWeapons()
                     TriggerEvent('redemrp_inventory:compweapon', k.WeaponHash, k.meta.components, wepobj)
                 end
             end
-        elseif k.name == "WEAPON_MELEE_LANTERN" then
-            GiveWeaponToPed_2(PlayerPedId(), `WEAPON_MELEE_LANTERN`, 0, true, true , 0, false, 0.5, 1.0, 752097756, false, 0, false)
-            SetCurrentPedWeapon(PlayerPedId(), `WEAPON_MELEE_LANTERN`, true, 0, false, false)
+        elseif SpecialWeapon[k.name] == true then
+            GiveWeaponToPed_2(PlayerPedId(), k.WeaponHash, 0, true, true , 0, false, 0.5, 1.0, 752097756, false, 0, false)
+            SetCurrentPedWeapon(PlayerPedId(), k.WeaponHash, true, 0, false, false)
         else
             local wepobj = Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), k.WeaponHash, 0, true, false)
             SetPedAmmo(PlayerPedId(), k.WeaponHash , 0)
