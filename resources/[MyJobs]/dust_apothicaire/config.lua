@@ -367,6 +367,21 @@ Config.CraftingsReceipe = {
         label = 'Attelle',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x2"},{src = 'nui://redemrp_inventory/html/items/stick.png', text = "Petit Bois",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/bandage.png', text = "Bandage",count = "x1"}}
     },
+    ['syringe'] = {
+        type = 'medecin',
+        Itemtocraft = 3,
+        ItemReceipe1Name = 'barbane',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'baiedegaultherie',
+        ItemReceipe2Amount = 3,
+        ItemReceipe3Name = 'graisse',
+        ItemReceipe3Amount = 1,
+        ItemToGive = 'syringe',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Seringue de Digitaline',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_burdock_root.png', text = "Barbane",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de Gaultherie",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
+    },
 }
     ------- mortier apothicaire medecin itinérant ----------
 Config.CraftingsReceipeMortier = {
@@ -708,6 +723,21 @@ Config.CraftingsReceipeMortier = {
         WorkingTime = 5,
         label = 'Bandage au charbon',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/bandage.png', text = "Bandage",count = "x1"},{src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
+    },
+    ['syringe'] = {
+        type = 'mortier',
+        Itemtocraft = 3,
+        ItemReceipe1Name = 'barbane',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'baiedegaultherie',
+        ItemReceipe2Amount = 3,
+        ItemReceipe3Name = 'graisse',
+        ItemReceipe3Amount = 1,
+        ItemToGive = 'syringe',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Seringue de Digitaline',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_burdock_root.png', text = "Barbane",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de Gaultherie",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
     },
 }
 
