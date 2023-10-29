@@ -26,13 +26,13 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "barbane",
         coords = {
-            {634.2966, 1443.314, 185.551, 15.0},
-            {2008.353, 80.90195, 76.84789, 15.0},
-            {-1555.16, -137.1601, 126.1494, 15.0},
-            {-1731.651, -903.3646, 101.9832, 15.0}
+            {634.2966, 1443.314, 185.551, 40.0},
+            {2008.353, 80.90195, 76.84789, 40.0},
+            {-1555.16, -137.1601, 126.1494, 40.0},
+            {-1731.651, -903.3646, 101.9832, 40.0}
         },
-        maxSpawn = 7,--How much props is cached
-        propMax = 7,--Spawn max props on limit
+        maxSpawn = 11,--How much props is cached
+        propMax = 11,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -48,15 +48,15 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "sauge colibri",
         coords = {
-            {125.9249, 982.7355, 210.9116, 15.0},
-            {2092.533, 116.5939, 70.97131, 15.0},
-            {2099.604, 537.5249, 118.0403, 15.0},
-            {-1236.328, -251.1011, 97.74142, 15.0},
-            {-2193.928, -229.0691, 190.4592, 15.0},
-            {-2262.983, -1381.816, 141.6076, 15.0}
+            {125.9249, 982.7355, 210.9116, 40.0},
+            {2092.533, 116.5939, 70.97131, 40.0},
+            {2099.604, 537.5249, 118.0403, 40.0},
+            {-1236.328, -251.1011, 97.74142, 40.0},
+            {-2193.928, -229.0691, 190.4592, 40.0},
+            {-2262.983, -1381.816, 141.6076, 40.0}
         },
-        maxSpawn = 6,--How much props is cached
-        propMax = 6,--Spawn max props on limit
+        maxSpawn = 9,--How much props is cached
+        propMax = 9,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -72,16 +72,16 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "menthe sauvage",
         coords = {
-            {981.2698, -1232.413, 59.98701, 15.0},
-            {2628.306, 640.9957, 73.90434, 15.0},
-            {1637.062, 1293.967, 157.1505, 15.0},
-            {-905.2833, -538.3448, 71.80321, 15.0},
-            {-1918.339, -1517.835, 105.9362, 15.0},
-            {-1774.071, -301.3089, 181.8485, 15.0}
+            {981.2698, -1232.413, 59.98701, 40.0},
+            {2628.306, 640.9957, 73.90434, 40.0},
+            {1637.062, 1293.967, 157.1505, 40.0},
+            {-905.2833, -538.3448, 71.80321, 40.0},
+            {-1918.339, -1517.835, 105.9362, 40.0},
+            {-1774.071, -301.3089, 181.8485, 40.0}
             
         },
-        maxSpawn = 10,--How much props is cached
-        propMax = 10,--Spawn max props on limit
+        maxSpawn = 15,--How much props is cached
+        propMax = 15,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -97,13 +97,13 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "coulemelle",
         coords = {
-            {1370.721, -943.9273, 53.40933, 15.0},
-            {1823.693, -375.2607, 44.39895, 15.0},
-            {2118.517, 103.6463, 70.24908, 15.0},
-            {2505.32, 706.6677, 75.97889, 15.0}
+            {1370.721, -943.9273, 53.40933, 40.0},
+            {1823.693, -375.2607, 44.39895, 40.0},
+            {2118.517, 103.6463, 70.24908, 40.0},
+            {2505.32, 706.6677, 75.97889, 40.0}
         },
-        maxSpawn = 8,--How much props is cached
-        propMax = 8,--Spawn max props on limit
+        maxSpawn = 12,--How much props is cached
+        propMax = 12,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -119,12 +119,12 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "asclepiade",
         coords = {
-            {2033.632, -1022.402, 43.35403, 15.0},
-            {2262.735, -385.3071, 42.34921, 15.0},
-            {-362.0679, 246.0696, 66.14816, 15.0}
+            {2033.632, -1022.402, 43.35403, 40.0},
+            {2262.735, -385.3071, 42.34921, 40.0},
+            {-362.0679, 246.0696, 66.14816, 40.0}
         },
-        maxSpawn = 8,--How much props is cached
-        propMax = 8,--Spawn max props on limit
+        maxSpawn = 12,--How much props is cached
+        propMax = 12,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -140,15 +140,15 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "ginseng",
         coords = {
-            {-302.4985, 1026.319, 130.711, 15.0},
-            {-1483.752, 586.595, 115.9719, 15.0},
-            {-2174.6, -357.8328, 187.5935, 15.0},
-            {80.4672, 875.4934, 210.774, 15.0}
+            {-302.4985, 1026.319, 130.711, 40.0},
+            {-1483.752, 586.595, 115.9719, 40.0},
+            {-2174.6, -357.8328, 187.5935, 40.0},
+            {80.4672, 875.4934, 210.774, 40.0}
 
 
         },
-        maxSpawn = 5,--How much props is cached
-        propMax = 5,--Spawn max props on limit
+        maxSpawn = 9,--How much props is cached
+        propMax = 9,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -164,15 +164,15 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "millefeuille",
         coords = {
-            {941.0305, 85.52578, 111.9082, 15.0},
-            {1491.636, -1880.136, 50.86975, 15.0},
-            {-24.4986, -579.2489, 59.20609, 15.0},
-            {-1581.555, -715.8248, 134.1635, 15.0},
-            {-2172.017, -1458.004, 138.2527, 15.0},
-            {-796.1694, -845.8452, 53.48745, 15.0}
+            {941.0305, 85.52578, 111.9082, 40.0},
+            {1491.636, -1880.136, 50.86975, 40.0},
+            {-24.4986, -579.2489, 59.20609, 40.0},
+            {-1581.555, -715.8248, 134.1635, 40.0},
+            {-2172.017, -1458.004, 138.2527, 40.0},
+            {-796.1694, -845.8452, 53.48745, 40.0}
         },
-        maxSpawn = 10,--How much props is cached
-        propMax = 10,--Spawn max props on limit
+        maxSpawn = 14,--How much props is cached
+        propMax = 14,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -188,15 +188,15 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "chanterelle",
         coords = {
-            {1309.872, -934.049, 53.68198, 15.0},
-            {1806.273, -537.7383, 42.75464, 15.0},
-            {1986.373, -1237.09, 42.67138, 15.0},
-            {-2223.153, -345.016, 180.5318, 15.0},
-            {-1839.789, -1080.536, 84.08539, 15.0}
+            {1309.872, -934.049, 53.68198, 40.0},
+            {1806.273, -537.7383, 42.75464, 40.0},
+            {1986.373, -1237.09, 42.67138, 40.0},
+            {-2223.153, -345.016, 180.5318, 40.0},
+            {-1839.789, -1080.536, 84.08539, 40.0}
     
         },
-        maxSpawn = 8,--How much props is cached
-        propMax = 8,--Spawn max props on limit
+        maxSpawn = 12,--How much props is cached
+        propMax = 12,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -212,14 +212,14 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "pouledesbois",
         coords = {
-            {2203.435, -191.4243, 47.75746, 15.0},
-            {-830.4506, 528.0355, 62.94004, 15.0},
-            {-2468.545, 470.9136, 144.224, 15.0},
-            {-1975.521, 684.8396, 123.636, 15.0},
-            {609.2662, 1463.395, 190.9937, 15.0}
+            {2203.435, -191.4243, 47.75746, 40.0},
+            {-830.4506, 528.0355, 62.94004, 40.0},
+            {-2468.545, 470.9136, 144.224, 40.0},
+            {-1975.521, 684.8396, 123.636, 40.0},
+            {609.2662, 1463.395, 190.9937, 40.0}
         },
-        maxSpawn = 6,--How much props is cached
-        propMax = 6,--Spawn max props on limit
+        maxSpawn = 10,--How much props is cached
+        propMax = 10,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -235,12 +235,12 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "saugedudesert",
         coords = {
-            {-733.5509, -1596.317, 54.26407, 15.0},
-            {-1134.55, -1401.119, 71.66103, 15.0},
-            {-753.8103, -834.6329, 51.96618, 15.0}
+            {-733.5509, -1596.317, 54.26407, 30.0},
+            {-1134.55, -1401.119, 71.66103, 30.0},
+            {-753.8103, -834.6329, 51.96618, 30.0}
         },
-        maxSpawn = 3,--How much props is cached
-        propMax = 3,--Spawn max props on limit
+        maxSpawn = 6,--How much props is cached
+        propMax = 6,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -256,22 +256,22 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "jonccommun",
         coords = {
-            {-1575.593, -1044.217, 66.48918, 15.0},
-            {-2747.818, -341.1842, 148.69, 15.0},
-            {-742.4996, -999.5875, 43.59007, 15.0},
-            {-432.2136, 43.71481, 43.29914, 15.0},
-            {-748.4709, 529.829, 57.08273, 15.0},
-            {-7.940222, 1513.159, 114.2799, 15.0},
-            {2363.588, -661.6688, 41.96912, 15.0},
-            {1745.068, -1170.501, 41.737, 15.0},
-            {672.7833, -1267.653, 43.98404, 15.0},
-            {177.8612, -608.237, 46.73311, 15.0}
+            {-1575.593, -1044.217, 66.48918, 40.0},
+            {-2747.818, -341.1842, 148.69, 40.0},
+            {-742.4996, -999.5875, 43.59007, 40.0},
+            {-432.2136, 43.71481, 43.29914, 40.0},
+            {-748.4709, 529.829, 57.08273, 40.0},
+            {-7.940222, 1513.159, 114.2799, 40.0},
+            {2363.588, -661.6688, 41.96912, 40.0},
+            {1745.068, -1170.501, 41.737, 40.0},
+            {672.7833, -1267.653, 43.98404, 40.0},
+            {177.8612, -608.237, 46.73311, 40.0}
 
 
 
         },
-        maxSpawn = 10,--How much props is cached
-        propMax = 10,--Spawn max props on limit
+        maxSpawn = 15,--How much props is cached
+        propMax = 15,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -287,13 +287,13 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "achillevisqueuse",
         coords = {
-            {1387.44, -1694.526, 67.42712, 15.0},
-            {2614.06, -452.0338, 42.52893, 15.0},
-            {-1712.851, -2483.187, 48.88267, 15.0},
-            {-1150.858, -739.7994, 66.30392, 15.0}
+            {1387.44, -1694.526, 67.42712, 40.0},
+            {2614.06, -452.0338, 42.52893, 40.0},
+            {-1712.851, -2483.187, 48.88267, 40.0},
+            {-1150.858, -739.7994, 66.30392, 40.0}
         },
-        maxSpawn = 7,--How much props is cached
-        propMax = 7,--Spawn max props on limit
+        maxSpawn = 11,--How much props is cached
+        propMax = 11,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -309,15 +309,15 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "camomillesauvage",
         coords = {
-            {1141.5, 620.3223, 94.32296, 15.0},
-            {2099.601, 98.6325, 70.67999, 15.0},
-            {980.3708, 76.83521, 106.147, 15.0},
-            {-1823.146, -954.3797, 108.086, 15.0},
-            {-1425.799, 226.543, 100.2333, 15.0}
+            {1141.5, 620.3223, 94.32296, 40.0},
+            {2099.601, 98.6325, 70.67999, 40.0},
+            {980.3708, 76.83521, 106.147, 40.0},
+            {-1823.146, -954.3797, 108.086, 40.0},
+            {-1425.799, 226.543, 100.2333, 40.0}
         
         },
-        maxSpawn = 8,--How much props is cached
-        propMax = 8,--Spawn max props on limit
+        maxSpawn = 12,--How much props is cached
+        propMax = 12,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -333,12 +333,12 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "boletbai",
         coords = {
-            {31.85101, 1196.117, 180.7177, 15.0},
-            {1234.791, -256.5401, 96.95807, 15.0},
-            {-1244.951, -262.1152, 99.44203, 15.0}
+            {31.85101, 1196.117, 180.7177, 40.0},
+            {1234.791, -256.5401, 96.95807, 40.0},
+            {-1244.951, -262.1152, 99.44203, 40.0}
         },
-        maxSpawn = 10,--How much props is cached
-        propMax = 10,--Spawn max props on limit
+        maxSpawn = 13,--How much props is cached
+        propMax = 13,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -354,14 +354,14 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "baiedegaultherie",
         coords = {
-            {1671.244, 768.7167, 136.2882, 15.0},
-            {2393.585, -653.2073, 42.27081, 15.0},
-            {1687.751, -1168.159, 41.45555, 15.0},
-            {-1255.429, -90.68906, 84.14188, 15.0},
-            {-2193.763, 428.9289, 129.5555, 15.0}
+            {1671.244, 768.7167, 136.2882, 40.0},
+            {2393.585, -653.2073, 42.27081, 40.0},
+            {1687.751, -1168.159, 41.45555, 40.0},
+            {-1255.429, -90.68906, 84.14188, 40.0},
+            {-2193.763, 428.9289, 129.5555, 40.0}
         },
-        maxSpawn = 8,--How much props is cached
-        propMax = 8,--Spawn max props on limit
+        maxSpawn = 11,--How much props is cached
+        propMax = 11,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
@@ -397,8 +397,8 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "laurierrose",
         coords = {
-            {2353.372, -797.1579, 41.71259, 15.0},
-            {1898.907, -866.2166, 42.17447, 15.0},
+            {2353.372, -797.1579, 41.71259, 25.0},
+            {1898.907, -866.2166, 42.17447, 25.0},
           
         },
         maxSpawn = 4,--How much props is cached
@@ -418,19 +418,19 @@ Config.Herbs = {
         blipSprite = 639638961,
         blipName = "carrotesauvages",
         coords = {
-            {1460.549, -1149.898, 68.23778, 15.0},
-            {1488.161, -1935.285, 46.63864, 15.0},
-            {1488.161, -1935.285, 46.63864, 15.0},
-            {1009.51, -734.7998, 87.55134, 15.0},
-            {-1895.552, -330.5616, 184.6244, 15.0},
-            {-1131.67, -417.085, 104.1743, 15.0},
-            {-1305.521, 511.2329, 93.50326, 15.0},
-            {-1126.826, -482.9183, 90.74239, 15.0},
-            {-1126.826, -482.9183, 90.74239, 15.0},
+            {1460.549, -1149.898, 68.23778, 40.0},
+            {1488.161, -1935.285, 46.63864, 40.0},
+            {1488.161, -1935.285, 46.63864, 40.0},
+            {1009.51, -734.7998, 87.55134, 40.0},
+            {-1895.552, -330.5616, 184.6244, 40.0},
+            {-1131.67, -417.085, 104.1743, 40.0},
+            {-1305.521, 511.2329, 93.50326, 40.0},
+            {-1126.826, -482.9183, 90.74239, 40.0},
+            {-1126.826, -482.9183, 90.74239, 40.0},
           
         },
-        maxSpawn = 10,--How much props is cached
-        propMax = 10,--Spawn max props on limit
+        maxSpawn = 15,--How much props is cached
+        propMax = 15,--Spawn max props on limit
         canGatherMore = 1,--How much you can gather 1 entity
         grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
 
