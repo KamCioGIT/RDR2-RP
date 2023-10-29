@@ -318,7 +318,7 @@ Config.Items = {
 		weight = 3,
 		canBeDropped = true,
 		requireLvl = 1,
-		weaponHash = GetHashKey("WEAPON_MELEE_CLEAVER"),
+		weaponHash = -281894307,
 		  imgsrc = "items/WEAPON_MELEE_CLEAVER.png",
 		type = "item_weapon"
 	},

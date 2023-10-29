@@ -495,4 +495,5 @@ Config.DamageModifier = {
     [-618550132]                        = 1.3,          -- knife
     [710736342]                        = 0.7,          -- hunter hatchet
     [165751297]                        = 0.4,          -- hatchet
+    [-281894307]                        = 1.0,          -- cleaver
 }
