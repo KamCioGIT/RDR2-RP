@@ -527,7 +527,7 @@ Config.Animals = {
         randomized = false,
         items = {
             {"viandegibier", 3, "Kvalitní maso"},
-			{"boisdecerf", 1, "Malé Paroží"}, 
+			{"boiscerf", 1, "Malé Paroží"}, 
             {"graisse", 3, "Malé Paroží"}, 
             
         }
@@ -670,7 +670,7 @@ Config.Animals = {
         randomized = false,
         items = {
             {"viandegibier", 3, "Kvalitní maso"},
-			{"boisdecerf", 2, "Velké Paroží"},
+			{"boiscerf", 2, "Velké Paroží"},
 			{"graisse", 3, "Zvířecí Lůj"},
         }
     },    
@@ -751,7 +751,7 @@ Config.Animals = {
         randomized = false,
         items = {
             {"viandegibier", 2, "Kvalitní maso"},
-			{"boisdecerf", 2, "Velké Paroží"},
+			{"boiscerf", 2, "Velké Paroží"},
 			{"graisse", 3, "Zvířecí Lůj"},
         }
     },    
@@ -841,7 +841,7 @@ Config.Animals = {
         randomized = false,
         items = {
             {"viandegibier", 1, "Kvalitní maso"},
-			{"boisdecerf", 2, "Malé Paroží"},
+			{"boiscerf", 2, "Malé Paroží"},
             {"graisse", 2, "Malé Paroží"},
         }
     },    
@@ -1079,7 +1079,7 @@ Config.Animals = {
         randomized = false,
         items = {
             {"viandegibier", 1, "Kvalitní maso"},
-			{"boisdecerf", 1, "Malé Paroží"}, 
+			{"boiscerf", 1, "Malé Paroží"}, 
             {"graisse", 2, "Malé Paroží"}, 
         }
     },    
