@@ -83,13 +83,13 @@ Config.radiusStyle = -666422021
 Config.alertTimeout = 720
 
 Config.medicalBeds = { 'p_medbed01x', 'p_bed03x' }
-Config.jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL'}
+Config.jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB'}
 Config.allowPlayerTargeting = true
 Config.playerTargetRange = 1.5
 
 -- jobs that can inspect a dead body
 Config.inspectCommand = 'analyse'
-Config.inspectJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL' }
+Config.inspectJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB' }
 Config.allowPlayerInspecting = true
 Config.playerInspectRange = 1.5
 
@@ -222,7 +222,49 @@ Config.hospitals = {
             -- the jobs to check the players count
             -- if a player with one of these jobs is online
             -- the function will be disabled
-            jobs = { 'doctor_NC' },
+            jobs = { 'doctor_AL' },
+            healCost = 1.0,
+            reviveCost = 1.0,
+            reviveTime = 30,
+            npcModel = 'cs_crackpotinventor',
+            coords = vector3(-789.4224, -1301.978, 42.5),
+            heading = -180.0,
+            range = 2.0
+        },
+        jobId = nil -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it
+    },
+    ['Cabinet de CP'] = {
+        showBlip = false,
+        blipSprite = -1739686743,
+        coords = vector3(-784.4287, -1304.812, 42.50),
+        radius = 20.0,
+        npc = {
+            enabled = false,
+            -- the jobs to check the players count
+            -- if a player with one of these jobs is online
+            -- the function will be disabled
+            jobs = { 'doctor_CP' },
+            healCost = 1.0,
+            reviveCost = 1.0,
+            reviveTime = 30,
+            npcModel = 'cs_crackpotinventor',
+            coords = vector3(-789.4224, -1301.978, 42.5),
+            heading = -180.0,
+            range = 2.0
+        },
+        jobId = nil -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it
+    },
+    ['Cabinet de GB'] = {
+        showBlip = false,
+        blipSprite = -1739686743,
+        coords = vector3(-784.4287, -1304.812, 42.50),
+        radius = 20.0,
+        npc = {
+            enabled = false,
+            -- the jobs to check the players count
+            -- if a player with one of these jobs is online
+            -- the function will be disabled
+            jobs = { 'doctor_GB' },
             healCost = 1.0,
             reviveCost = 1.0,
             reviveTime = 30,
