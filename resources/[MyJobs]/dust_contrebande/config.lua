@@ -155,8 +155,34 @@ Config.CraftingsReceipe = {
     label = 'Arôme mexicain',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_panther_eye.png', text = "Glande à venin",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_snake_skin.png', text = "Peau de serpent",count = "x1"}}
 },
-
-
+['morphine'] = {
+    type = 'opium',
+    Itemtocraft = 2,
+    ItemReceipe1Name = 'resinepavot',
+    ItemReceipe1Amount = 1,
+    ItemReceipe2Name = 'chaux',
+    ItemReceipe2Amount = 1,
+    ItemToGive = 'morphine',
+    Amount = 1,
+    WorkingTime = 5,
+    label = 'Morphine',
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/opium_smokable.png', text = "Résine de pavot",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/ore_coal.png', text = "Chaux",count = "x1"}}
+},
+['chaux'] = {
+    type = 'opium',
+    Itemtocraft = 3,
+    ItemReceipe1Name = 'boiscerf',
+    ItemReceipe1Amount = 2,
+    ItemReceipe2Name = 'souffre',
+    ItemReceipe2Amount = 1,
+    ItemReceipe3Name = 'charbon',
+    ItemReceipe3Amount = 1,
+    ItemToGive = 'chaux',
+    Amount = 1,
+    WorkingTime = 5,
+    label = 'Chaux',
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois de cerf",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/collector_fossil_stone.png', text = "Souffre",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+},
 
 
 
