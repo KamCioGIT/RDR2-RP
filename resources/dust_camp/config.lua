@@ -436,7 +436,7 @@ Config.CraftingsReceipe = {
     ['resinepavot'] = {
         type = 'cauldron',
         Itemtocraft = 1,
-        ItemReceipe1Name = 'camomillesauvage',
+        ItemReceipe1Name = 'pavot',
         ItemReceipe1Amount = 1,
         ItemToGive = 'resinepavot',
         Amount = 1,
@@ -444,8 +444,32 @@ Config.CraftingsReceipe = {
         label = 'Résine de pavot',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/opium.png', text = "Pavot",count = "x1"}}
     },
-
-
+    ['pipeopium'] = {
+        type = 'cauldron',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'resinepavot',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'petitbois',
+        ItemReceipe2Amount = 3,
+        ItemToGive = 'pipeopium',
+        Amount = 1,
+        WorkingTime = 5,
+        label = "Pipe d'opium",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/opium_smokable.png', text = "Résine de pavot",count = "x1"},{src = 'nui://redemrp_inventory/html/items/stick.png', text = "Petit bois",count = "x3"}}
+    },
+    ['cigaretteopium'] = {
+        type = 'cauldron',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'resinepavot',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'cigarettes',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'cigaretteopium',
+        Amount = 1,
+        WorkingTime = 5,
+        label = "Cigarette d'opium",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/opium_smokable.png', text = "Résine de pavot",count = "x1"},{src = 'nui://redemrp_inventory/html/items/cigarette.png', text = "Cigarette",count = "x1"}}
+    },
 
 
 }
