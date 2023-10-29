@@ -47,8 +47,6 @@ local WeaponsWithoutAmmo = {
 }
 
 local SpecialWeapon = {
-
-
 	["WEAPON_MELEE_CLEAVER"] = true,
     ["WEAPON_MELEE_HATCHET"] = true,
     ["WEAPON_MELEE_HATCHET_HUNTER"] = true,
