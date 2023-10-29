@@ -476,7 +476,7 @@ Config.Items = {
         description = "Coupe du bois ou autre chose",
         weight = 3,
         canBeDropped = true,
-                weaponHash = GetHashKey("WEAPON_MELEE_HATCHET"),
+                weaponHash = 165751297,
         imgsrc = "items/WEAPON_MELEE_HATCHET.png",
         type = "item_weapon"
     },
