@@ -4,15 +4,15 @@ Config = {}
 Config.DistanceToInteract = 1.5
 
 Config.AtelierMoonshine = {
-
+    vector3(-1056.271, -2516.797, 74.87877),
 }
 
 Config.AlambicMoonshine = {
-    -- [1] = {input = vectore3, output = vector3},
+    [1] = {input = vector3(-1061.538, -2511.738, 75.05264), output = vector3(-1062.354, -2507.31, 74.99416), name = test},
 }
 
 Config.AtelierOpium = {
-
+    vector3(-1055.804, -2505.994, 74.58144),
 
 }
 
