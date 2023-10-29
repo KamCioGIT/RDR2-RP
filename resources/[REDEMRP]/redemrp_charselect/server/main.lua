@@ -22,7 +22,10 @@ RegisterServerEvent("redemrp_charselect:getCharacters", function()
                 local result4 = MySQL.query.await('SELECT * FROM permissions WHERE identifier = ?', {id})
                 if result4[1] ~= nil then
                     perm = result4[1].permissiongroup
+                else
+                    perm = nil
                 end
+                print (perm)
                     TriggerClientEvent('redemrp_charselect:openSelectionMenu', _source, result, result2, result3, perm)
             end)
         end)
@@ -56,4 +59,31 @@ RegisterServerEvent("redemrp_charselect:deleteCharacter", function(_charid)
     MySQL.query('DELETE FROM stashes WHERE `stashid` = @stashid;', {stashid = "campstorage_"..id.."_".._charid})
 
     TriggerClientEvent("redemrp_charselect:characterRemoved", _source)
+end)
+
+
+RegisterCommand("wipetotalplayer", function(source, args)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    if Player.GetGroup() == "admin" or Player.GetGroup() == "superadmin" then
+        TriggerEvent("redemrp_charselect:deleteCharactercommand", args[1], args[2])
+    end
+end)
+
+
+RegisterServerEvent("redemrp_charselect:deleteCharactercommand", function(id, _charid)
+    local _source = source
+    for k,v in ipairs(GetPlayerIdentifiers(_source))do
+        if string.sub(v, 1, string.len(identifierUsed .. ":")) == (identifierUsed .. ":") then
+            id = v
+            break
+        end
+    end
+    local timeout = 0
+    while id == nil and timeout < 10 do Wait(100) ; timeout = timeout + 1 end 
+    MySQL.query('DELETE FROM characters WHERE `identifier` = @identifier AND `characterid`=@characterid;', {identifier = id, characterid=_charid})
+    MySQL.query('DELETE FROM skins WHERE `identifier` = @identifier AND `charid`=@characterid;', {identifier = id, characterid=_charid})
+    MySQL.query('DELETE FROM clothes WHERE `identifier` = @identifier AND `charid`=@characterid;', {identifier = id, characterid=_charid})
+    MySQL.query('DELETE FROM stable WHERE `identifier` = @identifier AND `charid`=@characterid;', {identifier = id, characterid=_charid})
+    MySQL.query('DELETE FROM user_inventory WHERE `identifier` = @identifier AND `charid`=@characterid;', {identifier = id, characterid=_charid})
 end)

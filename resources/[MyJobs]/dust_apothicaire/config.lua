@@ -7,6 +7,7 @@ Config.Jobs = {
     [4] = "doctor_CG",
     [5] = "doctor_DM",
     [6] = "doctor_NC",
+    [7] = "doctor_AL",
 }
 
 Config.AnimDict = "amb_work@world_human_seat_chair@mortar_pestle@mortar@female_a@base"

@@ -131,47 +131,89 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
     local xPlayer = RedEM.GetPlayer(src)
     local amount = data.amount
     local targetaccid = data.account
-    print (amount, targetaccid)
-    while xPlayer == nil do Wait(0) end
-    local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
-    if result[1] ~= nil then
-        accid = result[1].accountid
-        currentCash = result[1].balance
-    end
-    if tonumber(amount) <= currentCash then
-        local _result = MySQL.query.await('SELECT * FROM bank_accounts WHERE accountid = ?', { targetaccid })
-        if _result[1] ~= nil then
-            _currentcash = _result[1].balance
-            targetcid = _result[1].citizenid
-            RemoveFromBank(accid, tonumber(amount))
-            AddToBank(targetaccid, tonumber(amount))
-            local time = os.date("%Y-%m-%d")
-            ---- Historique de l'envoyeur
-            MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
-                xPlayer.citizenid,
-                accid,
-                0,
-                tonumber(amount),
-                currentCash - tonumber(amount),
-                time,
-                'Transfert Sortant N° '..targetaccid..''
-            })
+    if info == "savings" then
+        while xPlayer == nil do Wait(0) end
+        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ? AND citizenid = ?', { 'Savings', xPlayer.citizenid })
+        if result[1] ~= nil then
+            accid = result[1].accountid
+            currentCash = result[1].balance
+        end
+        if tonumber(amount) <= currentCash then
+            local _result = MySQL.query.await('SELECT * FROM bank_accounts WHERE accountid = ?', { targetaccid })
+            if _result[1] ~= nil then
+                _currentcash = _result[1].balance
+                targetcid = _result[1].citizenid
+                RemoveFromBank(accid, tonumber(amount))
+                AddToBank(targetaccid, tonumber(amount))
+                local time = os.date("%Y-%m-%d")
+                ---- Historique de l'envoyeur
+                MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+                    xPlayer.citizenid,
+                    accid,
+                    0,
+                    tonumber(amount),
+                    currentCash - tonumber(amount),
+                    time,
+                    'Transfert Sortant N° '..targetaccid..''
+                })
 
-            ---- historique du destinataire
-            MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
-                targetcid,
-                targetaccid,
-                tonumber(amount),
-                0,
-                _currentcash + tonumber(amount),
-                time,
-                'Transfert Entrant N° '..accid..''
-            })
-            TriggerClientEvent('qbr-banking:openBankScreen', src, info)
-            TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez transféré $'..amount..' au compte N°'..targetaccid..'.')
-        else
-            TriggerClientEvent('qbr-banking:openBankScreen', src, info)
-            TriggerClientEvent('qbr-banking:successAlert', src, "Le numéro de compte indiqué n'existe pas.")
+                ---- historique du destinataire
+                MySQL.insert.await('INSERT INTO bank_statements (accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?)', {
+                    targetaccid,
+                    tonumber(amount),
+                    0,
+                    _currentcash + tonumber(amount),
+                    time,
+                    'Transfert Entrant N° '..accid..''
+                })
+                TriggerClientEvent('qbr-banking:openBankScreen', src, info)
+                TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez transféré $'..amount..' au compte N°'..targetaccid..'.')
+            else
+                TriggerClientEvent('qbr-banking:openBankScreen', src, info)
+                TriggerClientEvent('qbr-banking:successAlert', src, "Le numéro de compte indiqué n'existe pas.")
+            end
+        end
+    elseif info == "business" then
+        while xPlayer == nil do Wait(0) end
+        local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ? AND job = ?', { 'Business', xPlayer.job })
+        if result[1] ~= nil then
+            accid = result[1].accountid
+            currentCash = result[1].balance
+        end
+        if tonumber(amount) <= currentCash then
+            local _result = MySQL.query.await('SELECT * FROM bank_accounts WHERE accountid = ?', { targetaccid })
+            if _result[1] ~= nil then
+                _currentcash = _result[1].balance
+                targetcid = _result[1].citizenid
+                RemoveFromBank(accid, tonumber(amount))
+                AddToBank(targetaccid, tonumber(amount))
+                local time = os.date("%Y-%m-%d")
+                ---- Historique de l'envoyeur
+                MySQL.insert.await('INSERT INTO bank_statements (job, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+                    xPlayer.job,
+                    accid,
+                    0,
+                    tonumber(amount),
+                    currentCash - tonumber(amount),
+                    time,
+                    'Transfert Sortant N° '..targetaccid..''
+                })
+
+                ---- historique du destinataire
+                MySQL.insert.await('INSERT INTO bank_statements (accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?)', {
+                    targetaccid,
+                    tonumber(amount),
+                    0,
+                    _currentcash + tonumber(amount),
+                    time,
+                    'Transfert Entrant N° '..accid..''
+                })
+                TriggerClientEvent('qbr-banking:openBankScreen', src, info)
+                TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez transféré $'..amount..' au compte N°'..targetaccid..'.')
+            else
+                TriggerClientEvent('qbr-banking:openBankScreen', src, info)
+                TriggerClientEvent('qbr-banking:successAlert', src, "Le numéro de compte indiqué n'existe pas.")
+            end
         end
     end
 end)

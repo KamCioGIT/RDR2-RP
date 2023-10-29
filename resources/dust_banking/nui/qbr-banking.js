@@ -460,7 +460,7 @@ $(function() {
             $('#transferAcctNo').val('');
         } else {
             $("#transferError").css({"display":"block"});
-            $("#transferErrorMsg").html('There was an error with the information you have entered, please ensure the account number, sort code and amount is correctly filled out.');
+            $("#transferErrorMsg").html("Le compte en banque n'existe pas.");
         }
         
     });

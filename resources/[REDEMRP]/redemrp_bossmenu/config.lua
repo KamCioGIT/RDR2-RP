@@ -95,7 +95,7 @@ Config.Jobs = {
     },
     ["usine"] = {
         bigjob = "usine",
-        Name = "Usine",
+        Name = "Callaghan Industries",
         blisprite = 1576459965,
         MenuLocations = 
             vector3(2324.79, -1456.619, 45.00994)
@@ -118,7 +118,7 @@ Config.Jobs = {
     },
     ["mineur"] = {
         bigjob = "mineur",
-        Name = "Mine",
+        Name = "Jameson and Co.",
         blisprite = 1220803671,
         MenuLocations = 
             vector3(2957.164, 1377.683, 55.3044)
@@ -259,7 +259,7 @@ Config.Jobs = {
     },
     ["saloon_faubourg"] = {
         bigjob = "saloon",
-        Name = "Saloon des faubourgs",
+        Name = "Saloon Le Turbin",
         blisprite = 1879260108,
         MenuLocations = 
             vector3(2793.258, -1165.609, 46.93198)
@@ -362,6 +362,25 @@ Config.Jobs = {
     ["doctor_CG"] = {
         bigjob = "doctor",
         Name = "Cabinet de CG",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["doctor_AL"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de AL",
         Grades = {
             [1] = {
                 Name = "Assistant",
