@@ -576,7 +576,7 @@ Citizen.CreateThread(function ()
                     end
                     if IsControlJustReleased(0, 0xF1301666) then
                         for k, v in pairs(Config.Lait) do
-                            if #(targetCoords - v.pos) < 7 then
+                            if #(targetCoords - v.pos) < 14 then
                                 if  #(targetCoords - playerCoords) < 3.0 then
                                     isInteracting = true
                                     RequestAnimDict(Config.PedMilkingDict)
