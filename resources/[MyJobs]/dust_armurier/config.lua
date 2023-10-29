@@ -501,5 +501,8 @@ Config.DamageModifier = {
     [165751297]                        = 0.4,          -- hatchet
     [-281894307]                        = 1.0,          -- cleaver
     [680856689]                        = 1.0,          -- machete
+    [-1774451313]                        = 1.0,          -- machete collec
+    [1953585457]                        = 1.0,          -- machete horror
+    [-295349450]                        = 1.0,          -- hammer
     
 }
