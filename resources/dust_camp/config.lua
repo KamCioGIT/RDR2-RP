@@ -433,6 +433,21 @@ Config.CraftingsReceipe = {
         label = 'Antidote',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "Millefeuille",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de Gaultherie",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animale",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_burdock_root.png', text = "Barbane",count = "x2"}}
     },
+    ['resinepavot'] = {
+        type = 'cauldron',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'camomillesauvage',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'resinepavot',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Résine de pavot',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/opium.png', text = "Pavot",count = "x1"}}
+    },
+
+
+
+
 }
     
 
