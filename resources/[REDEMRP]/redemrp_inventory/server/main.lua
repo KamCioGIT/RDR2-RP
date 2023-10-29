@@ -1249,6 +1249,76 @@ AddEventHandler("redemrp_inventory:server:removeitemstash", function(name, amoun
     end
 end)
 
+RegisterServerEvent("redemrp_inventory:server:removeitemstash2")
+AddEventHandler("redemrp_inventory:server:removeitemstash2", function(name, amount, meta, namebis, amountbis, metabis, stashId, name2, amount2, meta2, stashId2)
+    local _name = name
+    local _namebis = namebis
+    local _amount = tonumber(amount)
+    local _amountbis = tonumber(amountbis)
+    local _meta = meta or {}
+    local output = false
+    if _amount >= 0 and _amountbis >= 0 then
+        local itemData = Config.Items[_name]
+        local itemDatabis = Config.Items[_namebis]
+        local stash = Stash[stashId]
+        local item, id = getInventoryItemFromName(_name, stash, getMetaOutput(meta))
+
+
+        local itembis, idbis = getInventoryItemFromName(_namebis, stash, getMetaOutput(metabis))
+
+
+        local weight = GetStashWeight(stashId)
+
+        if item and itembis then
+            --print(item.getAmount(), _amount)
+            if itemData.type == "item_standard" and itemDatabis.type == "item_standard" then
+                if _amount > 0 and _amountbis > 0 then
+                    if item.getAmount() >= _amount and itembis.getAmount() >= _amountbis then
+                        if item.removeAmount(_amount) and itembis.removeAmount(_amountbis) then
+                            table.remove(stash, id)
+                            table.remove(stash, idbis)
+                        end
+                        output = true
+                    else return end
+                end
+            end
+        else return end
+    end
+    if output then
+        local _name2 = name2
+        local _amount2 = tonumber(amount2)
+        local _meta2 = meta2 or {}
+        if _amount2 >= 0 then
+            local itemData2 = Config.Items[_name2]
+            local stash2 = Stash[stashId2]
+            local item2, id2 = getInventoryItemFromName(_name2, stash2, getMetaOutput(meta2))
+            local weight2 = GetStashWeight(stashId2)
+            local weightLimit2 = StashMaxWeights[_source2] or 60.0
+                -- --("Boss stash weight: ".. weight .." vs ".. weightLimit)
+                -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight * amount)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
+                -- --(weight + (itemData.weight * amount))
+            if weight2 + (itemData2.weight * amount2) > weightLimit2 then
+                return output
+            end
+            
+            if not item2 then
+                if itemData2.type == "item_standard" then
+                    if _amount2 > 0 then
+                        table.insert(stash2, CreateItem(_name2, _amount2, _meta2))
+                    end
+                end
+            else
+                if _amount2 > 0 then
+                    if itemData2.type == "item_standard" then
+                        item2.addAmount(_amount2)
+                    end
+                end
+            end
+        end
+        return output
+    end
+end)
+
 RegisterServerEvent("redemrp_inventory:server:additemstash")
 AddEventHandler("redemrp_inventory:server:additemstash",function(name, amount, meta, stashId)
     local _name = name
