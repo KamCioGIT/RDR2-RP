@@ -329,7 +329,7 @@ Config.Items = {
 		weight = 1.0,
 		canBeDropped = true,
 		requireLvl = 1,
-		weaponHash = GetHashKey("WEAPON_MELEE_KNIFE_JAWBONE"),
+		weaponHash = 277270593,
 		  imgsrc = "items/WEAPON_MELEE_KNIFE_JAWBONE.png",
 		type = "item_weapon"
 	},
@@ -340,7 +340,7 @@ Config.Items = {
 		weight = 1.0,
 		canBeDropped = true,
 		requireLvl = 1,
-		weaponHash = GetHashKey("WEAPON_MELEE_KNIFE_TRADER"),
+		weaponHash = -1448818329,
 		  imgsrc = "items/WEAPON_MELEE_KNIFE_TRADER.png",
 		type = "item_weapon"
 	},
@@ -351,7 +351,7 @@ Config.Items = {
 		weight = 1.0,
 		canBeDropped = true,
 		requireLvl = 1,
-		weaponHash = GetHashKey("WEAPON_MELEE_KNIFE_HORROR"),
+		weaponHash = -1221986448,
 		  imgsrc = "items/WEAPON_MELEE_KNIFE_HORROR.png",
 		type = "item_weapon"
 	},
@@ -362,7 +362,7 @@ Config.Items = {
 		weight = 1.0,
 		canBeDropped = true,
 		requireLvl = 1,
-		weaponHash = GetHashKey("WEAPON_MELEE_KNIFE_RUSTIC"),
+		weaponHash = -1013236292,
 		  imgsrc = "items/WEAPON_MELEE_KNIFE_RUSTIC.png",
 		type = "item_weapon"
 	},
