@@ -2478,11 +2478,13 @@ AddEventHandler("redemrp_inventory:checkpoison", function(joueur, name)
         if item then
             local meta = item.getMeta()
             Wait(1000)
-            if meta["poison"] then
-                qual = meta["poison"]
-                if qual == true then
-                    print('get')
-                    TriggerClientEvent("doctor:getpoison", _source)
+            if meta
+                if meta["poison"] then
+                    qual = meta["poison"]
+                    if qual == true then
+                        print('get')
+                        TriggerClientEvent("doctor:getpoison", _source)
+                    end
                 end
             end
         end
