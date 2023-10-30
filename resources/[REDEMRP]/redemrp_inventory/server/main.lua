@@ -1277,6 +1277,7 @@ AddEventHandler("redemrp_inventory:server:removeitemstashbis", function(name, am
                         if item.removeAmount(_amount) and itembis.removeAmount(_amountbis) then
                             table.remove(stash, id)
                             table.remove(stash, idbis)
+                            print "tableremove"
                         end
                         output = true
                     else return end
