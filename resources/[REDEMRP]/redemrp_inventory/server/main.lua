@@ -1256,6 +1256,7 @@ AddEventHandler("redemrp_inventory:server:removeitemstashbis", function(name, am
     local _amount = tonumber(amount)
     local _amountbis = tonumber(amountbis)
     local output = false
+    print (namebis, amountbis, metabis)
     if _amount >= 0 and _amountbis >= 0 then
         local itemData = Config.Items[_name]
         local itemDatabis = Config.Items[_namebis]
