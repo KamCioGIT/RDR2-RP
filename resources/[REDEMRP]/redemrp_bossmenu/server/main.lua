@@ -458,7 +458,14 @@ AddEventHandler('dust_export:SellItem', function(itemNameStr, menu, amount)
 	local _source = tonumber(source)
     local user = RedEM.GetPlayer(_source)
     local ItemData = data.getItem(_source, itemNameStr)
-    if ItemData.RemoveItem(amount) then
-        user.AddMoney(Config.Export[itemNameStr].price * amount)
+    local currentRealTime = os.date("*t")
+
+    -- Vérifier si l'heure réelle est entre 19h et 01h
+    if currentRealTime.hour >= 19 or currentRealTime.hour < 1 then
+        if ItemData.RemoveItem(amount) then
+            user.AddMoney(Config.Export[itemNameStr].price * amount)
+        end
+    else
+        TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Exportateur", "Personne n'a l'air intéressé à cette heure...", "scoretimer_textures", "scoretimer_generic_cross", 4000)
     end
 end)

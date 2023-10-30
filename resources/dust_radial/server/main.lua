@@ -82,15 +82,23 @@ end)
 
 RegisterServerEvent("sellnpc:checkitem", function ()
 	local _source = source
-	local itemstosell = {}
-	for k, v in pairs(Config.Price[GetHashKey("Strawberry")]) do
-		local ItemData = data.getItem(_source, k)
-		local amount = tonumber(ItemData.ItemAmount)
-		if amount >= 1 then
-			itemstosell[k] = {amt = amount, label = v.label, price = v.price}
+	local currentRealTime = os.date("*t")
+
+    -- Vérifier si l'heure réelle est entre 19h et 01h
+	print (currentRealTime.hour)
+    if currentRealTime.hour >= 19 or currentRealTime.hour < 1 then
+		local itemstosell = {}
+		for k, v in pairs(Config.Price[GetHashKey("Strawberry")]) do
+			local ItemData = data.getItem(_source, k)
+			local amount = tonumber(ItemData.ItemAmount)
+			if amount >= 1 then
+				itemstosell[k] = {amt = amount, label = v.label, price = v.price}
+			end
 		end
+		TriggerClientEvent("sellnpc:SellMenu", _source, itemstosell)
+	else
+		TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Vente", "Personne n'a l'air intéressé à cette heure...", "scoretimer_textures", "scoretimer_generic_cross", 4000)
 	end
-	TriggerClientEvent("sellnpc:SellMenu", _source, itemstosell)
 end)
 
 RegisterServerEvent("sellnpc:sell", function(zone, Itemtosell)
