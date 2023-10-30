@@ -416,3 +416,7 @@ RegisterNetEvent("poison:menu", function(poisontable)
         end)
     end)
 end)
+
+RegisterNetEvent("doctor:getpoison", function()
+    TriggerEvent("dust_maladie:poison")
+end)
