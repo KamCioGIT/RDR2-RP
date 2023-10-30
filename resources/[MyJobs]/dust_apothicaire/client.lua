@@ -407,7 +407,7 @@ RegisterNetEvent("poison:menu", function(poisontable)
         
         function(data, menu)
             MenuData.CloseAll()
-            TriggerServerEvent("redemrp_inventory:ChangePoison", data.current.value)
+            TriggerServerEvent("redemrp_inventory:ChangePoison", source, data.current.value)
         end,
 
         function(data, menu)
