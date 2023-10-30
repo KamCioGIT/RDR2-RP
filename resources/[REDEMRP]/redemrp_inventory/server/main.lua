@@ -2413,6 +2413,32 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
     end
 end)
 
+--- poison
+RegisterServerEvent("redemrp_inventory:ChangePoison")
+AddEventHandler("redemrp_inventory:ChangePoison", function(itemtopoison)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    if Player then
+        local identifier = Player.GetIdentifier()
+        local charid = Player.GetActiveCharacter()
+        local player_inventory = Inventory[identifier .. "_" .. charid]
+        local item, id = getInventoryItemFromName(itemtopoison, player_inventory, {})
+        if item then
+            local meta = item.getMeta()
+            if not meta["poison"] then
+                item.setMeta({poison = true})
+            end
+            TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+            )
+        end
+    end
+end)
+
 ---- telegram
 
 RegisterServerEvent("redemrp_inventory:createtelegram", function(source, telegram)

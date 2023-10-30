@@ -11,6 +11,20 @@ AddEventHandler("RegisterUsableItem:mortier", function(source)
 	TriggerClientEvent('doctor:mortier', _source)
 end)
 
+RegisterServerEvent("RegisterUsableItem:poison")
+AddEventHandler("RegisterUsableItem:poison", function(source)
+ 	local _source = source
+	 local poisontable = {} 
+	 for k, v in pairs(Config.PoisonReceipe) do
+		local ItemData = data.getItem(_source, v.ItemToPoison)
+		local rItem1Amount = tonumber(ItemData.ItemAmount - v.ItemReceipe1Amount)
+		if rItem1Amount >= 0 then
+			poisontable[k] = v
+		end
+	end
+	TriggerClientEvent('doctor:poison', _source, poisontable)
+end)
+
 
 RegisterServerEvent('doctor:CraftItem')
 AddEventHandler('doctor:CraftItem', function(itemNameStr, menu, amount)

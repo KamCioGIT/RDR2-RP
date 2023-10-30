@@ -292,3 +292,127 @@ end)
 RegisterNetEvent("mortier:client:SetMaxAmount", function(value)
     maxCraftAmountdoctor = value
 end)
+
+
+local poisonprompt = UipromptGroup:new("Poison")
+Uiprompt:new(0x5181713D, "Mélanger", poisonprompt)
+Uiprompt:new(0x8E90C7BB, "Boire", poisonprompt):setHoldMode(true)
+poisonprompt:setActive(false)
+
+local poisontable = {}
+RegisterNetEvent("doctor:poison", function(ptable)
+    poisontable = ptable
+    if Gourde then
+        DeleteEntity(Prop)
+        Gourde = false
+    else
+        Gourde = true
+        DeleteEntity(Prop)
+        quality = _quality
+        SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
+        local playerPed = PlayerPedId()
+        local pc = GetEntityCoords(playerPed)
+        local pname = GetHashKey('s_rc_poisonedwater01x')
+        local boneIndex = GetEntityBoneIndexByName(playerPed, "SKEL_R_HAND")
+        RequestModel(pname)
+        while not HasModelLoaded(pname) do
+            Wait(10)
+        end
+        if IsPedMale(playerPed) then
+            Prop = CreateObject(pname, pc.x, pc.y, pc.z + 0.2, true, true, true)
+            AttachEntityToEntity(Prop, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
+        else
+            Prop = CreateObject(pname, pc.x, pc.y, pc.z + 0.2, true, true, true)
+            AttachEntityToEntity(Prop, playerPed, boneIndex, 0.05, -0.07, -0.05, -75.0, 60.0, 0.0, true, true, false, true,  1, true)
+        end
+        SetModelAsNoLongerNeeded(pname)
+    end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(0)
+        if Gourde and not isInteracting then
+            poisonprompt:setActiveThisFrame(true)
+            SetCurrentPedWeapon(PlayerPedId(), GetHashKey('WEAPON_UNARMED'), true)
+            RemoveAllPedWeapons(PlayerPedId(), true)
+
+            if IsControlJustReleased(0, 0x5181713D) and not Gourding and not isInteracting then
+                TriggerEvent("poison:menu", poisontable)
+            end
+
+            if poisonprompt:hasHoldModeJustCompleted() and not Gourding and not isInteracting then
+                local dict = "amb_rest_drunk@world_human_drinking@male_a@idle_a"
+                local playerPed = PlayerPedId()
+                RequestAnimDict(dict)
+                while not HasAnimDictLoaded(dict) do
+                    Citizen.Wait(10)
+                end
+                TaskPlayAnim(PlayerPedId(), dict, "idle_a", 1.0, 8.0, -1, 31, 0, false, false, false)
+                Citizen.Wait(4000)
+                TriggerEvent("dust_maladie:poison")
+            end
+        end
+    end
+end)
+
+
+
+RegisterNetEvent("poison:menu", function(poisontable)
+    local Position = GetEntityCoords(PlayerPedId())
+    local playerPed = PlayerPedId()
+    isInteracting = true
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 1.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local elements = {}
+        for k, v in pairs(poisontable) do
+            if k then
+                table.insert(elements, {label = v.label, value = k, desc = "Que vous êtes sournois..."})
+            end
+        end
+        -- if _menutype == 'fire' then 
+        --     table.insert(elements, {label = "Gros Steak cuit", value = 'grossteakcuit', descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}})
+        -- end
+        -- if _menutype == 'grill' then 
+        --     table.insert(elements, {label = "Gros Steak Grillé", value = 'gunpowder', desc = "Recette: 1 Steak"})
+        --     table.insert(elements, {label = "Gros Steak au Thym", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Thym"})
+        -- end
+        -- if _menutype == 'cauldron' then 
+        --     table.insert(elements, {label = "Gros Steak et Carotte Sauvage", value = 'grossteakcarottesauvage', descriptionimages = 
+        --     {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}, 
+        --     {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_carrots.png', text = "Carotte Sauvage",count = "x2"}}})
+        -- end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'Camp', {
+            title = "Poison",
+            subtext = "Recettes",
+            align = 'top-right',
+            elements = elements,
+        },
+        
+        function(data, menu)
+            MenuData.CloseAll()
+            TriggerServerEvent("redemrp_inventory:ChangePoison", data.current.value)
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)

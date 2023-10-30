@@ -1605,7 +1605,7 @@ Config.Items = {
         type = "item_standard",
     },
     ["barbane"] = {
-        label = "Barbane",
+        label = "Bardane",
         description = "",
         weight = 0.05,
         canBeDropped = true,
