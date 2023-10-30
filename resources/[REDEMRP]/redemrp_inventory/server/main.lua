@@ -2472,7 +2472,6 @@ AddEventHandler("redemrp_inventory:checkpoison", function(name)
     local Player = RedEM.GetPlayer(_source)
     print "lancement"
     if Player then
-
         local identifier = Player.GetIdentifier()
         local charid = Player.GetActiveCharacter()
         local player_inventory = Inventory[identifier .. "_" .. charid]

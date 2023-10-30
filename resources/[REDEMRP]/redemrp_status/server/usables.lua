@@ -19,7 +19,7 @@ Citizen.CreateThread(function()
 
                 local ItemData = Inventory.getItem(source, name)
                 ItemData.RemoveItem(1)
-                TriggerEvent("redemrp_inventory:checkpoison", _source, name)
+                TriggerEvent("redemrp_inventory:checkpoison", name)
                 TriggerClientEvent('redemrp_status:UpdateStatus', source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress, 0)
                 info.action(source, name)
             end)
