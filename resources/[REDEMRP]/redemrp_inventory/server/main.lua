@@ -1274,9 +1274,11 @@ AddEventHandler("redemrp_inventory:server:removeitemstashbis", function(name, am
             if itemData.type == "item_standard" and itemDatabis.type == "item_standard" then
                 if _amount > 0 and _amountbis > 0 then
                     if item.getAmount() >= _amount and itembis.getAmount() >= _amountbis then
-                        table.remove(stash, id)
-                        table.remove(stash, idbis)
-                        output = true
+                        if removeItemStash(source, _name, _amount, meta, stashId) and removeItemStash(source, _namebis, _amountbis, metabis, stashId) then
+                            output = true
+                        end
+
+        
                     else return end
                 end
             end
