@@ -5,7 +5,9 @@ function loadInbox(list){
     $('#inboxList').empty();
     if(list.length > 0) {
         list.forEach(function(letter){
-            var isoDate = new Date(letter.sentTime).toISOString().slice(0, -8);
+            var sentTime = new Date(letter.sentTime); // Convertir la date en objet Date
+            sentTime.setMinutes(sentTime.getMinutes() + sentTime.getTimezoneOffset()); // Ajuster le décalage horaire
+            var isoDate = sentTime.toISOString().slice(0, -8);
             isoDatestr = isoDate.replace("2023","1885");
             isoDatenew = isoDatestr.replace("2024","1886");
             isoDategood = isoDatenew.replace("T"," / ");
