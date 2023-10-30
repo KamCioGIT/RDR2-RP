@@ -432,5 +432,6 @@ RegisterNetEvent("poison:menu", function(poisontable)
 end)
 
 RegisterNetEvent("doctor:getpoison", function()
+    print 'get'
     TriggerEvent("dust_maladie:poison")
 end)
