@@ -2470,6 +2470,7 @@ RegisterServerEvent("redemrp_inventory:checkpoison")
 AddEventHandler("redemrp_inventory:checkpoison", function(source, name)
     local _source = source
     local Player = RedEM.GetPlayer(_source)
+    print (source, name)
     print "lancement"
     if Player then
         local identifier = Player.GetIdentifier()
