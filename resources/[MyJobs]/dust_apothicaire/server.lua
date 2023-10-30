@@ -17,7 +17,7 @@ AddEventHandler("RegisterUsableItem:poison", function(source)
 	 local poisontable = {} 
 	 for k, v in pairs(Config.PoisonReceipe) do
 		local ItemData = data.getItem(_source, v.ItemToPoison)
-		local rItem1Amount = tonumber(ItemData.ItemAmount - v.ItemReceipe1Amount)
+		local rItem1Amount = tonumber(ItemData.ItemAmount - v.ItemAmount)
 		if rItem1Amount >= 0 then
 			poisontable[k] = v
 		end
