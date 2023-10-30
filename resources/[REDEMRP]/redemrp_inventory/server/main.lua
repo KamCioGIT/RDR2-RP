@@ -2481,7 +2481,7 @@ AddEventHandler("redemrp_inventory:checkpoison", function(name)
             if meta["poison"] then
                 print "poison"
                 qual = meta["poison"]
-                if qual == true 
+                if qual == true then
                     print "disease"
                     TriggerClientEvent("dust_maladie:poison", _source)
                 end
