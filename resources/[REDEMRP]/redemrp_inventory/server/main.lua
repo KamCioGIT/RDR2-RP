@@ -2478,6 +2478,7 @@ AddEventHandler("redemrp_inventory:checkpoison", function(joueur, name)
         if item then
             local meta = item.getMeta()
             print (meta["poison"])
+            print (meta.poison)
             if meta["poison"] then
                 print "poison"
                 qual = meta["poison"]
