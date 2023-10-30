@@ -31,9 +31,9 @@ function DoPay()
             if Config.Jobs[job] then
                 if Config.Jobs[job].Grades[grade] then
                     if Config.Jobs[job].Grades[grade].Pay then
-                        print(Config.Jobs[job].Grades[grade].Pay)
                         local pay = Config.Jobs[job].Grades[grade].Pay
-                        user.AddBankMoney(pay)
+                        local citizenid = user.citizenid
+                        TriggerEvent('qbr-banking:dopay', citizenid, pay)
                     end
                 end
             end

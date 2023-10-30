@@ -379,3 +379,14 @@ function AddToBank(accountid, amount)
         MySQL.query("UPDATE `bank_accounts` SET `balance` = ? WHERE `accountid` = ? ", { newbalance, accountid})
     end
 end
+
+RegisterServerEvent('qbr-banking:dopay')
+AddEventHandler('qbr-banking:dopay', function(citizenid, amount)
+    local amt = amount
+    local id = citizenid
+    local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ? AND citizenid = ?', { 'Savings', id })
+    if result[1] ~= nil then
+        accid = result[1].accountid
+    end
+    AddToBank(accid, tonumber(amt))
+end)
