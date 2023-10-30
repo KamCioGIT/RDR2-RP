@@ -351,6 +351,8 @@ Citizen.CreateThread(function()
                 TaskPlayAnim(PlayerPedId(), dict, "idle_a", 1.0, 8.0, -1, 31, 0, false, false, false)
                 Citizen.Wait(4000)
                 TriggerEvent("dust_maladie:poison")
+                DeleteEntity(Prop)
+                Gourde = false
             end
         end
     end
@@ -408,6 +410,13 @@ RegisterNetEvent("poison:menu", function(poisontable)
         function(data, menu)
             MenuData.CloseAll()
             TriggerServerEvent("redemrp_inventory:ChangePoison", data.current.value)
+            RequestAnimDict(Config.AnimDict)
+            while not HasAnimDictLoaded(Config.AnimDict) do
+                Citizen.Wait(50)
+            end
+            TaskPlayAnim(playerPed, Config.AnimDict, Config.CraftAnim, 4.0, 4.0, -1, 25, 0, true)
+            Wait(3000)
+            ClearPedTasks(PlayerPedId())
         end,
 
         function(data, menu)
