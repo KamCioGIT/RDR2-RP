@@ -11,15 +11,14 @@ Citizen.CreateThread(function()
             TriggerEvent("redemrp_inventory:getData", function(Inventory)
                 local Player = RedEM.GetPlayer(source)
                 local meta = Player.GetMetaData()
-
+                TriggerEvent("redemrp_inventory:checkpoison", Player, name)
                 Player.SetMetaData("hunger", tonumber(meta.hunger) + info.hunger)
                 Player.SetMetaData("thirst", tonumber(meta.thirst) + info.thirst)
                 if Player.GetMetaData().hunger > 100.0 then Player.SetMetaData("hunger", 100) end
                 if Player.GetMetaData().thirst > 100.0 then Player.SetMetaData("thirst", 100) end
-
+                
                 local ItemData = Inventory.getItem(source, name)
                 ItemData.RemoveItem(1)
-                TriggerEvent("redemrp_inventory:checkpoison", Player, name)
                 TriggerClientEvent('redemrp_status:UpdateStatus', source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress, 0)
                 info.action(source, name)
             end)
