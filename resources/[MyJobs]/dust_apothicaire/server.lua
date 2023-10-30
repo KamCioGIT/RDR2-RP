@@ -92,6 +92,14 @@ AddEventHandler('doctor:AddItem', function(item, amount)
 
 end)
 
+RegisterServerEvent('doctor:RemoveItem')
+AddEventHandler('doctor:RemoveItem', function(item, amount)
+	local _source = tonumber(source)
+	local ItemData = data.getItem(_source, item)
+	ItemData.RemoveItem(amount)
+
+end)
+
 
 RegisterServerEvent("doctor:MaxRessourcesAmount", function(dataType)
     local _source = tonumber(source)

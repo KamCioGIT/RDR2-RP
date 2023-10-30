@@ -351,6 +351,7 @@ Citizen.CreateThread(function()
                 TaskPlayAnim(PlayerPedId(), dict, "idle_a", 1.0, 8.0, -1, 31, 0, false, false, false)
                 Citizen.Wait(4000)
                 TriggerEvent("dust_maladie:poison")
+                TriggerServerEvent("doctor:RemoveItem", 'poison', 1)
                 DeleteEntity(Prop)
                 Gourde = false
             end
@@ -416,12 +417,16 @@ RegisterNetEvent("poison:menu", function(poisontable)
             end
             TaskPlayAnim(playerPed, Config.AnimDict, Config.CraftAnim, 4.0, 4.0, -1, 25, 0, true)
             Wait(3000)
+            TriggerServerEvent("doctor:RemoveItem", 'poison', 1)
+            DeleteEntity(Prop)
             ClearPedTasks(PlayerPedId())
+            Gourde = false
         end,
 
         function(data, menu)
             menu.close()
             isInteracting = false
+            Gourde = false
         end)
     end)
 end)
