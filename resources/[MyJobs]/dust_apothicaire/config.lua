@@ -120,7 +120,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = "Emulsion Anesthésiante",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_burdock_root.png', text = "Bardane",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe sauvage",count = "x4"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/generic_animal_beak.png', text = "Bec",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_burdock_root.png', text = "Bardane",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe sauvage",count = "x4"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/generic_animal_beak.png', text = "Bec",count = "x1"}}
     },
     ['concoctionanesthesiantedeux'] = {
         type = 'medecin',
@@ -137,7 +137,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Emulsion Anesthésiante',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_bay_bolete.png', text = "Bolet-Baï",count = "x5"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois de cerf",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_bay_bolete.png', text = "Bolet-Baï",count = "x5"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois de cerf",count = "x1"}}
     },
     ['concoctionanesthesiantetrois'] = {
         type = 'medecin',
@@ -154,7 +154,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Emulsion Anesthésiante',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/generic_animal_horn.png', text = "Corne",count = "x2"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/generic_animal_horn.png', text = "Corne",count = "x2"}}
     },
     ['concoctioncoagulationun'] = {
         type = 'medecin',
@@ -171,7 +171,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Solution Coagulante',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_milkweed.png', text = "Asclépiade",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois de cerf",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_milkweed.png', text = "Asclépiade",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois de cerf",count = "x1"}}
     },
     ['concoctioncoagulationdeux'] = {
         type = 'medecin',
@@ -188,7 +188,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Solution Coagulante',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de gaultherie",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_english_mace.png', text = "Achillé visqueuse",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/provision_bobcat_claws.png', text = "griffe",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de gaultherie",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_english_mace.png', text = "Achillé visqueuse",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/provision_bobcat_claws.png', text = "griffe",count = "x1"}}
     },
     ['concoctioncoagulationtrois'] = {
         type = 'medecin',
@@ -205,7 +205,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Solution Coagulante',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "Millefeuille",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du colibri",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/generic_animal_horn.png', text = "Corne",count = "x2"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "Millefeuille",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du colibri",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/generic_animal_horn.png', text = "Corne",count = "x2"}}
     },
     ['poisonest'] = {
         type = 'medecin',
@@ -254,7 +254,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Concentré Antiputride',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "millefeuille",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de gaultherie",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "millefeuille",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de gaultherie",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
     },
     ['remedeinfectiondeux'] = {
         type = 'medecin',
@@ -269,7 +269,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Concentré Antiputride',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_milkweed.png', text = "Asclépiade",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_english_mace.png', text = "Achillé visqueuse",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_milkweed.png', text = "Asclépiade",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_english_mace.png', text = "Achillé visqueuse",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
     },
     ['remedeantidouleurun'] = {
         type = 'medecin',
@@ -284,7 +284,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Extrait de Camomille',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
     },
     ['remedeantidouleurdeux'] = {
         type = 'medecin',
@@ -299,7 +299,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Extrait de Camomille',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe saucage",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe saucage",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
     },
     ['antidysentrie'] = {
         type = 'medecin',
@@ -316,7 +316,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Remède Digestif',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x4"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_rams_head.png', text = "Poule des bois",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_common_bulrush.png', text = "Jonc commun",count = "x2"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x4"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_rams_head.png', text = "Poule des bois",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_common_bulrush.png', text = "Jonc commun",count = "x2"}}
     },
     ['antidote'] = {
         type = 'medecin',
@@ -333,7 +333,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Antidote',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "Millefeuille",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de Gaultherie",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_burdock_root.png', text = "Bardane",count = "x2"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "Millefeuille",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de Gaultherie",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_burdock_root.png', text = "Bardane",count = "x2"}}
     },
     ['antivenin'] = {
         type = 'medecin',
@@ -365,7 +365,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Attelle',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x2"},{src = 'nui://redemrp_inventory/html/items/stick.png', text = "Petit Bois",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/bandage.png', text = "Bandage",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x2"},{src = 'nui://redemrp_inventory/html/items/stick.png', text = "Petit Bois",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/bandage.png', text = "Bandage",count = "x1"}}
     },
     ['syringe'] = {
         type = 'medecin',
@@ -451,7 +451,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = "Emulsion Anesthésiante",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_burdock_root.png', text = "Bardane",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe sauvage",count = "x4"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/generic_animal_beak.png', text = "Bec",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_burdock_root.png', text = "Bardane",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe sauvage",count = "x4"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/generic_animal_beak.png', text = "Bec",count = "x1"}}
     },
     ['concoctionanesthesiantedeux'] = {
         type = 'mortier',
@@ -468,7 +468,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Emulsion Anesthésiante',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_bay_bolete.png', text = "Bolet-Baï",count = "x5"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois de cerf",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_bay_bolete.png', text = "Bolet-Baï",count = "x5"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois de cerf",count = "x1"}}
     },
     ['concoctionanesthesiantetrois'] = {
         type = 'mortier',
@@ -485,7 +485,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Emulsion Anesthésiante',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/generic_animal_horn.png', text = "Corne",count = "x2"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/generic_animal_horn.png', text = "Corne",count = "x2"}}
     },
     ['concoctioncoagulationun'] = {
         type = 'mortier',
@@ -502,7 +502,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Solution Coagulante',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_milkweed.png', text = "Asclépiade",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois de cerf",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_milkweed.png', text = "Asclépiade",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois de cerf",count = "x1"}}
     },
     ['concoctioncoagulationdeux'] = {
         type = 'mortier',
@@ -519,7 +519,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Solution Coagulante',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de gaultherie",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_english_mace.png', text = "Achillé visqueuse",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/provision_bobcat_claws.png', text = "griffe",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de gaultherie",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_english_mace.png', text = "Achillé visqueuse",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/provision_bobcat_claws.png', text = "griffe",count = "x1"}}
     },
     ['concoctioncoagulationtrois'] = {
         type = 'mortier',
@@ -536,7 +536,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Solution Coagulante',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "Millefeuille",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du colibri",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/generic_animal_horn.png', text = "Corne",count = "x2"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "Millefeuille",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du colibri",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/generic_animal_horn.png', text = "Corne",count = "x2"}}
     },
     ['poisonest'] = {
         type = 'mortier',
@@ -585,7 +585,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Concentré Antiputride',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "millefeuille",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de gaultherie",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "millefeuille",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de gaultherie",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
     },
     ['remedeinfectiondeux'] = {
         type = 'mortier',
@@ -600,7 +600,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Concentré Antiputride',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_milkweed.png', text = "Asclépiade",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_english_mace.png', text = "Achillé visqueuse",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_milkweed.png', text = "Asclépiade",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_english_mace.png', text = "Achillé visqueuse",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
     },
     ['remedeantidouleurun'] = {
         type = 'mortier',
@@ -615,7 +615,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Extrait de Camomille',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
     },
     ['remedeantidouleurdeux'] = {
         type = 'mortier',
@@ -630,7 +630,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Extrait de Camomille',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe sauvage",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe sauvage",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
     },
     ['antidysentrie'] = {
         type = 'mortier',
@@ -647,7 +647,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Remède Digestif',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x4"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_rams_head.png', text = "Poule des bois",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_common_bulrush.png', text = "Jonc commun",count = "x2"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x4"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_rams_head.png', text = "Poule des bois",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_common_bulrush.png', text = "Jonc commun",count = "x2"}}
     },
     ['antidote'] = {
         type = 'mortier',
@@ -664,7 +664,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Antidote',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "Millefeuille",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de Gaultherie",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_burdock_root.png', text = "Bardane",count = "x2"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "Millefeuille",count = "x2"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de Gaultherie",count = "x2"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_burdock_root.png', text = "Bardane",count = "x2"}}
     },
     ['antivenin'] = {
         type = 'mortier',
@@ -696,7 +696,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Attelle',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x2"},{src = 'nui://redemrp_inventory/html/items/stick.png', text = "Petit Bois",count = "x3"},{src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Graisse animal",count = "x1"},{src = 'nui://redemrp_inventory/html/items/bandage.png', text = "Bandage",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x2"},{src = 'nui://redemrp_inventory/html/items/stick.png', text = "Petit Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/bandage.png', text = "Bandage",count = "x1"}}
     },
     ['bandagepatate'] = {
         type = 'mortier',
