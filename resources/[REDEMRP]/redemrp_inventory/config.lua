@@ -1991,7 +1991,7 @@ Config.Items = {
     },
     ["antibiotic"] = {
         label = "Remède Goodwin",
-        description = "A boire d'urgence",
+        description = "Une avancée majeure dans la médecine",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = true,
