@@ -93,7 +93,10 @@ Config.Cooldown = 60000
 
 Config.Price = {
     [GetHashKey("Strawberry")] = {
-        ["moonshine"] = {label="Moonshine", price = 0.5},
+        ["moonshine"] = {label="Moonshine", price = 1},
+        ["laitpavot"] = {label="Lait de Pavot", price = 1},
+        ["pipeopium"] = {label="Pipe d'opium", price = 1},
+        ["cigaretteopium"] = {label="Cigarette d'opium", price = 1},
         ["pavot"] = {label="Pavot", price = 0.5},
         ["cuir"] = {label="Cuir", price = 0.07},
         ["pepiteor"] = {label="Pépite d'or", price = 0.15},
@@ -137,7 +140,10 @@ Config.Price = {
         ["semencedetoreau"] = {label="Semence bovine", price = 0.5},
     },
     [GetHashKey("Rhodes")] = {
-        ["moonshine"] = {label="Moonshine", price = 0.5},
+        ["moonshine"] = {label="Moonshine", price = 1},
+        ["laitpavot"] = {label="Lait de Pavot", price = 1},
+        ["pipeopium"] = {label="Pipe d'opium", price = 1},
+        ["cigaretteopium"] = {label="Cigarette d'opium", price = 1},
         ["pavot"] = {label="Pavot", price = 0.5},
         ["cuir"] = {label="Cuir", price = 0.07},
         ["pepiteor"] = {label="Pépite d'or", price = 0.15},
@@ -181,7 +187,10 @@ Config.Price = {
         ["semencedetoreau"] = {label="Semence bovine", price = 0.5},
     },
     [GetHashKey("StDenis")] = {
-        ["moonshine"] = {label="Moonshine", price = 0.5},
+        ["moonshine"] = {label="Moonshine", price = 1},
+        ["laitpavot"] = {label="Lait de Pavot", price = 1},
+        ["pipeopium"] = {label="Pipe d'opium", price = 1},
+        ["cigaretteopium"] = {label="Cigarette d'opium", price = 1},
         ["pavot"] = {label="Pavot", price = 0.5},
         ["cuir"] = {label="Cuir", price = 0.07},
         ["pepiteor"] = {label="Pépite d'or", price = 0.15},
@@ -225,7 +234,10 @@ Config.Price = {
         ["semencedetoreau"] = {label="Semence bovine", price = 0.5},
     },
     [GetHashKey("Blackwater")] = {
-        ["moonshine"] = {label="Moonshine", price = 0.5},
+        ["moonshine"] = {label="Moonshine", price = 1},
+        ["laitpavot"] = {label="Lait de Pavot", price = 1},
+        ["pipeopium"] = {label="Pipe d'opium", price = 1},
+        ["cigaretteopium"] = {label="Cigarette d'opium", price = 1},
         ["pavot"] = {label="Pavot", price = 0.5},
         ["cuir"] = {label="Cuir", price = 0.07},
         ["pepiteor"] = {label="Pépite d'or", price = 0.15},
