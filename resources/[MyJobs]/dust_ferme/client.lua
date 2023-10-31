@@ -574,7 +574,7 @@ Citizen.CreateThread(function ()
                             end
                         end
                     end
-                    if IsControlJustReleased(0, 0xF1301666) then
+                    if IsControlJustReleased(0, 0x80F28E95) then
                         for k, v in pairs(Config.Lait) do
                             if #(targetCoords - v.pos) < 14 then
                                 if  #(targetCoords - playerCoords) < 3.0 then
