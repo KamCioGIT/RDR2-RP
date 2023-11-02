@@ -40,8 +40,8 @@ Config.RiverChances = {
     },
     
     [650214731] = { -- Beartoothbeck
-        chanceToGet = 50,
-        chanceOfTwo = 30,
+        chanceToGet = 40,
+        chanceOfTwo = 20,
     },
     
     [370072007] = { -- Dakota River
@@ -49,12 +49,12 @@ Config.RiverChances = {
         chanceOfTwo = 10,
     }, 
     [-1410384421] = { -- Little Creek River
-        chanceToGet = 60,
-        chanceOfTwo = 40,
+        chanceToGet = 40,
+        chanceOfTwo = 10,
     },
     [-1245451421] = { -- Deadboot Creek
         chanceToGet = 50,
-        chanceOfTwo = 30,
+        chanceOfTwo = 20,
     },
     [469159176] = { -- Dewberry Creek
         chanceToGet = 20,
@@ -73,8 +73,8 @@ Config.RiverChances = {
         chanceOfTwo = 20,
     },
     [-261541730] = { -- Whinyard Strait
-        chanceToGet = 70,
-        chanceOfTwo = 40,
+        chanceToGet = 50,
+        chanceOfTwo = 20,
     },
 
     
