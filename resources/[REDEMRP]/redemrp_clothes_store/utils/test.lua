@@ -80992,8 +80992,8 @@ clothes_list = {
 			},
 			[3] = {
 				[1] = {
-					['category_hash'] = 2727505819,
-					['category_hash_dec_signed'] = 1567461477,
+					['category_hash'] = ,
+					['category_hash_dec_signed'] = ,
 					['category_hashname'] = 'dresses',
 					['hashname'] = '',
 					['is_multiplayer'] = false,
@@ -119789,8 +119789,8 @@ clothes_list = {
 			},
 			[29] = {
 				[1] = {
-					['category_hash'] = 1214179380,
-					['category_hash_dec_signed'] = 1214179380,
+					['category_hash'] = ,
+					['category_hash_dec_signed'] = ,
 					['category_hashname'] = 'vests',
 					['hashname'] = '',
 					['is_multiplayer'] = false,
