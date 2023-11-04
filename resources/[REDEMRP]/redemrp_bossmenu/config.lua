@@ -164,7 +164,7 @@ Config.Jobs = {
     },
     ["store_straw"] = {
         bigjob = "store",
-        Name = "General Store Strawberry",
+        Name = "Union Store",
         blisprite = 1475879922,
         MenuLocations = 
             vector3(-1794.378, -386.6008, 160.3288)
@@ -187,7 +187,7 @@ Config.Jobs = {
     },
     ["store_rhodes"] = {
         bigjob = "store",
-        Name = "La bonne pièce",
+        Name = "À la Bonne Pièce",
         blisprite = 1475879922,
         MenuLocations = 
             vector3(1329.714, -1295.512, 76.02248)
