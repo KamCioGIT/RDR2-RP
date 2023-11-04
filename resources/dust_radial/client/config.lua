@@ -32,7 +32,7 @@ Config.CraftingsReceipe = {
     },
     ['arrow'] = {
         label = "10 Flèches",
-        desc = "1 bois + 1 silex",
+        desc = "1 Petit Bois + 1 silex",
         ItemReceipe1Name = 'petitbois',
         ItemReceipe1Amount = 1,
         ItemReceipe2Name = 'silex',
