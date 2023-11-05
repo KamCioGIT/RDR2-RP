@@ -262,7 +262,7 @@ Config.Jobs = {
         Name = "La ruée vers l'Ouest",
         blisprite = 1879260108,
         MenuLocations = 
-        vector3(-822.7153, -1321.418, 42,3)
+        vector3(-822.7153, -1321.418, 42.3)
         ,
         Grades = {
             [1] = {
