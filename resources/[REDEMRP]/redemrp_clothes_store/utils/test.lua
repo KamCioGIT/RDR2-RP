@@ -114658,7 +114658,25 @@ clothes_list = {
 					['is_multiplayer'] = true,
 					['ped_type'] = 'male'
 				}
-			}
+			},
+			[38] = {
+				[1] = {
+					['category_hash'] = 539411565,
+					['category_hash_dec_signed'] = 539411565,
+					['category_hashname'] = 'shirts_full',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `pjfxhyma_0xcd093323`,
+					['albedo'] = `hayjjvfa_0x7bba9ac8`,
+					['normal'] = `xgstiyfb_0xe300323e`,
+					['material'] = `urcggtma_0x742f2e44`,
+					['palette'] = ``,
+					['tint0'] = 0,
+					['tint1'] = 0,
+					['tint2'] = 0
+				}
+			},
 		},
 		['spats'] = {
 			[1] = {
@@ -119784,25 +119802,7 @@ clothes_list = {
 					['is_multiplayer'] = true,
 					['ped_type'] = 'male'
 				}
-			},
-			[29] = {
-				[1] = {
-					['category_hash'] = 1214179380,
-					['category_hash_dec_signed'] = 1214179380,
-					['category_hashname'] = 'vests',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'male',
-					['drawable'] = `pjfxhyma_0xcd093323`,
-					['albedo'] = `hayjjvfa_0x7bba9ac8`,
-					['normal'] = `xgstiyfb_0xe300323e`,
-					['material'] = `urcggtma_0x742f2e44`,
-					['palette'] = ``,
-					['tint0'] = 0,
-					['tint1'] = 0,
-					['tint2'] = 0
-				}
-			},
+			}
 		}
 	}
 }
