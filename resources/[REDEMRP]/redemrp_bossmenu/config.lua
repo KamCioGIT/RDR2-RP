@@ -262,7 +262,7 @@ Config.Jobs = {
         Name = "La ruée vers l'Ouest",
         blisprite = 1879260108,
         MenuLocations = 
-        vector3(-822.7153, -1321.418, 43.67887)
+        vector3(-822.7153, -1321.418, 38.67887)
         ,
         Grades = {
             [1] = {
@@ -625,7 +625,7 @@ Config.ExportNPC = {
 
 Config.Export = {
     ["lingotfer"] = {label= "Lingot de fer", price = 1.1},
-    ["lingotor"] = {label= "Lingot d'or", price = 40},
+    ["lingotor"] = {label= "Lingot d'or", price = 43},
     ["farine"] = {label= "Farine", price = 0.2},
     ["bouteillelait"] = {label= "Bouteille de lait", price = 0.1},
     ["patate"] = {label= "Patate", price = 0.1},
