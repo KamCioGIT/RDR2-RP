@@ -285,7 +285,7 @@ Config.Jobs = {
         Name = "Saloon",
         blisprite = 1879260108,
         MenuLocations = 
-        vector3(1336.559, -1371.556, 80.49015)
+        vector3(1336.559, -1371.556, 79.48715)
         ,
         Grades = {
             [1] = {
