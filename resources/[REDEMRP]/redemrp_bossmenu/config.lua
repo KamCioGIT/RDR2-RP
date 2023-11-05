@@ -239,7 +239,7 @@ Config.Jobs = {
         Name = "Saloon La Dernière Chance",
         blisprite = 1879260108,
         MenuLocations = 
-        vector3(2950.342, 529.1586, 44.33422)
+        vector3(2950.342, 529.1586, 44.33422)vector4(2949.962, 528.6141, 45.33795, 353.291)
         ,
         Grades = {
             [1] = {
@@ -262,7 +262,7 @@ Config.Jobs = {
         Name = "La ruée vers l'Ouest",
         blisprite = 1879260108,
         MenuLocations = 
-        vector3(-822.7153, -1321.418, 42.3)
+        vector3(-822.7153, -1321.418, 42.67513)
         ,
         Grades = {
             [1] = {
