@@ -4,6 +4,9 @@ Config = {}
 Config.Jobs = {
     [1] = "saloon_kala",
     [2] = "saloon_faubourg",
+    [3] = "saloon_bla",
+    [4] = "saloon_rhodes"
+    ,
 }
 
 Config.WorkingTime = 5000
@@ -11,7 +14,8 @@ Config.DistanceToInteract = 2.0
 
 Config.Atelier = {
     [1] = vector3(2940.411, 523.3466, 44.33625),
-    [2] = vector3(2795.335, -1168.009, 46.92803)
+    [2] = vector3(2795.335, -1168.009, 46.92803),
+    [3] = vector3(-825.8885, -1318.624, 43.6788)
 }
 
 Config.AnimDict = "script_rc@chnt1@ig@ig2_hosea_cook_eat"

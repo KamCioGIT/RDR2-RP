@@ -257,6 +257,52 @@ Config.Jobs = {
             },
         }
     },
+    ["saloon_bla"] = {
+        bigjob = "saloon",
+        Name = "La ruée vers l'Ouest",
+        blisprite = 1879260108,
+        MenuLocations = 
+        vector3(-822.7153, -1321.418, 43.67887)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["saloon_rhodes"] = {
+        bigjob = "saloon",
+        Name = "Saloon",
+        blisprite = 1879260108,
+        MenuLocations = 
+        vector3(1336.559, -1371.556, 80.49015)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
     ["saloon_faubourg"] = {
         bigjob = "saloon",
         Name = "Saloon Le Turbin",
