@@ -114659,7 +114659,7 @@ clothes_list = {
 					['ped_type'] = 'male'
 				}
 			},
-			[39] = {
+			[38] = {
 				[1] = {
 					['category_hash'] = 539411565,
 					['category_hash_dec_signed'] = 539411565,
