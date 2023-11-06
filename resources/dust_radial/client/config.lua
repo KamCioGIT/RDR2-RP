@@ -193,7 +193,7 @@ Config.Price = {
     [GetHashKey("StDenis")] = {
         ["moonshine"] = {label="Moonshine", price = 0.9},
         ["laitpavot"] = {label="Lait de Pavot", price = 0.9},
-        ["pipeopium"] = {label="Pipe d'opium", price = 0.8},
+        ["pipeopium"] = {label="Pipe d'opium", price = 0.9},
         ["cigaretteopium"] = {label="Cigarette d'opium", price = 1.1},
         ["pavot"] = {label="Pavot", price = 0.4},
         ["cuir"] = {label="Cuir", price = 0.06},
