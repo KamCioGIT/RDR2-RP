@@ -108,7 +108,6 @@ AddEventHandler('qbr-banking:createSavingsAccount', function()
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
-    print (info)
     if info == "savings" then
         createSavingsAccount(xPlayer.citizenid)
         TriggerClientEvent('qbr-banking:openBankScreen', src, info)

@@ -140,8 +140,6 @@ function createSavingsAccount(cid)
             success = true
             completed = true
         end)
-        repeat Wait(0) until completed == true
-        return success
     end
 end
 
