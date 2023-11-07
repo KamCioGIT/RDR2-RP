@@ -136,15 +136,11 @@ AddEventHandler('qbr-banking:server:registerbusinessAccount', function(job)
 end)
 
 function createbusinessAccount(job)
-    local completed = false
-    local success = false
     local getbusinessAccount = MySQL.query.await('SELECT * FROM bank_accounts WHERE job = ? AND account_type = ? ', { job, "Business" })
     if getbusinessAccount[1] == nil then
         local accountno = math.random(100000, 999999)
         MySQL.insert.await('INSERT INTO bank_accounts (job, balance, account_type, accountid) VALUES (?, ?, ?, ?)', { job, 0, 'Business', accountno}, function(result)
             businessAccounts[job] = generatebusiness(job)
-            success = true
-            completed = true
         end)
     end
 end
