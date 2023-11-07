@@ -112,14 +112,14 @@ end
 function CalculatePriceEyes()
 	local price = 0
 		if IsPedMale(PlayerPedId()) then
-				if OldMaskCache["eyewear"].model ~= MaskCache["masks"].model or OldMaskCache["eyewear"].texture ~= MaskCache["eyewear"].texture then
-					if MaskCache["eyewear"].model > 0 then
+				if OldEyesCache["eyewear"].model ~= EyesCache["masks"].model or OldEyesCache["eyewear"].texture ~= EyesCache["eyewear"].texture then
+					if EyesCache["eyewear"].model > 0 then
 						price = price + Config.Price["eyewear"]
 					end
 				end
 		else
-				if OldMaskCache["eyewear"].model ~= MaskCache["eyewear"].model or OldMaskCache["eyewear"].texture ~= MaskCache["eyewear"].texture then
-					if MaskCache["eyewear"].model > 0 then
+				if OldEyesCache["eyewear"].model ~= EyesCache["eyewear"].model or OldEyesCache["eyewear"].texture ~= EyesCache["eyewear"].texture then
+					if EyesCache["eyewear"].model > 0 then
 						price = price + Config.Price["eyewear"]
 					end
 				end
