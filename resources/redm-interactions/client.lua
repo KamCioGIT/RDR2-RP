@@ -149,7 +149,7 @@ function AddInteractions(availableInteractions, interaction, playerPed, playerCo
 					y = interaction.y,
 					z = interaction.z,
 					heading = interaction.heading,
-					scenario = scenario.name,
+					scenario = scenario.label,
 					object = object,
 					modelName = modelName,
 					distance = distance,
