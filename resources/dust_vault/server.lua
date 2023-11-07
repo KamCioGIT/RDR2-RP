@@ -143,30 +143,30 @@ AddEventHandler("dust_vault:server:removestash", function(stashid, model, pos)
 	local weight = exports.redemrp_inventory.checkuserweight(_source, identifier, charid)
 	retval = false
 	if stashW == 0 then
-		if model == Config.SmallVault then
-			if 45 - weight >= 5 then
-				local ItemData = data.getItem(_source, "smallvault")
-				ItemData.AddItem(1)
-				retval = true
-			end
-		elseif model == Config.MediumVault then
-			if 45 - weight >= 10 then
-				local ItemData = data.getItem(_source, "mediumvault")
-				ItemData.AddItem(1)
-				retval = true
-			end
-		elseif model == Config.LargeVault then
-			if 45 - weight >= 20 then
-				local ItemData = data.getItem(_source, "largevault")
-				ItemData.AddItem(1)
-				retval = true
-			end
-		end
 		if retval == true then
 			MySQL.update('DELETE FROM vault WHERE `stashid`=@stashid', {stashid = stashid })
 			Citizen.Wait(100)
 			MySQL.update('DELETE FROM stashes WHERE `stashid`=@stashid', {stashid = stashid })
 			TriggerClientEvent("dust_vault:server:delvault", _source, pos)
+			if model == Config.SmallVault then
+				if 45 - weight >= 5 then
+					local ItemData = data.getItem(_source, "smallvault")
+					ItemData.AddItem(1)
+					retval = true
+				end
+			elseif model == Config.MediumVault then
+				if 45 - weight >= 10 then
+					local ItemData = data.getItem(_source, "mediumvault")
+					ItemData.AddItem(1)
+					retval = true
+				end
+			elseif model == Config.LargeVault then
+				if 45 - weight >= 20 then
+					local ItemData = data.getItem(_source, "largevault")
+					ItemData.AddItem(1)
+					retval = true
+				end
+			end
 		else
 			return
 		end
