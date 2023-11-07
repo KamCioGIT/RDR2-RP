@@ -252,7 +252,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 10,
         label = "Fer à cheval",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Pépite de fer",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Charbon",count = "x5"}}
     },
     ['WEAPON_LASSO'] = {
         type = 'forgeetabli',
