@@ -95,29 +95,23 @@ function showInteractionPicker(data) {
 		div.className = 'interaction';
 
 		if (interaction.scenario) {
-			if (interaction.label) {
-				if (interaction.modelName) {
-					div.innerHTML = interaction.modelName + ': ' + interaction.animname + ' (' + interaction.label + ')';
-				} else {
-					div.innerHTML = interaction.scenario + ' (' + interaction.label + ')';
+			if (interaction.label) {{
+					div.innerHTML = interaction.animname + ' (' + interaction.label + ')';
 				}
-			} else {
-				if (interaction.modelName) {
-					div.innerHTML = interaction.modelName + ': ' + interaction.animname;
-				} else {
+			} else {{
 					div.innerHTML = interaction.animname;
 				}
 			}
 		} else {
 			if (interaction.label) {
 				if (interaction.modelName) {
-					div.innerHTML = interaction.modelName + ': ' + interaction.animation.label + ' (' + interaction.label + ')';
+					div.innerHTML = interaction.animation.label + ' (' + interaction.label + ')';
 				} else {
 					div.innerHTML = interaction.animation.label + ' (' + interaction.label + ')';
 				}
 			} else {
 				if (interaction.modelName) {
-					div.innerHTML = interaction.modelName + ': ' + interaction.animation.label;
+					div.innerHTML = interaction.animation.label;
 				} else {
 					div.innerHTML = interaction.animation.label;
 				}

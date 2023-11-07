@@ -196,7 +196,7 @@ Config.Interactions = {
 	{
 		isCompatible = IsPedHuman,
 		objects = GenericBenches,
-		label = "right",
+		label = "Droite",
 		radius = 2.0,
 		scenarios = GenericChairAndBenchScenarios,
 		x = -0.5,
@@ -207,7 +207,7 @@ Config.Interactions = {
 	{
 		isCompatible = IsPedHuman,
 		objects = GenericBenches,
-		label = "left",
+		label = "Gauche",
 		radius = 2.0,
 		scenarios = GenericChairAndBenchScenarios,
 		x = 0.5,
@@ -221,7 +221,7 @@ Config.Interactions = {
 			"p_bench17x",
 			"p_benchbear01x"
 		},
-		label = "right",
+		label = "Droite",
 		radius = 1.5,
 		scenarios = GenericChairAndBenchScenarios,
 		x = -0.3,
@@ -234,7 +234,7 @@ Config.Interactions = {
 			"p_bench17x",
 			"p_benchbear01x"
 		},
-		label = "left",
+		label = "Gauche",
 		radius = 1.5,
 		scenarios = GenericChairAndBenchScenarios,
 		x = 0.3,
@@ -264,7 +264,7 @@ Config.Interactions = {
 			"p_cs_pro_bed_unmade",
 			"p_cs_bed20madex"
 		},
-		label = "right",
+		label = "Droite",
 		radius = 2.0,
 		scenarios = BedScenarios,
 		x = -0.3,
@@ -278,7 +278,7 @@ Config.Interactions = {
 			"p_cs_pro_bed_unmade",
 			"p_cs_bed20madex"
 		},
-		label = "left",
+		label = "Gauche",
 		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.3,
@@ -329,7 +329,7 @@ Config.Interactions = {
 		objects = {
 			"p_bed20x"
 		},
-		label = "right",
+		label = "Droite",
 		radius = 2.0,
 		scenarios = BedScenarios,
 		x = -0.3,
@@ -341,7 +341,7 @@ Config.Interactions = {
 		objects = {
 			"p_bed20x"
 		},
-		label = "left",
+		label = "Gauche",
 		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.3,
@@ -353,7 +353,7 @@ Config.Interactions = {
 		objects = {
 			"p_bedking02x"
 		},
-		label = "left",
+		label = "Gauche",
 		radius = 2.0,
 		scenarios = BedScenarios,
 		x = -0.5,
@@ -365,7 +365,7 @@ Config.Interactions = {
 		objects = {
 			"p_bedking02x"
 		},
-		label = "right",
+		label = "Droite",
 		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.5,
@@ -409,7 +409,7 @@ Config.Interactions = {
 		objects = {
 			"p_cs_bedsleptinbed08x"
 		},
-		label = "left",
+		label = "Gauche",
 		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.3,
@@ -421,7 +421,7 @@ Config.Interactions = {
 		objects = {
 			"p_cs_bedsleptinbed08x"
 		},
-		label = "right",
+		label = "Droite",
 		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.3,
