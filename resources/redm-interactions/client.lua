@@ -7,9 +7,6 @@ local MaxRadius = 0.0
 
 local InteractPrompt = Uiprompt:new(Config.InteractControl, "Select Interaction", nil, false)
 
-function DrawMarker(type, posX, posY, posZ, dirX, dirY, dirZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, red, green, blue, alpha, bobUpAndDown, faceCamera, p19, rotate, textureDict, textureName, drawOnEnts)
-	Citizen.InvokeNative(0x2A32FAA57B937173, type, posX, posY, posZ, dirX, dirY, dirZ, rotX, rotY, rotZ, scaleX, scaleY, scaleZ, red, green, blue, alpha, bobUpAndDown, faceCamera, p19, rotate, textureDict, textureName, drawOnEnts)
-end
 
 function IsPedUsingScenarioHash(ped, scenarioHash)
 	return Citizen.InvokeNative(0x34D6AC1157C8226C, ped, scenarioHash)
@@ -257,17 +254,6 @@ function SetInteractionMarker(target)
 	InteractionMarker = target
 end
 
-function DrawInteractionMarker()
-	local x, y, z
-
-	if type(InteractionMarker) == "number" then
-		x, y, z = table.unpack(GetEntityCoords(InteractionMarker))
-	else
-		x, y, z = table.unpack(InteractionMarker)
-	end
-
-	DrawMarker(Config.MarkerType, x, y, z, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 1.0, Config.MarkerColor[1], Config.MarkerColor[2], Config.MarkerColor[3], Config.MarkerColor[4], 0, 0, 2, 0, 0, 0, 0)
-end
 
 function IsPedUsingInteraction(ped, interaction)
 	if interaction.scenario then

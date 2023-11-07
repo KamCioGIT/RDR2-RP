@@ -3,13 +3,15 @@
 	src: url("chineserocks.ttf");
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap');
+
 html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0;
 	padding: 0;
 	background: none;
-	font-family: "Chinese Rocks";
+	font-family: "Milonga";
 	font-size: 1vw;
 }
 

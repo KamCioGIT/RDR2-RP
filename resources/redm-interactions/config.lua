@@ -9,10 +9,6 @@ Config.MenuDownControl = `INPUT_GAME_MENU_DOWN`
 Config.MenuAcceptControl = `INPUT_GAME_MENU_ACCEPT`
 Config.MenuCancelControl = `INPUT_GAME_MENU_CANCEL`
 
--- Settings for the marker that appears on the currently selected object
-Config.MarkerType = 0x94FDAE17
-Config.MarkerColor = {254, 127, 156, 128}
-
 -- Effects that may be applied when interacting with objects
 Config.Effects = {
 	["clean"] = function()
