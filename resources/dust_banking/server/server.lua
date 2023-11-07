@@ -110,7 +110,7 @@ AddEventHandler('qbr-banking:createSavingsAccount', function()
     while xPlayer == nil do Wait(0) end
     if info == "savings" then
         createSavingsAccount(xPlayer.citizenid)
-
+        print 'compte'
         TriggerClientEvent('qbr-banking:openBankScreen', src, info)
         TriggerClientEvent('qbr-banking:successAlert', src, "Votre compte a été créé.")
     elseif info == "business" then
