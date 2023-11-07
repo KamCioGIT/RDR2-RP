@@ -43,6 +43,7 @@ function openAccountScreen(type)
         end)
         TriggerServerEvent('banking:acctype', type)
     elseif type == "business" then
+        print'access'
         TriggerServerEvent("dust_banking:checkgrade")
     end
 end

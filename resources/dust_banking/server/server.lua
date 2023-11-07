@@ -7,6 +7,7 @@ end)
 RegisterServerEvent("dust_banking:checkgrade", function(source)
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
+    print 'serv'
     while xPlayer == nil do Wait(0) end
     if (xPlayer) and tonumber(xPlayer.jobgrade) >= 3 then
         print ('get')
