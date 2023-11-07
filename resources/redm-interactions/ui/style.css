@@ -13,6 +13,7 @@ html, body {
 	background: none;
 	font-family: "Milonga";
 	font-size: 0.7vw;
+	border-radius: 15%;
 }
 
 #interaction-picker {
@@ -28,8 +29,8 @@ html, body {
 #interaction-picker-title {
 	text-align: center;
 	padding: 0.5vh 0.5vw;
-	background: #565656 ;
-	font-size: 1.25vw;
+	background: #615c43 ;
+	font-size: 1vw;
 }
 
 .interaction.selected {
