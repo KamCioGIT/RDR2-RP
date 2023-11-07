@@ -24,8 +24,8 @@ html, body {
 	background: rgba(0, 0, 0, 0.5);
 	color: #D7D7D7;
 	border-radius: 3%;
-	padding-left: 5px;
-	padding-right: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
 	box-shadow: 0px 0px 10px 8px #00000080;
 }
 
@@ -35,8 +35,8 @@ html, body {
 	background: #615c43 ;
 	font-size: 1vw;
 	border-radius: 3%;
-	padding-left: 5px;
-	padding-right: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .interaction.selected {
