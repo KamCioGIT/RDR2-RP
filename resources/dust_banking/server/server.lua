@@ -109,17 +109,17 @@ AddEventHandler('qbr-banking:createSavingsAccount', function()
     local xPlayer = RedEM.GetPlayer(src)
     while xPlayer == nil do Wait(0) end
     if info == "savings" then
-        local success = createSavingsAccount(xPlayer.citizenid)
+        createSavingsAccount(xPlayer.citizenid)
 
-        repeat Wait(0) until success ~= nil
-        TriggerClientEvent('qbr-banking:openBankScreen', src, 'savings')
+        Wait(200)
+        TriggerClientEvent('qbr-banking:openBankScreen', src, info)
     elseif info == "business" then
         local job = xPlayer.job
         local jobgrade = xPlayer.jobgrade
         if tonumber(jobgrade) >= 3 then
-            local success = createbusinessAccount(job)
-            repeat Wait(0) until success ~= nil
-            TriggerClientEvent('qbr-banking:openBankScreen', src, 'business')
+            createbusinessAccount(job)
+            Wait(200)
+            TriggerClientEvent('qbr-banking:openBankScreen', src, info)
         end
     end
 end)
@@ -308,44 +308,44 @@ AddEventHandler('qbr-banking:doQuickWithdraw', function(amount)
         if result[1] ~= nil then
             accid = result[1].accountid
             currentCash = result[1].balance
-        end
-        if tonumber(amount) <= currentCash then
-            RemoveFromBank(accid, tonumber(amount))
-            xPlayer.AddMoney(tonumber(amount))
-            local time = os.date("%Y-%m-%d")
-            MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
-                xPlayer.citizenid,
-                accid,
-                0,
-                tonumber(amount),
-                currentCash - tonumber(amount),
-                time,
-                'Retrait'
-            })
-            TriggerClientEvent('qbr-banking:openBankScreen', src, info)
-            TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez retiré $'..amount..' de votre compte.')
+            if tonumber(amount) <= currentCash then
+                RemoveFromBank(accid, tonumber(amount))
+                xPlayer.AddMoney(tonumber(amount))
+                local time = os.date("%Y-%m-%d")
+                MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+                    xPlayer.citizenid,
+                    accid,
+                    0,
+                    tonumber(amount),
+                    currentCash - tonumber(amount),
+                    time,
+                    'Retrait'
+                })
+                TriggerClientEvent('qbr-banking:openBankScreen', src, info)
+                TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez retiré $'..amount..' de votre compte.')
+            end
         end
     elseif info == "business" then
         local result = MySQL.query.await('SELECT * FROM bank_accounts WHERE account_type = ? AND job = ?', { 'Business', xPlayer.job })
         if result[1] ~= nil then
             accid = result[1].accountid
             currentCash = result[1].balance
-        end
-        if tonumber(amount) <= currentCash then
-            RemoveFromBank(accid, tonumber(amount))
-            xPlayer.AddMoney(tonumber(amount))
-            local time = os.date("%Y-%m-%d")
-            MySQL.insert.await('INSERT INTO bank_statements (job, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
-                xPlayer.job,
-                accid,
-                0,
-                tonumber(amount),
-                currentCash - tonumber(amount),
-                time,
-                'Retrait'
-            })
-            TriggerClientEvent('qbr-banking:openBankScreen', src, info)
-            TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez retiré $'..amount..' de votre compte.')
+            if tonumber(amount) <= currentCash then
+                RemoveFromBank(accid, tonumber(amount))
+                xPlayer.AddMoney(tonumber(amount))
+                local time = os.date("%Y-%m-%d")
+                MySQL.insert.await('INSERT INTO bank_statements (job, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+                    xPlayer.job,
+                    accid,
+                    0,
+                    tonumber(amount),
+                    currentCash - tonumber(amount),
+                    time,
+                    'Retrait'
+                })
+                TriggerClientEvent('qbr-banking:openBankScreen', src, info)
+                TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez retiré $'..amount..' de votre compte.')
+            end
         end
     end
 end)
