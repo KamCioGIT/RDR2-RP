@@ -123,9 +123,9 @@ end
 
 function Cigarette()
     PlaySoundFrontend("Core_Fill_Up", "Consumption_Sounds", true, 0)
-    FPrompt("Finish Smoking", 0x3B24C470, false)
-    LMPrompt("Inhale", 0x07B8BEAF, false)
-    EPrompt("Change Stance", 0xD51B784F, false)
+    FPrompt("Arrêter", 0x3B24C470, false)
+    LMPrompt("Fumer", 0x07B8BEAF, false)
+    EPrompt("Changer", 0xD51B784F, false)
     TriggerEvent("redemrp_inventory:closeinv")
     if GetAttributeCoreValue(PlayerPedId(), 1) + 30 <= 100 then
         local addstamina = GetAttributeCoreValue(PlayerPedId(), 1) + 30
@@ -444,9 +444,9 @@ end
 function Pipe(healing, lesshealing)
     pipeon = true
     PlaySoundFrontend("Core_Fill_Up", "Consumption_Sounds", true, 0)
-    FPrompt("Put Away", 0x3B24C470, false)
-    LMPrompt("Use", 0x07B8BEAF, false)
-    EPrompt("Pose", 0xD51B784F, false)
+    FPrompt("Arrêter", 0x3B24C470, false)
+    LMPrompt("Fumer", 0x07B8BEAF, false)
+    EPrompt("Position", 0xD51B784F, false)
     TriggerEvent("redemrp_inventory:closeinv")
     local ped = PlayerPedId()
     local male = IsPedMale(ped)

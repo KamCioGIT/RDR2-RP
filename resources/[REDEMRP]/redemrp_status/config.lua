@@ -438,5 +438,28 @@ Config.Items = {
             Drink()
         end
     },
+    --- opium
+    ["cigaretteopium"] = {
+        hunger = 0,
+        thirst = 100,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Cigarette()
+            BoostStamina(40)
+        end
+    },
+    ["pipeopium"] = {
+        hunger = 0,
+        thirst = 100,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Pipe()
+            BoostStamina(40)
+        end
+    },
 
 }
