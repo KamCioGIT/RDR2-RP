@@ -30,6 +30,7 @@ html, body {
 
 #interaction-picker-title {
 	text-align: center;
+	padding: 0.5vh;
 	background: #615c43 ;
 	font-size: 1vw;
 	padding-left: 10px !important;
