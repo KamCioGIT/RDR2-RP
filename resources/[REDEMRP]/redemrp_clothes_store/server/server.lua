@@ -93,6 +93,12 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value)
                     TriggerClientEvent("rdr_clothes_store:OpenHatMenu", _source, _clothes)
                 elseif _value == 4 then
                     TriggerClientEvent("rdr_clothes_store:OpenMaskMenu", _source, _clothes)
+                elseif _value == 5 then
+                    for k, v in pairs(Config.Medic) do
+                        if v == user.job then
+                            TriggerClientEvent("rdr_clothes_store:OpenEyesMenu", _source, _clothes)
+                        end
+                    end
                 end
             end
         end)
@@ -304,4 +310,28 @@ AddEventHandler("RegisterUsableItem:masque", function(source, _data)
     local model = _data.meta.model
     local texture = _data.meta.texture
     TriggerClientEvent("redemrp_clothes_store:putMask", _source, model, texture)
+end)
+
+--- eyes
+
+RegisterServerEvent('rdr_clothes_store:GiveEyes')
+AddEventHandler('rdr_clothes_store:GiveEyes', function(info, price)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local currentMoney = user.GetMoney()
+    if currentMoney >= price then
+        user.RemoveMoney(price)
+        TriggerEvent("redemrp_inventory:lunettes", _source, info)
+
+    else
+        TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
+    end
+end)
+
+RegisterServerEvent("RegisterUsableItem:lunettes")
+AddEventHandler("RegisterUsableItem:lunettes", function(source, _data)
+	local _source = source
+    local model = _data.meta.model
+    local texture = _data.meta.texture
+    TriggerClientEvent("redemrp_clothes_store:putEyes", _source, model, texture)
 end)
