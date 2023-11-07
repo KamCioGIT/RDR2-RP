@@ -225,7 +225,7 @@ function StartInteraction()
 		SendNUIMessage({
 			type = "hideInteractionPicker"
 		})
-		SetInteractionMarker()
+		-- SetInteractionMarker()
 		PickerIsOpen = false
 
 		if CurrentInteraction then
@@ -250,9 +250,9 @@ function StopInteraction()
 	end
 end
 
-function SetInteractionMarker(target)
-	InteractionMarker = target
-end
+-- function SetInteractionMarker(target)
+-- 	InteractionMarker = target
+-- end
 
 
 function IsPedUsingInteraction(ped, interaction)
@@ -307,16 +307,16 @@ RegisterNUICallback("stopInteraction", function(data, cb)
 	cb({})
 end)
 
-RegisterNUICallback("setInteractionMarker", function(data, cb)
-	if data.entity then
-		SetInteractionMarker(data.entity)
-	elseif data.x and data.y and data.z then
-		SetInteractionMarker(vector3(data.x, data.y, data.z))
-	else
-		SetInteractionMarker()
-	end
-	cb({})
-end)
+-- RegisterNUICallback("setInteractionMarker", function(data, cb)
+-- 	if data.entity then
+-- 		SetInteractionMarker(data.entity)
+-- 	elseif data.x and data.y and data.z then
+-- 		SetInteractionMarker(vector3(data.x, data.y, data.z))
+-- 	else
+-- 		SetInteractionMarker()
+-- 	end
+-- 	cb({})
+-- end)
 
 RegisterCommand("interact", function(source, args, raw)
 	StartInteraction()
@@ -373,7 +373,7 @@ Citizen.CreateThread(function()
 				SendNUIMessage({
 					type = "startInteraction"
 				})
-				SetInteractionMarker()
+				-- SetInteractionMarker()
 				PickerIsOpen = false
 			end
 
@@ -381,13 +381,10 @@ Citizen.CreateThread(function()
 				SendNUIMessage({
 					type = "hideInteractionPicker"
 				})
-				SetInteractionMarker()
+				-- SetInteractionMarker()
 				PickerIsOpen = false
 			end
 
-			if InteractionMarker then
-				DrawInteractionMarker()
-			end
 		elseif CurrentInteraction and not IsPedUsingInteraction(playerPed, CurrentInteraction) then
 			StartInteractionAtCoords(CurrentInteraction)
 		end
