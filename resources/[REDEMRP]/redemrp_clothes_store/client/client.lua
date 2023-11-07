@@ -397,6 +397,8 @@ function Change(id, category, change_type)
                 end
             else
                 if clothes_list["male"][category][ClothesCache[category].model][id]['is_multiplayer'] == false then
+                    Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
+                    NativeUpdatePedVariation(PlayerPedId())
                     local drawable = clothes_list["male"][category][ClothesCache[category].model][id].drawable
                     local albedo = clothes_list["male"][category][ClothesCache[category].model][id].albedo
                     local normal = clothes_list["male"][category][ClothesCache[category].model][id].normal
