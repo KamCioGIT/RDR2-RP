@@ -22,17 +22,16 @@ html, body {
 	top: 50%;
 	transform: translate(0, -50%);
 	background: rgba(0, 0, 0, 0.5);
-	color: white;
+	color: #D7D7D7;
 }
 
 #interaction-picker-title {
 	text-align: center;
 	padding: 0.5vh 0.5vw;
-	background: rgba(0, 0, 0, 0.75);
+	background: #565656 ;
 	font-size: 1.25vw;
 }
 
 .interaction.selected {
-	background: white;
-	color: black;
+	background: #DC5858;
 }
