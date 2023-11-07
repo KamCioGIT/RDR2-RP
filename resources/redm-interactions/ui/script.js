@@ -143,7 +143,7 @@ function showInteractionPicker(data) {
 
 	var div = document.createElement('div');
 	div.className = 'interaction';
-	div.innerHTML = 'End Interaction';
+	div.innerHTML = "Arrêter l'animation";
 	div.setAttribute('data-cancel', '');
 	list.appendChild(div);
 
