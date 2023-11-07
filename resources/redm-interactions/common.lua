@@ -196,50 +196,49 @@ GenericBenches = {
 }
 
 GenericChairAndBenchScenarios = {
-	{name = "GENERIC_SEAT_BENCH_SCENARIO"},
-	{name = "GENERIC_SEAT_CHAIR_SCENARIO", isCompatible = IsPedHumanMale},
-	{name = "GENERIC_SEAT_CHAIR_TABLE_SCENARIO"},
-	{name = "MP_LOBBY_PROP_HUMAN_SEAT_BENCH_PORCH_DRINKING"},
-	{name = "MP_LOBBY_PROP_HUMAN_SEAT_BENCH_PORCH_SMOKING"},
-	{name = "MP_LOBBY_PROP_HUMAN_SEAT_CHAIR"},
-	{name = "MP_LOBBY_PROP_HUMAN_SEAT_CHAIR_KNIFE_BADASS"},
-	{name = "MP_LOBBY_PROP_HUMAN_SEAT_CHAIR_WHITTLE"},
-	{name = "PROP_CAMP_FIRE_SEAT_CHAIR"},
-	{name = "PROP_HUMAN_CAMP_FIRE_SEAT_BOX"},
-	{name = "PROP_HUMAN_SEAT_BENCH_CONCERTINA", isCompatible = IsPedHumanMale},
-	{name = "PROP_HUMAN_SEAT_BENCH_FIDDLE", isCompatible = IsPedHumanFemale},
-	{name = "PROP_HUMAN_SEAT_BENCH_JAW_HARP", isCompatible = IsPedHumanMale},
-	{name = "PROP_HUMAN_SEAT_BENCH_MANDOLIN", isCompatible = IsPedHumanMale},
-	{name = "PROP_HUMAN_SEAT_CHAIR"},
-	{name = "PROP_HUMAN_SEAT_CHAIR_BANJO", isCompatible = IsPedHumanMale},
-	{name = "PROP_HUMAN_SEAT_CHAIR_CLEAN_RIFLE"},
-	{name = "PROP_HUMAN_SEAT_CHAIR_CLEAN_SADDLE"},
-	{name = "PROP_HUMAN_SEAT_CHAIR_CRAB_TRAP", isCompatible = IsPedHumanMale},
-	{name = "PROP_HUMAN_SEAT_CHAIR_CIGAR", isCompatible = IsPedHumanMale},
-	{name = "PROP_HUMAN_SEAT_CHAIR_GROOMING_GROSS", isCompatible = IsPedHumanMale},
-	{name = "PROP_HUMAN_SEAT_CHAIR_GROOMING_POSH", isCompatible = IsPedHumanFemale},
-	{name = "PROP_HUMAN_SEAT_CHAIR_GUITAR", isCompatible = IsPedHumanMale},
-	{name = "PROP_HUMAN_SEAT_CHAIR_KNIFE_BADASS", isCompatible = IsPedHumanMale},
-	{name = "PROP_HUMAN_SEAT_CHAIR_KNITTING", isCompatible = IsPedHumanFemale},
-	{name = "PROP_HUMAN_SEAT_CHAIR_PORCH"},
-	{name = "PROP_HUMAN_SEAT_CHAIR_READING", isCompatible = IsPedHumanFemale},
-	{name = "PROP_HUMAN_SEAT_CHAIR_TABLE_DRINKING"}
+    {label = "Banc générique", name = "GENERIC_SEAT_BENCH_SCENARIO"},
+    {label = "Chaise", name = "GENERIC_SEAT_CHAIR_SCENARIO", isCompatible = IsPedHumanMale},
+    {label = "Chaise, table", name = "GENERIC_SEAT_CHAIR_TABLE_SCENARIO"},
+    {label = "Banc, boire", name = "MP_LOBBY_PROP_HUMAN_SEAT_BENCH_PORCH_DRINKING"},
+    {label = "Banc, fumer", name = "MP_LOBBY_PROP_HUMAN_SEAT_BENCH_PORCH_SMOKING"},
+    {label = "Chaise 2", name = "MP_LOBBY_PROP_HUMAN_SEAT_CHAIR"},
+    {label = "Chaise, couteau", name = "MP_LOBBY_PROP_HUMAN_SEAT_CHAIR_KNIFE_BADASS"},
+    {label = "Chaise, tailler", name = "MP_LOBBY_PROP_HUMAN_SEAT_CHAIR_WHITTLE"},
+    {label = "Chaise, feu de camp", name = "PROP_CAMP_FIRE_SEAT_CHAIR"},
+    {label = "Chaise, feu de camp 2", name = "PROP_HUMAN_CAMP_FIRE_SEAT_BOX"},
+    {label = "Banc, concertina", name = "PROP_HUMAN_SEAT_BENCH_CONCERTINA", isCompatible = IsPedHumanMale},
+    {label = "Banc, violon", name = "PROP_HUMAN_SEAT_BENCH_FIDDLE", isCompatible = IsPedHumanFemale},
+    {label = "Banc, guimbarde", name = "PROP_HUMAN_SEAT_BENCH_JAW_HARP", isCompatible = IsPedHumanMale},
+    {label = "Banc, mandoline", name = "PROP_HUMAN_SEAT_BENCH_MANDOLIN", isCompatible = IsPedHumanMale},
+    {label = "Chaise 3", name = "PROP_HUMAN_SEAT_CHAIR"},
+    {label = "Chaise, banjo", name = "PROP_HUMAN_SEAT_CHAIR_BANJO", isCompatible = IsPedHumanMale},
+    {label = "Chaise 4", name = "PROP_HUMAN_SEAT_CHAIR_CRAB_TRAP", isCompatible = IsPedHumanMale},
+    {label = "Chaise, cigare", name = "PROP_HUMAN_SEAT_CHAIR_CIGAR", isCompatible = IsPedHumanMale},
+    {label = "Chaise 5", name = "PROP_HUMAN_SEAT_CHAIR_GROOMING_GROSS", isCompatible = IsPedHumanMale},
+    {label = "Chaise 6", name = "PROP_HUMAN_SEAT_CHAIR_GROOMING_POSH", isCompatible = IsPedHumanFemale},
+    {label = "Chaise, guitare", name = "PROP_HUMAN_SEAT_CHAIR_GUITAR", isCompatible = IsPedHumanMale},
+    {label = "Chaise, couteau 2", name = "PROP_HUMAN_SEAT_CHAIR_KNIFE_BADASS", isCompatible = IsPedHumanMale},
+    {label = "Chaise, tricoter", name = "PROP_HUMAN_SEAT_CHAIR_KNITTING", isCompatible = IsPedHumanFemale},
+    {label = "Chaise 7", name = "PROP_HUMAN_SEAT_CHAIR_PORCH"},
+    {label = "Chaise, lire", name = "PROP_HUMAN_SEAT_CHAIR_READING", isCompatible = IsPedHumanFemale},
+    {label = "Chaise, table, boire", name = "PROP_HUMAN_SEAT_CHAIR_TABLE_DRINKING"}
 }
 
+
 BedScenarios = {
-	{name = "PROP_HUMAN_SLEEP_BED_PILLOW"},
-	{name = "PROP_HUMAN_SLEEP_BED_PILLOW_HIGH", isCompatible = IsPedHumanMale},
-	{name = "WORLD_HUMAN_SLEEP_GROUND_ARM"},
-	{name = "WORLD_HUMAN_SLEEP_GROUND_PILLOW"},
-	{name = "WORLD_HUMAN_SIT_FALL_ASLEEP"},
-	{name = "WORLD_PLAYER_SLEEP_BEDROLL"},
-	{name = "WORLD_PLAYER_SLEEP_GROUND"}
+	{label = "S'allonger 1", name = "PROP_HUMAN_SLEEP_BED_PILLOW"},
+	{label = "S'allonger 2",name = "PROP_HUMAN_SLEEP_BED_PILLOW_HIGH", isCompatible = IsPedHumanMale},
+	{label = "S'allonger 3",name = "WORLD_HUMAN_SLEEP_GROUND_ARM"},
+	{label = "S'allonger 4",name = "WORLD_HUMAN_SLEEP_GROUND_PILLOW"},
+	{label = "S'allonger 5",name = "WORLD_HUMAN_SIT_FALL_ASLEEP"},
+	{label = "S'allonger 6",name = "WORLD_PLAYER_SLEEP_BEDROLL"},
+	{label = "S'allonger 7",name = "WORLD_PLAYER_SLEEP_GROUND"}
 }
 
 BathingAnimations = {
-	{label = "Bath", dict = "mini_games@bathing@regular@arthur", name = "bathing_idle_02"},
-	{label = "Bath: Scrub left arm", dict = "mini_games@bathing@regular@arthur", name = "left_arm_scrub_medium"},
-	{label = "Bath: Scrub right arm", dict = "mini_games@bathing@regular@arthur", name = "right_arm_scrub_medium"},
-	{label = "Bath: Scrub left leg", dict = "mini_games@bathing@regular@arthur", name = "left_leg_scrub_medium"},
-	{label = "Bath: Scrub right leg", dict = "mini_games@bathing@regular@arthur", name = "right_leg_scrub_medium"}
+	{label = "Prendre un bain", dict = "mini_games@bathing@regular@arthur", name = "bathing_idle_02"},
+	{label = "Laver la jambe gauche", dict = "mini_games@bathing@regular@arthur", name = "left_arm_scrub_medium"},
+	{label = "Laver la jambe droite", dict = "mini_games@bathing@regular@arthur", name = "right_arm_scrub_medium"},
+	{label = "Laver la jambe gauche", dict = "mini_games@bathing@regular@arthur", name = "left_leg_scrub_medium"},
+	{label = "Laver la jambe droite", dict = "mini_games@bathing@regular@arthur", name = "right_leg_scrub_medium"}
 }

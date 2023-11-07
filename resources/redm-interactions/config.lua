@@ -33,7 +33,8 @@ Config.Interactions = {
 		x = 0.0,
 		y = -0.70,
 		z = 0.5,
-		heading = 0.0
+		heading = 0.0,
+		label = "Jouer du piano"
 	},
 	{
 		isCompatible = IsPedHuman,
@@ -46,7 +47,8 @@ Config.Interactions = {
 		x = 0.0,
 		y = -0.70,
 		z = 0.5,
-		heading = 0.0
+		heading = 0.0,
+		label = "Jouer du piano"
 	},
 	{
 		isCompatible = IsPedHuman,
@@ -59,7 +61,8 @@ Config.Interactions = {
 		x = -0.1,
 		y = -0.75,
 		z = 0.5,
-		heading = 0.0
+		heading = 0.0,
+		label = "Jouer du piano"
 	},
 	{
 		isCompatible = IsPedHuman,
@@ -72,7 +75,8 @@ Config.Interactions = {
 		x = 0.0,
 		y = -0.77,
 		z = 0.5,
-		heading = 0.0
+		heading = 0.0,
+		label = "Jouer du piano"
 	},
 	{
 		objects = {"sha_man_piano01"},
@@ -84,7 +88,8 @@ Config.Interactions = {
 		x = 0.0,
 		y = -0.75,
 		z = 0.5,
-		heading = 0.0
+		heading = 0.0,
+		label = "Jouer du piano"
 	},
 	{
 		isCompatible = IsPedAdult,
@@ -106,7 +111,8 @@ Config.Interactions = {
 		x = 0.0,
 		y = 0.05,
 		z = -0.1,
-		heading = 180.0
+		heading = 180.0,
+		label = "Boire un coup"
 	},
 	{
 		isCompatible = IsPedAdult,
@@ -115,11 +121,11 @@ Config.Interactions = {
 		scenarios = {
 			{name = "PROP_HUMAN_SEAT_CHAIR_DRINKING"}
 		},
-		label = "left",
 		x = 0.4,
 		y = -0.05,
 		z = -0.1,
-		heading = 180.0
+		heading = 180.0,
+		label = "Boire un coup, gauche"
 	},
 	{
 		isCompatible = IsPedAdult,
@@ -128,11 +134,11 @@ Config.Interactions = {
 		scenarios = {
 			{name = "PROP_HUMAN_SEAT_CHAIR_DRINKING"}
 		},
-		label = "right",
 		x = -0.4,
 		y = -0.05,
 		z = -0.1,
-		heading = 180.0
+		heading = 180.0,
+		label = "Boire un coup, droite"
 	},
 	{
 		isCompatible = IsPedHumanMale,
@@ -144,19 +150,8 @@ Config.Interactions = {
 		x = 0.0,
 		y = -0.3,
 		z = 0.5,
-		heading = 180.0
-	},
-	{
-		isCompatible = IsPedAdultFemale,
-		objects = GenericChairs,
-		radius = 1.5,
-		scenarios = {
-			{name = "PROP_HUMAN_SEAT_CHAIR_FAN"}
-		},
-		x = 0.0,
-		y = 0.0,
-		z = 0.5,
-		heading = 240.0
+		heading = 180.0,
+		label = "Jouer de l'harmonica"
 	},
 	{
 		isCompatible = IsPedAdult,
