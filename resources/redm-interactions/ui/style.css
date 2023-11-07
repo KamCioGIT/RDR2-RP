@@ -12,7 +12,7 @@ html, body {
 	padding: 0;
 	background: none;
 	font-family: "Milonga";
-	font-size: 0.7vw;
+	font-size: 0.8vw;
 }
 
 #interaction-picker {
@@ -33,8 +33,8 @@ html, body {
 	padding: 0.5vh 0.5vw;
 	background: #615c43 ;
 	font-size: 1vw;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
 }
 
 .interaction.selected {
