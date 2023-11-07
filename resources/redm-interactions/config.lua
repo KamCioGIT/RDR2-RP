@@ -25,7 +25,7 @@ Config.Interactions = {
 	{
 		isCompatible = IsPedHuman,
 		objects = {"p_piano03x"},
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = {
 			{name = "PROP_HUMAN_PIANO", isCompatible = IsPedHumanMale},
 			{name = "PROP_HUMAN_ABIGAIL_PIANO", isCompatible = IsPedHumanFemale}
@@ -39,7 +39,7 @@ Config.Interactions = {
 	{
 		isCompatible = IsPedHuman,
 		objects = {"p_piano02x"},
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = {
 			{name = "PROP_HUMAN_PIANO", isCompatible = IsPedHumanMale},
 			{name = "PROP_HUMAN_ABIGAIL_PIANO", isCompatible = IsPedHumanFemale}
@@ -53,7 +53,7 @@ Config.Interactions = {
 	{
 		isCompatible = IsPedHuman,
 		objects = {"p_nbxpiano01x"},
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = {
 			{name = "PROP_HUMAN_PIANO", isCompatible = IsPedHumanMale},
 			{name = "PROP_HUMAN_ABIGAIL_PIANO", isCompatible = IsPedHumanFemale}
@@ -67,7 +67,7 @@ Config.Interactions = {
 	{
 		isCompatible = IsPedHuman,
 		objects = {"p_nbmpiano01x"},
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = {
 			{name = "PROP_HUMAN_PIANO", isCompatible = IsPedHumanMale},
 			{name = "PROP_HUMAN_ABIGAIL_PIANO", isCompatible = IsPedHumanFemale}
@@ -80,7 +80,7 @@ Config.Interactions = {
 	},
 	{
 		objects = {"sha_man_piano01"},
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = {
 			{name = "PROP_HUMAN_PIANO", isCompatible = IsPedHumanMale},
 			{name = "PROP_HUMAN_ABIGAIL_PIANO", isCompatible = IsPedHumanFemale}
@@ -197,7 +197,7 @@ Config.Interactions = {
 		isCompatible = IsPedHuman,
 		objects = GenericBenches,
 		label = "Droite",
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = GenericChairAndBenchScenarios,
 		x = -0.5,
 		y = 0.0,
@@ -208,7 +208,7 @@ Config.Interactions = {
 		isCompatible = IsPedHuman,
 		objects = GenericBenches,
 		label = "Gauche",
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = GenericChairAndBenchScenarios,
 		x = 0.5,
 		y = 0.0,
@@ -251,7 +251,7 @@ Config.Interactions = {
 			"p_bedindian02x",
 			"p_cot01x"
 		},
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = 0.0,
 		y = 0.0,
@@ -265,7 +265,7 @@ Config.Interactions = {
 			"p_cs_bed20madex"
 		},
 		label = "Droite",
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = -0.3,
 		y = -0.2,
@@ -279,7 +279,7 @@ Config.Interactions = {
 			"p_cs_bed20madex"
 		},
 		label = "Gauche",
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = 0.3,
 		y = -0.2,
@@ -293,7 +293,7 @@ Config.Interactions = {
 			"p_bed09x",
 			"p_bedindian01x",
 		},
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = 0.0,
 		y = 0.0,
@@ -304,7 +304,7 @@ Config.Interactions = {
 		objects = {
 			"p_bed05x"
 		},
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = 0.0,
 		y = -0.5,
@@ -318,7 +318,7 @@ Config.Interactions = {
 			"p_bed13x",
 			"p_bed22x"
 		},
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = 0.0,
 		y = -0.3,
@@ -330,7 +330,7 @@ Config.Interactions = {
 			"p_bed20x"
 		},
 		label = "Droite",
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = -0.3,
 		y = -0.2,
@@ -342,7 +342,7 @@ Config.Interactions = {
 			"p_bed20x"
 		},
 		label = "Gauche",
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = 0.3,
 		y = -0.2,
@@ -354,7 +354,7 @@ Config.Interactions = {
 			"p_bedking02x"
 		},
 		label = "Gauche",
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = -0.5,
 		y = 0.5,
@@ -366,7 +366,7 @@ Config.Interactions = {
 			"p_bedking02x"
 		},
 		label = "Droite",
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = 0.5,
 		y = 0.5,
@@ -398,7 +398,7 @@ Config.Interactions = {
 			"p_cs_roc_hse_bed",
 			"p_medbed01x"
 		},
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = 0.1,
 		y = 0.0,
@@ -410,7 +410,7 @@ Config.Interactions = {
 			"p_cs_bedsleptinbed08x"
 		},
 		label = "Gauche",
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = 0.3,
 		y = -0.3,
@@ -422,7 +422,7 @@ Config.Interactions = {
 			"p_cs_bedsleptinbed08x"
 		},
 		label = "Droite",
-		radius = 2.0,
+		radius = 0.7,
 		scenarios = BedScenarios,
 		x = 0.3,
 		y = 0.3,
@@ -431,7 +431,7 @@ Config.Interactions = {
 	},
 	-- Valentine bath
 	{
-		radius = 2.0,
+		radius = 0.7,
 		animations = BathingAnimations,
 		x = -317.01651,
 		y = 761.86,
@@ -441,7 +441,7 @@ Config.Interactions = {
 	},
 	-- Saint Denis bath
 	{
-		radius = 2.0,
+		radius = 0.7,
 		animations = BathingAnimations,
 		x = 2629.4099,
 		y = -1223.7757,
@@ -451,7 +451,7 @@ Config.Interactions = {
 	},
 	-- Strawberry bath
 	{
-		radius = 2.0,
+		radius = 0.7,
 		animations = BathingAnimations,
 		x = -1812.46838,
 		y = -373.23529,
@@ -461,7 +461,7 @@ Config.Interactions = {
 	},
 	-- Annesburg bath
 	{
-		radius = 2.0,
+		radius = 0.7,
 		animations = BathingAnimations,
 		x = 2952.804199,
 		y = 1335.031494,
@@ -471,7 +471,7 @@ Config.Interactions = {
 	},
 	-- Bronte mansion bath
 	{
-		radius = 2.0,
+		radius = 0.7,
 		animations = BathingAnimations,
 		x = 2365.649,
 		y = -1211.780,
@@ -481,7 +481,7 @@ Config.Interactions = {
 	},
 	-- Rhodes bath
 	{
-		radius = 2.0,
+		radius = 0.7,
 		animations = BathingAnimations,
 		x = 1336.350,
 		y = -1377.972,
@@ -491,7 +491,7 @@ Config.Interactions = {
 	},
 	-- Tumbleweed bath
 	{
-		radius = 2.0,
+		radius = 0.7,
 		animations = BathingAnimations,
 		x = -5513.196,
 		y = -2972.139,
@@ -501,7 +501,7 @@ Config.Interactions = {
 	},
 	-- Van Horn bath
 	{
-		radius = 2.0,
+		radius = 0.7,
 		animations = BathingAnimations,
 		x = 2987.698,
 		y = 573.760,
@@ -511,7 +511,7 @@ Config.Interactions = {
 	},
 	-- Blackwater bath
 	{
-		radius = 2.0,
+		radius = 0.7,
 		animations = BathingAnimations,
 		x = -823.362,
 		y = -1318.832,
@@ -524,7 +524,7 @@ Config.Interactions = {
 		objects = {
 			"p_bath03x"
 		},
-		radius = 2.0,
+		radius = 0.7,
 		animations = BathingAnimations,
 		x = -0.5,
 		y = 0.0,
