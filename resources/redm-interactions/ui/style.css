@@ -24,9 +24,9 @@ html, body {
 	transform: translate(0, -50%);
 	background: rgba(0, 0, 0, 0.5);
 	color: #D7D7D7;
-	border-radius: 15%;
-	padding-left: 10%;
-	padding-right: 10%;
+	border-radius: 3%;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 #interaction-picker-title {
