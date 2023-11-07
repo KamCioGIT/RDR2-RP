@@ -78692,25 +78692,7 @@ clothes_list = {
 					['is_multiplayer'] = true,
 					['ped_type'] = 'male'
 				}
-			},
-			[52] = {
-				[1] = {
-					['category_hash'] = 2727505819,
-					['category_hash_dec_signed'] = -1567461477,
-					['category_hashname'] = 'coats',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'male',
-					['drawable'] = `effufxxb_0x5123a13c`,
-					['albedo'] = `iysndqeb_0x7e928c45`,
-					['normal'] = `jebddsia_0x617606e0`,
-					['material'] = `wosbbupa_0x53f5e6cc`,
-					['palette'] = ``,
-					['tint0'] = 255,
-					['tint1'] = 255,
-					['tint2'] = 255
-				}
-			},
+			}
 		},
 		['coats_closed'] = {
 			[1] = {
@@ -81006,7 +80988,7 @@ clothes_list = {
 					['is_multiplayer'] = true,
 					['ped_type'] = 'male'
 				}
-			},
+			}
 		},
 		['eyewear'] = {
 			[1] = {
