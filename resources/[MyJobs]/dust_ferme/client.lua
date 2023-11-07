@@ -542,7 +542,7 @@ Citizen.CreateThread(function ()
                         stopPrompt = SetupPrompt(1, 0x8CC9CD42, id, "S'arrêter")
                     end
                     if not laitPrompt then
-                        laitPrompt = SetupPrompt(1, 0x760A9C6F, id, "Traire")
+                        laitPrompt = SetupPrompt(1, 0x80F28E95, id, "Traire")
                     end
                     if IsControlJustReleased(0, 0x8CC9CD42) and Entity(entity).state.grazing ~= true then
                         ClearPedTasks(entity)
