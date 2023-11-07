@@ -43,35 +43,39 @@ function openAccountScreen(type)
         end)
         TriggerServerEvent('banking:acctype', type)
     elseif type == "business" then
-        RedEM.TriggerCallback('qbr-banking:getBusinessInformation', function(banking)
-            if banking ~= nil then
-                InBank = true
-                SetNuiFocus(true, true)
-                SendNUIMessage({
-                    status = "openbank",
-                    information = banking
-                })
-
-                TriggerEvent("debug", 'Banking: Open UI', 2000, 0, 'hud_textures', 'check')
-            else
-                InBank = true
-                SetNuiFocus(true, true)
-                SendNUIMessage({
-                    status = "openbank",
-                    information = {
-                        ['name'] = 'Inconnu(e)',
-                        ['bankbalance'] = "Vous n'avez pas de compte",
-                        ['cash'] = "Vous n'avez pas de compte",
-                        ['accountinfo'] = "000000",
-                    }
-
-                })
-            end
-        end)
-        TriggerServerEvent('banking:acctype', type)
+        TriggerServerEvent("dust_banking:checkgrade")
     end
 end
 
+
+RegisterNetEvent("dust_banking:getgrade", function()
+    RedEM.TriggerCallback('qbr-banking:getBusinessInformation', function(banking)
+        if banking ~= nil then
+            InBank = true
+            SetNuiFocus(true, true)
+            SendNUIMessage({
+                status = "openbank",
+                information = banking
+            })
+
+            TriggerEvent("debug", 'Banking: Open UI', 2000, 0, 'hud_textures', 'check')
+        else
+            InBank = true
+            SetNuiFocus(true, true)
+            SendNUIMessage({
+                status = "openbank",
+                information = {
+                    ['name'] = 'Inconnu(e)',
+                    ['bankbalance'] = "Vous n'avez pas de compte",
+                    ['cash'] = "Vous n'avez pas de compte",
+                    ['accountinfo'] = "000000",
+                }
+
+            })
+        end
+    end)
+    TriggerServerEvent('banking:acctype', "business")
+end)
 
 RegisterNetEvent('qbr-banking:openBankScreen')
 AddEventHandler('qbr-banking:openBankScreen', function(type)

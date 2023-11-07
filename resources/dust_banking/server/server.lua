@@ -4,6 +4,18 @@ RegisterServerEvent('banking:acctype', function(type)
     info = type
 end)
 
+RegisterServerEvent("dust_banking:checkgrade", function(source)
+    local src = source
+    local xPlayer = RedEM.GetPlayer(src)
+    while xPlayer == nil do Wait(0) end
+    if (xPlayer) and tonumber(xPlayer.jobgrade) >= 3 then
+        TriggerClientEvent("dust_banking:getjob", src)
+    else 
+        RedEM.Functions.NotifyLeft("Banque", "Vous n'avez pas accés à ce compte.", "menu_textures", "menu_icon_alert", 4000)
+    end
+end)
+
+
 Citizen.CreateThread(function()
     local ready = 0
     local buis = 0
