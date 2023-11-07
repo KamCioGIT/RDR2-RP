@@ -106,13 +106,12 @@ Config.Interactions = {
 		objects = GenericChairs,
 		radius = 1.2,
 		scenarios = {
-			{name = "PROP_HUMAN_SEAT_CHAIR_DRINKING"}
+			{label = "Boire un coup", name = "PROP_HUMAN_SEAT_CHAIR_DRINKING"}
 		},
 		x = 0.0,
 		y = 0.05,
 		z = -0.1,
-		heading = 180.0,
-		label = "Boire un coup"
+		heading = 180.0
 	},
 	{
 		isCompatible = IsPedAdult,
@@ -145,13 +144,12 @@ Config.Interactions = {
 		objects = GenericChairs,
 		radius = 1.2,
 		scenarios = {
-			{name = "PROP_HUMAN_SEAT_BENCH_HARMONICA"}
+			{label = "Jouer de l'harmonica", name = "PROP_HUMAN_SEAT_BENCH_HARMONICA"}
 		},
 		x = 0.0,
 		y = -0.3,
 		z = 0.5,
-		heading = 180.0,
-		label = "Jouer de l'harmonica"
+		heading = 180.0
 	},
 	{
 		isCompatible = IsPedAdult,
