@@ -4,7 +4,7 @@ RegisterServerEvent('banking:acctype', function(type)
     info = type
 end)
 
-RegisterServerEvent("dust_banking:checkgrade", function(source)
+RegisterServerEvent("dust_banking:checkgrade", function()
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
     print (xPlayer.jobgrade)
@@ -13,7 +13,7 @@ RegisterServerEvent("dust_banking:checkgrade", function(source)
         print ('get')
         TriggerClientEvent("dust_banking:getgrade", src)
     else
-        TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Banque", "Vous n'avez pas accés à ce compte.", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+        TriggerClientEvent("redem_roleplay:NotifyLeft", src, "Banque", "Vous n'avez pas accés à ce compte.", "scoretimer_textures", "scoretimer_generic_cross", 4000)
     end
 end)
 
