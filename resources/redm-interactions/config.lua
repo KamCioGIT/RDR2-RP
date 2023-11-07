@@ -119,26 +119,26 @@ Config.Interactions = {
 		objects = GenericBenches,
 		radius = 1.5,
 		scenarios = {
-			{name = "PROP_HUMAN_SEAT_CHAIR_DRINKING"}
+			{label = "Boire un coup", name = "PROP_HUMAN_SEAT_CHAIR_DRINKING"}
 		},
 		x = 0.4,
 		y = -0.05,
 		z = -0.1,
 		heading = 180.0,
-		label = "Boire un coup, gauche"
+		label = "Gauche"
 	},
 	{
 		isCompatible = IsPedAdult,
 		objects = GenericBenches,
 		radius = 1.5,
 		scenarios = {
-			{name = "PROP_HUMAN_SEAT_CHAIR_DRINKING"}
+			{label = "Boire un coup", name = "PROP_HUMAN_SEAT_CHAIR_DRINKING"}
 		},
 		x = -0.4,
 		y = -0.05,
 		z = -0.1,
 		heading = 180.0,
-		label = "Boire un coup, droite"
+		label = "Droite"
 	},
 	{
 		isCompatible = IsPedHumanMale,
