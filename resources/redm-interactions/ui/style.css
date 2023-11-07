@@ -13,6 +13,7 @@ html, body {
 	background: none;
 	font-family: "Milonga";
 	font-size: 0.7vw;
+
 }
 
 #interaction-picker {
@@ -23,6 +24,8 @@ html, body {
 	transform: translate(0, -50%);
 	background: rgba(0, 0, 0, 0.5);
 	color: #D7D7D7;
+	border-radius: 15%;
+	padding: 10 0 10 0;
 }
 
 #interaction-picker-title {
