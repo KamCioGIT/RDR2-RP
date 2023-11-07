@@ -42,7 +42,7 @@ Config.Mask = {
 }
 
 Config.Eyes = {
-	[1] = vector3(2722.853, -1233.676, 50.36834), -- SAINT DENIS
+	[1] = vector3(2722.853, -1233.676, 49.36834), -- SAINT DENIS
 	[2] = vector3(-787.3041, -1302.636, 42.79637) ---- Blackwater 
 }
 
