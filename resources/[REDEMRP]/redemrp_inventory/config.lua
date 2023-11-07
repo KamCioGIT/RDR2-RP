@@ -3029,6 +3029,17 @@ Config.Items = {
     imgsrc = "items/kit_mask_brown_sack.png",
     type = "item_standard",
 },
+["lunettes"] = {
+    label = "Lunettes",
+    description = "On y voit clair",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/generic_clothing_glasses.png",
+    type = "item_standard",
+},
 
 ------- feu de camp -----------
 ["viandepetitmamiferecuite"] = {

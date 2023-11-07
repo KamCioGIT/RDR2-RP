@@ -41,6 +41,12 @@ Config.Mask = {
 	[2] = vector3(-847.2916, -1180.989, 43.55643) ---- Blackwater 
 }
 
+Config.Eyes = {
+	[1] = vector3(2722.853, -1233.676, 49.36834), -- SAINT DENIS
+	[2] = vector3(-787.3041, -1302.636, 42.79637) ---- Blackwater 
+}
+
+Config.Medic = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB'}
 Config.Label = {
 	["boot_accessories"] = "Accessoire de bottes",
 	["pants"] = "Pantalon",            	

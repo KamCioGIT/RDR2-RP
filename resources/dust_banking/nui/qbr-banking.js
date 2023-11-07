@@ -363,7 +363,7 @@ $(function() {
         } else {
             // Error doing withdraw
             $("#withdrawError").css({"display":"block"});
-            $("#withdrawErrorMsg").html('There was an error processing your withdraw, either the amount has not been entered, or is not a positive number');
+            $("#withdrawErrorMsg").html('Veuillez rentrer un montant valide.');
         }
     });
 
@@ -385,7 +385,7 @@ $(function() {
                 // Error doing withdraw
                 $("#withdrawATMErrorMsg").removeClass('alert-success').addClass('alert-danger');
                 $("#withdrawATMError").css({"display":"block"});
-                $("#withdrawATMErrorMsg").html('There was an error processing your withdraw, either the amount has not been entered, or is not a positive number');
+                $("#withdrawATMErrorMsg").html('Veuillez rentrer un montant valide.');
             }
         } else {
             $("#withdrawATMErrorMsg").removeClass('alert-success').addClass('alert-danger');

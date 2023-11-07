@@ -130,18 +130,12 @@ AddEventHandler('qbr-banking:server:registerSavingsAccount', function(cid)
 end)
 
 function createSavingsAccount(cid)
-    local completed = false
-    local success = false
     local getSavingsAccount = MySQL.query.await('SELECT * FROM bank_accounts WHERE citizenid = ? AND account_type = ? ', { cid, "Savings" })
     if getSavingsAccount[1] == nil then
         local accountno = math.random(100000, 999999)
         MySQL.insert.await('INSERT INTO bank_accounts (citizenid, balance, account_type, accountid) VALUES (?, ?, ?, ?)', { cid, 0, 'Savings', accountno}, function(result)
             savingsAccounts[cid] = generateSavings(cid)
-            success = true
-            completed = true
         end)
-        repeat Wait(0) until completed == true
-        return success
     end
 end
 

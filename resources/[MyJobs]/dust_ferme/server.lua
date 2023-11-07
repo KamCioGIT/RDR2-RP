@@ -26,7 +26,7 @@ end)
 RegisterServerEvent("fermier:retStash", function()
     local _source = source
 	if tonumber(RedEM.GetPlayer(_source).jobgrade) > 1 then
-        TriggerClientEvent("redemrp_inventory:OpenStash", _source, "ret_fermier", 3000.0)
+        TriggerClientEvent("redemrp_inventory:OpenStash", _source, "ret_fermier", 6000.0)
     end
 end)
 
@@ -207,7 +207,7 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 			for i = 1, #result do
 				local cd = os.time()
 				local level = result[i].level
-				local savedDate = result[i].date / 1000 -- Remplacez ceci par la date de votre base de données
+				local savedDate = result[i].date / 1000 
 				local timeDifference = os.difftime(cd, savedDate)
 				if timeDifference >= 64800 then
 					if level < 5 then
