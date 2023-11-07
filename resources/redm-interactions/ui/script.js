@@ -97,15 +97,15 @@ function showInteractionPicker(data) {
 		if (interaction.scenario) {
 			if (interaction.label) {
 				if (interaction.modelName) {
-					div.innerHTML = interaction.modelName + ': ' + interaction.scenario + ' (' + interaction.label + ')';
+					div.innerHTML = interaction.modelName + ': ' + interaction.animname + ' (' + interaction.label + ')';
 				} else {
 					div.innerHTML = interaction.scenario + ' (' + interaction.label + ')';
 				}
 			} else {
 				if (interaction.modelName) {
-					div.innerHTML = interaction.modelName + ': ' + interaction.scenario;
+					div.innerHTML = interaction.modelName + ': ' + interaction.animname;
 				} else {
-					div.innerHTML = interaction.scenario;
+					div.innerHTML = interaction.animname;
 				}
 			}
 		} else {
