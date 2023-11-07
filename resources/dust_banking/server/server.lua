@@ -7,13 +7,13 @@ end)
 RegisterServerEvent("dust_banking:checkgrade", function(source)
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
-    print 'serv'
+    print (xPlayer.jobgrade)
     while xPlayer == nil do Wait(0) end
     if (xPlayer) and tonumber(xPlayer.jobgrade) >= 3 then
         print ('get')
         TriggerClientEvent("dust_banking:getgrade", src)
-    else 
-        RedEM.Functions.NotifyLeft("Banque", "Vous n'avez pas accés à ce compte.", "menu_textures", "menu_icon_alert", 4000)
+    else
+        TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Banque", "Vous n'avez pas accés à ce compte.", "scoretimer_textures", "scoretimer_generic_cross", 4000)
     end
 end)
 
