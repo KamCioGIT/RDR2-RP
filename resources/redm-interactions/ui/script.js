@@ -88,6 +88,13 @@ function showInteractionPicker(data) {
 
 	var max = interactions.length > maxItems ? maxItems : interactions.length;
 
+	var div = document.createElement('div');
+	div.className = 'interaction';
+	div.innerHTML = "Arrêter l'animation";
+	div.setAttribute('data-cancel', '');
+	list.appendChild(div);
+
+
 	for (var i = 0; i < max; ++i) {
 		var interaction = interactions[i];
 
@@ -141,11 +148,6 @@ function showInteractionPicker(data) {
 		list.appendChild(div);
 	}
 
-	var div = document.createElement('div');
-	div.className = 'interaction';
-	div.innerHTML = "Arrêter l'animation";
-	div.setAttribute('data-cancel', '');
-	list.appendChild(div);
 
 	currentInteractions = max + 1;
 	selectedIndex = 0;

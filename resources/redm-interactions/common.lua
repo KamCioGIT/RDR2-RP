@@ -196,7 +196,7 @@ GenericBenches = {
 }
 
 GenericChairAndBenchScenarios = {
-    {label = "Banc générique", name = "GENERIC_SEAT_BENCH_SCENARIO"},
+    {label = "Banc", name = "GENERIC_SEAT_BENCH_SCENARIO"},
     {label = "Chaise", name = "GENERIC_SEAT_CHAIR_SCENARIO", isCompatible = IsPedHumanMale},
     {label = "Chaise, table", name = "GENERIC_SEAT_CHAIR_TABLE_SCENARIO"},
     {label = "Banc, boire", name = "MP_LOBBY_PROP_HUMAN_SEAT_BENCH_PORCH_DRINKING"},
