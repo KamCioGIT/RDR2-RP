@@ -5,7 +5,7 @@ local CurrentInteraction
 local CanStartInteraction = true
 local MaxRadius = 0.0
 
-local InteractPrompt = Uiprompt:new(Config.InteractControl, "Select Interaction", nil, false)
+local InteractPrompt = Uiprompt:new(Config.InteractControl, "Choisir une animation", nil, false)
 
 
 function IsPedUsingScenarioHash(ped, scenarioHash)
