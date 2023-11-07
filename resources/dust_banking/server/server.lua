@@ -7,10 +7,8 @@ end)
 RegisterServerEvent("dust_banking:checkgrade", function()
     local src = source
     local xPlayer = RedEM.GetPlayer(src)
-    print (xPlayer.jobgrade)
     while xPlayer == nil do Wait(0) end
     if (xPlayer) and tonumber(xPlayer.jobgrade) >= 3 then
-        print ('get')
         TriggerClientEvent("dust_banking:getgrade", src)
     else
         TriggerClientEvent("redem_roleplay:NotifyLeft", src, "Banque", "Vous n'avez pas accés à ce compte.", "scoretimer_textures", "scoretimer_generic_cross", 4000)
@@ -388,7 +386,6 @@ function AddToBank(accountid, amount)
             newbalance = tonumber(bankbalance) + tonumber(amount)
             
         end
-        print (newbalance, type(newbalance), accountid)
         MySQL.query("UPDATE `bank_accounts` SET `balance` = ? WHERE `accountid` = ? ", { newbalance, accountid})
     end
 end
