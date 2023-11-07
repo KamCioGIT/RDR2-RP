@@ -13,7 +13,7 @@ html, body {
 	background: none;
 	font-family: "Milonga";
 	font-size: 0.7vw;
-
+	box-shadow: 0px 0px 10px 8px #00000080;
 }
 
 #interaction-picker {
