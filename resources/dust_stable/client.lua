@@ -837,15 +837,13 @@ Citizen.CreateThread(function()
                     local quality = Citizen.InvokeNative(0x88EFFED5FE8B0B4A, holding) -- Native pour l'état de la carcasse
                     local model = GetEntityModel(holding)
                     if holding ~= false then
-                        print'holding'
                         if hold == 28 then
-                            print'28'
-                            if IsControlJustReleased(0, 0xC1989F95) then
+                            if IsControlJustReleased(0, 0x760A9C6F) then
                                 TriggerServerEvent("dust_stable:hunt:stock", quality, model, cart, Entity(cart).state.stashid, holding)
                             end
                         end
                     else
-                        if IsControlJustReleased(0, 0xC1989F95) then
+                        if IsControlJustReleased(0, 0x760A9C6F) then
                             TriggerServerEvent("dust_stable:hunt:retrieve", quality, model, cart, Entity(cart).state.stashid)
                         end
                     end
