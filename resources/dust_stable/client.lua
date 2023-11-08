@@ -839,7 +839,7 @@ Citizen.CreateThread(function()
                     if holding ~= false then
                         if hold == 28 then
                             if IsControlJustReleased(0, 0xC1989F95) then
-                                TriggerServerEvent("dust_stable:hunt:stock", quality, model, cart, Entity(cart).state.stashid)
+                                TriggerServerEvent("dust_stable:hunt:stock", quality, model, cart, Entity(cart).state.stashid, holding)
                             end
                         end
                     else
@@ -857,7 +857,8 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent("dust_stable:hunt:stockanim", function(cart, hauteur)
+RegisterNetEvent("dust_stable:hunt:stockanim", function(cart, hauteur, holding)
+    DeleteThis(holding)
     for k, v in pairs(Config.Hauteur) do
         if v.hauteur == hauteur then
             Citizen.InvokeNative(0x31F343383F19C987, cart, tonumber(v.value), true)
@@ -886,6 +887,20 @@ RegisterNetEvent("dust_stable:hunt:retrieveanim", function(qual, mod, cart, haut
     SetEntityCarcassType(animal, qual)
 end)
 
+function DeleteThis(holding) -- Delete carcasse
+    NetworkRequestControlOfEntity(holding)
+    SetEntityAsMissionEntity(holding, true, true)
+    Wait(100)
+    DeleteEntity(holding)
+    Wait(500)
+    local entitycheck = Citizen.InvokeNative(0xD806CD2A4F2C2996, PlayerPedId())
+    local holdingcheck = GetPedType(entitycheck)
+    if holdingcheck == 0 then
+        return true
+    else
+        return false
+    end
+end
 ------- META/STATUS CHEVAUX -----
 
 RegisterNetEvent('dust_stable:brosse')
