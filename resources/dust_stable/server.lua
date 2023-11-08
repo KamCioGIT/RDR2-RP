@@ -467,7 +467,8 @@ RegisterServerEvent("dust_stable:hunt:retrieve", function(cart, stashid)
 		if result[1] then
 			local meta = json.decode(result[1].meta)
 			if #meta >= 1 then
-				local animal = table.remove(meta, 1)
+				print(meta[1].mod, meta[1].qual)
+				table.remove(meta, 1)
 				local hauteur = #meta
 				TriggerClientEvent("dust_stable:hunt:retrieveanim", source, animal.qual, animal.mod, cart, hauteur)
 			else return end
