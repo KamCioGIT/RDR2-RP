@@ -1097,6 +1097,12 @@ Config.Cart = {
 		desc = "Parfaite pour les voyages dans l'Ouest sauvage",
         price = 150,
     },
+    huntercart01= {
+		model = "huntercart01",
+		name = "Charrette Chasseur",
+		desc = "Pour les bons et les mauvais",
+        price = 80,
+    },
 }
 
 Config.Label = {
