@@ -831,8 +831,7 @@ Citizen.CreateThread(function()
         local cart = lib.getClosestVehicle(coords, 3.0, false)
         if cart then
             if Entity(cart).state.stashid then
-                print (GetEntityModel(cart))
-                if GetEntityModel(cart) == GetHashKey("huntercart01") then
+                if GetEntityModel(cart) == -1698498246 then
                     local holding = Citizen.InvokeNative(0xD806CD2A4F2C2996, PlayerPedId())
                     local hold = GetPedType(holding)
                     local quality = Citizen.InvokeNative(0x88EFFED5FE8B0B4A, holding) -- Native pour l'état de la carcasse
