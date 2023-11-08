@@ -10,6 +10,7 @@ isInteracting = false;
 Citizen.CreateThread(function()
     while true do
         Wait(Config.RefreshRumors)
+        currentrumors = nil
         TriggerServerEvent("dust_rumors:server:askRumor")
     end
 end)
@@ -45,7 +46,6 @@ Citizen.CreateThread(function()
         if size > 0 then
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
-                local model = GetEntityModel(entity)
 
                 local boolA = Citizen.InvokeNative(0x9A100F1CF4546629, entity)
                 if IsEntityAPed(entity) and not IsPedAPlayer(entity) and not Citizen.InvokeNative(0x9A100F1CF4546629, entity) then
@@ -53,6 +53,7 @@ Citizen.CreateThread(function()
                         if IsEntityDead(entity) == false then
                             if boolA ~= nil and boolA == false then
                                 if currentrumors ~= nil and #currentrumors > 0 then
+                                    print (#currentrumors)
                                     TriggerEvent("rumors:DrawText3D", entity)
                                 end
                             end

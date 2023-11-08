@@ -36,7 +36,6 @@ AddEventHandler("dust_rumors:server:askRumor", function()
                 if timeDifference <= dateisvalid then
                     table.insert(rumorsTable, tostring(rumorText))
                 else
-                    print (rumorText, formatdate)
                     MySQL.query('DELETE FROM rumors WHERE `rumorText` = @rumorText AND `date` = @date;', {rumorText = rumorText, date = os.date("%Y-%m-%d %H:%M:%S", formatdate)})
                 end
 			end
