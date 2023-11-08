@@ -39,7 +39,6 @@ em {
 
 .chat-window {
   position: absolute;
-  display: none;
   top: 1.5%;
   left: 0.8%;
   width: 38%;
