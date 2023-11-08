@@ -443,6 +443,7 @@ RegisterServerEvent("dust_stable:hunt:stock", function(quality, model, cart, sta
 		if result[1] then
 			meta = {}
 			local meta = result[1].meta
+			print (meta)
 			if #meta <= 10 then
 				table.insert(meta, {qual = quality, mod = model})
 				local hauteur = #meta
