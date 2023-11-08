@@ -12,7 +12,7 @@ Config.Jobs = {
     [9] = "doctor_GB",
 }
 
-Config.AnimDict = "amb_work@world_human_seat_chair@mortar_pestle@mortar@female_a@base"
+Config.AnimDict = "amb_work@prop_human_seat_chair@mortar_pestle@mortar@female_a@base"
 Config.CraftAnim = "base"
 
 Config.DistanceToInteract = 1.7

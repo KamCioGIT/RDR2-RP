@@ -421,7 +421,6 @@ RegisterNetEvent("poison:menu", function(poisontable)
             ClearPedTasks(PlayerPedId())
             Gourde = false
             TriggerServerEvent("redemrp_inventory:ChangePoison", data.current.value)
-
         end,
 
         function(data, menu)
@@ -433,6 +432,5 @@ RegisterNetEvent("poison:menu", function(poisontable)
 end)
 
 RegisterNetEvent("doctor:getpoison", function()
-    print 'get'
     TriggerEvent("dust_maladie:poison")
 end)
