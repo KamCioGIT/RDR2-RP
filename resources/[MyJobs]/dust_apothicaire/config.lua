@@ -742,12 +742,223 @@ Config.CraftingsReceipeMortier = {
 }
 
 
-Config.PoisonReceipe = {
+Config.PoisonRecipe = {
     ['lemonade'] = {
-        ItemToPoison= 'lemonade',
+        ItemToPoison = 'lemonade',
         ItemAmount = 1,
         label = 'Limonade empoisonnée',
     },
+    ['tabacchiquer'] = {
+        ItemToPoison = 'tabacchiquer',
+        ItemAmount = 1,
+        label = 'Tabac chiqué empoisonné',
+    },
+    ['gin'] = {
+        ItemToPoison = 'gin',
+        ItemAmount = 1,
+        label = 'Gin empoisonné',
+    },
+    ['mezcal'] = {
+        ItemToPoison = 'mezcal',
+        ItemAmount = 1,
+        label = 'Mezcal empoisonné',
+    },
+    ['wine'] = {
+        ItemToPoison = 'wine',
+        ItemAmount = 1,
+        label = 'Vin empoisonné',
+    },
+    ['champagne'] = {
+        ItemToPoison = 'champagne',
+        ItemAmount = 1,
+        label = 'Champagne empoisonné',
+    },
+    ['water'] = {
+        ItemToPoison = 'water',
+        ItemAmount = 1,
+        label = 'Eau empoisonnée',
+    },
+    ['bread'] = {
+        ItemToPoison = 'bread',
+        ItemAmount = 1,
+        label = 'Pain empoisonné',
+    },
+    ['goulash'] = {
+        ItemToPoison = 'goulash',
+        ItemAmount = 1,
+        label = 'Goulash empoisonné',
+    },
+    ['beer'] = {
+        ItemToPoison = 'beer',
+        ItemAmount = 1,
+        label = 'Biére empoisonnée',
+    },
+    ['good_whisky'] = {
+        ItemToPoison = 'good_whisky',
+        ItemAmount = 1,
+        label = 'Whisky de qualité empoisonné',
+    },
+    ['dirty_whiskey'] = {
+        ItemToPoison = 'dirty_whiskey',
+        ItemAmount = 1,
+        label = 'Whiskey sale empoisonné',
+    },
+    ['cigar'] = {
+        ItemToPoison = 'cigar',
+        ItemAmount = 1,
+        label = 'Cigare empoisonné',
+    },
+    ['cigarettes'] = {
+        ItemToPoison = 'cigarettes',
+        ItemAmount = 1,
+        label = 'Cigarettes empoisonnées',
+    },
+    ['coffee'] = {
+        ItemToPoison = 'coffee',
+        ItemAmount = 1,
+        label = 'Café empoisonné',
+    },
+    ['viandepetitmamiferecuite'] = {
+        ItemToPoison = 'viandepetitmamiferecuite',
+        ItemAmount = 1,
+        label = 'Viande de petit mammifère cuite empoisonnée',
+    },
+    ['viandevolaillecuite'] = {
+        ItemToPoison = 'viandevolaillecuite',
+        ItemAmount = 1,
+        label = 'Viande de volaille cuite empoisonnée',
+    },
+    ['viandereptilecuite'] = {
+        ItemToPoison = 'viandereptilecuite',
+        ItemAmount = 1,
+        label = 'Viande de reptile cuite empoisonnée',
+    },
+    ['gibierherbe'] = {
+        ItemToPoison = 'gibierherbe',
+        ItemAmount = 1,
+        label = "Gibier à l'herbe empoisonné",
+    },
+    ['viandeherbe'] = {
+        ItemToPoison = 'viandeherbe',
+        ItemAmount = 1,
+        label = "Viande à l'herbe empoisonnée",
+    },
+    ['soupe'] = {
+        ItemToPoison = 'soupe',
+        ItemAmount = 1,
+        label = 'Soupe empoisonnée',
+    },
+    ['ragoutgibier'] = {
+        ItemToPoison = 'ragoutgibier',
+        ItemAmount = 1,
+        label = 'Ragoût de gibier empoisonné',
+    },
+    ['ragoutviande'] = {
+        ItemToPoison = 'ragoutviande',
+        ItemAmount = 1,
+        label = 'Ragoût de viande empoisonné',
+    },
+    ['tourtegibier'] = {
+        ItemToPoison = 'tourtegibier',
+        ItemAmount = 1,
+        label = 'Tourte de gibier empoisonnée',
+    },
+    ['tourteviande'] = {
+        ItemToPoison = 'tourteviande',
+        ItemAmount = 1,
+        label = 'Tourte de viande empoisonnée',
+    },
+    ['tourtevolaille'] = {
+        ItemToPoison = 'tourtevolaille',
+        ItemAmount = 1,
+        label = 'Tourte de volaille empoisonnée',
+    },
+    ['ragoutvolaille'] = {
+        ItemToPoison = 'ragoutvolaille',
+        ItemAmount = 1,
+        label = 'Ragoût de volaille empoisonné',
+    },
+    ['brochettegibier'] = {
+        ItemToPoison = 'brochettegibier',
+        ItemAmount = 1,
+        label = 'Brochette de gibier empoisonnée',
+    },
+    ['brochetteviande'] = {
+        ItemToPoison = 'brochetteviande',
+        ItemAmount = 1,
+        label = 'Brochette de viande empoisonnée',
+    },
+    ['brochettevolaille'] = {
+        ItemToPoison = 'brochettevolaille',
+        ItemAmount = 1,
+        label = 'Brochette de volaille empoisonnée',
+    },
+    ['pain'] = {
+        ItemToPoison = 'pain',
+        ItemAmount = 1,
+        label = 'Pain empoisonné',
+    },
+    ['gateau'] = {
+        ItemToPoison = 'gateau',
+        ItemAmount = 1,
+        label = 'Gâteau empoisonné',
+    },
+    ['tartemyrtille'] = {
+        ItemToPoison = 'tartemyrtille',
+        ItemAmount = 1,
+        label = 'Tarte aux myrtilles empoisonnée',
+    },
+    ['soupechampignon'] = {
+        ItemToPoison = 'soupechampignon',
+        ItemAmount = 1,
+        label = 'Soupe aux champignons empoisonnée',
+    },
+    ['beefsteakpatate'] = {
+        ItemToPoison = 'beefsteakpatate',
+        ItemAmount = 1,
+        label = 'Bœuf steak et pommes de terre empoisonnés',
+    },
+    ['boeufaugin'] = {
+        ItemToPoison = 'boeufaugin',
+        ItemAmount = 1,
+        label = 'Bœuf augin empoisonné',
+    },
+    ['cotedeboeuf'] = {
+        ItemToPoison = 'cotedeboeuf',
+        ItemAmount = 1,
+        label = 'Côte de bœuf empoisonnée',
+    },
+    ['bouteillelait'] = {
+        ItemToPoison = 'bouteillelait',
+        ItemAmount = 1,
+        label = 'Bouteille de lait empoisonnée',
+    },
+    ['cigaretteopium'] = {
+        ItemToPoison = 'cigaretteopium',
+        ItemAmount = 1,
+        label = "Cigarette à l'opium empoisonnée",
+    },
+    ['pipeopium'] = {
+        ItemToPoison = 'pipeopium',
+        ItemAmount = 1,
+        label = "Pipe à l'opium empoisonnée",
+    },
+    ['antibiotic'] = {
+        ItemToPoison = 'antibiotic',
+        ItemAmount = 1,
+        label = 'Antibiotique empoisonné',
+    },
+    ['antidysentrie'] = {
+        ItemToPoison = 'antidysentrie',
+        ItemAmount = 1,
+        label = 'Antidysenterie empoisonnée',
+    },
+    ['concoctionanesthesiante'] = {
+        ItemToPoison = 'concoctionanesthesiante',
+        ItemAmount = 1,
+        label = 'Concoction anesthésiante empoisonnée',
+    },
 }
+
 
 
