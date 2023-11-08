@@ -444,7 +444,7 @@ RegisterServerEvent("dust_stable:hunt:stock", function(quality, model, cart, sta
 		if result[1] then
 			meta = json.decode(result[1].meta)
 			if #meta <= 10 then
-				meta[model]=qual
+				meta[model]=quality
 				local newmeta = json.encode(meta)
 				MySQL.update('UPDATE stable SET `meta`=@meta WHERE `stashid`=@stashid;',
 				{
@@ -467,7 +467,7 @@ RegisterServerEvent("dust_stable:hunt:retrieve", function(cart, stashid)
 		if result[1] then
 			meta = json.decode(result[1].meta)
 			print (type(meta))
-			print(meta[1])
+			print(meta[1].mod, meta[1].qual)
 			if #meta >= 1 then
 				table.remove(meta, 1)
 				local hauteur = #meta
