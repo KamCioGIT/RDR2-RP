@@ -831,9 +831,20 @@ Citizen.CreateThread(function()
         local cart = lib.getClosestVehicle(coords, 3.0, false)
         if cart then
             if Entity(cart).state.stashid then
-                -- TriggerEvent('dust_presskey', "Appuyez sur G")
-                if IsControlJustReleased(0, 0xC1989F95) then
-                    TriggerEvent("redemrp_inventory:OpenStash", Entity(cart).state.stashid, Entity(cart).state.stashweight)
+                if GetEntityModel(cart) == "huntercart01" then
+                    local holding = Citizen.InvokeNative(0xD806CD2A4F2C2996, PlayerPedId())
+                    local hold = GetPedType(holding)
+                    local quality = Citizen.InvokeNative(0x88EFFED5FE8B0B4A, holding) -- Native pour l'état de la carcasse
+                    local model = GetEntityModel(holding)
+                    if holding ~= false and hold == 28 then
+                        if IsControlJustReleased(0, 0xC1989F95) then
+                            TriggerServerEvent("dust_stable:hunt:stock", quality, model)
+                        end
+                    end
+                else
+                    if IsControlJustReleased(0, 0xC1989F95) then
+                        TriggerEvent("redemrp_inventory:OpenStash", Entity(cart).state.stashid, Entity(cart).state.stashweight)
+                    end
                 end
             end
         end
