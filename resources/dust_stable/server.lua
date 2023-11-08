@@ -432,6 +432,41 @@ RegisterServerEvent('dust_stable:server:depophorse', function(horseid)
 end)
 
 
+
+---- huntcart
+
+RegisterServerEvent("dust_stable:hunt:stock", function(quality, model, cart, stashid)
+	MySQL.query('SELECT * FROM stable WHERE `stashid`=@stashid;',
+	{
+		stashid = stashid
+	}, function(result)
+		if result[1] then
+			local meta = result[1].meta
+			if #meta <= 10 then
+				table.insert(meta, {qual = quality, mod = model})
+				local hauteur = #meta
+				TriggerClientEvent("dust_stable:hunt:stockanim", source, cart, hauteur)
+			else return end
+		end
+	end)  
+end)
+
+RegisterServerEvent("dust_stable:hunt:retrieve", function(cart, stashid)
+	MySQL.query('SELECT * FROM stable WHERE `stashid`=@stashid;',
+	{
+		stashid = stashid
+	}, function(result)
+		if result[1] then
+			local meta = result[1].meta
+			if #meta >= 1 then
+				local animal = table.remove(meta, 1)
+				local hauteur = #meta
+				TriggerClientEvent("dust_stable:hunt:retrieveanim", source, animal.qual, animal.mod, cart, hauteur)
+			else return end
+		end
+	end)  
+end)
+
 ------- META/STATUS CHEVAUX -----
 ----HORSE ITEMS
 RegisterServerEvent("RegisterUsableItem:horsereviver")

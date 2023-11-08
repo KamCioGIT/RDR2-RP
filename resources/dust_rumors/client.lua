@@ -53,7 +53,6 @@ Citizen.CreateThread(function()
                         if IsEntityDead(entity) == false then
                             if boolA ~= nil and boolA == false then
                                 if currentrumors ~= nil and #currentrumors > 0 then
-                                    print (#currentrumors)
                                     TriggerEvent("rumors:DrawText3D", entity)
                                 end
                             end

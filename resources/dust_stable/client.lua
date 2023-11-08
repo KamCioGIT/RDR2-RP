@@ -836,9 +836,15 @@ Citizen.CreateThread(function()
                     local hold = GetPedType(holding)
                     local quality = Citizen.InvokeNative(0x88EFFED5FE8B0B4A, holding) -- Native pour l'état de la carcasse
                     local model = GetEntityModel(holding)
-                    if holding ~= false and hold == 28 then
+                    if holding ~= false then
+                        if hold == 28 then
+                            if IsControlJustReleased(0, 0xC1989F95) then
+                                TriggerServerEvent("dust_stable:hunt:stock", quality, model, cart, Entity(cart).state.stashid)
+                            end
+                        end
+                    else
                         if IsControlJustReleased(0, 0xC1989F95) then
-                            TriggerServerEvent("dust_stable:hunt:stock", quality, model)
+                            TriggerServerEvent("dust_stable:hunt:retrieve", quality, model, cart, Entity(cart).state.stashid)
                         end
                     end
                 else
@@ -851,6 +857,34 @@ Citizen.CreateThread(function()
     end
 end)
 
+RegisterNetEvent("dust_stable:hunt:stockanim", function(cart, hauteur)
+    for k, v in pairs(Config.Hauteur) do
+        if v.hauteur == hauteur then
+            Citizen.InvokeNative(0x31F343383F19C987, cart, tonumber(v.value), true)
+        end
+    end
+end)
+
+RegisterNetEvent("dust_stable:hunt:retrieveanim", function(qual, mod, cart, hauteur)
+    for k, v in pairs(Config.Hauteur) do
+        if v.hauteur == hauteur then
+            Citizen.InvokeNative(0x31F343383F19C987, cart, tonumber(v.value), true)
+        end
+    end
+    if type(mod) == 'number' then 
+        modelHash = mod
+    end
+    if not HasModelLoaded(modelHash) then
+        RequestModel(modelHash)
+        while not HasModelLoaded(modelHash) do
+            Citizen.Wait(10)
+        end
+    end
+    local ped = PlayerPedId()
+    local spawnPosition = GetOffsetFromEntityInWorldCoords(ped, 0.0, 1.0, 0.0)
+    local animal = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped) - 90.0, true, true)
+    SetEntityCarcassType(animal, qual)
+end)
 
 ------- META/STATUS CHEVAUX -----
 
