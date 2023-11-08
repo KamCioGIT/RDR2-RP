@@ -208,6 +208,29 @@ Config.Jobs = {
             },
         }
     },
+    ["store_stdenis"] = {
+        bigjob = "store",
+        Name = "Saint-Denis Store",
+        blisprite = 1475879922,
+        MenuLocations = 
+            vector3(2822.861, -1319.344, 45.75267)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Ouvrier",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Contremaître",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
     ["forge"] = {
         bigjob = "forge",
         Name = "McKinnon's Metalworks",
