@@ -213,7 +213,7 @@ Config.Jobs = {
         Name = "Saint-Denis Store",
         blisprite = 1475879922,
         MenuLocations = 
-            vector3(2822.861, -1319.344, 45.75267)
+            vector3(2822.861, -1319.344, 45.95267)
         ,
         Grades = {
             [1] = {
