@@ -445,9 +445,10 @@ RegisterServerEvent("dust_stable:hunt:stock", function(quality, model, cart, sta
 			local meta = json.decode(result[1].meta)
 			if #meta <= 10 then
 				table.insert(meta, {qual = quality, mod = model})
+				local newmeta = json.encode(meta)
 				MySQL.update('UPDATE stable SET `meta`=@meta WHERE `stashid`=@stashid;',
 				{
-					meta = meta,
+					meta = newmeta,
 					stashid = stashid
 				}, function(rowsChanged)
 				end)  
