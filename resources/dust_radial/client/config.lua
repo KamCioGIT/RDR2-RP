@@ -94,7 +94,7 @@ Config.Cooldown = 60000
 Config.Price = {
     [GetHashKey("Strawberry")] = {
         ["moonshine"] = {label="Moonshine", price = 1},
-        ["laitpavot"] = {label="Lait de Pavot", price = 1},
+        ["laitpavot"] = {label="Lait de Pavot", price = 1.5},
         ["pipeopium"] = {label="Pipe d'opium", price = 0.9},
         ["cigaretteopium"] = {label="Cigarette d'opium", price = 1.2},
         ["pavot"] = {label="Pavot", price = 0.5},
@@ -143,7 +143,7 @@ Config.Price = {
     },
     [GetHashKey("Blackwater")] = {
         ["moonshine"] = {label="Moonshine", price = 1},
-        ["laitpavot"] = {label="Lait de Pavot", price = 1},
+        ["laitpavot"] = {label="Lait de Pavot", price = 1.5},
         ["pipeopium"] = {label="Pipe d'opium", price = 0.9},
         ["cigaretteopium"] = {label="Cigarette d'opium", price = 1.2},
         ["pavot"] = {label="Pavot", price = 0.5},
@@ -192,7 +192,7 @@ Config.Price = {
     },
     [GetHashKey("Rhodes")] = {
         ["moonshine"] = {label="Moonshine", price = 1},
-        ["laitpavot"] = {label="Lait de Pavot", price = 1},
+        ["laitpavot"] = {label="Lait de Pavot", price = 1.7},
         ["pipeopium"] = {label="Pipe d'opium", price = 1.1},
         ["cigaretteopium"] = {label="Cigarette d'opium", price = 1.4},
         ["pavot"] = {label="Pavot", price = 0.5},
@@ -241,7 +241,7 @@ Config.Price = {
     },
     [GetHashKey("StDenis")] = {
         ["moonshine"] = {label="Moonshine", price = 0.9},
-        ["laitpavot"] = {label="Lait de Pavot", price = 0.9},
+        ["laitpavot"] = {label="Lait de Pavot", price = 1.3},
         ["pipeopium"] = {label="Pipe d'opium", price = 0.9},
         ["cigaretteopium"] = {label="Cigarette d'opium", price = 1.1},
         ["pavot"] = {label="Pavot", price = 0.4},

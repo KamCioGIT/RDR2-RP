@@ -267,8 +267,81 @@ Config.CraftingsReceipe = {
         label = "Lasso",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x3"}}
     },
-    
-    
-    
-    
+    ['corpsalambic'] = {
+        type = 'forgeenclume',
+        Itemtocraft = 3,
+        ItemReceipe1Name = 'cuivrepepite',
+        ItemReceipe1Amount = 300,
+        ItemReceipe2Name = 'ferpepite',
+        ItemReceipe2Amount = 50,
+        ItemReceipe3Name = 'charbon',
+        ItemReceipe3Amount = 50,
+        ItemToGive = 'corpsalambic',
+        Amount = 1,
+        WorkingTime = 30,
+        label = "Corps d'Alambic",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x300"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x50"}}
+    },
+    ['condenseuralambic'] = {
+        type = 'forgeenclume',
+        Itemtocraft = 3,
+        ItemReceipe1Name = 'cuivrepepite',
+        ItemReceipe1Amount = 100,
+        ItemReceipe2Name = 'ferpepite',
+        ItemReceipe2Amount = 10,
+        ItemReceipe3Name = 'charbon',
+        ItemReceipe3Amount = 10,
+        ItemToGive = 'condenseuralambic',
+        Amount = 1,
+        WorkingTime = 30,
+        label = "Condenseur d'Alambic",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x300"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x50"}}
+    },
+    ['colalambic'] = {
+        type = 'forgeenclume',
+        Itemtocraft = 3,
+        ItemReceipe1Name = 'cuivrepepite',
+        ItemReceipe1Amount = 100,
+        ItemReceipe2Name = 'ferpepite',
+        ItemReceipe2Amount = 20,
+        ItemReceipe3Name = 'charbon',
+        ItemReceipe3Amount = 10,
+        ItemToGive = 'colalambic',
+        Amount = 1,
+        WorkingTime = 30,
+        label = "Col de cygne pour Alambic",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x300"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x50"}}
+    },
+    ['chapiteaualambic'] = {
+        type = 'forgeenclume',
+        Itemtocraft = 3,
+        ItemReceipe1Name = 'cuivrepepite',
+        ItemReceipe1Amount = 100,
+        ItemReceipe2Name = 'ferpepite',
+        ItemReceipe2Amount = 20,
+        ItemReceipe3Name = 'charbon',
+        ItemReceipe3Amount = 10,
+        ItemToGive = 'chapiteaualambic',
+        Amount = 1,
+        WorkingTime = 30,
+        label = "Chapiteau d'Alambic",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x300"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x50"}}
+    },
+    ['alambic'] = {
+        type = 'forgeenclume',
+        Itemtocraft = 4,
+        ItemReceipe1Name = 'corpsalambic',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'condenseuralambic',
+        ItemReceipe2Amount = 1,
+        ItemReceipe3Name = 'colalambic',
+        ItemReceipe3Amount = 1,
+        ItemReceipe4Name = 'chapiteaualambic',
+        ItemReceipe4Amount = 1,
+        ItemToGive = 'alambic',
+        Amount = 1,
+        WorkingTime = 30,
+        label = "Alambic",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/moonshine_pot.png', text = "Corps d'Alambic",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/pipe.png', text = "Condenseur d'Alambic",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/pen.png', text = "Col de cygne pour Alambic",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_thimbleab.png', text = "Chapiteau d'Alambic",count = "x1"}}
+    },
 }

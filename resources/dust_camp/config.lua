@@ -470,6 +470,19 @@ Config.CraftingsReceipe = {
         label = "Cigarette d'opium",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/opium_smokable.png', text = "Résine de pavot",count = "x1"},{src = 'nui://redemrp_inventory/html/items/cigarette.png', text = "Cigarette",count = "x1"}}
     },
+    ['laitpavot'] = {
+        type = 'cauldron',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'resinepavot',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'bouteillelait',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'laitpavot',
+        Amount = 1,
+        WorkingTime = 5,
+        label = "Lait de Pavot",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/opium_smokable.png', text = "Résine de pavot",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_offal.png', text = "Bouteille de lait",count = "x1"}}
+    },
 
     ['ammo_arrow_poison'] = {
         type = 'fire',
