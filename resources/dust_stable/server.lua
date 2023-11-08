@@ -466,6 +466,7 @@ RegisterServerEvent("dust_stable:hunt:retrieve", function(cart, stashid)
 	}, function(result)
 		if result[1] then
 			local meta = json.decode(result[1].meta)
+			print(meta[1].mod, meta[1].qual)
 			if #meta >= 1 then
 				print(meta[1].mod, meta[1].qual)
 				table.remove(meta, 1)
