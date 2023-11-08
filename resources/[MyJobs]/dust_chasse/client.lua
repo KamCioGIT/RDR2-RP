@@ -180,9 +180,9 @@ end
 
 -- DRAW TEXT ON SCREEEN w/ BACKGROUND
 
--- RegisterCommand('cart', function()
---     huntcart()
--- end)
+RegisterCommand('cart', function()
+    huntcart()
+end)
 
 local huntingwagonstash = {
     [1] = nil,
