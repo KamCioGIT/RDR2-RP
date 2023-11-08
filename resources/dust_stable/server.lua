@@ -459,7 +459,7 @@ RegisterServerEvent("dust_stable:hunt:retrieve", function(cart, stashid)
 		stashid = stashid
 	}, function(result)
 		if result[1] then
-			local meta = result[1].meta
+			local meta = jsoon.decode(result[1].meta)
 			if #meta >= 1 then
 				local animal = table.remove(meta, 1)
 				local hauteur = #meta
