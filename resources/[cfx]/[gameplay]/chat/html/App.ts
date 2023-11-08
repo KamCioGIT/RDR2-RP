@@ -189,7 +189,7 @@ export default Vue.extend({
           this.showWindow = false;
         }
       } else if (this.hideState === ChatHideStates.AlwaysShow) {
-        this.showWindow = true;
+        this.showWindow = false;
         if (this.showWindowTimer) {
           clearTimeout(this.showWindowTimer);
         }
@@ -198,7 +198,7 @@ export default Vue.extend({
       }
 
       if (fromUserInteraction) {
-        this.showHideState = true;
+        this.showHideState = false;
 
         if (this.showHideStateTimer) {
           clearTimeout(this.showHideStateTimer);

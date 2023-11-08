@@ -10,5 +10,5 @@ Config.ShareRumorSpot = {
 }
 
 Config.RumorPrice = 0.1
-Config.Rumorstime = 5 -- en minutes
+Config.Rumorstime = 3 -- en minutes
 Config.RefreshRumors = 10000 -- en ms

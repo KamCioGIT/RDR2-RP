@@ -831,14 +831,20 @@ Citizen.CreateThread(function()
         local cart = lib.getClosestVehicle(coords, 3.0, false)
         if cart then
             if Entity(cart).state.stashid then
-                if GetEntityModel(cart) == "huntercart01" then
+                if GetEntityModel(cart) == -1698498246 then
                     local holding = Citizen.InvokeNative(0xD806CD2A4F2C2996, PlayerPedId())
                     local hold = GetPedType(holding)
                     local quality = Citizen.InvokeNative(0x88EFFED5FE8B0B4A, holding) -- Native pour l'état de la carcasse
                     local model = GetEntityModel(holding)
-                    if holding ~= false and hold == 28 then
-                        if IsControlJustReleased(0, 0xC1989F95) then
-                            TriggerServerEvent("dust_stable:hunt:stock", quality, model)
+                    if holding ~= false then
+                        if hold == 28 then
+                            if IsControlJustReleased(0, 0x760A9C6F) then
+                                TriggerServerEvent("dust_stable:hunt:stock", quality, model, cart, Entity(cart).state.stashid, holding)
+                            end
+                        end
+                    else
+                        if IsControlJustReleased(0, 0x760A9C6F) then
+                            TriggerServerEvent("dust_stable:hunt:retrieve", quality, model, cart, Entity(cart).state.stashid)
                         end
                     end
                 else
@@ -851,7 +857,50 @@ Citizen.CreateThread(function()
     end
 end)
 
+RegisterNetEvent("dust_stable:hunt:stockanim", function(cart, hauteur, holding)
+    DeleteThis(holding)
+    for k, v in pairs(Config.Hauteur) do
+        if k == hauteur then
+            Citizen.InvokeNative(0x31F343383F19C987, cart, tonumber(v), true)
+        end
+    end
+end)
 
+RegisterNetEvent("dust_stable:hunt:retrieveanim", function(qual, mod, cart, hauteur)
+    for k, v in pairs(Config.Hauteur) do
+        if k == hauteur then
+            Citizen.InvokeNative(0x31F343383F19C987, cart, tonumber(v), true)
+        end
+    end
+    if type(mod) == 'number' then 
+        modelHash = mod
+    end
+    if not HasModelLoaded(modelHash) then
+        RequestModel(modelHash)
+        while not HasModelLoaded(modelHash) do
+            Citizen.Wait(10)
+        end
+    end
+    local ped = PlayerPedId()
+    local spawnPosition = GetOffsetFromEntityInWorldCoords(ped, 0.0, 1.0, 0.0)
+    local animal = CreatePed(modelHash, spawnPosition, GetEntityHeading(ped) - 90.0, true, true)
+    SetEntityCarcassType(animal, qual)
+end)
+
+function DeleteThis(holding) -- Delete carcasse
+    NetworkRequestControlOfEntity(holding)
+    SetEntityAsMissionEntity(holding, true, true)
+    Wait(100)
+    DeleteEntity(holding)
+    Wait(500)
+    local entitycheck = Citizen.InvokeNative(0xD806CD2A4F2C2996, PlayerPedId())
+    local holdingcheck = GetPedType(entitycheck)
+    if holdingcheck == 0 then
+        return true
+    else
+        return false
+    end
+end
 ------- META/STATUS CHEVAUX -----
 
 RegisterNetEvent('dust_stable:brosse')

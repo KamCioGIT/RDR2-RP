@@ -11,7 +11,7 @@ Citizen.CreateThread(function()
             TriggerEvent("redemrp_inventory:getData", function(Inventory)
                 local Player = RedEM.GetPlayer(source)
                 local meta = Player.GetMetaData()
-                TriggerEvent("redemrp_inventory:checkpoison", Player, name)
+                TriggerEvent("redemrp_inventory:checkpoison", source, Player, name)
                 Player.SetMetaData("hunger", tonumber(meta.hunger) + info.hunger)
                 Player.SetMetaData("thirst", tonumber(meta.thirst) + info.thirst)
                 if Player.GetMetaData().hunger > 100.0 then Player.SetMetaData("hunger", 100) end

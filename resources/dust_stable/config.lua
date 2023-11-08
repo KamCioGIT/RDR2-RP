@@ -1097,6 +1097,12 @@ Config.Cart = {
 		desc = "Parfaite pour les voyages dans l'Ouest sauvage",
         price = 150,
     },
+    huntercart01= {
+		model = "huntercart01",
+		name = "Charrette Chasseur",
+		desc = "Pour les bons et les mauvais",
+        price = 80,
+    },
 }
 
 Config.Label = {
@@ -1167,4 +1173,18 @@ Config.StashWeight = {
 	["wagontraveller01x"] = 30,
 	["wagonwork01x"] = 70,
 	["ArmySupplyWagon"] = 150,
+}
+
+Config.Hauteur = {
+    [1] = 0.1,
+    [2] = 0.2,
+    [3] = 0.3,
+    [4] = 0.4,
+    [5] = 0.5,
+    [6] = 0.6,
+    [7] = 0.7,
+    [8] = 0.8,
+    [9] = 0.9,
+    [10] = 1.0,
+
 }

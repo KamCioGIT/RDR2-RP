@@ -2467,8 +2467,8 @@ end)
 
 
 RegisterServerEvent("redemrp_inventory:checkpoison")
-AddEventHandler("redemrp_inventory:checkpoison", function(joueur, name)
-    local _source = source
+AddEventHandler("redemrp_inventory:checkpoison", function(src, joueur, name)
+    local _source = src
     local Player = joueur
     if Player then
         local identifier = Player.GetIdentifier()
@@ -2483,7 +2483,7 @@ AddEventHandler("redemrp_inventory:checkpoison", function(joueur, name)
                     qual = meta["poison"]
                     if qual == true then
                         print('get')
-                        TriggerClientEvent("doctor:getpoison", _source)
+                        TriggerClientEvent("dust_maladie:poison", _source)
                     end
                 end
             end

@@ -410,17 +410,17 @@ RegisterNetEvent("poison:menu", function(poisontable)
         
         function(data, menu)
             MenuData.CloseAll()
-            TriggerServerEvent("redemrp_inventory:ChangePoison", data.current.value)
+            TriggerServerEvent("doctor:RemoveItem", 'poison', 1)
             RequestAnimDict(Config.AnimDict)
             while not HasAnimDictLoaded(Config.AnimDict) do
                 Citizen.Wait(50)
             end
             TaskPlayAnim(playerPed, Config.AnimDict, Config.CraftAnim, 4.0, 4.0, -1, 25, 0, true)
             Wait(3000)
-            TriggerServerEvent("doctor:RemoveItem", 'poison', 1)
             DeleteEntity(Prop)
             ClearPedTasks(PlayerPedId())
             Gourde = false
+            TriggerServerEvent("redemrp_inventory:ChangePoison", data.current.value)
         end,
 
         function(data, menu)
@@ -432,6 +432,5 @@ RegisterNetEvent("poison:menu", function(poisontable)
 end)
 
 RegisterNetEvent("doctor:getpoison", function()
-    print 'get'
     TriggerEvent("dust_maladie:poison")
 end)
