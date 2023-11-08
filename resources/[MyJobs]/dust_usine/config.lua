@@ -1006,7 +1006,7 @@ Config.CraftingsReceipe = {
     Amount = 10,
     WorkingTime = 2,
     label = 'Balles de Carabine',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
 },
 ['ammo_shotgun'] = {
     type = 'usineassemblage',
@@ -1019,7 +1019,7 @@ Config.CraftingsReceipe = {
     Amount = 10,
     WorkingTime = 2,
     label = 'Chevrotine',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
 },
 ['ammo_rifle'] = {
     type = 'usineassemblage',
@@ -1032,6 +1032,6 @@ Config.CraftingsReceipe = {
     Amount = 10,
     WorkingTime = 2,
     label = 'Balles de fusil',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
 },
 }
