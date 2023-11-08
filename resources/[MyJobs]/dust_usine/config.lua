@@ -41,7 +41,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 4,
     ItemToGive = 'crossecattleman',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse Colt 1873',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}}
 },
@@ -54,7 +54,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 4,
     ItemToGive = 'crosseschoffield',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse Smith & Wesson Model 3',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}}
 },
@@ -67,7 +67,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 4,
     ItemToGive = 'crossedoubleaction',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse 1873 Chamelot-Delvigne',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}}
 },
@@ -80,7 +80,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 5,
     ItemToGive = 'crosselemat',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse Lemat revolver',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x5"}}
 },
@@ -93,7 +93,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 10,
     ItemToGive = 'crossenavy',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse Colt 1851 Navy',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x10"}}
 },
@@ -106,7 +106,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 15,
     ItemToGive = 'crossevolcanic',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse Smith and Wesson 1855',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
@@ -119,7 +119,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 15,
     ItemToGive = 'crosseevans',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse Evans',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
@@ -132,7 +132,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 15,
     ItemToGive = 'crossecarabine',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse M1865 Spencer',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
@@ -145,7 +145,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 15,
     ItemToGive = 'crosselancaster',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse Winchester 1873',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
@@ -158,7 +158,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 15,
     ItemToGive = 'crosselitchfield',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse 1860 Henry',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
@@ -171,7 +171,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 15,
     ItemToGive = 'crossespringfield',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse Springfield Model 1873',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
@@ -184,7 +184,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 15,
     ItemToGive = 'crosserollingblock',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse Rolling Block',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
@@ -197,7 +197,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 10,
     ItemToGive = 'crossedoublecanon',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse Colt 1883',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}}
 },
@@ -210,7 +210,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 10,
     ItemToGive = 'crossecanonscie',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Crosse Colt 1883 Scié',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x10"}}
 },
@@ -230,7 +230,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 1,
     ItemToGive = 'corpsdarmecattleman',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme Colt 1873",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x8"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
 },
@@ -247,7 +247,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 1,
     ItemToGive = 'corpsdarmeschoffield',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme Smith & Wesson model 3",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x25"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
 },
@@ -264,7 +264,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 3,
     ItemToGive = 'corpsdarmedoubleaction',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme 1873 Chamelot-Delvigne",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x45"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x36"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x7"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
 },
@@ -281,7 +281,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'corpsdarmelemat',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme Lemat Revolver",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x90"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x55"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -298,7 +298,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'corpsdarmenavy',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme Colt 1851 Navy",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x100"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x60"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -315,7 +315,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'corpsdarmevolcanic',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme Smith & Wesson 1855",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x130"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x60"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x35"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -332,7 +332,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'corpsdarmeevans',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme Evans",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x150"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x70"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x35"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -349,7 +349,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'corpsdarmecarabine',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme M1865 Spencer",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x130"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x60"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x35"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -366,7 +366,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'corpsdarmelancaster',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme Winchester 1873",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x170"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x90"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x35"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -383,7 +383,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'corpsdarmelitchfield',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme 1860 Henry",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x170"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x90"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x35"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -400,7 +400,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'corpsdarmespringfield',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme Springfield Model 1873",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x180"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x90"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x35"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -417,7 +417,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'corpsdarmerollingblock',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme Remington Rolling Block",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x200"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x90"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x35"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -434,7 +434,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'corpsdarmedoublecanon',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme Colt 1883",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x90"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x60"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x25"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -451,7 +451,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'corpsdarmecanonscie',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Corps d'arme canon scié",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x90"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x60"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x35"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 
@@ -470,7 +470,7 @@ Config.CraftingsReceipe = {
     ItemReceipe3Amount = 1,
     ItemToGive = 'barrilletcattleman',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'barrillet Colt 1873',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
 },
@@ -485,7 +485,7 @@ Config.CraftingsReceipe = {
     ItemReceipe3Amount = 1,
     ItemToGive = 'barrilletschoffield',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'barrillet Smith & Wesson Model 3',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
 },
@@ -502,7 +502,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 3,
     ItemToGive = 'barrilletdoubleaction',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'barrillet 1873 Chamelot-Delvigne',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x15"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x12"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
 },
@@ -519,7 +519,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'barrilletlemat',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'barrillet Lemat revolver',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x15"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -536,7 +536,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'barrilletnavy',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'barrillet Colt 1851 Navy',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x15"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -558,7 +558,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'levierdarmementvolcanic',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Levier d'armement Smith & Wesson 1855",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x90"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -575,7 +575,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'levierdarmementevans',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Levier d'armement Evans",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x70"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -592,7 +592,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'levierdarmementcarabine',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Levier d'armement M1865 Spencer",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x60"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -609,7 +609,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'levierdarmementlancaster',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Levier d'armement Winchester 1873",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x70"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -626,7 +626,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'levierdarmementlitchfield',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Levier d'armement 1860 Henry",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x70"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -643,7 +643,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'levierdarmementspringfield',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Levier d'armement Springfield Model 1873",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x90"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -660,7 +660,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'levierdarmementrollingblock',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Levier d'armement Rolling Block",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x70"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x15"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -677,7 +677,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 20,
     ItemToGive = 'levierdarmementdoublecanon',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Levier d'armement Colt 1883",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x20"}}
 },
@@ -694,7 +694,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 20,
     ItemToGive = 'levierdarmementcanonscie',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = "Levier d'armement Colt 1883 Scié",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x20"}}
 },
@@ -716,7 +716,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 1,
     ItemToGive = 'canoncattleman',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon Colt 1873',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x15"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x6"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
 },
@@ -733,7 +733,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 1,
     ItemToGive = 'canonschoffield',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon Smith & Wesson Model 3',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x8"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
 },
@@ -750,7 +750,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 3,
     ItemToGive = 'canondoubleaction',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon 1873 Chamelot-Delvigne',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x24"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
 },
@@ -767,7 +767,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'canonlemat',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon Lemat Revolver',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x60"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x25"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -784,7 +784,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'canonnavy',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon Colt 1851 Navy',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x100"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x35"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -801,7 +801,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'canonvolcanic',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon Smith & Wesson 1855',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x80"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -818,7 +818,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'canonevans',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon Evans',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x80"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -835,7 +835,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'canoncarabine',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon M1865 Spencer ',    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x110"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
 ['canonlancaster'] = {
@@ -851,7 +851,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'canonlancaster',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon Winchester 1873',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x110"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -868,7 +868,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'canonlitchfield',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon 1860 Henry',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x110"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x20"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -885,7 +885,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'canonspringfield',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon Springfield Model 1873',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x130"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x70"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -902,7 +902,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 10,
     ItemToGive = 'canonrollingblock',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon Remington Rolling Block',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x130"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x80"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x35"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 },
@@ -919,7 +919,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 20,
     ItemToGive = 'canondoublecanon',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon Colt 1883',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x100"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x60"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x20"}}
 },
@@ -936,7 +936,7 @@ Config.CraftingsReceipe = {
     ItemReceipe4Amount = 20,
     ItemToGive = 'canoncanonscie',
     Amount = 1,
-    WorkingTime = 20,
+    WorkingTime = 15,
     label = 'Canon Colt 1883 Scié',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x70"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x30"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x20"}}
 },
@@ -952,7 +952,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 1,
     ItemToGive = 'gunpowder',
     Amount = 1,
-    WorkingTime = 5,
+    WorkingTime = 2,
     label = 'Poudre à canon',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/collector_fossil_stone.png', text = "Souffre",count = "x1"}}
 },
@@ -965,7 +965,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 1,
     ItemToGive = 'douille',
     Amount = 1,
-    WorkingTime = 5,
+    WorkingTime = 2,
     label = 'Douille',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/silverore.png', text = "Pépite de plomb",count = "x1"}}
 },
@@ -978,7 +978,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 1,
     ItemToGive = 'ammo_revolver',
     Amount = 10,
-    WorkingTime = 5,
+    WorkingTime = 2,
     label = 'Balles de Revolver',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
 },
@@ -991,7 +991,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 1,
     ItemToGive = 'ammo_pistolet',
     Amount = 10,
-    WorkingTime = 5,
+    WorkingTime = 2,
     label = 'Balles de Pistolet',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
 },
@@ -1004,7 +1004,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 1,
     ItemToGive = 'ammo_repeater',
     Amount = 10,
-    WorkingTime = 5,
+    WorkingTime = 2,
     label = 'Balles de Carabine',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
 },
@@ -1017,7 +1017,7 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 1,
     ItemToGive = 'ammo_shotgun',
     Amount = 10,
-    WorkingTime = 5,
+    WorkingTime = 2,
     label = 'Chevrotine',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
 },
@@ -1030,11 +1030,8 @@ Config.CraftingsReceipe = {
     ItemReceipe2Amount = 1,
     ItemToGive = 'ammo_rifle',
     Amount = 10,
-    WorkingTime = 5,
+    WorkingTime = 2,
     label = 'Balles de fusil',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
 },
-
-
-
 }
