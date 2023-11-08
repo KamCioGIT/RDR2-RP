@@ -832,13 +832,14 @@ Citizen.CreateThread(function()
         if cart then
             if Entity(cart).state.stashid then
                 if GetEntityModel(cart) == -1698498246 then
-                    print"getmodel"
                     local holding = Citizen.InvokeNative(0xD806CD2A4F2C2996, PlayerPedId())
                     local hold = GetPedType(holding)
                     local quality = Citizen.InvokeNative(0x88EFFED5FE8B0B4A, holding) -- Native pour l'état de la carcasse
                     local model = GetEntityModel(holding)
                     if holding ~= false then
+                        print'holding'
                         if hold == 28 then
+                            print'28'
                             if IsControlJustReleased(0, 0xC1989F95) then
                                 TriggerServerEvent("dust_stable:hunt:stock", quality, model, cart, Entity(cart).state.stashid, holding)
                             end
