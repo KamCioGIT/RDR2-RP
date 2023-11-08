@@ -471,7 +471,19 @@ Config.CraftingsReceipe = {
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/opium_smokable.png', text = "Résine de pavot",count = "x1"},{src = 'nui://redemrp_inventory/html/items/cigarette.png', text = "Cigarette",count = "x1"}}
     },
 
-
+    ['ammo_arrow_poison'] = {
+        type = 'fire',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'ammo_arrow',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'poison',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'ammo_arrow_poison',
+        Amount = 1,
+        WorkingTime = 5,
+        label = "Flèche empoisonnée",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/AMMO_ARROW.png', text = "Flèche",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_poison_tonic.png', text = "Poison",count = "x1"}}
+    },
 }
     
 
