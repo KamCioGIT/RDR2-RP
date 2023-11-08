@@ -435,47 +435,54 @@ end)
 
 ---- huntcart
 
-RegisterServerEvent("dust_stable:hunt:stock", function(quality, model, cart, stashid, holding)
-	local src = source
-	MySQL.query('SELECT * FROM stable WHERE `stashid`=@stashid;',
-	{
-		stashid = stashid
-	}, function(result)
-		if result[1] then
-			meta = json.decode(result[1].meta)
-			if #meta <= 10 then
-				meta[model]=quality
-				print (meta[model])
-				local newmeta = json.encode(meta)
-				MySQL.update('UPDATE stable SET `meta`=@meta WHERE `stashid`=@stashid;',
-				{
-					meta = newmeta,
-					stashid = stashid
-				}, function(rowsChanged)
-				end)  
-				local hauteur = #meta
-				TriggerClientEvent("dust_stable:hunt:stockanim", src, cart, hauteur, holding)
-			else return end
-		end
-	end)  
+
+-- Événement pour stocker des données dans la table "stable"
+RegisterServerEvent("dust_stable:hunt:stock")
+AddEventHandler("dust_stable:hunt:stock", function(quality, model, stashid)
+    local src = source
+
+    -- Récupérer les données existantes de la base de données
+    MySQL.query('SELECT * FROM stable WHERE `stashid`=@stashid', { stashid = stashid }, function(result)
+        if result[1] then
+            local meta = json.decode(result[1].meta)
+            meta[model] = quality
+            local newmeta = json.encode(meta)
+
+            -- Mettre à jour la colonne "meta" avec les nouvelles données
+            MySQL.execute('UPDATE stable SET `meta`=@meta WHERE `stashid`=@stashid', { meta = newmeta, stashid = stashid }, function(rowsChanged)
+                if rowsChanged > 0 then
+                    TriggerClientEvent("dust_stable:hunt:stockanim", src, cart, holding)
+                end
+            end)
+        end
+    end)
 end)
 
-RegisterServerEvent("dust_stable:hunt:retrieve", function(cart, stashid)
-	MySQL.query('SELECT * FROM stable WHERE `stashid`=@stashid;',
-	{
-		stashid = stashid
-	}, function(result)
-		if result[1] then
-			meta = json.decode(result[1].meta)
-			print (#meta)
-			if #meta >= 1 then
-				table.remove(meta, 1)
-				local hauteur = #meta
-				TriggerClientEvent("dust_stable:hunt:retrieveanim", source, animal.qual, animal.mod, cart, hauteur)
-			else return end
-		end
-	end)  
+-- Événement pour récupérer des données de la table "stable"
+RegisterServerEvent("dust_stable:hunt:retrieve")
+AddEventHandler("dust_stable:hunt:retrieve", function(stashid)
+    local src = source
+
+    -- Récupérer les données existantes de la base de données
+    MySQL.query('SELECT * FROM stable WHERE `stashid`=@stashid', { stashid = stashid }, function(result)
+        if result[1] then
+            local meta = json.decode(result[1].meta)
+            local modelToRetrieve = "123"  -- Remplacez par le modèle que vous souhaitez récupérer
+
+            -- Accédez à la valeur "quality" correspondant à la clé "modelToRetrieve"
+            local quality = meta[modelToRetrieve]
+
+            if quality then
+                table.remove(meta, modelToRetrieve) -- Supprimez la clé du tableau si nécessaire
+                local newmeta = json.encode(meta)
+                -- Mettez à jour la colonne "meta" avec les nouvelles données (si nécessaire)
+
+                TriggerClientEvent("dust_stable:hunt:retrieveanim", src, cart, quality)
+            end
+        end
+    end)
 end)
+
 
 ------- META/STATUS CHEVAUX -----
 ----HORSE ITEMS
