@@ -468,4 +468,8 @@ cart_props = {
         {category = 'propsets',hash = 0xCF747230},
     },
 
+    ["huntercart01"] = {
+        {category = 'propsets',hash = 0x119E7386},
+    },
+
 }
