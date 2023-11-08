@@ -860,16 +860,16 @@ end)
 RegisterNetEvent("dust_stable:hunt:stockanim", function(cart, hauteur, holding)
     DeleteThis(holding)
     for k, v in pairs(Config.Hauteur) do
-        if v.hauteur == hauteur then
-            Citizen.InvokeNative(0x31F343383F19C987, cart, tonumber(v.value), true)
+        if k == hauteur then
+            Citizen.InvokeNative(0x31F343383F19C987, cart, tonumber(v), true)
         end
     end
 end)
 
 RegisterNetEvent("dust_stable:hunt:retrieveanim", function(qual, mod, cart, hauteur)
     for k, v in pairs(Config.Hauteur) do
-        if v.hauteur == hauteur then
-            Citizen.InvokeNative(0x31F343383F19C987, cart, tonumber(v.value), true)
+        if k == hauteur then
+            Citizen.InvokeNative(0x31F343383F19C987, cart, tonumber(v), true)
         end
     end
     if type(mod) == 'number' then 
