@@ -441,9 +441,7 @@ RegisterServerEvent("dust_stable:hunt:stock", function(quality, model, cart, sta
 		stashid = stashid
 	}, function(result)
 		if result[1] then
-			meta = {}
-			local meta = result[1].meta
-			print (meta)
+			local meta = json.decode(result[1].meta)
 			if #meta <= 10 then
 				table.insert(meta, {qual = quality, mod = model})
 				local hauteur = #meta
