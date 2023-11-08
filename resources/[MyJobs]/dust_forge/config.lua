@@ -99,21 +99,6 @@ Config.CraftingsReceipe = {
         label = "Marteau",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
     },
-    ['WEAPON_MELEE_HATCHET'] = {
-        type = 'forgeenclume',
-        Itemtocraft = 3,
-        ItemReceipe1Name = 'lingotfer',
-        ItemReceipe1Amount = 2,
-        ItemReceipe2Name = 'cuir',
-        ItemReceipe2Amount = 5,
-        ItemReceipe3Name = 'charbon',
-        ItemReceipe3Amount = 3,
-        ItemToGive = 'WEAPON_MELEE_HATCHET',
-        Amount = 1,
-        WorkingTime = 30,
-        label = "Hache",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
-    },
     ['WEAPON_MELEE_KNIFE'] = {
         type = 'forgeenclume',
         Itemtocraft = 3,
@@ -128,21 +113,6 @@ Config.CraftingsReceipe = {
         WorkingTime = 10,
         label = "Couteau de chasse",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x3"}}
-    },
-    ['WEAPON_MELEE_CLEAVER'] = {
-        type = 'forgeenclume',
-        Itemtocraft = 3,
-        ItemReceipe1Name = 'lingotfer',
-        ItemReceipe1Amount = 3,
-        ItemReceipe2Name = 'cuir',
-        ItemReceipe2Amount = 5,
-        ItemReceipe3Name = 'charbon',
-        ItemReceipe3Amount = 5,
-        ItemToGive = 'WEAPON_MELEE_CLEAVER',
-        Amount = 1,
-        WorkingTime = 20,
-        label = "Hachoir",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x5"}}
     },
     ['WEAPON_MELEE_MACHETE'] = {
         type = 'forgeenclume',
