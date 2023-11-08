@@ -437,7 +437,6 @@ end)
 
 RegisterServerEvent("dust_stable:hunt:stock", function(quality, model, cart, stashid, holding)
 	local src = source
-	print (src)
 	MySQL.query('SELECT * FROM stable WHERE `stashid`=@stashid;',
 	{
 		stashid = stashid
@@ -446,6 +445,12 @@ RegisterServerEvent("dust_stable:hunt:stock", function(quality, model, cart, sta
 			local meta = json.decode(result[1].meta)
 			if #meta <= 10 then
 				table.insert(meta, {qual = quality, mod = model})
+				MySQL.update('UPDATE stable SET `meta`=@meta WHERE `stashid`=@stashid;',
+				{
+					meta = meta,
+					stashid = stashid
+				}, function(rowsChanged)
+				end)  
 				local hauteur = #meta
 				TriggerClientEvent("dust_stable:hunt:stockanim", src, cart, hauteur, holding)
 			else return end
