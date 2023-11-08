@@ -210,7 +210,7 @@ Config.Jobs = {
     },
     ["store_stdenis"] = {
         bigjob = "store",
-        Name = "Saint-Denis Store",
+        Name = "La bonne étoile",
         blisprite = 1475879922,
         MenuLocations = 
             vector3(2822.861, -1319.344, 45.85267)
