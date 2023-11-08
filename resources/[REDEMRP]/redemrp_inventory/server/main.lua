@@ -2483,7 +2483,7 @@ AddEventHandler("redemrp_inventory:checkpoison", function(joueur, name)
                     qual = meta["poison"]
                     if qual == true then
                         print('get')
-                        TriggerClientEvent("dust_maladie:poison", _source)
+                        TriggerClientEvent("dust_maladie:poison", Player)
                     end
                 end
             end
