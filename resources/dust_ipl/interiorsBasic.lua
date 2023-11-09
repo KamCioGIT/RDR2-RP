@@ -5,8 +5,6 @@ local isLoaded = false
 
 Citizen.CreateThread(function()
     while not isLoaded do
-        SetGuarmaWorldhorizonActive(true)
-        
         Citizen.Wait(1)
         local interior = GetInteriorAtCoords(-308.88, 777.37, 118.77)
         local isValid = IsValidInterior(interior)
