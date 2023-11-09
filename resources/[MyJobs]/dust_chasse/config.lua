@@ -14,7 +14,8 @@ Config.Boucher =
     vector3(1296.543, -1279.365, 75.84337), -- Rhodes
     vector3(1420.489, 379.5677, 90.32045), -- Emerald
     vector3(-86.35107, 1550.303, 114.8319),  --- Camp natif
-    vector3(2996.416, 565.5698, 44.75896) ---- Van Horn
+    vector3(2996.416, 565.5698, 44.75896), ---- Van Horn
+    vector3(-1344.18, 2406.674, 307.0829) ---- ambarino
 }
 
 Config.Relais = 
