@@ -297,7 +297,7 @@ Citizen.CreateThread(function()
 
         SendNUIMessage({
           type = 'ON_SCREEN_STATE_CHANGE',
-          hideState = chatHideState,
+          hideState = CHAT_HIDE_STATES.ALWAYS_HIDE,
           fromUserInteraction = not forceHide and not isFirstHide and not wasForceHide
         })
 
