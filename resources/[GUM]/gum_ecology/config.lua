@@ -442,6 +442,26 @@ Config.Herbs = {
         animPart = "",
         animDur = 0
     },
+    ["blackberry01x"] = {
+        blipSprite = 639638961,
+        blipName = "myrtille",
+        coords = {
+            {-162.5132, 1731.164, 170.8444, 10.0},
+            {-1517.854, 739.0333, 125.9074, 3.0},
+        },
+        maxSpawn = 10,--How much props is cached
+        propMax = 10,--Spawn max props on limit
+        canGatherMore = 1,--How much you can gather 1 entity
+        grounded = 0.0,--(Grounded bring entity more under ground if you have flying prop)
+
+        randomized = false,--If you enable Randomized you get 1 from list
+        items = {
+            {"myrtille", 5, "Ženšen"},
+        },
+        animDict = "",
+        animPart = "",
+        animDur = 0
+    }
 }
 
 Config.Animals = {
