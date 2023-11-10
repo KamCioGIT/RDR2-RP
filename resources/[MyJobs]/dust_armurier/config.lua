@@ -128,7 +128,7 @@ Config.CraftingsReceipe = {
     },
     ['WEAPON_PISTOL_VOLCANIC'] = {
         type = 'armurerie',
-        Itemtocraft = 4,
+        Itemtocraft = 5,
         ItemReceipe1Name = 'crossevolcanic',
         ItemReceipe1Amount = 1,
         ItemReceipe2Name = 'corpsdarmevolcanic',
@@ -137,11 +137,13 @@ Config.CraftingsReceipe = {
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'canonvolcanic',
         ItemReceipe4Amount = 1,
+        ItemReceipe5Name = 'mecanismevolcanic',
+        ItemReceipe5Amount = 1,
         ItemToGive = 'WEAPON_PISTOL_VOLCANIC',
         Amount = 1,
         WorkingTime = 60,
         label = 'Smith & Wesson 1855',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/revolverstock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Mécanisme",count = "x1"}}
     },
     ['WEAPON_REPEATER_EVANS'] = {
         type = 'armurerie',
@@ -213,7 +215,7 @@ Config.CraftingsReceipe = {
     },
     ['WEAPON_RIFLE_SPRINGFIELD'] = {
         type = 'armurerie',
-        Itemtocraft = 4,
+        Itemtocraft = 5,
         ItemReceipe1Name = 'crossespringfield',
         ItemReceipe1Amount = 1,
         ItemReceipe2Name = 'corpsdarmespringfield',
@@ -222,15 +224,17 @@ Config.CraftingsReceipe = {
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'canonspringfield',
         ItemReceipe4Amount = 1,
+        ItemReceipe5Name = 'culassespringfield',
+        ItemReceipe5Amount = 1,
         ItemToGive = 'WEAPON_RIFLE_SPRINGFIELD',
         Amount = 1,
         WorkingTime = 60,
         label = 'Springfield Model 1873',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/shtgn_stock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/elephantrifleframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/lbarrel.png', text = "Canon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/shtgn_stock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/elephantrifleframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/lbarrel.png', text = "Canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_pen.png', text = "Culasse",count = "x1"}}
     },
     ['WEAPON_SNIPERRIFLE_ROLLINGBLOCK'] = {
         type = 'armurerie',
-        Itemtocraft = 4,
+        Itemtocraft = 5,
         ItemReceipe1Name = 'crosserollingblock',
         ItemReceipe1Amount = 1,
         ItemReceipe2Name = 'corpsdarmerollingblock',
@@ -239,11 +243,13 @@ Config.CraftingsReceipe = {
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'canonrollingblock',
         ItemReceipe4Amount = 1,
+        ItemReceipe5Name = 'lunetterollingblock',
+        ItemReceipe5Amount = 1,
         ItemToGive = 'WEAPON_SNIPERRIFLE_ROLLINGBLOCK',
         Amount = 1,
         WorkingTime = 60,
         label = 'Remington Rolling Block',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/shtgn_stock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/elephantrifleframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/lbarrel.png', text = "Canon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/shtgn_stock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/elephantrifleframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/lbarrel.png', text = "Canon",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/pipe.png', text = "Lunette",count = "x1"}}
     },
     ['WEAPON_SHOTGUN_DOUBLEBARREL'] = {
         type = 'armurerie',
@@ -280,7 +286,6 @@ Config.CraftingsReceipe = {
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/riflestock.png', text = "Crosse",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/revolverframe.png', text = "Corps",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_scrap_metal.png', text = "Levier",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/shortbarrel.png', text = "Canon",count = "x1"}}
     },
 }
-
 
 Config.MenuElementsW = {
 	["specialweapon"] = {

@@ -2701,7 +2701,39 @@ Config.Items = {
     imgsrc = "items/elp_frame.png",
     type = "item_standard",
 },
-
+["lunetterollingblock"] = {
+    label = "Lunette Remington Rolling Block",
+    description = "",
+    weight = 3,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/pipe.png",
+    type = "item_standard",
+},
+["culassespringfield"] = {
+    label = "Culasse Springfield Model 1873",
+    description = "",
+    weight = 3,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/provision_pen.png",
+    type = "item_standard",
+},
+["mecanismevolcanic"] = {
+    label = "Mécanisme Smith & Wesson 1855",
+    description = "",
+    weight = 3,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/provision_scrap_metal.png",
+    type = "item_standard",
+},
 ----- EPICERIE ------
 
 ["tourtegibier"] = {
