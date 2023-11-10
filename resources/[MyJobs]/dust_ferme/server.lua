@@ -229,7 +229,7 @@ RegisterServerEvent('dust_ferme:cowup', function(cowid)
 							{
 								level = newlevel,
 								cowid = cowid,
-								date = cd
+								date = os.date("%Y-%m-%d %H:%M:%S")
 							}, function(rowsChanged)
 							end)
 						end
