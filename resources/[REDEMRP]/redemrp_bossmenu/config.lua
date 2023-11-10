@@ -29,7 +29,7 @@ Config.Jobs = {
         Name = "Armurerie de Strawberry",
         blisprite = -145868367,
         MenuLocations = 
-            vector3(-1843.087, -413.7095, 161.3547)
+            vector3(-1839.672, -415.6006, 162.2888)
         ,
         Grades = {
             [1] = {
