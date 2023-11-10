@@ -452,7 +452,7 @@ Config.CraftingsReceipe = {
     ItemToGive = 'corpsdarmecanonscie',
     Amount = 1,
     WorkingTime = 15,
-    label = "Corps d'arme canon scié",
+    label = "Corps d'arme Colt 1883 scié",
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x90"}, {src = 'nui://redemrp_inventory/html/items/provision_gold_nugget.png', text = "Pépite de zinc",count = "x60"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x35"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x10"}}
 
 
