@@ -15,7 +15,7 @@ RegisterServerEvent("RegisterUsableItem:poison")
 AddEventHandler("RegisterUsableItem:poison", function(source)
  	local _source = source
 	 local poisontable = {} 
-	 for k, v in pairs(Config.PoisonReceipe) do
+	for k, v in pairs(Config.PoisonReceipe) do
 		local ItemData = data.getItem(_source, v.ItemToPoison)
 		local rItem1Amount = tonumber(ItemData.ItemAmount - v.ItemAmount)
 		if rItem1Amount >= 0 then

@@ -154,30 +154,6 @@ Config.Doors = {
         needkey = false,
         keys = '',
     },
-    {
-        door = 393076024,
-        CloseRotation = 70.0,
-        DoorCoord  = vector3(1326.427734375,-1319.0665283203,76.890922546387),
-        door2 = 0,
-        CloseRotation2 = 0,
-        locked = true,
-        breakable = false, 
-        jobs = {"armurier_rhodes"},
-        needkey = false,
-        keys = '',
-    },
-    {
-        door = 743565308,
-        CloseRotation = 90.0,
-        DoorCoord  = vector3(1329.8211669922,-1329.1970214844,76.891494750977),
-        door2 = 0,
-        CloseRotation2 = 0,
-        locked = true,
-        breakable = false, 
-        jobs = {"armurier_rhodes"},
-        needkey = false,
-        keys = '',
-    },
     --ST DENIS--
     {
         door = 1711767580,
@@ -1260,7 +1236,7 @@ Config.Doors = {
     },
     {
         door = 743565308,
-        CloseRotation = 180,
+        CloseRotation = 95.0,
         DoorCoord  = vector3(1329.8211669922,-1329.1970214844,76.891494750977),
         door2 = 0,
         CloseRotation2 = 0,
@@ -1272,7 +1248,7 @@ Config.Doors = {
     },
     {
         door = 934926308,
-        CloseRotation = 180,
+        CloseRotation = 95.0,
         DoorCoord  = vector3(1319.5262451172,-1324.3895263672,76.891494750977),
         door2 = 0,
         CloseRotation2 = 0,
@@ -1316,7 +1292,7 @@ Config.Doors = {
 
     {
         door = 972368328,
-        CloseRotation = 26,
+        CloseRotation = 30,
         DoorCoord  = vector3(1325.2160644531,-1294.3470458984,75.99486541748),
         door2 = 0,
         CloseRotation2 = 0,
@@ -1513,7 +1489,7 @@ Config.UnlocksDoors = {
     142240370,--BATH VALENTINE
     1256786197,--BATH STRAWBERRY
     779421929,--BATH STDENIS
-    2446974165,--BATH RHODES
+    2432590327, --- rhodes store
 
 }
 

@@ -742,7 +742,7 @@ Config.CraftingsReceipeMortier = {
 }
 
 
-Config.PoisonRecipe = {
+Config.PoisonReceipe = {
     ['lemonade'] = {
         ItemToPoison = 'lemonade',
         ItemAmount = 1,
