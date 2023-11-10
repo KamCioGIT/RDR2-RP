@@ -414,21 +414,24 @@ RegisterServerEvent('dust_stable:server:resethorse', function()
 end)
 
 RegisterServerEvent('dust_stable:server:depophorse', function(horseid)
-	MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;',
-	{
-		horseid = horseid
-	}, function(result)
-		if #result ~= 0 then
-			for i = 1, #result do
-				MySQL.update('UPDATE stable SET `selected`=@selected WHERE `horseid`=@horseid;',
-					{
-						selected = 0,
-						horseid = horseid
-					}, function(rowsChanged)
-				end)  
+	local Player = RedEM.GetPlayer(source)
+    if Player.group == "admin" or Player.group == "superadmin" or Player.group == "mod" then
+		MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;',
+		{
+			horseid = horseid
+		}, function(result)
+			if #result ~= 0 then
+				for i = 1, #result do
+					MySQL.update('UPDATE stable SET `selected`=@selected WHERE `horseid`=@horseid;',
+						{
+							selected = 0,
+							horseid = horseid
+						}, function(rowsChanged)
+					end)  
+				end
 			end
-		end
-	end)        
+		end)
+	end        
 end)
 
 
