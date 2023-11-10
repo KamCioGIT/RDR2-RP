@@ -173,6 +173,37 @@ RegisterServerEvent("gunstore:MaxRessourcesAmount", function(dataType)
 		else
 			TriggerClientEvent("gunstore:client:SetMaxAmount", _source, 0)
 		end
+	elseif Config.CraftingsReceipe[dataType].Itemtocraft == 5 then
+		local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
+		local ItemData2 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe2Name)
+		local ItemData3 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe3Name)
+		local ItemData4 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe4Name)
+		local ItemData5 = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe5Name)
+		
+		local Item1Amount = tonumber(ItemData.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount)
+		local Item2Amount = tonumber(ItemData2.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe2Amount)
+		local Item3Amount = tonumber(ItemData3.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe3Amount)
+		local Item4Amount = tonumber(ItemData4.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe4Amount)
+		local Item5Amount = tonumber(ItemData4.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe5Amount)
+
+		local lAmount = Item1Amount
+		if Item2Amount < lAmount then
+			lAmount = Item2Amount
+		end
+		if Item3Amount < lAmount then
+			lAmount = Item3Amount
+		end
+		if Item4Amount < lAmount then
+			lAmount = Item4Amount
+		end
+		if Item5Amount < lAmount then
+			lAmount = Item5Amount
+		end
+		if Item1Amount >= 1 and Item2Amount >= 1 and Item3Amount >= 1 and Item4Amount >= 1 and Item5Amount >= 1 then
+			TriggerClientEvent("gunstore:client:SetMaxAmount", _source, math.floor(lAmount))
+		else
+			TriggerClientEvent("gunstore:client:SetMaxAmount", _source, 0)
+		end
 	end
 
 end)
