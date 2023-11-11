@@ -105,7 +105,7 @@ RegisterServerEvent("sellnpc:sell", function(zone, Itemtosell, coords)
 	local User = RedEM.GetPlayer(_source)
 	local ItemData = data.getItem(_source, Itemtosell)
 	if ItemData.RemoveItem(1) then
-		local chance = math.random(1, 3)
+		local chance = math.random(1, 4)
 		if chance == 1 then
 			TriggerEvent("sellnpc:AlertSheriff", coords, zone)
 		end
