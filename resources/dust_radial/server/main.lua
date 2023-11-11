@@ -85,8 +85,7 @@ RegisterServerEvent("sellnpc:checkitem", function ()
 	local currentRealTime = os.date("*t")
 
     -- Vérifier si l'heure réelle est entre 19h et 01h
-	print (currentRealTime.hour)
-    if currentRealTime.hour >= 19 or currentRealTime.hour < 1 then
+    if currentRealTime.hour >= 12 or currentRealTime.hour < 1 then
 		local itemstosell = {}
 		for k, v in pairs(Config.Price[GetHashKey("Strawberry")]) do
 			local ItemData = data.getItem(_source, k)
