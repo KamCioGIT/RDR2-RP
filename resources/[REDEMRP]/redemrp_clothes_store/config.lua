@@ -56,6 +56,10 @@ Config.BaguesG = {
 	[1] = vector3(2584.049, -1009.915, 44.25625), -- SAINT DENIS
 }
 
+Config.AccBottes = {
+	[1] = vector3(2588.614, -1012.273, 44.2585), -- SAINT DENIS
+}
+
 
 Config.Label = {
 	["boot_accessories"] = "Accessoire de bottes",

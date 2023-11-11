@@ -111,6 +111,12 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value)
                             TriggerClientEvent("rdr_clothes_store:OpenGBaguesMenu", _source, _clothes)
                         end
                     end
+                elseif _value == 8 then
+                    for k, v in pairs(Config.Bijoutier) do
+                        if v == user.job then
+                            TriggerClientEvent("rdr_clothes_store:OpenAccBottesMenu", _source, _clothes)
+                        end
+                    end
                 end
             end
         end)
@@ -394,4 +400,29 @@ AddEventHandler("RegisterUsableItem:GBagues", function(source, _data)
     local model = _data.meta.model
     local texture = _data.meta.texture
     TriggerClientEvent("redemrp_clothes_store:putGBagues", _source, model, texture)
+end)
+
+
+--- acc bottes
+
+RegisterServerEvent('rdr_clothes_store:GiveAccBottes')
+AddEventHandler('rdr_clothes_store:GiveAccBottes', function(info, price)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local currentMoney = user.GetMoney()
+    if currentMoney >= price then
+        user.RemoveMoney(price)
+        TriggerEvent("redemrp_inventory:accbottes", _source, info)
+
+    else
+        TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
+    end
+end)
+
+RegisterServerEvent("RegisterUsableItem:accbottes")
+AddEventHandler("RegisterUsableItem:accbottes", function(source, _data)
+	local _source = source
+    local model = _data.meta.model
+    local texture = _data.meta.texture
+    TriggerClientEvent("redemrp_clothes_store:putAccBottes", _source, model, texture)
 end)

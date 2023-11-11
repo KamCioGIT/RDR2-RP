@@ -164,6 +164,24 @@ function CalculatePriceGBagues()
 		end
 		return price
 end
+function CalculatePriceAccBottes()
+	local price = 0
+		if IsPedMale(PlayerPedId()) then
+				if OldAccBottesCache["boot_accessories"].model ~= AccBottesCache["boot_accessories"].model or OldAccBottesCache["boot_accessories"].texture ~= AccBottesCache["boot_accessories"].texture then
+					if AccBottesCache["boot_accessories"].model > 0 then
+						price = price + Config.Price["boot_accessories"]
+					end
+				end
+		else
+				if OldAccBottesCache["boot_accessories"].model ~= AccBottesCache["jewelry_boot_accessoriesrings_left"].model or OldAccBottesCache["boot_accessories"].texture ~= AccBottesCache["boot_accessories"].texture then
+					if AccBottesCache["boot_accessories"].model > 0 then
+						price = price + Config.Price["boot_accessories"]
+					end
+				end
+		
+		end
+		return price
+end
 
 
 function NativeSetPedComponentEnabled(ped, componentHash, immediately, isMp)
