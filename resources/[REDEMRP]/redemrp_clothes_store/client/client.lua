@@ -2118,26 +2118,26 @@ end)
 
 RegisterNetEvent('rdr_clothes_store:OpenDBaguesMenu')
 AddEventHandler('rdr_clothes_store:OpenDBaguesMenu', function(ClothesComponents, target)
-    DBaguesCache = ClothesComponents
-    if IsPedMale(PlayerPedId(target)) then
-        for k,v in pairs(clothes_list["male"]) do
-            if DBaguesCache["jewelry_rings_right"] == nil then
-                DBaguesCache["jewelry_rings_right"] = {}
-                DBaguesCache["jewelry_rings_right"].model = 0
-                DBaguesCache["jewelry_rings_right"].texture = 0
-            end
-        end
-    else
-        for k,v in pairs(clothes_list["female"]) do
-            if DBaguesCache["jewelry_rings_right"] == nil then
-                DBaguesCache["jewelry_rings_right"] = {}
-                DBaguesCache["jewelry_rings_right"].model = 0
-                DBaguesCache["jewelry_rings_right"].texture = 0
-            end
-        end
+    -- DBaguesCache = ClothesComponents
+    -- if IsPedMale(PlayerPedId(target)) then
+    --     for k,v in pairs(clothes_list["male"]) do
+    --         if DBaguesCache["jewelry_rings_right"] == nil then
+    --             DBaguesCache["jewelry_rings_right"] = {}
+    --             DBaguesCache["jewelry_rings_right"].model = 0
+    --             DBaguesCache["jewelry_rings_right"].texture = 0
+    --         end
+    --     end
+    -- else
+    --     for k,v in pairs(clothes_list["female"]) do
+    --         if DBaguesCache["jewelry_rings_right"] == nil then
+    --             DBaguesCache["jewelry_rings_right"] = {}
+    --             DBaguesCache["jewelry_rings_right"].model = 0
+    --             DBaguesCache["jewelry_rings_right"].texture = 0
+    --         end
+    --     end
 
-    end
-    OldDBaguesCache = deepcopy(DBaguesCache)
+    -- end
+    -- OldDBaguesCache = deepcopy(DBaguesCache)
 --    if IsPedMale(PlayerPedId()) then
 --        for k,v in pairs(clothes_list["male"]) do
 --            if OldClothesCache[k] == nil then
