@@ -2116,9 +2116,28 @@ Citizen.CreateThread(function()
     end
 end)
 
-
 RegisterNetEvent('rdr_clothes_store:OpenDBaguesMenu')
 AddEventHandler('rdr_clothes_store:OpenDBaguesMenu', function(ClothesComponents, target)
+    DBaguesCache = ClothesComponents
+    if IsPedMale(PlayerPedId(target)) then
+        for k,v in pairs(clothes_list["male"]) do
+            if DBaguesCache["jewelry_rings_right"] == nil then
+                DBaguesCache["jewelry_rings_right"] = {}
+                DBaguesCache["jewelry_rings_right"].model = 0
+                DBaguesCache["jewelry_rings_right"].texture = 0
+            end
+        end
+    else
+        for k,v in pairs(clothes_list["female"]) do
+            if DBaguesCache["jewelry_rings_right"] == nil then
+                DBaguesCache["jewelry_rings_right"] = {}
+                DBaguesCache["jewelry_rings_right"].model = 0
+                DBaguesCache["jewelry_rings_right"].texture = 0
+            end
+        end
+
+    end
+    OldDBaguesCache = deepcopy(DBaguesCache)
 --    if IsPedMale(PlayerPedId()) then
 --        for k,v in pairs(clothes_list["male"]) do
 --            if OldClothesCache[k] == nil then
@@ -2148,13 +2167,18 @@ function OpenDBaguesMenu(target)
         local a = 1
             if clothes_list["male"]["jewelry_rings_right"] ~= nil then
             local category = clothes_list["male"]["jewelry_rings_right"]
+            if DBaguesCache["jewelry_rings_right"] == nil then
+                DBaguesCache["jewelry_rings_right"] = {}
+                DBaguesCache["jewelry_rings_right"].model = 0
+                DBaguesCache["jewelry_rings_right"].texture = 1
+            end
             local options = {}
             for k, v in pairs(category) do
                 table.insert(options, k .." Style")
             end
             table.insert(elements, {
                 label = Config.Label["jewelry_rings_right"].. " ($" .. Config.Price["jewelry_rings_right"]..")" or v,
-                value = 0,
+                value = DBaguesCache["jewelry_rings_right"].model or 0,
                 category = "jewelry_rings_right",
                 desc = "Changer le modèle",
                 type = "slider",
@@ -2167,17 +2191,17 @@ function OpenDBaguesMenu(target)
             a = a + 1
             options = {}
 
-            for i = 1, GetMaxTexturesForModel("jewelry_rings_right", 1), 1 do
+            for i = 1, GetMaxTexturesForModel("jewelry_rings_right", DBaguesCache["jewelry_rings_right"].model or 1), 1 do
                 table.insert(options, i.." Couleur")
             end
             table.insert(elements, {
                 label = Config.Label["jewelry_rings_right"] .. " Couleur" or v,
-                value = 1,
+                value = DBaguesCache["jewelry_rings_right"].texture or 1,
                 category = "jewelry_rings_right",
                 desc = "Changer la couleur",
                 type = "slider",
                 min = 1,
-                max = GetMaxTexturesForModel("jewelry_rings_right", 1),
+                max = GetMaxTexturesForModel("jewelry_rings_right", DBaguesCache["jewelry_rings_right"].model or 1),
                 change_type = "texture",
                 id = a,
                 options = options
@@ -2197,13 +2221,18 @@ function OpenDBaguesMenu(target)
         local a = 1
         if clothes_list["female"]["jewelry_rings_right"] ~= nil then
         local category = clothes_list["female"]["jewelry_rings_right"]
+        if DBaguesCache["jewelry_rings_right"] == nil then
+            DBaguesCache["jewelry_rings_right"] = {}
+            DBaguesCache["jewelry_rings_right"].model = 0
+            DBaguesCache["jewelry_rings_right"].texture = 1
+        end
         local options = {}
         for k, v in pairs(category) do
             table.insert(options, k .." Style")
         end
         table.insert(elements, {
             label = Config.Label["jewelry_rings_right"].. " ($" .. Config.Price["jewelry_rings_right"]..")" or v,
-            value = 1 or 0,
+            value = DBaguesCache["jewelry_rings_right"].model or 0,
             category = "jewelry_rings_right",
             desc = "Changer le modèle",
             type = "slider",
@@ -2216,17 +2245,17 @@ function OpenDBaguesMenu(target)
         a = a + 1
         options = {}
 
-        for i = 1, GetMaxTexturesForModel("jewelry_rings_right", 1 or 1), 1 do
+        for i = 1, GetMaxTexturesForModel("jewelry_rings_right", DBaguesCache["jewelry_rings_right"].model or 1), 1 do
             table.insert(options, i.." Couleur")
         end
         table.insert(elements, {
             label = Config.Label["jewelry_rings_right"] .. " Couleur" or v,
-            value = 1,
+            value = DBaguesCache["jewelry_rings_right"].texture or 1,
             category = "jewelry_rings_right",
             desc = "Changer la couleur",
             type = "slider",
             min = 1,
-            max = GetMaxTexturesForModel("jewelry_rings_right", 1 or 1),
+            max = GetMaxTexturesForModel("jewelry_rings_right", DBaguesCache["jewelry_rings_right"].model or 1),
             change_type = "texture",
             id = a,
             options = options
@@ -2261,12 +2290,14 @@ function OpenDBaguesMenu(target)
             menu.close()
             saveOutfit = true
             local info = {}
-            info.model = 1
-            info.texture = 1
+            info.model = DBaguesCache["jewelry_rings_right"].model
+            info.texture = DBaguesCache["jewelry_rings_right"].texture
             TriggerServerEvent("rdr_clothes_store:GiveDBagues", info, CurrentPrice)
+            OldDBaguesCache = {}
         else end
     end, function(data, menu)
         menu.close()
+        OldDBaguesCache = {}
         destory()
         TriggerServerEvent("RedEM:server:LoadSkin")
     end, function(data, menu)
@@ -2278,7 +2309,9 @@ end
 function MenuUpdateDBagues(data, menu, target)
 
     if data.current.change_type == "model" then
-        if 1 ~= data.current.value then
+        if DBaguesCache["jewelry_rings_right"].model ~= data.current.value then
+            DBaguesCache["jewelry_rings_right"].texture = 1
+            DBaguesCache["jewelry_rings_right"].model = data.current.value
             if data.current.value > 0 then
                 local options = {}
                 -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
@@ -2311,11 +2344,14 @@ function MenuUpdateDBagues(data, menu, target)
                 Citizen.InvokeNative(0xFA233F8FE190514C, str)
                 Citizen.InvokeNative(0xE9990552DEC71600)
             end
-            TriggerServerEvent("triggerChangeDBagues", data.current.value, data.current.change_type, GetPlayerServerId(target))
+            ChangeDBagues(data.current.value, data.current.change_type, target)
         end
     end
     if data.current.change_type == "texture" then
-            TriggerServerEvent("triggerChangeDBagues", data.current.value, data.current.change_type, GetPlayerServerId(target))
+        if DBaguesCache["jewelry_rings_right"].texture ~= data.current.value then
+            DBaguesCache["jewelry_rings_right"].texture = data.current.value
+            ChangeDBagues(data.current.value, data.current.change_type, target)
+        end
     end
 
 end
@@ -2364,12 +2400,12 @@ RegisterNetEvent("redemrp_clothes_store:putDBagues", function(model, texture)
     end
 end)
 
-RegisterNetEvent("ChangeDBagues", function(id, change_type)
+function ChangeDBagues(id, change_type, target)
     if id < 1 then
-            Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey("jewelry_rings_right"), 0)
-            NativeUpdatePedVariation(PlayerPedId())
+            Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(target), GetHashKey("jewelry_rings_right"), 0)
+            NativeUpdatePedVariation(PlayerPedId(target))
     else
-        if IsPedMale(PlayerPedId()) then
+        if IsPedMale(PlayerPedId(target)) then
             if change_type == "model" then
                 if clothes_list["male"]["jewelry_rings_right"][id][1]['is_multiplayer'] == false then
                     local drawable = clothes_list["male"]["jewelry_rings_right"][id][1].drawable
@@ -2380,25 +2416,25 @@ RegisterNetEvent("ChangeDBagues", function(id, change_type)
                     local tint0 = clothes_list["male"]["jewelry_rings_right"][id][1].tint0
                     local tint1 = clothes_list["male"]["jewelry_rings_right"][id][1].tint1
                     local tint2 = clothes_list["male"]["jewelry_rings_right"][id][1].tint2
-                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                    UpdateCustomClothes(PlayerPedId(target), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 else
-                NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"]["jewelry_rings_right"][id][1].hash, false, true,
+                NativeSetPedComponentEnabled(PlayerPedId(target), clothes_list["male"]["jewelry_rings_right"][id][1].hash, false, true,
                     true)
                 end
             else
-                if clothes_list["male"]["jewelry_rings_right"][1][id]['is_multiplayer'] == false then
-                    local drawable = clothes_list["male"]["jewelry_rings_right"][1][id].drawable
-                    local albedo = clothes_list["male"]["jewelry_rings_right"][1][id].albedo
-                    local normal = clothes_list["male"]["jewelry_rings_right"][1][id].normal
-                    local material = clothes_list["male"]["jewelry_rings_right"][1][id].material
-                    local palette = clothes_list["male"]["jewelry_rings_right"][1][id].palette
-                    local tint0 = clothes_list["male"]["jewelry_rings_right"][1][id].tint0
-                    local tint1 = clothes_list["male"]["jewelry_rings_right"][1][id].tint1
-                    local tint2 = clothes_list["male"]["jewelry_rings_right"][1][id].tint2
-                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                if clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id]['is_multiplayer'] == false then
+                    local drawable = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].drawable
+                    local albedo = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].albedo
+                    local normal = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].normal
+                    local material = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].material
+                    local palette = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].palette
+                    local tint0 = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint0
+                    local tint1 = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint1
+                    local tint2 = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint2
+                    UpdateCustomClothes(PlayerPedId(target), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 else
-                NativeSetPedComponentEnabled(PlayerPedId(),
-                    clothes_list["male"]["jewelry_rings_right"][1][id].hash, false, true, true)
+                NativeSetPedComponentEnabled(PlayerPedId(target),
+                    clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash, false, true, true)
                 end
             end
 
@@ -2413,31 +2449,31 @@ RegisterNetEvent("ChangeDBagues", function(id, change_type)
                     local tint0 = clothes_list["female"]["jewelry_rings_right"][id][1].tint0
                     local tint1 = clothes_list["female"]["jewelry_rings_right"][id][1].tint1
                     local tint2 = clothes_list["female"]["jewelry_rings_right"][id][1].tint2
-                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                    UpdateCustomClothes(PlayerPedId(target), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 else
-                    NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"]["jewelry_rings_right"][id][1].hash, false, true,
+                    NativeSetPedComponentEnabled(PlayerPedId(target), clothes_list["female"]["jewelry_rings_right"][id][1].hash, false, true,
                         true)
                 end
             else
-                if clothes_list["female"]["jewelry_rings_right"][1][id]['is_multiplayer'] == false then
-                    local drawable = clothes_list["female"]["jewelry_rings_right"][1][id].drawable
-                    local albedo = clothes_list["female"]["jewelry_rings_right"][1][id].albedo
-                    local normal = clothes_list["female"]["jewelry_rings_right"][1][id].normal
-                    local material = clothes_list["female"]["jewelry_rings_right"][1][id].material
-                    local palette = clothes_list["female"]["jewelry_rings_right"][1][id].palette
-                    local tint0 = clothes_list["female"]["jewelry_rings_right"][1][id].tint0
-                    local tint1 = clothes_list["female"]["jewelry_rings_right"][1][id].tint1
-                    local tint2 = clothes_list["female"]["jewelry_rings_right"][1][id].tint2
-                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                if clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id]['is_multiplayer'] == false then
+                    local drawable = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].drawable
+                    local albedo = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].albedo
+                    local normal = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].normal
+                    local material = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].material
+                    local palette = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].palette
+                    local tint0 = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint0
+                    local tint1 = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint1
+                    local tint2 = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint2
+                    UpdateCustomClothes(PlayerPedId(target), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 else
-                NativeSetPedComponentEnabled(PlayerPedId(),
-                    clothes_list["female"]["jewelry_rings_right"][1][id].hash, false, true, true)
+                NativeSetPedComponentEnabled(PlayerPedId(target),
+                    clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash, false, true, true)
                 end
             end
         end
 
     end
-end)
+end
 
 ----- bijoux g
 
