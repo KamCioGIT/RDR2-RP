@@ -641,6 +641,30 @@ Config.Jobs = {
             },
         }
     },
+    ["bijouterie"] = {
+        bigjob = "bijouterie",
+        Name = "Bijouterie",
+        blisprite = -813538438,
+        MenuLocations = 
+            vector3(2586.072, -1011.997, 44.23995)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+
 
 }
 
