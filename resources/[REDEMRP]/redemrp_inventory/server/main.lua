@@ -2600,3 +2600,87 @@ RegisterServerEvent("redemrp_inventory:lunettes", function(source, info)
         )
     end
 end)
+
+RegisterServerEvent("redemrp_inventory:lunettes", function(source, info)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local _meta = meta or {}
+    local itemData = Config.Items["lunettes"]
+    if not _meta.model then
+        _meta.model = info.model
+    end
+    if not _meta.texture then
+        _meta.texture = info.texture
+    end
+    local item, id = getInventoryItemFromName("lunettes", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("lunettes", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)
+
+RegisterServerEvent("redemrp_inventory:DBagues", function(source, info)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local _meta = meta or {}
+    local itemData = Config.Items["DBagues"]
+    if not _meta.model then
+        _meta.model = info.model
+    end
+    if not _meta.texture then
+        _meta.texture = info.texture
+    end
+    local item, id = getInventoryItemFromName("DBagues", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("DBagues", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)
+
+RegisterServerEvent("redemrp_inventory:GBagues", function(source, info)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local _meta = meta or {}
+    local itemData = Config.Items["GBagues"]
+    if not _meta.model then
+        _meta.model = info.model
+    end
+    if not _meta.texture then
+        _meta.texture = info.texture
+    end
+    local item, id = getInventoryItemFromName("GBagues", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("GBagues", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)
