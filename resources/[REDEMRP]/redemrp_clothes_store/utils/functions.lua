@@ -131,14 +131,14 @@ end
 function CalculatePriceDBagues()
 	local price = 0
 		if IsPedMale(PlayerPedId()) then
-				if OldEyesCache["jewelry_rings_right"].model ~= EyesCache["jewelry_rings_right"].model or OldEyesCache["jewelry_rings_right"].texture ~= EyesCache["jewelry_rings_right"].texture then
-					if EyesCache["jewelry_rings_right"].model > 0 then
+				if OldDBaguesCache["jewelry_rings_right"].model ~= DBaguesCache["jewelry_rings_right"].model or OldDBaguesCache["jewelry_rings_right"].texture ~= DBaguesCache["jewelry_rings_right"].texture then
+					if DBaguesCache["jewelry_rings_right"].model > 0 then
 						price = price + Config.Price["jewelry_rings_right"]
 					end
 				end
 		else
-				if OldEyesCache["jewelry_rings_right"].model ~= EyesCache["jewelry_rings_right"].model or OldEyesCache["jewelry_rings_right"].texture ~= EyesCache["jewelry_rings_right"].texture then
-					if EyesCache["jewelry_rings_right"].model > 0 then
+				if OldDBaguesCache["jewelry_rings_right"].model ~= DBaguesCache["jewelry_rings_right"].model or OldDBaguesCache["jewelry_rings_right"].texture ~= DBaguesCache["jewelry_rings_right"].texture then
+					if DBaguesCache["jewelry_rings_right"].model > 0 then
 						price = price + Config.Price["jewelry_rings_right"]
 					end
 				end
@@ -149,14 +149,14 @@ end
 function CalculatePriceGBagues()
 	local price = 0
 		if IsPedMale(PlayerPedId()) then
-				if OldEyesCache["jewelry_rings_left"].model ~= EyesCache["jewelry_rings_left"].model or OldEyesCache["jewelry_rings_left"].texture ~= EyesCache["jewelry_rings_left"].texture then
-					if EyesCache["jewelry_rings_left"].model > 0 then
+				if OldGBaguesCache["jewelry_rings_left"].model ~= GBaguesCache["jewelry_rings_left"].model or OldGBaguesCache["jewelry_rings_left"].texture ~= GBaguesCache["jewelry_rings_left"].texture then
+					if GBaguesCache["jewelry_rings_left"].model > 0 then
 						price = price + Config.Price["jewelry_rings_left"]
 					end
 				end
 		else
-				if OldEyesCache["jewelry_rings_left"].model ~= EyesCache["jewelry_rings_left"].model or OldEyesCache["jewelry_rings_left"].texture ~= EyesCache["jewelry_rings_left"].texture then
-					if EyesCache["jewelry_rings_left"].model > 0 then
+				if OldGBaguesCache["jewelry_rings_left"].model ~= GBaguesCache["jewelry_rings_left"].model or OldGBaguesCache["jewelry_rings_left"].texture ~= GBaguesCache["jewelry_rings_left"].texture then
+					if GBaguesCache["jewelry_rings_left"].model > 0 then
 						price = price + Config.Price["jewelry_rings_left"]
 					end
 				end
