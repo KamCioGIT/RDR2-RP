@@ -680,7 +680,10 @@ Config.ImportNPC = {
     ["blackwater"] = {heading = 305.5272 , coords = vector3(-828.5374, -1243.587, 42.55648)},
     ["stdenis"] = {heading = 292.8161 , coords = vector3(2668.192, -1522.695, 44.96976)},
 }
-
+Config.ImportPoint = {
+    [1]= vector3(2669.003, -1522.059, 45.96976), --- st denis
+    [2]= vector3(-825.8802, -1241.919, 43.53639), -- bla
+}
 
 Config.ExportNPC = {
     ["blackwater"] = {heading = 216.50 , coords = vector3(-783.7773, -1233.145, 42.53811)},
@@ -702,4 +705,17 @@ Config.Export = {
     ["cuivrepepite"] = {label= "Pépite de cuivre", price = 0.04},
     ["plombpepite"] = {label= "Pépite de plomb", price = 0.04},
     ["zincpepite"] = {label= "Pépite de zinc", price = 0.1},
+}
+
+Config.ImportBijoux = {
+    ["watch1"] = {label= "Montre de luxe", price = 35},
+    ["watch2"] = {label= "Montre en or sombre", price = 25},
+    ["watch3"] = {label= "Montre en argent", price = 15},
+    ["watch4"] = {label= "Montre en argent 2", price = 20},
+    ["watch5"] = {label= "Montre ancienne", price = 30},
+    ["watch6"] = {label= "Montre en argent sombre", price = 20},
+    ["watch7"] = {label= "Montre en or", price = 25},
+    ["watch8"] = {label= "Montre en mauvais état", price = 5}, 
+    ["watch9"] = {label= "Montre sans aiguilles", price = 2},
+    ["fan"] = {label= "Éventail", price = 10},
 }

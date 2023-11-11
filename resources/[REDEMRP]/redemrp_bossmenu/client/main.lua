@@ -583,3 +583,71 @@ end)
 RegisterNetEvent("dust_export:client:SetMaxAmount", function(value)
     maxsellamount = value
 end)
+
+RegisterNetEvent("dust_job:bijouterie")
+AddEventHandler("dust_job:bijouterie", function(job, grade)
+    for k, v in pairs(Config.Bijoutier) do
+        if job == v then
+            TriggerEvent("dust_bijoux:startMission")
+        end
+    end
+end)
+
+RegisterNetEvent("dust_bijoux:startMission", function()
+    Citizen.CreateThread(function()
+        for k, v in ipairs(Config.ImportPoint) do
+            if #(playerPos - v) < 10.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, 2.0, 2.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if #(playerPos - v) < 2.0 and not isInteracting then
+                TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    TriggerEvent("bijoux:OpenImportMenu")
+                end
+            end
+        end
+    end)
+end)
+
+RegisterNetEvent("bijoux:OpenImportMenu", function()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        local elements = {}
+
+
+        for k, v in pairs(Config.ImportBijoux) do
+            table.insert(elements, {label = v.label.." $"..v.price, value = k, price = v.price})
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Marché",
+            subtext = "Acheter",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            TriggerServerEvent("fermier:buy", data.current.value, data.current.price)
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)

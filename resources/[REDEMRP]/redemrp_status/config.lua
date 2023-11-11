@@ -23,7 +23,7 @@ Config = {}
 
 
 Config.PocketWatches = {
-    "mp007_s_pocketwatch_emote02x", "p_si_pocketwatch01x", "s_inv_pocketwatch01x", "s_inv_pocketwatch02x", "s_inv_pocketwatch03x", "s_inv_pocketwatch04x",  "s_inv_pocketwatch07x", "s_oldpocketwatch01x", "s_oldpocketwatch02x"
+    "mp007_s_pocketwatch_emote02x", "p_si_pocketwatch01x", "s_inv_pocketwatch01x", "s_inv_pocketwatch02x", "s_inv_pocketwatch03x", "s_inv_pocketwatch04x",  "s_inv_pocketwatch06x", "s_oldpocketwatch01x", "s_oldpocketwatch02x"
 
 }
 
