@@ -66,7 +66,7 @@ AddEventHandler('rdr_clothes_store:Save', function(Clothes, price)
 end)
 
 RegisterServerEvent('rdr_clothes_store:LoadClothes')
-AddEventHandler('rdr_clothes_store:LoadClothes', function(value)
+AddEventHandler('rdr_clothes_store:LoadClothes', function(value, target)
     local _value = value
     local _source = source
     local _clothes = nil
@@ -102,19 +102,19 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value)
                 elseif _value == 6 then
                     for k, v in pairs(Config.Bijoutier) do
                         if v == user.job then
-                            TriggerClientEvent("rdr_clothes_store:OpenDBaguesMenu", _source, _clothes)
+                            TriggerClientEvent("rdr_clothes_store:OpenDBaguesMenu", _source, _clothes, target)
                         end
                     end
                 elseif _value == 7 then
                     for k, v in pairs(Config.Bijoutier) do
                         if v == user.job then
-                            TriggerClientEvent("rdr_clothes_store:OpenGBaguesMenu", _source, _clothes)
+                            TriggerClientEvent("rdr_clothes_store:OpenGBaguesMenu", _source, _clothes, target)
                         end
                     end
                 elseif _value == 8 then
                     for k, v in pairs(Config.Bijoutier) do
                         if v == user.job then
-                            TriggerClientEvent("rdr_clothes_store:OpenAccBottesMenu", _source, _clothes)
+                            TriggerClientEvent("rdr_clothes_store:OpenAccBottesMenu", _source, _clothes, target)
                         end
                     end
                 end
