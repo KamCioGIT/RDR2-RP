@@ -265,7 +265,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 30,
         label = "Condenseur d'Alambic",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x300"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x50"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x100"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x50"}}
     },
     ['colalambic'] = {
         type = 'forgeenclume',
@@ -280,7 +280,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 30,
         label = "Col de cygne pour Alambic",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x300"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x50"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x100"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x50"}}
     },
     ['chapiteaualambic'] = {
         type = 'forgeenclume',
@@ -295,7 +295,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 30,
         label = "Chapiteau d'Alambic",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x300"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x50"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x100"}, {src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x50"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x50"}}
     },
     ['alambic'] = {
         type = 'forgeenclume',
