@@ -3678,7 +3678,7 @@ Config.Items = {
 
 --- bijouterie
 ["watch1"] = {
-    label = "Montre à gousset",
+    label = "Montre de luxe",
     description = "Utile pour savoir l'heure",
     weight = 0.1,
     canBeDropped = true,
@@ -3689,7 +3689,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["watch2"] = {
-    label = "Montre à gousset",
+    label = "Montre en or sombre",
     description = "Utile pour savoir l'heure",
     weight = 0.1,
     canBeDropped = true,
@@ -3700,7 +3700,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["watch3"] = {
-    label = "Montre à gousset",
+    label = "Montre en argent",
     description = "Utile pour savoir l'heure",
     weight = 0.1,
     canBeDropped = true,
@@ -3711,7 +3711,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["watch4"] = {
-    label = "Montre à gousset",
+    label = "Montre en argent",
     description = "Utile pour savoir l'heure",
     weight = 0.1,
     canBeDropped = true,
@@ -3722,7 +3722,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["watch5"] = {
-    label = "Montre à gousset",
+    label = "Montre ancienne",
     description = "Utile pour savoir l'heure",
     weight = 0.1,
     canBeDropped = true,
@@ -3733,7 +3733,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["watch6"] = {
-    label = "Montre à gousset",
+    label = "Montre en argent sombre",
     description = "Utile pour savoir l'heure",
     weight = 0.1,
     canBeDropped = true,
@@ -3744,7 +3744,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["watch7"] = {
-    label = "Montre à gousset",
+    label = "Montre en or",
     description = "Utile pour savoir l'heure",
     weight = 0.1,
     canBeDropped = true,
@@ -3755,7 +3755,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["watch8"] = {
-    label = "Montre à gousset",
+    label = "Montre en mauvais état",
     description = "Utile pour savoir l'heure",
     weight = 0.1,
     canBeDropped = true,
@@ -3766,7 +3766,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["watch9"] = {
-    label = "Montre à gousset",
+    label = "Montre sans aiguilles",
     description = "Utile pour savoir l'heure",
     weight = 0.1,
     canBeDropped = true,
