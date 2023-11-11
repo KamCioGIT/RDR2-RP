@@ -11,7 +11,7 @@ $(function(){
 				case 1:	{
 					show(event.data.inventory, event.data.otherinventory, event.data.crafting);
 					getItems(event.data.items, event.data.otheritems, event.data.target, event.data.weight);
-                    $("#money").html(`$${event.data.money}`).substr(0,5);
+                    $("#money").html(`$${event.data.money}`).substring(0, event.data.money.indexOf('.') + 3);
                     $("#clock").html(`${event.data.time}`);
 					break;
 				}
