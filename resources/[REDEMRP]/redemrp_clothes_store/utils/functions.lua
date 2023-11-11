@@ -272,3 +272,32 @@ function FixIssues(target)
     Citizen.InvokeNative(0xD710A5007C2AC539, target, 0xDA0E2C55, 0)
     NativeUpdatePedVariation(target)
 end
+
+
+function GetClosestPlayer()
+    local players, closestDistance, closestPlayer = GetActivePlayers(), -1, -1
+    local playerPed, playerId = PlayerPedId(), PlayerId()
+    local coords, usePlayerPed = coords, false
+
+    if coords then
+        coords = vector3(coords.x, coords.y, coords.z)
+    else
+        usePlayerPed = true
+        coords = GetEntityCoords(playerPed)
+    end
+
+    for i = 1, #players, 1 do
+        local tgt = GetPlayerPed(players[i])
+
+        if not usePlayerPed or (usePlayerPed and players[i] ~= playerId) then
+            local targetCoords = GetEntityCoords(tgt)
+            local distance = #(coords - targetCoords)
+
+            if closestDistance == -1 or closestDistance > distance then
+                closestPlayer = players[i]
+                closestDistance = distance
+            end
+        end
+    end
+    return closestPlayer, closestDistance
+end
