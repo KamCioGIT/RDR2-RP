@@ -99,6 +99,18 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value)
                             TriggerClientEvent("rdr_clothes_store:OpenEyesMenu", _source, _clothes)
                         end
                     end
+                elseif _value == 6 then
+                    for k, v in pairs(Config.Bijoutier) do
+                        if v == user.job then
+                            TriggerClientEvent("rdr_clothes_store:OpenDBaguesMenu", _source, _clothes)
+                        end
+                    end
+                elseif _value == 7 then
+                    for k, v in pairs(Config.Bijoutier) do
+                        if v == user.job then
+                            TriggerClientEvent("rdr_clothes_store:OpenGBaguesMenu", _source, _clothes)
+                        end
+                    end
                 end
             end
         end)
@@ -334,4 +346,52 @@ AddEventHandler("RegisterUsableItem:lunettes", function(source, _data)
     local model = _data.meta.model
     local texture = _data.meta.texture
     TriggerClientEvent("redemrp_clothes_store:putEyes", _source, model, texture)
+end)
+
+--- bijoux D
+
+RegisterServerEvent('rdr_clothes_store:GiveDBagues')
+AddEventHandler('rdr_clothes_store:GiveDBagues', function(info, price)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local currentMoney = user.GetMoney()
+    if currentMoney >= price then
+        user.RemoveMoney(price)
+        TriggerEvent("redemrp_inventory:DBagues", _source, info)
+
+    else
+        TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
+    end
+end)
+
+RegisterServerEvent("RegisterUsableItem:DBagues")
+AddEventHandler("RegisterUsableItem:DBagues", function(source, _data)
+	local _source = source
+    local model = _data.meta.model
+    local texture = _data.meta.texture
+    TriggerClientEvent("redemrp_clothes_store:putDBaguess", _source, model, texture)
+end)
+
+--- bijoux G
+
+RegisterServerEvent('rdr_clothes_store:GiveGBagues')
+AddEventHandler('rdr_clothes_store:GiveGBagues', function(info, price)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local currentMoney = user.GetMoney()
+    if currentMoney >= price then
+        user.RemoveMoney(price)
+        TriggerEvent("redemrp_inventory:GBagues", _source, info)
+
+    else
+        TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
+    end
+end)
+
+RegisterServerEvent("RegisterUsableItem:GBagues")
+AddEventHandler("RegisterUsableItem:GBagues", function(source, _data)
+	local _source = source
+    local model = _data.meta.model
+    local texture = _data.meta.texture
+    TriggerClientEvent("redemrp_clothes_store:putGBagues", _source, model, texture)
 end)

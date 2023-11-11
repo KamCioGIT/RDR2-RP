@@ -3072,6 +3072,28 @@ Config.Items = {
     imgsrc = "items/generic_clothing_glasses.png",
     type = "item_standard",
 },
+["DBagues"] = {
+    label = "Bague",
+    description = "Pour la main droite",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/provision_signet_ring.png",
+    type = "item_standard",
+},
+["GBagues"] = {
+    label = "Anneaux",
+    description = "Pour la main gauche",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/provision_ring_platinum.png",
+    type = "item_standard",
+},
 
 ------- feu de camp -----------
 ["viandepetitmamiferecuite"] = {
