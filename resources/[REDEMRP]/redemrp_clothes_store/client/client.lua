@@ -2104,7 +2104,7 @@ Citizen.CreateThread(function()
         end
         for k, v in pairs(Config.BaguesD) do
             local dist = Vdist(coords, v)
-            if dist < 2 then
+            if dist < 1.5 then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     TriggerServerEvent("rdr_clothes_store:LoadClothes", 6)
@@ -2487,7 +2487,7 @@ Citizen.CreateThread(function()
         end
         for k, v in pairs(Config.BaguesG) do
             local dist = Vdist(coords, v)
-            if dist < 2 then
+            if dist < 1.5 then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     TriggerServerEvent("rdr_clothes_store:LoadClothes", 7)

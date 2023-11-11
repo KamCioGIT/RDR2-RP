@@ -547,8 +547,8 @@ function Pipe(healing, lesshealing)
 end
 
 function Fan()
-    FPrompt("Put Away", 0x3B24C470, false)
-    LMPrompt("Little Wave", 0x07B8BEAF, false)
+    FPrompt("Arrêter", 0x3B24C470, false)
+    LMPrompt("Utiliser", 0x07B8BEAF, false)
     TriggerEvent("redemrp_inventory:closeinv")
     local ped = PlayerPedId()
     local male = IsPedMale(ped)
@@ -1121,14 +1121,15 @@ function BoostStamina(amount)
 end
 
 
-function Watch()
+function Watch(prop)
     RequestAnimDict('mech_inventory@item@pocketwatch@unarmed@base')
 	FPrompt()
     while (not HasAnimDictLoaded('mech_inventory@item@pocketwatch@unarmed@base')) do
 		Citizen.Wait(300)
     end
 	TriggerEvent("redemrp_inventory:closeinv")
-	prop_name = 'S_INV_POCKETWATCH03X'
+    
+	prop_name = Config.PocketWatches[prop]
 	local ped = PlayerPedId()
 	local x,y,z = table.unpack(GetEntityCoords(ped, true))
 	local prop = CreateObject(GetHashKey(prop_name), x, y, z + 0.2, true, true, true)

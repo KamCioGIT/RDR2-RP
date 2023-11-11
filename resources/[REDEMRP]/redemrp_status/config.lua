@@ -22,6 +22,11 @@ local crosshairhidden = false
 Config = {}
 
 
+Config.PocketWatches = {
+    "mp007_s_pocketwatch_emote02x", "p_si_pocketwatch01x", "s_inv_pocketwatch01x", "s_inv_pocketwatch02x", "s_inv_pocketwatch03x", "s_inv_pocketwatch04x",  "s_inv_pocketwatch07x", "s_oldpocketwatch01x", "s_oldpocketwatch02x"
+
+}
+
 Config.Items = {
     ["tabacchiquer"] = {
         hunger = 0,
@@ -461,5 +466,95 @@ Config.Items = {
             BoostStamina(40)
         end
     },
-
+    ---- bijouterie
+    ["watch1"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Watch(1)
+        end
+    },
+    ["watch2"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Watch(2)
+        end
+    },
+    ["watch3"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Watch(3)
+        end
+    },
+    ["watch4"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Watch(4)
+        end
+    },
+    ["watch5"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Watch(5)
+        end
+    },
+    ["watch6"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Watch(6)
+        end
+    },
+    ["watch7"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Watch(7)
+        end
+    },
+    ["watch8"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Watch(8)
+        end
+    },
+    ["watch9"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Watch(9)
+        end
+    },
 }
