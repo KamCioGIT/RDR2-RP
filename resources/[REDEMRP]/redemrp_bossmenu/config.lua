@@ -10,6 +10,13 @@ Config.AlerteVente = {
     "sheriff_rhodes", "sheriff_bla",
 }
 
+Config.ZoneVente = {
+    [GetHashKey("StDenis")] = "sheriff_rhodes",
+    [GetHashKey("Rhodes")] = "sheriff_rhodes",
+    [GetHashKey("Strawberry")] = "sheriff_bla",
+    [GetHashKey("Blackwater")] = "sheriff_bla",
+}
+
 Config.Jobs = {
     ["armurier_rhodes"] = {
         bigjob = "armurier",

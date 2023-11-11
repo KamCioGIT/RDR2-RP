@@ -107,7 +107,7 @@ RegisterServerEvent("sellnpc:sell", function(zone, Itemtosell, coords)
 	if ItemData.RemoveItem(1) then
 		local chance = math.random(1, 3)
 		if chance == 1 then
-			TriggerEvent("sellnpc:AlertSheriff", coords)
+			TriggerEvent("sellnpc:AlertSheriff", coords, zone)
 		end
 		Wait(2000)
 		User.addMoney(Config.Price[zone][Itemtosell].price)

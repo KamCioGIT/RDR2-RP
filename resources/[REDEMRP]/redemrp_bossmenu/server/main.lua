@@ -142,13 +142,14 @@ end)
 
 RegisterServerEvent("redemrp_bossmenu:server:ToggleDuty", function()
     local _source = source
+    local job = user.getJob()
     if not Duty[_source] then
-        Duty[_source] = true
+        Duty[_source] = job
     end
 end)
 
 ----- ALERTE SELL NPC ---- 
-RegisterServerEvent("sellnpc:AlertSheriff", function(coords)
+RegisterServerEvent("sellnpc:AlertSheriff", function(coords, zone)
     local xOffset = math.random(1, 40.0)
     local yOffset = math.random(1, 40.0)
     local zOffset = math.random(1, 40.0)
@@ -157,8 +158,10 @@ RegisterServerEvent("sellnpc:AlertSheriff", function(coords)
         y = coords.y + yOffset,
         z = coords.z + zOffset
     }
-    for sheriff, _ in pairs(Duty) do
-        TriggerClientEvent('sellnpc:addAlert', sheriff, newcoords)
+    for sheriff, job in pairs(Duty) do
+        if Config.ZoneVente[zone] == job then
+            TriggerClientEvent('sellnpc:addAlert', sheriff, newcoords)
+        end
     end
 end)
 
