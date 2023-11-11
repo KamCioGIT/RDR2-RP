@@ -101,11 +101,15 @@ RegisterServerEvent("sellnpc:checkitem", function ()
 	end
 end)
 
-RegisterServerEvent("sellnpc:sell", function(zone, Itemtosell)
+RegisterServerEvent("sellnpc:sell", function(zone, Itemtosell, coords)
 	local _source = tonumber(source)
 	local User = RedEM.GetPlayer(_source)
 	local ItemData = data.getItem(_source, Itemtosell)
 	if ItemData.RemoveItem(1) then
+		local chance = math.random(1, 4)
+		if chance == 1 then
+			TriggerEvent("sellnpc:AlertSheriff", coords)
+		end
 		Wait(2000)
 		User.addMoney(Config.Price[zone][Itemtosell].price)
 	end

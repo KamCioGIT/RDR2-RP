@@ -11,6 +11,29 @@ local varString = CreateVarString(10, "LITERAL_STRING", "Boss Menu")
 local Timeout = nil
 local isInteracting = false
 
+
+RegisterNetEvent("dust_job:sheriff")
+AddEventHandler("dust_job:sheriff", function(job, grade)
+    for k, v in pairs(Config.AlerteVente) do
+        if job == v then
+            TriggerServerEvent("redemrp_bossmenu:server:ToggleDuty")
+        end
+    end
+end)
+
+RegisterNetEvent('sellnpc:addAlert')
+AddEventHandler('sellnpc:addAlert', function (coords)
+    local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, coords.x, coords.y, coords.z)
+    local radius = Citizen.InvokeNative(0x45F13B7E0A15C880, Config.radiusStyle, coords.x, coords.y, coords.z, Config.blipRadius)
+    SetBlipSprite(blip, Config.alertBlipSprite)
+    SetBlipScale(blip, 0.2)
+    Citizen.Wait(Config.alertTimeout*1000)
+    RemoveBlip(blip)
+    RemoveBlip(radius)
+end)
+
+
+
 Citizen.CreateThread(function()
     Wait(1000)
     for k,v in pairs(Config.ExportNPC) do

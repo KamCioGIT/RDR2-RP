@@ -503,7 +503,7 @@ Citizen.CreateThread(function()
                                     if IsControlJustReleased(0, 0x760A9C6F) then
                                         TriggerEvent("sellnpc:activatecd", entity)
                                         TriggerEvent("sellnpc:animate", entity)
-                                        TriggerServerEvent("sellnpc:sell", current_town, Itemtosell)
+                                        TriggerServerEvent("sellnpc:sell", current_town, Itemtosell, playerPosition)
                                     end
                                 end
                             end

@@ -1,5 +1,15 @@
 Config = {}
 
+
+Config.alertBlipSprite = 1001245999	
+Config.blipRadius = 40.0
+Config.radiusStyle = -666422021
+Config.alertTimeout = 30
+
+Config.AlerteVente = {
+    "sheriff_rhodes", "sheriff_bla",
+}
+
 Config.Jobs = {
     ["armurier_rhodes"] = {
         bigjob = "armurier",

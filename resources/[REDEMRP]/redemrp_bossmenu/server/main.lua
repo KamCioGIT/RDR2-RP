@@ -142,26 +142,27 @@ end)
 
 RegisterServerEvent("redemrp_bossmenu:server:ToggleDuty", function()
     local _source = source
-    local user = RedEM.GetPlayer(_source)
-    local job = user.GetJob()
     if not Duty[_source] then
         Duty[_source] = true
-        -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Job Duty', 'lightgreen', 
-        --         "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " went **ON** duty for job "..user.getJob())
-        RedEM.Functions.NotifyRight( source, "Vous êtes en service!", 3000)
-        if job == "police" or job == "police2" or job == "police3" or job == "police4" or job == "police5" or job == "marshal" or job == "court" or job == "ranger" then
-            TriggerEvent("redemrp_dutybot:server:toggleDuty", _source)
-        end
-    else
-        -- TriggerEvent('redemrp_log:server:CreateLog', 'bossmenu', 'Job Duty', 'red', 
-        --     "[".._source.."] **"..user.GetFirstName().." "..user.GetLastName().. "** (serverid: ".._source.." | name: ".. GetPlayerName(_source).." | steamid: "..user.GetIdentifier().." | characterid: "..user.GetActiveCharacter()..")" .. " went **OFF** duty for job "..user.getJob())
-        Duty[_source] = false
-        RedEM.Functions.NotifyRight( source, "Vous n'êtes plus en service!", 3000)
-        if job == "police" or job == "police2" or job == "police3" or job == "police4" or job == "police5" or job == "marshal" or job == "court" or job == "ranger" then
-            TriggerEvent("redemrp_dutybot:server:toggleDuty", _source)
-        end
     end
 end)
+
+----- ALERTE SELL NPC ---- 
+RegisterServerEvent("sellnpc:AlertSheriff", function(coords)
+    local xOffset = math.random(1, 70)
+    local yOffset = math.random(1, 70)
+    local zOffset = math.random(1, 70)
+    local newcoords = {
+        x = coords.x + xOffset,
+        y = coords.y + yOffset,
+        z = coords.z + zOffset
+    }
+    for sheriff, _ in pairs(Duty) do
+        TriggerClientEvent('sellnpc:addAlert', sheriff, newcoords)
+    end
+end)
+
+
 
 RegisterServerEvent("redemrp_bossmenu:server:RequestBossMenu", function() ---- garde
     local _source = source
