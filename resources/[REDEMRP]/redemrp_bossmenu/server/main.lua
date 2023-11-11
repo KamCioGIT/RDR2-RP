@@ -142,6 +142,7 @@ end)
 
 RegisterServerEvent("redemrp_bossmenu:server:ToggleDuty", function()
     local _source = source
+    local user = RedEM.GetPlayer(_source)
     local job = user.getJob()
     if not Duty[_source] then
         Duty[_source] = job
