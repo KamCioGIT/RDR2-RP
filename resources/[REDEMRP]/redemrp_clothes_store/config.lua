@@ -108,7 +108,7 @@ Config.Label = {
 
 
 Config.Price = {
-    ["boot_accessories"] = 4,
+    ["boot_accessories"] = 5,
     ["pants"] = 1,
     ["cloaks"] = 2,
     ["hats"] = 2,
