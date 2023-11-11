@@ -149,9 +149,9 @@ end)
 
 ----- ALERTE SELL NPC ---- 
 RegisterServerEvent("sellnpc:AlertSheriff", function(coords)
-    local xOffset = math.random(1, 70)
-    local yOffset = math.random(1, 70)
-    local zOffset = math.random(1, 70)
+    local xOffset = math.random(1, 40.0)
+    local yOffset = math.random(1, 40.0)
+    local zOffset = math.random(1, 40.0)
     local newcoords = {
         x = coords.x + xOffset,
         y = coords.y + yOffset,
