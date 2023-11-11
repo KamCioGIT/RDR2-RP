@@ -2400,7 +2400,7 @@ RegisterNetEvent("redemrp_clothes_store:putDBagues", function(model, texture)
     end
 end)
 
-RegisterClientEvent("ChangeDBagues", function(id, change_type)
+RegisterNetEvent("ChangeDBagues", function(id, change_type)
     if id < 1 then
             Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey("jewelry_rings_right"), 0)
             NativeUpdatePedVariation(PlayerPedId())
