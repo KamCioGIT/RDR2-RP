@@ -2167,11 +2167,11 @@ function OpenDBaguesMenu(target)
         local a = 1
             if clothes_list["male"]["jewelry_rings_right"] ~= nil then
             local category = clothes_list["male"]["jewelry_rings_right"]
-            if DBaguesCache["jewelry_rings_right"] == nil then
-                DBaguesCache["jewelry_rings_right"] = {}
-                DBaguesCache["jewelry_rings_right"].model = 0
-                DBaguesCache["jewelry_rings_right"].texture = 1
-            end
+            -- if DBaguesCache["jewelry_rings_right"] == nil then
+            --     DBaguesCache["jewelry_rings_right"] = {}
+            --     DBaguesCache["jewelry_rings_right"].model = 0
+            --     DBaguesCache["jewelry_rings_right"].texture = 1
+            -- end
             local options = {}
             for k, v in pairs(category) do
                 table.insert(options, k .." Style")
