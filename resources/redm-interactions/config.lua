@@ -116,7 +116,7 @@ Config.Interactions = {
 	{
 		isCompatible = IsPedAdult,
 		objects = GenericBenches,
-		radius = 1.2,
+		radius = 1.5,
 		scenarios = {
 			{label = "Boire un coup", name = "PROP_HUMAN_SEAT_CHAIR_DRINKING"}
 		},
@@ -129,7 +129,7 @@ Config.Interactions = {
 	{
 		isCompatible = IsPedAdult,
 		objects = GenericBenches,
-		radius = 1.2,
+		radius = 1.5,
 		scenarios = {
 			{label = "Boire un coup", name = "PROP_HUMAN_SEAT_CHAIR_DRINKING"}
 		},
@@ -195,7 +195,7 @@ Config.Interactions = {
 		isCompatible = IsPedHuman,
 		objects = GenericBenches,
 		label = "Droite",
-		radius = 1.2,
+		radius = 1.5,
 		scenarios = GenericChairAndBenchScenarios,
 		x = -0.5,
 		y = 0.0,
@@ -206,7 +206,7 @@ Config.Interactions = {
 		isCompatible = IsPedHuman,
 		objects = GenericBenches,
 		label = "Gauche",
-		radius = 1.2,
+		radius = 1.5,
 		scenarios = GenericChairAndBenchScenarios,
 		x = 0.5,
 		y = 0.0,
@@ -249,7 +249,7 @@ Config.Interactions = {
 			"p_bedindian02x",
 			"p_cot01x"
 		},
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.0,
 		y = 0.0,
@@ -263,7 +263,7 @@ Config.Interactions = {
 			"p_cs_bed20madex"
 		},
 		label = "Droite",
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = -0.3,
 		y = -0.2,
@@ -277,7 +277,7 @@ Config.Interactions = {
 			"p_cs_bed20madex"
 		},
 		label = "Gauche",
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.3,
 		y = -0.2,
@@ -291,7 +291,7 @@ Config.Interactions = {
 			"p_bed09x",
 			"p_bedindian01x",
 		},
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.0,
 		y = 0.0,
@@ -302,7 +302,7 @@ Config.Interactions = {
 		objects = {
 			"p_bed05x"
 		},
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.0,
 		y = -0.5,
@@ -316,7 +316,7 @@ Config.Interactions = {
 			"p_bed13x",
 			"p_bed22x"
 		},
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.0,
 		y = -0.3,
@@ -328,7 +328,7 @@ Config.Interactions = {
 			"p_bed20x"
 		},
 		label = "Droite",
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = -0.3,
 		y = -0.2,
@@ -340,7 +340,7 @@ Config.Interactions = {
 			"p_bed20x"
 		},
 		label = "Gauche",
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.3,
 		y = -0.2,
@@ -352,7 +352,7 @@ Config.Interactions = {
 			"p_bedking02x"
 		},
 		label = "Gauche",
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = -0.5,
 		y = 0.5,
@@ -364,7 +364,7 @@ Config.Interactions = {
 			"p_bedking02x"
 		},
 		label = "Droite",
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.5,
 		y = 0.5,
@@ -383,7 +383,7 @@ Config.Interactions = {
 			"p_mattress07x",
 			"p_mattresscombined01x"
 		},
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.0,
 		y = 0.0,
@@ -396,7 +396,7 @@ Config.Interactions = {
 			"p_cs_roc_hse_bed",
 			"p_medbed01x"
 		},
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.1,
 		y = 0.0,
@@ -408,7 +408,7 @@ Config.Interactions = {
 			"p_cs_bedsleptinbed08x"
 		},
 		label = "Gauche",
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.3,
 		y = -0.3,
@@ -420,7 +420,7 @@ Config.Interactions = {
 			"p_cs_bedsleptinbed08x"
 		},
 		label = "Droite",
-		radius = 1.2,
+		radius = 2.0,
 		scenarios = BedScenarios,
 		x = 0.3,
 		y = 0.3,
