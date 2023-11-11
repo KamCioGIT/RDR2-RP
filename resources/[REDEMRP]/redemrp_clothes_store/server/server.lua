@@ -66,7 +66,7 @@ AddEventHandler('rdr_clothes_store:Save', function(Clothes, price)
 end)
 
 RegisterServerEvent('rdr_clothes_store:LoadClothes')
-AddEventHandler('rdr_clothes_store:LoadClothes', function(value, target)
+AddEventHandler('rdr_clothes_store:LoadClothes', function(value)
     local _value = value
     local _source = source
     local _clothes = nil
@@ -102,7 +102,6 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value, target)
                 elseif _value == 6 then
                     for k, v in pairs(Config.Bijoutier) do
                         if v == user.job then
-                            TriggerClientEvent("DBagues:getcache", target)
                             TriggerClientEvent("rdr_clothes_store:OpenDBaguesMenu", _source, _clothes)
                         end
                     end
