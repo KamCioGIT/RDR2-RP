@@ -690,6 +690,7 @@ Config.ExportNPC = {
     ["stdenis"] = {heading = 75.79538 , coords = vector3(2672.653, -1509.107, 44.96952)},
 }
 
+
 Config.Export = {
     ["lingotfer"] = {label= "Lingot de fer", price = 1.1},
     ["lingotor"] = {label= "Lingot d'or", price = 50},
@@ -719,3 +720,5 @@ Config.ImportBijoux = {
     ["watch9"] = {label= "Montre sans aiguilles", price = 2},
     ["fan"] = {label= "Éventail", price = 10},
 }
+
+Config.Bijoutier = {"bijouterie"}
