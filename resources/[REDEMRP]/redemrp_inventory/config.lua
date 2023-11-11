@@ -3094,6 +3094,18 @@ Config.Items = {
     imgsrc = "items/provision_ring_platinum.png",
     type = "item_standard",
 },
+["accbottes"] = {
+    label = "Éperons",
+    description = "La vitesse",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/eperon.png",
+    type = "item_standard",
+},
+
 
 ------- feu de camp -----------
 ["viandepetitmamiferecuite"] = {
