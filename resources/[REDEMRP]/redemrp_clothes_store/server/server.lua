@@ -369,7 +369,7 @@ AddEventHandler("RegisterUsableItem:DBagues", function(source, _data)
 	local _source = source
     local model = _data.meta.model
     local texture = _data.meta.texture
-    TriggerClientEvent("redemrp_clothes_store:putDBaguess", _source, model, texture)
+    TriggerClientEvent("redemrp_clothes_store:putDBagues", _source, model, texture)
 end)
 
 --- bijoux G

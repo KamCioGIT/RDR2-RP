@@ -3764,6 +3764,17 @@ Config.Items = {
     imgsrc = "items/valuable_watch12.png",
     type = "item_standard",
 },
+["fan"] = {
+    label = "Éventail",
+    description = "Pour les bourgeois",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/fan.png",
+    type = "item_standard",
+},
 
 }
 

@@ -2480,8 +2480,15 @@ AddEventHandler("redemrp_inventory:checkpoison", function(src, joueur, name)
                 if meta["poison"] then
                     qual = meta["poison"]
                     if qual == true then
-                        print('get')
+                        item.setMeta({poison = false})
                         TriggerClientEvent("dust_maladie:poison", _source)
+                        TriggerClientEvent(
+                            "redemrp_inventory:SendItems",
+                            _source,
+                            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+                            {},
+                            InventoryWeight[identifier .. "_" .. charid]
+                            )
                     end
                 end
             end

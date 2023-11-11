@@ -566,4 +566,15 @@ Config.Items = {
             Watch(9)
         end
     },
+    ["fan"] = {
+        type = "watch",
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Fan()
+        end
+    },
 }
