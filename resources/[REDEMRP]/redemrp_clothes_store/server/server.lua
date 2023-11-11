@@ -426,3 +426,10 @@ AddEventHandler("RegisterUsableItem:accbottes", function(source, _data)
     local texture = _data.meta.texture
     TriggerClientEvent("redemrp_clothes_store:putAccBottes", _source, model, texture)
 end)
+
+
+
+
+RegisterServerEvent("triggerChangeDBagues", function(value, type, target)
+    TriggerClientEvent("ChangeDBagues", target, value, type)
+end)
