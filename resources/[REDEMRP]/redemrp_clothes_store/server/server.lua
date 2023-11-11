@@ -102,7 +102,8 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value, target)
                 elseif _value == 6 then
                     for k, v in pairs(Config.Bijoutier) do
                         if v == user.job then
-                            TriggerClientEvent("rdr_clothes_store:OpenDBaguesMenu", _source, _clothes, target)
+                            TriggerClientEvent("DBagues:getcache", target)
+                            TriggerClientEvent("rdr_clothes_store:OpenDBaguesMenu", _source, _clothes)
                         end
                     end
                 elseif _value == 7 then
