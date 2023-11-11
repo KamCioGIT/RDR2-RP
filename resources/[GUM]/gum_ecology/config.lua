@@ -443,7 +443,7 @@ Config.Herbs = {
         animDur = 0
     },
     ["blackberry01x"] = {
-        blipSprite = 639638961,
+        blipSprite = 0,
         blipName = "myrtille",
         coords = {
             {-162.5132, 1731.164, 170.8444, 10.0},
