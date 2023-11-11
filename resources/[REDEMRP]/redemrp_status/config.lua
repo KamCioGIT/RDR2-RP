@@ -333,7 +333,7 @@ Config.Items = {
         end
     },
     ["brochettegibier"] = {
-        hunger = 30,
+        hunger = 20,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -343,7 +343,7 @@ Config.Items = {
         end
     },
     ["brochetteviande"] = {
-        hunger = 30,
+        hunger = 20,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -353,7 +353,7 @@ Config.Items = {
         end
     },
     ["brochettevolaille"] = {
-        hunger = 30,
+        hunger = 20,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
