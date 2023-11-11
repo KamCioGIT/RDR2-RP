@@ -112,7 +112,7 @@ end
 function CalculatePriceEyes()
 	local price = 0
 		if IsPedMale(PlayerPedId()) then
-				if OldEyesCache["eyewear"].model ~= EyesCache["masks"].model or OldEyesCache["eyewear"].texture ~= EyesCache["eyewear"].texture then
+				if OldEyesCache["eyewear"].model ~= EyesCache["eyewear"].model or OldEyesCache["eyewear"].texture ~= EyesCache["eyewear"].texture then
 					if EyesCache["eyewear"].model > 0 then
 						price = price + Config.Price["eyewear"]
 					end
@@ -121,6 +121,43 @@ function CalculatePriceEyes()
 				if OldEyesCache["eyewear"].model ~= EyesCache["eyewear"].model or OldEyesCache["eyewear"].texture ~= EyesCache["eyewear"].texture then
 					if EyesCache["eyewear"].model > 0 then
 						price = price + Config.Price["eyewear"]
+					end
+				end
+		
+		end
+		return price
+end
+
+function CalculatePriceDBagues()
+	local price = 0
+		if IsPedMale(PlayerPedId()) then
+				if OldEyesCache["jewelry_rings_right"].model ~= EyesCache["jewelry_rings_right"].model or OldEyesCache["jewelry_rings_right"].texture ~= EyesCache["jewelry_rings_right"].texture then
+					if EyesCache["jewelry_rings_right"].model > 0 then
+						price = price + Config.Price["jewelry_rings_right"]
+					end
+				end
+		else
+				if OldEyesCache["jewelry_rings_right"].model ~= EyesCache["jewelry_rings_right"].model or OldEyesCache["jewelry_rings_right"].texture ~= EyesCache["jewelry_rings_right"].texture then
+					if EyesCache["jewelry_rings_right"].model > 0 then
+						price = price + Config.Price["jewelry_rings_right"]
+					end
+				end
+		
+		end
+		return price
+end
+function CalculatePriceGBagues()
+	local price = 0
+		if IsPedMale(PlayerPedId()) then
+				if OldEyesCache["jewelry_rings_left"].model ~= EyesCache["jewelry_rings_left"].model or OldEyesCache["jewelry_rings_left"].texture ~= EyesCache["jewelry_rings_left"].texture then
+					if EyesCache["jewelry_rings_left"].model > 0 then
+						price = price + Config.Price["jewelry_rings_left"]
+					end
+				end
+		else
+				if OldEyesCache["jewelry_rings_left"].model ~= EyesCache["jewelry_rings_left"].model or OldEyesCache["jewelry_rings_left"].texture ~= EyesCache["jewelry_rings_left"].texture then
+					if EyesCache["jewelry_rings_left"].model > 0 then
+						price = price + Config.Price["jewelry_rings_left"]
 					end
 				end
 		
