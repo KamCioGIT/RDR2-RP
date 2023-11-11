@@ -1,0 +1,111 @@
+@font-face {
+    font-family: chalk;
+    src: url(../fonts/chalkboard.ttf) format('truetype');
+}
+
+:root {
+    --nss-chalkboard-anim-dur: 500ms;
+}
+
+.nss-chalkboard {
+    position: absolute;
+    top: var(--100rpx);
+    right: var(--100rpx);
+    background: transparent url("../img/chalkboard_optimized.png") no-repeat;
+    background-size: 100% 100%;
+    aspect-ratio: 757/547;
+    width: calc(var(--1rpx) * 500);
+    filter: drop-shadow(0 0 0.5rem #000);
+
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    -webkit-animation: nss-chalkboard-anim__fade-in var(--nss-chalkboard-anim-dur) both;
+    animation: nss-chalkboard-anim__fade-in var(--nss-chalkboard-anim-dur) both;
+}
+
+.nss-chalkboard--out {
+    -webkit-animation: nss-chalkboard-anim__fade-out var(--nss-chalkboard-anim-dur) both;
+    animation: nss-chalkboard-anim__fade-out var(--nss-chalkboard-anim-dur) both;
+}
+
+.nss-chalkboard__close-hint {
+    position: absolute;
+    left: 50%;
+    top: calc(var(--1rpx) * 15);
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+.nss-chalkboard__text {
+    --margin: calc(var(--1rpx) * 60);
+    color: #fff;
+    font-family: chalk, sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: var(--1rpx);
+    max-width: calc(100% - (var(--margin) * 2));
+    max-height: calc(100% - (var(--margin) * 2));
+    overflow: hidden;
+    text-align: center;
+}
+
+/*region fade-in*/
+@-webkit-keyframes nss-chalkboard-anim__fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes nss-chalkboard-anim__fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/*endregion*/
+
+/*region fade-out*/
+@-webkit-keyframes nss-chalkboard-anim__fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes nss-chalkboard-anim__fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/*endregion*/
