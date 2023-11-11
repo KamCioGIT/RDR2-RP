@@ -468,6 +468,7 @@ Config.Items = {
     },
     ---- bijouterie
     ["watch1"] = {
+        type = "watch",
         hunger = 0,
         thirst = 0,
         action = function(source, name)
@@ -478,6 +479,7 @@ Config.Items = {
         end
     },
     ["watch2"] = {
+        type = "watch",
         hunger = 0,
         thirst = 0,
         action = function(source, name)
@@ -488,6 +490,7 @@ Config.Items = {
         end
     },
     ["watch3"] = {
+        type = "watch",
         hunger = 0,
         thirst = 0,
         action = function(source, name)
@@ -498,6 +501,7 @@ Config.Items = {
         end
     },
     ["watch4"] = {
+        type = "watch",
         hunger = 0,
         thirst = 0,
         action = function(source, name)
@@ -508,6 +512,7 @@ Config.Items = {
         end
     },
     ["watch5"] = {
+        type = "watch",
         hunger = 0,
         thirst = 0,
         action = function(source, name)
@@ -518,6 +523,7 @@ Config.Items = {
         end
     },
     ["watch6"] = {
+        type = "watch",
         hunger = 0,
         thirst = 0,
         action = function(source, name)
@@ -528,6 +534,7 @@ Config.Items = {
         end
     },
     ["watch7"] = {
+        type = "watch",
         hunger = 0,
         thirst = 0,
         action = function(source, name)
@@ -538,6 +545,7 @@ Config.Items = {
         end
     },
     ["watch8"] = {
+        type = "watch",
         hunger = 0,
         thirst = 0,
         action = function(source, name)
@@ -548,6 +556,7 @@ Config.Items = {
         end
     },
     ["watch9"] = {
+        type = "watch",
         hunger = 0,
         thirst = 0,
         action = function(source, name)

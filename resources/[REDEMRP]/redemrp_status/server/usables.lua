@@ -18,9 +18,13 @@ Citizen.CreateThread(function()
                 if Player.GetMetaData().thirst > 100.0 then Player.SetMetaData("thirst", 100) end
                 
                 local ItemData = Inventory.getItem(source, name)
-                ItemData.RemoveItem(1)
                 TriggerClientEvent('redemrp_status:UpdateStatus', source, Player.GetMetaData().thirst, Player.GetMetaData().hunger, Player.GetMetaData().stress, 0)
                 info.action(source, name)
+                if info.type == "watch" then
+                    return
+                else
+                    ItemData.RemoveItem(1)
+                end
             end)
         end)
     end
