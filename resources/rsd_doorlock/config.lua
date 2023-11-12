@@ -1481,6 +1481,33 @@ Config.Doors = {
     needkey = false,
     keys = '',
 },
+
+
+----- taxidermiste
+{
+    door = 1963415953,
+    CloseRotation = -15.0,
+    DoorCoord  = vector3(2626.61,-1347.58,48.04),
+    door2 = 0,
+    CloseRotation2 = 0,
+    locked = true,
+    breakable = false, 
+    jobs = all,
+    needkey = true,
+    keys = 'cleftaxi',
+},
+{
+    door = 828250887,
+    CloseRotation = 309.83,
+    DoorCoord  = vector3(2626.61,-1347.58,48.04),
+    door2 = 0,
+    CloseRotation2 = 0,
+    locked = true,
+    breakable = false, 
+    jobs = {"apothicaire_stdenis"},
+    needkey = false,
+    keys = '',
+},
 }
 
 --UNLOCK DOORS 
