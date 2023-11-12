@@ -256,7 +256,7 @@ function OpenCustomCart(horse, horseid, model)
     table.insert(elements, {
         label = Config.LabelCart["save"] or "Valider",
         value = "save",
-        desc = "Valider"
+        desc = "Valider $"..CurrentPrice
     })
 
     MenuData.Open('default', GetCurrentResourceName(), 'customcart', {
@@ -454,17 +454,21 @@ function CalculatePrice(type)
     if type == 1 then
         for k, v in pairs(comp_list) do
             if CompCache[k].hash then
-                if CompCache[k].hash > 0 then
-                    price = price + Config.LabelPrice[k]
-                end
+                if CompCache[k].hash ~= OldCompCache[k].hash then
+                    if CompCache[k].hash > 0 then
+                        price = price + Config.LabelPrice[k]
+                    end
+                end 
             end
         end
     else
         for k, v in pairs(comp_cart) do
             if CompCache[k].hash then
-                if CompCache[k].hash > 0 then
-                    price = price + Config.LabelPrice[k]
-                end
+                if CompCache[k].hash ~= OldCompCache[k].hash then
+                    if CompCache[k].hash > 0 then
+                        price = price + Config.LabelPrice[k]
+                    end
+                end 
             end
         end
     end

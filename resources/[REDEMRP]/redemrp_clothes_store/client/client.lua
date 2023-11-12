@@ -45,7 +45,7 @@ function OpenClothingMenu()
     table.insert(elements, {
         label = Config.Label["save"] or "Save",
         value = "save",
-        desc = "Valider"
+        desc = "Valider $"..CurrentPrice
     })
 
     MenuData.Open('default', GetCurrentResourceName(), 'clothing_store_menu', {
@@ -974,7 +974,7 @@ function OpenHatMenu()
             table.insert(elements, {
                 label = Config.Label["save"] or "Save",
                 value = "save",
-                desc = "Valider"
+                desc = "Valider $"..CurrentPrice
             })
         
         end
@@ -1028,7 +1028,7 @@ function OpenHatMenu()
         table.insert(elements, {
             label = Config.Label["save"] or "Save",
             value = "save",
-            desc = "Valider"
+            desc = "Valider $"..CurrentPrice
         })
     end
 
@@ -1363,7 +1363,7 @@ function OpenMaskMenu()
             table.insert(elements, {
                 label = Config.Label["save"] or "Save",
                 value = "save",
-                desc = "Valider"
+                desc = "Valider $"..CurrentPrice
             })
         
         end
@@ -1417,7 +1417,7 @@ function OpenMaskMenu()
         table.insert(elements, {
             label = Config.Label["save"] or "Save",
             value = "save",
-            desc = "Valider"
+            desc = "Valider $"..CurrentPrice
         })
     end
 
@@ -1829,7 +1829,7 @@ function OpenEyesMenu()
             table.insert(elements, {
                 label = Config.Label["save"] or "Save",
                 value = "save",
-                desc = "Valider"
+                desc = "Valider $"..CurrentPrice
             })
         
         end
@@ -1883,7 +1883,7 @@ function OpenEyesMenu()
         table.insert(elements, {
             label = Config.Label["save"] or "Save",
             value = "save",
-            desc = "Valider"
+            desc = "Valider $"..CurrentPrice
         })
     end
 
@@ -2212,7 +2212,7 @@ function OpenDBaguesMenu(target)
             table.insert(elements, {
                 label = Config.Label["save"] or "Save",
                 value = "save",
-                desc = "Valider"
+                desc = "Valider $"..CurrentPrice
             })
         
         end
@@ -2266,7 +2266,7 @@ function OpenDBaguesMenu(target)
         table.insert(elements, {
             label = Config.Label["save"] or "Save",
             value = "save",
-            desc = "Valider"
+            desc = "Valider $"..CurrentPrice
         })
     end
 
@@ -2595,7 +2595,7 @@ function OpenGBaguesMenu()
             table.insert(elements, {
                 label = Config.Label["save"] or "Save",
                 value = "save",
-                desc = "Valider"
+                desc = "Valider $"..CurrentPrice
             })
         
         end
@@ -2649,7 +2649,7 @@ function OpenGBaguesMenu()
         table.insert(elements, {
             label = Config.Label["save"] or "Save",
             value = "save",
-            desc = "Valider"
+            desc = "Valider $"..CurrentPrice
         })
     end
 
@@ -2978,7 +2978,7 @@ function OpenAccBottesMenu()
             table.insert(elements, {
                 label = Config.Label["save"] or "Save",
                 value = "save",
-                desc = "Valider"
+                desc = "Valider $"..CurrentPrice
             })
         
         end
@@ -3032,7 +3032,7 @@ function OpenAccBottesMenu()
         table.insert(elements, {
             label = Config.Label["save"] or "Save",
             value = "save",
-            desc = "Valider"
+            desc = "Valider $"..CurrentPrice
         })
     end
 
