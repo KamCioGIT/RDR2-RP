@@ -13,8 +13,8 @@ $(function(){
 					getItems(event.data.items, event.data.otheritems, event.data.target, event.data.weight);
                     var index = event.data.money.indexOf('.') + 3;
                     var moneyclean = event.data.money.substring(0, index);
-                    print (index);
-                    print (moneyclean);
+                    console.log(index);
+                    console.log(moneyclean);
                     $("#money").html(`$${moneyclean}`);
                     $("#clock").html(`${event.data.time}`);
 					break;
