@@ -950,7 +950,7 @@ AddEventHandler('dust_stable:horsehaycube', function(source)
                     if valueStamina <= 10 then
                         Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, 10)
                     else
-                        Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, valueStamina + 30)
+                        Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, valueStamina + 60)
                     end
                     TriggerServerEvent("dust_stable:removeitem", "horsehaycube")
                     return
