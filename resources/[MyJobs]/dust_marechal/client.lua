@@ -217,9 +217,7 @@ function OpenCategory(menu_catagory, horse, horseid)
         menu.close()
         OpenCustomMenu(horse, horseid)
     end, function(data, menu)
-        if data.current.value ~= 0 then 
-            MenuUpdateComp(data, menu, horse)
-        end
+        MenuUpdateComp(data, menu, horse)
     end)
 end
 
@@ -344,9 +342,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
         menu.close()
         OpenCustomCart(horse, horseid, model)
     end, function(data, menu)
-        if data.current.value ~= 0 then 
-            MenuUpdateCart(data, menu, horse, model)
-        end
+        MenuUpdateCart(data, menu, horse, model)
     end)
 end
 
@@ -383,9 +379,15 @@ function MenuUpdateCart(data, menu, horse, model)
 end
 
 function MenuUpdateComp(data, menu, horse)
-    NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
-    if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
-        CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+    if data.current.value < 1 then
+        local category = GetHashKey("data.current.category")
+        Citizen.InvokeNative(0xD710A5007C2AC539, horse, category, 0)
+        NativeUpdatePedVariation(horse)
+    else
+        NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
+        if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
+            CompCache[data.current.category].hash = comp_list[data.current.category][data.current.value].hash
+        end
     end
     if CurrentPrice ~= CalculatePrice(1) then
         CurrentPrice = CalculatePrice(1)
