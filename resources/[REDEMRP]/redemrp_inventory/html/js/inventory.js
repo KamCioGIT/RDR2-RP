@@ -11,11 +11,10 @@ $(function(){
 				case 1:	{
 					show(event.data.inventory, event.data.otherinventory, event.data.crafting);
 					getItems(event.data.items, event.data.otheritems, event.data.target, event.data.weight);
-                    var index = event.data.money.indexOf('.') + 3;
-                    var moneyclean = event.data.money.substring(0, index);
-                    console.log(index);
-                    console.log(moneyclean);
-                    $("#money").html(`$${moneyclean}`);
+                    let moneyValue = `$${event.data.money}`;
+                    let truncatedMoney = moneyValue.substring(0, moneyValue.indexOf('.') + 3);
+                    $("#money").html(truncatedMoney);
+                    
                     $("#clock").html(`${event.data.time}`);
 					break;
 				}
