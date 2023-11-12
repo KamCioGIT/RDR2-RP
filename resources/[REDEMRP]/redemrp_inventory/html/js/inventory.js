@@ -11,9 +11,8 @@ $(function(){
 				case 1:	{
 					show(event.data.inventory, event.data.otherinventory, event.data.crafting);
 					getItems(event.data.items, event.data.otheritems, event.data.target, event.data.weight);
-                    let moneyValue = `$${event.data.money}`;
-                    let truncatedMoney = moneyValue.substring(0, moneyValue.indexOf('.') + 3);
-                    $("#money").html(truncatedMoney);
+                    let formattedMoney = `$${Number(event.data.money).toFixed(2)}`;
+                    $("#money").html(formattedMoney);
                     
                     $("#clock").html(`${event.data.time}`);
 					break;
