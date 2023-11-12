@@ -1508,6 +1508,32 @@ Config.Doors = {
     needkey = true,
     keys = 'cleftaxi',
 },
+
+---- disitllerie
+{
+    door = 3327934361,
+    CloseRotation = -100.0,
+    DoorCoord  = vector4(1459.719, -1579.794, 72.01608),
+    door2 = 0,
+    CloseRotation2 = 0,
+    locked = true,
+    breakable = false, 
+    jobs = {"distillerie"},
+    needkey = false,
+    keys = '',
+},
+{
+    door = 3014302262,
+    CloseRotation = 70,
+    DoorCoord  = vector3(1449.75, -1575.804, 71.99829),
+    door2 = 0,
+    CloseRotation2 = 0,
+    locked = true,
+    breakable = false, 
+    jobs = {"distillerie"},
+    needkey = false,
+    keys = '',
+},
 }
 
 --UNLOCK DOORS 
