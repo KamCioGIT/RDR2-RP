@@ -664,6 +664,29 @@ Config.Jobs = {
             },
         }
     },
+    ["distillerie"] = {
+        bigjob = "distillerie",
+        Name = "Scarlett Distillery",
+        blisprite = 553094466,
+        MenuLocations = 
+            vector3(1453.521, -1582.51, 72.01605)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
 
 
 }
