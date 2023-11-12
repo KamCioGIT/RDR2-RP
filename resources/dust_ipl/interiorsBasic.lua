@@ -663,6 +663,12 @@ RequestImap(-2144587490) -- Covers small plot hole with mound of dirt
 RemoveImap(-158824350) -- Dirt in Small Plot (visually can't see it)
 ------------------------------------- #### END OF RHODES CEMETERY ####
 
+------------------- RHODES DISTILLERIE -----------------------
+RequestImap(-1386423483) --- intérieur
+RequestImap(-1276109918) --- extérieur
+RequestImap(-1405375965) --- barrières
+RemoveImap(1133172356) --- barrières
+
 ------------------------------------- Braithwaite Mansion
 --Mansion Interior
 RemoveImap(1149195254)  --Brathwaite House Shell
@@ -2220,10 +2226,7 @@ RemoveImap(-327708229)
 RemoveImap(1048845581)
 RemoveImap(-1535722316)
 RemoveImap(1547994518)
-RemoveImap(-1276109918)
-RemoveImap(-1386423483)
 RemoveImap(-1331593143)
-RequestImap(-1405375965)
 RequestImap(1881774051)
 RequestImap(912202325)
 RequestImap(1175400068)
@@ -2625,7 +2628,6 @@ RequestImap(434145706)
 RequestImap(654746614)
 RequestImap(1965736001)
 RequestImap(1650694835)
-RequestImap(1133172356)
 RemoveImap(-559257162)
 RemoveImap(418666411)
 RemoveImap(651621232)
