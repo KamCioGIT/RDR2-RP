@@ -380,9 +380,7 @@ end
 
 function MenuUpdateComp(data, menu, horse)
     if data.current.value < 1 then
-        local category = GetHashKey("data.current.category")
-        Citizen.InvokeNative(0xD710A5007C2AC539, horse, category, 0)
-        NativeUpdatePedVariation(horse)
+        NativeSetPedComponentEnabled(horse, 0)
     else
         NativeSetPedComponentEnabled(horse, comp_list[data.current.category][data.current.value].hash)
         if CompCache[data.current.category].hash ~= comp_list[data.current.category][data.current.value].hash then
