@@ -1512,8 +1512,8 @@ Config.Doors = {
 ---- disitllerie
 {
     door = 3327934361,
-    CloseRotation = -100.0,
-    DoorCoord  = vector4(1459.719, -1579.794, 72.01608),
+    CloseRotation = -116.0,
+    DoorCoord  = vector3(1459.719, -1579.794, 72.01608),
     door2 = 0,
     CloseRotation2 = 0,
     locked = true,
@@ -1524,7 +1524,7 @@ Config.Doors = {
 },
 {
     door = 3014302262,
-    CloseRotation = 70,
+    CloseRotation = -116.0,
     DoorCoord  = vector3(1449.75, -1575.804, 71.99829),
     door2 = 0,
     CloseRotation2 = 0,
