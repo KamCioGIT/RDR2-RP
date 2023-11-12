@@ -379,6 +379,7 @@ function MenuUpdateCart(data, menu, horse, model)
 end
 
 function MenuUpdateComp(data, menu, horse)
+    print(data.current.value)
     if data.current.value < 1 then
         NativeSetPedComponentEnabled(horse, 0)
     else
