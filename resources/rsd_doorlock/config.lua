@@ -1318,7 +1318,7 @@ Config.Doors = {
 
         {
             door = 1595373759,
-            CloseRotation = 45.0,
+            CloseRotation = -90.0,
             DoorCoord  = vector3(-1794.4954833984,-381.68154907227,159.314453125),
             door2 = 0,
             CloseRotation2 = 0,
@@ -1330,7 +1330,7 @@ Config.Doors = {
         },
         {
             door = 1854467923,
-            CloseRotation = -90.0,
+            CloseRotation = 90.0,
             DoorCoord  = vector3(-1787.3168945313,-387.2438659668,159.31578063965),
             door2 = 0,
             CloseRotation2 = 0,
@@ -1486,26 +1486,26 @@ Config.Doors = {
 ----- taxidermiste
 {
     door = 1963415953,
-    CloseRotation = -20.0,
+    CloseRotation = -30.0,
     DoorCoord  = vector3(-1682.649, -341.3071, 173.9155),
     door2 = 0,
     CloseRotation2 = 0,
     locked = true,
     breakable = false, 
     jobs = {"all"},
-    needkey = false,
+    needkey = true,
     keys = 'cleftaxi',
 },
 {
     door = 2847752952,
-    CloseRotation = 160.0,
+    CloseRotation = 145.0,
     DoorCoord  = vector3(-1679.373, -336.7736, 173.9922),
     door2 = 0,
     CloseRotation2 = 0,
     locked = true,
     breakable = false, 
     jobs = {"all"},
-    needkey = false,
+    needkey = true,
     keys = 'cleftaxi',
 },
 }

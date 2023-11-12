@@ -81,6 +81,7 @@ ensure dust_telegram
 ensure dust_radial
 ensure dust_store
 ensure mega_doctorjob
+ensure nss_chalkboard
 start gum_animmenu
 start gum_ecology
 start gum_farming
