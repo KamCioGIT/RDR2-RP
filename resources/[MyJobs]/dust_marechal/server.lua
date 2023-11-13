@@ -26,10 +26,9 @@ RegisterServerEvent('rdr_marechal:loadcomp')
 AddEventHandler('rdr_marechal:loadcomp', function(value, horseid, horse)
     local _value = value
     local _source = source
-    local _horseid = horseid
 
     MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;', {
-        horseid = _horseid
+        horseid = horseid
     }, function(_comp)
         if _comp[1] then
             print(_comp[1].model)
