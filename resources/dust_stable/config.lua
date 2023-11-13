@@ -153,6 +153,7 @@ Startstdenis = {
 },
 Startbla = {
 	pos = vector3(-879.2835, -1376.261, 42.71529),
+    previs = {pos= vector3(-882.9678, -1377.25, 42.7739), heading = 0.709942},
 	name = 'Achat',
 	stable= 'Startbla',
 },
