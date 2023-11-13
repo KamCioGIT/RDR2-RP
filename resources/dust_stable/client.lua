@@ -624,7 +624,7 @@ function Buy()
             if #(playerpos - v.pos ) < Config.DistanceToInteract and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
-                    buyhorse(v.stable)
+                    buyhorse(v.stable, v.previs)
                     isInteracting = true
                 end
             end
@@ -636,7 +636,7 @@ function Buy()
             if #(playerpos - v.pos ) < Config.DistanceToInteract and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
-                    buycart(v.stable)
+                    buycart(v.stable, v.previs)
                     isInteracting = true
                 end
             end
@@ -721,7 +721,7 @@ function buyhorse(stable, previs)
     end)
 end
 
-function buycart(stable)
+function buycart(stable, previs)
     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
         MenuData.CloseAll()
 
