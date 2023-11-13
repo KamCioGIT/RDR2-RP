@@ -1207,10 +1207,11 @@ function spawncartprevisu(data, menu, previs)
     end
 
     initializing = true
-    local cart = CreateVehicle(modelHash, previs.pos, previs.heading, true, true)
+    local previsucart = CreateVehicle(modelHash, previs.pos, previs.heading, true, true)
     SetModelAsNoLongerNeeded(modelHash)
 
     SetPedPromptName(cart, name)
 
+    Spawnedprevisu[previsucart] = true
     initializing = false
 end
