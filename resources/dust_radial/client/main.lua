@@ -529,7 +529,7 @@ RegisterNetEvent("sellnpc:animate",function(ent)
         Citizen.Wait(100)
     end
     TaskPlayAnim(PlayerPedId(), Config.SellDict, Config.SellAnim, 1.0, 1.0, -1, 25, 0, true, 0, false, 0, false)  
-    Wait(2000)
+    Wait(5000)
     ClearPedTasks(PlayerPedId())
     FreezeEntityPosition(ent, false)
     SellingAction = false

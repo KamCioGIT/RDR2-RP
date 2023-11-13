@@ -109,7 +109,7 @@ RegisterServerEvent("sellnpc:sell", function(zone, Itemtosell, coords)
 		if chance == 1 then
 			TriggerEvent("sellnpc:AlertSheriff", coords, zone)
 		end
-		Wait(2000)
+		Wait(5000)
 		User.addMoney(Config.Price[zone][Itemtosell].price)
 	end
 end)
