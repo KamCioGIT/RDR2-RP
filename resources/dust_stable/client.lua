@@ -655,11 +655,14 @@ Citizen.CreateThread(function()
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())
         for k, v in pairs(Config.NoobPos) do
-            if #(playerpos - v.pos ) < 7 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
-                TriggerEvent('dust_presskey', "Appuyez sur G")
-                if IsControlJustReleased(0, 0x760A9C6F) then
-                    buyhorse(v.stable)
-                    isInteracting = true
+            if #(playerPos - v) < 6.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 2.2, 2.2, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
+                if #(playerpos - v.pos ) < 2.2 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
+                    if IsControlJustReleased(0, 0x760A9C6F) then
+                        buyhorse(v.stable)
+                        isInteracting = true
+                    end
                 end
             end
         end
@@ -796,7 +799,7 @@ Citizen.CreateThread(function()
         if size > 0 then
             for index = 0, size - 1 do
                 local entity = GetIndexedItemInItemset(index, itemSet) -- Add entity in itemSet
-                if Entity(entity).state.saddle == "true" and not IsPedOnMount(PlayerPedId()) then
+                if Entity(entity).state.saddle == "true" then
                     -- TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustReleased(0, 0xC1989F95) then
                         -- Citizen.InvokeNative(0xCD181A959CFDD7F4, PlayerPedId(), entity, GetHashKey("Interaction_LootSaddleBags"), 0, 1)
