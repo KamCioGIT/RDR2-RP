@@ -1137,11 +1137,15 @@ end)
 
 --- previs
 
+local previshorse = nil
+
 function spawnprevisu(data, menu, previs)
     if initializing then
         return
     end
+    if previshorse ~= nil then
         DeletePed(previshorse)
+    end
     local modelHash = GetHashKey(data.current.value)
     if type(data.current.value) == 'number' then 
         modelHash = data.current.value
