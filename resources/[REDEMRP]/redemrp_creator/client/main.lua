@@ -31,10 +31,6 @@ local MainMenus = {
         OpenMakeupMenu()
     end,
     ["save"] = function()
-		TriggerServerEvent("rdr_creator:SetPlayerBucket" , 0)
-        -- if NetworkIsInTutorialSession() then
-        --     NetworkEndTutorialSession()
-        -- end
         EndCharacterCreatorCam()
         MenuData.CloseAll()
         LoadedComponents = CreatorCache
