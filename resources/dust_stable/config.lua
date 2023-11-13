@@ -10,6 +10,18 @@ Config.Certif = {
     vector3(2638.67, -1292.944, 52.25156), --- stdenis
 }
 Config.Stables = {
+    distillerie = {
+		pos = vector3(1419.654, -1586.466, 68.34435),
+		name = 'distillerie',
+    },
+    transpertouest = {
+		pos = vector3(-1815.575, -598.6345, 154.7045),
+		name = 'transpertouest',
+    },
+    transpertest = {
+		pos = vector3(2642.672, -1472.253, 46.10427),
+		name = 'transpertest',
+    },
 	buyhorse = {
 		pos = vector3(2511.494, -1431.057, 46.26681),
 		name = 'buyhorse',
