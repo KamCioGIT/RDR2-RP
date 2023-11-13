@@ -1164,6 +1164,7 @@ function spawnprevisu(data, menu, previs)
 
     initializing = true
     local previshorse = CreatePed(modelHash, previs.pos, previs.heading, false, true)
+    SetEntityAlpha(previshorse,0,false)
     Citizen.InvokeNative(0x283978A15512B2FE, previshorse, true) -- set random outfit components
     FreezeEntityPosition(previshorse, true)
     SetModelAsNoLongerNeeded(modelHash)
@@ -1175,6 +1176,7 @@ function spawnprevisu(data, menu, previs)
 
     SetPedConfigFlag(horse, 297, true)
     SetEntityAsMissionEntity(previshorse, true, true)
+    SetEntityAlpha(previshorse,255,false)
     Spawnedprevisu[previshorse] = true
     initializing = false
 end
