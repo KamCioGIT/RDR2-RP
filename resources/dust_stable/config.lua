@@ -147,7 +147,7 @@ Config.Buycart = {
 Config.NoobPos ={ 	
 Startstdenis = {
 	pos = vector3(2462.964, -1328.921, 45.23399),
-    previs = {pos= vector3(2462.89, -1324.785, 46.29467), heading = 269.5163},
+    previs = {pos= vector3(2462.89, -1324.785, 45.29467), heading = 269.5163},
 	name = 'Achat',
 	stable= 'Stdenis_start',
 },
