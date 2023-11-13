@@ -763,7 +763,7 @@ function buycart(stable)
         end, 
         
         function(data, menu)
-            spawnprevisu(data, menu, previs)
+            spawncartprevisu(data, menu, previs)
         end)
     end)
 end
@@ -1186,5 +1186,31 @@ function spawnprevisu(data, menu, previs)
     SetPedConfigFlag(horse, 297, true)
     SetEntityAsMissionEntity(previshorse, true, true)
     Spawnedprevisu[previshorse] = true
+    initializing = false
+end
+
+function spawncartprevisu(data, menu, previs)
+    if initializing then
+        return
+    end
+    for k, v in pairs(Spawnedprevisu) do
+        DeleteEntity(k)
+    end
+    local modelHash = GetHashKey(data.current.value)
+
+
+    if not HasModelLoaded(modelHash) then
+        RequestModel(modelHash)
+        while not HasModelLoaded(modelHash) do
+            Citizen.Wait(10)
+        end
+    end
+
+    initializing = true
+    local cart = CreateVehicle(modelHash, previs.pos, previs.heading, true, true)
+    SetModelAsNoLongerNeeded(modelHash)
+
+    SetPedPromptName(cart, name)
+
     initializing = false
 end
