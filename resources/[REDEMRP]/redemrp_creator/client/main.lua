@@ -1955,7 +1955,6 @@ local BarberMenus = {
         MenuData.CloseAll()
         LoadedComponents = CreatorCache
         TriggerServerEvent("rdr_creator:SaveHair", CreatorCache)
-        ExecuteCommand("loadskin")
     end,
     ["quit"] = function()
         MenuData.CloseAll()
