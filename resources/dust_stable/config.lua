@@ -131,8 +131,8 @@ Config.Buyhorse = {
 
 Config.Buycart = {
 	Saint_Denis = {
-		pos = vector3(2502.023, -1487.874, 45.9691),
-        previs = {pos= vector3(2462.89, -1324.785, 45.29467), heading = 269.5163},
+		pos = vector3(2513.32, -1492.22, 44.97282),
+        previs = {pos= vector3(2514.241, -1485.792, 46.00423), heading = 90.21333},
 		name = 'Achatcartstdenis',
 		stable= 'buyhorse',
 	},
