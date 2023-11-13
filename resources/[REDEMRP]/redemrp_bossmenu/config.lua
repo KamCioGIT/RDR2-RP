@@ -594,7 +594,7 @@ Config.Jobs = {
         Name = "Apothicaire",
         blisprite = 669307703,
         MenuLocations = 
-            vector3(-1807.722, -431.0266, 158.8314)
+            vector3(-1807.722, -431.0266, 157.8314)
         ,
         Grades = {
             [1] = {
