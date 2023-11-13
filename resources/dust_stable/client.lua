@@ -1,6 +1,6 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
-
+local Spawnedprevisu = {}
 RegisterNetEvent("dust_job:marechal")
 AddEventHandler("dust_job:marechal", function(job, grade)
     for k, v in pairs(Config.Jobs) do
@@ -703,14 +703,17 @@ function buyhorse(stable, previs)
             end
             local type = "horse"
             TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type, data.current.price)
+            for k, v in pairs(Spawnedprevisu) do
+                DeleteEntity(k)
+            end
             isInteracting = false
         end,
 
         function(data, menu)
+            menu.close()
             for k, v in pairs(Spawnedprevisu) do
                 DeleteEntity(k)
             end
-            menu.close()
             isInteracting = false
         end, function(data, menu)
             spawnprevisu(data, menu, previs)
@@ -1140,7 +1143,7 @@ end)
 
 --- previs
 
-local Spawnedprevisu = {}
+
 function spawnprevisu(data, menu, previs)
     if initializing then
         return
