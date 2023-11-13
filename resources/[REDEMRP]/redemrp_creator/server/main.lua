@@ -26,7 +26,7 @@ RegisterServerEvent("rdr_creator:server:TryCreator", function()
     end
 end)
 
-RegisterServerEvent('rdr_creator:SaveHair', function(hair, beard)
+RegisterServerEvent('rdr_creator:SaveHair', function(cache)
     local _source = source
     local user = RedEM.GetPlayer(_source)    
     if user then
@@ -35,8 +35,25 @@ RegisterServerEvent('rdr_creator:SaveHair', function(hair, beard)
                 local skin = skins[1].skin
                 if skin then
                     local decoded = json.decode(skin)
-                    decoded.hair = hair
-                    decoded.beard = beard
+                    decoded.hair = cache.hair
+                    decoded.beard = cache.beard
+                    decoded.shadows_t = cache.shadows_t
+                    decoded.shadows_op = cache.shadows_op
+                    decoded.shadows_id = cache.shadows_id
+                    decoded.shadows_c1 = cache.shadows_c1
+                    decoded.blush_t = cache.blush_t
+                    decoded.blush_op = cache.blush_op
+                    decoded.blush_id = cache.blush_id
+                    decoded.blush_c1 = cache.blush_c1
+                    decoded.lipsticks_t = cache.lipsticks_t
+                    decoded.lipsticks_op = cache.lipsticks_op
+                    decoded.lipsticks_id = cache.lipsticks_id
+                    decoded.lipsticks_c1 = cache.lipsticks_c1
+                    decoded.lipsticks_c2 = cache.lipsticks_c2
+                    decoded.eyeliners_t = cache.eyeliners_t
+                    decoded.eyeliners_op = cache.eyeliners_op
+                    decoded.eyeliners_id = cache.eyeliners_id
+                    decoded.eyeliners_c1 = cache.eyeliners_c1
                     MySQL.update("UPDATE skins SET `skin`=@skin WHERE `identifier`=@identifier AND `charid`=@charid", {skin = json.encode(decoded), identifier = user.identifier, charid = user.charid})
                 end
             end

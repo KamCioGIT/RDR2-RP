@@ -1954,7 +1954,7 @@ local BarberMenus = {
     ["save"] = function()
         MenuData.CloseAll()
         LoadedComponents = CreatorCache
-        TriggerServerEvent("rdr_creator:SaveHair", CreatorCache.hair, CreatorCache.beard)
+        TriggerServerEvent("rdr_creator:SaveHair", CreatorCache)
         ExecuteCommand("loadskin")
     end,
     ["quit"] = function()
