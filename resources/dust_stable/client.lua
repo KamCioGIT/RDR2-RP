@@ -1137,7 +1137,7 @@ end)
 
 --- previs
 
-
+local Spawnedprevisu = {}
 function spawnprevisu(data, menu, previs)
     if initializing then
         return
