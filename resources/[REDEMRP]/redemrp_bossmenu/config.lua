@@ -566,12 +566,35 @@ Config.Jobs = {
             },
         }
     },
-    ["apothicaire"] = {
+    ["apothicaire_stdenis"] = {
         bigjob = "doctor",
         Name = "Apothicaire",
         blisprite = 669307703,
         MenuLocations = 
             vector3(2627.889, -1351.214, 48.04772)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["apothicaire_straw"] = {
+        bigjob = "doctor",
+        Name = "Apothicaire",
+        blisprite = 669307703,
+        MenuLocations = 
+            vector3(-1807.722, -431.0266, 158.8314)
         ,
         Grades = {
             [1] = {
