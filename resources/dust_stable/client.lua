@@ -1142,9 +1142,9 @@ function spawnprevisu(data, menu, previs)
     if initializing then
         return
     end
-    if previshorse then
-        SetEntityAsMissionEntity(previshorse, true, true)
-        DeletePed(previshorse)
+    if Spawnedprevisu[previshorse] then
+        DeleteEntity(previshorse)
+        Spawnedprevisu[previshorse] = nil
     end
     local modelHash = GetHashKey(data.current.value)
     if type(data.current.value) == 'number' then 
@@ -1170,5 +1170,6 @@ function spawnprevisu(data, menu, previs)
 
     SetPedConfigFlag(horse, 297, true)
     SetEntityAsMissionEntity(previshorse, true, true)
+    Spawnedprevisu[previshorse] = true
     initializing = false
 end
