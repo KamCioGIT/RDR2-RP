@@ -299,6 +299,7 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
     MenuData.CloseAll()
     local elements = {}
     local a = 0
+    print (menu_catagory, model)
     for v, k in pairs(Config.MenuCart[menu_catagory].category) do
         if menu_catagory ~= "propsets" then
             category = comp_cart[k]
