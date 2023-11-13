@@ -1144,7 +1144,6 @@ function spawnprevisu(data, menu, previs)
     end
     for k, v in pairs(Spawnedprevisu) do
         DeleteEntity(k)
-        Spawnedprevisu[previshorse] = nil
     end
     local modelHash = GetHashKey(data.current.value)
     if type(data.current.value) == 'number' then 
