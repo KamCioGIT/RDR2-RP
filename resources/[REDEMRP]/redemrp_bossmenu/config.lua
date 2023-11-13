@@ -567,7 +567,7 @@ Config.Jobs = {
         }
     },
     ["apothicaire"] = {
-        bigjob = "apothicaire",
+        bigjob = "doctor",
         Name = "Apothicaire",
         blisprite = 669307703,
         MenuLocations = 
@@ -719,6 +719,101 @@ Config.Jobs = {
         MenuLocations = 
             vector3(-1816.753, -567.2182, 155.9842)
         ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["doctor_AB"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de AB",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["doctor_DB"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de DB",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["doctor_GE"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de GE",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["doctor_PB"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de PB",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ["doctor_AR"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de AR",
         Grades = {
             [1] = {
                 Name = "Assistant",
