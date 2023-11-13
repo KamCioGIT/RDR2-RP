@@ -303,7 +303,9 @@ function OpenCategoryCart(menu_catagory, horse, horseid, model)
         if menu_catagory ~= "propsets" then
             category = comp_cart[k]
         else
-            category = cart_props[model]
+            if cart_props[model] then
+                category = cart_props[model]
+            end
         end
         local options = {}
         for k, v in pairs(category) do
