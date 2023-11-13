@@ -10,7 +10,7 @@ Config.Jobs = {
     [7] = "doctor_AL",
     [8] = "doctor_CP",
     [9] = "doctor_GB",
-    [10] = "apothicaire",
+    [10] = "apothicaire_straw",
     [11] = "apothicaire_stdenis",
     [12] = "doctor_AB",
     [13] = "doctor_DB",
@@ -30,6 +30,7 @@ Config.Atelier = {
     vector3(2629.656, -1354.371, 48.04771), -- apo st denis
     vector3(-782.6106, -1306.656, 42.79617), --- bla
     vector3(-155.4652, 1491.255, 115.1591), ---- indien
+    vector3(-1803.261, -432.619, 157.8291) --- straw
 }
 
 Config.ItemMortier = "mortier"
