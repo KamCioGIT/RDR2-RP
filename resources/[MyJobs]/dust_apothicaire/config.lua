@@ -12,6 +12,11 @@ Config.Jobs = {
     [9] = "doctor_GB",
     [10] = "apothicaire",
     [11] = "apothicaire_stdenis",
+    [12] = "doctor_AB",
+    [13] = "doctor_DB",
+    [14] = "doctor_GE",
+    [15] = "doctor_PB",
+    [16] = "doctor_AR",
 }
 
 Config.AnimDict = "amb_work@prop_human_seat_chair@mortar_pestle@mortar@female_a@base"

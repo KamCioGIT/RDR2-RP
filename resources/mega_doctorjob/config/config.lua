@@ -83,13 +83,13 @@ Config.radiusStyle = -666422021
 Config.alertTimeout = 720
 
 Config.medicalBeds = { 'p_medbed01x', 'p_bed03x' }
-Config.jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB'}
+Config.jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"}
 Config.allowPlayerTargeting = true
 Config.playerTargetRange = 1.5
 
 -- jobs that can inspect a dead body
 Config.inspectCommand = 'analyse'
-Config.inspectJobs = { 'doctor', 'police', 'doctor_bla', 'doctor_stdenis', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB' }
+Config.inspectJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"}
 Config.allowPlayerInspecting = true
 Config.playerInspectRange = 1.5
 
@@ -117,7 +117,7 @@ Config.hospitals = {
             -- the jobs to check the players count
             -- if a player with one of these jobs is online
             -- the function will be disabled
-            jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB'},
+            jobs = { 'doctor_stdenis'},
             healCost = 1.0,
             reviveCost = 1.0,
             reviveTime = 30,
@@ -138,7 +138,7 @@ Config.hospitals = {
             -- the jobs to check the players count
             -- if a player with one of these jobs is online
             -- the function will be disabled
-            jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB'},
+            jobs = { 'doctor_bla'},
             healCost = 1.0,
             reviveCost = 1.0,
             reviveTime = 30,
@@ -275,7 +275,111 @@ Config.hospitals = {
         },
         jobId = nil -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it
     },
-    
+    ['Cabinet de AR'] = {
+        showBlip = false,
+        blipSprite = -1739686743,
+        coords = vector3(-784.4287, -1304.812, 42.50),
+        radius = 20.0,
+        npc = {
+            enabled = false,
+            -- the jobs to check the players count
+            -- if a player with one of these jobs is online
+            -- the function will be disabled
+            jobs = { 'doctor_AR' },
+            healCost = 1.0,
+            reviveCost = 1.0,
+            reviveTime = 30,
+            npcModel = 'cs_crackpotinventor',
+            coords = vector3(-789.4224, -1301.978, 42.5),
+            heading = -180.0,
+            range = 2.0
+        },
+        jobId = nil -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it
+    },
+    ['Cabinet de AB'] = {
+        showBlip = false,
+        blipSprite = -1739686743,
+        coords = vector3(-784.4287, -1304.812, 42.50),
+        radius = 20.0,
+        npc = {
+            enabled = false,
+            -- the jobs to check the players count
+            -- if a player with one of these jobs is online
+            -- the function will be disabled
+            jobs = { 'doctor_AB' },
+            healCost = 1.0,
+            reviveCost = 1.0,
+            reviveTime = 30,
+            npcModel = 'cs_crackpotinventor',
+            coords = vector3(-789.4224, -1301.978, 42.5),
+            heading = -180.0,
+            range = 2.0
+        },
+        jobId = nil -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it
+    },
+    ['Cabinet de DB'] = {
+        showBlip = false,
+        blipSprite = -1739686743,
+        coords = vector3(-784.4287, -1304.812, 42.50),
+        radius = 20.0,
+        npc = {
+            enabled = false,
+            -- the jobs to check the players count
+            -- if a player with one of these jobs is online
+            -- the function will be disabled
+            jobs = { 'doctor_DB' },
+            healCost = 1.0,
+            reviveCost = 1.0,
+            reviveTime = 30,
+            npcModel = 'cs_crackpotinventor',
+            coords = vector3(-789.4224, -1301.978, 42.5),
+            heading = -180.0,
+            range = 2.0
+        },
+        jobId = nil -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it
+    },
+    ['Cabinet de GE'] = {
+        showBlip = false,
+        blipSprite = -1739686743,
+        coords = vector3(-784.4287, -1304.812, 42.50),
+        radius = 20.0,
+        npc = {
+            enabled = false,
+            -- the jobs to check the players count
+            -- if a player with one of these jobs is online
+            -- the function will be disabled
+            jobs = { 'doctor_GE' },
+            healCost = 1.0,
+            reviveCost = 1.0,
+            reviveTime = 30,
+            npcModel = 'cs_crackpotinventor',
+            coords = vector3(-789.4224, -1301.978, 42.5),
+            heading = -180.0,
+            range = 2.0
+        },
+        jobId = nil -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it
+    },
+    ['Cabinet de PB'] = {
+        showBlip = false,
+        blipSprite = -1739686743,
+        coords = vector3(-784.4287, -1304.812, 42.50),
+        radius = 20.0,
+        npc = {
+            enabled = false,
+            -- the jobs to check the players count
+            -- if a player with one of these jobs is online
+            -- the function will be disabled
+            jobs = { 'doctor_PB' },
+            healCost = 1.0,
+            reviveCost = 1.0,
+            reviveTime = 30,
+            npcModel = 'cs_crackpotinventor',
+            coords = vector3(-789.4224, -1301.978, 42.5),
+            heading = -180.0,
+            range = 2.0
+        },
+        jobId = nil -- the id of the society (syn_society) or company (mega_companies) set to nil if you don't need it
+    },
 }
 
 -- This is for calculaing body temperature including types of clothes that the player has
