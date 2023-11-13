@@ -1137,13 +1137,13 @@ end)
 
 --- previs
 
-local previshorse = nil
 
 function spawnprevisu(data, menu, previs)
     if initializing then
         return
     end
-    if previshorse ~= nil then
+    if previshorse then
+        SetEntityAsMissionEntity(previshorse, true, true)
         DeletePed(previshorse)
     end
     local modelHash = GetHashKey(data.current.value)
