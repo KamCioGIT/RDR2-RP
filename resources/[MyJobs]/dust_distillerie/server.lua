@@ -157,3 +157,32 @@ RegisterServerEvent("distillerie:MaxRessourcesAmount", function(dataType)
 
 end)
 
+
+
+RegisterServerEvent("distillerie:depStash", function()
+    local _source = source
+	if RedEM.GetPlayer(source).job == "distillerie" then
+        TriggerClientEvent("redemrp_inventory:OpenStash", _source, "dep_distillerie", 3000.0)
+    end
+end)
+
+
+RegisterServerEvent("distillerie:retStash", function()
+    local _source = source
+	if tonumber(RedEM.GetPlayer(_source).jobgrade) > 1 then
+        TriggerClientEvent("redemrp_inventory:OpenStash", _source, "ret_distillerie", 6000.0)
+    end
+end)
+
+
+RegisterServerEvent("CheckStash", function()
+	local depstashW = exports.redemrp_inventory.GetStashWeight(source, "dep_distillerie")
+	local retstashW = exports.redemrp_inventory.GetStashWeight(source, "ret_distillerie")
+end)
+
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstash", "ble", 5, {}, "dep_distillerie","farine", 1, {}, "ret_distillerie")
+	end
+end)

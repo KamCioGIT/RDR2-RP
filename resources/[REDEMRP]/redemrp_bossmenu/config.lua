@@ -712,6 +712,31 @@ Config.Jobs = {
         }
     },
 
+    ["transport_est"] = {
+        bigjob = "transport",
+        Name = "Convoyeur",
+        blisprite = -1747775003,
+        MenuLocations = 
+            vector3(-1816.753, -567.2182, 155.9842)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+
+
 }
 
 Config.DistanceToInteract = 2.0

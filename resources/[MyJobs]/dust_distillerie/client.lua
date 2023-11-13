@@ -24,7 +24,10 @@ AddEventHandler("dust_job:distillerie", function(job, grade)
         if job == v then
             getjob = true
             getgrade = grade
-            StartMission()
+            TriggerEvent("distillerie:StartMission")
+            if tonumber(grade) >= 2 then
+                contremaitre()
+            end
         end
     end
 end)
@@ -167,7 +170,7 @@ end)
 
 
 
-function StartMission()
+RegisterNetEvent("distillerie:StartMission",function()
     Citizen.CreateThread(function()
         while true do
             if getjob then
@@ -183,30 +186,55 @@ function StartMission()
                         TriggerEvent("distillerie:OpenBossMenu", "distillerieetabli")
                     end
                 end
-
-
-                if #(playerPos - Config.Enclume) < 10.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Enclume, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+        end
+    end)
+    Citizen.CreateThread(function() --- DEPOT et craft
+        while true do
+            Wait(0)
+            local playerPos = GetEntityCoords(PlayerPedId())
+            for k, v in ipairs(Config.Dep) do
+                if #(playerPos - v) < 6.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
-                if #(playerPos - Config.Enclume) < Config.DistanceToInteract and not isInteracting then
+                if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
                     TriggerEvent('dust_presskey', "Appuyez sur G")
-                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerEvent("distillerie:OpenBossMenu", "distillerieenclume")
+                    if IsControlJustPressed(2, 0x760A9C6F) then 
+                        TriggerServerEvent('distillerie:depStash')
                     end
-                end
-
-                if #(playerPos - Config.distillerie) < 10.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.distillerie, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - Config.distillerie) < Config.DistanceToInteract and not isInteracting then
-                    TriggerEvent('dust_presskey', "Appuyez sur G")
-                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerEvent("distillerie:OpenBossMenu", "distilleriedistillerie")
+                else end
+                for k, v in ipairs(Config.ImportPoint) do
+                    if #(playerPos - v) < 10.0 then
+                        Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                    end
+                    if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                        TriggerEvent('dust_presskey', "Appuyez sur G")
+                        if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                            TriggerEvent("distillerie:OpenImportMenu")
+                        end
                     end
                 end
             end
         end
     end)
+end)
+
+function contremaitre() --- RETRAIT
+    while true do
+        Wait(0)
+        local playerPos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.Ret) do
+            if #(playerPos - v) < 6.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if #(playerPos - v) < Config.DistanceToInteract then
+                TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustPressed(2, 0x760A9C6F) then 
+                    TriggerServerEvent('distillerie:retStash')
+                end
+            else end
+        end
+end
 end
 
 
