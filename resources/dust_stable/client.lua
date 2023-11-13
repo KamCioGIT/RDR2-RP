@@ -1141,9 +1141,7 @@ function spawnprevisu(data, menu, previs)
     if initializing then
         return
     end
-    if previshorse then
         DeletePed(previshorse)
-    end
     local modelHash = GetHashKey(data.current.value)
     if type(data.current.value) == 'number' then 
         modelHash = data.current.value
