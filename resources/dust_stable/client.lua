@@ -660,7 +660,7 @@ Citizen.CreateThread(function()
                 if #(playerpos - v.pos ) < 2.2 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
                     TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustReleased(0, 0x760A9C6F) then
-                        buyhorse(v.stable)
+                        buyhorse(v.stable, v.previs)
                         isInteracting = true
                     end
                 end
@@ -670,7 +670,7 @@ Citizen.CreateThread(function()
 end)
 
 
-function buyhorse(stable)
+function buyhorse(stable, previs)
     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
         MenuData.CloseAll()
 
@@ -709,6 +709,8 @@ function buyhorse(stable)
         function(data, menu)
             menu.close()
             isInteracting = false
+        end, function(data, menu)
+            spawnprevisu(data, menu, previs)
         end)
     end)
 end
@@ -1131,3 +1133,40 @@ RegisterCommand("depop", function(source, args, rawCommand)
     end
 end)
 
+
+
+--- previs
+
+function spawnprevisu(data, menu, previs)
+    if initializing then
+        return
+    end
+    if previshorse then
+        DeleteEntity(previshorse)
+    end
+    local modelHash = GetHashKey(data.current.value)
+    if type(data.current.value) == 'number' then 
+        modelHash = data.current.value
+    end
+    if not HasModelLoaded(modelHash) then
+        RequestModel(modelHash)
+        while not HasModelLoaded(modelHash) do
+            Citizen.Wait(10)
+        end
+    end
+
+    initializing = true
+    local previshorse = CreatePed(modelHash, previs.pos, previs.heading, false, true)
+    Citizen.InvokeNative(0x283978A15512B2FE, previshorse, true) -- set random outfit components
+    FreezeEntityPosition(previshorse, true)
+    SetModelAsNoLongerNeeded(modelHash)
+
+    SetAnimalTuningBoolParam(previshorse, 25, false)
+    SetAnimalTuningBoolParam(previshorse, 24, false)
+
+    TaskAnimalUnalerted(previshorse, -1, false, 0, 0)
+
+    SetPedConfigFlag(horse, 297, true)
+    SetEntityAsMissionEntity(previshorse, true, true)
+    initializing = false
+end
