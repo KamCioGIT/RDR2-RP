@@ -526,23 +526,12 @@ function spawncart(model, name, horseid, stashid)
 
     SetPedPromptName(cart, name)
     Entity(cart).state:set('horseid', horseid, true)
-    -- for _, component in pairs(selectedcomp) do
-    --     Citizen.InvokeNative(0xD3A7B003ED343FD9, horse, component, true, true, true)
-    -- end
-    
-
+    Wait(500)
     for k, v in pairs(Config.CartCustom) do
         if k == "tints" then
             Citizen.InvokeNative(0x8268B098F6FCA4E2, cart, tonumber(CompCache['tints'].hash))
-      
         elseif k == "propsets" then
-
-            while not Citizen.InvokeNative(0x48A88FC684C55FDC ,tonumber(CompCache['propsets'].hash)) do
-                Citizen.InvokeNative(0xF3DE57A46D5585E9 ,tonumber(CompCache['propsets'].hash))
-                Citizen.Wait(100)
-            end
             Citizen.InvokeNative(0x75F90E4051CC084C, cart, tonumber(CompCache['propsets'].hash))
-
         elseif k == "extras" then
             Citizen.InvokeNative(0xBB6F89150BC9D16B, cart, tonumber(CompCache['extras'].hash), 0) -- EXTRA
             while Citizen.InvokeNative(0xFA9A55D9C4351625, cart, tonumber(CompCache['extras'].hash)) do
@@ -550,11 +539,9 @@ function spawncart(model, name, horseid, stashid)
             end
         elseif k == "liveries" then
             Citizen.InvokeNative(0xF89D82A0582E46ED, cart, tonumber(CompCache['liveries'].hash))
-          
         end 
     end
     Entity(cart).state:set('stashid', stashid, true)
-    
     for k, v in pairs(Config.StashWeight) do
         if k == model then
             Entity(cart).state:set('stashweight', v, true)
