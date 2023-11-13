@@ -1142,8 +1142,8 @@ function spawnprevisu(data, menu, previs)
     if initializing then
         return
     end
-    if Spawnedprevisu[previshorse] then
-        DeleteEntity(previshorse)
+    for k, v in pairs(Spawnedprevisu) do
+        DeleteEntity(k)
         Spawnedprevisu[previshorse] = nil
     end
     local modelHash = GetHashKey(data.current.value)
