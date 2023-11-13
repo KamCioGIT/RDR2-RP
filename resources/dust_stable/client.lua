@@ -537,10 +537,14 @@ function spawncart(model, name, horseid, stashid)
       
         elseif k == "propsets" then
             Citizen.InvokeNative(0x75F90E4051CC084C, cart, tonumber(CompCache['propsets'].hash))
-        
+            while Citizen.InvokeNative(0xD798DF5DB67B1659, cart) do
+                Wait(0)
+            end
         elseif k == "extras" then
             Citizen.InvokeNative(0xBB6F89150BC9D16B, cart, tonumber(CompCache['extras'].hash), 0) -- EXTRA
-           
+            while Citizen.InvokeNative(0xFA9A55D9C4351625, cart, tonumber(CompCache['extras'].hash)) do
+                Wait(0)
+            end
         elseif k == "liveries" then
             Citizen.InvokeNative(0xF89D82A0582E46ED, cart, tonumber(CompCache['liveries'].hash))
           
