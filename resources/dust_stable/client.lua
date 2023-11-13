@@ -708,6 +708,9 @@ function buyhorse(stable, previs)
 
         function(data, menu)
             menu.close()
+            for k, v in pairs(Spawnedprevisu) do
+                DeleteEntity(k)
+            end
             isInteracting = false
         end, function(data, menu)
             spawnprevisu(data, menu, previs)
