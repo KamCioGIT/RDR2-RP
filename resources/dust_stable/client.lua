@@ -948,7 +948,7 @@ AddEventHandler('dust_stable:horsehaycube', function(source)
                     local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, entity, 1)
                     if not tonumber(valueStamina) then valueStamina = 0 end
                     if valueStamina <= 10 then
-                        TriggerEvent("redem_roleplay:NotifyLeft", _source, "Cheval", "Il faut changer les fers de votre monture !", "menu_textures", "menu_icon_on_horse", 4000)
+                        TriggerEvent("redem_roleplay:NotifyLeft", "Cheval", "Il faut changer les fers de votre monture !", "menu_textures", "menu_icon_on_horse", 4000)
                         Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, 10)
                     else
                         Citizen.InvokeNative(0xC6258F41D86676E0, entity, 1, valueStamina + 60)
