@@ -748,12 +748,22 @@ function buycart(stable)
             end
             local type = "cart"
             TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type, data.current.price)
+            for k, v in pairs(Spawnedprevisu) do
+                DeleteEntity(k)
+            end
             isInteracting = false
         end,
 
         function(data, menu)
             menu.close()
+            for k, v in pairs(Spawnedprevisu) do
+                DeleteEntity(k)
+            end
             isInteracting = false
+        end, 
+        
+        function(data, menu)
+            spawnprevisu(data, menu, previs)
         end)
     end)
 end
