@@ -110,16 +110,19 @@ Config.Stables = {
 Config.Buyhorse = {
 	Saint_Denis = {
 		pos = vector3(2525.539, -1432.664, 46.32558),
+        previs = {pos= vector3(2530.822, -1430.381, 46.31973), heading = 182.1198},
 		name = 'Achatstdenis',
 		stable= 'buyhorse',
 	},
     Staff = {
 		pos = vector3(3364.299, -92.8988, 49.64944),
+        previs = {pos= vector3(3365.892, -97.91038, 49.38296), heading = 282.4439},
 		name = 'Achatstaff',
 		stable= 'buyhorse',
 	},
     Bla = {
 		pos = vector3(-944.1528, -1333.534, 49.67882),
+        previs = {pos= vector3(-945.0106, -1338.742, 50.62427), heading = 88.74501},
 		name = 'Achatstaff',
 		stable= 'buybla',
 	},
@@ -129,16 +132,19 @@ Config.Buyhorse = {
 Config.Buycart = {
 	Saint_Denis = {
 		pos = vector3(2502.023, -1487.874, 45.9691),
+        previs = {pos= vector3(2462.89, -1324.785, 45.29467), heading = 269.5163},
 		name = 'Achatcartstdenis',
 		stable= 'buyhorse',
 	},
     	Staff = {
 		pos = vector3(3337.925, -73.60331, 47.93591),
+        previs = {pos= vector3(3341.199, -68.04169, 48.45806), heading = 244.1295},
 		name = 'Achatcartstaff',
 		stable= 'buyhorse',
 	},
     Bla = {
 		pos = vector3(-878.5054, -1365.022, 42.52768),
+        previs = {pos= vector3(2462.89, -1324.785, 45.29467), heading = 269.5163},
 		name = 'Achatstaff',
 		stable= 'buybla',
 	},
