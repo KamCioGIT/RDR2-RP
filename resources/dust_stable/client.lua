@@ -1142,7 +1142,7 @@ function spawnprevisu(data, menu, previs)
         return
     end
     if previshorse then
-        DeleteEntity(previshorse)
+        DeletePed(previshorse)
     end
     local modelHash = GetHashKey(data.current.value)
     if type(data.current.value) == 'number' then 
