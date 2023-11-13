@@ -144,7 +144,7 @@ Config.Buycart = {
 	},
     Bla = {
 		pos = vector3(-878.5054, -1365.022, 42.52768),
-        previs = {pos= vector3(2462.89, -1324.785, 45.29467), heading = 269.5163},
+        previs = {pos= vector3(-873.3326, -1366.638, 43.53049), heading = 4.36423},
 		name = 'Achatstaff',
 		stable= 'buybla',
 	},
