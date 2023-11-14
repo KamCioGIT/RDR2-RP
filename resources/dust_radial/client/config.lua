@@ -54,7 +54,7 @@ Config.CraftingsReceipe = {
     },
 }
 
-Config.WorkingTime = 3000
+Config.WorkingTime = 5000
 Config.BlipSprite = -2039778370
 
 Config.PetitBois = {

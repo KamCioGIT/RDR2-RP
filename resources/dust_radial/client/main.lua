@@ -362,19 +362,37 @@ Citizen.CreateThread(function()
     end
 end)
 
+local picking = false
 function GiveRessource(item, amount)
-    local playerPed = PlayerPedId()
-    TriggerEvent("redemrp_inventory:PickupAnim")
-    local timer = GetGameTimer() + Config.WorkingTime
-    isInteracting = true
     Citizen.CreateThread(function()
-        while GetGameTimer() < timer do 
-            Wait(0)
+        local playerPed = PlayerPedId()
+        local Position = GetEntityCoords(playerPed)
+        picking = true
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                picking = false
+                break
+            end
         end
-        ClearPedTasks(playerPed)
-		FreezeEntityPosition(playerPed, false)
-        isInteracting = false
-        TriggerServerEvent('dust_radial:AddItem', item, amount)
+    end)
+    Citizen.CreateThread(function()
+        local playerPed = PlayerPedId()
+        while true do
+            Wait(0)
+            if picking then
+                TriggerEvent("redemrp_inventory:PickupAnim")
+                local timer = GetGameTimer() + Config.WorkingTime
+                isInteracting = true
+                while GetGameTimer() < timer do 
+                    Wait(0)
+                end
+                ClearPedTasks(playerPed)
+                FreezeEntityPosition(playerPed, false)
+                isInteracting = false
+                TriggerServerEvent('dust_radial:AddItem', item, amount)
+            else break end
+        end
     end)
 end
 
