@@ -3799,6 +3799,17 @@ Config.Items = {
     imgsrc = "items/cleftaxi.png",
     type = "item_standard",
 },
+["clefchinois"] = {
+    label = "Clé",
+    description = "Une clé",
+    weight = 0.05,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/clefchinois.png",
+    type = "item_standard",
+},
 
 
 }
