@@ -1534,6 +1534,21 @@ Config.Doors = {
     needkey = false,
     keys = '',
 },
+
+
+---- appart chinois
+{
+    door = 1180868565,
+    CloseRotation = -100.0,
+    DoorCoord  = vector3(2711.83, -1293.481, 60.4574),
+    door2 = 0,
+    CloseRotation2 = 0,
+    locked = true,
+    breakable = false, 
+    jobs = {"all"},
+    needkey = true,
+    keys = 'clefchinois',
+},
 }
 
 --UNLOCK DOORS 

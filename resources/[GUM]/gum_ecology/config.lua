@@ -12,7 +12,7 @@ Config.webhookLanguage = {
 Config.Gum_Notify_NUI = false
 Config.Image = "ecology"
 
-Config.TimerForCounter = 420 --This count your herbs in your client cache.  (seconds)
+Config.TimerForCounter = 300 --This count your herbs in your client cache.  (seconds)
 Config.DeleteAfterGatherAnimal = false
 Config.PickUp = "Ramasser"
 Config.YouPick = "Vous avez ramsassé :"
