@@ -277,7 +277,7 @@ function StartMining()
     TaskPlayAnim(playerPed, Config.GatherDict, "stn_exit", 1.0, 1.0, -1, 2, 0, false, false, false)
     Wait(500)
     ClearPedTasks(playerPed)
-    GivePlayerRessource()
+    TriggerServerEvent('distillerie:addorge')
     isInteracting = false
     GetRandomRessourcePoint()
 end

@@ -183,3 +183,11 @@ Citizen.CreateThread(function()
 		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "moutwhiskybon", 1, {}, "charbon", 1, {},"dep_distillerie","good_whisky", 1, {}, "ret_distillerie")
 	end
 end)
+
+RegisterServerEvent('distillerie:addorge')
+AddEventHandler('distillerie:addorge', function() 
+	local _source = source
+	local ItemData = data.getItem(_source, 'orge')
+	local amount = math.random(2)
+	ItemData.AddItem(amount)
+end)
