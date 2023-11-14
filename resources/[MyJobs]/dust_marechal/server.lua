@@ -12,9 +12,9 @@ AddEventHandler('rdr_marechal:save', function(comp, id, price)
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local money = user.money
+    print (comp, id, price)
     if money >= price then
         user.RemoveMoney(price)
-        print "save"
         MySQL.update("UPDATE stable SET `components`=@components WHERE `horseid`=@horseid", {
             components = components,
             horseid = horseid
