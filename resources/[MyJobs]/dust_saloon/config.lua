@@ -128,10 +128,10 @@ Config.ImportPoint = {
 }
 
 Config.Import = {
-    ["beer"] = {label= "Bière", price = 0.1, saloon = {"saloon_faubourg", "saloon_kala"}},
-    ["gin"] = {label= "Gin", price = 0.30, saloon = {"saloon_faubourg"}},
-    ["mezcal"] = {label= "Mezcal", price = 0.30, saloon = {"saloon_kala"}},
-    ["dirty_whiskey"] = {label= "Mauvais Whiskey", price = 0.2, saloon = {"saloon_faubourg", "saloon_kala"}},
-    ["good_whisky"] = {label= "Bon Whiskey", price = 0.35, saloon = {"saloon_faubourg", "saloon_kala"}},
-    ["lemonade"] = {label= "Limonade", price = 0.2, saloon = {"saloon_faubourg", "saloon_kala"}},
+    ["beer"] = {label= "Bière", price = 0.1, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes"}},
+    ["gin"] = {label= "Gin", price = 0.30, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes"}},
+    ["mezcal"] = {label= "Mezcal", price = 0.30, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes"}},
+    ["dirty_whiskey"] = {label= "Mauvais Whiskey", price = 0.2, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes"}},
+    ["good_whisky"] = {label= "Bon Whiskey", price = 0.35, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes"}},
+    ["lemonade"] = {label= "Limonade", price = 0.2, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes"}},
 }

@@ -881,15 +881,15 @@ Config.ExportNPC = {
 
 
 Config.Export = {
-    ["lingotfer"] = {label= "Lingot de fer", price = 1.1},
-    ["lingotor"] = {label= "Lingot d'or", price = 50},
+    ["lingotfer"] = {label= "Lingot de fer", price = 1.2},
+    ["lingotor"] = {label= "Lingot d'or", price = 55},
     ["farine"] = {label= "Farine", price = 0.2},
     ["bouteillelait"] = {label= "Bouteille de lait", price = 0.1},
     ["patate"] = {label= "Patate", price = 0.1},
     ["Corn"] = {label= "Maïs", price = 0.1},
     ["viandebovine"] = {label= "Viande Bovine", price = 0.3},
-    ["gunpowder"] = {label= "Poudre à canon", price = 0.08}, 
-    ["douille"] = {label= "Douilles", price = 0.16},
+    ["gunpowder"] = {label= "Poudre à canon", price = 0.10}, 
+    ["douille"] = {label= "Douilles", price = 0.18},
     ["ferpepite"] = {label= "Pépite de fer", price = 0.06},
     ["charbon"] = {label= "Charbon", price = 0.03},
     ["cuivrepepite"] = {label= "Pépite de cuivre", price = 0.04},

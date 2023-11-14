@@ -3822,7 +3822,29 @@ Config.Items = {
     imgsrc = "items/troislotus.png",
     type = "item_standard",
 },
-
+---- distillerie ----
+["moutwhisky"] = {
+    label = "Moût",
+    description = "Une purée de végétaux",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/moonshine_base.png",
+    type = "item_standard",
+},
+["orge"] = {
+    label = "Orge",
+    description = "Un brave céréale",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/wheatseed.png",
+    type = "item_standard",
+},
 }
 
 
