@@ -3810,7 +3810,18 @@ Config.Items = {
     imgsrc = "items/clefchinois.png",
     type = "item_standard",
 },
-
+---- chinois
+["troislotus"] = {
+    label = "Mouchoir en soie",
+    description = "Brodé de 3 lotus, un subtile parfum d'opium s'en dégage",
+    weight = 0.05,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/troislotus.png",
+    type = "item_standard",
+},
 
 }
 
