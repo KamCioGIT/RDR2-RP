@@ -23,9 +23,9 @@ RegisterCommand('getpos', function()
     local coords, heading = GetEntityCoords(PlayerPedId()), GetEntityHeading(PlayerPedId())
     SendNUIMessage({
         type = 'clipboard',
-        data = '' .. vec(coords.x, coords.y, coords.z, heading)
+        data = '' .. vec(coords.x, coords.y, coords.z - 1)
     })
-    TriggerEvent('chatMessage', 'Copied to clipboard! ' .. vec(coords.x, coords.y, coords.z, heading))
+    TriggerEvent('chatMessage', 'Copied to clipboard! ' .. vec(coords.x, coords.y, coords.z - 1))
 end)
 
 function DisplayCoordinates()

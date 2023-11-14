@@ -117,7 +117,7 @@ Config.hospitals = {
             -- the jobs to check the players count
             -- if a player with one of these jobs is online
             -- the function will be disabled
-            jobs = { 'doctor_stdenis'},
+            jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"},
             healCost = 1.0,
             reviveCost = 1.0,
             reviveTime = 30,
@@ -138,7 +138,7 @@ Config.hospitals = {
             -- the jobs to check the players count
             -- if a player with one of these jobs is online
             -- the function will be disabled
-            jobs = { 'doctor_bla'},
+            jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"},
             healCost = 1.0,
             reviveCost = 1.0,
             reviveTime = 30,
