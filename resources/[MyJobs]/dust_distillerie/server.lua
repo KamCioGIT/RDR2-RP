@@ -175,14 +175,9 @@ RegisterServerEvent("distillerie:retStash", function()
 end)
 
 
-RegisterServerEvent("CheckStash", function()
-	local depstashW = exports.redemrp_inventory.GetStashWeight(source, "dep_distillerie")
-	local retstashW = exports.redemrp_inventory.GetStashWeight(source, "ret_distillerie")
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "moutwhisky", 1, {}, "dep_distillerie","good_whisky", 1, {}, "ret_distillerie")
+	end
 end)
-
--- Citizen.CreateThread(function()
--- 	while true do
--- 		Citizen.Wait(2000)
--- 		TriggerEvent("redemrp_inventory:server:removeitemstash", "ble", 5, {}, "dep_distillerie","farine", 1, {}, "ret_distillerie")
--- 	end
--- end)
