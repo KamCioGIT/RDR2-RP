@@ -64,8 +64,8 @@ RegisterNetEvent("distillerie:OpenBossMenu", function(menutype)
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
-            title = "distillerie",
-            subtext = "C'est chaud",
+            title = "Atelier",
+            subtext = "Que veux-tu fabriquer ?",
             align = 'top-right',
             elements = elements,
         },
@@ -199,7 +199,7 @@ RegisterNetEvent("distillerie:StartMission",function()
                 if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
                     TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerEvent("distillerie:OpenBossMenu", "distillerieetabli")
+                        TriggerEvent("distillerie:OpenBossMenu", "distillerie")
                     end
                 end
         end
