@@ -134,7 +134,7 @@ Config.Buyhorse = {
 	},
     Bla = {
 		pos = vector3(-944.1528, -1333.534, 49.67882),
-        previs = {pos= vector3(-945.0106, -1338.742, 50.62427), heading = 88.74501},
+        previs = {pos= vector3(-945.0106, -1338.742, 49.62427), heading = 88.74501},
 		name = 'Achatstaff',
 		stable= 'buybla',
 	},
