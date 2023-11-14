@@ -28,4 +28,15 @@ Config.CraftingsReceipe = {
         label = "Moût",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wheatseed.png', text = "Orge",count = "x5"}}
     },
+    ['moutwhiskybon'] = {
+        type = 'distillerie',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'orge',
+        ItemReceipe1Amount = 10,
+        ItemToGive = 'moutwhisky',
+        Amount = 1,
+        WorkingTime = 1,
+        label = "Moût gustatif",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wheatseed.png', text = "Orge",count = "x10"}}
+    },
 }

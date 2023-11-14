@@ -3834,6 +3834,17 @@ Config.Items = {
     imgsrc = "items/moonshine_base.png",
     type = "item_standard",
 },
+["moutwhiskybon"] = {
+    label = "Moût gustatif",
+    description = "Une purée de végétaux",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/moonshine_base.png",
+    type = "item_standard",
+},
 ["orge"] = {
     label = "Orge",
     description = "Un brave céréale",
