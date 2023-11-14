@@ -62,6 +62,7 @@ function Customzones()
                         isInteracting = true
                         local horse = GetMount(PlayerPedId())
                         local horseid = Entity(horse).state.horseid
+                        print(horseid)
                         Wait(200)
                         TriggerServerEvent('rdr_marechal:loadcomp', 2, horseid, horse)
                     end
