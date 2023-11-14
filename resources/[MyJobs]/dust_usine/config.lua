@@ -9,7 +9,7 @@ Config.MsgWorking = "Appuie sur Del" -- Message de récolte
 Config.MsgOpenMenu = "Appuie sur Entrer" -- Message de traitement
 
 Config.RessourcesPointPos = vector3(2562.859, -1495.206, 46.0) -- Récolte Souffre
-Config.WorkingTime = 5000
+Config.WorkingTime = 2000
 Config.DistanceToInteract = 1.5
 
 Config.CreateFerAndLaitonPos = vector3(2317.1611, -1455.7, 47.01) -- 1 Charbon + 10 Minerai brut  = Lingot de Laiton
