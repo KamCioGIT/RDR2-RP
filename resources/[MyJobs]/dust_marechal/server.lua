@@ -14,6 +14,7 @@ AddEventHandler('rdr_marechal:save', function(comp, id, price)
     local money = user.money
     if money >= price then
         user.RemoveMoney(price)
+        print "save"
         MySQL.update("UPDATE stable SET `components`=@components WHERE `horseid`=@horseid", {
             components = components,
             horseid = horseid
