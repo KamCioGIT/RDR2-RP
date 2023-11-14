@@ -178,6 +178,8 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(2000)
-		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "moutwhisky", 1, {}, "dep_distillerie","good_whisky", 1, {}, "ret_distillerie")
+		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "moutwhisky", 1, {}, "charbon", 1, {},"dep_distillerie","dirty_whiskey", 1, {}, "ret_distillerie")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "moutwhiskybon", 1, {}, "charbon", 1, {},"dep_distillerie","good_whisky", 1, {}, "ret_distillerie")
 	end
 end)
