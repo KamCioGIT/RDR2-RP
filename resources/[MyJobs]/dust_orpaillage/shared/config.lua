@@ -50,7 +50,7 @@ Config.RiverChances = {
     }, 
     [-1410384421] = { -- Little Creek River
         chanceToGet = 55,
-        chanceOfTwo = 25,
+        chanceOfTwo = 20,
     },
     [-1245451421] = { -- Deadboot Creek
         chanceToGet = 50,
