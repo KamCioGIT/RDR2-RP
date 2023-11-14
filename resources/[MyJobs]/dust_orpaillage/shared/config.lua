@@ -30,27 +30,27 @@ Config.RampOutAnim = {
 
 Config.RiverChances = {
     [-1308233316] = { -- Lower Montana River
-        chanceToGet = 50,
+        chanceToGet = 40,
         chanceOfTwo = 20,
     },
     
     [-1781130443] = { -- Upper Montana River
-        chanceToGet = 40,
+        chanceToGet = 50,
         chanceOfTwo = 20,
     },
     
     [650214731] = { -- Beartoothbeck
-        chanceToGet = 40,
+        chanceToGet = 50,
         chanceOfTwo = 20,
     },
     
     [370072007] = { -- Dakota River
-        chanceToGet = 20,
-        chanceOfTwo = 10,
+        chanceToGet = 40,
+        chanceOfTwo = 20,
     }, 
     [-1410384421] = { -- Little Creek River
-        chanceToGet = 40,
-        chanceOfTwo = 10,
+        chanceToGet = 55,
+        chanceOfTwo = 25,
     },
     [-1245451421] = { -- Deadboot Creek
         chanceToGet = 50,
@@ -73,8 +73,8 @@ Config.RiverChances = {
         chanceOfTwo = 20,
     },
     [-261541730] = { -- Whinyard Strait
-        chanceToGet = 50,
-        chanceOfTwo = 20,
+        chanceToGet = 60,
+        chanceOfTwo = 30,
     },
 
     
