@@ -602,7 +602,6 @@ function Boire()
     TaskPlayAnim(PlayerPedId(), dict, "idle_a", 1.0, 8.0, -1, 31, 0, false, false, false)
     Citizen.Wait(4000)
     ClearPedTasks(PlayerPedId())
-    TriggerServerEvent('redemrp_status:server:AddHungerThirst', 0 , 60)
     TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "boire", quality)
     Gourding = false
 end
