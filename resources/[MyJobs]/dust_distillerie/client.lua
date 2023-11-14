@@ -178,7 +178,6 @@ RegisterNetEvent("distillerie:StartMission",function()
     GetRandomRessourcePoint()
     Citizen.CreateThread(function() --- MINERAI
         while true do
-            if isFarmer then
                 Wait(0)
                 local playerPos = GetEntityCoords(PlayerPedId())
                 if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isInteracting then
@@ -187,12 +186,10 @@ RegisterNetEvent("distillerie:StartMission",function()
                         StartMining()
                     end
                 else end
-            end
         end
     end)
     Citizen.CreateThread(function()
         while true do
-            if getjob then
                 Wait(2)
                 local playerPos = GetEntityCoords(PlayerPedId())
 
@@ -205,7 +202,6 @@ RegisterNetEvent("distillerie:StartMission",function()
                         TriggerEvent("distillerie:OpenBossMenu", "distillerieetabli")
                     end
                 end
-            end
         end
     end)
     Citizen.CreateThread(function() --- DEPOT et craft
