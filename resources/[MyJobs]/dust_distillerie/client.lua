@@ -171,6 +171,25 @@ end)
 
 
 RegisterNetEvent("distillerie:StartMission",function()
+    RequestModel(GetHashKey("crp_wheat_dry_aa_sim"))
+    if HasModelLoaded(GetHashKey("crp_wheat_dry_aa_sim")) then
+        Wait(10)
+    end
+    GetRandomRessourcePoint()
+    Citizen.CreateThread(function() --- MINERAI
+        while true do
+            if isFarmer then
+                Wait(0)
+                local playerPos = GetEntityCoords(PlayerPedId())
+                if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isInteracting then
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
+                    if IsControlJustPressed(0, 0x760A9C6F) and not isInteracting then 
+                        StartMining()
+                    end
+                else end
+            end
+        end
+    end)
     Citizen.CreateThread(function()
         while true do
             if getjob then
@@ -243,3 +262,48 @@ AddEventHandler("onResourceStop", function(resourceName)
     PromptDelete(CraftMenuPrompt)
 end)
 
+function StartMining()
+    local playerPed = PlayerPedId()
+    local coords = GetEntityCoords(playerPed)
+    started = false
+    pressing = false
+    FreezeEntityPosition(playerPed, true)
+    RequestAnimDict(Config.GatherDict)
+    while not HasAnimDictLoaded(Config.GatherDict) do
+        Wait(10)
+    end
+    TaskPlayAnim(playerPed, Config.GatherDict, "stn_enter", 1.0, 1.0, -1, 2, 0, false, false, false)
+    Wait(500)
+    TaskPlayAnim(playerPed, Config.GatherDict, Config.GatherAnim, 1.0, 1.0, -1, 1, 0, false, false, false)
+    isInteracting = true
+    Wait(Config.WorkingTime)
+    FreezeEntityPosition(playerPed, false)
+    TaskPlayAnim(playerPed, Config.GatherDict, "stn_exit", 1.0, 1.0, -1, 2, 0, false, false, false)
+    Wait(500)
+    ClearPedTasks(playerPed)
+    GivePlayerRessource()
+    isInteracting = false
+    GetRandomRessourcePoint()
+end
+
+
+function GetRandomRessourcePoint()
+    if blip ~= nil then 
+        RemoveBlip(blip)
+    end
+    ressourcePointIndexForMining = math.random(1, #Config.RessourcesPoints)
+    blip = Citizen.InvokeNative(0x554d9d53f696d002, Config.PointSprite, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z)
+    Citizen.CreateThread(function()
+        while true do
+            Wait(50)
+            local playerPos = GetEntityCoords(PlayerPedId())    
+            if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < 100 then
+                
+                DeleteEntity(tempweath)
+                tempweath = CreateObject(GetHashKey("crp_wheat_stk_ab_sim"), Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z, false, true, true)
+                PlaceObjectOnGroundProperly(tempweath)
+                break
+            end
+        end
+    end)
+end

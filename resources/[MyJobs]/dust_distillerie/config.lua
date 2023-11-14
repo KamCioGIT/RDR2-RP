@@ -15,6 +15,12 @@ Config.CraftAnim = {
     "base_trans_base",
 }
 
+Config.GatherDict = 'mech_pickup@plant@milkweed'
+Config.GatherAnim = 'stn_pick'
+
+Config.PointSprite = 2033377404
+
+
 
 Config.CraftingsReceipe = {
 }
