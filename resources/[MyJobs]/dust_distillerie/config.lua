@@ -17,4 +17,15 @@ Config.CraftAnim = {
 
 
 Config.CraftingsReceipe = {
+    ['moutwhisky'] = {
+        type = 'distillerie',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'orge',
+        ItemReceipe1Amount = 5,
+        ItemToGive = 'moutwhisky',
+        Amount = 1,
+        WorkingTime = 1,
+        label = "Moût",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wheatseed.png', text = "Orge",count = "x5"}}
+    },
 }

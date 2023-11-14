@@ -412,12 +412,12 @@ Config.ImportPoint = {
 }
 
 Config.Import = {
-    ["sucre"] = {label= "Sucre", price = 0.1},
+    ["sucre"] = {label= "Sucre", price = 0.05},
     ["cigarettes"] = {label= "Cigarette", price = 0.10},
-    ["cigar"] = {label= "Cigare", price = 0.3},
+    ["cigar"] = {label= "Cigare", price = 0.2},
     ["coffee"] = {label= "Café", price = 0.15},
-    ["dirty_whiskey"] = {label= "Mauvais Whiskey", price = 0.2},
-    ["good_whisky"] = {label= "Boon Whiskey", price = 0.35},
+    ["dirty_whiskey"] = {label= "Mauvais Whiskey", price = 0.25},
+    ["good_whisky"] = {label= "Boon Whiskey", price = 0.45},
     ["lemonade"] = {label= "Limonade", price = 0.2},
     ["tabacchiquer"] = {label= "Tabac à chiquer", price = 0.2},
 
