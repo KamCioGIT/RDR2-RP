@@ -941,7 +941,7 @@ Citizen.CreateThread(
                             TaskLookAtEntity(playerPed, v.obj, 3000, 2048, 3)
                             -- local PromptGroupName = CreateVarString(10, "LITERAL_STRING", v.label)
                             -- PromptSetActiveGroupThisFrame(PickupPromptGroup, PromptGroupName)
-                            TriggerEvent('dust_presskey', "Appuyez sur Entrée pour rammaser: "..v.label)
+                            TriggerEvent('dust_presskey', "Appuyez sur Entrée pour ramasser: "..v.label)
                             if IsControlJustReleased(0, 0xC7B5340A) then
                                 PromptActive = true
                                 TriggerServerEvent("redemrp_inventory:onPickup", k)

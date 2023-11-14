@@ -692,7 +692,7 @@ Config.Jobs = {
         Name = "Scarlett Distillery",
         blisprite = 553094466,
         MenuLocations = 
-            vector3(1453.521, -1582.51, 72.01605)
+            vector3(1453.753, -1574.935, 71.02811)
         ,
         Grades = {
             [1] = {
