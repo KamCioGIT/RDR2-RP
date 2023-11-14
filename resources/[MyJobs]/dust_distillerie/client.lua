@@ -167,10 +167,7 @@ RegisterNetEvent("distillerie:client:SetMaxAmount", function(value)
     maxCraftAmountdistillerie = value
 end)
 
-
-
-
-RegisterNetEvent("distillerie:StartMission",function()
+Citizen.CreateThread(function()
     RequestModel(GetHashKey("crp_wheat_dry_aa_sim"))
     if HasModelLoaded(GetHashKey("crp_wheat_dry_aa_sim")) then
         Wait(10)
@@ -188,6 +185,9 @@ RegisterNetEvent("distillerie:StartMission",function()
                 else end
         end
     end)
+end)
+
+RegisterNetEvent("distillerie:StartMission",function()
     Citizen.CreateThread(function()
         while true do
                 Wait(2)
@@ -284,11 +284,11 @@ end
 
 
 function GetRandomRessourcePoint()
-    if blip ~= nil then 
-        RemoveBlip(blip)
-    end
+    -- if blip ~= nil then 
+    --     RemoveBlip(blip)
+    -- end
     ressourcePointIndexForMining = math.random(1, #Config.RessourcesPoints)
-    blip = Citizen.InvokeNative(0x554d9d53f696d002, Config.PointSprite, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z)
+    -- blip = Citizen.InvokeNative(0x554d9d53f696d002, Config.PointSprite, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z)
     Citizen.CreateThread(function()
         while true do
             Wait(50)
