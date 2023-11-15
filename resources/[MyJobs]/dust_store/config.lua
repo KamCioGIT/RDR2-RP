@@ -19,6 +19,7 @@ Config.Jobs = {
     [1] = "store_straw",
     [2] = "store_rhodes",
     [3] = "store_stdenis",
+    [4] = "store_bla",
 }
 
 Config.WorkingTime = 5000
@@ -27,7 +28,8 @@ Config.DistanceToInteract = 1.5
 Config.Atelier = {
     [1] = vector3(-1789.997, -387.5353, 156.1007),
     [2] = vector3(1329.512, -1290.322, 77.01747),
-    [3] = vector3(2826.487, -1313.016, 45.75267)
+    [3] = vector3(2826.487, -1313.016, 45.75267),
+    [4] = vector3(-785.4333, -1326.569, 41.88114)
 }
 
 Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
