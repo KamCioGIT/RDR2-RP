@@ -232,7 +232,7 @@ Config.Items = {
         end
     },
     ["gibierherbe"] = {
-        hunger = 20,
+        hunger = 30,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -242,7 +242,7 @@ Config.Items = {
         end
     },
     ["viandeherbe"] = {
-        hunger = 20,
+        hunger = 30,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
@@ -252,7 +252,7 @@ Config.Items = {
         end
     },
     ["volailleherbe"] = {
-        hunger = 20,
+        hunger = 30,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
