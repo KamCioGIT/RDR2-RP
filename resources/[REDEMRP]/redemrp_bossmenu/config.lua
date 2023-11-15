@@ -250,7 +250,7 @@ Config.Jobs = {
     },
     ["store_bla"] = {
         bigjob = "store",
-        Name = "General Store",
+        Name = "Johnny's Market",
         blisprite = 1475879922,
         MenuLocations = 
             vector3(-778.5928, -1323.718, 42.88414)

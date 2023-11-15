@@ -224,7 +224,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Amount = 1,
         ItemReceipe2Name = 'farine',
         ItemReceipe2Amount = 1,
-        ItemReceipe3Name = 'sucre',
+        ItemReceipe3Name = 'myrtille',
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'charbon',
         ItemReceipe4Amount = 1,
@@ -233,6 +233,23 @@ Config.CraftingsReceipe = {
         WorkingTime = 5,
         label = 'Tarte au myrtille',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_offal.png', text = "Bouteille de lait",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+    },
+    ['carrottecake'] = {
+        type = 'epicerie',
+        Itemtocraft = 4,
+        ItemReceipe1Name = 'bouteillelait',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'farine',
+        ItemReceipe2Amount = 1,
+        ItemReceipe3Name = 'carrotesauvages',
+        ItemReceipe3Amount = 1,
+        ItemReceipe4Name = 'charbon',
+        ItemReceipe4Amount = 1,
+        ItemToGive = 'carrottecake',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Tarte au myrtille',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_offal.png', text = "Bouteille de lait",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_carrots.png', text = "Carrotes sauvages",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['soupechampignon'] = {
         type = 'epicerie',

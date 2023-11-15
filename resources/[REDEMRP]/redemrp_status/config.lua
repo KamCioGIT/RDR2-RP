@@ -432,6 +432,16 @@ Config.Items = {
             Eat()
         end
     },
+    ["carrottecake"] = {
+        hunger = 70,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Eat()
+        end
+    },
     ---- ferme
     ["bouteillelait"] = {
         hunger = 0,

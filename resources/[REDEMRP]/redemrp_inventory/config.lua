@@ -1793,7 +1793,7 @@ Config.Items = {
     },
     ["myrtille"] = {
         label = "Myrtille",
-        description = "",
+        description = "Une baie",
         weight = 0.051,
         canBeDropped = true,
         canBeUsed = true,
@@ -2978,7 +2978,17 @@ Config.Items = {
     imgsrc = "items/consumable_offal.png",
     type = "item_standard",
 },
-
+["carrottecake"] = {
+    label = "Carrot Cake",
+    description = "Un cake à la carotte, spécialité de Saint-Denis",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/lemonpie.png",
+    type = "item_standard",
+},
 ------- FORGE ------
 ["lingotor"] = {
     label = "Lingot d'or",
