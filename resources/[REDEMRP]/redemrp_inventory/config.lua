@@ -2980,7 +2980,7 @@ Config.Items = {
 },
 ["carrottecake"] = {
     label = "Carrot Cake",
-    description = "Un cake à la carotte, spécialité de Saint-Denis",
+    description = "Spécialité des faubourgs de Saint-Denis",
     weight = 0.2,
     canBeDropped = true,
     canBeUsed = true,
