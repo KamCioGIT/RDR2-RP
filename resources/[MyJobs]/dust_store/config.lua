@@ -29,7 +29,7 @@ Config.Atelier = {
     [1] = vector3(-1789.997, -387.5353, 156.1007),
     [2] = vector3(1329.512, -1290.322, 77.01747),
     [3] = vector3(2826.487, -1313.016, 45.75267),
-    [4] = vector3(-785.4333, -1326.569, 41.88114)
+    [4] = vector3(-785.561, -1326.538, 42.88415)
 }
 
 Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"

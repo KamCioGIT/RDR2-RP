@@ -253,7 +253,7 @@ Config.Jobs = {
         Name = "General Store",
         blisprite = 1475879922,
         MenuLocations = 
-          vector3(-778.308, -1323.671, 41.88117)
+            vector3(-778.5928, -1323.718, 42.88414)
         ,
         Grades = {
             [1] = {
