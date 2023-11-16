@@ -179,7 +179,16 @@ Config.Items = {
             BoostStamina(20)
         end
     },
-
+    ["moonshine"] = {
+        hunger = 00,
+        thirst = 100,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Moonshine()
+        end
+    },
     ---- recette camp ---- 
     ["viandepetitmamiferecuite"] = {
         hunger = 7,
