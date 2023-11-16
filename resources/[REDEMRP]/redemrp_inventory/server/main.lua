@@ -2388,7 +2388,7 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
                         if qual == "croupie" then
                             TriggerClientEvent("dust_maladie:dysentrie", _source)
                         end
-                        TriggerClientEventEvent("dust_gourde:animboire", _source)
+                        TriggerClientEvent("dust_gourde:animboire", _source)
                     end
                 end
             end
