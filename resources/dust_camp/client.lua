@@ -545,7 +545,7 @@ Citizen.CreateThread(function()
             RemoveAllPedWeapons(PlayerPedId(), true)
 
             if IsControlJustReleased(0, 0x5181713D) and not Gourding then
-                    Boire()
+                TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "boire", quality)
             end
 
             if gourdeprompt:hasHoldModeJustCompleted() and not Gourding then
@@ -591,7 +591,7 @@ function Remplirgourde(current_water)
     Gourding = false
 end
 
-function Boire()
+RegisterNetEvent("dust_gourde:animboire", function()
     Gourding = true
     local dict = "amb_rest_drunk@world_human_drinking@male_a@idle_a"
     local playerPed = PlayerPedId()
@@ -602,9 +602,9 @@ function Boire()
     TaskPlayAnim(PlayerPedId(), dict, "idle_a", 1.0, 8.0, -1, 31, 0, false, false, false)
     Citizen.Wait(4000)
     ClearPedTasks(PlayerPedId())
-    TriggerServerEvent("redemrp_inventory:ChangeWaterAmmount", "boire", quality)
+    TriggerServerEvent('redemrp_status:server:AddHungerThirst', 0 , 60)
     Gourding = false
-end
+end)
 
 
 ---- Remplir à la pompe
