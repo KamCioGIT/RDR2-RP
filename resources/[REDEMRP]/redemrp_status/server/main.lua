@@ -65,6 +65,7 @@ RegisterServerEvent("redemrp_status:server:AddHungerThirst", function(hunger, th
     local Player = RedEM.GetPlayer(_source)
     print (_source)
     if Player then
+        print 'get'
         local meta = Player.GetMetaData()
 
         Player.SetMetaData("hunger", tonumber(meta.hunger) + hunger)
