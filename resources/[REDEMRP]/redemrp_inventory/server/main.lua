@@ -2382,7 +2382,7 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
                 local meta = item.getMeta()
                 if meta["water"] then
                     if tonumber(meta["water"]) >= 20 then
-                        TriggerEvent('redemrp_status:server:AddHungerThirst',_source, 0 , 60)
+                        TriggerEvent('redemrp_status:server:AddHungerThirstForId',_source, 0 , 60)
                         newwater = tonumber(meta["water"]) - 20
                         qual = tostring(meta["quality"])
                         item.setMeta({water = newwater, quality = qual})
