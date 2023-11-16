@@ -4,11 +4,11 @@ Config = {}
 Config.DistanceToInteract = 1.5
 
 Config.AtelierMoonshine = {
-    vector3(-1056.271, -2516.797, 74.87877),
+    vector3(2951.368, 541.7884, 48.44333),
 }
 
 Config.AlambicMoonshine = {
-    [1] = {input = vector3(-1061.538, -2511.738, 75.05264), output = vector3(-1062.354, -2507.31, 74.99416), name = "test"},
+    [1] = {input = vector3(2949.503, 542.4907, 48.48363), output = vector3(2946.402, 542.6058, 48.44593), name = "test"},
 }
 
 Config.AtelierOpium = {
@@ -184,6 +184,22 @@ Config.CraftingsReceipe = {
     label = 'Chaux',
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_buck_antlers.png', text = "Bois de cerf",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/collector_fossil_stone.png', text = "Souffre",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
 },
-
+['antibiotic'] = {
+    type = 'opium',
+    Itemtocraft = 4,
+    ItemReceipe1Name = 'camomillesauvage',
+    ItemReceipe1Amount = 3,
+    ItemReceipe2Name = 'ginseng',
+    ItemReceipe2Amount = 3,
+    ItemReceipe3Name = 'millefeuille',
+    ItemReceipe3Amount = 3,
+    ItemReceipe4Name = 'achillevisqueuse',
+    ItemReceipe4Amount = 3,
+    ItemToGive = 'antibiotic',
+    Amount = 1,
+    WorkingTime = 5,
+    label = 'Remède Goodwin',
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_american_ginseng.png', text = "Ginseng",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_yarrow.png', text = "Millefeuille",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_english_mace.png', text = "Achillé Visqueuse",count = "x3"}}
+},
 
 }
