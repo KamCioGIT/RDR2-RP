@@ -4,7 +4,7 @@ Config = {}
 Config.DistanceToInteract = 1.5
 
 Config.AtelierMoonshine = {
-    vector3(2951.368, 541.7884, 48.44333),
+    vector3(3311.525, 12.06422, 54.69889),
 }
 
 Config.AlambicMoonshine = {
