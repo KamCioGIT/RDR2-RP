@@ -766,7 +766,7 @@ Citizen.CreateThread(function()
                 if #(playerPos - v) < 2.2 then
                     TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustReleased(0, 0x760A9C6F) then 
-                        depviande()
+                        TriggerServerEvent("peche:RequestCampMenu", "poissonerie")
                     end
                 end
             end  
@@ -778,13 +778,6 @@ RegisterNetEvent("peche:OpenCampMenu", function(craftingtable, menutype)
     local Position = GetEntityCoords(PlayerPedId())
     local _menutype = menutype
     local playerPed = PlayerPedId()
-    RequestAnimDict(Config.IdleDict)
-    while not HasAnimDictLoaded(Config.IdleDict) do
-        Citizen.Wait(50)
-    end
-    for k,v in pairs(Config.IdleAnim) do
-        TaskPlayAnim(playerPed, Config.IdleDict, v, 8.0, -8.0, -1, 2, 0, true)
-    end
     Citizen.CreateThread(function()
         while true do
             Wait(100)
@@ -809,21 +802,9 @@ RegisterNetEvent("peche:OpenCampMenu", function(craftingtable, menutype)
                 table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
             end
         end
-        -- if _menutype == 'fire' then 
-        --     table.insert(elements, {label = "Gros Steak cuit", value = 'grossteakcuit', descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}})
-        -- end
-        -- if _menutype == 'grill' then 
-        --     table.insert(elements, {label = "Gros Steak Grillé", value = 'gunpowder', desc = "Recette: 1 Steak"})
-        --     table.insert(elements, {label = "Gros Steak au Thym", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Thym"})
-        -- end
-        -- if _menutype == 'cauldron' then 
-        --     table.insert(elements, {label = "Gros Steak et Carotte Sauvage", value = 'grossteakcarottesauvage', descriptionimages = 
-        --     {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}, 
-        --     {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_carrots.png', text = "Carotte Sauvage",count = "x2"}}})
-        -- end
 
         MenuData.Open('default', GetCurrentResourceName(), 'Camp', {
-            title = "Feu de Camp",
+            title = "Poissonerie",
             subtext = "Recettes",
             align = 'top-right',
             elements = elements,
@@ -836,15 +817,6 @@ RegisterNetEvent("peche:OpenCampMenu", function(craftingtable, menutype)
 
         function(data, menu)
             menu.close()
-            RequestAnimDict(Config.CloseMenuDict)
-            while not HasAnimDictLoaded(Config.CloseMenuDict) do
-                Citizen.Wait(50)
-            end
-            for k,v in pairs(Config.CloseMenuAnim) do
-                TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
-                Citizen.Wait(1000)
-            end
-            FreezeEntityPosition(playerPed, false)
             isInteracting = false
         end)
     end)
@@ -854,29 +826,19 @@ end)
 function StartCooking(itemName, menu, _menutype)
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
-    FreezeEntityPosition(playerPed, true)
-    isInteracting = true
-    RequestAnimDict(Config.CookDict)
-    while not HasAnimDictLoaded(Config.CookDict) do
-        Citizen.Wait(50)
-    end
-    for k,v in pairs(Config.CookAnim) do
-        TaskPlayAnim(playerPed, Config.CookDict, v, 8.0, -8.0, -1, 2, 0, true)
-        Citizen.Wait(2000)
-    end
-    for k,v in pairs(Config.CookAnim2) do
-        TaskPlayAnim(playerPed, Config.CookDict, v, 8.0, -8.0, -1, 2, 0, true)
-        Citizen.Wait(1000)
-    end
     menu.close()
-    local timer = GetGameTimer() + Config.WorkingTime
     isInteracting = true
-    Citizen.CreateThread(function()
-        while GetGameTimer() < timer do 
-            Wait(0)
-        end
-        TriggerServerEvent("camp:CraftItem", itemName, playerPed)
-        Wait(500)
-        TriggerServerEvent("camp:RequestCampMenu", _menutype)
-    end)
+    local dict = "amb_camp@prop_camp_butcher@working@rabbit@male_a@rabbit_chop@base"
+    RequestAnimDict(dict)
+    while not HasAnimDictLoaded(dict) do
+        Wait(10)
+    end
+    TaskPlayAnim(playerPed, dict, "rabbitchop_trans_meatscoop", 1.0, 1.0, -1, 0, 0, false, false, false)
+    Wait(Config.WorkingTime)
+    ClearPedTasks(playerPed)
+
+    isInteracting = true
+    TriggerServerEvent("peche:CraftItem", itemName, playerPed)
+    Wait(500)
+    TriggerServerEvent("peche:RequestCampMenu", _menutype)
 end
