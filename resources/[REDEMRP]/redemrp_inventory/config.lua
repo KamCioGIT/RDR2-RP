@@ -3000,6 +3000,16 @@ Config.Items = {
     imgsrc = "items/gold.png",
     type = "item_standard"
 },
+["pieceor"] = {
+    label = "Pièce d'or",
+    description = "Un vautour orne la pièce",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = false,
+    limit = 2000,
+    imgsrc = "items/gold.png",
+    type = "item_standard"
+},
 ["WEAPON_MELEE_HAMMER"] = {
     label = "Marteau",
     description = "Attention aux doigts",
