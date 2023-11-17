@@ -179,6 +179,29 @@ Config.Jobs = {
             },
         }
     },
+    ["fermier_creek"] = {
+        bigjob = "fermier",
+        Name = "Ferme",
+        blisprite = 552659337,
+        MenuLocations = 
+            vector3(-2173.346, 715.4448, 121.6186)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Ouvrier",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Contremaître",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
     ["store_straw"] = {
         bigjob = "store",
         Name = "Union Store",
