@@ -249,7 +249,6 @@ RegisterNetEvent("dust_radial:CraftingAction")
 AddEventHandler("dust_radial:CraftingAction", function()
     local playerPed = PlayerPedId()
     local coords = GetEntityCoords(playerPed)
-    FreezeEntityPosition(playerPed, true)
     isInteracting = true
     RequestAnimDict(Config.AnimDict)
     while not HasAnimDictLoaded(Config.AnimDict) do
@@ -268,7 +267,6 @@ AddEventHandler("dust_radial:CraftingAction", function()
             Wait(0)
         end
         ClearPedTasks(PlayerPedId())
-        FreezeEntityPosition(playerPed, false)
         isInteracting = false
     end)    
 end)
@@ -371,7 +369,7 @@ Citizen.CreateThread(function()
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
-                    GiveRessource("p_baitWorm01x", 1)
+                    GiveRessource("p_baitWorm01x", 3)
                 end
             end
         end

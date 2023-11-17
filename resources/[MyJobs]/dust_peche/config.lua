@@ -1,5 +1,8 @@
 Config = {}
+Config.Jobs = {
+    "peche_lagras",
 
+}
 -- settings
 Config.Difficulty = 1000 -- use -1 for testing
 Config.ReelSpeed = 0.0125
@@ -49,33 +52,6 @@ Config.BaitsPerFish = {
         "A_C_FISHREDFINPICKEREL_01_MS",
         "A_C_FISHREDFINPICKEREL_01_SM",
     },
-    ["p_baitCheese01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBLUEGIL_01_SM",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHPERCH_01_SM",
-        "A_C_FISHBULLHEADCAT_01_MS",
-        "A_C_FISHBULLHEADCAT_01_SM",
-        "A_C_FISHRAINBOWTROUT_01_MS",
-        "A_C_FISHLARGEMOUTHBASS_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_SM",
-    },
-    ["p_baitCricket01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBLUEGIL_01_SM",
-        "A_C_FISHLAKESTURGEON_01_LG",
-        "A_C_FISHLARGEMOUTHBASS_01_LG",
-        "A_C_FISHLARGEMOUTHBASS_01_MS",
-        "A_C_FISHMUSKIE_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHPERCH_01_SM",
-        "A_C_FISHRAINBOWTROUT_01_LG",
-        "A_C_FISHRAINBOWTROUT_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_SM",
-        "A_C_FISHSMALLMOUTHBASS_01_LG",
-    },
     ["p_baitWorm01x"] = {
         "A_C_FISHBLUEGIL_01_MS",
         "A_C_FISHBLUEGIL_01_SM",
@@ -90,50 +66,6 @@ Config.BaitsPerFish = {
         "A_C_FISHREDFINPICKEREL_01_MS",
         "A_C_FISHREDFINPICKEREL_01_SM",
         "A_C_FISHROCKBASS_01_MS",
-        "A_C_FISHSALMONSOCKEYE_01_ML",
-        "A_C_FISHSALMONSOCKEYE_01_MS",
-        "A_C_FISHSMALLMOUTHBASS_01_MS",
-    },
-    ["p_crawdad01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBLUEGIL_01_SM",
-        "A_C_FISHMUSKIE_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHPERCH_01_SM",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_SM",
-    },
-    ["p_finishedragonfly01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBLUEGIL_01_SM",
-        "A_C_FISHBULLHEADCAT_01_MS",
-        "A_C_FISHBULLHEADCAT_01_SM",
-        "A_C_FISHLAKESTURGEON_01_LG",
-        "A_C_FISHNORTHERNPIKE_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHPERCH_01_SM",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_SM",
-        "A_C_FISHSALMONSOCKEYE_01_LG",
-        "A_C_FISHSALMONSOCKEYE_01_ML",
-        "A_C_FISHSALMONSOCKEYE_01_MS",
-        "A_C_FISHSMALLMOUTHBASS_01_MS",
-    },
-    ["p_FinisdFishlure01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBLUEGIL_01_SM",
-        "A_C_FISHBULLHEADCAT_01_MS",
-        "A_C_FISHBULLHEADCAT_01_SM",
-        "A_C_FISHLAKESTURGEON_01_LG",
-        "A_C_FISHLONGNOSEGAR_01_LG",
-        "A_C_FISHNORTHERNPIKE_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHPERCH_01_SM",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_SM",
-        "A_C_FISHSALMONSOCKEYE_01_LG",
-        "A_C_FISHSALMONSOCKEYE_01_ML",
-        "A_C_FISHSALMONSOCKEYE_01_MS",
         "A_C_FISHSMALLMOUTHBASS_01_MS",
     },
     ["p_finishdcrawd01x"] = {
@@ -153,74 +85,34 @@ Config.BaitsPerFish = {
         "A_C_FISHSALMONSOCKEYE_01_ML",
         "A_C_FISHSALMONSOCKEYE_01_MS",
         "A_C_FISHSMALLMOUTHBASS_01_MS",
-    },
-    ["p_finishedragonflylegendary01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBLUEGIL_01_SM",
-        "A_C_FISHBULLHEADCAT_01_MS",
-        "A_C_FISHBULLHEADCAT_01_SM",
-        "A_C_FISHCHAINPICKEREL_01_MS",
-        "A_C_FISHCHAINPICKEREL_01_SM",
-        "A_C_FISHCHANNELCATFISH_01_LG",
-        "A_C_FISHCHANNELCATFISH_01_XL",
-        "A_C_FISHLAKESTURGEON_01_LG",
-        "A_C_FISHNORTHERNPIKE_01_LG",
-        "A_C_FISHLONGNOSEGAR_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHPERCH_01_SM",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_SM",
-        "A_C_FISHSALMONSOCKEYE_01_LG",
-        "A_C_FISHSALMONSOCKEYE_01_ML",
-        "A_C_FISHSALMONSOCKEYE_01_MS",
-        "A_C_FISHSMALLMOUTHBASS_01_MS",
-    },
-    ["p_finisdfishlurelegendary01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBULLHEADCAT_01_MS",
-        "A_C_FISHCHAINPICKEREL_01_MS",
-        "A_C_FISHCHANNELCATFISH_01_LG",
-        "A_C_FISHCHANNELCATFISH_01_XL",
-        "A_C_FISHLAKESTURGEON_01_LG",
-        "A_C_FISHLONGNOSEGAR_01_LG",
-        "A_C_FISHNORTHERNPIKE_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHSALMONSOCKEYE_01_LG",
-        "A_C_FISHSALMONSOCKEYE_01_ML",
-        "A_C_FISHSALMONSOCKEYE_01_MS",
-        "A_C_FISHSMALLMOUTHBASS_01_LG",
-        "A_C_FISHSMALLMOUTHBASS_01_MS",
-    },
-    ["p_finishdcrawdlegendary01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBULLHEADCAT_01_MS",
-        "A_C_FISHCHAINPICKEREL_01_MS",
-        "A_C_FISHCHANNELCATFISH_01_LG",
-        "A_C_FISHCHANNELCATFISH_01_XL",
-        "A_C_FISHLAKESTURGEON_01_LG",
-        "A_C_FISHLONGNOSEGAR_01_LG",
-        "A_C_FISHNORTHERNPIKE_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHSALMONSOCKEYE_01_LG",
-        "A_C_FISHSALMONSOCKEYE_01_ML",
-        "A_C_FISHSALMONSOCKEYE_01_MS",
-        "A_C_FISHSMALLMOUTHBASS_01_LG",
-        "A_C_FISHSMALLMOUTHBASS_01_MS",
+        "A_C_FISHMUSKIE_01_LG",
     },
     ["p_lgoc_spinner_v4"] = {
         "A_C_FISHBLUEGIL_01_MS",
         "A_C_FISHBLUEGIL_01_SM",
+        "A_C_FISHBULLHEADCAT_01_MS",
         "A_C_FISHBULLHEADCAT_01_SM",
         "A_C_FISHCHAINPICKEREL_01_MS",
         "A_C_FISHCHAINPICKEREL_01_SM",
+
+        "A_C_FISHCHANNELCATFISH_01_LG",
+        "A_C_FISHCHANNELCATFISH_01_XL",
+
+        "A_C_FISHLAKESTURGEON_01_LG",
+
         "A_C_FISHLARGEMOUTHBASS_01_LG",
         "A_C_FISHLARGEMOUTHBASS_01_MS",
         "A_C_FISHLONGNOSEGAR_01_LG",
+
+        "A_C_FISHMUSKIE_01_LG",
+
         "A_C_FISHNORTHERNPIKE_01_LG",
         "A_C_FISHPERCH_01_MS",
         "A_C_FISHPERCH_01_SM",
+
+        "A_C_FISHRAINBOWTROUT_01_MS",
+        "A_C_FISHRAINBOWTROUT_01_MS",
+
         "A_C_FISHREDFINPICKEREL_01_MS",
         "A_C_FISHREDFINPICKEREL_01_SM",
         "A_C_FISHROCKBASS_01_MS",
@@ -238,12 +130,25 @@ Config.BaitsPerFish = {
         "A_C_FISHBULLHEADCAT_01_SM",
         "A_C_FISHCHAINPICKEREL_01_MS",
         "A_C_FISHCHAINPICKEREL_01_SM",
+
+        "A_C_FISHCHANNELCATFISH_01_LG",
+        "A_C_FISHCHANNELCATFISH_01_XL",
+
+        "A_C_FISHLAKESTURGEON_01_LG",
+
         "A_C_FISHLARGEMOUTHBASS_01_LG",
         "A_C_FISHLARGEMOUTHBASS_01_MS",
         "A_C_FISHLONGNOSEGAR_01_LG",
+
+        "A_C_FISHMUSKIE_01_LG",
+
         "A_C_FISHNORTHERNPIKE_01_LG",
         "A_C_FISHPERCH_01_MS",
         "A_C_FISHPERCH_01_SM",
+
+        "A_C_FISHRAINBOWTROUT_01_MS",
+        "A_C_FISHRAINBOWTROUT_01_MS",
+
         "A_C_FISHREDFINPICKEREL_01_MS",
         "A_C_FISHREDFINPICKEREL_01_SM",
         "A_C_FISHROCKBASS_01_MS",
@@ -616,7 +521,14 @@ Config.CraftingsReceipe = {
 }
 
 Config.AtelierPoisson = {
-    vector3(2162.251, -619.7082, 41.88377),
+    vector3(2120.323, -606.8054, 40.64933),
     vector3(-1201.094, -1938.43, 42.59532),
 
+}
+
+
+Config.Ecrevisse = {
+    vector3(2008.564, -1835.291, 39.77694),
+    vector3(1566.364, -845.6798, 40.38267),
+    vector3(2595.068, -331.4922, 40.26375),
 }

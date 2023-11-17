@@ -18,6 +18,29 @@ Config.ZoneVente = {
 }
 
 Config.Jobs = {
+    ["peche_lagras"] = {
+        bigjob = "peche",
+        Name = "Pêcherie",
+        blisprite = -852241114,
+        MenuLocations = 
+            vector3(2138.28, -639.9623, 41.64072)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
     ["armurier_rhodes"] = {
         bigjob = "armurier",
         Name = "Armurerie de Rhodes",
