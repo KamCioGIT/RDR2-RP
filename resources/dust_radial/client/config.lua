@@ -13,9 +13,9 @@ Config.HandsUpAnim = {
 [6] = 	{dict= "script_proc@robberies@shop@strgen", anim ="handsup_register"},
 }
 
-Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
+Config.AnimDict = "mech_inventory@crafting@fallbacks@modify_bullets"
 Config.CraftAnim = {
-    "base_trans_base",
+    "loop",
 }
 
 Config.CraftingsReceipe = {

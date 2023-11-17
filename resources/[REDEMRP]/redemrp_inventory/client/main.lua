@@ -869,15 +869,14 @@ RegisterNetEvent(
 RegisterNetEvent(
     "redemrp_inventory:PickupAnim",
     function()
-        local dict = "amb_work@world_human_box_pickup@1@male_a@stand_exit_withprop"
+        local dict = "amb_player@world_player_chore@bucket_pick_up@male_a@base"
         RequestAnimDict(dict)
         while not HasAnimDictLoaded(dict) do
             Citizen.Wait(10)
         end
-        TaskPlayAnim(PlayerPedId(), dict, "exit_front", 1.0, 8.0, -1, 1, 0, false, false, false)
+        TaskPlayAnim(PlayerPedId(), dict, "base", 1.0, 8.0, -1, 1, 0, false, false, false)
         Wait(1200)
         -- PlaySoundFrontend("CHECKPOINT_PERFECT", "HUD_MINI_GAME_SOUNDSET", true, 1)
-        Wait(1000)
         ClearPedTasks(PlayerPedId())
     end
 )
