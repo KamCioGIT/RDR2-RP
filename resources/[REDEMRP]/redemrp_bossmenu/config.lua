@@ -43,7 +43,7 @@ Config.Jobs = {
     },
     ["armurier_strawberry"] = {
         bigjob = "armurier",
-        Name = "Armurerie de Strawberry",
+        Name = "Dindynamite",
         blisprite = -145868367,
         MenuLocations = 
             vector3(-1839.672, -415.6006, 162.2888)
@@ -927,8 +927,8 @@ Config.ExportNPC = {
 
 
 Config.Export = {
-    ["lingotfer"] = {label= "Lingot de fer", price = 1.2},
-    ["lingotor"] = {label= "Lingot d'or", price = 55},
+    ["lingotfer"] = {label= "Lingot de fer", price = 1.3},
+    ["lingotor"] = {label= "Lingot d'or", price = 56},
     ["farine"] = {label= "Farine", price = 0.2},
     ["bouteillelait"] = {label= "Bouteille de lait", price = 0.1},
     ["patate"] = {label= "Patate", price = 0.1},
@@ -941,6 +941,8 @@ Config.Export = {
     ["cuivrepepite"] = {label= "Pépite de cuivre", price = 0.04},
     ["plombpepite"] = {label= "Pépite de plomb", price = 0.04},
     ["zincpepite"] = {label= "Pépite de zinc", price = 0.1},
+    ["good_whisky"] = {label= "Pépite de zinc", price = 0.33},
+    ["dirty_whiskey"] = {label= "Pépite de zinc", price = 0.18},
 }
 
 Config.ImportBijoux = {

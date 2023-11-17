@@ -39,6 +39,17 @@ Config.CraftingsReceipe = {
         label = "Lingot d'or",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/goldnugget.png', text = "Petite pépite d'or",count = "x400"}}
     },
+    ['pieceor'] = {
+        type = 'forgeforge',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'pepiteor',
+        ItemReceipe1Amount = 20,
+        ItemToGive = 'pieceor',
+        Amount = 1,
+        WorkingTime = 5,
+        label = "Pièce d'or",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/goldnugget.png', text = "Petite pépite d'or",count = "x20"}}
+    },
     ['smallvault'] = {
         type = 'forgeetabli',
         Itemtocraft = 3,
