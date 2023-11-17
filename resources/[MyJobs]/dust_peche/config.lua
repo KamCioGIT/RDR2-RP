@@ -1,9 +1,9 @@
 Config = {}
 
 -- settings
-Config.Difficulty = 1250 -- use -1 for testing
+Config.Difficulty = -1 -- use -1 for testing
 Config.ReelSpeed = 0.0125
-Config.Debug = false
+Config.Debug = true
 
 -- fishing baits
 Config.Baits = {
@@ -312,11 +312,11 @@ Config.LangueEN = {
         get_the_fish = 'Prenez le poisson !',
         name = 'Nom',
         weight = 'Poids',
-        prepare_fishing_rod = 'Préparation de la canne',
+        prepare_fishing_rod = 'Préparer le lancer',
         cast_fishing_rod = 'Lancer la canne',
         hook = 'Hameçon',
         reset_cast = 'Relancer',
-        reel_lure = 'Lâcher du mou',
+        reel_lure = 'Mouliner',
         reel_in = 'Mouliner',
         keep_fish = 'Garder le poisson',
         throw_fish = 'Relâcher le poisson',
