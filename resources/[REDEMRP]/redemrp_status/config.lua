@@ -430,7 +430,7 @@ Config.Items = {
         end,
         ClientAction = function()
             Eat()
-            BoostHealth(40)
+            BoostHealth(15)
         end
     },
     ["boeufaugin"] = {
@@ -441,6 +441,7 @@ Config.Items = {
         end,
         ClientAction = function()
             Eat()
+            BoostHealth(15)
         end
     },
     ["cotedeboeuf"] = {
@@ -451,6 +452,7 @@ Config.Items = {
         end,
         ClientAction = function()
             Eat()
+            BoostHealth(15)
         end
     },
     ["carrottecake"] = {
