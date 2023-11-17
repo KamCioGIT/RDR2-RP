@@ -71,7 +71,7 @@ AddEventHandler('dust-fishing:server:removeBaitItem', function(item)
     local src = source
     local Player = RedEM.GetPlayer(src)
     local itemData = data.getItem(src, item)
-    itemData.RemoveItem(item, 1)
+    itemData.RemoveItem(1)
 end)
 
 local fishEntity = {
@@ -141,5 +141,5 @@ AddEventHandler("dust-fishing:FishToInventory", function(fishModel)
     local Player = RedEM.GetPlayer(src)
     local fish = fishEntity[fishModel]
     local itemData = data.getItem(src, fish)
-    itemData.AddItem(fish, 1)
+    itemData.AddItem(1)
 end)
