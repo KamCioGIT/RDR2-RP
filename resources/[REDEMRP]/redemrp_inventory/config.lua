@@ -4287,6 +4287,18 @@ Config.Items = {
     type = "item_standard",
 },
 
+["filetpoissoncuit"] = {
+    label = "Filet de poisson cuit",
+    description = "C'est du bon poisson",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/consumable_meat_succulent_fish_cooked.png",
+    type = "item_standard",
+},
+
 
 
 

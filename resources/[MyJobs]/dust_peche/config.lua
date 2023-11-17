@@ -8,6 +8,8 @@ Config.Difficulty = 1000 -- use -1 for testing
 Config.ReelSpeed = 0.0125
 Config.Debug = false
 
+
+Config.WorkingTime = 2500
 -- fishing baits
 Config.Baits = {
     "p_baitBread01x",
@@ -236,7 +238,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishbluegil_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_bluegill.png', text = "Crapet arlequin",count = "x1"}
@@ -258,7 +260,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishbullheadcat_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_bullhead_catfish.png', text = "Poisson-chat",count = "x1"}
@@ -280,7 +282,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishchainpickerel_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_chain_pickerel.png', text = "Brochet maillé",count = "x1"}
@@ -302,7 +304,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishchainpickerel_01_sm',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_channel_catfish.png', text = "Gros Barbue de rivière",count = "x1"}
@@ -313,7 +315,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishchainpickerel_01_sm',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 4,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_channel_catfish.png', text = "Très gros Barbue de rivière",count = "x1"}
@@ -324,7 +326,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishlakesturgeon_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_lake_sturgeon.png', text = "Gros Esturgeon jaune",count = "x1"}
@@ -335,7 +337,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishlargemouthbass_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_largemouth_bass.png', text = "Gros Achigan à grande bouche",count = "x1"}
@@ -346,7 +348,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishlongnosegar_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_longnose_gar.png', text = "Gros Lépisosté osseux",count = "x1"}
@@ -357,7 +359,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishmuskie_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_muskie.png', text = "Gros Maskinongé",count = "x1"}
@@ -368,7 +370,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishnorthernpike_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_northern_pike.png', text = "Grand Brochet",count = "x1"}
@@ -379,7 +381,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishperch_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_perch.png', text = "Perche",count = "x1"}
@@ -401,7 +403,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishrainbowtrout_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_speckled_trout.png', text = "Grosse Truite arc-en-ciel",count = "x1"}
@@ -412,7 +414,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishrainbowtrout_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_muskie.png', text = "Truite arc-en-ciel",count = "x1"}
@@ -423,7 +425,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishredfinpickerel_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_redfin_pickerel.png', text = "Brochet rouge",count = "x1"}
@@ -445,7 +447,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishrockbass_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_rock_bass.png', text = "Crapet de roche",count = "x1"}
@@ -467,7 +469,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishsalmonsockeye_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_sockeye_salmon.png', text = "Très Gros Saumon rouge",count = "x1"}
@@ -478,7 +480,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishsalmonsockeye_01_ml',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_sockeye_salmon.png', text = "Gros Saumon rouge",count = "x1"}
@@ -489,7 +491,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishsalmonsockeye_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_sockeye_salmon.png', text = "Saumon rouge",count = "x1"}
@@ -500,7 +502,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishsmallmouthbass_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_smallmouth_bass.png', text = "Gros Achigan à petite bouche",count = "x1"}
@@ -511,7 +513,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishsmallmouthbass_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_smallmouth_bass.png', text = "Achigan à petite bouche",count = "x1"}
