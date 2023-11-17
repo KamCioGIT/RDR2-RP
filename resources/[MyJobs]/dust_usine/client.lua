@@ -113,24 +113,35 @@ function StartMission()
 end
 
 function SouffreRecolt()
-    local playerPed = PlayerPedId()
-    local playerPos = GetEntityCoords(playerPed)
-    FreezeEntityPosition(playerPed, true)
-    RequestAnimDict(Config.RecolteSouffreDict)
-    while not HasAnimDictLoaded(Config.RecolteSouffreDict) do
-        Citizen.Wait(100)
-    end
-    TaskPlayAnim(PlayerPedId(), Config.RecolteSouffreDict, Config.RecolteSouffreAnim, 1.0, 1.0, -1, 0, 0, true, 0, false, 0, false)
-    local timer = GetGameTimer() + Config.WorkingTime
-    isInteracting = true
     Citizen.CreateThread(function()
-        while GetGameTimer() < timer do 
-            Wait(0)
+        local playerPed = PlayerPedId()
+        local Position = GetEntityCoords(playerPed)
+        picking = true
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                picking = false
+                break
+            end
         end
-        ClearPedTasks(playerPed)
-		FreezeEntityPosition(playerPed, false)
-        isInteracting = false
-        TriggerServerEvent('usine:AddItem', 'souffre', 1)
+    end)
+    Citizen.CreateThread(function()
+        local playerPed = PlayerPedId()
+        while true do
+            Wait(0)
+            if picking then
+                TriggerEvent("redemrp_inventory:PickupAnim")
+                local timer = GetGameTimer() + Config.WorkingTime
+                isInteracting = true
+                while GetGameTimer() < timer do 
+                    Wait(0)
+                end
+                ClearPedTasks(playerPed)
+                FreezeEntityPosition(playerPed, false)
+                isInteracting = false
+                TriggerServerEvent('dust_radial:AddItem', "souffre", 1)
+            else break end
+        end
     end)
 end
 
