@@ -83,6 +83,12 @@ Config.Bois = {
 
 }
 
+Config.Vers = {
+    [1] = vector3(-1252.472, -1951.456, 41.87669), --- bla
+    [2] = vector3(2170.909, -568.7137, 40.86307), --- lagras
+
+}
+
 Config.SellDict = "script_common@mth_generic_enters@give_item_satchel@rhand@generic@in_place"
 Config.SellAnim = "enter_rf"
 

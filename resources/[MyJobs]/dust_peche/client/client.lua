@@ -761,7 +761,7 @@ Citizen.CreateThread(function()
         local blips = N_0x554d9d53f696d002(1664425300, v)
         SetBlipSprite(blips, -1575595762, 1)
         SetBlipScale(blips, 1.0)
-        Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Poissonerie")
+        Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Poissonnerie")
 	end
     while true do
         Citizen.Wait(1)
