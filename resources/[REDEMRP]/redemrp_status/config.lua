@@ -312,6 +312,16 @@ Config.Items = {
             EatBowl()
         end
     },
+    ["ragoutpoisson"] = {
+        hunger = 40,
+        thirst = 20,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            EatBowl()
+        end
+    },
     ["ragoutvolaille"] = {
         hunger = 40,
         thirst = 20,
@@ -333,6 +343,16 @@ Config.Items = {
         end
     },
     ["tourteviande"] = {
+        hunger = 80,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Eat()
+        end
+    },
+    ["tourtepoisson"] = {
         hunger = 80,
         thirst = 0,
         action = function(source, name)

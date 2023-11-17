@@ -4310,10 +4310,28 @@ Config.Items = {
     imgsrc = "items/consumable_meat_succulent_fish_cooked.png",
     type = "item_standard",
 },
-
-
-
-
+["ragoutpoisson"] = {
+    label = "Ragoût de poisson",
+    description = "Du poisson, des légumes et de la joie",
+    weight = 0.3,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/hotcocoa.png",
+    type = "item_standard",
+},
+["tourtepoisson"] = {
+    label = "Tourte au poisson",
+    description = "Fait avec amour, on l'espère",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/cherrypie.png",
+    type = "item_standard",
+},
 }
 
 
