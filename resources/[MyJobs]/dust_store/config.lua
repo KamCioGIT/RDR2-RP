@@ -80,6 +80,21 @@ Config.CraftingsReceipe = {
         label = 'Ragoût',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_rc_quartz_chunk.png', text = "Viande Hâchée",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
+    ['ragoutpoisson'] = {
+        type = 'epicerie',
+        Itemtocraft = 3,
+        ItemReceipe1Name = 'filetpoisson',
+        ItemReceipe1Amount = 3,
+        ItemReceipe2Name = 'patate',
+        ItemReceipe2Amount = 1,
+        ItemReceipe3Name = 'charbon',
+        ItemReceipe3Amount = 1,
+        ItemToGive = 'ragoutviande',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Ragoût',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_succulent_fish.png', text = "Filet de poisson",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+    },
     ['tourteviande'] = {
         type = 'epicerie',
         Itemtocraft = 4,
@@ -96,6 +111,23 @@ Config.CraftingsReceipe = {
         WorkingTime = 5,
         label = 'Tourte à la viande',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_rc_quartz_chunk.png', text = "Viande hâchée",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_creeping_thyme.png', text = "Herbes aromatiques",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+    },
+    ['tourtepoisson'] = {
+        type = 'epicerie',
+        Itemtocraft = 4,
+        ItemReceipe1Name = 'filetpoisson',
+        ItemReceipe1Amount = 3,
+        ItemReceipe2Name = 'farine',
+        ItemReceipe2Amount = 1,
+        ItemReceipe3Name = 'herbesaromatiques',
+        ItemReceipe3Amount = 1,
+        ItemReceipe4Name = 'charbon',
+        ItemReceipe4Amount = 1,
+        ItemToGive = 'tourteviande',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Tourte à la viande',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_succulent_fish.png', text = "Filet de poisson",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_creeping_thyme.png', text = "Herbes aromatiques",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['brochettegibier'] = {
         type = 'epicerie',
