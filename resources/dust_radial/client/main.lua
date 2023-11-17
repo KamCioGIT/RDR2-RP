@@ -257,7 +257,7 @@ AddEventHandler("dust_radial:CraftingAction", function()
     end
 
     for k,v in pairs(Config.CraftAnim) do
-        TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 1, 0, true)
+        TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 25, 0, true)
     end
 
     local timer = GetGameTimer() + Config.WorkingTime
@@ -299,6 +299,12 @@ Citizen.CreateThread(function()
         SetBlipSprite(blips, 960467426, 1)
         SetBlipScale(blips, 1.0)
         Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Silex")
+	end
+    for k,v in pairs(Config.Vers) do
+        local blips = N_0x554d9d53f696d002(1664425300, v)
+        SetBlipSprite(blips, 960467426, 1)
+        SetBlipScale(blips, 1.0)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Vers de Terre")
 	end
 end)
 
@@ -356,6 +362,16 @@ Citizen.CreateThread(function()
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     isInteracting = true
                     GiveRessource("silex", 1)
+                end
+            end
+        end
+
+        for k, pos in pairs(Config.Vers) do
+            if #(playerPos - pos) < 7.0 and not isInteracting then
+                TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    isInteracting = true
+                    GiveRessource("p_baitWorm01x", 1)
                 end
             end
         end

@@ -4273,6 +4273,20 @@ Config.Items = {
     type = "item_standard",
 },
 
+--- recette poisson 
+
+["filetpoisson"] = {
+    label = "Filet de poisson",
+    description = "C'est du bon poisson",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/provision_meat_succulent_fish.png",
+    type = "item_standard",
+},
+
 
 
 
