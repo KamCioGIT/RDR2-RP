@@ -188,6 +188,7 @@ Config.Price = {
         ["semencedetoreau"] = {label="Semence bovine", price = 0.4},
         ["patate"] = {label="Patate", price = 0.10},
         ["Corn"] = {label="Maïs", price = 0.10},
+        ["filetpoisson"] = {label="Filet de poisson", price = 0.10},
     },
     [GetHashKey("Blackwater")] = {
         ["moonshine"] = {label="Moonshine", price = 0.8},
@@ -239,6 +240,7 @@ Config.Price = {
         ["semencedetoreau"] = {label="Semence bovine", price = 0.4},
         ["patate"] = {label="Patate", price = 0.10},
         ["Corn"] = {label="Maïs", price = 0.10},
+        ["filetpoisson"] = {label="Filet de poisson", price = 0.10},
     },
     [GetHashKey("Rhodes")] = {
         ["moonshine"] = {label="Moonshine", price = 1},
@@ -290,6 +292,7 @@ Config.Price = {
         ["semencedetoreau"] = {label="Semence bovine", price = 0.4},
         ["patate"] = {label="Patate", price = 0.12},
         ["Corn"] = {label="Maïs", price = 0.12},
+        ["filetpoisson"] = {label="Filet de poisson", price = 0.10},
     },
     [GetHashKey("StDenis")] = {
         ["moonshine"] = {label="Moonshine", price = 0.9},
@@ -341,6 +344,7 @@ Config.Price = {
         ["semencedetoreau"] = {label="Semence bovine", price = 0.3},
         ["patate"] = {label="Patate", price = 0.12},
         ["Corn"] = {label="Maïs", price = 0.12},
+        ["filetpoisson"] = {label="Filet de poisson", price = 0.10},
     },
 }
 
