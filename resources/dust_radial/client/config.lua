@@ -20,6 +20,7 @@ Config.CraftAnim = {
 
 Config.CraftingsReceipe = {
     ['bow'] = {
+        Itemtocraft = 2,
         label = "Arc",
         desc = "1 Petit Bois + 1 Fil",
         ItemReceipe1Name = 'petitbois',
@@ -31,6 +32,7 @@ Config.CraftingsReceipe = {
         WorkingTime = 5,
     },
     ['arrow'] = {
+        Itemtocraft = 2,
         label = "10 Flèches",
         desc = "1 Petit Bois + 1 silex",
         ItemReceipe1Name = 'petitbois',
@@ -42,6 +44,7 @@ Config.CraftingsReceipe = {
         WorkingTime = 5,
     },
     ['spit'] = {
+        Itemtocraft = 2,
         label = "Feu de camp",
         desc = "3 Petits Bois + 3 Silex",
         ItemReceipe1Name = 'petitbois',
@@ -50,6 +53,43 @@ Config.CraftingsReceipe = {
         ItemReceipe2Amount = 3,
         ItemToGive = 'spit',
         Amount = 1,
+        WorkingTime = 5,
+    },
+
+    --- peche
+
+    ['WEAPON_FISHINGROD'] = {
+        Itemtocraft = 2,
+        label = "Feu de camp",
+        desc = "3 Petits Bois + 3 Fils",
+        ItemReceipe1Name = 'petitbois',
+        ItemReceipe1Amount = 3,
+        ItemReceipe2Name = 'fil',
+        ItemReceipe2Amount = 3,
+        ItemToGive = 'WEAPON_FISHINGROD',
+        Amount = 1,
+        WorkingTime = 5,
+    },
+
+    ['p_baitBread01x'] = {
+        Itemtocraft = 1,
+        label = "Bout de pain",
+        desc = "1 Pain",
+        ItemReceipe1Name = 'bread',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'p_baitBread01x',
+        Amount = 5,
+        WorkingTime = 5,
+    },
+    
+    ['p_baitCorn01x'] = {
+        Itemtocraft = 1,
+        label = "Bout de Maïs",
+        desc = "1 Pain",
+        ItemReceipe1Name = 'Corn',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'p_baitBread01x',
+        Amount = 3,
         WorkingTime = 5,
     },
 }
