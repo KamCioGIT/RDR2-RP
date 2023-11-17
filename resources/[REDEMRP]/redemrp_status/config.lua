@@ -110,7 +110,7 @@ Config.Items = {
     },
     ["beer"] = {
         hunger = 00,
-        thirst = 10,
+        thirst = 40,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
@@ -120,7 +120,7 @@ Config.Items = {
     },
     ["lemonade"] = {
         hunger = 00,
-        thirst = 70,
+        thirst = 40,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
@@ -283,8 +283,8 @@ Config.Items = {
     },
     ----- store
     ["soupe"] = {
-        hunger = 50,
-        thirst = 50,
+        hunger = 40,
+        thirst = 30,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
@@ -293,8 +293,8 @@ Config.Items = {
         end
     },
     ["ragoutgibier"] = {
-        hunger = 50,
-        thirst = 50,
+        hunger = 40,
+        thirst = 20,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
@@ -303,8 +303,8 @@ Config.Items = {
         end
     },
     ["ragoutviande"] = {
-        hunger = 50,
-        thirst = 50,
+        hunger = 40,
+        thirst = 20,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
@@ -313,8 +313,8 @@ Config.Items = {
         end
     },
     ["ragoutvolaille"] = {
-        hunger = 50,
-        thirst = 50,
+        hunger = 40,
+        thirst = 20,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
@@ -413,8 +413,8 @@ Config.Items = {
         end
     },
     ["soupechampignon"] = {
-        hunger = 70,
-        thirst = 70,
+        hunger = 60,
+        thirst = 40,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
@@ -485,7 +485,7 @@ Config.Items = {
         end,
         ClientAction = function()
             Cigarette()
-            BoostStamina(40)
+            BoostStamina(100)
         end
     },
     ["pipeopium"] = {
@@ -496,7 +496,7 @@ Config.Items = {
         end,
         ClientAction = function()
             Pipe()
-            BoostStamina(40)
+            BoostStamina(100)
         end
     },
     ---- bijouterie
