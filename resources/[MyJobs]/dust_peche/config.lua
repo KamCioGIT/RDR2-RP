@@ -322,3 +322,18 @@ Config.LangueEN = {
         throw_fish = 'Relâcher le poisson',
     }
 }
+
+
+Config.CraftingsReceipe = {
+    ['viandepetitmamiferecuite'] = {
+        type = 'poissonerie',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'viandepetitmamifere',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'viandepetitmamiferecuite',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Viande de petit gibier cuite',
+        descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_exotic_bird.png', text = "Viande de petit gibier",count = "x1"}
+    }
+}

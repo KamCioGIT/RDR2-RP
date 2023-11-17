@@ -751,3 +751,132 @@ AddEventHandler("onResourceStop", function(resourceName)
         PromptDelete(fishing_data.prompt_finish.throw_fish)
     end
 end)
+
+
+
+---- poissonerie
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(1)
+        local playerPos = GetEntityCoords(PlayerPedId())
+        for k, v in ipairs(Config.AtelierPoisson) do
+            if #(playerPos - v) < 6.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 2.2, 2.2, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
+                if #(playerPos - v) < 2.2 then
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
+                    if IsControlJustReleased(0, 0x760A9C6F) then 
+                        depviande()
+                    end
+                end
+            end  
+        end       
+    end
+end)
+
+RegisterNetEvent("peche:OpenCampMenu", function(craftingtable, menutype)
+    local Position = GetEntityCoords(PlayerPedId())
+    local _menutype = menutype
+    local playerPed = PlayerPedId()
+    RequestAnimDict(Config.IdleDict)
+    while not HasAnimDictLoaded(Config.IdleDict) do
+        Citizen.Wait(50)
+    end
+    for k,v in pairs(Config.IdleAnim) do
+        TaskPlayAnim(playerPed, Config.IdleDict, v, 8.0, -8.0, -1, 2, 0, true)
+    end
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 1.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                end)
+                return
+            end
+        end
+    end)
+
+    
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local jobgrade = RedEM.GetPlayerData().jobgrade
+
+        local elements = {}
+        for k, v in pairs(craftingtable) do
+            if k then
+                table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+            end
+        end
+        -- if _menutype == 'fire' then 
+        --     table.insert(elements, {label = "Gros Steak cuit", value = 'grossteakcuit', descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}})
+        -- end
+        -- if _menutype == 'grill' then 
+        --     table.insert(elements, {label = "Gros Steak Grillé", value = 'gunpowder', desc = "Recette: 1 Steak"})
+        --     table.insert(elements, {label = "Gros Steak au Thym", value = 'gunpowder', desc = "Recette: 1 Steak + 1 Thym"})
+        -- end
+        -- if _menutype == 'cauldron' then 
+        --     table.insert(elements, {label = "Gros Steak et Carotte Sauvage", value = 'grossteakcarottesauvage', descriptionimages = 
+        --     {{src = 'nui://redemrp_inventory/html/items/provision_meat_prime_beef.png', text = "Gros Steak",count = "x1"}, 
+        --     {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_carrots.png', text = "Carotte Sauvage",count = "x2"}}})
+        -- end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'Camp', {
+            title = "Feu de Camp",
+            subtext = "Recettes",
+            align = 'top-right',
+            elements = elements,
+        },
+        
+        function(data, menu)
+            MenuData.CloseAll()
+            StartCooking(data.current.value, menu, _menutype)
+        end,
+
+        function(data, menu)
+            menu.close()
+            RequestAnimDict(Config.CloseMenuDict)
+            while not HasAnimDictLoaded(Config.CloseMenuDict) do
+                Citizen.Wait(50)
+            end
+            for k,v in pairs(Config.CloseMenuAnim) do
+                TaskPlayAnim(playerPed, Config.CloseMenuDict, v, 8.0, -8.0, -1, 0, 0, true)
+                Citizen.Wait(1000)
+            end
+            FreezeEntityPosition(playerPed, false)
+            isInteracting = false
+        end)
+    end)
+end)
+
+
+function StartCooking(itemName, menu, _menutype)
+    local playerPed = PlayerPedId()
+    local coords = GetEntityCoords(playerPed)
+    FreezeEntityPosition(playerPed, true)
+    isInteracting = true
+    RequestAnimDict(Config.CookDict)
+    while not HasAnimDictLoaded(Config.CookDict) do
+        Citizen.Wait(50)
+    end
+    for k,v in pairs(Config.CookAnim) do
+        TaskPlayAnim(playerPed, Config.CookDict, v, 8.0, -8.0, -1, 2, 0, true)
+        Citizen.Wait(2000)
+    end
+    for k,v in pairs(Config.CookAnim2) do
+        TaskPlayAnim(playerPed, Config.CookDict, v, 8.0, -8.0, -1, 2, 0, true)
+        Citizen.Wait(1000)
+    end
+    menu.close()
+    local timer = GetGameTimer() + Config.WorkingTime
+    isInteracting = true
+    Citizen.CreateThread(function()
+        while GetGameTimer() < timer do 
+            Wait(0)
+        end
+        TriggerServerEvent("camp:CraftItem", itemName, playerPed)
+        Wait(500)
+        TriggerServerEvent("camp:RequestCampMenu", _menutype)
+    end)
+end
