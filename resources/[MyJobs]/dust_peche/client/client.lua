@@ -848,3 +848,41 @@ function StartCooking(itemName, menu, _menutype)
     Wait(500)
     TriggerServerEvent("peche:RequestCampMenu", _menutype)
 end
+
+
+---- relai de peche
+RegisterNetEvent("dust_job:peche")
+AddEventHandler("dust_job:peche", function(job, grade)
+    for k, v in pairs(Config.Jobs) do
+        if job == v then
+            TriggerEvent("dust_peche:startMission")
+        end
+    end
+end)
+
+
+RegisterNetEvent("dust_peche:startMission", function()
+    for k,v in pairs(Config.Ecrevisse) do
+        local blips = N_0x554d9d53f696d002(1664425300, v)
+        SetBlipSprite(blips, 960467426, 1)
+        SetBlipScale(blips, 1.0)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Écrevisse")
+	end
+
+    Citizen.CreateThread(function ()
+        while true do
+            Wait(0)
+            for k, pos in pairs(Config.Ecrevisse) do
+                if #(playerPos - pos) < 7.0 and not isInteracting then
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        isInteracting = true
+                        GiveRessource("p_finishdcrawd01x", 1)
+                    end
+                end
+            end
+        end
+
+    end)
+
+end)

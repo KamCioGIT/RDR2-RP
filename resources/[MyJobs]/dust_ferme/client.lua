@@ -197,9 +197,11 @@ Citizen.CreateThread(function()
     if HasModelLoaded(GetHashKey("p_well02x")) then
         Wait(10)
     end
-    well = CreateObject(GetHashKey("p_well02x"), Config.CoordsPuit, false, true, true)
-    PlaceObjectOnGroundProperly(well)
-    FreezeEntityPosition(well, true)
+    for k, v in pairs(Config.CoordsPuit) do
+        well = CreateObject(GetHashKey("p_well02x"), v, false, true, true)
+        PlaceObjectOnGroundProperly(well)
+        FreezeEntityPosition(well, true)
+    end
     while true do
         Wait(0)
         local playerpos = GetEntityCoords(PlayerPedId())

@@ -270,6 +270,17 @@ Config.Items = {
             Eat()
         end
     },
+
+    ["filetpoissoncuit"] = {
+        hunger = 15,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Eat()
+        end
+    },
     ----- store
     ["soupe"] = {
         hunger = 50,
@@ -597,4 +608,7 @@ Config.Items = {
             Fan()
         end
     },
+
+
+
 }

@@ -117,7 +117,7 @@ Config.Language = {
 
 Config.HerbCountMax = 10 ---- Max de plantes qu'un jooueur peut planter si il a pas de job fermier
 Config.FarmingJobCoords = {
-	Farmar = {
+	fermier_creek = {
 		blipSprite = 0,
 		coords = {
 			vector3(-2283.115, 718.3987, 121.3779),
@@ -125,8 +125,8 @@ Config.FarmingJobCoords = {
 			vector3(-2142.399, 686.2271, 120.2016),
 			vector3(-2249.052, 653.2528, 116.6064),
 		},
-		count = 100,
-		protect = true,
+		count = 5,
+		protect = false,
 	},
 	fermier = {
 		blipSprite = 0,

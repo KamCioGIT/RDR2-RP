@@ -1,10 +1,15 @@
 Config = {}
+Config.Jobs = {
+    "peche_lagras",
 
+}
 -- settings
 Config.Difficulty = 1000 -- use -1 for testing
 Config.ReelSpeed = 0.0125
 Config.Debug = false
 
+
+Config.WorkingTime = 2500
 -- fishing baits
 Config.Baits = {
     "p_baitBread01x",
@@ -49,33 +54,6 @@ Config.BaitsPerFish = {
         "A_C_FISHREDFINPICKEREL_01_MS",
         "A_C_FISHREDFINPICKEREL_01_SM",
     },
-    ["p_baitCheese01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBLUEGIL_01_SM",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHPERCH_01_SM",
-        "A_C_FISHBULLHEADCAT_01_MS",
-        "A_C_FISHBULLHEADCAT_01_SM",
-        "A_C_FISHRAINBOWTROUT_01_MS",
-        "A_C_FISHLARGEMOUTHBASS_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_SM",
-    },
-    ["p_baitCricket01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBLUEGIL_01_SM",
-        "A_C_FISHLAKESTURGEON_01_LG",
-        "A_C_FISHLARGEMOUTHBASS_01_LG",
-        "A_C_FISHLARGEMOUTHBASS_01_MS",
-        "A_C_FISHMUSKIE_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHPERCH_01_SM",
-        "A_C_FISHRAINBOWTROUT_01_LG",
-        "A_C_FISHRAINBOWTROUT_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_SM",
-        "A_C_FISHSMALLMOUTHBASS_01_LG",
-    },
     ["p_baitWorm01x"] = {
         "A_C_FISHBLUEGIL_01_MS",
         "A_C_FISHBLUEGIL_01_SM",
@@ -90,50 +68,6 @@ Config.BaitsPerFish = {
         "A_C_FISHREDFINPICKEREL_01_MS",
         "A_C_FISHREDFINPICKEREL_01_SM",
         "A_C_FISHROCKBASS_01_MS",
-        "A_C_FISHSALMONSOCKEYE_01_ML",
-        "A_C_FISHSALMONSOCKEYE_01_MS",
-        "A_C_FISHSMALLMOUTHBASS_01_MS",
-    },
-    ["p_crawdad01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBLUEGIL_01_SM",
-        "A_C_FISHMUSKIE_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHPERCH_01_SM",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_SM",
-    },
-    ["p_finishedragonfly01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBLUEGIL_01_SM",
-        "A_C_FISHBULLHEADCAT_01_MS",
-        "A_C_FISHBULLHEADCAT_01_SM",
-        "A_C_FISHLAKESTURGEON_01_LG",
-        "A_C_FISHNORTHERNPIKE_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHPERCH_01_SM",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_SM",
-        "A_C_FISHSALMONSOCKEYE_01_LG",
-        "A_C_FISHSALMONSOCKEYE_01_ML",
-        "A_C_FISHSALMONSOCKEYE_01_MS",
-        "A_C_FISHSMALLMOUTHBASS_01_MS",
-    },
-    ["p_FinisdFishlure01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBLUEGIL_01_SM",
-        "A_C_FISHBULLHEADCAT_01_MS",
-        "A_C_FISHBULLHEADCAT_01_SM",
-        "A_C_FISHLAKESTURGEON_01_LG",
-        "A_C_FISHLONGNOSEGAR_01_LG",
-        "A_C_FISHNORTHERNPIKE_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHPERCH_01_SM",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_SM",
-        "A_C_FISHSALMONSOCKEYE_01_LG",
-        "A_C_FISHSALMONSOCKEYE_01_ML",
-        "A_C_FISHSALMONSOCKEYE_01_MS",
         "A_C_FISHSMALLMOUTHBASS_01_MS",
     },
     ["p_finishdcrawd01x"] = {
@@ -153,74 +87,34 @@ Config.BaitsPerFish = {
         "A_C_FISHSALMONSOCKEYE_01_ML",
         "A_C_FISHSALMONSOCKEYE_01_MS",
         "A_C_FISHSMALLMOUTHBASS_01_MS",
-    },
-    ["p_finishedragonflylegendary01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBLUEGIL_01_SM",
-        "A_C_FISHBULLHEADCAT_01_MS",
-        "A_C_FISHBULLHEADCAT_01_SM",
-        "A_C_FISHCHAINPICKEREL_01_MS",
-        "A_C_FISHCHAINPICKEREL_01_SM",
-        "A_C_FISHCHANNELCATFISH_01_LG",
-        "A_C_FISHCHANNELCATFISH_01_XL",
-        "A_C_FISHLAKESTURGEON_01_LG",
-        "A_C_FISHNORTHERNPIKE_01_LG",
-        "A_C_FISHLONGNOSEGAR_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHPERCH_01_SM",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_SM",
-        "A_C_FISHSALMONSOCKEYE_01_LG",
-        "A_C_FISHSALMONSOCKEYE_01_ML",
-        "A_C_FISHSALMONSOCKEYE_01_MS",
-        "A_C_FISHSMALLMOUTHBASS_01_MS",
-    },
-    ["p_finisdfishlurelegendary01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBULLHEADCAT_01_MS",
-        "A_C_FISHCHAINPICKEREL_01_MS",
-        "A_C_FISHCHANNELCATFISH_01_LG",
-        "A_C_FISHCHANNELCATFISH_01_XL",
-        "A_C_FISHLAKESTURGEON_01_LG",
-        "A_C_FISHLONGNOSEGAR_01_LG",
-        "A_C_FISHNORTHERNPIKE_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHSALMONSOCKEYE_01_LG",
-        "A_C_FISHSALMONSOCKEYE_01_ML",
-        "A_C_FISHSALMONSOCKEYE_01_MS",
-        "A_C_FISHSMALLMOUTHBASS_01_LG",
-        "A_C_FISHSMALLMOUTHBASS_01_MS",
-    },
-    ["p_finishdcrawdlegendary01x"] = {
-        "A_C_FISHBLUEGIL_01_MS",
-        "A_C_FISHBULLHEADCAT_01_MS",
-        "A_C_FISHCHAINPICKEREL_01_MS",
-        "A_C_FISHCHANNELCATFISH_01_LG",
-        "A_C_FISHCHANNELCATFISH_01_XL",
-        "A_C_FISHLAKESTURGEON_01_LG",
-        "A_C_FISHLONGNOSEGAR_01_LG",
-        "A_C_FISHNORTHERNPIKE_01_LG",
-        "A_C_FISHPERCH_01_MS",
-        "A_C_FISHREDFINPICKEREL_01_MS",
-        "A_C_FISHSALMONSOCKEYE_01_LG",
-        "A_C_FISHSALMONSOCKEYE_01_ML",
-        "A_C_FISHSALMONSOCKEYE_01_MS",
-        "A_C_FISHSMALLMOUTHBASS_01_LG",
-        "A_C_FISHSMALLMOUTHBASS_01_MS",
+        "A_C_FISHMUSKIE_01_LG",
     },
     ["p_lgoc_spinner_v4"] = {
         "A_C_FISHBLUEGIL_01_MS",
         "A_C_FISHBLUEGIL_01_SM",
+        "A_C_FISHBULLHEADCAT_01_MS",
         "A_C_FISHBULLHEADCAT_01_SM",
         "A_C_FISHCHAINPICKEREL_01_MS",
         "A_C_FISHCHAINPICKEREL_01_SM",
+
+        "A_C_FISHCHANNELCATFISH_01_LG",
+        "A_C_FISHCHANNELCATFISH_01_XL",
+
+        "A_C_FISHLAKESTURGEON_01_LG",
+
         "A_C_FISHLARGEMOUTHBASS_01_LG",
         "A_C_FISHLARGEMOUTHBASS_01_MS",
         "A_C_FISHLONGNOSEGAR_01_LG",
+
+        "A_C_FISHMUSKIE_01_LG",
+
         "A_C_FISHNORTHERNPIKE_01_LG",
         "A_C_FISHPERCH_01_MS",
         "A_C_FISHPERCH_01_SM",
+
+        "A_C_FISHRAINBOWTROUT_01_MS",
+        "A_C_FISHRAINBOWTROUT_01_MS",
+
         "A_C_FISHREDFINPICKEREL_01_MS",
         "A_C_FISHREDFINPICKEREL_01_SM",
         "A_C_FISHROCKBASS_01_MS",
@@ -238,12 +132,25 @@ Config.BaitsPerFish = {
         "A_C_FISHBULLHEADCAT_01_SM",
         "A_C_FISHCHAINPICKEREL_01_MS",
         "A_C_FISHCHAINPICKEREL_01_SM",
+
+        "A_C_FISHCHANNELCATFISH_01_LG",
+        "A_C_FISHCHANNELCATFISH_01_XL",
+
+        "A_C_FISHLAKESTURGEON_01_LG",
+
         "A_C_FISHLARGEMOUTHBASS_01_LG",
         "A_C_FISHLARGEMOUTHBASS_01_MS",
         "A_C_FISHLONGNOSEGAR_01_LG",
+
+        "A_C_FISHMUSKIE_01_LG",
+
         "A_C_FISHNORTHERNPIKE_01_LG",
         "A_C_FISHPERCH_01_MS",
         "A_C_FISHPERCH_01_SM",
+
+        "A_C_FISHRAINBOWTROUT_01_MS",
+        "A_C_FISHRAINBOWTROUT_01_MS",
+
         "A_C_FISHREDFINPICKEREL_01_MS",
         "A_C_FISHREDFINPICKEREL_01_SM",
         "A_C_FISHROCKBASS_01_MS",
@@ -331,7 +238,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishbluegil_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_bluegill.png', text = "Crapet arlequin",count = "x1"}
@@ -353,7 +260,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishbullheadcat_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_bullhead_catfish.png', text = "Poisson-chat",count = "x1"}
@@ -375,7 +282,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishchainpickerel_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_chain_pickerel.png', text = "Brochet maillé",count = "x1"}
@@ -397,7 +304,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishchainpickerel_01_sm',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_channel_catfish.png', text = "Gros Barbue de rivière",count = "x1"}
@@ -408,7 +315,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishchainpickerel_01_sm',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 4,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_channel_catfish.png', text = "Très gros Barbue de rivière",count = "x1"}
@@ -419,7 +326,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishlakesturgeon_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_lake_sturgeon.png', text = "Gros Esturgeon jaune",count = "x1"}
@@ -430,7 +337,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishlargemouthbass_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_largemouth_bass.png', text = "Gros Achigan à grande bouche",count = "x1"}
@@ -441,7 +348,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishlongnosegar_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_longnose_gar.png', text = "Gros Lépisosté osseux",count = "x1"}
@@ -452,7 +359,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishmuskie_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_muskie.png', text = "Gros Maskinongé",count = "x1"}
@@ -463,7 +370,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishnorthernpike_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_northern_pike.png', text = "Grand Brochet",count = "x1"}
@@ -474,7 +381,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishperch_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_perch.png', text = "Perche",count = "x1"}
@@ -496,7 +403,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishrainbowtrout_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_speckled_trout.png', text = "Grosse Truite arc-en-ciel",count = "x1"}
@@ -507,7 +414,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishrainbowtrout_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_muskie.png', text = "Truite arc-en-ciel",count = "x1"}
@@ -518,7 +425,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishredfinpickerel_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_redfin_pickerel.png', text = "Brochet rouge",count = "x1"}
@@ -540,7 +447,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishrockbass_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_rock_bass.png', text = "Crapet de roche",count = "x1"}
@@ -562,7 +469,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishsalmonsockeye_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_sockeye_salmon.png', text = "Très Gros Saumon rouge",count = "x1"}
@@ -573,7 +480,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishsalmonsockeye_01_ml',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_sockeye_salmon.png', text = "Gros Saumon rouge",count = "x1"}
@@ -584,7 +491,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishsalmonsockeye_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_sockeye_salmon.png', text = "Saumon rouge",count = "x1"}
@@ -595,7 +502,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishsmallmouthbass_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 3,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_smallmouth_bass.png', text = "Gros Achigan à petite bouche",count = "x1"}
@@ -606,7 +513,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Name = 'a_c_fishsmallmouthbass_01_ms',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
-        Amount = 1,
+        Amount = 2,
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_smallmouth_bass.png', text = "Achigan à petite bouche",count = "x1"}
@@ -616,7 +523,14 @@ Config.CraftingsReceipe = {
 }
 
 Config.AtelierPoisson = {
-    vector3(2162.251, -619.7082, 41.88377),
+    vector3(2120.323, -606.8054, 40.64933),
     vector3(-1201.094, -1938.43, 42.59532),
 
+}
+
+
+Config.Ecrevisse = {
+    vector3(2008.564, -1835.291, 39.77694),
+    vector3(1566.364, -845.6798, 40.38267),
+    vector3(2595.068, -331.4922, 40.26375),
 }
