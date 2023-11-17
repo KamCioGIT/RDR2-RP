@@ -33,6 +33,12 @@ end)
 
 function StartMission()
     Citizen.CreateThread(function()
+        for k,v in pairs(Config.ImportPoint) do
+            local blips = N_0x554d9d53f696d002(1664425300, v)
+            SetBlipSprite(blips, 1838354131, 1)
+            SetBlipScale(blips, 1.0)
+            Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Fournisseur")
+        end
         while true do
             if getjob then
                 Wait(2)
@@ -87,6 +93,18 @@ function StartMission()
                     TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         TriggerEvent("usine:OpenBossMenu", "usineassemblage")
+                    end
+                end
+
+                for k, v in ipairs(Config.ImportPoint) do
+                    if #(playerPos - v) < 10.0 then
+                        Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                    end
+                    if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                        TriggerEvent('dust_presskey', "Appuyez sur G")
+                        if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                            TriggerEvent("fermier:OpenImportMenu")
+                        end
                     end
                 end
             end
@@ -255,4 +273,48 @@ end)
 
 RegisterNetEvent("usine:client:SetMaxAmount", function(value)
     maxCraftAmountusine = value
+end)
+
+
+RegisterNetEvent("usine:OpenImportMenu", function()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        local elements = {}
+
+
+        for k, v in pairs(Config.Import) do
+            table.insert(elements, {label = v.label.." $"..v.price, value = k, price = v.price})
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Marché",
+            subtext = "Acheter",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            TriggerServerEvent("usine:buy", data.current.value, data.current.price)
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
 end)

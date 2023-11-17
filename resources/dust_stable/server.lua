@@ -182,7 +182,7 @@ AddEventHandler(
     	local numBase1 = math.random(0, 999)
     	local generetedhorseid = string.format("%03d%04d", numBase0, numBase1)
 		local horseid = generetedhorseid
-		local _meta = {health = 50, stamina = 50}
+		local _meta = {health = 100, stamina = 100}
 		local numBase0 = math.random(100, 999)
 		local numBase1 = math.random(0, 9999)
 		local generetedUid = string.format("%03d%04d", numBase0, numBase1)

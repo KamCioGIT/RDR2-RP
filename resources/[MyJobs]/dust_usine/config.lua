@@ -1035,3 +1035,15 @@ Config.CraftingsReceipe = {
     descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Douille",count = "x1"}}
 },
 }
+
+
+Config.ImportPoint = {
+    [1]= vector3(2669.003, -1522.059, 45.96976), --- st denis
+    [2]= vector3(-825.8802, -1241.919, 43.53639), -- bla
+}
+
+
+Config.Import = {
+    ["Corn_Seed"] = {label= "Graine de Maïs", price = 0.03},
+	["Potato_Seed"] = {label= "Patate germée", price = 0.03},
+}

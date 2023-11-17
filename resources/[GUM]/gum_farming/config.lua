@@ -125,7 +125,7 @@ Config.FarmingJobCoords = {
 			vector3(-2142.399, 686.2271, 120.2016),
 			vector3(-2249.052, 653.2528, 116.6064),
 		},
-		count = 5,
+		count = 50,
 		protect = false,
 	},
 	fermier = {
