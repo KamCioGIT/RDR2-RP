@@ -7,25 +7,25 @@ TriggerEvent("redemrp_inventory:getData",function(call)
 end)
 
 -- make bait useable
-RegisterServerEvent("RegisterUsableItem:p_baitbread01x", function(source)
+RegisterServerEvent("RegisterUsableItem:p_baitBread01x", function(source)
     print "get"
-    TriggerClientEvent("dust-fishing:client:usebait", source, "p_baitbread01x")
+    TriggerClientEvent("dust-fishing:client:usebait", source, "p_baitBread01x")
 end)
 
-RegisterServerEvent("RegisterUsableItem:p_baitcorn01x", function(source)
-    TriggerClientEvent("dust-fishing:client:usebait", source, "p_baitcorn01x")
+RegisterServerEvent("RegisterUsableItem:p_baitCorn01x", function(source)
+    TriggerClientEvent("dust-fishing:client:usebait", source, "p_baitCorn01x")
 end)
 
-RegisterServerEvent("RegisterUsableItem:p_baitcheese01x", function(source)
-    TriggerClientEvent("dust-fishing:client:usebait", source, "p_baitcheese01x")
+RegisterServerEvent("RegisterUsableItem:p_baitCheese01x", function(source)
+    TriggerClientEvent("dust-fishing:client:usebait", source, "p_baitCheese01x")
 end)
 
-RegisterServerEvent("RegisterUsableItem:p_baitworm01x", function(source)
+RegisterServerEvent("RegisterUsableItem:p_baitWorm01x", function(source)
     TriggerClientEvent("dust-fishing:client:usebait", source, "p_baitworm01x")
 end)
 
-RegisterServerEvent("RegisterUsableItem:p_baitcricket01x", function(source)
-    TriggerClientEvent("dust-fishing:client:usebait", source, "p_baitcricket01x")
+RegisterServerEvent("RegisterUsableItem:p_baitCricket01x", function(source)
+    TriggerClientEvent("dust-fishing:client:usebait", source, "p_baitCricket01x")
 end)
 
 RegisterServerEvent("RegisterUsableItem:p_crawdad01x", function(source)
