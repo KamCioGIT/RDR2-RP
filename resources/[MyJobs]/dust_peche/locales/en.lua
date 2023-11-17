@@ -1,4 +1,4 @@
-local Translations = {
+Config.LangueEN = {
     error = {
             you_need_use_your_fishing_rod_first = 'Vous devez avoir votre canne en main.',
     },
@@ -34,7 +34,7 @@ local Translations = {
     }
 }
 
-Lang = Locale:new({
-    phrases = Translations,
-    warnOnMissing = true
-})
+-- Lang = Locale:new({
+--     phrases = Translations,
+--     warnOnMissing = true
+-- })

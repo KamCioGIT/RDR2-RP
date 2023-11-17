@@ -339,21 +339,21 @@ Citizen.CreateThread(function()
         if FISHING_GET_MINIGAME_STATE() == 1 then
             t = 4
 
-            PromptSetActiveGroupThisFrame(fishing_data.prompt_prepare_fishing.group, CreateVarString(10, "LITERAL_STRING", Lang:t('text.ready_to_fish')))
+            PromptSetActiveGroupThisFrame(fishing_data.prompt_prepare_fishing.group, CreateVarString(10, "LITERAL_STRING", Config.LangueEN.text.ready_to_fish))
         elseif FISHING_GET_MINIGAME_STATE() == 6 then
             t = 4
 
-            PromptSetActiveGroupThisFrame(fishing_data.prompt_waiting_hook.group, CreateVarString(10, "LITERAL_STRING", Lang:t('text.fishing')))
+            PromptSetActiveGroupThisFrame(fishing_data.prompt_waiting_hook.group, CreateVarString(10, "LITERAL_STRING", Config.LangueEN.text.fishing))
         elseif FISHING_GET_MINIGAME_STATE() == 7 then
             fishing_data.fish.weight = FISHING_GET_F_(8)
             t = 4
 
-            PromptSetActiveGroupThisFrame(fishing_data.prompt_hook.group, CreateVarString(10, "LITERAL_STRING", Lang:t('text.get_the_fish')))
+            PromptSetActiveGroupThisFrame(fishing_data.prompt_hook.group, CreateVarString(10, "LITERAL_STRING", Config.LangueEN.text.get_the_fish))
         elseif FISHING_GET_MINIGAME_STATE() == 12 then
             if fishs[GetEntityModel(FISHING_GET_FISH_HANDLE())] then
                 t = 4
 
-                PromptSetActiveGroupThisFrame(fishing_data.prompt_finish.group, CreateVarString(10, "LITERAL_STRING",Lang:t('text.name')..": "..fishs[GetEntityModel(FISHING_GET_FISH_HANDLE())] .." // "..Lang:t('text.weight')..": "..string.format("%.2f%%", (fishing_data.fish.weight * 54.25)):gsub("%%", "").."Kg"))
+                PromptSetActiveGroupThisFrame(fishing_data.prompt_finish.group, CreateVarString(10, "LITERAL_STRING",Config.LangueEN.text.name..": "..fishs[GetEntityModel(FISHING_GET_FISH_HANDLE())] .." // "..Config.LangueEN.text.weight..": "..string.format("%.2f%%", (fishing_data.fish.weight * 54.25)):gsub("%%", "").."Kg"))
             end
         end
 
@@ -596,7 +596,7 @@ function prepareMyPrompt()
     fishing_data.prompt_prepare_fishing.group = GetRandomIntInRange(0, 0xffffff)
     local prompt = PromptRegisterBegin()
     PromptSetControlAction(prompt, GetHashKey("INPUT_AIM")) -- MOUSE LEFT CLICK
-    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Lang:t('text.prepare_fishing_rod')))
+    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Config.LangueEN.text.prepare_fishing_rod))
     PromptSetEnabled(prompt, true)
     PromptSetVisible(prompt, true)
     PromptSetHoldMode(prompt, false)
@@ -606,7 +606,7 @@ function prepareMyPrompt()
 
     prompt = PromptRegisterBegin()
     PromptSetControlAction(prompt, 0x07CE1E61) -- LEFT CONTROL
-    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Lang:t('text.cast_fishing_rod')))
+    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Config.LangueEN.text.cast_fishing_rod))
     PromptSetEnabled(prompt, true)
     PromptSetVisible(prompt, true)
     PromptSetHoldMode(prompt, false)
@@ -618,7 +618,7 @@ function prepareMyPrompt()
     fishing_data.prompt_waiting_hook.group = GetRandomIntInRange(0, 0xffffff)
     prompt = PromptRegisterBegin()
     PromptSetControlAction(prompt, GetHashKey("INPUT_ATTACK")) -- MOUSE LEFT CLICK
-    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Lang:t('text.hook')))
+    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Config.LangueEN.text.hook))
     PromptSetEnabled(prompt, true)
     PromptSetVisible(prompt, true)
     PromptSetHoldMode(prompt, false)
@@ -628,7 +628,7 @@ function prepareMyPrompt()
 
     prompt = PromptRegisterBegin()
     PromptSetControlAction(prompt, 0x8FFC75D6) -- LEFT SHIFT
-    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Lang:t('text.reset_cast')))
+    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Config.LangueEN.text.reset_cast))
     PromptSetEnabled(prompt, true)
     PromptSetVisible(prompt, true)
     PromptSetHoldMode(prompt, false)
@@ -638,7 +638,7 @@ function prepareMyPrompt()
     
     prompt = PromptRegisterBegin()
     PromptSetControlAction(prompt, 0xDB096B85) -- LEFT CONTROL
-    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING",  Lang:t('text.reel_lure')))
+    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING",  Config.LangueEN.text.reel_lure))
     PromptSetEnabled(prompt, true)
     PromptSetVisible(prompt, true)
     PromptSetHoldMode(prompt, false)
@@ -650,7 +650,7 @@ function prepareMyPrompt()
     fishing_data.prompt_hook.group = GetRandomIntInRange(0, 0xffffff)
     prompt = PromptRegisterBegin()
     PromptSetControlAction(prompt, 0xFBD7B3E6) -- SPACE
-    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Lang:t('text.reel_in')))
+    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Config.LangueEN.text.reel_in))
     PromptSetEnabled(prompt, true)
     PromptSetVisible(prompt, true)
     PromptSetHoldMode(prompt, false)
@@ -660,7 +660,7 @@ function prepareMyPrompt()
 
     prompt = PromptRegisterBegin()
     PromptSetControlAction(prompt, 0x8FFC75D6) -- LEFT SHIFT
-    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Lang:t('text.reset_cast')))
+    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Config.LangueEN.text.reset_cast))
     PromptSetEnabled(prompt, true)
     PromptSetVisible(prompt, true)
     PromptSetHoldMode(prompt, false)
@@ -672,7 +672,7 @@ function prepareMyPrompt()
     fishing_data.prompt_finish.group = GetRandomIntInRange(0, 0xffffff)
     prompt = PromptRegisterBegin()
     PromptSetControlAction(prompt, GetHashKey("INPUT_ATTACK")) -- MOUSE LEFT CLICK
-    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Lang:t('text.keep_fish')))
+    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Config.LangueEN.text.keep_fish))
     PromptSetEnabled(prompt, true)
     PromptSetVisible(prompt, true)
     PromptSetHoldMode(prompt, false)
@@ -682,7 +682,7 @@ function prepareMyPrompt()
 
     prompt = PromptRegisterBegin()
     PromptSetControlAction(prompt,  GetHashKey("INPUT_AIM")) -- MOUSE RIGHT CLICK
-    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Lang:t('text.throw_fish')))
+    PromptSetText(prompt, CreateVarString(10, "LITERAL_STRING", Config.LangueEN.text.throw_fish))
     PromptSetEnabled(prompt, true)
     PromptSetVisible(prompt, true)
     PromptSetHoldMode(prompt, false)
