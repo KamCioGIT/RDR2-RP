@@ -8,6 +8,7 @@ end)
 
 -- make bait useable
 RegisterServerEvent("RegisterUsableItem:p_baitbread01x", function(source)
+    print "get"
     TriggerClientEvent("dust-fishing:client:usebait", source, "p_baitbread01x")
 end)
 
