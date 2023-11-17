@@ -1044,6 +1044,7 @@ Config.ImportPoint = {
 
 
 Config.Import = {
-    ["Corn_Seed"] = {label= "Graine de Maïs", price = 0.03},
-	["Potato_Seed"] = {label= "Patate germée", price = 0.03},
+    ["lunetterollingblock"] = {label= "Lunette Remington Rolling Block", price = 60},
+	["culassespringfield"] = {label= "Culasse Springfield Model 1873", price = 60},
+    ["mecanismevolcanic"] = {label= "Mécanisme Smith & Wesson 1855", price = 60},
 }
