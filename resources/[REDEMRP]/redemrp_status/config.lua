@@ -430,6 +430,7 @@ Config.Items = {
         end,
         ClientAction = function()
             Eat()
+            BoostHealth(40)
         end
     },
     ["boeufaugin"] = {

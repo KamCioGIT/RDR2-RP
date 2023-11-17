@@ -248,7 +248,7 @@ Config.CraftingsReceipe = {
         ItemToGive = 'carrottecake',
         Amount = 1,
         WorkingTime = 5,
-        label = 'Tarte au myrtille',
+        label = 'Carrot Cake',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_offal.png', text = "Bouteille de lait",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_carrots.png', text = "Carrotes sauvages",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['soupechampignon'] = {
