@@ -3007,7 +3007,7 @@ Config.Items = {
     canBeDropped = true,
     canBeUsed = false,
     limit = 2000,
-    imgsrc = "items/gold.png",
+    imgsrc = "items/kalacoin.png",
     type = "item_standard"
 },
 ["WEAPON_MELEE_HAMMER"] = {

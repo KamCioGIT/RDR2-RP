@@ -929,6 +929,7 @@ Config.ExportNPC = {
 Config.Export = {
     ["lingotfer"] = {label= "Lingot de fer", price = 1.3},
     ["lingotor"] = {label= "Lingot d'or", price = 56},
+    ["piecetor"] = {label= "Pièce d'or", price = 2},
     ["farine"] = {label= "Farine", price = 0.2},
     ["bouteillelait"] = {label= "Bouteille de lait", price = 0.1},
     ["patate"] = {label= "Patate", price = 0.1},
