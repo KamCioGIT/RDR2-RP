@@ -614,3 +614,8 @@ Config.CraftingsReceipe = {
 
     
 }
+
+Config.Poissonerie = {
+    vector3(2162.251, -619.7082, 41.88377),
+
+}
