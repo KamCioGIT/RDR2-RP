@@ -786,6 +786,17 @@ Config.CraftingsReceipe = {
         label = 'Filet de poisson cuit',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_smallmouth_bass.png', text = "Achigan à petite bouche",count = "x1"}
     },
+    ['filetpoisson'] = {
+        type = 'fire',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'filetpoisson',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'filetpoissoncuit',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Filet de poisson cuit',
+        descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_succulent_fish.png', text = "filetpoisson",count = "x1"}
+    },
 }
     
 
