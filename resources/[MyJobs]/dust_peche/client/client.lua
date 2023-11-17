@@ -202,7 +202,7 @@ Citizen.CreateThread(function()
                             local fishHandle = FISHING_GET_FISH_HANDLE()
                             local x,y,z = table.unpack(GetEntityCoords(fishHandle))
 
-                            local r = exports["dust-fishing"]:VERTICAL_PROBE(x, y,  z, 1)
+                            local r = exports["dust_peche"]:VERTICAL_PROBE(x, y,  z, 1)
                             local valid, height = r[1], r[2]
                                                         
                         -- import from ptfx on dust-fishing c# version
@@ -362,7 +362,7 @@ Citizen.CreateThread(function()
 end)
 
 function GET_TASK_FISHING_DATA()
-    local r = exports["dust-fishing"]:GET_TASK_FISHING_DATA_EXTRA()
+    local r = exports["dust_peche"]:GET_TASK_FISHING_DATA_EXTRA()
     hasMinigameOn = r[1]
     local outAsInt = r[2]
     local outAsFloat = r[3]
@@ -415,7 +415,7 @@ end
 
 function SET_TASK_FISHING_DATA()
     if fishing_minigame_struct.f_0 ~= nil then
-        exports["dust-fishing"]:SET_TASK_FISHING_DATA_EXTRA(fishing_minigame_struct)
+        exports["dust_peche"]:SET_TASK_FISHING_DATA_EXTRA(fishing_minigame_struct)
     end
 end
 
