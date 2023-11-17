@@ -887,3 +887,36 @@ RegisterNetEvent("dust_peche:startMission", function()
     end)
 
 end)
+
+function GiveRessource(item, amount)
+    Citizen.CreateThread(function()
+        local playerPed = PlayerPedId()
+        local Position = GetEntityCoords(playerPed)
+        picking = true
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                picking = false
+                break
+            end
+        end
+    end)
+    Citizen.CreateThread(function()
+        local playerPed = PlayerPedId()
+        while true do
+            Wait(0)
+            if picking then
+                TriggerEvent("redemrp_inventory:PickupAnim")
+                local timer = GetGameTimer() + Config.WorkingTime
+                isInteracting = true
+                while GetGameTimer() < timer do 
+                    Wait(0)
+                end
+                ClearPedTasks(playerPed)
+                FreezeEntityPosition(playerPed, false)
+                isInteracting = false
+                TriggerServerEvent('dust_radial:AddItem', item, amount)
+            else break end
+        end
+    end)
+end
