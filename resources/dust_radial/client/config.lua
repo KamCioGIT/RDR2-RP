@@ -189,6 +189,8 @@ Config.Price = {
         ["patate"] = {label="Patate", price = 0.10},
         ["Corn"] = {label="Maïs", price = 0.10},
         ["filetpoisson"] = {label="Filet de poisson", price = 0.10},
+        ["dirty_whiskey"] = {label="Mauvais Whisky", price = 0.14},
+        ["good_whisky"] = {label="Whisky", price = 0.32},
     },
     [GetHashKey("Blackwater")] = {
         ["moonshine"] = {label="Moonshine", price = 0.8},
@@ -241,6 +243,8 @@ Config.Price = {
         ["patate"] = {label="Patate", price = 0.10},
         ["Corn"] = {label="Maïs", price = 0.10},
         ["filetpoisson"] = {label="Filet de poisson", price = 0.10},
+        ["dirty_whiskey"] = {label="Mauvais Whisky", price = 0.14},
+        ["good_whisky"] = {label="Whisky", price = 0.32},
     },
     [GetHashKey("Rhodes")] = {
         ["moonshine"] = {label="Moonshine", price = 1},
@@ -293,6 +297,8 @@ Config.Price = {
         ["patate"] = {label="Patate", price = 0.12},
         ["Corn"] = {label="Maïs", price = 0.12},
         ["filetpoisson"] = {label="Filet de poisson", price = 0.10},
+        ["dirty_whiskey"] = {label="Mauvais Whisky", price = 0.14},
+        ["good_whisky"] = {label="Whisky", price = 0.32},
     },
     [GetHashKey("StDenis")] = {
         ["moonshine"] = {label="Moonshine", price = 0.9},
@@ -345,6 +351,8 @@ Config.Price = {
         ["patate"] = {label="Patate", price = 0.12},
         ["Corn"] = {label="Maïs", price = 0.12},
         ["filetpoisson"] = {label="Filet de poisson", price = 0.10},
+        ["dirty_whiskey"] = {label="Mauvais Whisky", price = 0.14},
+        ["good_whisky"] = {label="Whisky", price = 0.32},
     },
 }
 
