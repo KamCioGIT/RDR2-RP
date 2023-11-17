@@ -872,6 +872,7 @@ RegisterNetEvent("dust_peche:startMission", function()
     Citizen.CreateThread(function ()
         while true do
             Wait(0)
+            local playerPos = GetEntityCoords(PlayerPedId())
             for k, pos in pairs(Config.Ecrevisse) do
                 if #(playerPos - pos) < 7.0 and not isInteracting then
                     TriggerEvent('dust_presskey', "Appuyez sur G")
