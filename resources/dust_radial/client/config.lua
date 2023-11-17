@@ -60,7 +60,7 @@ Config.CraftingsReceipe = {
 
     ['WEAPON_FISHINGROD'] = {
         Itemtocraft = 2,
-        label = "Feu de camp",
+        label = "Canne à pêche",
         desc = "3 Petits Bois + 3 Fils",
         ItemReceipe1Name = 'petitbois',
         ItemReceipe1Amount = 3,
@@ -85,7 +85,7 @@ Config.CraftingsReceipe = {
     ['p_baitCorn01x'] = {
         Itemtocraft = 1,
         label = "Bout de Maïs",
-        desc = "1 Pain",
+        desc = "1 Maïs",
         ItemReceipe1Name = 'Corn',
         ItemReceipe1Amount = 1,
         ItemToGive = 'p_baitBread01x',
