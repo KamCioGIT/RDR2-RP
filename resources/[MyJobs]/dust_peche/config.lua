@@ -617,5 +617,6 @@ Config.CraftingsReceipe = {
 
 Config.AtelierPoisson = {
     vector3(2162.251, -619.7082, 41.88377),
+    vector3(-1201.094, -1938.43, 42.59532),
 
 }
