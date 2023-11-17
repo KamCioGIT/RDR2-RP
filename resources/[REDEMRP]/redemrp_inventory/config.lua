@@ -400,8 +400,8 @@ Config.Items = {
         type = "item_weapon"
     },
     ["WEAPON_FISHINGROD"] = {
-        label = "Fishing Rod",
-        description = "Fishing Rod",
+        label = "Canne à Pêche",
+        description = "Une petite partie de pêche ?",
         weight = 0.5,
         canBeDropped = true,
         weaponHash = GetHashKey("WEAPON_FISHINGROD"),
@@ -4150,7 +4150,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["a_c_fishsmallmouthbass_01_lg"] = {
-    label = "Achigan à petite bouche",
+    label = "Gros Achigan à petite bouche",
     description = "De grosse taille",
     weight = 0.6,
     canBeDropped = true,
