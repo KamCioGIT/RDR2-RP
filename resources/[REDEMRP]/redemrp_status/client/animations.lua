@@ -1120,6 +1120,15 @@ function BoostStamina(amount)
     end
 end
 
+function BoostHealth(amount)
+    if GetAttributeCoreValue(PlayerPedId(), 1) + amount <= 100 then
+        local addhp = GetAttributeCoreValue(PlayerPedId(), 0) + amount
+        Citizen.InvokeNative(0xC6258F41D86676E0, PlayerPedId(), 0, addhp)
+    else
+        Citizen.InvokeNative(0xC6258F41D86676E0, PlayerPedId(), 0, 100)
+    end
+end
+
 
 function Watch(prop)
     RequestAnimDict('mech_inventory@item@pocketwatch@unarmed@base')
