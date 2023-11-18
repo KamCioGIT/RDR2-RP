@@ -88,7 +88,6 @@ RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
     Wait(500)
     revived = true
     
-	AnimpostfxPlay("PlayerWakeUpAberdeen")
     --AnimpostfxStop("DeathFailMP01")
     --ShakeGameplayCam("DRUNK_SHAKE", 0.0)
     --Citizen.InvokeNative(0xFDB74C9CC54C3F37, 0.0)
@@ -98,8 +97,7 @@ RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
     TriggerServerEvent("RedEM:server:LoadSkin")
     Wait(300)
     UpdateHealthRevive()
-    Wait(10000)
-    AnimpostfxStop("PlayerWakeUpAberdeen")
+
 end)
 
 function UpdateHealthRevive()
@@ -308,11 +306,7 @@ RegisterNetEvent("redemrp_respawn:respawnCoords", function(coords)
     TriggerEvent('playerSpawned')
     Citizen.InvokeNative(0xF808475FA571D823, true)
     NetworkSetFriendlyFireOption(true)
-    -- RespawnCamera(coords)
-
-    -- DestroyAllCams()
-    DisplayHud(true)
-    DisplayRadar(true)
+    RespawnCamera(coords)
     TriggerServerEvent("RedEM:server:RegisterCoords", coords)
     SavePosition()
     revived = false
@@ -372,6 +366,7 @@ end
 --sin22
 function RespawnCamera(coords)
     local tcam = CreateCamera("DEFAULT_SCRIPTED_CAMERA", true)
+    AnimpostfxPlay("PlayerWakeUpAberdeen")
     if GetInteriorFromEntity(PlayerPedId()) == 0 then
         SetCamParams(tcam, coords.x, coords.y, coords.z+100.0, 90.0, 0.0, 0.0, 90.0, 1000, 1, 1, 1)
     else
@@ -387,9 +382,11 @@ function RespawnCamera(coords)
     RenderScriptCams(false, true, 1000, true, true)
     DestroyAllCams()
 	FreezeEntityPosition(PlayerPedId(), false)
-
+    Wait(10000)
     DisplayHud(true)
     DisplayRadar(true)
+
+    AnimpostfxStop("PlayerWakeUpAberdeen")
 end
 --=============================================================-- DRAW TEXT SECTION--=============================================================--
 function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
