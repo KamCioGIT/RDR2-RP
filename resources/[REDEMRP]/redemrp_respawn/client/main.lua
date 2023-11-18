@@ -180,7 +180,7 @@ Citizen.CreateThread(function()
                     ProcessCamControls()
                     DrawTxt(Config.LocaleTimer .. " " .. tonumber(string.format("%.0f", (((GetGameTimer() - timer) * -1)/1000))), 0.50, 0.80, 0.7, 0.7, true, 255, 255, 255, 255, true)
                     if not medicsAlerted then
-                        DrawTxt("[~pa~ENTRÉE~q~] Crier à l'aide", 0.50, 0.85, 0.5, 0.5, true, 255, 255, 255, 255, true)
+                        DrawTxt("ENTRÉE Crier à l'aide", 0.50, 0.85, 0.5, 0.5, true, 255, 255, 255, 255, true)
                     else
                         DrawTxt("Vous avez crier à l'aide", 0.50, 0.85, 0.5, 0.5, true, 255, 255, 255, 255, true)
                     end
@@ -199,7 +199,7 @@ Citizen.CreateThread(function()
                 if not ConfirmingRespawn then
                     DrawTxt("Appuyer sur E pour vous relever", 0.50, 0.45, 0.8, 0.8, true, 255, 255, 255, 255, true)
                 else
-                    DrawTxt("~n~(~pa~E~q~) Valider~n~(~pa~BACKSPACE~q~) Annuler", 0.50, 0.45, 0.8, 0.8, true, 255, 255, 255, 255, true)
+                    DrawTxt("E Valider ou BACKSPACE Annuler", 0.50, 0.45, 0.8, 0.8, true, 255, 255, 255, 255, true)
                 end
                 if IsControlJustReleased(0, 0xDFF812F9) then
                     if not ConfirmingRespawn then
