@@ -103,7 +103,7 @@ function UpdateHealthRevive()
         local ped = PlayerPedId()
         local pid = PlayerId()
 
-        Citizen.InvokeNative(0xC6258F41D86676E0, ped, 0, 10) -- _SET_ATTRIBUTE_CORE_VALUE
+        Citizen.InvokeNative(0xC6258F41D86676E0, ped, 0, 20) -- _SET_ATTRIBUTE_CORE_VALUE
         Citizen.InvokeNative(0xC6258F41D86676E0, ped, 1, 10) -- _SET_ATTRIBUTE_CORE_VALUE
     
     
