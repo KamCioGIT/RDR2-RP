@@ -67,33 +67,37 @@ Config.CraftingsReceipe = {
     },
     ['ragoutviande'] = {
         type = 'epicerie',
-        Itemtocraft = 3,
+        Itemtocraft = 4,
         ItemReceipe1Name = 'viandehachee',
         ItemReceipe1Amount = 3,
         ItemReceipe2Name = 'patate',
         ItemReceipe2Amount = 1,
-        ItemReceipe3Name = 'charbon',
+        ItemReceipe3Name = 'graisse',
         ItemReceipe3Amount = 1,
+        ItemReceipe4Name = 'charbon',
+        ItemReceipe4Amount = 1,
         ItemToGive = 'ragoutviande',
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût de viande',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_rc_quartz_chunk.png', text = "Viande Hâchée",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_rc_quartz_chunk.png', text = "Viande Hâchée",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['ragoutpoisson'] = {
         type = 'epicerie',
-        Itemtocraft = 3,
+        Itemtocraft = 4,
         ItemReceipe1Name = 'filetpoisson',
         ItemReceipe1Amount = 3,
         ItemReceipe2Name = 'patate',
         ItemReceipe2Amount = 1,
-        ItemReceipe3Name = 'charbon',
+        ItemReceipe3Name = 'graisse',
         ItemReceipe3Amount = 1,
+        ItemReceipe4Name = 'charbon',
+        ItemReceipe4Amount = 1,
         ItemToGive = 'ragoutviande',
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût de poisson',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_succulent_fish.png', text = "Filet de poisson",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_succulent_fish.png', text = "Filet de poisson",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['tourteviande'] = {
         type = 'epicerie',
@@ -274,7 +278,7 @@ Config.CraftingsReceipe = {
         ItemReceipe2Name = 'farine',
         ItemReceipe2Amount = 1,
         ItemReceipe3Name = 'carrotesauvages',
-        ItemReceipe3Amount = 1,
+        ItemReceipe3Amount = 3,
         ItemReceipe4Name = 'charbon',
         ItemReceipe4Amount = 1,
         ItemToGive = 'carrottecake',
@@ -454,6 +458,19 @@ Config.CraftingsReceipe = {
         WorkingTime = 1,
         label = 'Viande hâchée',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird.png', text = "Volaille",count = "x1"}}
+    },
+    ['epismaisgrille'] = {
+        type = 'epicerie',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'Corn',
+        ItemReceipe1Amount = 3,
+        ItemReceipe2Name = 'graisse',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'epismaisgrille',
+        Amount = 1,
+        WorkingTime = 1,
+        label = 'Epis de maïs grillé',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/corn.png', text = "Maïs",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
     },
 }
 

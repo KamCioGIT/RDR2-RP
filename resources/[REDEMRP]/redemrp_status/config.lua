@@ -485,6 +485,16 @@ Config.Items = {
             Eat()
         end
     },
+    ["epismaisgrille"] = {
+        hunger = 40,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Eat()
+        end
+    },
     ---- ferme
     ["bouteillelait"] = {
         hunger = 0,
