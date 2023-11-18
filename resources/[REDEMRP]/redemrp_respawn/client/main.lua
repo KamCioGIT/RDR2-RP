@@ -93,8 +93,12 @@ RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
     --Citizen.InvokeNative(0xFDB74C9CC54C3F37, 0.0)
     DestroyAllCams(true)
     Wait(1000)
-    SetEntityHealth(PlayerPedId(), 5) 
-    Citizen.InvokeNative( 0xC6258F41D86676E0, PlayerPedId(), 0, 1) 
+    local health = GetEntityHealth(PlayerPedId()) - 90
+    if health <= 5 then
+        health = 5
+    end
+    SetEntityHealth(PlayerPedId(), health)
+    Citizen.InvokeNative( 0xC6258F41D86676E0, PlayerPedId(), 1, 10) 
     TriggerEvent("redemrp_respawn:respawnCoords", GetEntityCoords(PlayerPedId()))
     TriggerServerEvent("RedEM:server:LoadSkin")
 end)
@@ -194,7 +198,7 @@ Citizen.CreateThread(function()
                         medicsAlerted = false
                         
                         -- respawn()
-                        TriggerEvent("redemrp_respawn:respawnCoords", GetEntityCoords(PlayerPedId()))
+                        TriggerEvent('redemrp_respawn:client:Revived')
                         revived = false
                         onPlayerDead = false
                         TriggerServerEvent("redemrp_respawn:DeadTable", "remove")
