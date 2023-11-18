@@ -643,4 +643,18 @@ Config.Items = {
 
 
 
+    ["concoctionendurance"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            BoostStamina(100)
+            Drink()
+        end
+    },
+    
+
+
 }
