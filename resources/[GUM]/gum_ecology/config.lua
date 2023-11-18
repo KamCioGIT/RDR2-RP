@@ -472,7 +472,7 @@ Config.Animals = {
     [GetHashKey("a_c_alligator_01")] =   {
         randomized = false,
         items = {
-            {"viandegibier", 1, "Kvalitní maso"},
+            {"viandereptile", 1, "Kvalitní maso"},
 			{"crocdecroco", 1, "Zvířecí Zub"},
             {"graisse", 1, "Zvířecí Zub"},
         }
@@ -480,7 +480,8 @@ Config.Animals = {
     [GetHashKey("a_c_alligator_03")] =   {
         randomized = false,
         items = {
-            {"viandegibier", 1, "Kvalitní maso"},
+            {"viandereptile", 1, "Kvalitní maso"},
+            {"crocdecroco", 1, "Zvířecí Zub"},   
 			{"graisse", 1, "Zvířecí Zub"},
     },   
     [GetHashKey("a_c_armadillo_01")] =   {
@@ -1057,7 +1058,7 @@ Config.Animals = {
     [GetHashKey("mp_a_c_alligator_01")] =   {
         randomized = false,
         items = {
-            {"viandereptile", 3, "Kvalitní maso"},
+            {"viandereptile", 2, "Kvalitní maso"},
 			{"crocdecroco", 2, "Zvířecí Zub"},
             {"graisse", 2, "Zvířecí Zub"},
         }
