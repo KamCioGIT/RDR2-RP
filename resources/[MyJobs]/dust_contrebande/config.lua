@@ -70,13 +70,13 @@ Config.CraftingsReceipe = {
     Itemtocraft = 2,
     ItemReceipe1Name = 'carapace',
     ItemReceipe1Amount = 1,
-    ItemReceipe2Name = 'peauecailles',
+    ItemReceipe2Name = 'crocdecroco',
     ItemReceipe2Amount = 1,
     ItemToGive = 'aromebayou',
     Amount = 1,
     WorkingTime = 5,
     label = 'Arôme du Bayou',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_trinket_turtle_shell.png', text = "Carapace",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_alligator_skin.png', text = "Peau à écailles",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_trinket_turtle_shell.png', text = "Carapace",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_tooth.png', text = "Dent de crocodile",count = "x1"}}
 },
 ['arometrappeur'] = {
     type = 'moonshine',
