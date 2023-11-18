@@ -87,7 +87,8 @@ RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
     DoScreenFadeOut(500)
     Wait(500)
     revived = true
-    EndDeathCam()
+    
+	AnimpostfxPlay("PlayerWakeUpAberdeen")
     --AnimpostfxStop("DeathFailMP01")
     --ShakeGameplayCam("DRUNK_SHAKE", 0.0)
     --Citizen.InvokeNative(0xFDB74C9CC54C3F37, 0.0)
@@ -97,6 +98,8 @@ RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
     TriggerServerEvent("RedEM:server:LoadSkin")
     Wait(300)
     UpdateHealthRevive()
+    Wait(10000)
+    AnimpostfxStop("PlayerWakeUpAberdeen")
 end)
 
 function UpdateHealthRevive()
