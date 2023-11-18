@@ -199,12 +199,16 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
     Citizen.CreateThread(function()
         local _Target = Target or PlayerPedId()
         local _SkinData = SkinData
+        local health = GetEntityHealth(_Target) -- Get health value
+        local healthCore = GetAttributeCoreValue(_Target, 0) -- Get health core value
         if _Target == PlayerPedId() then
             local model = GetPedModel(tonumber(_SkinData.sex))
             LoadModel(PlayerPedId(), model)
             _Target = PlayerPedId()
             LoadedComponents = _SkinData
         end
+        SetEntityHealth(_Target, health) -- Set health back to what it was
+        Citizen.InvokeNative( 0xC6258F41D86676E0, _Target, 0, healthCore) -- Set Health Core back to what it was
         print("Loading...")
         -- print(_Target, PlayerPedId())
         FixIssues(_Target, _SkinData)
@@ -245,7 +249,6 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
             end
         end  
     end)
-
 end)
 
 RegisterNetEvent('RedEM:client:ApplySkinCommand', function(SkinData, Target, ClothesData)
@@ -255,7 +258,8 @@ RegisterNetEvent('RedEM:client:ApplySkinCommand', function(SkinData, Target, Clo
             doCooldown()
             local _Target = Target or PlayerPedId()
             local _SkinData = SkinData
-
+            local health = GetEntityHealth(_Target) -- Get health value
+            local healthCore = GetAttributeCoreValue(_Target, 0) -- Get health core value
             if _Target == PlayerPedId() then
                 local model = GetPedModel(tonumber(_SkinData.sex))
                 LoadModel(PlayerPedId(), model)
@@ -263,8 +267,8 @@ RegisterNetEvent('RedEM:client:ApplySkinCommand', function(SkinData, Target, Clo
                 SetEntityAlpha(_Target, 0)
                 LoadedComponents = _SkinData
             end
-            -- SetEntityHealth(_Target, health) -- Set health back to what it was
-            -- Citizen.InvokeNative( 0xC6258F41D86676E0, _Target, 0, healthCore) -- Set Health Core back to what it was
+            SetEntityHealth(_Target, health) -- Set health back to what it was
+            Citizen.InvokeNative( 0xC6258F41D86676E0, _Target, 0, healthCore) -- Set Health Core back to what it was
             print("Loading...")
             -- print(_Target, PlayerPedId())
             FixIssues(_Target, _SkinData)
@@ -329,12 +333,7 @@ AddEventHandler('redemrp_skin:LoadSkinClient', function()
 end)
 
 RegisterCommand('loadskin', function(source, args, raw)
-    local health = GetEntityHealth(PlayerPedId()) -- Get health value
-    local healthCore = GetAttributeCoreValue(PlayerPedId(), 0) -- Get health core value
     TriggerServerEvent("RedEM:server:LoadSkin", true)
-
-    Citizen.InvokeNative(0xC6258F41D86676E0, ped, PlayerPedId(), healthCore) -- _SET_ATTRIBUTE_CORE_VALUE
-    SetEntityHealth(PlayerPedId(), health)
 end)
 
 function StartCreator()
