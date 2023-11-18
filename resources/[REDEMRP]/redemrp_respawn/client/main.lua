@@ -393,7 +393,7 @@ function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
     SetTextCentre(centre)
     if enableShadow then SetTextDropshadow(1, 0, 0, 0, 255) end
     Citizen.InvokeNative(0xADA9255D, 1);
-	SetTextFontForCurrentCommand(7)
+	SetTextFontForCurrentCommand(25)
     DisplayText(str, x, y)
 end
 
