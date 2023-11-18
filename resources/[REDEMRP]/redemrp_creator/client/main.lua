@@ -246,9 +246,10 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
                 }
             end
         end  
+        Citizen.InvokeNative( 0xC6258F41D86676E0, _Target, 0, healthCore) -- Set Health Core back to what it was
+        SetEntityHealth(_Target, health) -- Set health back to what it was
     end)
-    Citizen.InvokeNative( 0xC6258F41D86676E0, _Target, 0, healthCore) -- Set Health Core back to what it was
-    SetEntityHealth(_Target, health) -- Set health back to what it was
+
 end)
 
 RegisterNetEvent('RedEM:client:ApplySkinCommand', function(SkinData, Target, ClothesData)
