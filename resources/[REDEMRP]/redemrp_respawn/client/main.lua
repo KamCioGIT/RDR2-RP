@@ -311,8 +311,6 @@ RegisterNetEvent("redemrp_respawn:respawnCoords", function(coords)
     -- RespawnCamera(coords)
 
     -- DestroyAllCams()
-	FreezeEntityPosition(PlayerPedId(), false)
-
     DisplayHud(true)
     DisplayRadar(true)
     TriggerServerEvent("RedEM:server:RegisterCoords", coords)
