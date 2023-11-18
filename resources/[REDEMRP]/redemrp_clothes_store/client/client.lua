@@ -72,9 +72,14 @@ function OpenClothingMenu()
 
     end, function(data, menu)
         menu.close()
+        local health = GetEntityHealth(PlayerPedId()) -- Get health value
+        local healthCore = GetAttributeCoreValue(PlayerPedId(), 0) -- Get health core value
         OldClothesCache = {}
         destory()
         TriggerServerEvent("RedEM:server:LoadSkin")
+        
+        Citizen.InvokeNative(0xC6258F41D86676E0, ped, PlayerPedId(), healthCore) -- _SET_ATTRIBUTE_CORE_VALUE
+        SetEntityHealth(PlayerPedId(), health)
     end)
 end
 
