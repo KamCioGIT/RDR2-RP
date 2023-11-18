@@ -474,7 +474,7 @@ Config.Animals = {
         items = {
             {"viandegibier", 1, "Kvalitní maso"},
 			{"crocdecroco", 1, "Zvířecí Zub"},
-            {"graisse", 2, "Zvířecí Zub"},
+            {"graisse", 1, "Zvířecí Zub"},
         }
     },    
     [GetHashKey("a_c_alligator_03")] =   {
@@ -487,7 +487,6 @@ Config.Animals = {
         randomized = false,
         items = {
             {"viandepetitmamifere", 1, "Maso"},
-            {"graisse", 1, "Zvířecí Zub"},
             }
         }
     },    
@@ -496,14 +495,12 @@ Config.Animals = {
         items = {
             {"viandepetitmamifere", 1, "Maso"},
 			{"dentrongeur", 1, "Zvířecí Zub"},
-            {"graisse", 1, "Zvířecí Zub"},
         }
     },    
     [GetHashKey("a_c_bat_01")] =   {
         randomized = false,
         items = {
             {"viandepetitmamifere", 1, "Maso"},
-            {"graisse", 1, "Zvířecí Zub"},
         }
     },    
     [GetHashKey("a_c_bear_01")] =   {
@@ -528,7 +525,6 @@ Config.Animals = {
             {"viandepetitmamifere", 1, "Kvalitní maso"},
             {"queuedecastor", 1, "Malá Kůže"},
             {"dentrongeur", 1, "Malá Kůže"},
-            {"graisse", 1, "Roh"},
         }
     },    
     [GetHashKey("a_c_bighornram_01")] =   {
@@ -1080,7 +1076,6 @@ Config.Animals = {
             {"viandepetitmamifere", 1, "Kvalitní maso"},
             {"queuedecastor", 1, "Malá Kůže"},
             {"dentrongeur", 1, "Malá Kůže"},
-            {"graisse", 1, "Roh"},
         }
     },    
     [GetHashKey("mp_a_c_bighornram_01")] =   {
