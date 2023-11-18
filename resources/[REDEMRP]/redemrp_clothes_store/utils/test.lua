@@ -88333,6 +88333,16 @@ clothes_list = {
 					['hashname'] = 'CLOTHING_ITEM_M_HAT_046_TINT_008',
 					['is_multiplayer'] = true,
 					['ped_type'] = 'male'
+				},
+				[9] = {
+					['category_hash'] = 2569388135,
+					['category_hash_dec_signed'] = -1725579161,
+					['category_hashname'] = 'hats',
+					['hash'] = 2621472160,
+					['hash_dec_signed'] = -1673495136,
+					['hashname'] = 'CLOTHING_ITEM_M_HAT_046_TINT_009',
+					['is_multiplayer'] = true,
+					['ped_type'] = 'male'
 				}
 			},
 			[35] = {
