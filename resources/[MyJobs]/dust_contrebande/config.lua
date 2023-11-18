@@ -6,7 +6,7 @@ Config.WorkingTime = 3000
 Config.DistanceToInteract = 1.5
 
 Config.AtelierMoonshine = {
-    vector3(3311.525, 12.06422, 54.69889),
+    vector3(2951.448, 542.0927, 48.46579),
 }
 
 Config.AlambicMoonshine = {
