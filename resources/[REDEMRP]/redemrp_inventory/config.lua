@@ -3695,6 +3695,17 @@ Config.Items = {
     imgsrc = "items/provision_thimbleab.png",
     type = "item_standard",
 },
+["peole"] = {
+    label = "Poële",
+    description = "Primordiale pour chaque cuisine",
+    weight = 15,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/upgrade_upg_cooking_spit.png",
+    type = "item_standard",
+},
 
 --- bijouterie
 ["watch1"] = {

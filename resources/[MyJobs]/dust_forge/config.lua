@@ -325,4 +325,17 @@ Config.CraftingsReceipe = {
         label = "Alambic",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/moonshine_pot.png', text = "Corps d'Alambic",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/pipe.png', text = "Condenseur d'Alambic",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/pen.png', text = "Col de cygne pour Alambic",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_thimbleab.png', text = "Chapiteau d'Alambic",count = "x1"}}
     },
+    ['poele'] = {
+        type = 'forgeenclume',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'ferpepite',
+        ItemReceipe1Amount = 100,
+        ItemReceipe2Name = 'charbon',
+        ItemReceipe2Amount = 50,
+        ItemToGive = 'poele',
+        Amount = 1,
+        WorkingTime = 20,
+        label = 'Poële',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Pépite de fer",count = "x100"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x50"}}
+    },
 }
