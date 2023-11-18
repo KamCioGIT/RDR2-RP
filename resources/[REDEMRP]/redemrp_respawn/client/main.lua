@@ -295,6 +295,7 @@ RegisterNetEvent("redemrp_respawn:respawnCoords", function(coords)
     FreezeEntityPosition(ped, false)
 
     ShutdownLoadingScreen()
+    AnimpostfxPlay("PlayerWakeUpKnockout")
     NetworkResurrectLocalPlayer(coords.x, coords.y, coords.z, 59.95, true, false, false)
     SetEntityCoordsNoOffset(ped, coords.x, coords.y, coords.z, false, false, false, true)
     ClearPedTasksImmediately(ped)
@@ -366,9 +367,8 @@ end
 --sin22
 function RespawnCamera(coords)
     local tcam = CreateCamera("DEFAULT_SCRIPTED_CAMERA", true)
-    AnimpostfxPlay("PlayerWakeUpAberdeen")
     if GetInteriorFromEntity(PlayerPedId()) == 0 then
-        SetCamParams(tcam, coords.x, coords.y, coords.z+100.0, 90.0, 0.0, 0.0, 90.0, 1000, 1, 1, 1)
+        SetCamParams(tcam, coords.x, coords.y, coords.z+20.0, 90.0, 0.0, 0.0, 90.0, 1000, 1, 1, 1)
     else
         local offsetCoords = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.25)
         SetCamParams(tcam, offsetCoords.x, offsetCoords.y, offsetCoords.z, 0.0, 0.0, 0.0, 90.0, 1000, 1, 1, 1)
@@ -385,8 +385,7 @@ function RespawnCamera(coords)
     Wait(10000)
     DisplayHud(true)
     DisplayRadar(true)
-
-    AnimpostfxStop("PlayerWakeUpAberdeen")
+    AnimpostfxStop("PlayerWakeUpKnockout")
 end
 --=============================================================-- DRAW TEXT SECTION--=============================================================--
 function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
