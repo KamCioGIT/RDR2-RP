@@ -93,15 +93,34 @@ RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
     --Citizen.InvokeNative(0xFDB74C9CC54C3F37, 0.0)
     DestroyAllCams(true)
     Wait(1000)
-    local health = GetEntityHealth(PlayerPedId()) - 90
-    if health <= 5 then
-        health = 5
-    end
-    SetEntityHealth(PlayerPedId(), 1)
-    Citizen.InvokeNative(0xC6258F41D86676E0, PlayerPedId(), 0, 1) 
+    UpdateHealthRevive()
     TriggerEvent("redemrp_respawn:respawnCoords", GetEntityCoords(PlayerPedId()))
     TriggerServerEvent("RedEM:server:LoadSkin")
 end)
+
+function UpdateHealthRevive()
+        local buf1 = DataView.ArrayBuffer(8 * 12)
+        local buf2 = DataView.ArrayBuffer(8 * 12)
+        for j=1, 12-1 do
+            buf1:SetInt32(j * 8, 0)
+            buf2:SetInt32(j * 8, 0)
+        end
+    
+    
+        local ped = PlayerPedId()
+        local pid = PlayerId()
+    
+        Citizen.InvokeNative(0xCB5D11F9508A928D, 1, buf1:Buffer(), buf2:Buffer(), `UPGRADE_HEALTH_TANK_1`, 0x1084182731, 1, 0x752097756)
+        Citizen.InvokeNative(0xCB5D11F9508A928D, 1, buf1:Buffer(), buf2:Buffer(), `UPGRADE_STAMINA_TANK_1`, 0x1084182731, 1, 0x752097756)
+    
+        Citizen.InvokeNative(0xC6258F41D86676E0, ped, 0, 10) -- _SET_ATTRIBUTE_CORE_VALUE
+        Citizen.InvokeNative(0xC6258F41D86676E0, ped, 1, 10) -- _SET_ATTRIBUTE_CORE_VALUE
+    
+    
+        SetEntityHealth(ped, 10)
+        Citizen.InvokeNative(0xA9EC16C7, pid, Citizen.InvokeNative(0xD014AB79, pid)) -- SetPlayerStamina & GetPlayerMaxStamina
+        Citizen.InvokeNative(0x675680D089BFA21F, PlayerPedId(), 100.0)
+end
 
 RegisterCommand("revive", function(source, args, rawCommand)
     if args[1] ~= nil then

@@ -1,5 +1,5 @@
 Config = {}
-Config.RespawnTime = 180000
+Config.RespawnTime = 300000
 Config.LocaleDead = "Vous êtes inconscient !"
 Config.RespawnPrice = 0
 Config.LocaleTimer = "Vous pourrez vous relever dans: "
