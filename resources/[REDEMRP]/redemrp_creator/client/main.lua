@@ -199,9 +199,6 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
     Citizen.CreateThread(function()
         local _Target = Target or PlayerPedId()
         local _SkinData = SkinData
-        local health = GetEntityHealth(_Target) -- Get health value
-        local healthCore = GetAttributeCoreValue(_Target, 0) -- Get health core value
-        print (health, healthCore)
         if _Target == PlayerPedId() then
             local model = GetPedModel(tonumber(_SkinData.sex))
             LoadModel(PlayerPedId(), model)
@@ -332,7 +329,12 @@ AddEventHandler('redemrp_skin:LoadSkinClient', function()
 end)
 
 RegisterCommand('loadskin', function(source, args, raw)
+    local health = GetEntityHealth(PlayerPedId()) -- Get health value
+    local healthCore = GetAttributeCoreValue(PlayerPedId(), 0) -- Get health core value
     TriggerServerEvent("RedEM:server:LoadSkin", true)
+
+    Citizen.InvokeNative(0xC6258F41D86676E0, ped, PlayerPedId(), healthCore) -- _SET_ATTRIBUTE_CORE_VALUE
+    SetEntityHealth(PlayerPedId(), health)
 end)
 
 function StartCreator()
