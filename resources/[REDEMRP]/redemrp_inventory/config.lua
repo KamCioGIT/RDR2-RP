@@ -4343,6 +4343,17 @@ Config.Items = {
     imgsrc = "items/cherrypie.png",
     type = "item_standard",
 },
+["epismaisgrille"] = {
+    label = "Epis de maïs grillé",
+    description = "Un épis de maïs grillé",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/cooked_corn.png",
+    type = "item_standard",
+},
 }
 
 
