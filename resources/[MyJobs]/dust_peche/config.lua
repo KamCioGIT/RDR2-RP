@@ -4,7 +4,7 @@ Config.Jobs = {
 
 }
 -- settings
-Config.Difficulty = 2000 -- use -1 for testing
+Config.Difficulty = 2500 -- use -1 for testing
 Config.ReelSpeed = 0.0125
 Config.Debug = false
 
