@@ -201,6 +201,7 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
         local _SkinData = SkinData
         local health = GetEntityHealth(_Target) -- Get health value
         local healthCore = GetAttributeCoreValue(_Target, 0) -- Get health core value
+        local stamCore = GetAttributeCoreValue(_Target, 1) -- Get health core value
         if _Target == PlayerPedId() then
             local model = GetPedModel(tonumber(_SkinData.sex))
             LoadModel(PlayerPedId(), model)
@@ -209,6 +210,7 @@ AddEventHandler('RedEM:client:ApplySkin', function(SkinData, Target, ClothesData
         end
         SetEntityHealth(_Target, health) -- Set health back to what it was
         Citizen.InvokeNative( 0xC6258F41D86676E0, _Target, 0, healthCore) -- Set Health Core back to what it was
+        Citizen.InvokeNative( 0xC6258F41D86676E0, _Target, 0, stamCore)
         print("Loading...")
         -- print(_Target, PlayerPedId())
         FixIssues(_Target, _SkinData)
