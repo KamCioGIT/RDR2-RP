@@ -87,21 +87,31 @@ RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
     DoScreenFadeOut(500)
     Wait(500)
     revived = true
-    EndDeathCam()
+    
     --AnimpostfxStop("DeathFailMP01")
     --ShakeGameplayCam("DRUNK_SHAKE", 0.0)
     --Citizen.InvokeNative(0xFDB74C9CC54C3F37, 0.0)
     DestroyAllCams(true)
     Wait(1000)
-    local health = GetEntityHealth(PlayerPedId()) - 90
-    if health <= 5 then
-        health = 5
-    end
-    SetEntityHealth(PlayerPedId(), health)
-    Citizen.InvokeNative( 0xC6258F41D86676E0, PlayerPedId(), 1, 10) 
     TriggerEvent("redemrp_respawn:respawnCoords", GetEntityCoords(PlayerPedId()))
     TriggerServerEvent("RedEM:server:LoadSkin")
+    Wait(300)
+    UpdateHealthRevive()
+
 end)
+
+function UpdateHealthRevive()
+        local ped = PlayerPedId()
+        local pid = PlayerId()
+
+        Citizen.InvokeNative(0xC6258F41D86676E0, ped, 0, 20) -- _SET_ATTRIBUTE_CORE_VALUE
+        Citizen.InvokeNative(0xC6258F41D86676E0, ped, 1, 10) -- _SET_ATTRIBUTE_CORE_VALUE
+    
+    
+        SetEntityHealth(ped, 10)
+        Citizen.InvokeNative(0xA9EC16C7, pid, 10) -- SetPlayerStamina & GetPlayerMaxStamina
+        Citizen.InvokeNative(0x675680D089BFA21F, PlayerPedId(), 10.0)
+end
 
 RegisterCommand("revive", function(source, args, rawCommand)
     if args[1] ~= nil then
@@ -170,7 +180,7 @@ Citizen.CreateThread(function()
                     ProcessCamControls()
                     DrawTxt(Config.LocaleTimer .. " " .. tonumber(string.format("%.0f", (((GetGameTimer() - timer) * -1)/1000))), 0.50, 0.80, 0.7, 0.7, true, 255, 255, 255, 255, true)
                     if not medicsAlerted then
-                        DrawTxt("[~pa~ENTRÉE~q~] Crier à l'aide", 0.50, 0.85, 0.5, 0.5, true, 255, 255, 255, 255, true)
+                        DrawTxt("ENTRÉE Crier à l'aide", 0.50, 0.85, 0.5, 0.5, true, 255, 255, 255, 255, true)
                     else
                         DrawTxt("Vous avez crier à l'aide", 0.50, 0.85, 0.5, 0.5, true, 255, 255, 255, 255, true)
                     end
@@ -189,7 +199,7 @@ Citizen.CreateThread(function()
                 if not ConfirmingRespawn then
                     DrawTxt("Appuyer sur E pour vous relever", 0.50, 0.45, 0.8, 0.8, true, 255, 255, 255, 255, true)
                 else
-                    DrawTxt("~n~(~pa~E~q~) Valider~n~(~pa~BACKSPACE~q~) Annuler", 0.50, 0.45, 0.8, 0.8, true, 255, 255, 255, 255, true)
+                    DrawTxt("E Valider ou BACKSPACE Annuler", 0.50, 0.45, 0.8, 0.8, true, 255, 255, 255, 255, true)
                 end
                 if IsControlJustReleased(0, 0xDFF812F9) then
                     if not ConfirmingRespawn then
@@ -285,6 +295,7 @@ RegisterNetEvent("redemrp_respawn:respawnCoords", function(coords)
     FreezeEntityPosition(ped, false)
 
     ShutdownLoadingScreen()
+    AnimpostfxPlay("PlayerWakeUpKnockout")
     NetworkResurrectLocalPlayer(coords.x, coords.y, coords.z, 59.95, true, false, false)
     SetEntityCoordsNoOffset(ped, coords.x, coords.y, coords.z, false, false, false, true)
     ClearPedTasksImmediately(ped)
@@ -355,25 +366,22 @@ end
 
 --sin22
 function RespawnCamera(coords)
-    local tcam = CreateCamera("DEFAULT_SCRIPTED_CAMERA", true)
-    if GetInteriorFromEntity(PlayerPedId()) == 0 then
-        SetCamParams(tcam, coords.x, coords.y, coords.z+100.0, 90.0, 0.0, 0.0, 90.0, 1000, 1, 1, 1)
-    else
-        local offsetCoords = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.25)
-        SetCamParams(tcam, offsetCoords.x, offsetCoords.y, offsetCoords.z, 0.0, 0.0, 0.0, 90.0, 1000, 1, 1, 1)
-    end
-    SetCamActive(tcam, true)
-    RenderScriptCams(true, false, 1, true, true)
-    PointCamAtEntity(tcam, PlayerPedId(), 0.0, 0.0, 0.0, 1)
-    Wait(2000)
-    DoScreenFadeIn(250)
-    Wait(1000)
-    RenderScriptCams(false, true, 1000, true, true)
+    -- local tcam = CreateCamera("DEFAULT_SCRIPTED_CAMERA", true)
+    -- local offsetCoords = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.25)
+    -- SetCamParams(tcam, offsetCoords.x, offsetCoords.y, offsetCoords.z, 0.0, 0.0, 0.0, 90.0, 1000, 1, 1, 1)
+    -- SetCamActive(tcam, true)
+    -- RenderScriptCams(true, false, 1, true, true)
+    -- PointCamAtEntity(tcam, PlayerPedId(), 0.0, 0.0, 0.0, 1)
     DestroyAllCams()
+    RenderScriptCams(false, true, 1000, true, true)
+    Wait(2000)
+    DoScreenFadeIn(1000)
+    Wait(1000)
 	FreezeEntityPosition(PlayerPedId(), false)
-
+    Wait(13000)
     DisplayHud(true)
     DisplayRadar(true)
+    AnimpostfxStop("PlayerWakeUpKnockout")
 end
 --=============================================================-- DRAW TEXT SECTION--=============================================================--
 function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
@@ -385,7 +393,7 @@ function DrawTxt(str, x, y, w, h, enableShadow, col1, col2, col3, a, centre)
     SetTextCentre(centre)
     if enableShadow then SetTextDropshadow(1, 0, 0, 0, 255) end
     Citizen.InvokeNative(0xADA9255D, 1);
-	SetTextFontForCurrentCommand(7)
+	SetTextFontForCurrentCommand(25)
     DisplayText(str, x, y)
 end
 

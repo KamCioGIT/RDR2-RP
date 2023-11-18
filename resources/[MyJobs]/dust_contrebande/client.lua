@@ -26,7 +26,7 @@ Citizen.CreateThread(function()
             if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                    TriggerEvent("contrebande:OpenBossMenu", "moonshine")
+                    TriggerServerEvent("contrebande:RequestCampMenu", "moonshine")
                 end
             end
         end
@@ -75,6 +75,58 @@ AddEventHandler("onResourceStop", function(resourceName)
     if resourceName ~= GetCurrentResourceName() then return end
     PromptDelete(CraftMenuPrompt)
 end)
+
+RegisterNetEvent("contrebande:OpenCampMenu", function(craftingtable, menutype)
+    local Position = GetEntityCoords(PlayerPedId())
+    local _menutype = menutype
+    local playerPed = PlayerPedId()
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 1.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                end)
+                return
+            end
+        end
+    end)
+
+    
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local jobgrade = RedEM.GetPlayerData().jobgrade
+
+        local elements = {}
+        for k, v in pairs(craftingtable) do
+            if k then
+                table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+            end
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'Camp', {
+            title = "Atelier",
+            subtext = "Recettes",
+            align = 'top-right',
+            elements = elements,
+        },
+        
+        function(data, menu)
+            MenuData.CloseAll()
+            TriggerServerEvent("contrebande:MaxRessourcesAmount", data.current.value)
+            Wait(150)
+            TriggerEvent("contrebande:SelectCraftingAmount", data.current.value, MenuData, menu)
+            --
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)
+
 
 
 RegisterNetEvent("contrebande:OpenBossMenu", function(menutype)

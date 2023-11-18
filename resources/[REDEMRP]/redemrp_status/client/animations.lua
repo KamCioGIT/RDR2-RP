@@ -1226,3 +1226,12 @@ function StopAnim(dict, body)
         StopAnimTask(PlayerPedId(), dict, body, 1.0)
     end)
 end
+
+
+
+RegisterCommand("fx", function(source, args, _)
+
+	AnimpostfxPlay(args[1])
+    Wait(5000)
+ 	AnimpostfxStop(args[1])
+end)

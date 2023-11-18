@@ -7,28 +7,80 @@ end)
 
 
 
--- Citizen.CreateThread(function()
--- 	while true do
--- 		Citizen.Wait(2000)
--- 		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "mout", 1, {}, "dep_moo_test","moonshine", 1, {}, "ret_moo_test")
--- 		Citizen.Wait(2000)
--- 		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromebayou", 1, {},"dep_moo_test","moonshinebayou", 1, {}, "ret_moo_test")
--- 		Citizen.Wait(2000)
--- 		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "arometrappeur", 1, {},"dep_moo_test","moonshinetrappeur", 1, {}, "ret_moo_test")
--- 		Citizen.Wait(2000)
--- 		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromecueilleur", 1, {},"dep_moo_test","moonshinecueilleur", 1, {}, "ret_moo_test")
--- 		Citizen.Wait(2000)
--- 		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromeforet", 1, {},"dep_moo_test","moonshineforet", 1, {}, "ret_moo_test")
--- 		Citizen.Wait(2000)
--- 		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromefongique", 1, {},"dep_moo_test","moonshinefongique", 1, {}, "ret_moo_test")
--- 		Citizen.Wait(2000)
--- 		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromecitadin", 1, {},"dep_moo_test","moonshinecitadin", 1, {}, "ret_moo_test")
--- 		Citizen.Wait(2000)
--- 		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromepeignecul", 1, {},"dep_moo_test","moonshinepeignecul", 1, {}, "ret_moo_test")
--- 		Citizen.Wait(2000)
--- 		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromemexicain", 1, {},"dep_moo_test","moonshinemexicaine", 1, {}, "ret_moo_test")
--- 	end
--- end)
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "mout", 1, {}, "dep_moo_test","moonshine", 1, {}, "ret_moo_test")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromebayou", 1, {},"dep_moo_test","moonshinebayou", 1, {}, "ret_moo_test")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "arometrappeur", 1, {},"dep_moo_test","moonshinetrappeur", 1, {}, "ret_moo_test")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromecueilleur", 1, {},"dep_moo_test","moonshinecueilleur", 1, {}, "ret_moo_test")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromeforet", 1, {},"dep_moo_test","moonshineforet", 1, {}, "ret_moo_test")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromefongique", 1, {},"dep_moo_test","moonshinefongique", 1, {}, "ret_moo_test")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromecitadin", 1, {},"dep_moo_test","moonshinecitadin", 1, {}, "ret_moo_test")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromepeignecul", 1, {},"dep_moo_test","moonshinepeignecul", 1, {}, "ret_moo_test")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashter", "sucre", 1, {}, "mout", 1, {}, "aromemexicain", 1, {},"dep_moo_test","moonshinemexicaine", 1, {}, "ret_moo_test")
+	end
+end)
+
+
+RegisterServerEvent("contrebande:RequestCampMenu", function(menutype)
+    local _source = tonumber(source)
+    local craftingtable = {} 
+	for k, v in pairs(Config.CraftingsReceipe) do
+		if v.type == menutype then
+			if v.Itemtocraft == 1 then
+				local ItemData = data.getItem(_source, v.ItemReceipe1Name)
+				local rItem1Amount = tonumber(ItemData.ItemAmount - v.ItemReceipe1Amount)
+				if rItem1Amount >= 0 then
+					craftingtable[k] = v
+				end
+			end
+			if v.Itemtocraft == 2 then
+				local ItemData = data.getItem(_source, v.ItemReceipe1Name)
+				local ItemData2 = data.getItem(_source, v.ItemReceipe2Name)
+				local rItem1Amount = tonumber(ItemData.ItemAmount - v.ItemReceipe1Amount)
+				local rItem2Amount = tonumber(ItemData2.ItemAmount - v.ItemReceipe2Amount)
+				if rItem1Amount >= 0 and rItem2Amount >= 0 then
+					craftingtable[k] = v
+				end
+			end
+			if v.Itemtocraft == 3 then
+				local ItemData = data.getItem(_source, v.ItemReceipe1Name)
+				local ItemData2 = data.getItem(_source, v.ItemReceipe2Name)
+				local ItemData3 = data.getItem(_source, v.ItemReceipe3Name)
+				local rItem1Amount = tonumber(ItemData.ItemAmount - v.ItemReceipe1Amount)
+				local rItem2Amount = tonumber(ItemData2.ItemAmount - v.ItemReceipe2Amount)
+				local rItem3Amount = tonumber(ItemData3.ItemAmount - v.ItemReceipe3Amount)
+				if rItem1Amount >= 0 and rItem2Amount >= 0 and rItem3Amount >= 0 then
+					craftingtable[k] = v
+				end
+			end
+			if v.Itemtocraft == 4 then
+				local ItemData = data.getItem(_source, v.ItemReceipe1Name)
+				local ItemData2 = data.getItem(_source, v.ItemReceipe2Name)
+				local ItemData3 = data.getItem(_source, v.ItemReceipe3Name)
+				local ItemData4 = data.getItem(_source, v.ItemReceipe4Name)
+				local rItem1Amount = tonumber(ItemData.ItemAmount - v.ItemReceipe1Amount)
+				local rItem2Amount = tonumber(ItemData2.ItemAmount - v.ItemReceipe2Amount)
+				local rItem3Amount = tonumber(ItemData3.ItemAmount - v.ItemReceipe3Amount)
+				local rItem4Amount = tonumber(ItemData3.ItemAmount - v.ItemReceipe4Amount)
+				if rItem1Amount >= 0 and rItem2Amount >= 0 and rItem3Amount >= 0 and rItem4Amount >= 0 then
+					craftingtable[k] = v
+				end
+			end
+		end
+	end
+
+	TriggerClientEvent("contrebande:OpenCampMenu", _source, craftingtable, menutype)
+end)
 
 RegisterServerEvent('contrebande:CraftItem')
 AddEventHandler('contrebande:CraftItem', function(itemNameStr, menu, amount)
