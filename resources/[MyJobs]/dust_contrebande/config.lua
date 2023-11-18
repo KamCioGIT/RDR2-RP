@@ -19,9 +19,7 @@ Config.AtelierOpium = {
 
 
 Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
-Config.CraftAnim = {
-    "base_trans_base",
-}
+Config.CraftAnim = "base_trans_base"
 
 
 

@@ -3240,3 +3240,37 @@ function ChangeAccBottes(id, change_type)
 
     end
 end
+
+
+---- menu wearable state
+
+
+RegisterNetEvent("dust_radial:OpenStateMenu", function(ClothesComponents)
+  
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+  
+        local elements = {}
+        table.insert(elements, {label = "Manches", value = "sleeves", desc = "Remonter ses manches"})
+  
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Vêtements",
+            subtext = "Recettes",
+            align = 'top-right',
+            elements = elements,
+        },
+  
+        function(data, menu)
+            MenuData.CloseAll()
+            Wait(150)
+            if data.current.value == "sleeves" then
+                
+            end
+        end,
+  
+        function(data, menu)
+            menu.close()
+        end)
+    end)
+  end)
+end
