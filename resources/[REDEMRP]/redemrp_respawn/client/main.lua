@@ -98,7 +98,7 @@ RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
         health = 5
     end
     SetEntityHealth(PlayerPedId(), health)
-    Citizen.InvokeNative( 0xC6258F41D86676E0, PlayerPedId(), 1, 10) 
+    SetPlayerStamina(PlayerPedId(), 10)
     TriggerEvent("redemrp_respawn:respawnCoords", GetEntityCoords(PlayerPedId()))
     TriggerServerEvent("RedEM:server:LoadSkin")
 end)
