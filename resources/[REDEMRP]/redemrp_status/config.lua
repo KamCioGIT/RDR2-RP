@@ -7,7 +7,7 @@
 -- Cognac()
 -- Moonshine()
 -- Whisky()
--- EatBowl()
+-- Stew()
 -- Shampan()
 -- Beer()
 -- Coffe()
@@ -105,7 +105,7 @@ Config.Items = {
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
         ClientAction = function()
-            EatBowl()
+            Stew()
         end
     },
     ["beer"] = {
@@ -289,7 +289,7 @@ Config.Items = {
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
         ClientAction = function()
-            EatBowl()
+            Stew()
         end
     },
     ["ragoutgibier"] = {
@@ -299,7 +299,7 @@ Config.Items = {
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
         ClientAction = function()
-            EatBowl()
+            Stew()
         end
     },
     ["ragoutviande"] = {
@@ -309,7 +309,7 @@ Config.Items = {
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
         ClientAction = function()
-            EatBowl()
+            Stew()
         end
     },
     ["ragoutpoisson"] = {
@@ -319,7 +319,7 @@ Config.Items = {
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
         ClientAction = function()
-            EatBowl()
+            Stew()
         end
     },
     ["ragoutvolaille"] = {
@@ -329,7 +329,7 @@ Config.Items = {
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
         ClientAction = function()
-            EatBowl()
+            Stew()
         end
     },
     ["tourtegibier"] = {
@@ -439,7 +439,7 @@ Config.Items = {
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
         ClientAction = function()
-            EatBowl()
+            Stew()
         end
     },
     ["beefsteakpatate"] = {
