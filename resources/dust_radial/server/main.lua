@@ -210,3 +210,25 @@ RegisterServerEvent("sellnpc:sell", function(zone, Itemtosell, coords)
 		User.addMoney(Config.Price[zone][Itemtosell].price)
 	end
 end)
+
+
+RegisterServerEvent('rdr_clothes_store:LoadClothes')
+AddEventHandler('rdr_clothes_store:LoadClothes', function()
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    if user then
+        local identifier = user.identifier
+        local charid = user.charid
+
+        MySQL.query('SELECT * FROM clothes WHERE `identifier`=@identifier AND `charid`=@charid;', {
+            identifier = identifier,
+            charid = charid
+        }, function(_clothes)
+            if _clothes[1] then
+                _clothes = json.decode(_clothes[1].clothes)
+            else
+                _clothes = {}
+            end
+        end)
+    end
+end)

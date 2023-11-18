@@ -594,5 +594,3 @@ RegisterNetEvent("sellnpc:activatecd",function(ent)
     end
     cooldown[ent] = false
 end)
-
--- sell
