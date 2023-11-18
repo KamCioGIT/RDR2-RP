@@ -735,7 +735,7 @@ Config.Jobs = {
     },
     ["bijouterie"] = {
         bigjob = "bijouterie",
-        Name = "Bijouterie",
+        Name = "Bijouterie de Luxe",
         blisprite = -813538438,
         MenuLocations = 
             vector3(2586.072, -1011.997, 44.23995)
@@ -965,8 +965,8 @@ Config.Export = {
     ["cuivrepepite"] = {label= "Pépite de cuivre", price = 0.04},
     ["plombpepite"] = {label= "Pépite de plomb", price = 0.04},
     ["zincpepite"] = {label= "Pépite de zinc", price = 0.1},
-    ["good_whisky"] = {label= "Pépite de zinc", price = 0.33},
-    ["dirty_whiskey"] = {label= "Pépite de zinc", price = 0.18},
+    ["good_whisky"] = {label= "Whisky", price = 0.33},
+    ["dirty_whiskey"] = {label= "Mauvais Whisky", price = 0.18},
 }
 
 Config.ImportBijoux = {

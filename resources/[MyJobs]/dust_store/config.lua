@@ -77,7 +77,7 @@ Config.CraftingsReceipe = {
         ItemToGive = 'ragoutviande',
         Amount = 1,
         WorkingTime = 5,
-        label = 'Ragoût',
+        label = 'Ragoût de viande',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_rc_quartz_chunk.png', text = "Viande Hâchée",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['ragoutpoisson'] = {
@@ -92,7 +92,7 @@ Config.CraftingsReceipe = {
         ItemToGive = 'ragoutviande',
         Amount = 1,
         WorkingTime = 5,
-        label = 'Ragoût',
+        label = 'Ragoût de poisson',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_succulent_fish.png', text = "Filet de poisson",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['tourteviande'] = {

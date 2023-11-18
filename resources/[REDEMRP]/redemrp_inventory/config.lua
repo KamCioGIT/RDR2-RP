@@ -2792,7 +2792,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["ragoutgibier"] = {
-    label = "Ragoût",
+    label = "Ragoût de viande",
     description = "De la viande, des légumes et de la joie",
     weight = 0.3,
     canBeDropped = true,
@@ -2803,7 +2803,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["ragoutviande"] = {
-    label = "Ragoût",
+    label = "Ragoût de viande",
     description = "De la viande, des légumes et de la joie",
     weight = 0.3,
     canBeDropped = true,
@@ -2814,7 +2814,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["ragoutvolaille"] = {
-    label = "Ragoût",
+    label = "Ragoût de viande",
     description = "De la viande, des légumes et de la joie",
     weight = 0.3,
     canBeDropped = true,

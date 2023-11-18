@@ -377,8 +377,8 @@ Config.Herbs = {
         blipSprite = 0,
         blipName = "champignontoxique",
         coords = {
-            {-162.5132, 1731.164, 170.8444, 10.0},
-            {-1517.854, 739.0333, 125.9074, 3.0},
+            {-161.8411, 1731.12, 169.8589, 5.0},
+            {-1517.83, 738.7195, 124.9211, 5.0},
         },
         maxSpawn = 4,--How much props is cached
         propMax = 4,--Spawn max props on limit
