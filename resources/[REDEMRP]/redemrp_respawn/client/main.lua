@@ -310,7 +310,7 @@ RegisterNetEvent("redemrp_respawn:respawnCoords", function(coords)
     NetworkSetFriendlyFireOption(true)
     -- RespawnCamera(coords)
 
-    DestroyAllCams()
+    -- DestroyAllCams()
 	FreezeEntityPosition(PlayerPedId(), false)
 
     DisplayHud(true)
