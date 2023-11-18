@@ -98,7 +98,6 @@ RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
         health = 5
     end
     SetEntityHealth(PlayerPedId(), health)
-    SetPlayerStamina(PlayerPedId(), 10)
     TriggerEvent("redemrp_respawn:respawnCoords", GetEntityCoords(PlayerPedId()))
     TriggerServerEvent("RedEM:server:LoadSkin")
 end)
