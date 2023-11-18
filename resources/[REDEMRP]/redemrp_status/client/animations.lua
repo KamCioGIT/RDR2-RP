@@ -1232,6 +1232,6 @@ end
 RegisterCommand("fx", function(source, args, _)
 
 	AnimpostfxPlay(args[1])
-    Wait(2000)
+    Wait(5000)
  	AnimpostfxStop(args[1])
 end)
