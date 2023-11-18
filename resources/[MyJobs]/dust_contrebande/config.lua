@@ -1,6 +1,8 @@
 Config = {}
 
 
+Config.WorkingTime = 3000
+
 Config.DistanceToInteract = 1.5
 
 Config.AtelierMoonshine = {
