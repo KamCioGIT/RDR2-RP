@@ -367,12 +367,8 @@ end
 --sin22
 function RespawnCamera(coords)
     local tcam = CreateCamera("DEFAULT_SCRIPTED_CAMERA", true)
-    if GetInteriorFromEntity(PlayerPedId()) == 0 then
-        SetCamParams(tcam, coords.x, coords.y, coords.z+20.0, 90.0, 0.0, 0.0, 90.0, 1000, 1, 1, 1)
-    else
-        local offsetCoords = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.25)
-        SetCamParams(tcam, offsetCoords.x, offsetCoords.y, offsetCoords.z, 0.0, 0.0, 0.0, 90.0, 1000, 1, 1, 1)
-    end
+    local offsetCoords = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 1.5, 0.25)
+    SetCamParams(tcam, offsetCoords.x, offsetCoords.y, offsetCoords.z, 0.0, 0.0, 0.0, 90.0, 1000, 1, 1, 1)
     SetCamActive(tcam, true)
     RenderScriptCams(true, false, 1, true, true)
     PointCamAtEntity(tcam, PlayerPedId(), 0.0, 0.0, 0.0, 1)
