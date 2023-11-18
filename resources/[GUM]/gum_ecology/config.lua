@@ -472,12 +472,9 @@ Config.Herbs = {
         animPart = "base",
         animDur = 2000
     }
-
-
-
-
-
 }
+
+
 Config.Animals = {
     [GetHashKey("a_c_alligator_01")] =   {
         randomized = false,

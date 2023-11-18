@@ -85492,7 +85492,7 @@ clothes_list = {
 					['category_hash'] = 2569388135,
 					['category_hash_dec_signed'] = -1725579161,
 					['category_hashname'] = 'hats',
-					['hash'] = 2588423772,
+					['hash'] = 1820410246,
 					['hash_dec_signed'] = 1820410246,
 					['hashname'] = 'CLOTHING_ITEM_M_FRONTIER_HAT_000',
 					['is_multiplayer'] = true,
@@ -95412,16 +95412,6 @@ clothes_list = {
 					['is_multiplayer'] = true,
 					['ped_type'] = 'male'
 				},
-				[166] = {
-					['category_hash'] = 2569388135,
-					['category_hash_dec_signed'] = -1725579161,
-					['category_hashname'] = 'hats',
-					['hash'] = 2588423772,
-					['hash_dec_signed'] = -56606839,
-					['hashname'] = '',
-					['is_multiplayer'] = true,
-					['ped_type'] = 'male'
-				}
 			}
 		},
 		['holsters_left'] = {
@@ -119826,3 +119816,38 @@ clothes_list = {
 		}
 	}
 }
+
+
+-- custom_list = {
+-- 	["female"] = {
+
+
+-- 	},
+-- 	["male"] = {
+-- 		["hats"] = {
+-- 			[1] = {
+-- 				[1] = {
+-- 					['category_hash'] = 539411565,
+-- 					['category_hash_dec_signed'] = 539411565,
+-- 					['category_hashname'] = 'shirts_full',
+-- 					['hashname'] = '',
+-- 					['is_multiplayer'] = false,
+-- 					['ped_type'] = 'male',
+-- 					['drawable'] = `s_exotichat06x`,
+-- 					['albedo'] = `s_exotichat06x_ab`,
+-- 					['normal'] = `s_exotichat06x_nm`,
+-- 					['material'] = `s_exotichat06x_ma`,
+-- 					['palette'] = ``,
+-- 					['tint0'] = 0,
+-- 					['tint1'] = 0,
+-- 					['tint2'] = 0
+-- 				},
+
+-- 			},
+
+-- 		},
+
+
+-- 	},
+
+-- }
