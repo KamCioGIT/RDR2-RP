@@ -2792,7 +2792,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["ragoutgibier"] = {
-    label = "Ragoût",
+    label = "Ragoût de viande",
     description = "De la viande, des légumes et de la joie",
     weight = 0.3,
     canBeDropped = true,
@@ -2803,7 +2803,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["ragoutviande"] = {
-    label = "Ragoût",
+    label = "Ragoût de viande",
     description = "De la viande, des légumes et de la joie",
     weight = 0.3,
     canBeDropped = true,
@@ -2814,7 +2814,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["ragoutvolaille"] = {
-    label = "Ragoût",
+    label = "Ragoût de viande",
     description = "De la viande, des légumes et de la joie",
     weight = 0.3,
     canBeDropped = true,
@@ -3693,6 +3693,17 @@ Config.Items = {
     requireLvl = 0,
     limit = 2000,
     imgsrc = "items/provision_thimbleab.png",
+    type = "item_standard",
+},
+["peole"] = {
+    label = "Poële",
+    description = "Primordiale pour chaque cuisine",
+    weight = 15,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/upgrade_upg_cooking_spit.png",
     type = "item_standard",
 },
 
