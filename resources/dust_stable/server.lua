@@ -415,7 +415,7 @@ end)
 
 RegisterServerEvent('dust_stable:server:depophorse', function(horseid)
 	local Player = RedEM.GetPlayer(source)
-    if Player.group == "admin" or Player.group == "superadmin" or Player.group == "mod" then
+    if Player.group == "admin" or Player.group == "superadmin" or Player.group == "mod" or Player.group == "support" then
 		MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;',
 		{
 			horseid = horseid
