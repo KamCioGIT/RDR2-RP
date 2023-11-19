@@ -414,7 +414,7 @@ Config.Jobs = {
     },
     ["saloon_faubourg"] = {
         bigjob = "saloon",
-        Name = "Saloon Le Turbin",
+        Name = "Saloon Le Trèfle",
         blisprite = 1879260108,
         MenuLocations = 
             vector3(2793.258, -1165.609, 46.93198)
