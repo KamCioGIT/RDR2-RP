@@ -6,7 +6,7 @@ Config.AnimCallCommand = "a"
 Config.NotHoldKeye = true
 
 Config.AnimMenuKeyPress = true
-Config.AnimMenuKey = 0x80F28E95 
+Config.AnimMenuKey = 0xA8E3F467 
 
 
 Config.OpenMenuCommandEnable = false
