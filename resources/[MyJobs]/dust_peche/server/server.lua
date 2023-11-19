@@ -21,7 +21,7 @@ RegisterServerEvent("RegisterUsableItem:p_baitCheese01x", function(source)
 end)
 
 RegisterServerEvent("RegisterUsableItem:p_baitWorm01x", function(source)
-    TriggerClientEvent("dust-fishing:client:usebait", source, "p_baitworm01x")
+    TriggerClientEvent("dust-fishing:client:usebait", source, "p_baitWorm01x")
 end)
 
 RegisterServerEvent("RegisterUsableItem:p_baitCricket01x", function(source)
