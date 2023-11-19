@@ -195,7 +195,7 @@ MedicineItems = {
         innerCoreHealth = 100,
         language = {
             applying = "Ingestion du remède ...",
-            applied = "Vous vous sentez mieux.",
+            applied = "Remède injecté.",
         },
         -- if you don't want to use animation set those to nil and set scenario instead
         animationDict = "mech_animal_interaction@horse@right@injection",
@@ -219,13 +219,13 @@ MedicineItems = {
         innerCoreHealth = 100,
         language = {
             applying = "Ingestion du remède ...",
-            applied = "Vous vous sentez mieux.",
+            applied = "Remède injecté.",
         },
         -- if you don't want to use animation set those to nil and set scenario instead
         animationDict = "mech_animal_interaction@horse@right@injection",
         animation = "injection_player",
         -- the next damage type, used for the bandaged state
-               allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"}
+        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"}
     },
     ['bandagepatate'] = {
         syringe = false,
