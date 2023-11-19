@@ -25,15 +25,12 @@ Config.PriceExport = {
         ["charbon"] = {label= "Charbon", price= 0.04},
         ["cuivrepepite"] = {label= "Pépite de cuivre", price= 0.05},
         ["plombpepite"] = {label= "Pépite de plomb", price= 0.05},
-        ["zincpepite"] = {label= "Pépite de zinc", price= 0.12},
+        ["zincpepite"] = {label= "Pépite de zinc", price= 0.13},
         ["good_whisky"] = {label= "Whisky", price= 0.38},
-        ["dirty_whiskey"] = {label= "Mauvais Whisky", price= 0.21},
+        ["dirty_whiskey"] = {label= "Mauvais Whisky", price= 0.22},
     },
 
     ["StDenis"] = {
-        ["lingotfer"] = {label= "Lingot de fer", price= 1.50},
-        ["lingotor"] = {label= "Lingot d'or", price= 65},
-        ["pieceor"] = {label= "Pièce d'or", price= 2.3},
         ["farine"] = {label= "Farine", price= 0.23},
         ["bouteillelait"] = {label= "Bouteille de lait", price= 0.12},
         ["patate"] = {label= "Patate", price= 0.12},
