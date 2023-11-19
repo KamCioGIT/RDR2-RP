@@ -11,7 +11,27 @@ AddEventHandler("dust_job:transport", function(job, grade)
     end
 end)
 
+Citizen.CreateThread(function()
+    Wait(1000)
+    for k,v in pairs(Config.ExportNPC) do
+        local model = RequestModel(GetHashKey("a_m_m_sddockforeman_01"))
 
+        while not HasModelLoaded(GetHashKey("a_m_m_sddockforeman_01")) do
+            Wait(100)
+        end
+
+        local spawnCoords = v.coords
+        local ped = CreatePed(GetHashKey("a_m_m_sddockforeman_01"), spawnCoords.x, spawnCoords.y, spawnCoords.z, v.heading, false, true, true, true)
+        Citizen.InvokeNative(0x283978A15512B2FE, ped, true)
+        SetEntityNoCollisionEntity(PlayerPedId(), ped, false)
+        SetEntityCanBeDamaged(ped, false)
+        SetEntityInvincible(ped, true)
+        Wait(2000)
+        FreezeEntityPosition(ped, true)
+        SetBlockingOfNonTemporaryEvents(ped, true)
+        SetModelAsNoLongerNeeded(GetHashKey("a_m_m_sddockforeman_01"))
+end
+end)
 
 RegisterNetEvent("dust_transport:getaccess", function()
     if Config.ExportBla then
