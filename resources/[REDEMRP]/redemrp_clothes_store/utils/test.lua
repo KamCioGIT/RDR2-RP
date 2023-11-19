@@ -119818,36 +119818,36 @@ clothes_list = {
 }
 
 
-custom_list = {
-	["female"] = {
+-- custom_list = {
+-- 	["female"] = {
 
 
-	},
-	["male"] = {
-		["hats"] = {
-			[1] = {
-				[1] = {
-					['category_hash'] = 539411565,
-					['category_hash_dec_signed'] = 539411565,
-					['category_hashname'] = 'shirts_full',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'male',
-					['drawable'] = ``,
-					['albedo'] = ``,
-					['normal'] = ``,
-					['material'] = ``,
-					['palette'] = ``,
-					['tint0'] = 0,
-					['tint1'] = 0,
-					['tint2'] = 0
-				},
+-- 	},
+-- 	["male"] = {
+-- 		["hats"] = {
+-- 			[1] = {
+-- 				[1] = {
+-- 					['category_hash'] = 539411565,
+-- 					['category_hash_dec_signed'] = 539411565,
+-- 					['category_hashname'] = 'shirts_full',
+-- 					['hashname'] = '',
+-- 					['is_multiplayer'] = false,
+-- 					['ped_type'] = 'male',
+-- 					['drawable'] = ``,
+-- 					['albedo'] = ``,
+-- 					['normal'] = ``,
+-- 					['material'] = ``,
+-- 					['palette'] = ``,
+-- 					['tint0'] = 0,
+-- 					['tint1'] = 0,
+-- 					['tint2'] = 0
+-- 				},
 
-			},
+-- 			},
 
-		},
+-- 		},
 
 
-	},
+-- 	},
 
-}
+-- }
