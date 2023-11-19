@@ -10,8 +10,8 @@ Config.DistanceToInteract = 1.5
 
 
 Config.ExportNPC = {
-    ["blackwater"] = {heading = 90 , coords = vector3(-766.8692, -1236.002, 42.54688)},
-    ["stdenis"] = {heading = 130 , coords = vector3(2767.197, -1435.013, 44.99092)},
+    ["blackwater"] = {heading = 90.0 , coords = vector3(-766.8692, -1236.002, 42.54688)},
+    ["stdenis"] = {heading = 230.0 , coords = vector3(2767.197, -1435.013, 44.99092)},
 }
 
 Config.ExportBla = vector3(-768.6127, -1236.022, 42.53892)
