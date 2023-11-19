@@ -1368,6 +1368,46 @@ Config.Doors = {
             keys = '',
         },
 
+        
+        --blackwater
+
+        {
+            door = 2796645535,
+            CloseRotation =  -90.0,
+            DoorCoord  = vector3(-790.3356, -1322.739, 42.94269),
+            door2 = 0,
+            CloseRotation2 = 0,
+            locked = true,
+            breakable = false, 
+            jobs = {"store_bla"},
+            needkey = false,
+            keys = '',
+        },
+        {
+            door = 3042576856,
+            CloseRotation =  90.0,
+            DoorCoord  = vector3(-775.6486, -1321.515, 42.90887),
+            door2 = 0,
+            CloseRotation2 = 0,
+            locked = true,
+            breakable = false,
+            jobs = {"store_bla"},
+            needkey = false,
+            keys = '',
+        },
+        {
+            door = 2046989122,
+            CloseRotation =  0,
+            DoorCoord  = vector3(-781.6522, -1320.372, 47.10576),
+            door2 = 0,
+            CloseRotation2 = 0,
+            locked = true,
+            breakable = false,
+            jobs = {"store_bla"},
+            needkey = false,
+            keys = '',
+        },
+        
 --------------------------------------------------------------------------------------
 
 --FORGE
