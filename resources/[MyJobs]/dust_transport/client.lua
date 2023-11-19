@@ -30,7 +30,7 @@ Citizen.CreateThread(function()
         FreezeEntityPosition(ped, true)
         SetBlockingOfNonTemporaryEvents(ped, true)
         SetModelAsNoLongerNeeded(GetHashKey("u_m_m_armtrainstationworker_01"))
-end
+    end
 end)
 
 RegisterNetEvent("dust_transport:getaccess", function()
