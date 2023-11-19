@@ -40,8 +40,8 @@ $("#composeForm").submit(function(e){
     e.preventDefault(); // Prevent form from submitting
     //Send 
     var sender = $("#sender").val();
-    var recipientlastname = $("#recipientlastname").val();
-    var recipientfirstname = $("#recipientfirstname").val();
+    var recipientlastname = $("#recipientlastname").val().trim();
+    var recipientfirstname = $("#recipientfirstname").val().trim();
     var subject =  $("#subject").val();
     var message = $("#message").val();
     
