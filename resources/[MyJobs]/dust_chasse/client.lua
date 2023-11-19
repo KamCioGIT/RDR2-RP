@@ -168,7 +168,7 @@ function deppeau() -- Peau into cuir
                         TaskPlayAnim(playerPed, dict, "base", 1.0, 1.0, -1, 0, 0, false, false, false)
                         Wait(3000)
                         ClearPedTasks(playerPed)
-                        TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["peau"], 2)
+                        TriggerServerEvent("boucher:serveur:giveitem", "cuir", 2)
                     end
                 end
             end
