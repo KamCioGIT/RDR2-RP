@@ -232,6 +232,18 @@ Config.LangueEN = {
 
 
 Config.CraftingsReceipe = {
+    ['a_c_fishlargemouthbass_01_ms'] = {
+        type = 'poissonerie',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'a_c_fishlargemouthbass_01_ms',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'filetpoisson',
+        Amount = 2,
+        WorkingTime = 5,
+        label = 'Filet de poisson',
+        descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_bluegill.png', text = "Achigan à grande bouche",count = "x1"}
+    },
+
     ['a_c_fishbluegil_01_ms'] = {
         type = 'poissonerie',
         Itemtocraft = 1,
@@ -301,7 +313,7 @@ Config.CraftingsReceipe = {
     ['a_c_fishchannelcatfish_01_lg'] = {
         type = 'poissonerie',
         Itemtocraft = 1,
-        ItemReceipe1Name = 'a_c_fishchainpickerel_01_sm',
+        ItemReceipe1Name = 'a_c_fishchannelcatfish_01_lg',
         ItemReceipe1Amount = 1,
         ItemToGive = 'filetpoisson',
         Amount = 3,
