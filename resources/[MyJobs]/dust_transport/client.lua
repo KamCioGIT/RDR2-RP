@@ -15,44 +15,36 @@ end)
 
 RegisterNetEvent("dust_transport:getaccess", function()
     if Config.ExportBla then
-        for k, v in pairs(Config.ExportBla) do
-            local blip = Citizen.InvokeNative(0x554d9d53f696d002, 1664425300, v)
-            SetBlipSprite(blip, 623155783, 1)
-            Citizen.InvokeNative(0x9CB1A1623062F402, blip, "Gros Exportateur")
-        end
+        local blip = Citizen.InvokeNative(0x554d9d53f696d002, 1664425300, Config.ExportBla)
+        SetBlipSprite(blip, 623155783, 1)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blip, "Gros Exportateur")
     end
     if Config.ExportStDenis then
-        for k, v in pairs(Config.ExportStDenis) do
-            local blip = Citizen.InvokeNative(0x554d9d53f696d002, 1664425300, v)
-            SetBlipSprite(blip, 623155783, 1)
-            Citizen.InvokeNative(0x9CB1A1623062F402, blip, "Gros Exportateur")
-        end
+        local blip = Citizen.InvokeNative(0x554d9d53f696d002, 1664425300, Config.ExportStDenis)
+        SetBlipSprite(blip, 623155783, 1)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blip, "Gros Exportateur")
     end
     
     while true do
         Citizen.Wait(1)
         local pcoords = GetEntityCoords(PlayerPedId())
-        for k, v in ipairs(Config.ExportBla) do
-            if #(pcoords - v) < 10.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-            end
-            if Vdist(pcoords, v) < 2.0 then
-                TriggerEvent('dust_presskey', "Appuyez sur G")
-                if IsControlJustReleased(0, 0x760A9C6F) then
-                    TriggerServerEvent("dust_transport:chekitem", "Blackwater")
-                end
+        if #(pcoords - Config.ExportBla) < 10.0 then
+            Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.ExportBla, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+        end
+        if Vdist(pcoords, Config.ExportBla) < 2.0 then
+            TriggerEvent('dust_presskey', "Appuyez sur G")
+            if IsControlJustReleased(0, 0x760A9C6F) then
+                TriggerServerEvent("dust_transport:chekitem", "Blackwater")
             end
         end
 
-        for k, v in ipairs(Config.ExportStDenis) do
-            if #(pcoords - v) < 10.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-            end
-            if Vdist(pcoords, v) < 2.0 then
-                TriggerEvent('dust_presskey', "Appuyez sur G")
-                if IsControlJustReleased(0, 0x760A9C6F) then
-                    TriggerServerEvent("dust_transport:chekitem", "StDenis")
-                end
+        if #(pcoords - Config.ExportStDenis) < 10.0 then
+            Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.ExportStDenis, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+        end
+        if Vdist(pcoords, Config.ExportStDenis) < 2.0 then
+            TriggerEvent('dust_presskey', "Appuyez sur G")
+            if IsControlJustReleased(0, 0x760A9C6F) then
+                TriggerServerEvent("dust_transport:chekitem", "StDenis")
             end
         end
     end
