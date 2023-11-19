@@ -189,6 +189,16 @@ Config.Items = {
             Moonshine()
         end
     },
+    ["moonshinemexicaine"] = {
+        hunger = 00,
+        thirst = 100,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Moonshine()
+        end
+    },
     ---- recette camp ---- 
     ["viandepetitmamiferecuite"] = {
         hunger = 7,
