@@ -108,11 +108,11 @@ Config.Stables = {
 		name = 'Stdenis_Marshall',
     },
 	Stdenis_eglise = {
-		pos = vector3(2732.0396, -1258.5210, 49.7719),
+		pos = vector3(2725.697, -1253.654, 48.87997),
 		name = 'Stdenis_eglise',
     },
 	Stdenis_roturier = {
-		pos = vector3(2556.4985, -807.7131, 42.3602),
+		pos = vector3(2698.904, -982.3295, 42.73772),
 		name = 'Stdenis_roturier',
     },
 	Stdenis_start = {
