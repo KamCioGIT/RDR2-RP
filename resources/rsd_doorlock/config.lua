@@ -1385,7 +1385,7 @@ Config.Doors = {
         },
         {
             door = 3042576856,
-            CloseRotation =  90.0,
+            CloseRotation =  -90.0,
             DoorCoord  = vector3(-775.6486, -1321.515, 42.90887),
             door2 = 0,
             CloseRotation2 = 0,
