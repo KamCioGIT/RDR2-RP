@@ -51,6 +51,7 @@ function depviande() -- Carcasse into viande
     if holding ~= false then
         for i, row in pairs(Config.Animal) do
             if hold == 28 then
+                print(model)
                 if model == Config.Animal[i]["model"] then
                     if quality == false then
                         local deleted = DeleteThis(holding)
@@ -154,10 +155,24 @@ function deppeau() -- Peau into cuir
                         TaskPlayAnim(playerPed, dict, "base", 1.0, 1.0, -1, 0, 0, false, false, false)
                         Wait(3000)
                         ClearPedTasks(playerPed)
-                        TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["peau"], 3)
+                        TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["peau"], 2)
+                    end
+                else
+                    local deleted = DeleteThis(holding)   
+                    if deleted then
+                        local dict = "amb_work@prop_human_tanning_rack_fleshing@male_a@base"
+                        RequestAnimDict(dict)
+                        while not HasAnimDictLoaded(dict) do
+                            Wait(10)
+                        end
+                        TaskPlayAnim(playerPed, dict, "base", 1.0, 1.0, -1, 0, 0, false, false, false)
+                        Wait(3000)
+                        ClearPedTasks(playerPed)
+                        TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["peau"], 2)
                     end
                 end
             end
+
         end
     else
     end
