@@ -118,6 +118,7 @@ function deppeau() -- Peau into cuir
     if holding ~= false then
         for i, row in pairs(Config.Animal) do
             if quality ~= false then
+                print(quality)
                 if quality == Config.Animal[i]["poor"] then
                     local deleted = DeleteThis(holding)
                     if deleted then
