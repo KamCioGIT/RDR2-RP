@@ -1357,10 +1357,10 @@ Config.Doors = {
         },
         {
             door = 4234072328,
-            CloseRotation = -130.0,
+            CloseRotation =  45.0,
             DoorCoord  = vector3(2824.116, -1314.147, 45.75566),
             door2 = 3986240381,
-            CloseRotation2 = 45.0,
+            CloseRotation2 = -130.0,
             locked = true,
             breakable = false,
             jobs = {"store_stdenis"},
