@@ -124,8 +124,8 @@
 		}
 
 		function confirmNewCharacter() {
-			var name = document.getElementById('name').value;
-			var lastname = document.getElementById('lastname').value;
+			var name = document.getElementById('name').value.trim();
+			var lastname = document.getElementById('lastname').value.trim();
 			$("#main").fadeOut();
 			$("#creator").fadeOut();
 			$.post(`http://${GetParentResourceName()}/newCharacter`, JSON.stringify({ name: name, lname: lastname }));
