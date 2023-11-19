@@ -551,7 +551,7 @@ AddEventHandler("dust_export:SelectSellingAmount", function(dataType, menuData, 
 
     local elements = {
         { label = "Quantité", 
-        value = 0, 
+        value = maxsellamount, 
         desc = "Vendre",
         type = 'slider',
         min = 0,
