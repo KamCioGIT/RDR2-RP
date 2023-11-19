@@ -4264,7 +4264,7 @@ Config.Items = {
 },
 ["p_finishdcrawd01x"] = {
     label = "Écrevisse",
-    description = "Un brave céréale",
+    description = "Un plat de luxe pour les poissons",
     weight = 0.1,
     canBeDropped = true,
     canBeUsed = true,
