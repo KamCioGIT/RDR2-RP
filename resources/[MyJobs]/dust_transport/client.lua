@@ -2,12 +2,11 @@ RedEM = exports["redem_roleplay"]:RedEM()
 
 
 
-RegisterNetEvent("dust_job:store")
-AddEventHandler("dust_job:store", function(job, grade)
+RegisterNetEvent("dust_job:transport")
+AddEventHandler("dust_job:transport", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
-            getjob = job
-            StartMission()
+            TriggerEvent("dust_transport:getaccess")
         end
     end
 end)
@@ -18,15 +17,15 @@ RegisterNetEvent("dust_transport:getaccess", function()
     if Config.ExportBla then
         for k, v in pairs(Config.ExportBla) do
             local blip = Citizen.InvokeNative(0x554d9d53f696d002, 1664425300, v)
-            SetBlipSprite(blip, 688589278, 1)
-            Citizen.InvokeNative(0x9CB1A1623062F402, blip, "Exportateur")
+            SetBlipSprite(blip, 623155783, 1)
+            Citizen.InvokeNative(0x9CB1A1623062F402, blip, "Gros Exportateur")
         end
     end
     if Config.ExportStDenis then
         for k, v in pairs(Config.ExportStDenis) do
             local blip = Citizen.InvokeNative(0x554d9d53f696d002, 1664425300, v)
-            SetBlipSprite(blip, 688589278, 1)
-            Citizen.InvokeNative(0x9CB1A1623062F402, blip, "Exportateur")
+            SetBlipSprite(blip, 623155783, 1)
+            Citizen.InvokeNative(0x9CB1A1623062F402, blip, "Gros Exportateur")
         end
     end
     
@@ -93,9 +92,9 @@ RegisterNetEvent("dust_transport:OpenExportMenu", function(selltable)
 
         function(data, menu)
             MenuData.CloseAll()
-            TriggerServerEvent("dust_export:MaxRessourcesAmount", data.current.value)
+            TriggerServerEvent("dust_transport:MaxRessourcesAmount", data.current.value)
             Wait(150)
-            TriggerEvent("dust_export:SelectSellingAmount", data.current.value, MenuData, menu)
+            TriggerEvent("dust_transport:SelectSellingAmount", data.current.value, MenuData, menu)
         end,
 
         function(data, menu)
@@ -103,4 +102,58 @@ RegisterNetEvent("dust_transport:OpenExportMenu", function(selltable)
             isInteracting = false
         end)
     end)
+end)
+
+RegisterNetEvent("dust_transport:SelectSellingAmount")
+AddEventHandler("dust_transport:SelectSellingAmount", function(dataType, menuData, menu)
+    menuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+
+    local elements = {
+        { label = "Quantité", 
+        value = maxsellamount, 
+        desc = "Vendre",
+        type = 'slider',
+        min = 0,
+        max = maxsellamount 
+        },
+    }
+
+    menuData.Open('default', GetCurrentResourceName(), 'craft', {
+        title = "Exportateur",
+        subtext = "Choisir la quantité",
+        align = 'top-right',
+        elements = elements,
+    },
+
+    function(data, menu)
+        if data.current.label == "Quantité" then
+            TriggerServerEvent("dust_transport:SellItem", dataType, menu, data.current.value)
+            menu.close()
+            isInteracting = false
+        end 
+    end,
+
+    function(data, menu)
+        menu.close()
+        isInteracting = false
+    end)
+end)
+
+RegisterNetEvent("dust_transport:client:SetMaxAmount", function(value)
+    maxsellamount = value
 end)
