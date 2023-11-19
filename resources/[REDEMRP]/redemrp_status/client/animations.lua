@@ -1034,6 +1034,7 @@ function Moonshine()
     local propEntity = CreateObject(GetHashKey('s_inv_moonshine01x'), GetEntityCoords(PlayerPedId()), false, true, false, false, true)
     local amount = 0
     TaskItemInteraction_2(PlayerPedId(), -1199896558, propEntity, GetHashKey('p_bottleJD01x_ph_r_hand'), GetHashKey('DRINK_BOTTLE@Bottle_Cylinder_D1-3_H30-5_Neck_A13_B2-5_CHUG_TRANS'), 1, 0, -1.0)
+    TriggerEvent("redemrp_status:getdrunk")
     while true do
         Wait(500)
         if Citizen.InvokeNative(0x6AA3DCA2C6F5EB6D, PlayerPedId()) == 1204708816 then
@@ -1050,6 +1051,13 @@ function Moonshine()
         end
     end
 end
+
+
+RegisterNetEvent("redemrp_status:getdrunk", function()
+    AnimpostfxPlay("PlayerRPGCore")
+    Wait(120000)
+    AnimpostfxStop("PlayerRPGCore")
+end)
 
 function Wine()
     TriggerEvent("redemrp_inventory:closeinv")
