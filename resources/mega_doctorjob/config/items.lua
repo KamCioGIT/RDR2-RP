@@ -201,7 +201,7 @@ MedicineItems = {
         animationDict = "mech_animal_interaction@horse@right@injection",
         animation = "injection_player",
         -- the next damage type, used for the bandaged state
-        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"}
+        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR", "doctor_TA"}
         
     },
     ['remedeantidouleur'] = {
@@ -225,7 +225,7 @@ MedicineItems = {
         animationDict = "mech_animal_interaction@horse@right@injection",
         animation = "injection_player",
         -- the next damage type, used for the bandaged state
-        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"}
+        allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR", "doctor_TA"}
     },
     ['bandagepatate'] = {
         syringe = false,
@@ -328,6 +328,6 @@ ReviveItems = {
             applying = "Injection de la seringue...",
         },
         -- allowed jobs to use it, if you want it to be usable for anyone just leave it empty
-               allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"}
+               allowedJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR", "doctor_TA"}
     }
 }

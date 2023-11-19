@@ -476,6 +476,25 @@ Config.Jobs = {
             },
         }
     },
+    ["doctor_TA"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de TA",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
     ["doctor_NC"] = {
         bigjob = "doctor",
         Name = "Cabinet de NC",

@@ -83,13 +83,13 @@ Config.radiusStyle = -666422021
 Config.alertTimeout = 720
 
 Config.medicalBeds = { 'p_medbed01x', 'p_bed03x' }
-Config.jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"}
+Config.jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR", "doctor_TA"}
 Config.allowPlayerTargeting = true
 Config.playerTargetRange = 1.5
 
 -- jobs that can inspect a dead body
 Config.inspectCommand = 'analyse'
-Config.inspectJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"}
+Config.inspectJobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR", "doctor_TA"}
 Config.allowPlayerInspecting = true
 Config.playerInspectRange = 1.5
 
@@ -117,7 +117,7 @@ Config.hospitals = {
             -- the jobs to check the players count
             -- if a player with one of these jobs is online
             -- the function will be disabled
-            jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"},
+            jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR", "doctor_TA"},
             healCost = 1.0,
             reviveCost = 1.0,
             reviveTime = 30,
@@ -138,7 +138,7 @@ Config.hospitals = {
             -- the jobs to check the players count
             -- if a player with one of these jobs is online
             -- the function will be disabled
-            jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"},
+            jobs = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR", "doctor_TA"},
             healCost = 1.0,
             reviveCost = 1.0,
             reviveTime = 30,
