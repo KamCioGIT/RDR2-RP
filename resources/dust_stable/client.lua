@@ -184,7 +184,7 @@ function OpenStable(menutype, stable)
             if _menutype == 'Ouvrir' then
                 if data.current.value then
                     TriggerServerEvent("dust_stable:server:askcomponents", data.current.value)
-                    Wait(300)
+                    Wait(700)
                     for k, v in pairs(horselist) do
                         if v.id == data.current.value then
                             if v.type == "horse" then
