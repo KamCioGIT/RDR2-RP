@@ -32,7 +32,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 1,
         label = "Moût",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wheatseed.png', text = "Orge",count = "x5"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wheatseed.png', text = "Orge",count = "x4"}}
     },
     ['moutwhiskybon'] = {
         type = 'distillerie',
@@ -43,7 +43,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 1,
         label = "Moût gustatif",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wheatseed.png', text = "Orge",count = "x10"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wheatseed.png', text = "Orge",count = "x8"}}
     },
 }
 
