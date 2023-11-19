@@ -970,8 +970,6 @@ Config.Export = {
         ["viandebovine"] = {label= "Viande Bovine", price= 0.3},
         ["lingotfer"] = {label= "Lingot de fer", price = 1.3},
         ["lingotor"] = {label= "Lingot d'or", price = 56},
-        ["pieceor"] = {label= "Pièce d'or", price = 2},
-        
     },
 }
 
