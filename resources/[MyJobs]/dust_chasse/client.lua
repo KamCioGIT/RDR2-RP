@@ -158,19 +158,6 @@ function deppeau() -- Peau into cuir
                         ClearPedTasks(playerPed)
                         TriggerServerEvent("boucher:serveur:giveitem", Config.Animal[i]["peau"], 2)
                     end
-                else
-                    local deleted = DeleteThis(holding)   
-                    if deleted then
-                        local dict = "amb_work@prop_human_tanning_rack_fleshing@male_a@base"
-                        RequestAnimDict(dict)
-                        while not HasAnimDictLoaded(dict) do
-                            Wait(10)
-                        end
-                        TaskPlayAnim(playerPed, dict, "base", 1.0, 1.0, -1, 0, 0, false, false, false)
-                        Wait(3000)
-                        ClearPedTasks(playerPed)
-                        TriggerServerEvent("boucher:serveur:giveitem", "cuir", 2)
-                    end
                 end
             end
 
