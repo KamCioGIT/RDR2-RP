@@ -199,6 +199,76 @@ Config.Items = {
             Moonshine()
         end
     },
+    ["moonshinebayou"] = {
+        hunger = 00,
+        thirst = 100,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Moonshine()
+        end
+    },
+    ["moonshinetrappeur"] = {
+        hunger = 00,
+        thirst = 100,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Moonshine()
+        end
+    },
+    ["moonshinecueilleur"] = {
+        hunger = 00,
+        thirst = 100,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Moonshine()
+        end
+    },
+    ["moonshineforet"] = {
+        hunger = 00,
+        thirst = 100,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Moonshine()
+        end
+    },
+    ["moonshinefongique"] = {
+        hunger = 00,
+        thirst = 100,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Moonshine()
+        end
+    },
+    ["moonshinecitadin"] = {
+        hunger = 00,
+        thirst = 100,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Moonshine()
+        end
+    },
+    ["moonshinepeignecul"] = {
+        hunger = 00,
+        thirst = 100,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Moonshine()
+        end
+    },
     ---- recette camp ---- 
     ["viandepetitmamiferecuite"] = {
         hunger = 7,
