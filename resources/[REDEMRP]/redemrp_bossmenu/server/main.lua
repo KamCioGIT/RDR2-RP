@@ -10,6 +10,7 @@ SettingGrade = {}
 Duty = {}
 JobLedgers = {}
 DutyCommandTimer = {}
+local localisation = nil
 
 Citizen.CreateThread(function()
     while true do
@@ -433,10 +434,11 @@ AddEventHandler(
 
 
 
-RegisterServerEvent("dust_export:chekitem", function()
+RegisterServerEvent("dust_export:chekitem", function(type)
     local _source = tonumber(source)
     local selltable = {} 
-	for k, v in pairs(Config.Export) do
+    localisation = type
+	for k, v in pairs(Config.Export[localisation]) do
         local ItemData = data.getItem(_source, k)
         local ItemAmount = tonumber(ItemData.ItemAmount)
         if ItemAmount >= 1 then
@@ -468,7 +470,7 @@ AddEventHandler('dust_export:SellItem', function(itemNameStr, menu, amount)
     -- Vérifier si l'heure réelle est entre 19h et 01h
     if currentRealTime.hour >= 19 or currentRealTime.hour < 1 then
         if ItemData.RemoveItem(amount) then
-            user.AddMoney(Config.Export[itemNameStr].price * amount)
+            user.AddMoney(Config.Export[localisation][itemNameStr].price * amount)
         end
     else
         TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Exportateur", "Personne n'a l'air intéressé à cette heure...", "scoretimer_textures", "scoretimer_generic_cross", 4000)

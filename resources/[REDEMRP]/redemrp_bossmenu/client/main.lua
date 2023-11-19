@@ -476,7 +476,7 @@ RegisterNetEvent("dust_export:getaccess", function()
             if Vdist(pcoords, v) < 2.0 then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
-                    TriggerServerEvent("dust_export:chekitem")
+                    TriggerServerEvent("dust_export:chekitem", k)
                 end
             end
         end

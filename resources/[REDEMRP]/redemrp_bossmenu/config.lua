@@ -929,15 +929,15 @@ Config.Jobs = {
 Config.DistanceToInteract = 2.0
 
 Config.ExportPoint = {
-    vector3(-783.3221, -1234.487, 42.54176), -- bla
-    vector3(2671.887, -1508.395, 44.96954) -- st denis 
-
-
+    ["Blackwater"]= vector3(-783.3221, -1234.487, 42.54176), -- bla
+    ["StDenis"]= vector3(2671.887, -1508.395, 44.96954) -- st denis 
 }
+
 Config.ImportNPC = {
     ["blackwater"] = {heading = 305.5272 , coords = vector3(-828.5374, -1243.587, 42.55648)},
     ["stdenis"] = {heading = 292.8161 , coords = vector3(2668.192, -1522.695, 44.96976)},
 }
+
 Config.ImportPoint = {
     [1]= vector3(2669.003, -1522.059, 45.96976), --- st denis
     [2]= vector3(-825.8802, -1241.919, 43.53639), -- bla
@@ -950,24 +950,31 @@ Config.ExportNPC = {
 
 
 Config.Export = {
-    ["lingotfer"] = {label= "Lingot de fer", price = 1.3},
-    ["lingotor"] = {label= "Lingot d'or", price = 56},
-    ["pieceor"] = {label= "Pièce d'or", price = 2},
-    ["farine"] = {label= "Farine", price = 0.2},
-    ["bouteillelait"] = {label= "Bouteille de lait", price = 0.1},
-    ["patate"] = {label= "Patate", price = 0.1},
-    ["Corn"] = {label= "Maïs", price = 0.1},
-    ["viandebovine"] = {label= "Viande Bovine", price = 0.3},
-    ["gunpowder"] = {label= "Poudre à canon", price = 0.10}, 
-    ["douille"] = {label= "Douilles", price = 0.18},
-    ["ferpepite"] = {label= "Pépite de fer", price = 0.06},
-    ["charbon"] = {label= "Charbon", price = 0.03},
-    ["cuivrepepite"] = {label= "Pépite de cuivre", price = 0.04},
-    ["plombpepite"] = {label= "Pépite de plomb", price = 0.04},
-    ["zincpepite"] = {label= "Pépite de zinc", price = 0.1},
-    ["good_whisky"] = {label= "Whisky", price = 0.33},
-    ["dirty_whiskey"] = {label= "Mauvais Whisky", price = 0.18},
+    ["Blackwater"] = {
+        ["gunpowder"] = {label= "Poudre à canon", price= 0.1}, 
+        ["douille"] = {label= "Douilles", price= 0.18},
+        ["ferpepite"] = {label= "Pépite de fer", price= 0.06},
+        ["charbon"] = {label= "Charbon", price= 0.03},
+        ["cuivrepepite"] = {label= "Pépite de cuivre", price= 0.04},
+        ["plombpepite"] = {label= "Pépite de plomb", price= 0.04},
+        ["zincpepite"] = {label= "Pépite de zinc", price= 0.1},
+        ["good_whisky"] = {label= "Whisky", price= 0.33},
+        ["dirty_whiskey"] = {label= "Mauvais Whisky", price= 0.18},
+    },
+
+    ["StDenis"] = {
+        ["farine"] = {label= "Farine", price= 0.2},
+        ["bouteillelait"] = {label= "Bouteille de lait", price= 0.1},
+        ["patate"] = {label= "Patate", price= 0.1},
+        ["Corn"] = {label= "Maïs", price= 0.1},
+        ["viandebovine"] = {label= "Viande Bovine", price= 0.3},
+        ["lingotfer"] = {label= "Lingot de fer", price = 1.3},
+        ["lingotor"] = {label= "Lingot d'or", price = 56},
+        ["pieceor"] = {label= "Pièce d'or", price = 2},
+        
+    },
 }
+
 
 Config.ImportBijoux = {
     ["watch1"] = {label= "Montre de luxe", price = 35},
