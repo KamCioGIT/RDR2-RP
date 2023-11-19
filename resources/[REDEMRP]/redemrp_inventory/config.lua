@@ -418,8 +418,8 @@ Config.Items = {
         type = "item_weapon"
     },
     ["WEAPON_MELEE_LANTERN"] = {
-        label = "Lantern",
-        description = "Lantern",
+        label = "Lanterne",
+        description = "De quoi éclairer",
         weight = 0.5,
         canBeDropped = true,
         weaponHash = GetHashKey("WEAPON_MELEE_LANTERN"),
