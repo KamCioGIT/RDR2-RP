@@ -124,6 +124,7 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value, id, target)
                 elseif _value == 9 then
                     for k, v in pairs(Config.Bijoutier) do
                         if v == RedEM.GetPlayer(_source).job then
+                            print "get"
                             TriggerClientEvent("rdr_clothes_store:OpenCustomClothesMenu", _source, "jewelry_bracelets", _clothes, target, id)
                         end
                     end
