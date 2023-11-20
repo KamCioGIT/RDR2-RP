@@ -435,5 +435,5 @@ end)
 
 
 RegisterServerEvent("dust_craft_clothes:askprevisu", function(value, type, target)
-    TriggerClientEvent("dust_craft_clothes:previsu", 2, value, type)
+    TriggerClientEvent("dust_craft_clothes:previsu", 2, value, type, target)
 end)
