@@ -2472,7 +2472,7 @@ function ChangeDBagues(id, change_type, target)
                 --     UpdateCustomClothes(target, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 -- else
                 print"getchange"
-                NativeSetPedComponentEnabled(target, 625143600, false, true, true)
+                NativeSetPedComponentEnabled(target, 625143600, true, true, true)
                 -- end
             end
         end
