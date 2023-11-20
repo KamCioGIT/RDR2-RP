@@ -3873,7 +3873,7 @@ Config.Items = {
     canBeUsed = false,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/troislotus.png",
+    imgsrc = "items/carteas.png",
     type = "item_standard",
 },
 ---- distillerie ----
