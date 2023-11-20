@@ -2116,7 +2116,7 @@ function OpenCustomClothesMenu(clothescategory, target, targetid)
             local info = {}
             info.model = CustomCache[clothescategory].model
             info.texture = CustomCache[clothescategory].texture
-            TriggerServerEvent("rdr_clothes_store:GiveDBagues", info, CurrentPrice)
+            TriggerServerEvent("rdr_clothes_store:Give"..clothescategory, info, CurrentPrice)
             OldCustomCache = {}
         else end
     end, function(data, menu)

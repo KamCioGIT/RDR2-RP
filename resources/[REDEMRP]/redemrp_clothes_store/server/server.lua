@@ -336,8 +336,8 @@ end)
 
 --- eyes
 
-RegisterServerEvent('rdr_clothes_store:GiveEyes')
-AddEventHandler('rdr_clothes_store:GiveEyes', function(info, price)
+RegisterServerEvent('rdr_clothes_store:Giveeyewear')
+AddEventHandler('rdr_clothes_store:Giveeyewear', function(info, price)
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local currentMoney = user.GetMoney()
@@ -360,8 +360,8 @@ end)
 
 --- bijoux D
 
-RegisterServerEvent('rdr_clothes_store:GiveDBagues')
-AddEventHandler('rdr_clothes_store:GiveDBagues', function(info, price)
+RegisterServerEvent('rdr_clothes_store:Givejewelry_rings_right')
+AddEventHandler('rdr_clothes_store:Givejewelry_rings_right', function(info, price)
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local currentMoney = user.GetMoney()
@@ -384,8 +384,8 @@ end)
 
 --- bijoux G
 
-RegisterServerEvent('rdr_clothes_store:GiveGBagues')
-AddEventHandler('rdr_clothes_store:GiveGBagues', function(info, price)
+RegisterServerEvent('rdr_clothes_store:Givejewelry_rings_left')
+AddEventHandler('rdr_clothes_store:Givejewelry_rings_left', function(info, price)
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local currentMoney = user.GetMoney()
@@ -409,8 +409,8 @@ end)
 
 --- acc bottes
 
-RegisterServerEvent('rdr_clothes_store:GiveAccBottes')
-AddEventHandler('rdr_clothes_store:GiveAccBottes', function(info, price)
+RegisterServerEvent('rdr_clothes_store:Giveboot_accessories')
+AddEventHandler('rdr_clothes_store:Giveboot_accessories', function(info, price)
     local _source = source
     local user = RedEM.GetPlayer(_source)
     local currentMoney = user.GetMoney()
