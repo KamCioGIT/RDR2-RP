@@ -2304,7 +2304,6 @@ end
 
 
 function MenuUpdateDBagues(data, menu, target)
-    print (target)
     if data.current.change_type == "model" then
         if DBaguesCache["jewelry_rings_right"].model ~= data.current.value then
             DBaguesCache["jewelry_rings_right"].texture = 1
@@ -2398,6 +2397,7 @@ RegisterNetEvent("redemrp_clothes_store:putDBagues", function(model, texture)
 end)
 
 function ChangeDBagues(id, change_type, target)
+    print(target)
     if id < 1 then
             Citizen.InvokeNative(0xD710A5007C2AC539, target, GetHashKey("jewelry_rings_right"), 0)
             NativeUpdatePedVariation(target)
