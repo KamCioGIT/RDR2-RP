@@ -13,12 +13,12 @@ dependency 'rsd_notify'
 
 client_scripts {
     'config.lua',
-    'client.lua',
+    'client/client.lua',
 }
 
 server_scripts {
     'config.lua',
-    'server.lua',
+    'server/server.lua',
 }
 
 escrow_ignore {

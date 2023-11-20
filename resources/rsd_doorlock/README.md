@@ -12,7 +12,7 @@
 - All notifications
 - All translations
 - All animations
-- RSD_NUI supported
+- NEW RSD_NUI supported
 - RSD_LOCKPICK supported
 - Full optimized
 - Full configurable
