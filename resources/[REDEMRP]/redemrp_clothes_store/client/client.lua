@@ -2117,7 +2117,7 @@ end)
 RegisterNetEvent('rdr_clothes_store:OpenDBaguesMenu')
 AddEventHandler('rdr_clothes_store:OpenDBaguesMenu', function(ClothesComponents, target)
     DBaguesCache = ClothesComponents
-    print (PlayerPedId(), target)
+    print (IsPedMale(target))
     if IsPedMale(target) then
         for k,v in pairs(clothes_list["male"]) do
             if DBaguesCache["jewelry_rings_right"] == nil then
