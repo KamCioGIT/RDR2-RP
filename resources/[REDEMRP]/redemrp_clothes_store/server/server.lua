@@ -100,7 +100,7 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value, id, target)
                 elseif _value == 5 then
                     for k, v in pairs(Config.Medic) do
                         if v == user.job then
-                            TriggerClientEvent("rdr_clothes_store:OpenEyesMenu", _source, _clothes)
+                            TriggerClientEvent("rdr_clothes_store:OpenEyesMenu", _source, _clothes, target)
                         end
                     end
                 elseif _value == 6 then
