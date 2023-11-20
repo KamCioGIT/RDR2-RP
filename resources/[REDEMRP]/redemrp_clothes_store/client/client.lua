@@ -3540,7 +3540,7 @@ function MenuUpdateCustom(data, menu, clothescategory, targetid)
                 Citizen.InvokeNative(0xFA233F8FE190514C, str)
                 Citizen.InvokeNative(0xE9990552DEC71600)
             end
-            ChangeCustom(data.current.value, data.current.change_type, targetid)
+            ChangeCustom(data.current.value, data.current.change_type, clothescategory, targetid)
         end
     end
     if data.current.change_type == "texture" then
