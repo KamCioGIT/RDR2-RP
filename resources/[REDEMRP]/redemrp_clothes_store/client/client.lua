@@ -3533,8 +3533,8 @@ function MenuUpdateCustom(data, menu, clothescategory, targetid)
                 menu.refresh()
 
             end
-            if CurrentPrice ~= CalculatePriceDBagues() then
-                CurrentPrice = CalculatePriceDBagues()
+            if CurrentPrice ~= CalculatePriceCustom(clothescategory) then
+                CurrentPrice = CalculatePriceCustom(clothescategory)
                 local str = Citizen.InvokeNative(0xFA925AC00EB830B9, 10, "LITERAL_STRING",
                     tostring(CurrentPrice .. "$"), Citizen.ResultAsLong())
                 Citizen.InvokeNative(0xFA233F8FE190514C, str)
@@ -3555,9 +3555,9 @@ end
 
 function ChangeCustom(id, change_type, clothescategory, targetid)
     if change_type == "model" then
-        TriggerServerEvent("dust_clothes:askchange", "jewelry_rings_right", targetid, id, 1, clothescategory)
+        TriggerServerEvent("dust_clothes:askchange", clothescategory, targetid, id, 1, clothescategory)
     else
-        TriggerServerEvent("dust_clothes:askchange", "jewelry_rings_right", targetid, CustomCache["jewelry_rings_right"].model, id, clothescategory)
+        TriggerServerEvent("dust_clothes:askchange", clothescategory, targetid, CustomCache[clothescategory].model, id, clothescategory)
     end
 end
 

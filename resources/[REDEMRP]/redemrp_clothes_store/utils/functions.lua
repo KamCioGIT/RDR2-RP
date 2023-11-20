@@ -303,3 +303,26 @@ function getClosestPlayer()
     end
     return closestPlayer, closestDistance,  playerid, tgt1
 end
+
+
+
+----- VETEMENTS CRAFT 
+
+function CalculatePriceCustom()
+	local price = 0
+		if IsPedMale(PlayerPedId()) then
+				if OldCustomCache["jewelry_rings_right"].model ~= CustomCache["jewelry_rings_right"].model or OldCustomCache["jewelry_rings_right"].texture ~= CustomCache["jewelry_rings_right"].texture then
+					if CustomCache["jewelry_rings_right"].model > 0 then
+						price = price + Config.Price["jewelry_rings_right"]
+					end
+				end
+		else
+				if OldCustomCache["jewelry_rings_right"].model ~= CustomCache["jewelry_rings_right"].model or OldCustomCache["jewelry_rings_right"].texture ~= CustomCache["jewelry_rings_right"].texture then
+					if CustomCache["jewelry_rings_right"].model > 0 then
+						price = price + Config.Price["jewelry_rings_right"]
+					end
+				end
+		
+		end
+		return price
+end
