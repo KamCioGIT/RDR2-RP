@@ -36,5 +36,7 @@ Config.PriceExport = {
         ["patate"] = {label= "Patate", price= 0.12},
         ["Corn"] = {label= "Maïs", price= 0.12},
         ["viandebovine"] = {label= "Viande Bovine", price= 0.35},
+        ["lingotfer"] = {label= "Lingot de fer", price = 1.4},
+        ["lingotor"] = {label= "Lingot d'or", price = 58},
     },
 }
