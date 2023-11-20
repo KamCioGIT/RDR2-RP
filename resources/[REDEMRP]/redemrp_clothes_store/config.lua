@@ -48,7 +48,7 @@ Config.Eyes = {
 Config.Medic = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_CG', 'doctor_NC', 'doctor_AL', 'doctor_CP', 'doctor_GB', "doctor_AB", "doctor_DB", "doctor_GE", "doctor_PB", "doctor_AR"}
 
 
-Config.Bijoutier = {"bijoutier"}
+Config.Bijoutier = {"bijouterie"}
 Config.BaguesD = {
 	[1] = vector3(2583.126, -1008.285, 44.24374), -- SAINT DENIS
 }

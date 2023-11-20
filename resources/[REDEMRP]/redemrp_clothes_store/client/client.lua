@@ -245,7 +245,6 @@ function MenuUpdateClothes(data, menu)
         end
     end
     if data.current.change_type == "texture" then
-        print(ClothesCache[data.current.category].texture)
         if ClothesCache[data.current.category].texture ~= data.current.value then
             ClothesCache[data.current.category].texture = data.current.value
             Change(data.current.value, data.current.category, data.current.change_type)
@@ -2262,7 +2261,6 @@ end
 
 --- CHANGE OUTFIT TARGET ----
 RegisterNetEvent('dust_clothes:changetargetoutfit', function(clothescategory, model, color)
-    print (clothescategory, model, color)
     if model < 1 then
         Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(clothescategory), 0)
         NativeUpdatePedVariation(PlayerPedId())
