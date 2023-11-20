@@ -2349,6 +2349,7 @@ function MenuUpdateDBagues(data, menu, target)
     if data.current.change_type == "texture" then
         if DBaguesCache["jewelry_rings_right"].texture ~= data.current.value then
             DBaguesCache["jewelry_rings_right"].texture = data.current.value
+            print(target)
             TriggerServerEvent("dust_craft_clothes:askprevisu", data.current.value, data.current.change_type, target)
             -- ChangeDBagues(data.current.value, data.current.change_type, target)
         end
