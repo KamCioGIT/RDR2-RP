@@ -2016,7 +2016,7 @@ function OpenCustomClothesMenu(clothescategory, target, targetid)
             a = a + 1
             options = {}
 
-            for i = 1, GetMaxTexturesForModel(category, CustomCache[clothescategory].model or 1), 1 do
+            for i = 1, GetMaxTexturesForModel(clothescategory, CustomCache[clothescategory].model or 1), 1 do
                 table.insert(options, i.." Couleur")
             end
             table.insert(elements, {
@@ -2026,7 +2026,7 @@ function OpenCustomClothesMenu(clothescategory, target, targetid)
                 desc = "Changer la couleur",
                 type = "slider",
                 min = 1,
-                max = GetMaxTexturesForModel(category, CustomCache[clothescategory].model or 1),
+                max = GetMaxTexturesForModel(clothescategory, CustomCache[clothescategory].model or 1),
                 change_type = "texture",
                 id = a,
                 options = options
