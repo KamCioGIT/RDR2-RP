@@ -61,7 +61,7 @@ Config.AccBottes = {
 }
 
 Config.Bracelets = {
-	[1] = vector3(2587.852, -1007.784, 43.23995), -- SAINT DENIS
+	[1] = vector3(2587.852, -1007.784, 44.23995), -- SAINT DENIS
 
 }
 
