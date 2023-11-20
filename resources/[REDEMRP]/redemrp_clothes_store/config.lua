@@ -194,7 +194,7 @@ Config.MenuElements = {
 		category = {
 			"boots",
 			"spats",
-			"boot_accessories",
+			-- "boot_accessories",
 		}
 	},
 	["hands"] = {

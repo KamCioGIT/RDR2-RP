@@ -66,11 +66,15 @@ AddEventHandler('rdr_clothes_store:Save', function(Clothes, price)
 end)
 
 RegisterServerEvent('rdr_clothes_store:LoadClothes')
-AddEventHandler('rdr_clothes_store:LoadClothes', function(value)
+AddEventHandler('rdr_clothes_store:LoadClothes', function(value, id, target)
     local _value = value
     local _source = source
     local _clothes = nil
-    local user = RedEM.GetPlayer(_source)
+    if id then 
+        user = RedEM.GetPlayer(id)
+    else
+        user = RedEM.GetPlayer(_source)
+    end
     if user then
         local identifier = user.identifier
         local charid = user.charid
@@ -102,7 +106,7 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value)
                 elseif _value == 6 then
                     for k, v in pairs(Config.Bijoutier) do
                         if v == user.job then
-                            TriggerClientEvent("rdr_clothes_store:OpenDBaguesMenu", _source, _clothes)
+                            TriggerClientEvent("rdr_clothes_store:OpenDBaguesMenu", _source, _clothes, target)
                         end
                     end
                 elseif _value == 7 then

@@ -1047,7 +1047,6 @@ function OpenHatMenu()
 
     }, function(data, menu)
         if data.current.value == "save" then
-            print "ouais la zone"
             destory()
             menu.close()
             saveOutfit = true
@@ -1902,7 +1901,6 @@ function OpenEyesMenu()
 
     }, function(data, menu)
         if data.current.value == "save" then
-            print "ouais la zone"
             destory()
             menu.close()
             saveOutfit = true
@@ -2107,8 +2105,8 @@ Citizen.CreateThread(function()
             if dist < 1.0 then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
-                    local target,_ = GetClosestPlayer()
-                    TriggerServerEvent("rdr_clothes_store:LoadClothes", 6, target)
+                    local closestPlayer, closestDistance,  playerid, tgt1 = getClosestPlayer()
+                    TriggerServerEvent("rdr_clothes_store:LoadClothes", 6, playerid, tgt1)
 
                 end
             end
@@ -2285,7 +2283,6 @@ function OpenDBaguesMenu(target)
 
     }, function(data, menu)
         if data.current.value == "save" then
-            print "ouais la zone"
             destory()
             menu.close()
             saveOutfit = true
@@ -2668,7 +2665,6 @@ function OpenGBaguesMenu()
 
     }, function(data, menu)
         if data.current.value == "save" then
-            print "ouais la zone"
             destory()
             menu.close()
             saveOutfit = true
@@ -3051,7 +3047,6 @@ function OpenAccBottesMenu()
 
     }, function(data, menu)
         if data.current.value == "save" then
-            print "ouais la zone"
             destory()
             menu.close()
             saveOutfit = true
