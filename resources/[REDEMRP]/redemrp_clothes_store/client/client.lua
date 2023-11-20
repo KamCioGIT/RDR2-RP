@@ -2497,7 +2497,7 @@ function ChangeDBagues(id, change_type, target)
                 --     UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 -- else
                 print (DBaguesCache["jewelry_rings_right"].model, id)
-                print (clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash)
+                print (clothes_list["female"]["jewelry_rings_right"][tonumber(DBaguesCache["jewelry_rings_right"].model)][id].hash)
                 NativeSetPedComponentEnabled(PlayerPedId(),
                     clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash, false, true, true)
                 -- end
