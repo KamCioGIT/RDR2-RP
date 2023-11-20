@@ -2340,13 +2340,15 @@ function MenuUpdateDBagues(data, menu, target)
                 Citizen.InvokeNative(0xFA233F8FE190514C, str)
                 Citizen.InvokeNative(0xE9990552DEC71600)
             end
-            ChangeDBagues(data.current.value, data.current.change_type, target)
+            TriggerServerEvent("dust_craft_clothes:askprevisu", data.current.value, data.current.change_type, target)
+            -- ChangeDBagues(data.current.value, data.current.change_type, target)
         end
     end
     if data.current.change_type == "texture" then
         if DBaguesCache["jewelry_rings_right"].texture ~= data.current.value then
             DBaguesCache["jewelry_rings_right"].texture = data.current.value
-            ChangeDBagues(data.current.value, data.current.change_type, target)
+            TriggerServerEvent("dust_craft_clothes:askprevisu", data.current.value, data.current.change_type, target)
+            -- ChangeDBagues(data.current.value, data.current.change_type, target)
         end
     end
 
@@ -2394,6 +2396,10 @@ RegisterNetEvent("redemrp_clothes_store:putDBagues", function(model, texture)
         end
         DBagueson = true
     end
+end)
+
+RegisterNetEvent("dust_craft_clothes:previsu", function(id, change_type, target)
+    ChangeDBagues(id, change_type, target)
 end)
 
 function ChangeDBagues(id, change_type, target)
@@ -2447,8 +2453,7 @@ function ChangeDBagues(id, change_type, target)
                     local tint2 = clothes_list["female"]["jewelry_rings_right"][id][1].tint2
                     UpdateCustomClothes(target, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 else
-                    print (target)
-                    NativeSetPedComponentEnabled(target, clothes_list["female"]["jewelry_rings_right"][id][1].hash, true, true,
+                    NativeSetPedComponentEnabled(target, clothes_list["female"]["jewelry_rings_right"][id][1].hash, false, true,
                         true)
                 end
             else
@@ -2464,7 +2469,7 @@ function ChangeDBagues(id, change_type, target)
                     UpdateCustomClothes(target, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 else
                 NativeSetPedComponentEnabled(target,
-                    clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash, true, true, true)
+                    clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash, false, true, true)
                 end
             end
         end
