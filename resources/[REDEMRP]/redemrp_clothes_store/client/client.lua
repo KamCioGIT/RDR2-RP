@@ -1950,6 +1950,9 @@ Citizen.CreateThread(function()
         end
         for k, v in pairs(Config.BaguesD) do
             local dist = Vdist(coords, v)
+            if dist < 5.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
             if dist < 1.0 then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
@@ -1960,6 +1963,9 @@ Citizen.CreateThread(function()
         end
         for k, v in pairs(Config.AccBottes) do
             local dist = Vdist(coords, v)
+            if dist < 5.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
             if dist < 1.0 then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
@@ -1970,6 +1976,9 @@ Citizen.CreateThread(function()
         end
         for k, v in pairs(Config.BaguesG) do
             local dist = Vdist(coords, v)
+            if dist < 5.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
             if dist < 1.0 then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
@@ -1980,6 +1989,9 @@ Citizen.CreateThread(function()
         end
         for k, v in pairs(Config.BaguesD) do
             local dist = Vdist(coords, v)
+            if dist < 5.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
             if dist < 1.0 then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
@@ -1990,6 +2002,9 @@ Citizen.CreateThread(function()
         end
         for k, v in pairs(Config.Bracelets) do
             local dist = Vdist(coords, v)
+            if dist < 5.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
             if dist < 1.0 then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
@@ -2000,6 +2015,9 @@ Citizen.CreateThread(function()
         end
         for k, v in pairs(Config.Eyes) do
             local dist = Vdist(coords, v)
+            if dist < 5.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, 1.5, 1.5, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
             if dist < 1.5 then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
