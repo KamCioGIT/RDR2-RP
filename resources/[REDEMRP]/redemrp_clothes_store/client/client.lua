@@ -1993,7 +1993,6 @@ Citizen.CreateThread(function()
             if dist < 1.0 then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
-                    print 'yesss'
                     local closestPlayer, closestDistance,  playerid, tgt1 = getClosestPlayer()
                     TriggerServerEvent("rdr_clothes_store:LoadClothes", 9, playerid, tgt1)
                 end
