@@ -3331,9 +3331,9 @@ RegisterNetEvent('dust_clothes:changetargetoutfit', function(category, model, co
                 local tint0 = clothes_list["male"][category][model][color].tint0
                 local tint1 = clothes_list["male"][category][model][color].tint1
                 local tint2 = clothes_list["male"][category][model][color].tint2
-                UpdateCustomClothes(PlayerPedcolor(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
             else
-            NativeSetPedComponentEnabled(PlayerPedcolor(),
+            NativeSetPedComponentEnabled(PlayerPedId(),
                 clothes_list["male"][category][model][color].hash, false, true, true)
             end
 
@@ -3347,9 +3347,9 @@ RegisterNetEvent('dust_clothes:changetargetoutfit', function(category, model, co
             local tint0 = clothes_list["female"][category][model][color].tint0
             local tint1 = clothes_list["female"][category][model][color].tint1
             local tint2 = clothes_list["female"][category][model][color].tint2
-            UpdateCustomClothes(PlayerPedcolor(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+            UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
         else
-        NativeSetPedComponentEnabled(PlayerPedcolor(),
+        NativeSetPedComponentEnabled(PlayerPedId(),
             clothes_list["female"][category][model][color].hash, false, true, true)
         end
     end
