@@ -295,7 +295,7 @@ end
 lib.addKeybind({
     name = 'ox_lib-radial',
     description = 'Open radial menu',
-    hash = 0xD8F73058,
+    hash = 0xA8E3F467,
     onPressed = function()
         if isDisabled then return end
 

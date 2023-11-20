@@ -97,16 +97,10 @@ Config.Animal = {
     [64] = {["name"] = "Alligator",                ["model"] = -1892280447,  ["viande"] = "viandereptile",  ["peau"] = "cuir",  ["poor"] = 1806153689,  ["good"] = -802026654,  ["perfect"] = -1625078531},
     [65] = {["name"] = "North American Beaver",    ["model"] = 759906147,    ["viande"] = "viandepetitmamifere",   ["peau"] = "cuir",     ["poor"] = -1569450319, ["good"] = -2059726619, ["perfect"] = 854596618},
     [66] = {["name"] = "American Black Bear",      ["model"] = 730092646,    ["viande"] = "viandegibier",  ["peau"] = "cuir",  ["poor"] = 1083865179,  ["good"] = 1490032862,  ["perfect"] = 663376218},
-
-    [67] = {["name"] = "Longnose Gar",             ["model"] = -711779521,   ["peau"] = "fish",     ["poor"] = nil,         ["good"] = nil,         ["perfect"] = nil},
-    [68] = {["name"] = "Muskie",                   ["model"] = -1553593715,  ["peau"] = "fish",     ["poor"] = nil,         ["good"] = nil,         ["perfect"] = nil},
-    [69] = {["name"] = "Lake Sturgeon",            ["model"] = -300867788,   ["peau"] = "fish",     ["poor"] = nil,         ["good"] = nil,         ["perfect"] = nil},
-    [70] = {["name"] = "Channel Catfish",          ["model"] = 1538187374,   ["peau"] = "fish",     ["poor"] = nil,         ["good"] = nil,         ["perfect"] = nil},
-    [71] = {["name"] = "Northern Pike",            ["model"] = 697075200,    ["peau"] = "fish",     ["poor"] = nil,         ["good"] = nil,         ["perfect"] = nil},
     -- AJOUT
-    [72] = {["name"] = "Silver Fox",         ["model"] = 252669332,    ["viande"] = "viandegibier",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
-    [73] = {["name"] = "Lievre de Californie",         ["model"] = -541762431,    ["viande"] = "viandepetitmamifere",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
-    [74] = {["name"] = "Mouflon sierra",         ["model"] = -1568716381,    ["viande"] = "viande",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
-    [75] = {["name"] = "Blaireau Américain",         ["model"] = -1170118274,    ["viande"] = "viandepetitmamifere",  ["peau"] = "peau_pelt_bear_black",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil}
+    [72] = {["name"] = "Silver Fox",         ["model"] = 252669332,    ["viande"] = "viandegibier",  ["peau"] = "cuir",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
+    [73] = {["name"] = "Lievre de Californie",         ["model"] = -541762431,    ["viande"] = "viandepetitmamifere",  ["peau"] = "cuir",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
+    [74] = {["name"] = "Mouflon sierra",         ["model"] = -1568716381,    ["viande"] = "viande",  ["peau"] = "cuir",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil},
+    [75] = {["name"] = "Blaireau Américain",         ["model"] = -1170118274,    ["viande"] = "viandepetitmamifere",  ["peau"] = "cuir",     ["poor"] = nil,  ["good"] = nil,   ["perfect"] =nil}
 }   
 
