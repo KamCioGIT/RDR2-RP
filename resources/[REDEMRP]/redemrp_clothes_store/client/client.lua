@@ -2471,7 +2471,7 @@ function ChangeDBagues(id, change_type, target)
                 --     UpdateCustomClothes(target, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 -- else
                 NativeSetPedComponentEnabled(target,
-                    clothes_list["female"]["jewelry_rings_right"][1][id].hash, false, true, true)
+                3881958970, false, true, true)
                 -- end
             end
         end
