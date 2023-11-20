@@ -2448,7 +2448,7 @@ function ChangeDBagues(id, change_type, target)
                     UpdateCustomClothes(target, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 else
                     print (target)
-                    NativeSetPedComponentEnabled(target, clothes_list["female"]["jewelry_rings_right"][id][1].hash, false, true,
+                    NativeSetPedComponentEnabled(target, clothes_list["female"]["jewelry_rings_right"][id][1].hash, true, true,
                         true)
                 end
             else
@@ -2464,7 +2464,7 @@ function ChangeDBagues(id, change_type, target)
                     UpdateCustomClothes(target, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 else
                 NativeSetPedComponentEnabled(target,
-                    clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash, false, true, true)
+                    clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash, true, true, true)
                 end
             end
         end
