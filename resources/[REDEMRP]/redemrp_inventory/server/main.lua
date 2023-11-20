@@ -2720,3 +2720,31 @@ RegisterServerEvent("redemrp_inventory:accbottes", function(source, info)
         )
     end
 end)
+
+RegisterServerEvent("redemrp_inventory:jewelry_bracelets", function(source, info)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local _meta = meta or {}
+    local itemData = Config.Items["jewelry_bracelets"]
+    if not _meta.model then
+        _meta.model = info.model
+    end
+    if not _meta.texture then
+        _meta.texture = info.texture
+    end
+    local item, id = getInventoryItemFromName("jewelry_bracelets", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("jewelry_bracelets", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)

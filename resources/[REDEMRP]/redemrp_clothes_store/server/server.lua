@@ -121,6 +121,12 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value, id, target)
                             TriggerClientEvent("rdr_clothes_store:OpenCustomClothesMenu", _source, "boot_accessories", _clothes, target, id)
                         end
                     end
+                elseif _value == 9 then
+                    for k, v in pairs(Config.Bijoutier) do
+                        if v == RedEM.GetPlayer(_source).job then
+                            TriggerClientEvent("rdr_clothes_store:OpenCustomClothesMenu", _source, "jewelry_bracelets", _clothes, target, id)
+                        end
+                    end
                 end
             end
         end)
@@ -429,6 +435,30 @@ AddEventHandler("RegisterUsableItem:accbottes", function(source, _data)
     local model = _data.meta.model
     local texture = _data.meta.texture
     TriggerClientEvent("redemrp_clothes_store:putAccBottes", _source, model, texture)
+end)
+
+-- bracelets
+
+RegisterServerEvent('rdr_clothes_store:Givejewelry_bracelets')
+AddEventHandler('rdr_clothes_store:Givejewelry_bracelets', function(info, price)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local currentMoney = user.GetMoney()
+    if currentMoney >= price then
+        user.RemoveMoney(price)
+        TriggerEvent("redemrp_inventory:jewelry_bracelets", _source, info)
+
+    else
+        TriggerClientEvent("redemrp_skin:LoadSkinClient", _source)
+    end
+end)
+
+RegisterServerEvent("RegisterUsableItem:jewelry_bracelets")
+AddEventHandler("RegisterUsableItem:jewelry_bracelets", function(source, _data)
+	local _source = source
+    local model = _data.meta.model
+    local texture = _data.meta.texture
+    TriggerClientEvent("redemrp_clothes_store:putjewelry_bracelets", _source, model, texture)
 end)
 
 

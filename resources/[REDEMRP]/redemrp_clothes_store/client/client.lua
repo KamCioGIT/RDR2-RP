@@ -1755,6 +1755,49 @@ RegisterNetEvent("redemrp_clothes_store:putEyes", function(model, texture)
     end
 end)
 
+local braceleton = false
+RegisterNetEvent("redemrp_clothes_store:putjewelry_bracelets", function(model, texture)
+    if braceleton then
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey("jewelry_bracelets"), 0)
+        NativeUpdatePedVariation(PlayerPedId())
+        braceleton = false
+    else
+        if IsPedMale(PlayerPedId()) then
+            if clothes_list["male"]["jewelry_bracelets"][model][texture]['is_multiplayer'] == false then
+                local drawable = clothes_list["male"]["jewelry_bracelets"][model][texture].drawable
+                local albedo = clothes_list["male"]["jewelry_bracelets"][model][texture].albedo
+                local normal = clothes_list["male"]["jewelry_bracelets"][model][texture].normal
+                local material = clothes_list["male"]["jewelry_bracelets"][model][texture].material
+                local palette = clothes_list["male"]["jewelry_bracelets"][model][texture].palette
+                local tint0 = clothes_list["male"]["jewelry_bracelets"][model][texture].tint0
+                local tint1 = clothes_list["male"]["jewelry_bracelets"][model][texture].tint1
+                local tint2 = clothes_list["male"]["jewelry_bracelets"][model][texture].tint2
+                UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+            else
+            NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"]["jewelry_bracelets"][model][texture].hash, false, true,
+                true)
+            end
+
+        else
+            if clothes_list["female"]["jewelry_bracelets"][model][texture]['is_multiplayer'] == false then
+                local drawable = clothes_list["female"]["jewelry_bracelets"][model][texture].drawable
+                local albedo = clothes_list["female"]["jewelry_bracelets"][model][texture].albedo
+                local normal = clothes_list["female"]["jewelry_bracelets"][model][texture].normal
+                local material = clothes_list["female"]["jewelry_bracelets"][model][texture].material
+                local palette = clothes_list["female"]["jewelry_bracelets"][model][texture].palette
+                local tint0 = clothes_list["female"]["jewelry_bracelets"][model][texture].tint0
+                local tint1 = clothes_list["female"]["jewelry_bracelets"][model][texture].tint1
+                local tint2 = clothes_list["female"]["jewelry_bracelets"][model][texture].tint2
+                UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+            else
+                NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"]["jewelry_bracelets"][model][texture].hash, false, true,
+                    true)
+            end
+
+        end
+        braceleton = true
+    end
+end)
 
 
 
@@ -1942,6 +1985,16 @@ Citizen.CreateThread(function()
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     local closestPlayer, closestDistance,  playerid, tgt1 = getClosestPlayer()
                     TriggerServerEvent("rdr_clothes_store:LoadClothes", 6, playerid, tgt1)
+                end
+            end
+        end
+        for k, v in pairs(Config.Bracelets) do
+            local dist = Vdist(coords, v)
+            if dist < 1.0 then
+                TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustReleased(0, 0x760A9C6F) then
+                    local closestPlayer, closestDistance,  playerid, tgt1 = getClosestPlayer()
+                    TriggerServerEvent("rdr_clothes_store:LoadClothes", 9, playerid, tgt1)
                 end
             end
         end

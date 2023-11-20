@@ -3092,6 +3092,17 @@ Config.Items = {
     imgsrc = "items/generic_clothing_glasses.png",
     type = "item_standard",
 },
+["jewelry_bracelets"] = {
+    label = "Bracelet",
+    description = "De toute beauté",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/valuable_bracelet4.png",
+    type = "item_standard",
+},
 ["DBagues"] = {
     label = "Bague",
     description = "Pour la main droite",
