@@ -3555,7 +3555,7 @@ end
 
 function ChangeCustom(id, change_type, clothescategory, targetid)
     if change_type == "model" then
-        TriggerServerEvent("dust_clothes:askchange", clothescategory, targetid, id, 1, clothescategory)
+        TriggerServerEvent("dust_clothes:askchange", targetid, clothescategory, id, 1)
     else
         TriggerServerEvent("dust_clothes:askchange", clothescategory, targetid, CustomCache[clothescategory].model, id, clothescategory)
     end
