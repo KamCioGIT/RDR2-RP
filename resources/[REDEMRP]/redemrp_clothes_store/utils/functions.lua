@@ -308,7 +308,7 @@ end
 
 ----- VETEMENTS CRAFT 
 
-function CalculatePriceCustom()
+function CalculatePriceCustom(clothescategory)
 	local price = 0
 		if IsPedMale(PlayerPedId()) then
 				if OldCustomCache[clothescategory].model ~= CustomCache[clothescategory].model or OldCustomCache[clothescategory].texture ~= CustomCache[clothescategory].texture then
