@@ -2342,16 +2342,16 @@ function MenuUpdateDBagues(data, menu, target)
                 Citizen.InvokeNative(0xFA233F8FE190514C, str)
                 Citizen.InvokeNative(0xE9990552DEC71600)
             end
-            TriggerServerEvent("dust_craft_clothes:askprevisu", data.current.value, data.current.change_type, target)
-            -- ChangeDBagues(data.current.value, data.current.change_type, target)
+            -- TriggerServerEvent("dust_craft_clothes:askprevisu", data.current.value, data.current.change_type, target)
+            ChangeDBagues(data.current.value, data.current.change_type, target)
         end
     end
     if data.current.change_type == "texture" then
         if DBaguesCache["jewelry_rings_right"].texture ~= data.current.value then
             DBaguesCache["jewelry_rings_right"].texture = data.current.value
 
-            TriggerServerEvent("dust_craft_clothes:askprevisu", data.current.value, data.current.change_type, target)
-            -- ChangeDBagues(data.current.value, data.current.change_type, target)
+            -- TriggerServerEvent("dust_craft_clothes:askprevisu", data.current.value, data.current.change_type, target)
+            ChangeDBagues(data.current.value, data.current.change_type, target)
         end
     end
 
@@ -2437,53 +2437,56 @@ function ChangeDBagues(id, change_type, target)
     else
         if IsPedMale(PlayerPedId()) then
             if change_type == "model" then
-                if clothes_list["male"]["jewelry_rings_right"][id][1]['is_multiplayer'] == false then
-                    local drawable = clothes_list["male"]["jewelry_rings_right"][id][1].drawable
-                    local albedo = clothes_list["male"]["jewelry_rings_right"][id][1].albedo
-                    local normal = clothes_list["male"]["jewelry_rings_right"][id][1].normal
-                    local material = clothes_list["male"]["jewelry_rings_right"][id][1].material
-                    local palette = clothes_list["male"]["jewelry_rings_right"][id][1].palette
-                    local tint0 = clothes_list["male"]["jewelry_rings_right"][id][1].tint0
-                    local tint1 = clothes_list["male"]["jewelry_rings_right"][id][1].tint1
-                    local tint2 = clothes_list["male"]["jewelry_rings_right"][id][1].tint2
-                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
-                else
-                NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"]["jewelry_rings_right"][id][1].hash, false, true,
-                    true)
-                end
+                -- if clothes_list["male"]["jewelry_rings_right"][id][1]['is_multiplayer'] == false then
+                --     local drawable = clothes_list["male"]["jewelry_rings_right"][id][1].drawable
+                --     local albedo = clothes_list["male"]["jewelry_rings_right"][id][1].albedo
+                --     local normal = clothes_list["male"]["jewelry_rings_right"][id][1].normal
+                --     local material = clothes_list["male"]["jewelry_rings_right"][id][1].material
+                --     local palette = clothes_list["male"]["jewelry_rings_right"][id][1].palette
+                --     local tint0 = clothes_list["male"]["jewelry_rings_right"][id][1].tint0
+                --     local tint1 = clothes_list["male"]["jewelry_rings_right"][id][1].tint1
+                --     local tint2 = clothes_list["male"]["jewelry_rings_right"][id][1].tint2
+                --     UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                -- else
+                -- NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["male"]["jewelry_rings_right"][id][1].hash, false, true,
+                --     true)
+                -- end
+                TriggerServerEvent("dust_clothes:askchange", "jewelry_rings_right", id, 1)
             else
-                if clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id]['is_multiplayer'] == false then
-                    local drawable = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].drawable
-                    local albedo = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].albedo
-                    local normal = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].normal
-                    local material = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].material
-                    local palette = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].palette
-                    local tint0 = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint0
-                    local tint1 = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint1
-                    local tint2 = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint2
-                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
-                else
-                NativeSetPedComponentEnabled(PlayerPedId(),
-                    clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash, false, true, true)
-                end
+                -- if clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id]['is_multiplayer'] == false then
+                --     local drawable = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].drawable
+                --     local albedo = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].albedo
+                --     local normal = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].normal
+                --     local material = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].material
+                --     local palette = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].palette
+                --     local tint0 = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint0
+                --     local tint1 = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint1
+                --     local tint2 = clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint2
+                --     UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                -- else
+                -- NativeSetPedComponentEnabled(PlayerPedId(),
+                --     clothes_list["male"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash, false, true, true)
+                -- end
+                TriggerServerEvent("dust_clothes:askchange", "jewelry_rings_right", DBaguesCache["jewelry_rings_right"].model, id)
             end
 
         else
             if change_type == "model" then
-                if clothes_list["female"]["jewelry_rings_right"][id][1]['is_multiplayer'] == false then
-                    local drawable = clothes_list["female"]["jewelry_rings_right"][id][1].drawable
-                    local albedo = clothes_list["female"]["jewelry_rings_right"][id][1].albedo
-                    local normal = clothes_list["female"]["jewelry_rings_right"][id][1].normal
-                    local material = clothes_list["female"]["jewelry_rings_right"][id][1].material
-                    local palette = clothes_list["female"]["jewelry_rings_right"][id][1].palette
-                    local tint0 = clothes_list["female"]["jewelry_rings_right"][id][1].tint0
-                    local tint1 = clothes_list["female"]["jewelry_rings_right"][id][1].tint1
-                    local tint2 = clothes_list["female"]["jewelry_rings_right"][id][1].tint2
-                    UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
-                else
-                    NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"]["jewelry_rings_right"][id][1].hash, false, true,
-                        true)
-                end
+                -- if clothes_list["female"]["jewelry_rings_right"][id][1]['is_multiplayer'] == false then
+                --     local drawable = clothes_list["female"]["jewelry_rings_right"][id][1].drawable
+                --     local albedo = clothes_list["female"]["jewelry_rings_right"][id][1].albedo
+                --     local normal = clothes_list["female"]["jewelry_rings_right"][id][1].normal
+                --     local material = clothes_list["female"]["jewelry_rings_right"][id][1].material
+                --     local palette = clothes_list["female"]["jewelry_rings_right"][id][1].palette
+                --     local tint0 = clothes_list["female"]["jewelry_rings_right"][id][1].tint0
+                --     local tint1 = clothes_list["female"]["jewelry_rings_right"][id][1].tint1
+                --     local tint2 = clothes_list["female"]["jewelry_rings_right"][id][1].tint2
+                --     UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                -- else
+                --     NativeSetPedComponentEnabled(PlayerPedId(), clothes_list["female"]["jewelry_rings_right"][id][1].hash, false, true,
+                --         true)
+                -- end
+                TriggerServerEvent("dust_clothes:askchange", "jewelry_rings_right", id, 1)
             else
                 -- if clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id]['is_multiplayer'] == false then
                 --     local drawable = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].drawable
@@ -2495,12 +2498,11 @@ function ChangeDBagues(id, change_type, target)
                 --     local tint1 = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint1
                 --     local tint2 = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint2
                 --     UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
-                -- else
-                print (DBaguesCache["jewelry_rings_right"].model, id)
-                print (clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash)
-                NativeSetPedComponentEnabled(PlayerPedId(),
-                    clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash, false, true, true)
-                -- end
+                -- -- else
+                -- NativeSetPedComponentEnabled(PlayerPedId(),
+                --     clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash, false, true, true)
+                -- -- end
+                TriggerServerEvent("dust_clothes:askchange", "jewelry_rings_right", DBaguesCache["jewelry_rings_right"].model, id)
             end
         end
 
@@ -3312,77 +3314,44 @@ end
 
 
 
-function ChangeTargetOutfit(change_type, category, model, color)
+
+RegisterNetEvent('dust_clothes:changetargetoutfit', function(category, model, color)
     if model < 1 then
-            Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
-            NativeUpdatePedVariation(PlayerPedId())
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
+        NativeUpdatePedVariation(PlayerPedId())
     else
-        if IsPedMale(PlayerPedId()) then
-            if change_type == "model" then
-                if clothes_list["male"][category][model][1]['is_multiplayer'] == false then
-                    local drawable = clothes_list["male"][category][model][1].drawable
-                    local albedo = clothes_list["male"][category][model][1].albedo
-                    local normal = clothes_list["male"][category][model][1].normal
-                    local material = clothes_list["male"][category][model][1].material
-                    local palette = clothes_list["male"][category][model][1].palette
-                    local tint0 = clothes_list["male"][category][model][1].tint0
-                    local tint1 = clothes_list["male"][category][model][1].tint1
-                    local tint2 = clothes_list["male"][category][model][1].tint2
-                    UpdateCustomClothes(PlayerPedmodel(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
-                else
-                NativeSetPedComponentEnabled(PlayerPedmodel(), clothes_list["male"][category][model][1].hash, false, true,
-                    true)
-                end
+    if IsPedMale(PlayerPedId()) then
+            if clothes_list["male"][category][model][color]['is_multiplayer'] == false then
+                local drawable = clothes_list["male"][category][model][color].drawable
+                local albedo = clothes_list["male"][category][model][color].albedo
+                local normal = clothes_list["male"][category][model][color].normal
+                local material = clothes_list["male"][category][model][color].material
+                local palette = clothes_list["male"][category][model][color].palette
+                local tint0 = clothes_list["male"][category][model][color].tint0
+                local tint1 = clothes_list["male"][category][model][color].tint1
+                local tint2 = clothes_list["male"][category][model][color].tint2
+                UpdateCustomClothes(PlayerPedcolor(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
             else
-                if clothes_list["male"][category][model][color]['is_multiplayer'] == false then
-                    local drawable = clothes_list["male"][category][model][color].drawable
-                    local albedo = clothes_list["male"][category][model][color].albedo
-                    local normal = clothes_list["male"][category][model][color].normal
-                    local material = clothes_list["male"][category][model][color].material
-                    local palette = clothes_list["male"][category][model][color].palette
-                    local tint0 = clothes_list["male"][category][model][color].tint0
-                    local tint1 = clothes_list["male"][category][model][color].tint1
-                    local tint2 = clothes_list["male"][category][model][color].tint2
-                    UpdateCustomClothes(PlayerPedcolor(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
-                else
-                NativeSetPedComponentEnabled(PlayerPedcolor(),
-                    clothes_list["male"][category][model][color].hash, false, true, true)
-                end
+            NativeSetPedComponentEnabled(PlayerPedcolor(),
+                clothes_list["male"][category][model][color].hash, false, true, true)
             end
 
+    else
+        if clothes_list["female"][category][model][color]['is_multiplayer'] == false then
+            local drawable = clothes_list["female"][category][model][color].drawable
+            local albedo = clothes_list["female"][category][model][color].albedo
+            local normal = clothes_list["female"][category][model][color].normal
+            local material = clothes_list["female"][category][model][color].material
+            local palette = clothes_list["female"][category][model][color].palette
+            local tint0 = clothes_list["female"][category][model][color].tint0
+            local tint1 = clothes_list["female"][category][model][color].tint1
+            local tint2 = clothes_list["female"][category][model][color].tint2
+            UpdateCustomClothes(PlayerPedcolor(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
         else
-            if change_type == "model" then
-                if clothes_list["female"][category][model][1]['is_multiplayer'] == false then
-                    local drawable = clothes_list["female"][category][model][1].drawable
-                    local albedo = clothes_list["female"][category][model][1].albedo
-                    local normal = clothes_list["female"][category][model][1].normal
-                    local material = clothes_list["female"][category][model][1].material
-                    local palette = clothes_list["female"][category][model][1].palette
-                    local tint0 = clothes_list["female"][category][model][1].tint0
-                    local tint1 = clothes_list["female"][category][model][1].tint1
-                    local tint2 = clothes_list["female"][category][model][1].tint2
-                    UpdateCustomClothes(PlayerPedmodel(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
-                else
-                NativeSetPedComponentEnabled(PlayerPedmodel(), clothes_list["female"][category][model][1].hash, false, true,
-                    true)
-                end
-            else
-                if clothes_list["female"][category][model][color]['is_multiplayer'] == false then
-                    local drawable = clothes_list["female"][category][model][color].drawable
-                    local albedo = clothes_list["female"][category][model][color].albedo
-                    local normal = clothes_list["female"][category][model][color].normal
-                    local material = clothes_list["female"][category][model][color].material
-                    local palette = clothes_list["female"][category][model][color].palette
-                    local tint0 = clothes_list["female"][category][model][color].tint0
-                    local tint1 = clothes_list["female"][category][model][color].tint1
-                    local tint2 = clothes_list["female"][category][model][color].tint2
-                    UpdateCustomClothes(PlayerPedcolor(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
-                else
-                NativeSetPedComponentEnabled(PlayerPedcolor(),
-                    clothes_list["female"][category][model][color].hash, false, true, true)
-                end
-            end
+        NativeSetPedComponentEnabled(PlayerPedcolor(),
+            clothes_list["female"][category][model][color].hash, false, true, true)
         end
-
     end
+
 end
+end)

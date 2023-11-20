@@ -439,3 +439,7 @@ end)
 RegisterServerEvent("dust_craft_clothes:askprevisu", function(value, type, table, target)
     TriggerClientEvent("dust_craft_clothes:previsu", 2, value, type, table, target)
 end)
+
+RegisterServerEvent("dust_clothes:askchange", function(id, category, model, color)
+    TriggerClientEvent('dust_clothes:changetargetoutfit', 2, category, model, color)
+end)
