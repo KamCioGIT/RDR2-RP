@@ -3444,7 +3444,7 @@ function OpenCustomClothesMenu(clothescategory, target, targetid)
         a = a + 1
         options = {}
 
-        for i = 1, GetMaxTexturesForModel(category, CustomCache[clothescategory].model or 1), 1 do
+        for i = 1, GetMaxTexturesForModel(clothescategory, CustomCache[clothescategory].model or 1), 1 do
             table.insert(options, i.." Couleur")
         end
         table.insert(elements, {
@@ -3454,7 +3454,7 @@ function OpenCustomClothesMenu(clothescategory, target, targetid)
             desc = "Changer la couleur",
             type = "slider",
             min = 1,
-            max = GetMaxTexturesForModel(category, CustomCache[clothescategory].model or 1),
+            max = GetMaxTexturesForModel(clothescategory, CustomCache[clothescategory].model or 1),
             change_type = "texture",
             id = a,
             options = options
@@ -3511,8 +3511,8 @@ function MenuUpdateCustom(data, menu, clothescategory, targetid)
             if data.current.value > 0 then
                 local options = {}
                 -- print(GetMaxTexturesForModel(data.current.category, data.current.value))
-                if GetMaxTexturesForModel(category, data.current.value) > 1 then
-                    for i = 1, GetMaxTexturesForModel(category, data.current.value), 1 do
+                if GetMaxTexturesForModel(clothescategory, data.current.value) > 1 then
+                    for i = 1, GetMaxTexturesForModel(clothescategory, data.current.value), 1 do
                         table.insert(options, i .. " Couleur")
                     end
                 else
@@ -3521,7 +3521,7 @@ function MenuUpdateCustom(data, menu, clothescategory, targetid)
                 end
                 menu.setElement(data.current.id + 1, "options", options)
                 menu.setElement(data.current.id + 1, "max",
-                    GetMaxTexturesForModel(category, data.current.value))
+                    GetMaxTexturesForModel(clothescategory, data.current.value))
                 menu.setElement(data.current.id + 1, "min", 1)
                 menu.setElement(data.current.id + 1, "value", 1)
                 menu.refresh()
