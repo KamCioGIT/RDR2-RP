@@ -2053,13 +2053,13 @@ Config.Items = {
     },
     ["sucre"] = {
         label = "Sucre",
-        description = "",
+        description = "Un sac de sucre",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = true,
         requireLvl = 0,
         limit = 2000,
-        imgsrc = "items/sugar.png",
+        imgsrc = "items/yeast.png",
         type = "item_standard",
     },
     ["semencedetoreau"] = {
