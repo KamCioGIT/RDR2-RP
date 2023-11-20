@@ -2,7 +2,7 @@ Config = {}
 
 Config.RagdollKey = 0xF3830D8E 
 Config.HandsUpKey = 0x8CC9CD42 -- x 
-Config.MenuKey = 0xA8E3F467 -- U
+Config.MenuKey = 0xF1301666 -- O
 
 Config.HandsUpAnim = {
 [1] = 	{dict= "mech_loco_f@generic@reaction@handsup@unarmed@normal", anim = "loop"},
