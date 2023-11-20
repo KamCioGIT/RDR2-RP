@@ -2470,6 +2470,7 @@ function ChangeDBagues(id, change_type, target)
                 --     local tint2 = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint2
                 --     UpdateCustomClothes(target, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 -- else
+                print"getchange"
                 NativeSetPedComponentEnabled(target,
                 3881958970, false, true, true)
                 -- end
