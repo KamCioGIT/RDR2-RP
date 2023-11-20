@@ -99,25 +99,25 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value, id, target)
                     TriggerClientEvent("rdr_clothes_store:OpenMaskMenu", _source, _clothes)
                 elseif _value == 5 then
                     for k, v in pairs(Config.Medic) do
-                        if v == user.job then
+                        if v == RedEM.GetPlayer(_source).job then
                             TriggerClientEvent("rdr_clothes_store:OpenEyesMenu", _source, _clothes, target)
                         end
                     end
                 elseif _value == 6 then
                     for k, v in pairs(Config.Bijoutier) do
-                        if v == user.job then
+                        if v == RedEM.GetPlayer(_source).job then
                             TriggerClientEvent("rdr_clothes_store:OpenDBaguesMenu", _source, _clothes, target)
                         end
                     end
                 elseif _value == 7 then
                     for k, v in pairs(Config.Bijoutier) do
-                        if v == user.job then
+                        if v == RedEM.GetPlayer(_source).job then
                             TriggerClientEvent("rdr_clothes_store:OpenGBaguesMenu", _source, _clothes, target)
                         end
                     end
                 elseif _value == 8 then
                     for k, v in pairs(Config.Bijoutier) do
-                        if v == user.job then
+                        if v == RedEM.GetPlayer(_source).job then
                             TriggerClientEvent("rdr_clothes_store:OpenAccBottesMenu", _source, _clothes, target)
                         end
                     end
