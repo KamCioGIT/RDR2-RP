@@ -2117,7 +2117,6 @@ end)
 RegisterNetEvent('rdr_clothes_store:OpenDBaguesMenu')
 AddEventHandler('rdr_clothes_store:OpenDBaguesMenu', function(ClothesComponents, target)
     DBaguesCache = ClothesComponents
-    print (IsPedMale(target))
     if IsPedMale(target) then
         for k,v in pairs(clothes_list["male"]) do
             if DBaguesCache["jewelry_rings_right"] == nil then
@@ -2305,7 +2304,7 @@ end
 
 
 function MenuUpdateDBagues(data, menu, target)
-
+    print (target)
     if data.current.change_type == "model" then
         if DBaguesCache["jewelry_rings_right"].model ~= data.current.value then
             DBaguesCache["jewelry_rings_right"].texture = 1
