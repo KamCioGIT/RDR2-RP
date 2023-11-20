@@ -2397,7 +2397,6 @@ RegisterNetEvent("redemrp_clothes_store:putDBagues", function(model, texture)
 end)
 
 function ChangeDBagues(id, change_type, target)
-    print(target)
     if id < 1 then
             Citizen.InvokeNative(0xD710A5007C2AC539, target, GetHashKey("jewelry_rings_right"), 0)
             NativeUpdatePedVariation(target)
@@ -2436,6 +2435,7 @@ function ChangeDBagues(id, change_type, target)
             end
 
         else
+            print"female"
             if change_type == "model" then
                 if clothes_list["female"]["jewelry_rings_right"][id][1]['is_multiplayer'] == false then
                     local drawable = clothes_list["female"]["jewelry_rings_right"][id][1].drawable
