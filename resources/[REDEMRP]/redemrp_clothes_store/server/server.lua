@@ -100,27 +100,25 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value, id, target)
                 elseif _value == 5 then
                     for k, v in pairs(Config.Medic) do
                         if v == RedEM.GetPlayer(_source).job then
-                            TriggerClientEvent("rdr_clothes_store:OpenEyesMenu", _source, _clothes, target)
+                            TriggerClientEvent("rdr_clothes_store:OpenCustomClothesMenu", _source, "eyewear", _clothes, target, id)
                         end
                     end
                 elseif _value == 6 then
                     for k, v in pairs(Config.Bijoutier) do
                         if v == RedEM.GetPlayer(_source).job then
                             TriggerClientEvent("rdr_clothes_store:OpenCustomClothesMenu", _source, "jewelry_rings_right", _clothes, target, id)
-                            print (id)
-                            TriggerClientEvent("rdr_clothes_store:getcache", id, _clothes)
                         end
                     end
                 elseif _value == 7 then
                     for k, v in pairs(Config.Bijoutier) do
                         if v == RedEM.GetPlayer(_source).job then
-                            TriggerClientEvent("rdr_clothes_store:OpenGBaguesMenu", _source, _clothes, target)
+                            TriggerClientEvent("rdr_clothes_store:OpenCustomClothesMenu", _source, "jewelry_rings_left", _clothes, target, id)
                         end
                     end
                 elseif _value == 8 then
                     for k, v in pairs(Config.Bijoutier) do
                         if v == RedEM.GetPlayer(_source).job then
-                            TriggerClientEvent("rdr_clothes_store:OpenAccBottesMenu", _source, _clothes, target)
+                            TriggerClientEvent("rdr_clothes_store:OpenCustomClothesMenu", _source, "boot_accessories", _clothes, target, id)
                         end
                     end
                 end
