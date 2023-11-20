@@ -2000,7 +2000,7 @@ Citizen.CreateThread(function()
         end
         for k, v in pairs(Config.Eyes) do
             local dist = Vdist(coords, v)
-            if dist < 1.0 then
+            if dist < 1.5 then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustReleased(0, 0x760A9C6F) then
                     local closestPlayer, closestDistance,  playerid, tgt1 = getClosestPlayer()
