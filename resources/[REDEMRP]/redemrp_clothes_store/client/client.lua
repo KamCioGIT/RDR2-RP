@@ -3316,6 +3316,7 @@ end
 
 
 RegisterNetEvent('dust_clothes:changetargetoutfit', function(category, model, color)
+    print (category, model, color)
     if model < 1 then
         Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
         NativeUpdatePedVariation(PlayerPedId())
