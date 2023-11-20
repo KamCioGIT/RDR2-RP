@@ -311,15 +311,15 @@ end
 function CalculatePriceCustom()
 	local price = 0
 		if IsPedMale(PlayerPedId()) then
-				if OldCustomCache["jewelry_rings_right"].model ~= CustomCache["jewelry_rings_right"].model or OldCustomCache["jewelry_rings_right"].texture ~= CustomCache["jewelry_rings_right"].texture then
-					if CustomCache["jewelry_rings_right"].model > 0 then
-						price = price + Config.Price["jewelry_rings_right"]
+				if OldCustomCache[clothescategory].model ~= CustomCache[clothescategory].model or OldCustomCache[clothescategory].texture ~= CustomCache[clothescategory].texture then
+					if CustomCache[clothescategory].model > 0 then
+						price = price + Config.Price[clothescategory]
 					end
 				end
 		else
-				if OldCustomCache["jewelry_rings_right"].model ~= CustomCache["jewelry_rings_right"].model or OldCustomCache["jewelry_rings_right"].texture ~= CustomCache["jewelry_rings_right"].texture then
-					if CustomCache["jewelry_rings_right"].model > 0 then
-						price = price + Config.Price["jewelry_rings_right"]
+				if OldCustomCache[clothescategory].model ~= CustomCache[clothescategory].model or OldCustomCache[clothescategory].texture ~= CustomCache[clothescategory].texture then
+					if CustomCache[clothescategory].model > 0 then
+						price = price + Config.Price[clothescategory]
 					end
 				end
 		
