@@ -2114,6 +2114,8 @@ Citizen.CreateThread(function()
     end
 end)
 
+
+
 RegisterNetEvent('rdr_clothes_store:OpenDBaguesMenu')
 AddEventHandler('rdr_clothes_store:OpenDBaguesMenu', function(ClothesComponents, target)
     DBaguesCache = ClothesComponents
@@ -2400,6 +2402,10 @@ end)
 
 RegisterNetEvent("dust_craft_clothes:previsu", function(id, change_type, target)
     ChangeDBagues(id, change_type, target)
+end)
+
+RegisterNetEvent("dust_craft_clothes:getcache", function(table)
+    DBaguesCache = table
 end)
 
 function ChangeDBagues(id, change_type, target)

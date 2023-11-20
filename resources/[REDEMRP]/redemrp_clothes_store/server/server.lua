@@ -107,6 +107,7 @@ AddEventHandler('rdr_clothes_store:LoadClothes', function(value, id, target)
                     for k, v in pairs(Config.Bijoutier) do
                         if v == RedEM.GetPlayer(_source).job then
                             TriggerClientEvent("rdr_clothes_store:OpenDBaguesMenu", _source, _clothes, target)
+                            TriggerClientEvent("dust_craft_clothes:getcache", 2, _clothes)
                         end
                     end
                 elseif _value == 7 then
