@@ -2435,7 +2435,6 @@ function ChangeDBagues(id, change_type, target)
             end
 
         else
-            print"female"
             if change_type == "model" then
                 if clothes_list["female"]["jewelry_rings_right"][id][1]['is_multiplayer'] == false then
                     local drawable = clothes_list["female"]["jewelry_rings_right"][id][1].drawable
@@ -2448,6 +2447,7 @@ function ChangeDBagues(id, change_type, target)
                     local tint2 = clothes_list["female"]["jewelry_rings_right"][id][1].tint2
                     UpdateCustomClothes(target, drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 else
+                    print (target)
                     NativeSetPedComponentEnabled(target, clothes_list["female"]["jewelry_rings_right"][id][1].hash, false, true,
                         true)
                 end
