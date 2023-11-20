@@ -2496,6 +2496,7 @@ function ChangeDBagues(id, change_type, target)
                 --     local tint2 = clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].tint2
                 --     UpdateCustomClothes(PlayerPedId(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
                 -- else
+                print (DBaguesCache["jewelry_rings_right"].model)
                 NativeSetPedComponentEnabled(PlayerPedId(),
                     clothes_list["female"]["jewelry_rings_right"][DBaguesCache["jewelry_rings_right"].model][id].hash, false, true, true)
                 -- end
@@ -3306,3 +3307,81 @@ end
 
 ---------- ITEM CUSTOM CRAFTABLE ---------- 
 
+
+
+
+
+function ChangeTargetOutfit(change_type, category, model, color)
+    if model < 1 then
+            Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), GetHashKey(category), 0)
+            NativeUpdatePedVariation(PlayerPedId())
+    else
+        if IsPedMale(PlayerPedId()) then
+            if change_type == "model" then
+                if clothes_list["male"][category][model][1]['is_multiplayer'] == false then
+                    local drawable = clothes_list["male"][category][model][1].drawable
+                    local albedo = clothes_list["male"][category][model][1].albedo
+                    local normal = clothes_list["male"][category][model][1].normal
+                    local material = clothes_list["male"][category][model][1].material
+                    local palette = clothes_list["male"][category][model][1].palette
+                    local tint0 = clothes_list["male"][category][model][1].tint0
+                    local tint1 = clothes_list["male"][category][model][1].tint1
+                    local tint2 = clothes_list["male"][category][model][1].tint2
+                    UpdateCustomClothes(PlayerPedmodel(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                NativeSetPedComponentEnabled(PlayerPedmodel(), clothes_list["male"][category][model][1].hash, false, true,
+                    true)
+                end
+            else
+                if clothes_list["male"][category][model][color]['is_multiplayer'] == false then
+                    local drawable = clothes_list["male"][category][model][color].drawable
+                    local albedo = clothes_list["male"][category][model][color].albedo
+                    local normal = clothes_list["male"][category][model][color].normal
+                    local material = clothes_list["male"][category][model][color].material
+                    local palette = clothes_list["male"][category][model][color].palette
+                    local tint0 = clothes_list["male"][category][model][color].tint0
+                    local tint1 = clothes_list["male"][category][model][color].tint1
+                    local tint2 = clothes_list["male"][category][model][color].tint2
+                    UpdateCustomClothes(PlayerPedcolor(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                NativeSetPedComponentEnabled(PlayerPedcolor(),
+                    clothes_list["male"][category][model][color].hash, false, true, true)
+                end
+            end
+
+        else
+            if change_type == "model" then
+                if clothes_list["female"][category][model][1]['is_multiplayer'] == false then
+                    local drawable = clothes_list["female"][category][model][1].drawable
+                    local albedo = clothes_list["female"][category][model][1].albedo
+                    local normal = clothes_list["female"][category][model][1].normal
+                    local material = clothes_list["female"][category][model][1].material
+                    local palette = clothes_list["female"][category][model][1].palette
+                    local tint0 = clothes_list["female"][category][model][1].tint0
+                    local tint1 = clothes_list["female"][category][model][1].tint1
+                    local tint2 = clothes_list["female"][category][model][1].tint2
+                    UpdateCustomClothes(PlayerPedmodel(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                NativeSetPedComponentEnabled(PlayerPedmodel(), clothes_list["female"][category][model][1].hash, false, true,
+                    true)
+                end
+            else
+                if clothes_list["female"][category][model][color]['is_multiplayer'] == false then
+                    local drawable = clothes_list["female"][category][model][color].drawable
+                    local albedo = clothes_list["female"][category][model][color].albedo
+                    local normal = clothes_list["female"][category][model][color].normal
+                    local material = clothes_list["female"][category][model][color].material
+                    local palette = clothes_list["female"][category][model][color].palette
+                    local tint0 = clothes_list["female"][category][model][color].tint0
+                    local tint1 = clothes_list["female"][category][model][color].tint1
+                    local tint2 = clothes_list["female"][category][model][color].tint2
+                    UpdateCustomClothes(PlayerPedcolor(), drawable, albedo, normal, material, palette, tint0, tint1, tint2)
+                else
+                NativeSetPedComponentEnabled(PlayerPedcolor(),
+                    clothes_list["female"][category][model][color].hash, false, true, true)
+                end
+            end
+        end
+
+    end
+end
