@@ -441,5 +441,6 @@ RegisterServerEvent("dust_craft_clothes:askprevisu", function(value, type, table
 end)
 
 RegisterServerEvent("dust_clothes:askchange", function(id, category, model, color)
+    print (id, category, model, color)
     TriggerClientEvent('dust_clothes:changetargetoutfit', id, category, model, color)
 end)
