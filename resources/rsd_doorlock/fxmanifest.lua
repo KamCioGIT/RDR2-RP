@@ -13,6 +13,7 @@ dependency 'rsd_notify'
 
 client_scripts {
     'config.lua',
+    'client/function.lua',
     'client/client.lua',
 }
 
