@@ -78,7 +78,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Essence de térébenthine',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du colibri",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x4"},{src = 'nui://redemrp_inventory/html/items/consumable_coffee.png', text = "cafe",count = "x1"},{src = 'nui://redemrp_inventory/html/items/sugar.png', text = "sucre",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du colibri",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x4"},{src = 'nui://redemrp_inventory/html/items/consumable_coffee.png', text = "cafe",count = "x1"},{src = 'nui://redemrp_inventory/html/items/yeast.png', text = "sucre",count = "x1"}}
     },
     ['concoctionendurancedeux'] = {
         type = 'medecin',
@@ -95,7 +95,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Essence de térébenthine',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/water.png', text = "Semence bovine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_rams_head.png', text = "Poule des bois",count = "x4"},{src = 'nui://redemrp_inventory/html/items/sugar.png', text = "sucre",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/water.png', text = "Semence bovine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_rams_head.png', text = "Poule des bois",count = "x4"},{src = 'nui://redemrp_inventory/html/items/yeast.png', text = "sucre",count = "x1"}}
     },
     ['concoctionendurancetrois'] = {
         type = 'medecin',
@@ -112,7 +112,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Essence de térébenthine',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_american_ginseng.png', text = "Ginseng",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_corn.png', text = "Maïs",count = "x1"},{src = 'nui://redemrp_inventory/html/items/sugar.png', text = "sucre",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_american_ginseng.png', text = "Ginseng",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_corn.png', text = "Maïs",count = "x1"},{src = 'nui://redemrp_inventory/html/items/yeast.png', text = "sucre",count = "x1"}}
     },
     ['concoctionanesthesianteun'] = {
         type = 'medecin',
@@ -409,7 +409,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Essence de térébenthine',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du colibri",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x4"},{src = 'nui://redemrp_inventory/html/items/consumable_coffee.png', text = "cafe",count = "x1"},{src = 'nui://redemrp_inventory/html/items/sugar.png', text = "sucre",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du colibri",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x4"},{src = 'nui://redemrp_inventory/html/items/consumable_coffee.png', text = "cafe",count = "x1"},{src = 'nui://redemrp_inventory/html/items/yeast.png', text = "sucre",count = "x1"}}
     },
     ['concoctionendurancedeux'] = {
         type = 'mortier',
@@ -426,7 +426,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Essence de térébenthine',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/water.png', text = "Semence bovine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_rams_head.png', text = "Poule des bois",count = "x4"},{src = 'nui://redemrp_inventory/html/items/sugar.png', text = "sucre",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/water.png', text = "Semence bovine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_herb_rams_head.png', text = "Poule des bois",count = "x4"},{src = 'nui://redemrp_inventory/html/items/yeast.png', text = "sucre",count = "x1"}}
     },
     ['concoctionendurancetrois'] = {
         type = 'mortier',
@@ -443,7 +443,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Essence de térébenthine',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_american_ginseng.png', text = "Ginseng",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_corn.png', text = "Maïs",count = "x1"},{src = 'nui://redemrp_inventory/html/items/sugar.png', text = "sucre",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_american_ginseng.png', text = "Ginseng",count = "x4"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x3"},{src = 'nui://redemrp_inventory/html/items/consumable_corn.png', text = "Maïs",count = "x1"},{src = 'nui://redemrp_inventory/html/items/yeast.png', text = "sucre",count = "x1"}}
     },
     ['concoctionanesthesianteun'] = {
         type = 'mortier',
