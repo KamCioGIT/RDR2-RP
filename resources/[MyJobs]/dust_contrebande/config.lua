@@ -32,27 +32,27 @@ Config.CraftingsReceipe = {
     type = 'moonshine',
     Itemtocraft = 2,
     ItemReceipe1Name = 'patate',
-    ItemReceipe1Amount = 3,
+    ItemReceipe1Amount = 2,
     ItemReceipe2Name = 'graisse',
     ItemReceipe2Amount = 1,
     ItemToGive = 'mout',
     Amount = 1,
     WorkingTime = 5,
     label = 'Moût',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
 },
 ['moutmais'] = {
     type = 'moonshine',
     Itemtocraft = 2,
     ItemReceipe1Name = 'Corn',
-    ItemReceipe1Amount = 3,
+    ItemReceipe1Amount = 2,
     ItemReceipe2Name = 'graisse',
     ItemReceipe2Amount = 1,
     ItemToGive = 'mout',
     Amount = 1,
     WorkingTime = 5,
     label = 'Moût',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/corn.png', text = "Maïs",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/corn.png', text = "Maïs",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
 },
 ['moutorge'] = {
     type = 'moonshine',
@@ -80,7 +80,7 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 5,
     label = 'Arôme du Bayou',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_trinket_turtle_shell.png', text = "Carapace",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_tooth.png', text = "Dent de crocodile",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_trinket_turtle_shell.png', text = "Carapace",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_tooth.png', text = "Dent de crocodile",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/moonshine_base.png', text = "Moût",count = "x1"}}
 },
 ['arometrappeur'] = {
     type = 'moonshine',
@@ -95,52 +95,52 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 5,
     label = 'Arôme du Trappeur',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_beaver_tail.png', text = "Queue de castor",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_lions_paw.png', text = "Patte d'ours",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_beaver_tail.png', text = "Queue de castor",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_lions_paw.png', text = "Patte d'ours",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/moonshine_base.png', text = "Moût",count = "x1"}}
 },
 ['aromecueilleur'] = {
     type = 'moonshine',
     Itemtocraft = 3,
     ItemReceipe1Name = 'myrtille',
-    ItemReceipe1Amount = 1,
+    ItemReceipe1Amount = 2,
     ItemReceipe2Name = 'menthesauvage',
-    ItemReceipe2Amount = 1,
+    ItemReceipe2Amount = 3,
     ItemReceipe3Name = 'mout',
     ItemReceipe3Amount = 1,
     ItemToGive = 'aromecueilleur',
     Amount = 1,
     WorkingTime = 5,
     label = 'Arôme du Cueilleur',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe Sauvage",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe Sauvage",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/moonshine_base.png', text = "Moût",count = "x1"}}
 },
 ['aromeforet'] = {
     type = 'moonshine',
     Itemtocraft = 3,
     ItemReceipe1Name = 'baiedegaultherie',
-    ItemReceipe1Amount = 1,
+    ItemReceipe1Amount = 2,
     ItemReceipe2Name = 'ginseng',
-    ItemReceipe2Amount = 1,
+    ItemReceipe2Amount = 2,
     ItemReceipe3Name = 'mout',
     ItemReceipe3Amount = 1,
     ItemToGive = 'aromeforet',
     Amount = 1,
     WorkingTime = 5,
     label = 'Arôme de la Forêt',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de Gaultherie",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_american_ginseng.png', text = "Ginseng",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wintergreen_berry.png', text = "Baie de Gaultherie",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_american_ginseng.png', text = "Ginseng",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/moonshine_base.png', text = "Moût",count = "x1"}}
 },
 ['aromefongique'] = {
     type = 'moonshine',
     Itemtocraft = 3,
     ItemReceipe1Name = 'coulemelle',
-    ItemReceipe1Amount = 1,
+    ItemReceipe1Amount = 3,
     ItemReceipe2Name = 'boletbai',
-    ItemReceipe2Amount = 1,
+    ItemReceipe2Amount = 3,
     ItemReceipe3Name = 'mout',
     ItemReceipe3Amount = 1,
     ItemToGive = 'aromefongique',
     Amount = 1,
     WorkingTime = 5,
     label = 'Arôme Fongique',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_bay_bolete.png', text = "Bolet-Baï",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_bay_bolete.png', text = "Bolet-Baï",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/moonshine_base.png', text = "Moût",count = "x1"}}
 },
 ['aromecitadin'] = {
     type = 'moonshine',
@@ -155,7 +155,7 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 5,
     label = 'Arôme du Citadin',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_arrowhead_chipped.png', text = "Dent de rongeur",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_beak.png', text = "Bec",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_arrowhead_chipped.png', text = "Dent de rongeur",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_beak.png', text = "Bec",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/moonshine_base.png', text = "Moût",count = "x1"}}
 },
 ['aromepeignecul'] = {
     type = 'moonshine',
@@ -168,7 +168,7 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 5,
     label = 'Arôme du Peigne-cul',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x5"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_feverfew.png', text = "Camomille sauvage",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/moonshine_base.png', text = "Moût",count = "x1"}}
 },
 ['aromemexicain'] = {
     type = 'moonshine',
@@ -183,7 +183,7 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 5,
     label = 'Arôme mexicain',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_panther_eye.png', text = "Glande à venin",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_snake_skin.png', text = "Peau de serpent",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_panther_eye.png', text = "Glande à venin",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_snake_skin.png', text = "Peau de serpent",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/moonshine_base.png', text = "Moût",count = "x1"}}
 },
 ['morphine'] = {
     type = 'opium',
