@@ -942,6 +942,48 @@ Config.Jobs = {
         }
     },
 
+    ---- relais de chasse
+
+    ["chasse_est"] = {
+        bigjob = "chasse",
+        Name = "Relais de chasse Est",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    
+    ["chasse_ouest"] = {
+        bigjob = "chasse",
+        Name = "Relais de chasse Ouest",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+
 
 }
 

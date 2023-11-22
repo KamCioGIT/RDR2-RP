@@ -1,4 +1,29 @@
 Config = {}
+
+Config.Jobs = {
+    [1] = "chasse_est",
+    [2] = "chasse_ouest",
+}
+
+Config.WorkingTime = 5000
+Config.DistanceToInteract = 2.0
+
+Config.Atelier = {
+    vector3(3001.744, 566.1095, 43.43312), --- est
+    vector3(-1976.708, -1651.05, 116.1088), --- ouest
+}
+
+Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
+Config.CraftAnim = {
+    "base_trans_base",
+}
+
+
+Config.CraftingsReceipe = {
+}
+
+
+
 Config.Blips = true
 
 Config.MsgInteract = "Appuyez sur Entrée"
