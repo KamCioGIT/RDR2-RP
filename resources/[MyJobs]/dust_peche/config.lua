@@ -546,3 +546,20 @@ Config.Ecrevisse = {
     vector3(1566.364, -845.6798, 40.38267),
     vector3(2595.068, -331.4922, 40.26375),
 }
+
+
+
+Config.DistanceToInteract = 2.0
+
+Config.Atelier = {
+    vector3(2125.559, -594.2456, 41.5196), --- lagras
+}
+
+Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
+Config.CraftAnim = {
+    "base_trans_base",
+}
+
+
+Config.CraftingsReceipe = {
+}
