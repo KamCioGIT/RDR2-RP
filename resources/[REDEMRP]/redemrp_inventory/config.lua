@@ -730,7 +730,36 @@ Config.Items = {
         imgsrc = "items/provision_armadillo_skin.png",
         type = "item_standard"
     },
-
+    ["caisseviande"] = {
+        label = "Caisse de viande",
+        description = "Rempli de viande et de gros sel",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/crate.png",
+        type = "item_standard"
+    },
+    ["caissepoisson"] = {
+        label = "Caisse de poisson",
+        description = "Rempli de poisson et de gros sel",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/generic_bundle_fishing.png",
+        type = "item_standard"
+    },
+    ["sel"] = {
+        label = "Sac de sel",
+        description = "Utile pour préserver les aliments",
+        weight = 0.2,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/saltpeter.png",
+        type = "item_standard"
+    },
     ---- ORPAILLAGE
     ["pepiteor"] = {
         label = "Petite pépite d'or",
@@ -1452,7 +1481,7 @@ Config.Items = {
     },
     ["serre"] = {
         label = "Serre",
-        description = "",
+        description = "Une patte d'oiseau",
         weight = 0.05,
         canBeDropped = true,
         canBeUsed = false,
@@ -1463,7 +1492,7 @@ Config.Items = {
     },
     ["bois"] = {
         label = "Bois",
-        description = "",
+        description = "Bûche de bois",
         weight = 0.3,
         canBeDropped = true,
         canBeUsed = false,
@@ -1485,7 +1514,7 @@ Config.Items = {
     },
     ["queuerenard"] = {
         label = "Queue de renard",
-        description = "",
+        description = "Pauvre renard",
         weight = 0.1,
         canBeDropped = true,
         canBeUsed = false,
