@@ -499,6 +499,7 @@ Config.Jobs = {
             },
         }
     },
+    ---- Treshawn Am Jaime
     ["doctor_TA"] = {
         bigjob = "doctor",
         Name = "Cabinet de TA",
@@ -518,6 +519,7 @@ Config.Jobs = {
             },
         }
     },
+    ---- A RENAME doctor_123 ...
     ["doctor_NC"] = {
         bigjob = "doctor",
         Name = "Cabinet de NC",
@@ -537,6 +539,7 @@ Config.Jobs = {
             },
         }
     },
+        ---- A RENAME doctor_123 ...
     ["doctor_DM"] = {
         bigjob = "doctor",
         Name = "Cabinet de DM",
@@ -556,6 +559,7 @@ Config.Jobs = {
             },
         }
     },
+        ---- A RENAME doctor_123 ...
     ["doctor_CG"] = {
         bigjob = "doctor",
         Name = "Cabinet de CG",
@@ -575,6 +579,7 @@ Config.Jobs = {
             },
         }
     },
+        ---- Armand leclair
     ["doctor_AL"] = {
         bigjob = "doctor",
         Name = "Cabinet de AL",
@@ -594,6 +599,7 @@ Config.Jobs = {
             },
         }
     },
+        ---- A RENAME doctor_123 ...
     ["doctor_CP"] = {
         bigjob = "doctor",
         Name = "Cabinet de CP",
@@ -613,9 +619,110 @@ Config.Jobs = {
             },
         }
     },
+    ---- Gabriel VanBraum
     ["doctor_GB"] = {
         bigjob = "doctor",
         Name = "Cabinet de GB",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ----- Audrey Baker
+    ["doctor_AB"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de AB",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ------ daria blumenfeld
+    ["doctor_DB"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de DB",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+   ---- A RENAME doctor_123 ...
+    ["doctor_GE"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de GE",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+      ---- A RENAME doctor_123 ...
+    ["doctor_PB"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de PB",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    ------- Awenasa Redbird
+    ["doctor_AR"] = {
+        bigjob = "doctor",
+        Name = "Cabinet de AR",
         Grades = {
             [1] = {
                 Name = "Assistant",
@@ -853,101 +960,6 @@ Config.Jobs = {
         MenuLocations = 
             vector3(2657.076, -1553.609, 47.36165)
         ,
-        Grades = {
-            [1] = {
-                Name = "Assistant",
-                StorageAccess = true,
-            },
-            [2] = {
-                Name = "Second",
-                StorageAccess = true,
-            },
-            [3] = {
-                Name = "Patron",
-                Personnel = true,
-                StorageAccess = true,
-            },
-        }
-    },
-    ["doctor_AB"] = {
-        bigjob = "doctor",
-        Name = "Cabinet de AB",
-        Grades = {
-            [1] = {
-                Name = "Assistant",
-                StorageAccess = true,
-            },
-            [2] = {
-                Name = "Second",
-                StorageAccess = true,
-            },
-            [3] = {
-                Name = "Patron",
-                Personnel = true,
-                StorageAccess = true,
-            },
-        }
-    },
-    ["doctor_DB"] = {
-        bigjob = "doctor",
-        Name = "Cabinet de DB",
-        Grades = {
-            [1] = {
-                Name = "Assistant",
-                StorageAccess = true,
-            },
-            [2] = {
-                Name = "Second",
-                StorageAccess = true,
-            },
-            [3] = {
-                Name = "Patron",
-                Personnel = true,
-                StorageAccess = true,
-            },
-        }
-    },
-    ["doctor_GE"] = {
-        bigjob = "doctor",
-        Name = "Cabinet de GE",
-        Grades = {
-            [1] = {
-                Name = "Assistant",
-                StorageAccess = true,
-            },
-            [2] = {
-                Name = "Second",
-                StorageAccess = true,
-            },
-            [3] = {
-                Name = "Patron",
-                Personnel = true,
-                StorageAccess = true,
-            },
-        }
-    },
-    ["doctor_PB"] = {
-        bigjob = "doctor",
-        Name = "Cabinet de PB",
-        Grades = {
-            [1] = {
-                Name = "Assistant",
-                StorageAccess = true,
-            },
-            [2] = {
-                Name = "Second",
-                StorageAccess = true,
-            },
-            [3] = {
-                Name = "Patron",
-                Personnel = true,
-                StorageAccess = true,
-            },
-        }
-    },
-    ["doctor_AR"] = {
-        bigjob = "doctor",
-        Name = "Cabinet de AR",
         Grades = {
             [1] = {
                 Name = "Assistant",
