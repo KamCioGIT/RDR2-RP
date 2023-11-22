@@ -29,7 +29,7 @@ AddEventHandler("dust_job:usine", function(job, grade)
 end)
 
 
-RegisterClientEvent("dust_usine:StartMission", function()
+RegisterNetEvent("dust_usine:StartMission", function()
     Citizen.CreateThread(function()
         print "gettt"
         for k,v in pairs(Config.ImportPoint) do
