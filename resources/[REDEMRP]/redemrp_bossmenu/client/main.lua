@@ -459,7 +459,6 @@ end
 --- export
 
 RegisterNetEvent("dust_export:getaccess", function()
-    print"get"
     if Config.ExportPoint then
         for k, v in pairs(Config.ExportPoint) do
             local blip = Citizen.InvokeNative(0x554d9d53f696d002, 1664425300, v)
@@ -468,6 +467,7 @@ RegisterNetEvent("dust_export:getaccess", function()
         end
     end
     Citizen.CreateThread(function()
+        print"gettt"
         while true do
             Citizen.Wait(1)
             local pcoords = GetEntityCoords(PlayerPedId())
