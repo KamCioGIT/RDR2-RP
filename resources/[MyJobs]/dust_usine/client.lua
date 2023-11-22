@@ -85,7 +85,7 @@ RegisterNetEvent("dust_usine:StartMission", function()
                     end
                 end
 
-                if getgrade >= 2 then
+                if tonumber(getgrade) >= 2 then
                     -- CREATE GUNPOWDER
                     if #(playerPos - Config.Atelier) < 10.0 then
                         Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
