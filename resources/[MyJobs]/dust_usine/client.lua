@@ -31,6 +31,7 @@ end)
 
 RegisterClientEvent("dust_usine:StartMission", function()
     Citizen.CreateThread(function()
+        print "gettt"
         for k,v in pairs(Config.ImportPoint) do
             local blips = N_0x554d9d53f696d002(1664425300, v)
             SetBlipSprite(blips, 1838354131, 1)
