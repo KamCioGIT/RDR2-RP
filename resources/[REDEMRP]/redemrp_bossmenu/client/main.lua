@@ -467,11 +467,10 @@ RegisterNetEvent("dust_export:getaccess", function()
         end
     end
     Citizen.CreateThread(function()
-        print"gettt"
         while true do
             Citizen.Wait(1)
             local pcoords = GetEntityCoords(PlayerPedId())
-            for k, v in ipairs(Config.ExportPoint) do
+            for k, v in pairs(Config.ExportPoint) do
                 print (v)
                 if #(pcoords - v) < 10.0 then
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
