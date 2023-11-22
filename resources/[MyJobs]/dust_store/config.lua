@@ -291,18 +291,18 @@ Config.CraftingsReceipe = {
         type = 'epicerie',
         Itemtocraft = 4,
         ItemReceipe1Name = 'boletbai',
-        ItemReceipe1Amount = 1,
+        ItemReceipe1Amount = 2,
         ItemReceipe2Name = 'coulemelle',
-        ItemReceipe2Amount = 1,
+        ItemReceipe2Amount = 2,
         ItemReceipe3Name = 'chanterelle',
-        ItemReceipe3Amount = 1,
+        ItemReceipe3Amount = 2,
         ItemReceipe4Name = 'charbon',
         ItemReceipe4Amount = 1,
         ItemToGive = 'soupechampignon',
         Amount = 1,
         WorkingTime = 5,
         label = 'Soupe de champignon',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_bay_bolete.png', text = "Boletbai",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_bay_bolete.png', text = "Boletbai",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_chanterelles.png', text = "Chanterelle",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['beefsteakpatate'] = {
         type = 'epicerie',
@@ -435,7 +435,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 1,
         label = 'Viande hâchée',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_exotic_bird.png', text = "Viande de petit gibier",count = "x2"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_exotic_bird.png', text = "Viande de petit gibier",count = "x3"}}
     },
     ['viandehacheereptile'] = {
         type = 'epicerie',
@@ -446,7 +446,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 1,
         label = 'Viande hâchée',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_stringy.png', text = "Viande de reptile",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_stringy.png', text = "Viande de reptile",count = "2"}}
     },
     ['viandehacheevolaille'] = {
         type = 'cuisineferme',
@@ -457,7 +457,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 1,
         label = 'Viande hâchée',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird.png', text = "Volaille",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_gamey_bird.png', text = "Volaille",count = "x2"}}
     },
     ['epismaisgrille'] = {
         type = 'epicerie',

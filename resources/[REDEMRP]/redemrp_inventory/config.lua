@@ -3229,7 +3229,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["good_whisky"] = {
-    label = "Whisky",
+    label = "Scarlett Whisky",
     description = "Un bon Whisky",
     weight = 0.1,
     canBeDropped = true,
@@ -3240,7 +3240,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["dirty_whiskey"] = {
-    label = "Mauvais Whisky",
+    label = "Whisky",
     description = "Un mauvais Whisky",
     weight = 0.1,
     canBeDropped = true,
@@ -3890,6 +3890,16 @@ Config.Items = {
 },
 ["moutwhiskybon"] = {
     label = "Moût gustatif",
+    description = "Une purée de végétaux",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/moonshine_base.png",
+    type = "item_standard",
+},["moutgin"] = {
+    label = "Moût de baie",
     description = "Une purée de végétaux",
     weight = 0.1,
     canBeDropped = true,
