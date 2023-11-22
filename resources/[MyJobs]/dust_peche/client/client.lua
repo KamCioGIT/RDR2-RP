@@ -9,7 +9,7 @@ local nextAttTime = 0
 local horizontalMove = 0
 local lastState = 0
 local status = nil
-
+local maxCraftAmountpeche = 0
 local fishing_data = {
     fish                   = { weight = 0, rodweight },
     prompt_prepare_fishing = { group, change_bait, throw_hook },
@@ -882,6 +882,17 @@ RegisterNetEvent("dust_peche:startMission", function()
                     end
                 end
             end
+            for k, pos in pairs(Config.Atelier) do
+                if #(playerPos - pos) < 10.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, pos, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                end
+                if #(playerPos - pos) < Config.DistanceToInteract and not isInteracting then
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        TriggerEvent("peche:OpenBossMenu", "pecheetabli")
+                    end
+                end
+            end
         end
 
     end)
@@ -920,3 +931,137 @@ function GiveRessource(item, amount)
         end
     end)
 end
+
+RegisterNetEvent("peche:OpenBossMenu", function(menutype)
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local jobgrade = RedEM.GetPlayerData().jobgrade
+
+        local elements = {}
+
+
+        for k, v in pairs(Config.CraftingsReceipe) do
+            if v.type == menutype then
+                table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+            end
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Atelier",
+            subtext = "Fabriquer",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            MenuData.CloseAll()
+            TriggerServerEvent("peche:MaxRessourcesAmount", data.current.value)
+            Wait(150)
+            TriggerEvent("peche:SelectCraftingAmount", data.current.value, MenuData, menu)
+            --
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)
+
+RegisterNetEvent("peche:CraftingAction")
+AddEventHandler("peche:CraftingAction", function()
+    local playerPed = PlayerPedId()
+    local coords = GetEntityCoords(playerPed)
+    FreezeEntityPosition(playerPed, true)
+    isInteracting = true
+    RequestAnimDict(Config.AnimDict)
+    while not HasAnimDictLoaded(Config.AnimDict) do
+        Citizen.Wait(50)
+    end
+
+    for k,v in pairs(Config.CraftAnim) do
+        TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 1, 0, true)
+    end
+
+    local timer = GetGameTimer() + Config.WorkingTime
+    isInteracting = true
+
+    Citizen.CreateThread(function()
+        while GetGameTimer() < timer do 
+            Wait(0)
+        end
+        ClearPedTasks(PlayerPedId())
+        FreezeEntityPosition(playerPed, false)
+        isInteracting = false
+    end)    
+end)
+
+RegisterNetEvent("peche:SelectCraftingAmount")
+AddEventHandler("peche:SelectCraftingAmount", function(dataType, menuData, menu)
+    menuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+
+    local elements = {
+        { label = "Quantité", 
+        value = 0, 
+        desc = "Se mettre au travail",
+        type = 'slider',
+        min = 0,
+        max = maxCraftAmountpeche 
+        },
+    }
+
+    menuData.Open('default', GetCurrentResourceName(), 'craft', {
+        title = "Atelier",
+        subtext = "Choisir la quantité",
+        align = 'top-right',
+        elements = elements,
+    },
+
+    function(data, menu)
+        if data.current.label == "Quantité" then
+            TriggerServerEvent("peche:CraftItem", dataType, menu, data.current.value)
+            menu.close()
+            isInteracting = false
+        end 
+    end,
+
+    function(data, menu)
+        menu.close()
+        isInteracting = false
+    end)
+end)
+
+RegisterNetEvent("peche:client:SetMaxAmount", function(value)
+    maxCraftAmountpeche = value
+end)

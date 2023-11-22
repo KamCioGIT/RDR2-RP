@@ -9,7 +9,7 @@ if DiseasesConfig['poison'] then
         Citizen.CreateThread(function()
             local sleep = false
             RegisterNetEvent("dust_maladie:poison", function()
-                print("getpoisonmega")
+                Wait(300000)
                 getpoison = true
             end)
             while true do
