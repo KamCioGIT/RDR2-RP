@@ -17,6 +17,7 @@ Config.Atelier = {
     [1] = vector3(2940.411, 523.3466, 44.33625),
     [2] = vector3(2795.335, -1168.009, 46.92803),
     [3] = vector3(-825.8636, -1318.234, 42.67582),
+    [4] = vector3(3166.408, -1951.557, 50.03321),
     [5] = vector3(2640.28, -1228.531, 52.38039)
 }
 
@@ -82,7 +83,6 @@ Config.CraftingsReceipe = {
         label = 'Viande de reptile cuite',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_meat_stringy', text = "Viande de reptile",count = "x1"}
     },
-
     ['gibierherbe'] = {
         type = 'saloon',
         Itemtocraft = 2,
