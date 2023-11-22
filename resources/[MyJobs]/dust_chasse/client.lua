@@ -61,8 +61,8 @@ RegisterNetEvent("chasse:OpenBossMenu", function(menutype)
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
-            title = "chasse",
-            subtext = "C'est chaud",
+            title = "Atelier",
+            subtext = "Fabriquer",
             align = 'top-right',
             elements = elements,
         },
