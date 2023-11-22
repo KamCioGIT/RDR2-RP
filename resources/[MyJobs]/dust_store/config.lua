@@ -93,7 +93,7 @@ Config.CraftingsReceipe = {
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'charbon',
         ItemReceipe4Amount = 1,
-        ItemToGive = 'ragoutviande',
+        ItemToGive = 'ragoutpoisson',
         Amount = 1,
         WorkingTime = 5,
         label = 'Ragoût de poisson',
@@ -127,10 +127,10 @@ Config.CraftingsReceipe = {
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'charbon',
         ItemReceipe4Amount = 1,
-        ItemToGive = 'tourteviande',
+        ItemToGive = 'tourtepoisson',
         Amount = 1,
         WorkingTime = 5,
-        label = 'Tourte à la viande',
+        label = 'Tourte au poisson',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_succulent_fish.png', text = "Filet de poisson",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_creeping_thyme.png', text = "Herbes aromatiques",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['brochettegibier'] = {

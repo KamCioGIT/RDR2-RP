@@ -70,7 +70,7 @@ Config.CraftingsReceipe = {
         ItemReceipe1Amount = 3,
         ItemReceipe2Name = 'myrtille',
         ItemReceipe2Amount = 4,
-        ItemReceipe3Name = 'cafe',
+        ItemReceipe3Name = 'coffee',
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'sucre',
         ItemReceipe4Amount = 1,
@@ -78,7 +78,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Essence de térébenthine',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du colibri",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x4"},{src = 'nui://redemrp_inventory/html/items/consumable_coffee.png', text = "cafe",count = "x1"},{src = 'nui://redemrp_inventory/html/items/yeast.png', text = "sucre",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du colibri",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x4"},{src = 'nui://redemrp_inventory/html/items/consumable_coffee.png', text = "Café",count = "x1"},{src = 'nui://redemrp_inventory/html/items/yeast.png', text = "sucre",count = "x1"}}
     },
     ['concoctionendurancedeux'] = {
         type = 'medecin',
@@ -401,7 +401,7 @@ Config.CraftingsReceipeMortier = {
         ItemReceipe1Amount = 3,
         ItemReceipe2Name = 'myrtille',
         ItemReceipe2Amount = 4,
-        ItemReceipe3Name = 'cafe',
+        ItemReceipe3Name = 'coffee',
         ItemReceipe3Amount = 1,
         ItemReceipe4Name = 'sucre',
         ItemReceipe4Amount = 1,
@@ -409,7 +409,7 @@ Config.CraftingsReceipeMortier = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Essence de térébenthine',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du colibri",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x4"},{src = 'nui://redemrp_inventory/html/items/consumable_coffee.png', text = "cafe",count = "x1"},{src = 'nui://redemrp_inventory/html/items/yeast.png', text = "sucre",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du colibri",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x4"},{src = 'nui://redemrp_inventory/html/items/consumable_coffee.png', text = "Café",count = "x1"},{src = 'nui://redemrp_inventory/html/items/yeast.png', text = "sucre",count = "x1"}}
     },
     ['concoctionendurancedeux'] = {
         type = 'mortier',
