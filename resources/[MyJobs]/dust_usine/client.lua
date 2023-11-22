@@ -22,16 +22,14 @@ AddEventHandler("dust_job:usine", function(job, grade)
         if job == v then
             getjob = true
             getgrade = grade
-            StartMission()
-        else
-            getjob = false
-            getgrade = 0
+            print (getgrade)
+            TriggerEvent("dust_usine:StartMission")
         end
     end
 end)
 
 
-function StartMission()
+RegisterClientEvent("dust_usine:StartMission", function()
     Citizen.CreateThread(function()
         for k,v in pairs(Config.ImportPoint) do
             local blips = N_0x554d9d53f696d002(1664425300, v)
@@ -53,29 +51,7 @@ function StartMission()
                         SouffreRecolt()
                     end
                 end
-
-                -- CREATE GUNPOWDER
-                if #(playerPos - Config.Atelier) < 10.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
-                    TriggerEvent('dust_presskey', "Appuyez sur G")
-                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerEvent("usine:OpenBossMenu", "usineetabli")
-                    end
-                end
-
-
-                if #(playerPos - Config.Etabli) < 10.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Etabli, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - Config.Etabli) < Config.DistanceToInteract and not isInteracting then
-                    TriggerEvent('dust_presskey', "Appuyez sur G")
-                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerEvent("usine:OpenBossMenu", "usineetablideux")
-                    end
-                end
-
+                                
                 if #(playerPos - Config.Poudre) < 10.0 then
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Poudre, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
@@ -85,7 +61,7 @@ function StartMission()
                         TriggerEvent("usine:OpenBossMenu", "usinepoudre")
                     end
                 end
-
+                
                 if #(playerPos - Config.Assembly) < 10.0 then
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Assembly, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end
@@ -95,7 +71,7 @@ function StartMission()
                         TriggerEvent("usine:OpenBossMenu", "usineassemblage")
                     end
                 end
-
+                
                 for k, v in ipairs(Config.ImportPoint) do
                     if #(playerPos - v) < 10.0 then
                         Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
@@ -107,10 +83,34 @@ function StartMission()
                         end
                     end
                 end
+
+                if getgrade >= 2 then
+                    -- CREATE GUNPOWDER
+                    if #(playerPos - Config.Atelier) < 10.0 then
+                        Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                    end
+                    if #(playerPos - Config.Atelier) < Config.DistanceToInteract and not isInteracting then
+                        TriggerEvent('dust_presskey', "Appuyez sur G")
+                        if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                            TriggerEvent("usine:OpenBossMenu", "usineetabli")
+                        end
+                    end
+
+
+                    if #(playerPos - Config.Etabli) < 10.0 then
+                        Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Etabli, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                    end
+                    if #(playerPos - Config.Etabli) < Config.DistanceToInteract and not isInteracting then
+                        TriggerEvent('dust_presskey', "Appuyez sur G")
+                        if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                            TriggerEvent("usine:OpenBossMenu", "usineetablideux")
+                        end
+                    end
+                end
             end
         end
     end)
-end
+end)
 
 function SouffreRecolt()
     Citizen.CreateThread(function()
