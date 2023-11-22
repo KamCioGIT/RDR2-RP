@@ -435,6 +435,29 @@ Config.Jobs = {
             },
         }
     },
+    ["saloon_stdenis"] = {
+        bigjob = "saloon",
+        Name = "Saloon La Bastille",
+        blisprite = 1879260108,
+        MenuLocations = 
+             vector3(2639.198, -1230.353, 52.38039)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
     ["doctor_stdenis"] = {
         bigjob = "doctor",
         Name = "Cabinet de Saint-Denis",

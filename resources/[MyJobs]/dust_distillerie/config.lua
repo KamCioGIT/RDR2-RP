@@ -45,6 +45,17 @@ Config.CraftingsReceipe = {
         label = "Moût gustatif",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wheatseed.png', text = "Orge",count = "x8"}}
     },
+    ['moutgin'] = {
+        type = 'distillerie',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'myrtille',
+        ItemReceipe1Amount = 3,
+        ItemToGive = 'moutgin',
+        Amount = 1,
+        WorkingTime = 1,
+        label = "Moût de baie",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x3"}}
+    },
 }
 
 Config.RessourcesPoints = 

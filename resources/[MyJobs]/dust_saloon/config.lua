@@ -5,7 +5,8 @@ Config.Jobs = {
     [1] = "saloon_kala",
     [2] = "saloon_faubourg",
     [3] = "saloon_bla",
-    [4] = "saloon_rhodes"
+    [4] = "saloon_rhodes",
+    [5] = "saloon_stdenis"
     ,
 }
 
@@ -15,7 +16,8 @@ Config.DistanceToInteract = 2.0
 Config.Atelier = {
     [1] = vector3(2940.411, 523.3466, 44.33625),
     [2] = vector3(2795.335, -1168.009, 46.92803),
-    [3] = vector3(-825.8636, -1318.234, 42.67582)
+    [3] = vector3(-825.8636, -1318.234, 42.67582),
+    [5] = vector3(2640.28, -1228.531, 52.38039)
 }
 
 Config.AnimDict = "script_rc@chnt1@ig@ig2_hosea_cook_eat"
@@ -128,8 +130,7 @@ Config.ImportPoint = {
 }
 
 Config.Import = {
-    ["beer"] = {label= "Bière", price = 0.1, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes"}},
-    ["gin"] = {label= "Gin", price = 0.30, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes"}},
-    ["mezcal"] = {label= "Mezcal", price = 0.30, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes"}},
-    ["lemonade"] = {label= "Limonade", price = 0.2, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes"}},
+    ["beer"] = {label= "Bière", price = 0.1, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes", "saloon_stdenis"}},
+    ["mezcal"] = {label= "Mezcal", price = 0.30, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes", "saloon_stdenis"}},
+    ["lemonade"] = {label= "Limonade", price = 0.2, saloon = {"saloon_faubourg", "saloon_kala", "saloon_bla", "saloon_rhodes", "saloon_stdenis"}},
 }
