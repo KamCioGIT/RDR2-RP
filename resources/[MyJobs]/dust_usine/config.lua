@@ -958,16 +958,14 @@ Config.CraftingsReceipe = {
 },
 ['douille'] = {
     type = 'usineassemblage',
-    Itemtocraft = 2,
-    ItemReceipe1Name = 'cuivrepepite',
-    ItemReceipe1Amount = 1,
-    ItemReceipe2Name = 'plombpepite',
-    ItemReceipe2Amount = 1,
+    Itemtocraft = 1,
+    ItemReceipe1Name = 'plombpepite',
+    ItemReceipe1Amount = 2,
     ItemToGive = 'douille',
     Amount = 1,
     WorkingTime = 1,
     label = 'Douille',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/pepitecuivre.png', text = "Pépite de cuivre",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/silverore.png', text = "Pépite de plomb",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/silverore.png', text = "Pépite de plomb",count = "x1"}}
 },
 ['ammo_revolver'] = {
     type = 'usineassemblage',
