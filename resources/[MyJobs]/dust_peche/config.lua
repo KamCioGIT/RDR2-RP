@@ -561,7 +561,7 @@ Config.CraftAnim = {
 
 Config.CraftingsReceipe = {
     ['caissedepoisson'] = {
-        type ='chasseetabli',
+        type ='pecheetabli',
         Itemtocraft = 4,
         ItemReceipe1Name = 'filetpoisson',
         ItemReceipe1Amount = 10,
