@@ -970,7 +970,7 @@ RegisterNetEvent("peche:OpenBossMenu", function(craftingtable, menutype)
                 end
             end
         end
-        
+
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
             title = "Atelier",
             subtext = "Fabriquer",
@@ -1008,7 +1008,7 @@ AddEventHandler("peche:CraftingAction", function()
         TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 1, 0, true)
     end
 
-    local timer = GetGameTimer() + Config.WorkingTime
+    local timer = GetGameTimer() + Config.WorkingTime + 500
     isInteracting = true
 
     Citizen.CreateThread(function()
