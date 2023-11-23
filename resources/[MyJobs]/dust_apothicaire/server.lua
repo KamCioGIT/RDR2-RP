@@ -78,9 +78,9 @@ AddEventHandler('doctor:CraftItem', function(itemNameStr, menu, amount)
 				end
 			end
 		end)
-				TriggerClientEvent("doctor:CraftingAction", _source)
-
 		Citizen.Wait(Config.WorkingTime)
+		TriggerClientEvent("doctor:CraftingAction", _source)
+
 	end
 end)
 
