@@ -957,13 +957,20 @@ RegisterNetEvent("peche:OpenBossMenu", function(craftingtable, menutype)
 
         local elements = {}
 
-
-        for k, v in pairs(craftingtable) do
-            if v.type == menutype then
-                table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+        if menutype == "poissonerie" then
+            for k, v in pairs(craftingtable) do
+                if v.type == menutype then
+                    table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+                end
+            end
+        else
+            for k, v in pairs(Config.CraftingsReceipe) do
+                if v.type == "pecheetabli" then
+                    table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+                end
             end
         end
-
+        
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
             title = "Atelier",
             subtext = "Fabriquer",

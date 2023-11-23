@@ -179,6 +179,7 @@ RegisterServerEvent("peche:RequestCampMenu", function(menutype)
 					craftingtable[k] = v
 				end
 			end
+			
 		end
 	end
 
