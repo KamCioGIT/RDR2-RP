@@ -1104,7 +1104,6 @@ Config.Export = {
         ["caisseviande"] = {label= "Caisse de viande", price= 1},
         ["caissepoisson"] = {label= "Caisse de poisson", price= 1},
     },
-
     ["StDenis"] = {
         ["farine"] = {label= "Farine", price= 0.2},
         ["bouteillelait"] = {label= "Bouteille de lait", price= 0.1},
@@ -1112,7 +1111,7 @@ Config.Export = {
         ["Corn"] = {label= "Maïs", price= 0.1},
         ["viandebovine"] = {label= "Viande Bovine", price= 0.3},
         ["lingotfer"] = {label= "Lingot de fer", price = 1.1},
-        ["lingotor"] = {label= "Lingot d'or", price = 53},
+        ["lingotor"] = {label= "Lingot d'or", price = 51},
         ["WEAPON_LASSO"] = {label= "Lasso", price = 7},
         ["caisseviande"] = {label= "Caisse de viande", price= 1},
         ["caissepoisson"] = {label= "Caisse de poisson", price= 1},
