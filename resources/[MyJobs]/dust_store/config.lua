@@ -457,6 +457,19 @@ Config.CraftingsReceipe = {
         label = 'Epis de maïs grillé',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/corn.png', text = "Maïs",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
     },
+    ['sucreorge'] = {
+        type = 'epicerie',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'sucre',
+        ItemReceipe1Amount = 3,
+        ItemReceipe2Name = 'myrtille',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'sucreorge',
+        Amount = 1,
+        WorkingTime = 1,
+        label = "Sucre d'orge",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/yeast.png', text = "Sucre",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x1"}}
+    },
 }
 
 Config.ImportPoint = {

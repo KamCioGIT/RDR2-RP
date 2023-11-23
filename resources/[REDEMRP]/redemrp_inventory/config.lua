@@ -2952,6 +2952,17 @@ Config.Items = {
     imgsrc = "items/cakeslice.png",
     type = "item_standard",
 },
+["sucreorge"] = {
+    label = "Sucre d'orge",
+    description = "Réjouit les papilles avec ses parfums fruités",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/rake.png",
+    type = "item_standard",
+},
 ["viandeherbe"] = {
     label = "Viande aux herbes",
     description = "Quel arôme",
