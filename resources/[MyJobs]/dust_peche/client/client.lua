@@ -889,7 +889,7 @@ RegisterNetEvent("dust_peche:startMission", function()
                 if #(playerPos - pos) < Config.DistanceToInteract and not isInteracting then
                     TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerEvent("peche:RequestCampMenu", "pecheetabli")
+                        TriggerServerEvent("peche:RequestCampMenu", "pecheetabli")
                     end
                 end
             end
