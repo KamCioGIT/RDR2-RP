@@ -40,10 +40,17 @@ end)
 
 Citizen.CreateThread(function()
     for k, v in pairs(Config.Stables) do
-        local blips = N_0x554d9d53f696d002(1664425300, v.pos)
-        SetBlipSprite(blips, -1350763423, 1)
-        SetBlipScale(blips, 1.0)
-        Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Écurie")
+        if v.type == "boat" then
+            local blips = N_0x554d9d53f696d002(1664425300, v.pos)
+            SetBlipSprite(blips, 2005921736, 1)
+            SetBlipScale(blips, 1.0)
+            Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Ponton à bateau")
+        else
+            local blips = N_0x554d9d53f696d002(1664425300, v.pos)
+            SetBlipSprite(blips, -1350763423, 1)
+            SetBlipScale(blips, 1.0)
+            Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Écurie")
+        end
     end
     for k,v in pairs(Config.Certif) do
         local blips = N_0x554d9d53f696d002(1664425300, v)

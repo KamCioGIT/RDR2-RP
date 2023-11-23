@@ -13,8 +13,8 @@ AddEventHandler("boucher:serveur:giveitem", function(item, amount)
     ItemData.AddItem(amount)               
 end)
 
-RegisterServerEvent('chasse:CraftItem')
-AddEventHandler('chasse:CraftItem', function(itemNameStr, menu, amount)
+RegisterServerEvent('herbo:CraftItem')
+AddEventHandler('herbo:CraftItem', function(itemNameStr, menu, amount)
 	local _source = tonumber(source)
 	
 	for i = 1, amount, 1 do
@@ -65,14 +65,14 @@ AddEventHandler('chasse:CraftItem', function(itemNameStr, menu, amount)
 				end
 			end
 		end)
-				TriggerClientEvent("chasse:CraftingAction", _source)
+				TriggerClientEvent("herbo:CraftingAction", _source)
 
 		Citizen.Wait(Config.WorkingTime)
 	end
 end)
 
-RegisterServerEvent('chasse:AddItem')
-AddEventHandler('chasse:AddItem', function(item, amount)
+RegisterServerEvent('herbo:AddItem')
+AddEventHandler('herbo:AddItem', function(item, amount)
 	print (item, amount)
 	local _source = tonumber(source)
 	local ItemData = data.getItem(_source, item)
@@ -81,7 +81,7 @@ AddEventHandler('chasse:AddItem', function(item, amount)
 end)
 
 
-RegisterServerEvent("chasse:MaxRessourcesAmount", function(dataType)
+RegisterServerEvent("herbo:MaxRessourcesAmount", function(dataType)
     local _source = tonumber(source)
     
 	if Config.CraftingsReceipe[dataType].Itemtocraft == 1 then
@@ -90,9 +90,9 @@ RegisterServerEvent("chasse:MaxRessourcesAmount", function(dataType)
 		local rItem1Amount = tonumber(ItemData.ItemAmount / Config.CraftingsReceipe[dataType].ItemReceipe1Amount)
 		
 		if rItem1Amount >= 1 then
-			TriggerClientEvent("chasse:client:SetMaxAmount", _source, math.floor(rItem1Amount))
+			TriggerClientEvent("herbo:client:SetMaxAmount", _source, math.floor(rItem1Amount))
 		else 
-			TriggerClientEvent("chasse:client:SetMaxAmount", _source, 0)
+			TriggerClientEvent("herbo:client:SetMaxAmount", _source, 0)
 		end
 	elseif Config.CraftingsReceipe[dataType].Itemtocraft == 2 then
 		local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
@@ -110,9 +110,9 @@ RegisterServerEvent("chasse:MaxRessourcesAmount", function(dataType)
 		end
 	
 		if hAmount >= 1 and lAmount >= 1 then
-			TriggerClientEvent("chasse:client:SetMaxAmount", _source, math.floor(lAmount))
+			TriggerClientEvent("herbo:client:SetMaxAmount", _source, math.floor(lAmount))
 		else 
-			TriggerClientEvent("chasse:client:SetMaxAmount", _source, 0)
+			TriggerClientEvent("herbo:client:SetMaxAmount", _source, 0)
 		end
 	elseif Config.CraftingsReceipe[dataType].Itemtocraft == 3 then
 		local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
@@ -131,9 +131,9 @@ RegisterServerEvent("chasse:MaxRessourcesAmount", function(dataType)
 			lAmount = Item3Amount
 		end
 		if Item1Amount >= 1 and Item2Amount >= 1 and Item3Amount >= 1 then
-			TriggerClientEvent("chasse:client:SetMaxAmount", _source, math.floor(lAmount))
+			TriggerClientEvent("herbo:client:SetMaxAmount", _source, math.floor(lAmount))
 		else
-			TriggerClientEvent("chasse:client:SetMaxAmount", _source, 0)
+			TriggerClientEvent("herbo:client:SetMaxAmount", _source, 0)
 		end
 	elseif Config.CraftingsReceipe[dataType].Itemtocraft == 4 then
 		local ItemData = data.getItem(_source, Config.CraftingsReceipe[dataType].ItemReceipe1Name)
@@ -157,9 +157,9 @@ RegisterServerEvent("chasse:MaxRessourcesAmount", function(dataType)
 			lAmount = Item4Amount
 		end
 		if Item1Amount >= 1 and Item2Amount >= 1 and Item3Amount >= 1 and Item4Amount >= 1 then
-			TriggerClientEvent("chasse:client:SetMaxAmount", _source, math.floor(lAmount))
+			TriggerClientEvent("herbo:client:SetMaxAmount", _source, math.floor(lAmount))
 		else
-			TriggerClientEvent("chasse:client:SetMaxAmount", _source, 0)
+			TriggerClientEvent("herbo:client:SetMaxAmount", _source, 0)
 		end
 	end
 

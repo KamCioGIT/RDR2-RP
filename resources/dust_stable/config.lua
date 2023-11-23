@@ -123,6 +123,48 @@ Config.Stables = {
 		pos = vector3(-885.1912, -1362.12, 43.49583),
 		name = 'Startbla',
     },
+
+    --- boat
+
+    lagrasboat = {
+        type = "boat",
+		pos = vector3(2141.561, -652.7663, 41.30879),
+		name = 'lagrasboat',
+    },
+    lagrasboat2 = {
+        type = "boat",
+		pos = vector3(2096.809, -639.1716, 39.26431),
+		name = 'lagrasboat',
+    },
+    stdenisboat = {
+        type = "boat",
+		pos =  vector3(2822.63, -1451.004, 39.88385),
+		name = 'stdenisboat',
+    },
+    blaboat = {
+        type = "boat",
+		pos =  vector3(-680.6436, -1245.555, 42.19117),
+		name = 'blaboat',
+    },
+    vanhornboat = {
+        type = "boat",
+		pos =  vector3(3010.031, 477.2984, 41.14287),
+		name = 'blaboat',
+    },
+    anesboat = {
+        type = "boat",
+		pos =  vector3(3015.86, 1332.302, 41.73211),
+		name = 'anesboat',
+    },
+    rhodesboat = {
+        type = "boat",
+		pos =   vector3(616.7775, -1260.163, 40.14383),
+		name = 'rhodesboat',
+    },
+
+
+   
+
 }
 Config.Buyhorse = {
 	Saint_Denis = {
@@ -1198,6 +1240,18 @@ Config.StashWeight = {
 	["wagontraveller01x"] = 30,
 	["wagonwork01x"] = 70,
 	["ArmySupplyWagon"] = 150,
+
+    --- boat
+    ["boatsteam02x"] = 50,
+    ["canoe"] = 20,
+    ["canoeTreeTrunk"] = 20,
+    ["keelboat"] = 70,
+    ["pirogue2"] = 20,
+    ["pirogue"] = 20,
+    ["rowboat"] = 30,
+    ["rowboatSwamp02"] = 30,
+    ["rowboatSwamp"] = 30,
+
 }
 
 Config.Hauteur = {
