@@ -570,8 +570,8 @@ Config.Atelier = {
     vector3(2125.559, -594.2456, 41.5196), --- lagras
 }
 
-Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
+Config.AnimDict = "amb_camp@prop_camp_butcher@working@rabbit@male_a@rabbit_chop@base"
 Config.CraftAnim = {
-    "base_trans_base",
+    "rabbitchop_trans_meatscoop",
 }
 
