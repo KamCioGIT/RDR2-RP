@@ -1008,7 +1008,7 @@ AddEventHandler("peche:CraftingAction", function()
         TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 1, 0, true)
     end
 
-    local timer = GetGameTimer() + Config.WorkingTime + 500
+    local timer = GetGameTimer() + Config.WorkingTime
     isInteracting = true
 
     Citizen.CreateThread(function()
@@ -1061,7 +1061,6 @@ AddEventHandler("peche:SelectCraftingAmount", function(dataType, menuData, menu)
         if data.current.label == "Quantité" then
             TriggerServerEvent("peche:CraftItem", dataType, menu, data.current.value)
             menu.close()
-            isInteracting = false
         end 
     end,
 
