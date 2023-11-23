@@ -529,7 +529,24 @@ Config.CraftingsReceipe = {
         WorkingTime = 5,
         label = 'Filet de poisson',
         descriptionimages = {src = 'nui://redemrp_inventory/html/items/provision_fish_smallmouth_bass.png', text = "Achigan à petite bouche",count = "x1"}
-    }
+    },
+    ['caissedepoisson'] = {
+        type ='pecheetabli',
+        Itemtocraft = 4,
+        ItemReceipe1Name = 'filetpoisson',
+        ItemReceipe1Amount = 10,
+        ItemReceipe2Name = 'bois',
+        ItemReceipe2Amount = 3,
+        ItemReceipe3Name = 'graisse',
+        ItemReceipe3Amount = 1,
+        ItemReceipe4Name = 'sel',
+        ItemReceipe4Amount = 3,
+        ItemToGive = 'caissepoisson',
+        Amount = 1,
+        WorkingTime = 1,
+        label = 'Caisse de poisson',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_succulent_fish.png', text = "Filet de poisson",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/saltpeter.png', text = "Sac de sel",count = "x3"}}
+    },
 }
 
 Config.AtelierPoisson = {
@@ -558,23 +575,3 @@ Config.CraftAnim = {
     "base_trans_base",
 }
 
-
-Config.CraftingsReceipe = {
-    ['caissedepoisson'] = {
-        type ='pecheetabli',
-        Itemtocraft = 4,
-        ItemReceipe1Name = 'filetpoisson',
-        ItemReceipe1Amount = 10,
-        ItemReceipe2Name = 'bois',
-        ItemReceipe2Amount = 3,
-        ItemReceipe3Name = 'graisse',
-        ItemReceipe3Amount = 1,
-        ItemReceipe4Name = 'sel',
-        ItemReceipe4Amount = 3,
-        ItemToGive = 'caissepoisson',
-        Amount = 1,
-        WorkingTime = 1,
-        label = 'Caisse de poisson',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_succulent_fish.png', text = "Filet de poisson",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/saltpeter.png', text = "Sac de sel",count = "x3"}}
-    },
-}
