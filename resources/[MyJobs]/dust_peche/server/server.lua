@@ -182,7 +182,7 @@ RegisterServerEvent("peche:RequestCampMenu", function(menutype)
 		end
 	end
 
-	TriggerClientEvent("peche:OpenCampMenu", _source, craftingtable, menutype)
+	TriggerClientEvent("peche:OpenBossMenu", _source, craftingtable, menutype)
 end)
 
 

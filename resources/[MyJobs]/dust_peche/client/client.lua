@@ -889,7 +889,7 @@ RegisterNetEvent("dust_peche:startMission", function()
                 if #(playerPos - pos) < Config.DistanceToInteract and not isInteracting then
                     TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        TriggerServerEvent("peche:RequestCampMenu", "pecheetabli")
+                        TriggerEvent("peche:RequestCampMenu", "pecheetabli")
                     end
                 end
             end
@@ -932,7 +932,7 @@ function GiveRessource(item, amount)
     end)
 end
 
-RegisterNetEvent("peche:OpenBossMenu", function(menutype)
+RegisterNetEvent("peche:OpenBossMenu", function(craftingtable, menutype)
     local Position = GetEntityCoords(PlayerPedId())
 
     Citizen.CreateThread(function()
@@ -956,7 +956,7 @@ RegisterNetEvent("peche:OpenBossMenu", function(menutype)
         local elements = {}
 
 
-        for k, v in pairs(Config.CraftingsReceipe) do
+        for k, v in pairs(craftingtable) do
             if v.type == menutype then
                 table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
             end
