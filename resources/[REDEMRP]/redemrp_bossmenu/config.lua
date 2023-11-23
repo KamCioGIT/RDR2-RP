@@ -1020,7 +1020,49 @@ Config.Jobs = {
             },
         }
     },
+    ---- relais d'herbo'
 
+    ["herbo_est"] = {
+        bigjob = "herbo",
+        MenuLocations = vector3(1862.619, 584.5271, 112.9074),
+        Name = "Relais de chasse Est",
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
+    
+    -- ["herbo_ouest"] = {
+    --     bigjob = "herbo",
+    --     MenuLocations = vector3(-1976.731, -1669.112, 117.1784),
+    --     Name = "Relais de chasse Ouest",
+    --     Grades = {
+    --         [1] = {
+    --             Name = "Assistant",
+    --             StorageAccess = true,
+    --         },
+    --         [2] = {
+    --             Name = "Second",
+    --             StorageAccess = true,
+    --         },
+    --         [3] = {
+    --             Name = "Patron",
+    --             Personnel = true,
+    --             StorageAccess = true,
+    --         },
+    --     }
+    -- },
 
 }
 
