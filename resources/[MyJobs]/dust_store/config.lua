@@ -389,21 +389,6 @@ Config.CraftingsReceipe = {
         label = 'Côte de boeuf',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_meat_big_game.png', text = "Viande Bovine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_parasol_mushroom.png', text = "Coulemelle",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_creeping_thyme.png', text = "Herbes aromatiques",count = "x1"}}
     },
-    ['herbesaromatiques'] = {
-        type = 'epicerie',
-        Itemtocraft = 3,
-        ItemReceipe1Name = 'jonccommun',
-        ItemReceipe1Amount = 1,
-        ItemReceipe2Name = 'menthesauvage',
-        ItemReceipe2Amount = 1,
-        ItemReceipe3Name = 'saugeducolibri',
-        ItemReceipe3Amount = 1,
-        ItemToGive = 'herbesaromatiques',
-        Amount = 1,
-        WorkingTime = 5,
-        label = 'Herbes Aromatiques',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_common_bulrush.png', text = "Jonc Commun",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe Sauvage",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du Colibri",count = "x1"}}
-    },
     ['viandehachee'] = {
         type = 'epicerie',
         Itemtocraft = 1,

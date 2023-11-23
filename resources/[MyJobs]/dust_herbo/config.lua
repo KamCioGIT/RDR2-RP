@@ -19,22 +19,20 @@ Config.CraftAnim = {
 
 
 Config.CraftingsReceipe = {
-    ['caissedeviande'] = {
-        type ='herboetabli',
-        Itemtocraft = 4,
-        ItemReceipe1Name = 'viandehachee',
-        ItemReceipe1Amount = 10,
-        ItemReceipe2Name = 'bois',
-        ItemReceipe2Amount = 3,
-        ItemReceipe3Name = 'graisse',
+    ['herbesaromatiques'] = {
+        type = 'epicerie',
+        Itemtocraft = 3,
+        ItemReceipe1Name = 'jonccommun',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'menthesauvage',
+        ItemReceipe2Amount = 1,
+        ItemReceipe3Name = 'saugeducolibri',
         ItemReceipe3Amount = 1,
-        ItemReceipe4Name = 'sel',
-        ItemReceipe4Amount = 3,
-        ItemToGive = 'caisseviande',
+        ItemToGive = 'herbesaromatiques',
         Amount = 1,
-        WorkingTime = 1,
-        label = 'Caisse de viande',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_rc_quartz_chunk.png', text = "Viande hâchée",count = "x10"}, {src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/saltpeter.png', text = "Sac de sel",count = "x3"}}
+        WorkingTime = 5,
+        label = 'Herbes Aromatiques',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_common_bulrush.png', text = "Jonc Commun",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe Sauvage",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_hummingbird_sage.png', text = "Sauge du Colibri",count = "x1"}}
     },
 }
 
