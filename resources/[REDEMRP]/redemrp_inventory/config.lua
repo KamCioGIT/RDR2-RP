@@ -445,8 +445,8 @@ Config.Items = {
         type = "item_weapon"
     },
     ["WEAPON_BOW"] = {
-        label = "Bow",
-        description = "Bow",
+        label = "Arc",
+        description = "C'est tendu",
         weight = 0.25,
         canBeDropped = true,
                 weaponHash = GetHashKey("WEAPON_BOW"),
