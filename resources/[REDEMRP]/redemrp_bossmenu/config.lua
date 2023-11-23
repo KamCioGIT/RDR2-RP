@@ -679,7 +679,7 @@ Config.Jobs = {
             },
         }
     },
-   ---- A RENAME doctor_123 ...
+   ---- MALIWEN
     ["doctor_GE"] = {
         bigjob = "doctor",
         Name = "Cabinet de GE",
