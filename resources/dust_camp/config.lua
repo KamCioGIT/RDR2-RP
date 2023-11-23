@@ -483,7 +483,6 @@ Config.CraftingsReceipe = {
         label = "Lait de Pavot",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/opium_smokable.png', text = "Résine de pavot",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_offal.png', text = "Bouteille de lait",count = "x1"}}
     },
-
     ['ammo_arrow_poison'] = {
         type = 'fire',
         Itemtocraft = 2,
@@ -497,7 +496,19 @@ Config.CraftingsReceipe = {
         label = "Flèche empoisonnée",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/AMMO_ARROW.png', text = "Flèche",count = "x1"},{src = 'nui://redemrp_inventory/html/items/consumable_poison_tonic.png', text = "Poison",count = "x1"}}
     },
-
+    ['laudanum'] = {
+        type = 'cauldron',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'resinepavot',
+        ItemReceipe1Amount = 2,
+        ItemReceipe2Name = 'moonshine',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'laudanum',
+        Amount = 1,
+        WorkingTime = 5,
+        label = "Laudanum",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/opium_smokable.png', text = "Résine de pavot",count = "x2"},{src = 'nui://redemrp_inventory/html/items/Moonshine.png', text = "Moonshine",count = "x1"}}
+    },
 
     ---- POISSON
     ['a_c_fishbluegil_01_ms'] = {
