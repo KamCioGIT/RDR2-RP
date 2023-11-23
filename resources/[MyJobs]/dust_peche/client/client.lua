@@ -772,6 +772,7 @@ Citizen.CreateThread(function()
                 if #(playerPos - v) < 2.2 then
                     TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustReleased(0, 0x760A9C6F) then 
+                        isInteracting = true
                         TriggerServerEvent("peche:RequestCampMenu", "poissonerie")
                     end
                 end
@@ -888,7 +889,8 @@ RegisterNetEvent("dust_peche:startMission", function()
                 end
                 if #(playerPos - pos) < Config.DistanceToInteract and not isInteracting then
                     TriggerEvent('dust_presskey', "Appuyez sur G")
-                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then
+                        isInteracting = true
                         TriggerServerEvent("peche:RequestCampMenu", "pecheetabli")
                     end
                 end
