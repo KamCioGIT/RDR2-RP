@@ -460,7 +460,7 @@ Config.Items = {
         canBeDropped = true,
         canBeUsed = true,
         weaponHash = GetHashKey("WEAPON_BOW_IMPROVED"),
-        imgsrc = "items/T_Bow_01ca.png",
+        imgsrc = "items/weapon_bow_improved.png",
         type = "item_weapon"
     },
     ["WEAPON_LASSO"] = {
