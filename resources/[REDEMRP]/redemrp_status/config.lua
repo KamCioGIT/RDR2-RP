@@ -576,7 +576,7 @@ Config.Items = {
         end
     },
     ["sucreorge"] = {
-        hunger = 40,
+        hunger = 20,
         thirst = 0,
         action = function(source, name)
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
