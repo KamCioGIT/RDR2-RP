@@ -1254,6 +1254,66 @@ Config.StashWeight = {
 
 }
 
+Config.Boat = {
+	boatsteam02x= {
+		model = "boatsteam02x",
+		name = "Barque a vapeur",
+		desc = "Un petit bateau à vapeur",
+        price = 25,
+    },
+    canoe= {
+		model = "canoe",
+		name = "Canoë",
+		desc = "Un petit canoë",
+        price = 25,
+    },
+    canoeTreeTrunk= {
+		model = "canoeTreeTrunk",
+		name = "Canoé en ",
+		desc = "Un petit bateau à vapeur",
+        price = 25,
+    },
+    keelboat= {
+		model = "keelboat",
+		name = "Barque a vapeur",
+		desc = "Un petit bateau à vapeur",
+        price = 25,
+    },
+    pirogue2= {
+		model = "pirogue2",
+		name = "Barque a vapeur",
+		desc = "Un petit bateau à vapeur",
+        price = 25,
+    },
+    pirogue= {
+		model = "pirogue",
+		name = "Barque a vapeur",
+		desc = "Un petit bateau à vapeur",
+        price = 25,
+    },
+    rowboat= { 
+		model = "rowboat",
+		name = "Barque a vapeur",
+		desc = "Un petit bateau à vapeur",
+        price = 25,
+    },
+    rowboatSwamp02= {
+		model = "rowboatSwamp02",
+		name = "Barque a vapeur",
+		desc = "Un petit bateau à vapeur",
+        price = 25,
+    },
+    rowboatSwamp= {
+		model = "rowboatSwamp",
+		name = "Barque a vapeur",
+		desc = "Un petit bateau à vapeur",
+        price = 25,
+    },
+
+}
+
+
+
 Config.Hauteur = {
     [1] = 0.1,
     [2] = 0.2,

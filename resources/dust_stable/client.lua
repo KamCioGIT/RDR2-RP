@@ -770,6 +770,54 @@ function buycart(stable, previs)
 end
 
 
+-- RegisterNetEvent('dust_stable:buyboat', function(stable, previs)
+--     TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+--         MenuData.CloseAll()
+
+--         local elements = {}
+
+--         for k, v in pairs(Config.Cart) do
+--             table.insert(elements, {label = v.name, value = v.model, desc = "Prix:  $"..v.price, price = v.price})
+--         end
+--         MenuData.Open('default', GetCurrentResourceName(), 'buycart', {
+--             title = "Acheter une charrette",
+--             subtext = "Charrette",
+--             align = 'top-right',
+--             elements = elements,
+--         },
+        
+--         function(data, menu)
+--             MenuData.CloseAll()
+--             local comp = {}
+--             for k,v in pairs(Config.CartCustom) do
+--                 if comp[k] == nil then
+--                     comp[k] = {}
+--                     comp[k].hash = nil
+--                 end
+--             end
+--             local type = "cart"
+--             TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type, data.current.price)
+--             for k, v in pairs(Spawnedprevisu) do
+--                 DeleteEntity(k)
+--             end
+--             isInteracting = false
+--         end,
+
+--         function(data, menu)
+--             menu.close()
+--             for k, v in pairs(Spawnedprevisu) do
+--                 DeleteEntity(k)
+--             end
+--             isInteracting = false
+--         end, 
+        
+--         function(data, menu)
+--             spawncartprevisu(data, menu, previs)
+--         end)
+--     end)
+-- end)
+
+
 ---- SIFFLER LE CHEVAL ----
 Citizen.CreateThread(function()
     while true do
