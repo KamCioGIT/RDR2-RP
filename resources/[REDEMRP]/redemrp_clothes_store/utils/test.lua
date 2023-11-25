@@ -78729,7 +78729,7 @@ clothes_list = {
                     ['tint2'] = 150
                 }
             },
-			[53] = {
+			[54] = {
                 [1] = {
                     ['category_hash'] = 2727505819,
                     ['category_hash_dec_signed'] = -1567461477,
@@ -78741,6 +78741,42 @@ clothes_list = {
                     ['albedo'] = `cailcwpa_0xfc71f201`,
                     ['normal'] = `xdvbncsa_0x657df503`,
                     ['material'] = `nixnahda_0xee170645`,
+                    ['palette'] = ``,
+                    ['tint0'] = 0,
+                    ['tint1'] = 0,
+                    ['tint2'] = 0
+                }
+            },
+			[55] = {
+                [1] = {
+                    ['category_hash'] = 2727505819,
+                    ['category_hash_dec_signed'] = -1567461477,
+                    ['category_hashname'] = 'coats',
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = false,
+                    ['ped_type'] = 'male',
+                    ['drawable'] = `cs_archerfordham_ms1_coat_000`,
+                    ['albedo'] = `fpfplwja_0xa2a659b1`,
+                    ['normal'] = `spteixha_0xaac9d974`,
+                    ['material'] = `jrwxwlxa_0x67a19c7d`,
+                    ['palette'] = ``,
+                    ['tint0'] = 0,
+                    ['tint1'] = 0,
+                    ['tint2'] = 0
+                }
+            },
+			[56] = {
+                [1] = {
+                    ['category_hash'] = 2727505819,
+                    ['category_hash_dec_signed'] = -1567461477,
+                    ['category_hashname'] = 'coats',
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = false,
+                    ['ped_type'] = 'male',
+                    ['drawable'] = `cs_hamish_ms1_coat_000`,
+                    ['albedo'] = `xeykzbab_0x7017878e`,
+                    ['normal'] = `ndartzva_0xb9ae78d3`,
+                    ['material'] = `sznekqoa_0x052a7639`,
                     ['palette'] = ``,
                     ['tint0'] = 0,
                     ['tint1'] = 0,
