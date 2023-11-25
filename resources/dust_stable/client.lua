@@ -1300,7 +1300,7 @@ function buyboat(name, stable, previs)
         MenuData.CloseAll()
 
         local elements = {}
-
+        print (name)
         for k, v in pairs(Config.Boat) do
             if v.shop == name then
                 table.insert(elements, {label = v.name, value = v.model, desc = "Prix:  $"..v.price, price = v.price})
@@ -1308,8 +1308,8 @@ function buyboat(name, stable, previs)
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'buyhorse', {
-            title = "Acheter un cheval",
-            subtext = "Chevaux",
+            title = "Ponton",
+            subtext = "Acheter",
             align = 'top-right',
             elements = elements,
         },
