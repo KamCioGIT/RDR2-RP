@@ -1325,7 +1325,7 @@ function buyboat(name, stable, previs)
                     comp[k].hash = nil
                 end
             end
-            local type = "horse"
+            local type = "cart"
             TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type, data.current.price)
             for k, v in pairs(Spawnedprevisu) do
                 DeleteEntity(k)
