@@ -162,6 +162,31 @@ Config.Stables = {
 		name = 'rhodesboat',
     },
 
+    indienboat = {
+        type = "boat",
+		pos =   vector3(478.7158, 1734.724, 127.0352),
+		name = 'indienboat',
+    },
+    indienboat2 = {
+        type = "boat",
+		pos =   vector3(-61.0369, 1560.699, 110.8642),
+		name = 'indienboat',
+    },
+    indienboat3 = {
+        type = "boat",
+		pos =  vector3(-1021.232, 443.9864, 53.44182),
+		name = 'indienboat',
+    },
+    indienboat4 = {
+        type = "boat",
+		pos =  vector3(-1125.48, 311.9244, 40.0304),
+		name = 'indienboat',
+    },
+    indienboat5 = {
+        type = "boat",
+		pos = vector3(-729.4803, -556.4434, 39.55353),
+		name = 'indienboat',
+    },
 
    
 
@@ -1254,60 +1279,95 @@ Config.StashWeight = {
 
 }
 
+Config.Buyboat = {
+	Saint_Denis = {
+		pos = vector3(2829.917, -1434.625, 40.75832),
+        previs = {pos= vector3(2829.502, -1448.677, 39.26667), heading = 246.0},
+		name = 'Achatboatstdenis',
+		stable= 'stdenisboat',
+	},
+    Bla = {
+		pos = vector3(-690.9506, -1245.029, 42.2087),
+        previs = {pos= vector3(-682.5925, -1253.391, 39.23567), heading = 260.0},
+		name = 'Achatboatbla',
+		stable= 'blaboat',
+	},
+    Lagras = {
+		pos = vector3(2182.174, -618.0958, 40.91831),
+        previs = {pos= vector3(2186.504, -620.0883, 39.24426), heading = 309.0},
+		name = 'Achatboatlagras',
+		stable= 'lagrasboat',
+	},
+    Achatboatindien = {
+		pos = vector3(-62.98388, 1569.527, 112.06),
+        previs = {pos= vector3(-55.46899, 1562.361, 110.6862), heading = 313.0},
+		name = 'Achatboatindien',
+		stable= 'indienboat',
+	},
+}
+
+
 Config.Boat = {
 	boatsteam02x= {
 		model = "boatsteam02x",
 		name = "Barque a vapeur",
 		desc = "Un petit bateau à vapeur",
-        price = 25,
+        price = 70,
+        shop = {"Achatboatbla", "Achatboatstdenis"}
     },
     canoe= {
 		model = "canoe",
 		name = "Canoë",
 		desc = "Un petit canoë",
-        price = 25,
+        price = 10,
+        shop = {"Achatboatindien", "Achatboatlagras"}
     },
     canoeTreeTrunk= {
 		model = "canoeTreeTrunk",
 		name = "Canoé en ",
 		desc = "Un petit bateau à vapeur",
-        price = 25,
+        price = 5,
+        shop = {"Achatboatindien"}
     },
     keelboat= {
 		model = "keelboat",
-		name = "Barque a vapeur",
-		desc = "Un petit bateau à vapeur",
-        price = 25,
+		name = "Petit bateau de transport",
+		desc = "Un petit bateau pour transporter de la marchandise",
+        price = 50,
+        shop = {"Achatboatlagras"}
     },
-    pirogue2= {
-		model = "pirogue2",
-		name = "Barque a vapeur",
-		desc = "Un petit bateau à vapeur",
-        price = 25,
-    },
+    -- pirogue2= {
+	-- 	model = "pirogue2",
+	-- 	name = "Pirogue",
+	-- 	desc = "Une pirogue",
+    --     price = 5,
+    -- },
     pirogue= {
 		model = "pirogue",
-		name = "Barque a vapeur",
-		desc = "Un petit bateau à vapeur",
-        price = 25,
+		name = "Pirogue",
+		desc = "Une pirogue",
+        price = 10,
+        shop = {"Achatboatindien"}
     },
     rowboat= { 
 		model = "rowboat",
-		name = "Barque a vapeur",
-		desc = "Un petit bateau à vapeur",
-        price = 25,
+		name = "Barque",
+		desc = "Il faut ramer",
+        price = 10,
+        shop = {"Achatboatbla", "Achatboatstdenis"}
     },
-    rowboatSwamp02= {
-		model = "rowboatSwamp02",
-		name = "Barque a vapeur",
-		desc = "Un petit bateau à vapeur",
-        price = 25,
-    },
+    -- rowboatSwamp02= {
+	-- 	model = "rowboatSwamp02",
+	-- 	name = "Barque du bayou",
+	-- 	desc = "Gaffe aux alligators",
+    --     price = 25,
+    -- },
     rowboatSwamp= {
 		model = "rowboatSwamp",
-		name = "Barque a vapeur",
-		desc = "Un petit bateau à vapeur",
-        price = 25,
+		name = "Barque du bayou",
+		desc = "Gaffe aux alligators",
+        price = 10,
+        shop = {"Achatboatlagras"}
     },
 
 }

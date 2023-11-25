@@ -42,7 +42,7 @@ Citizen.CreateThread(function()
     for k, v in pairs(Config.Stables) do
         if v.type == "boat" then
             local blips = N_0x554d9d53f696d002(1664425300, v.pos)
-            SetBlipSprite(blips, 2005921736, 1)
+            SetBlipSprite(blips, 62421675, 1)
             SetBlipScale(blips, 1.0)
             Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Ponton à bateau")
         else
@@ -1263,4 +1263,82 @@ function spawncartprevisu(data, menu, previs)
 
     Spawnedprevisu[previsucart] = true
     initializing = false
+end
+
+
+
+----- 
+
+Citizen.CreateThread(function()
+    for k,v in pairs(Config.Buyboat) do
+            local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
+            SetBlipSprite(blip, -1715189579)
+            SetBlipScale(blip, 0.2)
+            Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Vente de chevaux"))
+    end
+    while true do
+        Wait(0)
+        local playerpos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.Buyboat) do
+            if #(playerpos - v.pos) < 6.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.pos, 0, 0, 0, 0, 0, 0, 2.2, 2.2, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarke
+                if #(playerpos - v.pos ) < 2.2 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
+                    if IsControlJustReleased(0, 0x760A9C6F) then
+                        buyboat(v.name, v.stable, v.previs)
+                        isInteracting = true
+                    end
+                end
+            end
+        end
+    end
+end)
+
+
+function buyboat(name, stable, previs)
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+
+        local elements = {}
+
+        for k, v in pairs(Config.Boat) do
+            if v.shop == name then
+                table.insert(elements, {label = v.name, value = v.model, desc = "Prix:  $"..v.price, price = v.price})
+            end
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'buyhorse', {
+            title = "Acheter un cheval",
+            subtext = "Chevaux",
+            align = 'top-right',
+            elements = elements,
+        },
+        
+        function(data, menu)
+            MenuData.CloseAll()
+            local comp = {}
+            for k,v in pairs(Config.Label) do
+                if comp[k] == nil then
+                    comp[k] = {}
+                    comp[k].hash = nil
+                end
+            end
+            local type = "horse"
+            TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type, data.current.price)
+            for k, v in pairs(Spawnedprevisu) do
+                DeleteEntity(k)
+            end
+            isInteracting = false
+        end,
+
+        function(data, menu)
+            menu.close()
+            for k, v in pairs(Spawnedprevisu) do
+                DeleteEntity(k)
+            end
+            isInteracting = false
+        end, function(data, menu)
+            spawnprevisu(data, menu, previs)
+        end)
+    end)
 end

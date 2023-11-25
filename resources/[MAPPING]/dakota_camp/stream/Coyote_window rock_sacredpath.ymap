@@ -85,21 +85,6 @@
         <Item type="CEntityDef">
 			<archetypeName>p_dis_ropebridge</archetypeName>
 			<flags value="1572897"/>
-			<position x="-53.410000" y="1507.119995" z="113.430000"/>
-			<rotation w="0.987233" x="-0.027484" y="0.010535" z="0.156540"/>
-			<scaleXY value="1"/>
-			<scaleZ value="1"/>
-			<parentIndex value="-1"/>
-			<lodDist value="500"/>
-			<childLodDist value="500"/>
-			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
-			<numChildren value="0"/>
-			<ambientOcclusionMultiplier value="255"/>
-			<artificialAmbientOcclusion value="255"/>
-		</Item>
-        <Item type="CEntityDef">
-			<archetypeName>p_dis_ropebridge</archetypeName>
-			<flags value="1572897"/>
 			<position x="-114.385277" y="1662.100952" z="131.410126"/>
 			<rotation w="0.990368" x="-0.009413" y="-0.107588" z="0.086645"/>
 			<scaleXY value="1"/>
