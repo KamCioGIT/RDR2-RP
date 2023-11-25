@@ -1302,6 +1302,7 @@ function buyboat(name, stable, previs)
         local elements = {}
         print (name)
         for k, v in pairs(Config.Boat) do
+            print(v.shop)
             if v.shop == name then
                 table.insert(elements, {label = v.name, value = v.model, desc = "Prix:  $"..v.price, price = v.price})
             end
