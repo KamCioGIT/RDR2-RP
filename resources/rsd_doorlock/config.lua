@@ -67,8 +67,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1508776842,
@@ -79,8 +78,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 535323366,
@@ -91,8 +89,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 295355979,
@@ -103,8 +100,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 193903155,
@@ -115,8 +111,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
         --RHODES--
@@ -129,8 +124,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1614494720,
@@ -141,8 +135,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1878514758,
@@ -153,8 +146,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         --ST DENIS--
         {
@@ -166,8 +158,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"marshall"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1995743734,
@@ -178,8 +169,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"marshall"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2515591150,
@@ -190,8 +180,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"marshall"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3365520707,
@@ -202,8 +191,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"marshall"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
         --STRAWBERRY--
@@ -216,8 +204,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1207903970,
@@ -228,8 +215,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1821044729,
@@ -240,8 +226,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1514359658,
@@ -252,8 +237,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
         --BLACKWATER--
@@ -266,8 +250,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2810801921,
@@ -278,8 +261,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2167775834,
@@ -290,8 +272,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2514996158,
@@ -302,8 +283,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"sheriff_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
         --ARMADILLO--
@@ -316,8 +296,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 4235597664,
@@ -328,8 +307,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         
     ---------------------------------------------------------------------------------
@@ -346,8 +324,7 @@ Config.Doors = {
             locked = false,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2058564250,
@@ -358,8 +335,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1634148892,
@@ -370,8 +346,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3142122679,
@@ -382,8 +357,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2513778780,
@@ -394,8 +368,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3483244267,
@@ -406,8 +379,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
         --ST DENIS
@@ -420,8 +392,7 @@ Config.Doors = {
             locked = false,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1751238140,
@@ -432,8 +403,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
         --BLACKWATER
@@ -446,8 +416,7 @@ Config.Doors = {
             locked = false,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2117902999,
@@ -458,8 +427,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1462330364,
@@ -470,8 +438,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
         --VALENTINE
@@ -484,8 +451,7 @@ Config.Doors = {
             locked = false,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2343746133,
@@ -496,8 +462,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1340831050,
@@ -508,8 +473,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3718620420,
@@ -520,8 +484,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 334467483,
@@ -532,8 +495,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 576950805,
@@ -544,8 +506,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2307914732,
@@ -556,8 +517,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
     
@@ -571,8 +531,7 @@ Config.Doors = {
             locked = false,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3550475905,
@@ -583,8 +542,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1366165179,
@@ -595,8 +553,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     ---------------------------------------------------------------------------------
     
@@ -612,8 +569,7 @@ Config.Doors = {
             locked = false,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 4067537969,
@@ -624,8 +580,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3439738919,
@@ -636,8 +591,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 925575409,
@@ -648,8 +602,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
         --STRAWBERRY
@@ -662,8 +615,7 @@ Config.Doors = {
             locked = false,
             breakable = false, 
             jobs = {""},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         --ST DENIS
         {
@@ -675,8 +627,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"doctor_stdenis"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1289094734,
@@ -687,8 +638,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"doctor_stdenis"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 82263429,
@@ -699,8 +649,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"doctor_stdenis"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1104407261,
@@ -711,8 +660,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"doctor_stdenis"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         
     ---------------------------------------------------------------------------------
@@ -729,8 +677,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2452247196,
@@ -741,8 +688,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2320881007,
@@ -753,8 +699,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 815031507,
@@ -765,8 +710,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1523300673,
@@ -777,8 +721,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 254520182,
@@ -789,8 +732,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_bla"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         
     
@@ -804,8 +746,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_bastille"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2999855503,
@@ -816,8 +757,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_bastille"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3461406868,
@@ -828,8 +768,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_bastille"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3856177940,
@@ -840,8 +779,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_bastille"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         --SALOON FAUBOURG
         {
@@ -853,8 +791,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_faubourg"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 4220752030,
@@ -865,8 +802,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_faubourg"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
         --SALOON VANHORN
@@ -879,8 +815,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_kala"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3704712698,
@@ -891,8 +826,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_kala"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2869660271,
@@ -903,8 +837,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_kala"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1102743282,
@@ -915,8 +848,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_kala"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3375224492,
@@ -927,8 +859,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_kala"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2641204994,
@@ -939,8 +870,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_kala"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2641204994,
@@ -951,8 +881,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_kala"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 877945562,
@@ -963,8 +892,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_kala"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1997650502,
@@ -975,8 +903,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_kala"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 993198975,
@@ -987,8 +914,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_kala"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
         --TUMBLEWEED
@@ -1001,8 +927,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_tumbleweed"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1322586500,
@@ -1013,8 +938,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_tumbleweed"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2094297354,
@@ -1025,8 +949,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_tumbleweed"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1892085175,
@@ -1037,8 +960,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_tumbleweed"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
         --RHODES
@@ -1051,8 +973,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3728169477,
@@ -1063,8 +984,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3047627494,
@@ -1075,8 +995,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 3434364936,
@@ -1087,8 +1006,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2046695029,
@@ -1099,8 +1017,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2812328251,
@@ -1111,8 +1028,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2446974165,
@@ -1123,8 +1039,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
         --VALENTINE
@@ -1137,8 +1052,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_val"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 583884620,
@@ -1149,8 +1063,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_val"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 968874193,
@@ -1161,8 +1074,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_val"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1154795503,
@@ -1173,8 +1085,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"saloon_val"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     ---------------------------------------------------------------------------------
     
@@ -1190,8 +1101,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"marshall"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 906662604,
@@ -1202,8 +1112,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"marshall"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
     ---------------------------------------------------------------------------------
@@ -1221,8 +1130,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"armurier_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 393076024,
@@ -1233,8 +1141,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"armurier_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 743565308,
@@ -1245,8 +1152,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"armurier_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 934926308,
@@ -1257,8 +1163,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"armurier_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         --SAINT DENIS
         {
@@ -1270,8 +1175,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"armurier_stdenis"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 841127028,
@@ -1282,8 +1186,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"armurier_stdenis"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
     
@@ -1301,8 +1204,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"store_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1060413677,
@@ -1313,8 +1215,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"store_rhodes"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         --STRAWBERRY
     
@@ -1424,8 +1325,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"forge"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 1318509470,
@@ -1436,8 +1336,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"forge"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
     --------------------------------------------------------------------------------------
@@ -1454,8 +1353,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"fermier"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2310818050,
@@ -1466,8 +1364,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"fermier"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 818583340,
@@ -1478,8 +1375,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"fermier"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
     --doctor
@@ -1494,8 +1390,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"fermier"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
     
     --PRESSE
@@ -1510,8 +1405,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"presse"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
         {
             door = 2353368182,
@@ -1522,8 +1416,7 @@ Config.Doors = {
             locked = true,
             breakable = false, 
             jobs = {"presse"},
-            needkey = false,
-            keys = '',
+            keys =false,
         },
        -- drugstore
        {
