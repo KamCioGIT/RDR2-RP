@@ -1340,7 +1340,7 @@ function buyboat(name, stable, previs)
             end
             isInteracting = false
         end, function(data, menu)
-            spawnprevisu(data, menu, previs)
+            spawncartprevisu(data, menu, previs)
         end)
     end)
 end
