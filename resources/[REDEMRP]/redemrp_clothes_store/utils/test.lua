@@ -119830,7 +119830,25 @@ clothes_list = {
 					['is_multiplayer'] = true,
 					['ped_type'] = 'male'
 				}
-			}
+			},
+			[29] = {
+				[1] = {
+					['category_hash'] = 1214179380,
+					['category_hash_dec_signed'] = 1214179380,
+					['category_hashname'] = 'vests',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `coat_mr1_104`,
+					['albedo'] = `iphpgvxa_0x656df394`,
+					['normal'] = `oxeruosa_0x32876b90`,
+					['material'] = `ecxeckea_0x221d1386`,
+					['palette'] = `ymwmqyaa_0xf93db0c8`,
+					['tint0'] = 139,
+					['tint1'] = 200,
+					['tint2'] = 190
+				}
+			},
 		}
 	}
 }
