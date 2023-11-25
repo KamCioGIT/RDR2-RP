@@ -909,6 +909,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(0)
         local coords = GetEntityCoords(PlayerPedId())
         local cart = lib.getClosestVehicle(coords, 3.0, false)
+        print (cart)
         if cart then
             if Entity(cart).state.stashid then
                 if GetEntityModel(cart) == -1698498246 then
