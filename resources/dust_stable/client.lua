@@ -1302,8 +1302,10 @@ function buyboat(name, stable, previs)
         local elements = {}
         print (name)
         for k, v in pairs(Config.Boat) do
-            if v.shop == name then
-                table.insert(elements, {label = v.name, value = v.model, desc = "Prix:  $"..v.price, price = v.price})
+            for _, shop in pairs(v.shop) do
+                if shop == name then
+                    table.insert(elements, {label = v.name, value = v.model, desc = "Prix:  $"..v.price, price = v.price})
+                end
             end
         end
 
@@ -1338,7 +1340,7 @@ function buyboat(name, stable, previs)
             end
             isInteracting = false
         end, function(data, menu)
-            spawnprevisu(data, menu, previs)
+            spawncartprevisu(data, menu, previs)
         end)
     end)
 end
