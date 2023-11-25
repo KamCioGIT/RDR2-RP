@@ -376,6 +376,7 @@ Citizen.CreateThread(function()
         Wait(500)
         local _,wep = GetCurrentPedWeapon(ped)
         Citizen.InvokeNative(0xD77AE48611B7B10A, ped, Config.DamageModifier[wep])
+        print(wep)
 
     end
 end)
