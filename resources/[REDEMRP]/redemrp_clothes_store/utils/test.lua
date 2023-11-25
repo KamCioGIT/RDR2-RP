@@ -114705,6 +114705,24 @@ clothes_list = {
 					['tint2'] = 0
 				}
 			},
+			[39] = {
+				[1] = {
+					['category_hash'] = 539411565,
+					['category_hash_dec_signed'] = 539411565,
+					['category_hashname'] = 'shirts_full',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `coat_mr1_104`,
+					['albedo'] = `iphpgvxa_0x656df394`,
+					['normal'] = `oxeruosa_0x32876b90`,
+					['material'] = `ecxeckea_0x221d1386`,
+					['palette'] = `ymwmqyaa_0xf93db0c8`,
+					['tint0'] = 139,
+					['tint1'] = 200,
+					['tint2'] = 190
+				}
+			},
 		},
 		['spats'] = {
 			[1] = {
