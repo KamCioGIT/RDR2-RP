@@ -206,8 +206,10 @@ function OpenStable(menutype, stable)
                         if v.id == data.current.value then
                             if v.type == "horse" then
                                 spawnhorse(v.race, v.name, v.id, v.stashid)
-                            elseif v.type == "cart" or v.type == "boat" then
+                            elseif v.type == "cart" then
                                 spawncart(v.race, v.name, v.id, v.stashid)
+                            elseif v.type == "boat" then
+                                spawnboat(v.race, v.name, v.id, v.stashid)
                             end
                         end
                         Wait(100)
@@ -1304,6 +1306,45 @@ Citizen.CreateThread(function()
         end
     end
 end)
+
+function spawnboat(model, name, horseid, stashid)
+    if initializing then
+        return
+    end
+    local ped = PlayerPedId()
+    local pCoords = GetEntityCoords(ped)
+    local modelHash = GetHashKey(model)
+
+
+    if not HasModelLoaded(modelHash) then
+        RequestModel(modelHash)
+        while not HasModelLoaded(modelHash) do
+            print('boucle')
+            Citizen.Wait(10)
+        end
+    end
+
+    initializing = true
+    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 3.0, 0.0)
+    local cart = CreateVehicle(modelHash, spawnPosition, GetEntityHeading(ped), true, true)
+    SetModelAsNoLongerNeeded(modelHash)
+
+    SetPedPromptName(cart, name)
+    Entity(cart).state:set('horseid', horseid, true)
+    Wait(500)
+    Entity(cart).state:set('stashid', stashid, true)
+    for k, v in pairs(Config.StashWeight) do
+        if k == model then
+            Entity(cart).state:set('stashweight', v, true)
+        end
+    end
+
+    TriggerServerEvent("dust_stable:server:horseout", horseid)
+
+    table.insert(spawnedhorses, cart)
+    initializing = false
+    print 'spawned'
+end
 
 
 function buyboat(name, stable, previs)
