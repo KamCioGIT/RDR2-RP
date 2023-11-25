@@ -42,7 +42,7 @@ Citizen.CreateThread(function()
     for k, v in pairs(Config.Stables) do
         if v.type == "boat" then
             local blips = N_0x554d9d53f696d002(1664425300, v.pos)
-            SetBlipSprite(blips, 2005921736, 1)
+            SetBlipSprite(blips, 62421675, 1)
             SetBlipScale(blips, 1.0)
             Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Ponton à bateau")
         else
