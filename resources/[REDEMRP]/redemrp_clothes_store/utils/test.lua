@@ -78711,6 +78711,42 @@ clothes_list = {
 					['tint2'] = 255
 				}
 			},
+			[53] = {
+				[1] = {
+					['category_hash'] = 1214179380,
+					['category_hash_dec_signed'] = 1214179380,
+					['category_hashname'] = 'coats',
+					['hashname'] = '',
+					['is_multiplayer'] = false,
+					['ped_type'] = 'male',
+					['drawable'] = `coat_mr1_104`,
+					['albedo'] = `iphpgvxa_0x656df394`,
+					['normal'] = `oxeruosa_0x32876b90`,
+					['material'] = `ecxeckea_0x221d1386`,
+					['palette'] = `ymwmqyaa_0xf93db0c8`,
+					['tint0'] = 139,
+					['tint1'] = 200,
+					['tint2'] = 190
+				}
+			},
+			[54] = {
+                [1] = {
+                    ['category_hash'] = 2727505819,
+                    ['category_hash_dec_signed'] = -1567461477,
+                    ['category_hashname'] = 'coats',
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = false,
+                    ['ped_type'] = 'male',
+                    ['drawable'] = coat_mr1_105,
+                    ['albedo'] = ljggmztc_0x5ed4bdc8,
+                    ['normal'] = ifnnvccc_0x930f56d1,
+                    ['material'] = hyswxesa_0xc8180f9d,
+                    ['palette'] = dsvkmzra_0xf509c745,
+                    ['tint0'] = 29,
+                    ['tint1'] = 129,
+                    ['tint2'] = 2
+                }
+            },
 		},
 		['coats_closed'] = {
 			[1] = {
@@ -119829,24 +119865,6 @@ clothes_list = {
 					['hashname'] = '',
 					['is_multiplayer'] = true,
 					['ped_type'] = 'male'
-				}
-			},
-			[29] = {
-				[1] = {
-					['category_hash'] = 1214179380,
-					['category_hash_dec_signed'] = 1214179380,
-					['category_hashname'] = 'vests',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'male',
-					['drawable'] = `coat_mr1_104`,
-					['albedo'] = `iphpgvxa_0x656df394`,
-					['normal'] = `oxeruosa_0x32876b90`,
-					['material'] = `ecxeckea_0x221d1386`,
-					['palette'] = `ymwmqyaa_0xf93db0c8`,
-					['tint0'] = 139,
-					['tint1'] = 200,
-					['tint2'] = 190
 				}
 			},
 		}
