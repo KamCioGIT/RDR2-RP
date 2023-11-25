@@ -121,6 +121,16 @@ Citizen.CreateThread(function()
                     TriggerServerEvent("dust_stable:server:stockhorse", v.name, cartid, valueHealth, valueStamina, type)
                 end
             end
+            if #(playerpos - v.pos ) < 4.5 and IsPedInAnyVehicle(PlayerPedId(), 0) then
+                -- storeprompt:setActiveThisFrame(true)
+                TriggerEvent('dust_presskey', "Appuyez sur Entrée")
+                if IsControlJustReleased(0, 0xC7B5340A) then
+                    local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
+                    local cartid = Entity(cart).state.horseid
+                    local type = "boat"
+                    TriggerServerEvent("dust_stable:server:stockhorse", v.name, cartid, valueHealth, valueStamina, type)
+                end
+            end
         end
     end
 end)
@@ -196,7 +206,7 @@ function OpenStable(menutype, stable)
                         if v.id == data.current.value then
                             if v.type == "horse" then
                                 spawnhorse(v.race, v.name, v.id, v.stashid)
-                            elseif v.type == "cart" then
+                            elseif v.type == "cart" or v.type == "boat" then
                                 spawncart(v.race, v.name, v.id, v.stashid)
                             end
                         end
@@ -1325,7 +1335,7 @@ function buyboat(name, stable, previs)
                     comp[k].hash = nil
                 end
             end
-            local type = "horse"
+            local type = "boat"
             TriggerServerEvent("dust_stable:server:createhorse", data.current.label, data.current.value, stable, data.current.label, comp, type, data.current.price)
             for k, v in pairs(Spawnedprevisu) do
                 DeleteEntity(k)
