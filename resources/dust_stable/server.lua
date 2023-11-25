@@ -240,6 +240,31 @@ AddEventHandler(
 				}, function(rowsChanged)
 				end)
 			end
+			if type == "boat" then
+				MySQL.update(
+				'INSERT INTO stable (`identifier`, `charid`, `horseid`, `stable`, `model`, `name`, `race`, `meta`, `components`, `stashid`, `type`) VALUES (@identifier, @charid, @horseid, @stable, @model, @name, @race, @meta, @components, @stashid, @type);',
+				{
+					identifier = identifier,
+					charid = charid,
+					name = name,
+					horseid = horseid,
+					model = model,
+					stable = stable,
+					race = race,
+					meta = json.encode(_meta),
+					components = json.encode(comp),
+					stashid = "boat_"..generetedUid,
+					type = type
+				}, function(rowsChanged)
+
+				end)
+				MySQL.update(
+				'INSERT INTO stashes (`stashid`) VALUES (@stashid);',
+				{
+					stashid = "boat_"..generetedUid
+				}, function(rowsChanged)
+				end)
+			end
 		end
 end)
 

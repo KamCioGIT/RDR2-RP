@@ -44,7 +44,7 @@ Citizen.CreateThread(function()
             local blips = N_0x554d9d53f696d002(1664425300, v.pos)
             SetBlipSprite(blips, 62421675, 1)
             SetBlipScale(blips, 1.0)
-            Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Ponton à bateau")
+            Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Ponton à bateaux")
         else
             local blips = N_0x554d9d53f696d002(1664425300, v.pos)
             SetBlipSprite(blips, -1350763423, 1)
@@ -206,8 +206,10 @@ function OpenStable(menutype, stable)
                         if v.id == data.current.value then
                             if v.type == "horse" then
                                 spawnhorse(v.race, v.name, v.id, v.stashid)
-                            elseif v.type == "cart" or v.type == "boat" then
+                            elseif v.type == "cart" then
                                 spawncart(v.race, v.name, v.id, v.stashid)
+                            elseif v.type == "boat" then
+                                spawnboat(v.race, v.name, v.id, v.stashid)
                             end
                         end
                         Wait(100)
@@ -1282,9 +1284,9 @@ end
 Citizen.CreateThread(function()
     for k,v in pairs(Config.Buyboat) do
             local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, v.pos)
-            SetBlipSprite(blip, -1715189579)
+            SetBlipSprite(blip, 2005921736)
             SetBlipScale(blip, 0.2)
-            Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Vente de chevaux"))
+            Citizen.InvokeNative(0x9CB1A1623062F402, blip, string.format("Vente de bateaux"))
     end
     while true do
         Wait(0)
@@ -1303,6 +1305,45 @@ Citizen.CreateThread(function()
         end
     end
 end)
+
+function spawnboat(model, name, horseid, stashid)
+    if initializing then
+        return
+    end
+    local ped = PlayerPedId()
+    local pCoords = GetEntityCoords(ped)
+    local modelHash = GetHashKey(model)
+
+
+    if not HasModelLoaded(modelHash) then
+        RequestModel(modelHash)
+        while not HasModelLoaded(modelHash) do
+            print('boucle')
+            Citizen.Wait(10)
+        end
+    end
+
+    initializing = true
+    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 8.0, 0.0)
+    local cart = CreateVehicle(modelHash, spawnPosition, GetEntityHeading(ped), true, true)
+    SetModelAsNoLongerNeeded(modelHash)
+
+    SetPedPromptName(cart, name)
+    Entity(cart).state:set('horseid', horseid, true)
+    Wait(500)
+    Entity(cart).state:set('stashid', stashid, true)
+    for k, v in pairs(Config.StashWeight) do
+        if k == model then
+            Entity(cart).state:set('stashweight', v, true)
+        end
+    end
+
+    TriggerServerEvent("dust_stable:server:horseout", horseid)
+
+    table.insert(spawnedhorses, cart)
+    initializing = false
+    print 'spawned'
+end
 
 
 function buyboat(name, stable, previs)

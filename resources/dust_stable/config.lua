@@ -1312,7 +1312,7 @@ Config.Boat = {
 		model = "boatsteam02x",
 		name = "Barque a vapeur",
 		desc = "Un petit bateau à vapeur",
-        price = 70,
+        price = 100,
         shop = {"Achatboatbla", "Achatboatstdenis"}
     },
     canoe= {
