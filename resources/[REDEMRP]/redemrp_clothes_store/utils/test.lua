@@ -78712,24 +78712,6 @@ clothes_list = {
 				}
 			},
 			[53] = {
-				[1] = {
-					['category_hash'] = 1214179380,
-					['category_hash_dec_signed'] = 1214179380,
-					['category_hashname'] = 'coats',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'male',
-					['drawable'] = `coat_mr1_104`,
-					['albedo'] = `iphpgvxa_0x656df394`,
-					['normal'] = `oxeruosa_0x32876b90`,
-					['material'] = `ecxeckea_0x221d1386`,
-					['palette'] = `ymwmqyaa_0xf93db0c8`,
-					['tint0'] = 139,
-					['tint1'] = 200,
-					['tint2'] = 190
-				}
-			},
-			[54] = {
                 [1] = {
                     ['category_hash'] = 2727505819,
                     ['category_hash_dec_signed'] = -1567461477,
@@ -78737,14 +78719,32 @@ clothes_list = {
                     ['hashname'] = '',
                     ['is_multiplayer'] = false,
                     ['ped_type'] = 'male',
-                    ['drawable'] = coat_mr1_105,
-                    ['albedo'] = ljggmztc_0x5ed4bdc8,
-                    ['normal'] = ifnnvccc_0x930f56d1,
-                    ['material'] = hyswxesa_0xc8180f9d,
-                    ['palette'] = dsvkmzra_0xf509c745,
-                    ['tint0'] = 29,
-                    ['tint1'] = 129,
-                    ['tint2'] = 2
+                    ['drawable'] = coat_mr1_130,
+                    ['albedo'] = `kkwecyia_0xb2e66aba`,
+                    ['normal'] = `iyphvbwa_0x2089387a`,
+                    ['material'] = `cjdntsua_0x5462f8e3`,
+                    ['palette'] = `alllhuqa_0xaa65d8a3`,
+                    ['tint0'] = 159,
+                    ['tint1'] = 170,
+                    ['tint2'] = 150
+                }
+            },
+			[53] = {
+                [1] = {
+                    ['category_hash'] = 2727505819,
+                    ['category_hash_dec_signed'] = -1567461477,
+                    ['category_hashname'] = 'coats',
+                    ['hashname'] = '',
+                    ['is_multiplayer'] = false,
+                    ['ped_type'] = 'male',
+                    ['drawable'] = `cs_henrilemiux_ms1_coat_000`,
+                    ['albedo'] = `cailcwpa_0xfc71f201`,
+                    ['normal'] = `xdvbncsa_0x657df503`,
+                    ['material'] = `nixnahda_0xee170645`,
+                    ['palette'] = ``,
+                    ['tint0'] = 0,
+                    ['tint1'] = 0,
+                    ['tint2'] = 0
                 }
             },
 		},
