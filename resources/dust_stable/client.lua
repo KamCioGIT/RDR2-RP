@@ -1324,7 +1324,7 @@ function spawnboat(model, name, horseid, stashid)
     end
 
     initializing = true
-    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 3.0, 0.0)
+    local spawnPosition = GetOffsetFromEntityInWorldCoords(PlayerPedId(), 0.0, 8.0, 0.0)
     local cart = CreateVehicle(modelHash, spawnPosition, GetEntityHeading(ped), true, true)
     SetModelAsNoLongerNeeded(modelHash)
 
