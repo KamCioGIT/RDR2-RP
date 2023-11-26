@@ -136,6 +136,11 @@ Config.Stables = {
 		pos = vector3(2096.809, -639.1716, 39.26431),
 		name = 'lagrasboat',
     },
+    lagrasboat3 = {
+        type = "boat",
+		pos = vector3(2903.771, -247.7384, 40.97009),
+		name = 'lagrasboat',
+    },
     stdenisboat = {
         type = "boat",
 		pos =  vector3(2822.63, -1451.004, 39.88385),
