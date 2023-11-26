@@ -18,29 +18,29 @@ function SetupOpenPrompt()
 end
 
 -- Get objects every second, instead of every frame
-Citizen.CreateThread(function()
-	while true do
-		for _,doorID in pairs(Config.DoorList) do
-			if doorID.doors then
-				for k,v in pairs(doorID.doors) do
-					if not v.object or not DoesEntityExist(v.object) then
-						local shapeTest = StartShapeTestBox(v.objCoords, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
-						local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
-						v.object = entityHit
-					end
-				end
-			else
-				if not doorID.object or not DoesEntityExist(doorID.object) then
-					local shapeTest = StartShapeTestBox(doorID.objCoords, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
-					local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
-					doorID.object = entityHit
-				end
-			end
-		end
+-- Citizen.CreateThread(function()
+-- 	while true do
+-- 		for _,doorID in pairs(Config.DoorList) do
+-- 			if doorID.doors then
+-- 				for k,v in pairs(doorID.doors) do
+-- 					if not v.object or not DoesEntityExist(v.object) then
+-- 						local shapeTest = StartShapeTestBox(v.objCoords, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
+-- 						local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
+-- 						v.object = entityHit
+-- 					end
+-- 				end
+-- 			else
+-- 				if not doorID.object or not DoesEntityExist(doorID.object) then
+-- 					local shapeTest = StartShapeTestBox(doorID.objCoords, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
+-- 					local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
+-- 					doorID.object = entityHit
+-- 				end
+-- 			end
+-- 		end
 
-		Citizen.Wait(1000)
-	end
-end)
+-- 		Citizen.Wait(1000)
+-- 	end
+-- end)
 
 -- Citizen.CreateThread(function()
 -- 	while true do
@@ -269,21 +269,21 @@ Citizen.CreateThread(function()
 	while true do
 		for _,v in pairs(Config.Doors) do
 			if v.door2 ~= 0 then
-				if not v.door2 or not DoesEntityExist(v.door2) then
+				if not v.object2 or not DoesEntityExist(v.object2) then
 					local shapeTest = StartShapeTestBox(v.DoorCoord2, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
 					local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
-					v.door2 = entityHit
+					v.object2 = entityHit
 				end
-				if not v.door or not DoesEntityExist(v.door) then
+				if not v.object or not DoesEntityExist(v.object) then
 					local shapeTest = StartShapeTestBox(v.DoorCoord, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
 					local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
-					v.door = entityHit
+					v.object = entityHit
 				end
 			else
-				if not v.door or not DoesEntityExist(v.door) then
+				if not v.object or not DoesEntityExist(v.object) then
 					local shapeTest = StartShapeTestBox(v.DoorCoord, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
 					local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
-					v.door = entityHit
+					v.object = entityHit
 				end
 			end
 		end
