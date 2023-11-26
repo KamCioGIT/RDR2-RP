@@ -18,29 +18,29 @@ function SetupOpenPrompt()
 end
 
 -- Get objects every second, instead of every frame
--- Citizen.CreateThread(function()
--- 	while true do
--- 		for _,doorID in pairs(Config.DoorList) do
--- 			if doorID.doors then
--- 				for k,v in pairs(doorID.doors) do
--- 					if not v.object or not DoesEntityExist(v.object) then
--- 						local shapeTest = StartShapeTestBox(v.objCoords, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
--- 						local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
--- 						v.object = entityHit
--- 					end
--- 				end
--- 			else
--- 				if not doorID.object or not DoesEntityExist(doorID.object) then
--- 					local shapeTest = StartShapeTestBox(doorID.objCoords, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
--- 					local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
--- 					doorID.object = entityHit
--- 				end
--- 			end
--- 		end
+Citizen.CreateThread(function()
+	while true do
+		for _,doorID in pairs(Config.DoorList) do
+			if doorID.doors then
+				for k,v in pairs(doorID.doors) do
+					if not v.object or not DoesEntityExist(v.object) then
+						local shapeTest = StartShapeTestBox(v.objCoords, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
+						local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
+						v.object = entityHit
+					end
+				end
+			else
+				if not doorID.object or not DoesEntityExist(doorID.object) then
+					local shapeTest = StartShapeTestBox(doorID.objCoords, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
+					local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
+					doorID.object = entityHit
+				end
+			end
+		end
 
--- 		Citizen.Wait(1000)
--- 	end
--- end)
+		Citizen.Wait(1000)
+	end
+end)
 
 -- Citizen.CreateThread(function()
 -- 	while true do
