@@ -95,6 +95,7 @@ RegisterNetEvent("redemrp_respawn:client:Revived", function(c)
     Wait(1000)
     TriggerEvent("redemrp_respawn:respawnCoords", GetEntityCoords(PlayerPedId()))
     TriggerServerEvent("RedEM:server:LoadSkin")
+    TriggerServerEvent('redemrp_status:server:AddHungerThirst', 10 , 10)
     Wait(300)
     UpdateHealthRevive()
 
