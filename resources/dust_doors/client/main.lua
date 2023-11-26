@@ -300,6 +300,7 @@ Citizen.CreateThread(function()
 		local playerCoords, letSleep = GetEntityCoords(PlayerPedId()), true
 
 		for k,v in ipairs(Config.Doors) do
+			local distance = #(playerCoords -  v.DoorCoord)
 
 				maxDistance = 2.0
 
