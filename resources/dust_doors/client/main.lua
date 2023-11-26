@@ -267,7 +267,7 @@ end)
 
 Citizen.CreateThread(function()
 	while true do
-		for _,values in pairs(Config.Doors) do
+		for _,v in pairs(Config.Doors) do
 			if v.door2 ~= 0 then
 				if not v.door2 or not DoesEntityExist(v.door2) then
 					local shapeTest = StartShapeTestBox(v.DoorCoord2, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
