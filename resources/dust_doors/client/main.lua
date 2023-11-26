@@ -301,9 +301,7 @@ Citizen.CreateThread(function()
 
 		for k,v in ipairs(Config.Doors) do
 
-			if doorID.distance then
 				maxDistance = 2.0
-			end
 
 			if distance < 50 then
 				letSleep = false
