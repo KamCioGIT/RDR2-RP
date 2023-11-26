@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMapTypes>
+  <extensions />
+  <archetypes>
+  <Item type="CBaseArchetypeDef">
+    <guid value="0"/>
+    <lodDist value="250.00000000"/>
+    <flags value="0" />
+    <loadFlags value="0" />
+    <specialAttribute value="0" />
+    <bbMin x="-5.300781" y="-5.424316" z="-2.885742" />
+    <bbMax x="5.302212" y="5.424805" z="2.885742" />
+    <bsCentre x="0.0007157326" y="0.000244617462" z="0" />
+    <bsRadius value="8.11537" />
+    <hdTextureDist value="100" />
+    <name>ym09744481</name>
+    <textureDictionary>ym73183078</textureDictionary>
+    <clipDictionary />
+    <drawableDictionary />
+    <physicsDictionary>ym09744481</physicsDictionary>
+    <assetType>ASSET_TYPE_DRAWABLE</assetType>
+    <assetName>ym09744481</assetName>
+    <extensions />
+    <redm_loves_you_a68fd88a5afa0b22>0xAD1EED63</redm_loves_you_a68fd88a5afa0b22>
+  </Item>
+  <Item type="CBaseArchetypeDef">
+    <guid value="0"/>
+    <lodDist value="250.00000000"/>
+    <flags value="0" />
+    <loadFlags value="0" />
+    <specialAttribute value="0" />
+    <bbMin x="-3.231934" y="-4.5381875" z="-1.835938" />
+    <bbMax x="1.432617" y="2.41168213" z="0.8461914" />
+    <bsCentre x="-0.899658561" y="-1.06325269" z="-0.4948733" />
+    <bsRadius value="4.39467144" />
+    <hdTextureDist value="100" />
+    <name>ym92844689</name>
+    <textureDictionary>ym73183078</textureDictionary>
+    <clipDictionary />
+    <drawableDictionary />
+    <physicsDictionary>ym92844689</physicsDictionary>
+    <assetType>ASSET_TYPE_ASSETLESS</assetType>
+    <assetName>ym92844689</assetName>
+    <extensions />
+    <redm_loves_you_a68fd88a5afa0b22>0xAD1EED63</redm_loves_you_a68fd88a5afa0b22>
+  </Item>
+ </archetypes>
+ <name>ym22912880</name>
+ <dependencies />
+ <compositeEntityTypes itemType="CCompositeEntityType" />
+</CMapTypes>
