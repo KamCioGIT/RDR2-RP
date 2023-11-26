@@ -7,7 +7,7 @@ RegisterServerEvent('redemrp_doorlocks:updatedoorsv')
 AddEventHandler('redemrp_doorlocks:updatedoorsv', function(doorID, state, cb)
 	local _source = source
     local user = RedEM.GetPlayer(_source)     
-        if not IsAuthorized(user.getJob(), Config.DoorList[doorID]) then
+        if not IsAuthorized(user.getJob(), Config.Doors[doorID]) then
             return
         else 
             TriggerClientEvent('redemrp_doorlocks:changedoor', _source, doorID, state)
@@ -22,7 +22,7 @@ AddEventHandler('redemrp_doorlocks:updateState', function(doorID, state, cb)
 		if type(doorID) ~= 'number' then
 			return
 		end
-		if not IsAuthorized(user.getJob(), Config.DoorList[doorID]) then
+		if not IsAuthorized(user.getJob(), Config.Doors[doorID]) then
 			return
 		end
 		DoorInfo[doorID] = {}
@@ -30,7 +30,7 @@ AddEventHandler('redemrp_doorlocks:updateState', function(doorID, state, cb)
 end)
 
 function IsAuthorized(jobName, doorID)
-	for _,job in pairs(doorID.authorizedJobs) do
+	for _,job in pairs(doorID.jobs) do
 		if job == jobName then
 			return true
 		end
