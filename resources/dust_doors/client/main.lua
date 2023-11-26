@@ -332,18 +332,10 @@ Citizen.CreateThread(function()
 							Citizen.InvokeNative(0xD99229FE93B46286, v.door,1,1,0,0,0,0)
 							Citizen.InvokeNative(0x6BAB9442830C7F53, v.door, 0) 
 						end
-						local current = GetEntityRotation(v.object).z - v.CloseRotation
-						if v.CloseRotation and current > 0.5 or current < -0.5 then
-							SetEntityRotation(v.object, 0.0, 0.0, v.CloseRotation, 2, true)
-						end
 						FreezeEntityPosition(v.object,false)
 						if Citizen.InvokeNative(0x160AA1B32F6139B8, v.door2) ~= false then
 							Citizen.InvokeNative(0xD99229FE93B46286, v.door2,1,1,0,0,0,0)
 							Citizen.InvokeNative(0x6BAB9442830C7F53, v.door2, 0) 
-						end
-						local current = GetEntityRotation(v.object2).z - v.CloseRotation2
-						if v.CloseRotation2 and current > 0.5 or current < -0.5 then
-							SetEntityRotation(v.object2, 0.0, 0.0, v.CloseRotation2, 2, true)
 						end
 						FreezeEntityPosition(v.object2,false)
 					end
@@ -363,10 +355,6 @@ Citizen.CreateThread(function()
 					if Citizen.InvokeNative(0x160AA1B32F6139B8, v.door) ~= false then
 						Citizen.InvokeNative(0xD99229FE93B46286, v.door,1,1,0,0,0,0)
 						Citizen.InvokeNative(0x6BAB9442830C7F53, v.door, 0) 
-					end
-					local current = GetEntityRotation(v.object).z - v.CloseRotation
-					if v.CloseRotation and current > 0.5 or current < -0.5 then
-						SetEntityRotation(v.object, 0.0, 0.0, v.CloseRotation, 2, true)
 					end
 					FreezeEntityPosition(v.object,false)
 				end
