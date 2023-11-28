@@ -1683,8 +1683,7 @@ Config.Doors = {
         locked = true,
         breakable = false, 
         jobs = {"apothicaire_stdenis"},
-        needkey = false,
-        keys = '',
+ keys = false,
     },
     {
         door = 828250887,
@@ -1695,8 +1694,7 @@ Config.Doors = {
         locked = true,
         breakable = false, 
         jobs = {"apothicaire_stdenis"},
-        needkey = false,
-        keys = '',
+ keys = false,
     },
     
     
@@ -1736,8 +1734,7 @@ Config.Doors = {
         locked = true,
         breakable = false, 
         jobs = {"distillerie"},
-        needkey = false,
-        keys = '',
+ keys = false,
     },
     {
         door = 3014302262,
@@ -1748,8 +1745,7 @@ Config.Doors = {
         locked = true,
         breakable = false, 
         jobs = {"distillerie"},
-        needkey = false,
-        keys = '',
+ keys = false,
     },
     
     
