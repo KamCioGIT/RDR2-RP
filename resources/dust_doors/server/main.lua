@@ -55,8 +55,7 @@ function HaveKey(src, doorID)
 	if doorID.keys ~= false then
 		local ItemData = data.getItem(src, doorID.keys)
 		local ItemAmount = tonumber(ItemData.ItemAmount)
-		print (ItemAmount)
-		if ItemAmount > 1 then
+		if ItemAmount >= 1 then
 			return true
 		end
 	else
