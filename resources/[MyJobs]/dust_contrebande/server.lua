@@ -268,7 +268,7 @@ RegisterServerEvent("pavot:buyItem", function(item, amount, type)
 	local itemprice = Config.PavotPrice * amount
 	if money >= itemprice then
 		user.RemoveMoney(itemprice)
-		ItemData.AddItem(1)
+		ItemData.AddItem(amount)
 	end
 	TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
 end)
