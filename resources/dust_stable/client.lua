@@ -491,6 +491,7 @@ function spawnhorse(model, name, horseid, stashid, health, stamina)
     TaskAnimalUnalerted(horse, -1, false, 0, 0)
 
     SetPedPromptName(horse, name)
+    SetAttributePoints(horse, 7, 50)
     Entity(horse).state:set('horseid', horseid, true)
     Entity(horse).state:set('name', name, true)
     -- for _, component in pairs(selectedcomp) do
