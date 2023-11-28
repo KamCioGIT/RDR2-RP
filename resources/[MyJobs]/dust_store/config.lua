@@ -272,6 +272,7 @@ Config.CraftingsReceipe = {
     },
     ['carrottecake'] = {
         type = 'epicerie',
+        Job = 'store_stdenis',
         Itemtocraft = 4,
         ItemReceipe1Name = 'bouteillelait',
         ItemReceipe1Amount = 1,
@@ -459,6 +460,7 @@ Config.CraftingsReceipe = {
     },
     ['sucreorge'] = {
         type = 'epicerie',
+        Job = 'store_stdenis',
         Itemtocraft = 2,
         ItemReceipe1Name = 'sucre',
         ItemReceipe1Amount = 3,
