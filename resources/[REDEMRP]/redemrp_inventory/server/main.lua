@@ -1206,7 +1206,7 @@ AddEventHandler("redemrp_inventory:server:removefromstash", function(name, amoun
             if itemData.type == "item_standard" then
                 if _amount > 0 then
                     if item.getAmount() >= _amount then
-                        output = true
+                        removeItemStash(source, _name, _amount, meta, stashId)
                     else return end
                 end
             end
