@@ -241,6 +241,7 @@ RegisterServerEvent("pavot:checkstash", function(type)
 	local stash = nil
 	if type == "blackwater" then
 		stash = "pavot_bla"
+		print'get'
 	elseif type == "stdenis" then
 		stash = "pavot_stdenis"
 	end
