@@ -52,6 +52,7 @@ function IsAuthorized(jobName, doorID)
 end
 
 function HaveKey(doorID)
+	print(doorID.keys)
 	if doorID.keys ~= false then
 		local ItemData = data.getItem(source, doorID.keys)
 		local ItemAmount = tonumber(ItemData.ItemAmount)
