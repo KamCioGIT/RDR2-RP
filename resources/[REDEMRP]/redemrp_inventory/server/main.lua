@@ -1889,14 +1889,14 @@ function SharedInventoryFunctions.getItem(source, name, meta)
     return data
 end
 
-function SharedInventoryFunctions.getItemStash(source, stash, name, meta)
+function SharedInventoryFunctions.getItemStash(source, stashid, name, meta)
     local _source = source
     local data = {}
     if name ~= nil then
         local user = RedEM.GetPlayer(_source)
         local identifier = user.GetIdentifier()
         local charid = user.GetActiveCharacter()
-        local player_inventory = stash
+        local player_inventory = Stash[stashid]
         local lvl = 0
         local item, id = getInventoryItemFromName(name, player_inventory, meta or {})
 
