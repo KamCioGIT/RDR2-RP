@@ -262,45 +262,45 @@ RegisterNetEvent("contrebande:client:SetMaxAmount", function(value)
 end)
 
 
---- pop pnj
-Citizen.CreateThread(function()
-Wait(1000)
-for k,v in pairs(Config.PavotNPC) do
-    local model = RequestModel(GetHashKey(v.model))
+-- --- pop pnj
+-- Citizen.CreateThread(function()
+-- Wait(1000)
+-- for k,v in pairs(Config.PavotNPC) do
+--     local model = RequestModel(GetHashKey(v.model))
 
-    while not HasModelLoaded(GetHashKey(v.model)) do
-        Wait(100)
-    end
+--     while not HasModelLoaded(GetHashKey(v.model)) do
+--         Wait(100)
+--     end
 
-    local spawnCoords = v.coords
-    local ped = CreatePed(GetHashKey(v.model), spawnCoords.x, spawnCoords.y, spawnCoords.z, v.heading, false, true, true, true)
-    Citizen.InvokeNative(0x283978A15512B2FE, ped, true)
-    SetEntityNoCollisionEntity(PlayerPedId(), ped, false)
-    SetEntityCanBeDamaged(ped, false)
-    SetEntityInvincible(ped, true)
-    Wait(2000)
-    FreezeEntityPosition(ped, true)
-    SetBlockingOfNonTemporaryEvents(ped, true)
-    SetModelAsNoLongerNeeded(GetHashKey(v.model))
-end
-end)
---- zone 
-Citizen.CreateThread(function()
-    while true do
-        Wait(2)
-        local playerPos = GetEntityCoords(PlayerPedId())
+--     local spawnCoords = v.coords
+--     local ped = CreatePed(GetHashKey(v.model), spawnCoords.x, spawnCoords.y, spawnCoords.z, v.heading, false, true, true, true)
+--     Citizen.InvokeNative(0x283978A15512B2FE, ped, true)
+--     SetEntityNoCollisionEntity(PlayerPedId(), ped, false)
+--     SetEntityCanBeDamaged(ped, false)
+--     SetEntityInvincible(ped, true)
+--     Wait(2000)
+--     FreezeEntityPosition(ped, true)
+--     SetBlockingOfNonTemporaryEvents(ped, true)
+--     SetModelAsNoLongerNeeded(GetHashKey(v.model))
+-- end
+-- end)
+-- --- zone 
+-- Citizen.CreateThread(function()
+--     while true do
+--         Wait(2)
+--         local playerPos = GetEntityCoords(PlayerPedId())
 
-        for k, v in pairs(Config.PavotNPC) do
-            if #(playerPos - v.interact) < Config.DistanceToInteract and not isInteracting then
-                TriggerEvent('dust_presskey', "Appuyez sur G")
-                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                    TriggerServerEvent("pavot:checkstash", k)
-                end
-            end
-        end
+--         for k, v in pairs(Config.PavotNPC) do
+--             if #(playerPos - v.interact) < Config.DistanceToInteract and not isInteracting then
+--                 TriggerEvent('dust_presskey', "Appuyez sur G")
+--                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+--                     TriggerServerEvent("pavot:checkstash", k)
+--                 end
+--             end
+--         end
 
-    end
-end)
+--     end
+-- end)
 
 
 ---- menu achat graine
