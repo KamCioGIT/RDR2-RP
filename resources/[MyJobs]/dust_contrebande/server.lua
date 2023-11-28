@@ -257,9 +257,9 @@ end)
 RegisterServerEvent("pavot:buyItem", function(item, amount, type)
 	local stash = nil
 	if type == "blackwater" then
-		stash = "pavot_ouest"
+		stash = "pavot_bla"
 	elseif type == "stdenis" then
-		stash = "pavot_est"
+		stash = "pavot_stdenis"
 	end
 	local currentRealTime = os.date("*t")
 
