@@ -123,6 +123,10 @@ Config.Stables = {
 		pos = vector3(-885.1912, -1362.12, 43.49583),
 		name = 'Startbla',
     },
+    thieves = {
+		pos = vector3(-1430.681, -2327.218, 42.14704),
+		name = 'thieves',
+    },
 
     --- boat
 
@@ -192,7 +196,11 @@ Config.Stables = {
 		pos = vector3(-729.4803, -556.4434, 39.55353),
 		name = 'indienboat',
     },
-
+    thievesboat = {
+        type = "boat",
+		pos = vector3(-1358.728, -2327.362, 41.81691),
+		name = 'thievesboat',
+    },
    
 
 }

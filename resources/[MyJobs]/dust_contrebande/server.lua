@@ -272,7 +272,6 @@ RegisterServerEvent("pavot:buyItem", function(item, amount, type)
 		local weight = ItemData.ItemInfo.weight 
 		local money = user.money
 		local itemprice = Config.PavotPrice * amount
-		print (stashw, weight)
 		if stashw >= weight * amount then
 			if money >= itemprice then
 				user.RemoveMoney(itemprice)
@@ -283,6 +282,5 @@ RegisterServerEvent("pavot:buyItem", function(item, amount, type)
 	end
 end)
 --- remove les graines
-
 
 --- ajouter les graines
