@@ -256,7 +256,7 @@ Config.Doors = {
         {
             door = 1988748538, --Door hash
             CloseRotation = 10.0, --Rotation when closed
-            DoorCoord  = vector3(-275.34, 802.67, 119.42), --Coords of trigger // in front of a door
+            OpenCoord  = vector3(-275.34, 802.67, 119.42), --Coords of trigger // in front of a door
             door2 = 0, --Door hash // if it's double doors else set 0
             CloseRotation2 = 0, --Rotation when closed // if it's double doors else set 0
             locked = true, -- If you want the door to be locked at start
@@ -268,7 +268,7 @@ Config.Doors = {
         {
             door = 395506985,
             CloseRotation = -170.0,
-            DoorCoord  = vector3(-275.85, 812.02, 118.41),
+            OpenCoord  = vector3(-275.85, 812.02, 118.41),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -279,7 +279,7 @@ Config.Doors = {
         {
             door = 1508776842,
             CloseRotation = -80.0,
-            DoorCoord  = vector3(-270.77, 810.02, 118.39),
+            OpenCoord  = vector3(-270.77, 810.02, 118.39),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -290,7 +290,7 @@ Config.Doors = {
         {
             door = 535323366,
             CloseRotation = -80.0,
-            DoorCoord  = vector3(-275.03, 809.27, 118.36),
+            OpenCoord  = vector3(-275.03, 809.27, 118.36),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -301,7 +301,7 @@ Config.Doors = {
         {
             door = 295355979,
             CloseRotation = 10.0,
-            DoorCoord  = vector3(-273.47, 809.96, 118.36),
+            OpenCoord  = vector3(-273.47, 809.96, 118.36),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -312,7 +312,7 @@ Config.Doors = {
         {
             door = 193903155,
             CloseRotation = -170.0,
-            DoorCoord  = vector3(-272.06, 808.25, 118.36),
+            OpenCoord  = vector3(-272.06, 808.25, 118.36),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -325,7 +325,7 @@ Config.Doors = {
         {
             door = 349074475,
             CloseRotation = 160.0,
-            DoorCoord  = vector3(1359.71, -1305.97, 76.76),
+            OpenCoord  = vector3(1359.71, -1305.97, 76.76),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -336,7 +336,7 @@ Config.Doors = {
         {
             door = 1614494720,
             CloseRotation = -110.0,
-            DoorCoord  = vector3(1359.12, -1297.56, 76.78),
+            OpenCoord  = vector3(1359.12, -1297.56, 76.78),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -347,7 +347,7 @@ Config.Doors = {
         {
             door = 1878514758,
             CloseRotation = 70.0,
-            DoorCoord  = vector3(1357.44, -1301.78, 77.71),
+            OpenCoord  = vector3(1357.44, -1301.78, 77.71),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -359,7 +359,7 @@ Config.Doors = {
         {
             door = 1711767580,
             CloseRotation = -360.35,
-            DoorCoord  = vector3(2502.42, -1307.85, 47.95),
+            OpenCoord  = vector3(2502.42, -1307.85, 47.95),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -370,7 +370,7 @@ Config.Doors = {
         {
             door = 1995743734,
             CloseRotation = 180.35,
-            DoorCoord  = vector3(2499.75, -1309.87, 47.95),
+            OpenCoord  = vector3(2499.75, -1309.87, 47.95),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -381,7 +381,7 @@ Config.Doors = {
         {
             door = 2515591150,
             CloseRotation = 180.35,
-            DoorCoord  = vector3(2503.63, -1309.87, 47.95),
+            OpenCoord  = vector3(2503.63, -1309.87, 47.95),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -392,7 +392,7 @@ Config.Doors = {
         {
             door = 3365520707,
             CloseRotation = -360.35,
-            DoorCoord  = vector3(2498.5, -1307.85, 47.95),
+            OpenCoord  = vector3(2498.5, -1307.85, 47.95),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -405,7 +405,7 @@ Config.Doors = {
         {
             door = 902070893,
             CloseRotation = -115.0,
-            DoorCoord  = vector3(-1814.58, -353.71, 161.43),
+            OpenCoord  = vector3(-1814.58, -353.71, 161.43),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -416,7 +416,7 @@ Config.Doors = {
         {
             door = 1207903970,
             CloseRotation = -26.0,
-            DoorCoord  = vector3(-1811.40, -352.19, 161.39),
+            OpenCoord  = vector3(-1811.40, -352.19, 161.39),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -427,7 +427,7 @@ Config.Doors = {
         {
             door = 1821044729,
             CloseRotation = 164,
-            DoorCoord  = vector3(-1806.6751708984,-350.31280517578,163.6475982666),
+            OpenCoord  = vector3(-1806.6751708984,-350.31280517578,163.6475982666),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -438,7 +438,7 @@ Config.Doors = {
         {
             door = 1514359658,
             CloseRotation = 158,
-            DoorCoord  = vector3(-1812.6691894531,-345.08489990234,163.6475982666),
+            OpenCoord  = vector3(-1812.6691894531,-345.08489990234,163.6475982666),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -451,7 +451,7 @@ Config.Doors = {
         {
             door = 3410720590,
             CloseRotation = 90.41,
-            DoorCoord  = vector3(-756.92, -1269.25, 44.03),
+            OpenCoord  = vector3(-756.92, -1269.25, 44.03),
             door2 = 3821185084,
             CloseRotation2 = 90.0,
             locked = true,
@@ -462,7 +462,7 @@ Config.Doors = {
         {
             door = 2810801921,
             CloseRotation = -90.0,
-            DoorCoord  = vector3(-768.86, -1269.28, 44.04),
+            OpenCoord  = vector3(-768.86, -1269.28, 44.04),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -473,7 +473,7 @@ Config.Doors = {
         {
             door = 2167775834,
             CloseRotation = -90.0,
-            DoorCoord  = vector3(-763.53, -1262.97, 44.06),
+            OpenCoord  = vector3(-763.53, -1262.97, 44.06),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -484,7 +484,7 @@ Config.Doors = {
         {
             door = 2514996158,
             CloseRotation = 90.0,
-            DoorCoord  = vector3(-765.56, -1264.12, 44.02),
+            OpenCoord  = vector3(-765.56, -1264.12, 44.02),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -497,7 +497,7 @@ Config.Doors = {
         {
             door = 4016307508,
             CloseRotation = 295.37,
-            DoorCoord  = vector3(-3620.73, -2600.75, -13.34),
+            OpenCoord  = vector3(-3620.73, -2600.75, -13.34),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -508,7 +508,7 @@ Config.Doors = {
         {
             door = 4235597664,
             CloseRotation = 292.54,
-            DoorCoord  = vector3(-3619.08, -2604.84, -13.34),
+            OpenCoord  = vector3(-3619.08, -2604.84, -13.34),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -525,7 +525,7 @@ Config.Doors = {
         {
             door = 3088209306,
             CloseRotation = 319.0,
-            DoorCoord  = vector3(1295.75, -1297.93, 77.04),
+            OpenCoord  = vector3(1295.75, -1297.93, 77.04),
             door2 = 3317756151,
             CloseRotation2 = -220.0,
             locked = false,
@@ -536,7 +536,7 @@ Config.Doors = {
         {
             door = 2058564250,
             CloseRotation = -40.0,
-            DoorCoord  = vector3(1285.63, -1303.4, 77.04),
+            OpenCoord  = vector3(1285.63, -1303.4, 77.04),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -547,7 +547,7 @@ Config.Doors = {
         {
             door = 1634148892,
             CloseRotation = -220.0,
-            DoorCoord  = vector3(1295.49, -1305.03, 77.04),
+            OpenCoord  = vector3(1295.49, -1305.03, 77.04),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -558,7 +558,7 @@ Config.Doors = {
         {
             door = 3142122679,
             CloseRotation = -40.0,
-            DoorCoord  = vector3(1279.34, -1310.57, 77.04),
+            OpenCoord  = vector3(1279.34, -1310.57, 77.04),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -569,7 +569,7 @@ Config.Doors = {
         {
             door = 2513778780,
             CloseRotation = -220.0,
-            DoorCoord  = vector3(1278.46, -1311.7, 76.89),
+            OpenCoord  = vector3(1278.46, -1311.7, 76.89),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -580,7 +580,7 @@ Config.Doors = {
         {
             door = 3483244267,
             CloseRotation = -130.0,
-            DoorCoord  = vector3(1283.08, -1308.89, 77.04),
+            OpenCoord  = vector3(1283.08, -1308.89, 77.04),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -593,7 +593,7 @@ Config.Doors = {
         {
             door = 1634115439,
             CloseRotation = -155.0,
-            DoorCoord  = vector3(2647.94, -1300.3, 52.25),
+            OpenCoord  = vector3(2647.94, -1300.3, 52.25),
             door2 = 965922748,
             CloseRotation2 = -155.0,
             locked = false,
@@ -604,7 +604,7 @@ Config.Doors = {
         {
             door = 1751238140,
             CloseRotation = -200.0,
-            DoorCoord  = vector3(2643.84, -1300.6, 52.25),
+            OpenCoord  = vector3(2643.84, -1300.6, 52.25),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -617,7 +617,7 @@ Config.Doors = {
         {
             door = 2817192481,
             CloseRotation = -90.0,
-            DoorCoord  = vector3(-817.09, -1278.29, 43.64),
+            OpenCoord  = vector3(-817.09, -1278.29, 43.64),
             door2 = 0,
             CloseRotation2 = 0,
             locked = false,
@@ -628,7 +628,7 @@ Config.Doors = {
         {
             door = 2117902999,
             CloseRotation = 0.0,
-            DoorCoord  = vector3(-816.18, -1276.68, 43.64),
+            OpenCoord  = vector3(-816.18, -1276.68, 43.64),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -639,7 +639,7 @@ Config.Doors = {
         {
             door = 1462330364,
             CloseRotation = 90.0,
-            DoorCoord  = vector3(-817.47, -1273.84, 43.65),
+            OpenCoord  = vector3(-817.47, -1273.84, 43.65),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -652,7 +652,7 @@ Config.Doors = {
         {
             door = 3886827663,
             CloseRotation = -170.0,
-            DoorCoord  = vector3(-308.11, 779.62, 118.7),
+            OpenCoord  = vector3(-308.11, 779.62, 118.7),
             door2 = 2642457609,
             CloseRotation2 = 10.0,
             locked = false,
@@ -663,7 +663,7 @@ Config.Doors = {
         {
             door = 2343746133,
             CloseRotation = -170.0,
-            DoorCoord  = vector3(-301.94, 771.75, 117.72),
+            OpenCoord  = vector3(-301.94, 771.75, 117.72),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -674,7 +674,7 @@ Config.Doors = {
         {
             door = 1340831050,
             CloseRotation = 10.05,
-            DoorCoord  = vector3(-311.75, 774.67, 117.72),
+            OpenCoord  = vector3(-311.75, 774.67, 117.72),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -685,7 +685,7 @@ Config.Doors = {
         {
             door = 3718620420,
             CloseRotation = 10.36,
-            DoorCoord  = vector3(-311.06, 770.12, 117.7),
+            OpenCoord  = vector3(-311.06, 770.12, 117.7),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -696,7 +696,7 @@ Config.Doors = {
         {
             door = 334467483,
             CloseRotation = 100.0,
-            DoorCoord  = vector3(-302.93, 767.6, 117.69),
+            OpenCoord  = vector3(-302.93, 767.6, 117.69),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -707,7 +707,7 @@ Config.Doors = {
         {
             door = 576950805,
             CloseRotation = 170.0,
-            DoorCoord  = vector3(-307.76, 766.34, 117.7),
+            OpenCoord  = vector3(-307.76, 766.34, 117.7),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -718,7 +718,7 @@ Config.Doors = {
         {
             door = 2307914732,
             CloseRotation = 10.0,
-            DoorCoord  = vector3(-301.51, 762.98, 117.73),
+            OpenCoord  = vector3(-301.51, 762.98, 117.73),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -732,7 +732,7 @@ Config.Doors = {
         {
             door = 3101287960,
             CloseRotation = 0.0,
-            DoorCoord = vector3(-3665.44, -2620.98, -13.57),
+            OpenCoord = vector3(-3665.44, -2620.98, -13.57),
             door2 = 0,
             CloseRotation2 = 0,
             locked = false,
@@ -743,7 +743,7 @@ Config.Doors = {
         {
             door = 3550475905,
             CloseRotation = 180.0,
-            DoorCoord = vector3(-3661.68, -2627.45, -13.59),
+            OpenCoord = vector3(-3661.68, -2627.45, -13.59),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -754,7 +754,7 @@ Config.Doors = {
         {
             door = 1366165179,
             CloseRotation = 0.0,
-            DoorCoord = vector3(-3662.61, -2638.93, -13.58),
+            OpenCoord = vector3(-3662.61, -2638.93, -13.58),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -770,7 +770,7 @@ Config.Doors = {
         {
             door = 3588026089,
             CloseRotation = -170.0,
-            DoorCoord  = vector3(-282.81, 803.85, 118.39),
+            OpenCoord  = vector3(-282.81, 803.85, 118.39),
             door2 = 0,
             CloseRotation2 = 0,
             locked = false,
@@ -781,7 +781,7 @@ Config.Doors = {
         {
             door = 4067537969,
             CloseRotation = -170.0,
-            DoorCoord  = vector3(-286.65, 809.76, 118.39),
+            OpenCoord  = vector3(-286.65, 809.76, 118.39),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -792,7 +792,7 @@ Config.Doors = {
         {
             door = 3439738919,
             CloseRotation = 97.0,
-            DoorCoord  = vector3(-281.18, 815.41, 118.39),
+            OpenCoord  = vector3(-281.18, 815.41, 118.39),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -803,7 +803,7 @@ Config.Doors = {
         {
             door = 925575409,
             CloseRotation = 10.0,
-            DoorCoord  = vector3(-290.72, 813.29, 118.41),
+            OpenCoord  = vector3(-290.72, 813.29, 118.41),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -816,7 +816,7 @@ Config.Doors = {
         {
             door = 2543619259,
             CloseRotation = 155.83,
-            DoorCoord  = vector3(-1802.68, -429.22, 158.83),
+            OpenCoord  = vector3(-1802.68, -429.22, 158.83),
             door2 = 0,
             CloseRotation2 = 0,
             locked = false,
@@ -828,7 +828,7 @@ Config.Doors = {
         {
             door = 586229709,
             CloseRotation = 268.83,
-            DoorCoord  = vector3(2723.96, -1227.64, 50.37),
+            OpenCoord  = vector3(2723.96, -1227.64, 50.37),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -839,7 +839,7 @@ Config.Doors = {
         {
             door = 1289094734,
             CloseRotation = 268.20,
-            DoorCoord  = vector3(2727.65, -1229.83, 50.36),
+            OpenCoord  = vector3(2727.65, -1229.83, 50.36),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -850,7 +850,7 @@ Config.Doors = {
         {
             door = 82263429,
             CloseRotation = 90,
-            DoorCoord  = vector3(2726.5541992188,-1234.8221435547,49.363960266113),
+            OpenCoord  = vector3(2726.5541992188,-1234.8221435547,49.363960266113),
             door2 = 994323006,
             CloseRotation2 = 270,
             locked = true,
@@ -861,7 +861,7 @@ Config.Doors = {
         {
             door = 1104407261,
             CloseRotation = 0,
-            DoorCoord  = vector3(2725.785, -1221.405, 50.34967),
+            OpenCoord  = vector3(2725.785, -1221.405, 50.34967),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -878,7 +878,7 @@ Config.Doors = {
         {
             door = 3311897912,
             CloseRotation = -270.0,
-            DoorCoord  = vector3(-810.5, -1319.62, 43.67),
+            OpenCoord  = vector3(-810.5, -1319.62, 43.67),
             door2 = 3526207172,
             CloseRotation2 = 270.0,
             locked = true,
@@ -889,7 +889,7 @@ Config.Doors = {
         {
             door = 2452247196,
             CloseRotation = 270.0,
-            DoorCoord  = vector3(-810.63, -1312.85, 43.68),
+            OpenCoord  = vector3(-810.63, -1312.85, 43.68),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -900,7 +900,7 @@ Config.Doors = {
         {
             door = 2320881007,
             CloseRotation = 180.0,
-            DoorCoord  = vector3(-810.47, -1327.6, 43.67),
+            OpenCoord  = vector3(-810.47, -1327.6, 43.67),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -911,7 +911,7 @@ Config.Doors = {
         {
             door = 815031507,
             CloseRotation = 90.0,
-            DoorCoord  = vector3(-824.05, -1322.25, 43.68),
+            OpenCoord  = vector3(-824.05, -1322.25, 43.68),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -922,7 +922,7 @@ Config.Doors = {
         {
             door = 1523300673,
             CloseRotation = -180.0,
-            DoorCoord  = vector3(-822.9203, -1316.562, 43.69122),
+            OpenCoord  = vector3(-822.9203, -1316.562, 43.69122),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -933,7 +933,7 @@ Config.Doors = {
         {
             door = 254520182,
             CloseRotation = -90.0,
-            DoorCoord  = vector3(-818.2964, -1324.128, 47.87748),
+            OpenCoord  = vector3(-818.2964, -1324.128, 47.87748),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -947,7 +947,7 @@ Config.Doors = {
         {
             door = 3895438792,
             CloseRotation = -315.0,
-            DoorCoord  = vector3(2628.55, -1221.17, 53.4),
+            OpenCoord  = vector3(2628.55, -1221.17, 53.4),
             door2 = 804086151,
             CloseRotation2 = 225.0,
             locked = true,
@@ -958,7 +958,7 @@ Config.Doors = {
         {
             door = 2999855503,
             CloseRotation = -180.0,
-            DoorCoord  = vector3(2639.64, -1219.97, 59.61),
+            OpenCoord  = vector3(2639.64, -1219.97, 59.61),
             door2 = 2693793043,
             CloseRotation2 = 180.0,
             locked = true,
@@ -969,7 +969,7 @@ Config.Doors = {
         {
             door = 3461406868,
             CloseRotation = -180.0,
-            DoorCoord  = vector3(2636.45, -1219.69, 59.61),
+            OpenCoord  = vector3(2636.45, -1219.69, 59.61),
             door2 = 1275780106,
             CloseRotation2 = 180.0,
             locked = true,
@@ -980,7 +980,7 @@ Config.Doors = {
         {
             door = 3856177940,
             CloseRotation = -180.0,
-            DoorCoord  = vector3(2633.21, -1219.85, 59.61),
+            OpenCoord  = vector3(2633.21, -1219.85, 59.61),
             door2 = 3371065664,
             CloseRotation2 = 180.0,
             locked = true,
@@ -992,7 +992,7 @@ Config.Doors = {
         {
             door = 2653589767,
             CloseRotation = -10.0,
-            DoorCoord  = vector3(2793.796, -1174.267, 47.93112),
+            OpenCoord  = vector3(2793.796, -1174.267, 47.93112),
             door2 = 2960930218,
             CloseRotation2 = 110.0,
             locked = true,
@@ -1003,7 +1003,7 @@ Config.Doors = {
         {
             door = 4220752030,
             CloseRotation = -10.0,
-            DoorCoord  = vector3(2803.587, -1164.254, 47.92804),
+            OpenCoord  = vector3(2803.587, -1164.254, 47.92804),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1016,7 +1016,7 @@ Config.Doors = {
         {
             door = 244699522,
             CloseRotation = 90.0,
-            DoorCoord  = vector3(2951.994, 523.2606, 45.48371),
+            OpenCoord  = vector3(2951.994, 523.2606, 45.48371),
             door2 = 3225924839,
             CloseRotation2 = -90.0,
             locked = true,
@@ -1027,7 +1027,7 @@ Config.Doors = {
         {
             door = 3704712698,
             CloseRotation = 0,
-            DoorCoord  = vector3(2943.0595703125,516.47387695313,44.363765716553),
+            OpenCoord  = vector3(2943.0595703125,516.47387695313,44.363765716553),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1038,7 +1038,7 @@ Config.Doors = {
         {
             door = 2869660271,
             CloseRotation = -90.0,
-            DoorCoord  = vector3(2938.0739746094,528.40545654297,44.363243103027),
+            OpenCoord  = vector3(2938.0739746094,528.40545654297,44.363243103027),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1049,7 +1049,7 @@ Config.Doors = {
         {
             door = 1102743282,
             CloseRotation = 0,
-            DoorCoord  = vector3(2985.8999023438,569.33062744141,46.872211456299),
+            OpenCoord  = vector3(2985.8999023438,569.33062744141,46.872211456299),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1060,7 +1060,7 @@ Config.Doors = {
         {
             door = 3375224492,
             CloseRotation = -190.0,
-            DoorCoord  = vector3(3025.131, 555.2164, 44.70932),
+            OpenCoord  = vector3(3025.131, 555.2164, 44.70932),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1071,7 +1071,7 @@ Config.Doors = {
         {
             door = 2641204994,
             CloseRotation = -180.0,
-            DoorCoord  = vector3(3019.7863769531,567.87213134766,43.711101531982),
+            OpenCoord  = vector3(3019.7863769531,567.87213134766,43.711101531982),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1082,7 +1082,7 @@ Config.Doors = {
         {
             door = 2641204994,
             CloseRotation = 180.0,
-            DoorCoord  = vector3(3019.7863769531,567.87213134766,43.711101531982),
+            OpenCoord  = vector3(3019.7863769531,567.87213134766,43.711101531982),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1093,7 +1093,7 @@ Config.Doors = {
         {
             door = 877945562,
             CloseRotation = 180.0,
-            DoorCoord  = vector3(3027.9602050781,567.66424560547,43.712707519531),
+            OpenCoord  = vector3(3027.9602050781,567.66424560547,43.712707519531),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1104,7 +1104,7 @@ Config.Doors = {
         {
             door = 1997650502,
             CloseRotation = 180,
-            DoorCoord  = vector3(2975.2006835938,571.22668457031,46.872211456299),
+            OpenCoord  = vector3(2975.2006835938,571.22668457031,46.872211456299),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1115,7 +1115,7 @@ Config.Doors = {
         {
             door = 993198975,
             CloseRotation = 90.0,
-            DoorCoord  = vector3(2944.819, 540.518, 49.48433),
+            OpenCoord  = vector3(2944.819, 540.518, 49.48433),
             door2 = 821030649,
             CloseRotation2 = -90.0,
             locked = true,
@@ -1128,7 +1128,7 @@ Config.Doors = {
         {
             door = 223504277,
             CloseRotation = -195.0,
-            DoorCoord  = vector3(-5514.29, -2917.19, 1.66),
+            OpenCoord  = vector3(-5514.29, -2917.19, 1.66),
             door2 = 4292889829,
             CloseRotation2 = -15.0,
             locked = true,
@@ -1139,7 +1139,7 @@ Config.Doors = {
         {
             door = 1322586500,
             CloseRotation = 30.0,
-            DoorCoord  = vector3(-5514.38, -2913.12, 1.64),
+            OpenCoord  = vector3(-5514.38, -2913.12, 1.64),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1150,7 +1150,7 @@ Config.Doors = {
         {
             door = 2094297354,
             CloseRotation = 30.0,
-            DoorCoord  = vector3(-5515.13, -2901.66, -1.75),
+            OpenCoord  = vector3(-5515.13, -2901.66, -1.75),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1161,7 +1161,7 @@ Config.Doors = {
         {
             door = 1892085175,
             CloseRotation = -60.0,
-            DoorCoord  = vector3(-5518.68, -2912.57, -1.75),
+            OpenCoord  = vector3(-5518.68, -2912.57, -1.75),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1174,7 +1174,7 @@ Config.Doors = {
         {
             door = 834296435,
             CloseRotation = 80.0,
-            DoorCoord  = vector3(1352.77, -1376.93, 80.5),
+            OpenCoord  = vector3(1352.77, -1376.93, 80.5),
             door2 = 1124531468,
             CloseRotation2 = 80.0,
             locked = true,
@@ -1185,7 +1185,7 @@ Config.Doors = {
         {
             door = 3728169477,
             CloseRotation = -10.0,
-            DoorCoord  = vector3(1334.68, -1379.95, 80.5),
+            OpenCoord  = vector3(1334.68, -1379.95, 80.5),
             door2 = 3392483841,
             CloseRotation2 = -10.0,
             locked = true,
@@ -1196,7 +1196,7 @@ Config.Doors = {
         {
             door = 3047627494,
             CloseRotation = -90.0,
-            DoorCoord  = vector3(1330.58, -1367.99, 80.49),
+            OpenCoord  = vector3(1330.58, -1367.99, 80.49),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1207,7 +1207,7 @@ Config.Doors = {
         {
             door = 3434364936,
             CloseRotation = -100.0,
-            DoorCoord  = vector3(1336.14, -1371.55, 84.29),
+            OpenCoord  = vector3(1336.14, -1371.55, 84.29),
             door2 = 3215894013,
             CloseRotation2 = -100.0,
             locked = true,
@@ -1218,7 +1218,7 @@ Config.Doors = {
         {
             door = 2046695029,
             CloseRotation = 0,
-            DoorCoord  = vector3(1331.831, -1369.349, 80.48315),
+            OpenCoord  = vector3(1331.831, -1369.349, 80.48315),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1229,7 +1229,7 @@ Config.Doors = {
         {
             door = 2812328251,
             CloseRotation = 70.0,
-            DoorCoord  = vector3(1334.692, -1377.216, 80.49891),
+            OpenCoord  = vector3(1334.692, -1377.216, 80.49891),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1240,7 +1240,7 @@ Config.Doors = {
         {
             door = 2446974165,
             CloseRotation = 90.0,
-            DoorCoord  = vector3(1338.827, -1379.375, 84.28136),
+            OpenCoord  = vector3(1338.827, -1379.375, 84.28136),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1253,7 +1253,7 @@ Config.Doors = {
         {
             door = 261929195,
             CloseRotation = 190.0,
-            DoorCoord  = vector3(-315.94, 818.58, 118.98),
+            OpenCoord  = vector3(-315.94, 818.58, 118.98),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1264,7 +1264,7 @@ Config.Doors = {
         {
             door = 583884620,
             CloseRotation = 190.0,
-            DoorCoord  = vector3(-306.82, 820.26, 118.98),
+            OpenCoord  = vector3(-306.82, 820.26, 118.98),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1275,7 +1275,7 @@ Config.Doors = {
         {
             door = 968874193,
             CloseRotation = 280.0,
-            DoorCoord  = vector3(-316.84, 816.85, 121.98),
+            OpenCoord  = vector3(-316.84, 816.85, 121.98),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1286,7 +1286,7 @@ Config.Doors = {
         {
             door = 1154795503,
             CloseRotation = 190.0,
-            DoorCoord  = vector3(-306.72, 820.53, 121.97),
+            OpenCoord  = vector3(-306.72, 820.53, 121.97),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1302,7 +1302,7 @@ Config.Doors = {
         {
             door = 1121239638,
             CloseRotation = -49.0,
-            DoorCoord  = vector3(3326.77, -706.36, 44.32),
+            OpenCoord  = vector3(3326.77, -706.36, 44.32),
             door2 = 2617210026,
             CloseRotation2 = -47.0,
             locked = true,
@@ -1313,7 +1313,7 @@ Config.Doors = {
         {
             door = 906662604,
             CloseRotation = -49.0,
-            DoorCoord  = vector3(3332.76, -701.05, 44.02),
+            OpenCoord  = vector3(3332.76, -701.05, 44.02),
             door2 = 3984556459,
             CloseRotation2 = -47.0,
             locked = true,
@@ -1331,7 +1331,7 @@ Config.Doors = {
         {
             door = 1410133961,
             CloseRotation = -105.0,
-            DoorCoord  = vector3(1325.14, -1324.22, 77.89),
+            OpenCoord  = vector3(1325.14, -1324.22, 77.89),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1342,7 +1342,7 @@ Config.Doors = {
         {
             door = 393076024,
             CloseRotation = 165.0,
-            DoorCoord  = vector3(1325.931, -1318.827, 77.94665),
+            OpenCoord  = vector3(1325.931, -1318.827, 77.94665),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1353,7 +1353,7 @@ Config.Doors = {
         {
             door = 743565308,
             CloseRotation = 95.0,
-            DoorCoord  = vector3(1329.8211669922,-1329.1970214844,76.891494750977),
+            OpenCoord  = vector3(1329.8211669922,-1329.1970214844,76.891494750977),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1364,7 +1364,7 @@ Config.Doors = {
         {
             door = 934926308,
             CloseRotation = 95.0,
-            DoorCoord  = vector3(1319.5262451172,-1324.3895263672,76.891494750977),
+            OpenCoord  = vector3(1319.5262451172,-1324.3895263672,76.891494750977),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1376,7 +1376,7 @@ Config.Doors = {
         {
             door = 1057071735,
             CloseRotation = 25,
-            DoorCoord  = vector3(2719.8837890625,-1281.5419921875,48.637580871582),
+            OpenCoord  = vector3(2719.8837890625,-1281.5419921875,48.637580871582),
             door2 = 3283200993,
             CloseRotation2 = 206,
             locked = true,
@@ -1387,7 +1387,7 @@ Config.Doors = {
         {
             door = 841127028,
             CloseRotation = 24.5,
-            DoorCoord  = vector3(2710.5659179688,-1291.2041015625,48.632297515869),
+            OpenCoord  = vector3(2710.5659179688,-1291.2041015625,48.632297515869),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1405,7 +1405,7 @@ Config.Doors = {
         {
             door = 972368328,
             CloseRotation = 30,
-            DoorCoord  = vector3(1325.2160644531,-1294.3470458984,75.99486541748),
+            OpenCoord  = vector3(1325.2160644531,-1294.3470458984,75.99486541748),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1416,7 +1416,7 @@ Config.Doors = {
         {
             door = 1060413677,
             CloseRotation = -110.0,
-            DoorCoord  = vector3(1332.6689453125,-1291.1726074219,76.009201049805),
+            OpenCoord  = vector3(1332.6689453125,-1291.1726074219,76.009201049805),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1429,7 +1429,7 @@ Config.Doors = {
             {
                 door = 1595373759,
                 CloseRotation = -90.0,
-                DoorCoord  = vector3(-1794.4954833984,-381.68154907227,159.314453125),
+                OpenCoord  = vector3(-1794.4954833984,-381.68154907227,159.314453125),
                 door2 = 0,
                 CloseRotation2 = 0,
                 locked = true,
@@ -1441,7 +1441,7 @@ Config.Doors = {
             {
                 door = 1854467923,
                 CloseRotation = 90.0,
-                DoorCoord  = vector3(-1787.3168945313,-387.2438659668,159.31578063965),
+                OpenCoord  = vector3(-1787.3168945313,-387.2438659668,159.31578063965),
                 door2 = 0,
                 CloseRotation2 = 0,
                 locked = true,
@@ -1456,7 +1456,7 @@ Config.Doors = {
             {
                 door = 4114891219,
                 CloseRotation =  50.0,
-                DoorCoord  = vector3(2830, -1319.157, 45.74673),
+                OpenCoord  = vector3(2830, -1319.157, 45.74673),
                 door2 = 1051874490,
                 CloseRotation2 = -130.0,
                 locked = true,
@@ -1468,7 +1468,7 @@ Config.Doors = {
             {
                 door = 4234072328,
                 CloseRotation =  50.0,
-                DoorCoord  = vector3(2824.116, -1314.147, 45.75566),
+                OpenCoord  = vector3(2824.116, -1314.147, 45.75566),
                 door2 = 3986240381,
                 CloseRotation2 = -130.0,
                 locked = true,
@@ -1484,7 +1484,7 @@ Config.Doors = {
             {
                 door = 2796645535,
                 CloseRotation =  90.0,
-                DoorCoord  = vector3(-790.3356, -1322.739, 42.94269),
+                OpenCoord  = vector3(-790.3356, -1322.739, 42.94269),
                 door2 = 0,
                 CloseRotation2 = 0,
                 locked = true,
@@ -1496,7 +1496,7 @@ Config.Doors = {
             {
                 door = 3042576856,
                 CloseRotation =  -90.0,
-                DoorCoord  = vector3(-775.6486, -1321.515, 42.90887),
+                OpenCoord  = vector3(-775.6486, -1321.515, 42.90887),
                 door2 = 0,
                 CloseRotation2 = 0,
                 locked = true,
@@ -1508,7 +1508,7 @@ Config.Doors = {
             {
                 door = 2046989122,
                 CloseRotation =  0,
-                DoorCoord  = vector3(-781.6522, -1320.372, 47.10576),
+                OpenCoord  = vector3(-781.6522, -1320.372, 47.10576),
                 door2 = 0,
                 CloseRotation2 = 0,
                 locked = true,
@@ -1526,9 +1526,11 @@ Config.Doors = {
         {
             door = 752949299,
             CloseRotation = 0,
-            DoorCoord  = vector3(-871.6291, -1293.029, 43.10454),
+            DoorCoord = vector3(-873.94134521484,-1293.244140625,42.106128692627),
+            OpenCoord  = vector3(-871.6291, -1293.029, 43.10454),
             door2 = 1538487767,
             CloseRotation2 = -180.0,
+            DoorCoord2 = vector3(-869.75262451172,-1293.244140625,42.106128692627),
             locked = true,
             breakable = false, 
             jobs = {"forge"},
@@ -1537,7 +1539,7 @@ Config.Doors = {
         {
             door = 1318509470,
             CloseRotation = -90.0,
-            DoorCoord  = vector3(-876.828, -1288.957, 43.10406),
+            OpenCoord  = vector3(-876.828, -1288.957, 43.10406),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1554,7 +1556,7 @@ Config.Doors = {
         {
             door = 1606546482,
             CloseRotation = -20.0,
-            DoorCoord  = vector3(-1646.2409667969,-1367.1358642578,83.465660095215),
+            OpenCoord  = vector3(-1646.2409667969,-1367.1358642578,83.465660095215),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1565,7 +1567,7 @@ Config.Doors = {
         {
             door = 2310818050,
             CloseRotation = 120.0,
-            DoorCoord  = vector3(-1637.7155761719,-1352.6480712891,83.466453552246),
+            OpenCoord  = vector3(-1637.7155761719,-1352.6480712891,83.466453552246),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1576,7 +1578,7 @@ Config.Doors = {
         {
             door = 818583340,
             CloseRotation = 90.0,
-            DoorCoord  = vector3(-1649.2072753906,-1359.2379150391,83.464546203613),
+            OpenCoord  = vector3(-1649.2072753906,-1359.2379150391,83.464546203613),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1591,7 +1593,7 @@ Config.Doors = {
         {
             door = 1606546482,
             CloseRotation = -20.0,
-            DoorCoord  = vector3(-1646.2409667969,-1367.1358642578,83.465660095215),
+            OpenCoord  = vector3(-1646.2409667969,-1367.1358642578,83.465660095215),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -1606,7 +1608,7 @@ Config.Doors = {
         {
             door = 3438582231,
             CloseRotation = 309.41,
-            DoorCoord  = vector3(2626.15,-1338.11,49.17),
+            OpenCoord  = vector3(2626.15,-1338.11,49.17),
             door2 = 461125209,
             CloseRotation2 = 309.41,
             locked = true,
@@ -1617,7 +1619,7 @@ Config.Doors = {
         {
             door = 2353368182,
             CloseRotation = 39.77,
-            DoorCoord  = vector3(2604.73,-1348.04,49.13),
+            OpenCoord  = vector3(2604.73,-1348.04,49.13),
             door2 = 1913870354,
             CloseRotation2 = 40,
             locked = true,
@@ -1629,7 +1631,7 @@ Config.Doors = {
        {
         door = 2718326542,
         CloseRotation = 309.52,
-        DoorCoord  = vector3(2633.294, -1346.697, 49.0757),
+        OpenCoord  = vector3(2633.294, -1346.697, 49.0757),
         door2 = 2100663661,
         CloseRotation2 = 130.52,
         locked = true,
@@ -1641,7 +1643,7 @@ Config.Doors = {
     {
         door = 828250887,
         CloseRotation = 309.83,
-        DoorCoord  = vector3(2626.61,-1347.58,48.04),
+        OpenCoord  = vector3(2626.61,-1347.58,48.04),
         door2 = 0,
         CloseRotation2 = 0,
         locked = true,
@@ -1656,7 +1658,7 @@ Config.Doors = {
     {
         door = 1963415953,
         CloseRotation = -30.0,
-        DoorCoord  = vector3(-1682.649, -341.3071, 173.9155),
+        OpenCoord  = vector3(-1682.649, -341.3071, 173.9155),
         door2 = 0,
         CloseRotation2 = 0,
         locked = true,
@@ -1668,7 +1670,7 @@ Config.Doors = {
     {
         door = 2847752952,
         CloseRotation = 145.0,
-        DoorCoord  = vector3(-1679.373, -336.7736, 173.9922),
+        OpenCoord  = vector3(-1679.373, -336.7736, 173.9922),
         door2 = 0,
         CloseRotation2 = 0,
         locked = true,
@@ -1682,7 +1684,7 @@ Config.Doors = {
     {
         door = 3327934361,
         CloseRotation = -116.0,
-        DoorCoord  = vector3(1459.719, -1579.794, 72.01608),
+        OpenCoord  = vector3(1459.719, -1579.794, 72.01608),
         door2 = 0,
         CloseRotation2 = 0,
         locked = true,
@@ -1694,7 +1696,7 @@ Config.Doors = {
     {
         door = 3014302262,
         CloseRotation = -116.0,
-        DoorCoord  = vector3(1449.75, -1575.804, 71.99829),
+        OpenCoord  = vector3(1449.75, -1575.804, 71.99829),
         door2 = 0,
         CloseRotation2 = 0,
         locked = true,
@@ -1709,7 +1711,7 @@ Config.Doors = {
     {
         door = 1180868565,
         CloseRotation = -70.0,
-        DoorCoord  = vector3(2711.83, -1293.481, 60.4574),
+        OpenCoord  = vector3(2711.83, -1293.481, 60.4574),
         door2 = 0,
         CloseRotation2 = 0,
         locked = true,
