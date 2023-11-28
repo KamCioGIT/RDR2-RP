@@ -234,7 +234,7 @@ Config.CraftingsReceipe = {
 }
 
 Config.PavotNPC = {
-    ["blackwater"] = {heading = 289.50 , coords = vector3(-2371.39, 472.7389, 131.2499), model = "cs_aberdeenpigfarmer", interact = vector3(-2370.135, 472.7071, 131.2442)},
+    ["blackwater"] = {heading = 235 , coords = vector3(-2378.053, -1588.341, 153.2766), model = "cs_aberdeenpigfarmer", interact = vector3(-2377.442, -1588.972, 153.2849)},
     ["stdenis"] = {heading = 75.79538 , coords = vector3(2672.653, -1509.107, 44.96952), model = "a_m_m_sdchinatown_01", interact = vector3(-783.7773, -1233.145, 42.53811)},
 }
 

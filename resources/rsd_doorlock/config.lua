@@ -1511,7 +1511,7 @@ Config.Doors = {
         needkey = true,
         keys = 'clefchinois',
     },
-    }
+}
     
     --UNLOCK DOORS 
     Config.UnlocksDoors = {

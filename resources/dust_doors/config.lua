@@ -1821,4 +1821,18 @@ Config.Doors = {
         jobs = {"saloon_thieves"},
         keys = false,
     },
+
+    ---- opium
+
+    {
+        door = 1171581101,
+        CloseRotation = 115.0,
+        OpenCoord  = vector3(-2374.3642578125,-1592.6021728516,153.29959106445),
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {"all"},
+        keys = "clefpavotouest",
+    },
 }

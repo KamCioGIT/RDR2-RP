@@ -261,16 +261,21 @@ RegisterServerEvent("pavot:buyItem", function(item, amount, type)
 	elseif type == "stdenis" then
 		stash = "pavot_stdenis"
 	end
-	local _source = tonumber(source)
-	local user = RedEM.GetPlayer(_source)
-	local ItemData = data.getItem(_source, item)
-	local money = user.money
-	local itemprice = Config.PavotPrice * amount
-	if money >= itemprice then
-		user.RemoveMoney(itemprice)
-		ItemData.AddItem(amount)
+	local currentRealTime = os.date("*t")
+
+    -- Vérifier si l'heure réelle est entre 19h et 01h
+    if currentRealTime.hour >= 19 or currentRealTime.hour < 1 then
+		local _source = tonumber(source)
+		local user = RedEM.GetPlayer(_source)
+		local ItemData = data.getItem(_source, item)
+		local money = user.money
+		local itemprice = Config.PavotPrice * amount
+		if money >= itemprice then
+			user.RemoveMoney(itemprice)
+			ItemData.AddItem(amount)
+		end
+		TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
 	end
-	TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
 end)
 --- remove les graines
 
