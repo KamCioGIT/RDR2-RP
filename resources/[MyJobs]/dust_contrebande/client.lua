@@ -343,7 +343,7 @@ RegisterNetEvent("pavot:OpenImportMenu", function(type)
 
         function(data, menu)
             menu.close()
-            TriggerEvent("pavot:SelectBuyingAmount", data.current.value, MenuData)
+            TriggerEvent("pavot:SelectBuyingAmount", data.current.value, MenuData, type)
         end,
 
         function(data, menu)
@@ -354,7 +354,7 @@ RegisterNetEvent("pavot:OpenImportMenu", function(type)
 end)
 
 RegisterNetEvent("pavot:SelectBuyingAmount")
-AddEventHandler("pavot:SelectBuyingAmount", function(dataType, menuData, menu)
+AddEventHandler("pavot:SelectBuyingAmount", function(dataType, menuData, menu, type)
     menuData.CloseAll()
     local Position = GetEntityCoords(PlayerPedId())
 
@@ -391,7 +391,7 @@ AddEventHandler("pavot:SelectBuyingAmount", function(dataType, menuData, menu)
 
     function(data, menu)
         if data.current.label == "Quantité" then
-            TriggerServerEvent("pavot:buyItem", dataType, data.current.value)
+            TriggerServerEvent("pavot:buyItem", dataType, data.current.value, type)
             menu.close()
             isInteracting = false
         end 
