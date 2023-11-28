@@ -54,13 +54,13 @@ Uiprompt:new(0x760A9C6F, "Fabriquer", craftprompt)
 craftprompt:setActive(false)
 
 
-local getjob = false
+local getjob = nil
 local getgrade = 0
 RegisterNetEvent("dust_job:store")
 AddEventHandler("dust_job:store", function(job, grade)
     for k, v in pairs(Config.Jobs) do
         if job == v then
-            getjob = true
+            getjob = job
             getgrade = grade
             StartMission()
         end
@@ -93,7 +93,13 @@ RegisterNetEvent("store:OpenBossMenu", function()
 
 
         for k, v in pairs(Config.CraftingsReceipe) do
-            table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+            if v.job then
+                if v.job == getjob then
+                    table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+                end
+            else
+                table.insert(elements, {label = v.label, value = k, descriptionimages = v.descriptionimages})
+            end
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
