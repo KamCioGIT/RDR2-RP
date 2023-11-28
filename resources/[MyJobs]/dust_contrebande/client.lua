@@ -311,7 +311,7 @@ RegisterNetEvent("pavot:client:SetMaxAmount", function(value)
     maxAmountpavot = value
 end)
 
-RegisterNetEvent("pavot:OpenImportMenu", function()
+RegisterNetEvent("pavot:OpenImportMenu", function(type)
     local Position = GetEntityCoords(PlayerPedId())
 
     Citizen.CreateThread(function()
@@ -391,7 +391,7 @@ AddEventHandler("pavot:SelectBuyingAmount", function(dataType, menuData, menu)
 
     function(data, menu)
         if data.current.label == "Quantité" then
-            TriggerServerEvent("pavot:buyItem", dataType, menu, data.current.value)
+            TriggerServerEvent("pavot:buyItem", dataType, data.current.value)
             menu.close()
             isInteracting = false
         end 

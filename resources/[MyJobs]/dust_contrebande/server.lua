@@ -250,10 +250,20 @@ RegisterServerEvent("pavot:checkstash", function(type)
 	print (ItemAmount)
 	TriggerClientEvent("pavot:client:SetMaxAmount", _source, ItemAmount)
 	Wait(500)
-	TriggerClientEvent("pavot:OpenImportMenu",  _source)
+	TriggerClientEvent("pavot:OpenImportMenu",  _source, type)
 end)
 
-
+--- acheter
+RegisterServerEvent("pavot:buyItem", function(item, amount, type)
+	local _source = source
+	local stash = nil
+	if type == "blackwater" then
+		stash = "pavot_bla"
+	elseif type == "stdenis" then
+		stash = "pavot_stdenis"
+	end
+	exports.redemrp_inventory.removeItemStash(_source, item, amount, {}, stash)
+end)
 --- remove les graines
 
 
