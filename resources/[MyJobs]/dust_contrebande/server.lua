@@ -262,7 +262,7 @@ RegisterServerEvent("pavot:buyItem", function(item, amount, type)
 	elseif type == "stdenis" then
 		stash = "pavot_stdenis"
 	end
-	exports.redemrp_inventory.removeItemStash(item, amount, {}, stash)
+	exports.redemrp_inventory.removeItemStash(item, tonumber(amount), {}, stash)
 end)
 --- remove les graines
 

@@ -354,7 +354,7 @@ RegisterNetEvent("pavot:OpenImportMenu", function(type)
 end)
 
 RegisterNetEvent("pavot:SelectBuyingAmount")
-AddEventHandler("pavot:SelectBuyingAmount", function(dataType, menuData, menu, type)
+AddEventHandler("pavot:SelectBuyingAmount", function(dataType, menuData, type)
     menuData.CloseAll()
     local Position = GetEntityCoords(PlayerPedId())
 
