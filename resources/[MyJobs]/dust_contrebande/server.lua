@@ -238,7 +238,7 @@ end)
 
 ---- get le nb de graine dans le stash
 RegisterServerEvent("pavot:checkstash", function(type)
-	local source = _source
+	local _source = source
 	local stash = nil
 	if type == "blackwater" then
 		stash = "pavot_bla"
