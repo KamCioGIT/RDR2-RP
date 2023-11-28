@@ -257,13 +257,12 @@ end)
 RegisterServerEvent("pavot:buyItem", function(item, amount, type)
 	local _source = source
 	local stash = nil
-	print (type)
 	if type == "blackwater" then
 		stash = "pavot_bla"
 	elseif type == "stdenis" then
 		stash = "pavot_stdenis"
 	end
-	exports.redemrp_inventory.removeItemStash(_source, item, tonumber(amount), {}, stash)
+	TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
 end)
 --- remove les graines
 

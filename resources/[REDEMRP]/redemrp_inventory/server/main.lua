@@ -1188,6 +1188,31 @@ function removeItemStash(source, name, amount, meta, stashId)
     return output
 end
 
+RegisterServerEvent("redemrp_inventory:server:removefromstash")
+AddEventHandler("redemrp_inventory:server:removefromstash", function(name, amount, meta, stashId)
+    local _name = name
+    local _amount = tonumber(amount)
+    local _meta = meta or {}
+    local output = false
+    if _amount >= 0 then
+        local itemData = Config.Items[_name]
+        local stash = Stash[stashId]
+        local item, id = getInventoryItemFromName(_name, stash, getMetaOutput(meta))
+        local weight = GetStashWeight(stashId)
+
+        if item then
+            --print(item.getAmount(), _amount)
+            if itemData.type == "item_standard" then
+                if _amount > 0 then
+                    if item.getAmount() >= _amount then
+                        output = true
+                    else return end
+                end
+            end
+        else return end
+    end
+end)
+
 RegisterServerEvent("redemrp_inventory:server:removeitemstash")
 AddEventHandler("redemrp_inventory:server:removeitemstash", function(name, amount, meta, stashId, name2, amount2, meta2, stashId2)
     local _name = name
