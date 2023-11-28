@@ -409,7 +409,7 @@ AddEventHandler('redemrp_doorlocks:changedoor', function(doorID, state)
 	prop_name = 'P_KEY02X'
 	local ped = PlayerPedId()
         local p1 = GetEntityCoords(ped, true)
-        local p2 = Config.Doors[doorID].DoorCoord
+        local p2 = Config.Doors[doorID].OpenCoord
         local dx = p2.x - p1.x
         local dy = p2.y - p1.y
 
