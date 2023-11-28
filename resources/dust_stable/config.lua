@@ -72,7 +72,7 @@ Config.Stables = {
 		name = 'Rhodes_poste',
     },
 	Blackwater_sheriff = {
-		pos = vector3(-741.5472, -1302.6738, 43.2705),
+		pos = vector3(-751.8447, -1275.339, 42.35336),
 		name = 'Blackwater_sheriff',
     },
 	Strawberry_sheriff = {
@@ -84,7 +84,7 @@ Config.Stables = {
 		name = 'Manzanita',
     },
 	Littlecreek = {
-		pos = vector3(-2217.7065, 733.1433, 123.1683),
+		pos = vector3(-2211.897, 722.8704, 121.7071),
 		name = 'Littlecreek',
     },
 	Fort_Wallace = {
