@@ -339,7 +339,7 @@ function OpenFarmStable(menutype, stable)
                 if stable then
                     if v.stable == stable then
                         if v.level == 5 then
-                            table.insert(elements, {label = v.name, value = v.id, desc = "La bête est bien dodue !  "..v.lib.." ID: " ..v.id})
+                            table.insert(elements, {label = v.name, value = v.id, desc = "La bête est bien dodue, direction l'abattoir !  "..v.lib.." ID: " ..v.id})
                         elseif v.cd == false then
                             table.insert(elements, {label = v.name, value = v.id, desc = "La bête a faim !  "..v.lib.." ID: " ..v.id})
                         elseif v.cd == true then
