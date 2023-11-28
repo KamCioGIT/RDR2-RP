@@ -247,7 +247,7 @@ RegisterServerEvent("pavot:checkstash", function(type)
 	end
 	local ItemData = data.getItemStash(_source, stash, "grainepavot")
 	local ItemAmount = tonumber(ItemData.ItemAmount)
-
+	print (ItemAmount)
 	TriggerClientEvent("pavot:client:SetMaxAmount", _source, ItemAmount)
 	Wait(500)
 	TriggerClientEvent("pavot:OpenImportMenu",  _source)
