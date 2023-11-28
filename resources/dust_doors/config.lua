@@ -263,7 +263,7 @@ Config.Doors = {
             breakable = true, -- If you want the door could be breaked with "Config.ItemBreak"
             jobs = {"sheriff_rhodes"}, --All Job that can acces to the door // set all if you don't want a job
             needkey = false, -- If you want to use an item "key"
-            keys = '', --key item
+             keys = false, --key item
         },
         {
             door = 395506985,
@@ -1472,7 +1472,7 @@ Config.Doors = {
                 breakable = false, 
                 jobs = {"store_straw"},
                 needkey = false,
-                keys = '',
+                 keys = false,
             },
             {
                 door = 1854467923,
@@ -1484,7 +1484,7 @@ Config.Doors = {
                 breakable = false, 
                 jobs = {"store_straw"},
                 needkey = false,
-                keys = '',
+                 keys = false,
             },
     
             --Stdenis
@@ -1501,7 +1501,7 @@ Config.Doors = {
                 breakable = false, 
                 jobs = {"store_stdenis"},
                 needkey = false,
-                keys = '',
+                 keys = false,
             },
             {
                 door = 4234072328,
@@ -1515,7 +1515,7 @@ Config.Doors = {
                 breakable = false,
                 jobs = {"store_stdenis"},
                 needkey = false,
-                keys = '',
+                 keys = false,
             },
     
             
@@ -1531,7 +1531,7 @@ Config.Doors = {
                 breakable = false, 
                 jobs = {"store_bla"},
                 needkey = false,
-                keys = '',
+                 keys = false,
             },
             {
                 door = 3042576856,
@@ -1543,7 +1543,7 @@ Config.Doors = {
                 breakable = false,
                 jobs = {"store_bla"},
                 needkey = false,
-                keys = '',
+                 keys = false,
             },
             {
                 door = 2046989122,
@@ -1555,7 +1555,7 @@ Config.Doors = {
                 breakable = false,
                 jobs = {"store_bla"},
                 needkey = false,
-                keys = '',
+                 keys = false,
             },
             
     --------------------------------------------------------------------------------------
