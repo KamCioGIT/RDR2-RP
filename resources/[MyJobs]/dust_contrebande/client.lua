@@ -332,7 +332,7 @@ RegisterNetEvent("pavot:OpenImportMenu", function(type)
         local elements = {}
 
 
-        table.insert(elements, {label = "$0.40 Graine de Pavot", value = "grainepavot", price = 0.4})
+        table.insert(elements, {label = "$"..Config.PavotPrice .."Graine de Pavot", value = "grainepavot", price = 0.4})
 
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
             title = "Marché",

@@ -255,14 +255,21 @@ end)
 
 --- acheter
 RegisterServerEvent("pavot:buyItem", function(item, amount, type)
-	local _source = source
 	local stash = nil
 	if type == "blackwater" then
 		stash = "pavot_bla"
 	elseif type == "stdenis" then
 		stash = "pavot_stdenis"
 	end
-	print(item, amount, stash)
+	local _source = tonumber(source)
+	local user = RedEM.GetPlayer(_source)
+	local ItemData = data.getItem(_source, item)
+	local money = user.money
+	local itemprice = Config.PavotPrice * amount
+	if money >= itemprice then
+		user.RemoveMoney(itemprice)
+		ItemData.AddItem(1)
+	end
 	TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
 end)
 --- remove les graines
