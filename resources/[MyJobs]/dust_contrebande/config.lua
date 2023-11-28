@@ -234,8 +234,8 @@ Config.CraftingsReceipe = {
 }
 
 Config.PavotNPC = {
-    ["blackwater"] = {heading = 235 , coords = vector3(-2378.053, -1588.341, 153.2766), model = "cs_aberdeenpigfarmer", interact = vector3(-2377.442, -1588.972, 153.2849)},
-    ["stdenis"] = {heading = 121 , coords = vector3(1390.748, -2084.257, 51.5663), model = "a_m_m_sdchinatown_01", interact = vector3(1389.717, -2084.683, 51.5663)},
+    ["blackwater"] = {heading = 235.0 , coords = vector3(-2378.053, -1588.341, 153.2766), model = "cs_aberdeenpigfarmer", interact = vector3(-2377.442, -1588.972, 153.2849)},
+    ["stdenis"] = {heading = 121.0 , coords = vector3(1390.748, -2084.257, 51.5663), model = "a_m_m_sdchinatown_01", interact = vector3(1389.717, -2084.683, 51.5663)},
 }
 
 Config.PavotPrice = 0.4
