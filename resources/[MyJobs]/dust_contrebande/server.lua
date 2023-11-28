@@ -249,6 +249,8 @@ RegisterServerEvent("pavot:checkstash", function(type)
 	local ItemAmount = tonumber(ItemData.ItemAmount)
 
 	TriggerClientEvent("pavot:client:SetMaxAmount", _source, ItemAmount)
+	Wait(500)
+	TriggerClientEvent("pavot:OpenImportMenu")
 end)
 
 
