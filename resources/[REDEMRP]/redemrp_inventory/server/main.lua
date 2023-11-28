@@ -1193,7 +1193,8 @@ AddEventHandler("redemrp_inventory:server:removefromstash", function(name, amoun
     local _name = name
     local _amount = tonumber(amount)
     local _meta = meta or {}
-    local output = false
+    print (name, amount, meta, stashId)
+
     if _amount >= 0 then
         local itemData = Config.Items[_name]
         local stash = Stash[stashId]
