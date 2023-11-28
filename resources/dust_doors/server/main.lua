@@ -31,7 +31,7 @@ AddEventHandler('redemrp_doorlocks:updateState', function(doorID, state, cb)
 		if not IsAuthorized(user.getJob(), Config.Doors[doorID]) then
 			return
 		end
-		if not HaveKey(Config.Doors[doorID]) then
+		if not HaveKey(_source, Config.Doors[doorID]) then
 			return
 		end
 		DoorInfo[doorID] = {}
@@ -51,10 +51,9 @@ function IsAuthorized(jobName, doorID)
 	return false
 end
 
-function HaveKey(doorID)
-	print(doorID.keys)
+function HaveKey(src, doorID)
 	if doorID.keys ~= false then
-		local ItemData = data.getItem(source, doorID.keys)
+		local ItemData = data.getItem(src, doorID.keys)
 		local ItemAmount = tonumber(ItemData.ItemAmount)
 		if ItemAmount > 1 then
 			return true
