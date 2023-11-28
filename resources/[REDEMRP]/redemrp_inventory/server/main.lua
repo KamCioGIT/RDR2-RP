@@ -1889,6 +1889,181 @@ function SharedInventoryFunctions.getItem(source, name, meta)
     return data
 end
 
+function SharedInventoryFunctions.getItemStash(source, stash, name, meta)
+    local _source = source
+    local data = {}
+    if name ~= nil then
+        local user = RedEM.GetPlayer(_source)
+        local identifier = user.GetIdentifier()
+        local charid = user.GetActiveCharacter()
+        local player_inventory = stash
+        local lvl = 0
+        local item, id = getInventoryItemFromName(name, player_inventory, meta or {})
+
+        if item then
+            data.ItemInfo = item.getData()
+            data.ItemMeta = item.getMeta()
+            data.ItemAmount = item.getAmount()
+            function data.getAllItemOfName(name)
+                local fullInventory = PrepareToOutput(Inventory[identifier .. "_" .. charid])
+                local output = {}
+                for k, v in pairs(fullInventory) do
+                    if v.name == name then
+                        table.insert(output, v)
+                    end
+                end
+                return output
+            end
+            function data.ChangeMeta(m)
+                item.setMeta(m)
+                TriggerClientEvent(
+                    "redemrp_inventory:SendItems",
+                    _source,
+                    PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+                    {},
+                    InventoryWeight[identifier .. "_" .. charid]
+                )
+            end
+            function data.AddItem(amount, makepickup)
+                local output = false
+                if data.ItemInfo.type == "item_weapon" then
+                    data.ItemMeta = meta or {}
+                end
+                if data.ItemInfo.type == "item_letter" then
+                    data.ItemMeta = meta or {}
+                end
+                output = addItem(name, amount, data.ItemMeta, identifier, charid, lvl)
+                if not output then
+                    if data.ItemInfo.type ~= "item_weapon" then
+                        local freeWeight = Config.MaxWeight - InventoryWeight[identifier .. "_" .. charid]
+                        local canBeAdded = math.floor(freeWeight / data.ItemInfo.weight)
+                        if canBeAdded > amount then
+                            canBeAdded = data.ItemInfo.limit - data.ItemAmount
+                        end
+                        output = addItem(name, canBeAdded, data.ItemMeta, identifier, charid, lvl)
+                        if amount - canBeAdded > 0 then
+                            if makepickup == nil or makepickup == true then
+                                TriggerClientEvent(
+                                    "redemrp_inventory:CreatePickup",
+                                    _source,
+                                    name,
+                                    amount - canBeAdded,
+                                    data.ItemMeta,
+                                    data.ItemInfo.label,
+                                    data.ItemInfo.imgsrc
+                                )
+                            end
+                        end
+                    else
+                        TriggerClientEvent(
+                            "redemrp_inventory:CreatePickup",
+                            _source,
+                            name,
+                            amount,
+                            data.ItemMeta,
+                            data.ItemInfo.label,
+                            data.ItemInfo.imgsrc
+                        )
+                        TriggerClientEvent("redemrp_inventory:removeWeapon", _source, data.ItemInfo.weaponHash)
+                    end
+                end
+                if output then
+                    TriggerClientEvent(
+                        "redemrp_inventory:SendItems",
+                        _source,
+                        PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+                        {},
+                        InventoryWeight[identifier .. "_" .. charid]
+                    )
+                end
+                return output
+            end
+            function data.RemoveItem(amount)
+                local output = false
+                output = removeItem(name, amount, data.ItemMeta, identifier, charid)
+                if output then
+                    TriggerClientEvent(
+                        "redemrp_inventory:SendItems",
+                        _source,
+                        PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+                        {},
+                        InventoryWeight[identifier .. "_" .. charid]
+                    )
+                    if data.ItemInfo.type == "item_weapon" then
+                        TriggerClientEvent("redemrp_inventory:removeWeapon", _source, data.ItemInfo.weaponHash)
+                    end
+                    if data.ItemInfo.type == "item_ammo" then
+                        TriggerClientEvent("redemrp_inventory:removeammo", _source, data.ItemInfo.ammoType)
+                    end
+                end
+                return output
+            end
+        else
+            data.ItemInfo = Config.Items[name]
+            data.ItemMeta = {}
+            data.ItemAmount = 0
+            function data.AddItem(amount, makepickup)
+                local output = false
+                output = addItem(name, amount, meta, identifier, charid, lvl)
+                if not output then
+                    if data.ItemInfo.type ~= "item_weapon" then
+                        local freeWeight = Config.MaxWeight - InventoryWeight[identifier .. "_" .. charid]
+                        local canBeAdded = math.floor(freeWeight / data.ItemInfo.weight)
+                        if canBeAdded > amount then
+                            canBeAdded = data.ItemInfo.limit
+                        end
+                        if canBeAdded > 0 then
+                            if makepickup == nil or makepickup == true then
+                                output = addItem(name, canBeAdded, meta, identifier, charid, lvl)
+                                TriggerClientEvent(
+                                    "redemrp_inventory:CreatePickup",
+                                    _source,
+                                    name,
+                                    amount - canBeAdded,
+                                    meta or {},
+                                    data.ItemInfo.label,
+                                    data.ItemInfo.imgsrc
+                                )
+                            else
+                                output = false
+                            end
+                        end
+                    else
+                        local freeWeight = Config.MaxWeight - InventoryWeight[identifier .. "_" .. charid]
+                        if freeWeight < data.ItemInfo.weight then
+                            TriggerClientEvent(
+                                "redemrp_inventory:CreatePickup",
+                                _source,
+                                name,
+                                amount,
+                                meta or {},
+                                data.ItemInfo.label,
+                                data.ItemInfo.imgsrc
+                            )
+                        else
+                            output = addItem(name, amount, meta, identifier, charid, lvl)
+                        end
+                    end
+                end
+                if output then
+                    TriggerClientEvent(
+                        "redemrp_inventory:SendItems",
+                        _source,
+                        PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+                        {},
+                        InventoryWeight[identifier .. "_" .. charid]
+                    )
+                end
+                return output
+            end
+            function data.RemoveItem(amount)
+                return false
+            end
+        end
+    end
+    return data
+end
+
 RegisterServerEvent("redemrp_inventory:deleteInv",
     function(charid, Callback)
         local _source = source

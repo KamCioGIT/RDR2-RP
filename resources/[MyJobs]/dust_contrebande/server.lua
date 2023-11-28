@@ -236,3 +236,22 @@ end)
 
 
 
+---- get le nb de graine dans le stash
+RegisterServerEvent("pavot:checkstash", function(type)
+	local stash = nil
+	if type == "blackwater" then
+		stash = "pavot_bla"
+	elseif type == "stdenis" then
+		stash = "pavot_stdenis"
+	end
+	local ItemData = data.getItemStash(_source, stash, "grainepavot")
+	local ItemAmount = tonumber(ItemData.ItemAmount)
+
+	TriggerClientEvent("pavot:client:SetMaxAmount", _source, ItemAmount)
+end)
+
+
+--- remove les graines
+
+
+--- ajouter les graines

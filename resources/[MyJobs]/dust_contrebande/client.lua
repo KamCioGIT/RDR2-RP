@@ -260,3 +260,145 @@ end)
 RegisterNetEvent("contrebande:client:SetMaxAmount", function(value)
     maxCraftAmountcontrebande = value
 end)
+
+
+--- pop pnj
+Citizen.CreateThread(function()
+Wait(1000)
+for k,v in pairs(Config.PavotNPC) do
+    local model = RequestModel(GetHashKey(v.model))
+
+    while not HasModelLoaded(GetHashKey(v.model)) do
+        Wait(100)
+    end
+
+    local spawnCoords = v.coords
+    local ped = CreatePed(GetHashKey(v.model), spawnCoords.x, spawnCoords.y, spawnCoords.z, v.heading, false, true, true, true)
+    Citizen.InvokeNative(0x283978A15512B2FE, ped, true)
+    SetEntityNoCollisionEntity(PlayerPedId(), ped, false)
+    SetEntityCanBeDamaged(ped, false)
+    SetEntityInvincible(ped, true)
+    Wait(2000)
+    FreezeEntityPosition(ped, true)
+    SetBlockingOfNonTemporaryEvents(ped, true)
+    SetModelAsNoLongerNeeded(GetHashKey(v.model))
+end
+end)
+--- zone 
+Citizen.CreateThread(function()
+    while true do
+        Wait(2)
+        local playerPos = GetEntityCoords(PlayerPedId())
+
+        for k, v in pairs(Config.PavotNPC) do
+            if #(playerPos - v.interact) < Config.DistanceToInteract and not isInteracting then
+                TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    TriggerServerEvent("pavot:checkstash", k)
+                end
+            end
+        end
+
+    end
+end)
+
+
+---- menu achat graine
+
+local maxAmountpavot = nil
+
+RegisterNetEvent("pavot:client:SetMaxAmount", function(value)
+    maxAmountpavot = value
+end)
+
+RegisterNetEvent("pavot:OpenImportMenu", function(table)
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        local elements = {}
+
+
+        table.insert(elements, {label = "$0.40 Graine de Pavot", value = "grainepavot", price = 0.4})
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Marché",
+            subtext = "Acheter",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            menu.close()
+            TriggerServerEvent("pavot:SelectBuyingAmount", data.current.value)
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)
+
+RegisterNetEvent("pavot:SelectBuyingAmount")
+AddEventHandler("pavot:SelectBuyingAmount", function(dataType, menuData, menu)
+    menuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+
+    local elements = {
+        { label = "Quantité", 
+        value = 0, 
+        desc = "Acheter",
+        type = 'slider',
+        min = 0,
+        max = maxAmountpavot 
+        },
+    }
+
+    menuData.Open('default', GetCurrentResourceName(), 'buypavot', {
+        title = "Acheter",
+        subtext = "Choisir la quantité",
+        align = 'top-right',
+        elements = elements,
+    },
+
+    function(data, menu)
+        if data.current.label == "Quantité" then
+            TriggerServerEvent("pavot:buyItem", dataType, menu, data.current.value)
+            menu.close()
+            isInteracting = false
+        end 
+    end,
+
+    function(data, menu)
+        menu.close()
+        isInteracting = false
+    end)
+end)
