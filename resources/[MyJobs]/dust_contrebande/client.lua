@@ -311,7 +311,7 @@ RegisterNetEvent("pavot:client:SetMaxAmount", function(value)
     maxAmountpavot = value
 end)
 
-RegisterNetEvent("pavot:OpenImportMenu", function(table)
+RegisterNetEvent("pavot:OpenImportMenu", function()
     local Position = GetEntityCoords(PlayerPedId())
 
     Citizen.CreateThread(function()
