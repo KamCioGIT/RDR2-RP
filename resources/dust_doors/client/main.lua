@@ -270,7 +270,7 @@ Citizen.CreateThread(function()
 		for _,v in pairs(Config.Doors) do
 			if v.door2 ~= 0 then
 				if not v.object2 or not DoesEntityExist(v.object2) then
-					local shapeTest = StartShapeTestBox(v.DoorCoord2, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
+					local shapeTest = StartShapeTestBox(v.DoorCoord, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
 					local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
 					v.object2 = entityHit
 				end
@@ -339,7 +339,6 @@ Citizen.CreateThread(function()
 						end
 						FreezeEntityPosition(v.object2,false)
 					end
-
 				else
 					if v.locked then
 						if Citizen.InvokeNative(0x160AA1B32F6139B8, v.door) ~= 3 then
