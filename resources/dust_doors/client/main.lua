@@ -281,7 +281,7 @@ Citizen.CreateThread(function()
 				end
 			else
 				if not v.object or not DoesEntityExist(v.object) then
-					local shapeTest = StartShapeTestBox(v.DoorCoord, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
+					local shapeTest = StartShapeTestBox(v.OpenCoord, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, true, 16)
 					local rtnVal, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(shapeTest)
 					v.object = entityHit
 				end
