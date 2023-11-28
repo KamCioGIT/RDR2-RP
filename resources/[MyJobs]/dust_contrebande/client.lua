@@ -343,7 +343,7 @@ RegisterNetEvent("pavot:OpenImportMenu", function()
 
         function(data, menu)
             menu.close()
-            TriggerEvent("pavot:SelectBuyingAmount", data.current.value)
+            TriggerEvent("pavot:SelectBuyingAmount", data.current.value, MenuData)
         end,
 
         function(data, menu)
