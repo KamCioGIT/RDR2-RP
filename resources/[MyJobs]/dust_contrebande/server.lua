@@ -250,7 +250,7 @@ RegisterServerEvent("pavot:checkstash", function(type)
 
 	TriggerClientEvent("pavot:client:SetMaxAmount", _source, ItemAmount)
 	Wait(500)
-	TriggerClientEvent("pavot:OpenImportMenu")
+	TriggerClientEvent("pavot:OpenImportMenu",  _source)
 end)
 
 
