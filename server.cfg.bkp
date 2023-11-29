@@ -69,7 +69,9 @@ ensure dust_camp
 ensure dust_vault
 ensure dust_usine
 ensure dust_mineur
+ensure dust_contrebande
 ensure dust_ferme
+ensure dust_distillerie
 ensure dust_rumors
 ensure dust_forge
 ensure dust_apothicaire
@@ -80,6 +82,8 @@ ensure dust_banking
 ensure dust_telegram
 ensure dust_radial
 ensure dust_store
+ensure dust_peche
+ensure dust_transport
 ensure mega_doctorjob
 ensure nss_chalkboard
 start gum_animmenu
