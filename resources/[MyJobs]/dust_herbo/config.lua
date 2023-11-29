@@ -20,7 +20,7 @@ Config.CraftAnim = {
 
 Config.CraftingsReceipe = {
     ['herbesaromatiques'] = {
-        type = 'epicerie',
+        type = 'herboetabli',
         Itemtocraft = 3,
         ItemReceipe1Name = 'jonccommun',
         ItemReceipe1Amount = 1,
