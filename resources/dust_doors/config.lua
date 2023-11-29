@@ -1037,7 +1037,7 @@ Config.Doors = {
         --SALOON VANHORN
         {
             door = 244699522,
-            CloseRotation = 90.0,
+            CloseRotation = -90.0,
             DoorCoord = vector3(2951.6027832031,523.88128662109,44.355388641357),
             OpenCoord  = vector3(2951.994, 523.2606, 45.48371),
             door2 = 3225924839,
