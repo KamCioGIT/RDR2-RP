@@ -1235,7 +1235,7 @@ function spawnprevisu(data, menu, previs)
     end
 
     initializing = true
-    local previshorse = CreatePed(modelHash, previs.pos, previs.heading, false, true)
+    local previshorse = CreatePed(modelHash, previs.pos, previs.heading, true, true)
     Citizen.InvokeNative(0x283978A15512B2FE, previshorse, true) -- set random outfit components
     FreezeEntityPosition(previshorse, true)
     SetModelAsNoLongerNeeded(modelHash)
@@ -1247,6 +1247,7 @@ function spawnprevisu(data, menu, previs)
 
     SetPedConfigFlag(horse, 297, true)
     SetEntityAsMissionEntity(previshorse, true, true)
+    FreezeEntityPosition(previshorse, true)
     Spawnedprevisu[previshorse] = true
     initializing = false
 end
@@ -1270,6 +1271,7 @@ function spawncartprevisu(data, menu, previs)
 
     initializing = true
     local previsucart = CreateVehicle(modelHash, previs.pos, previs.heading, true, true)
+    FreezeEntityPosition(previsucart, true)
     SetModelAsNoLongerNeeded(modelHash)
 
     SetPedPromptName(cart, name)
