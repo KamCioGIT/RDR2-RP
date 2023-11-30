@@ -1,6 +1,7 @@
 local CoolDown = 0
 local OpenPrompt
 local PromptGroup = GetRandomIntInRange(0, 0xffffff)
+local isInteracting = false
 
 function SetupOpenPrompt()
     Citizen.CreateThread(function()
@@ -409,8 +410,9 @@ Citizen.CreateThread(function()
 						if v.locked then
 							local label  = CreateVarString(10, 'LITERAL_STRING', "Fermée")
 							PromptSetActiveGroupThisFrame(PromptGroup, label)
-							if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 then
+							if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 and not isInteracting then
 								CoolDown = 1000
+								isInteracting = true
 								local state = not v.locked
 								TriggerServerEvent("redemrp_doorlocks:updatedoorsv", k, state)
 							end
@@ -418,15 +420,17 @@ Citizen.CreateThread(function()
 						else
 							local label  = CreateVarString(10, 'LITERAL_STRING', "Ouverte")
 							PromptSetActiveGroupThisFrame(PromptGroup, label)
-							if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 then
+							if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 and not isInteracting then
 								CoolDown = 1000
+								isInteracting = true
 								local state = not v.locked
 								TriggerServerEvent("redemrp_doorlocks:updatedoorsv", k, state)
 							end
 						end
 					else
-						if IsControlJustPressed(0,Config.KeyPress) and CoolDown < 1 then
+						if IsControlJustPressed(0,Config.KeyPress) and CoolDown < 1 and not isInteracting then
 							CoolDown = 1000
+							isInteracting = true
 							local state = not v.locked
 							TriggerServerEvent("redemrp_doorlocks:updatedoorsv", k, state)
 						end
@@ -483,4 +487,5 @@ AddEventHandler('redemrp_doorlocks:changedoor', function(doorID, state)
 		ClearPedSecondaryTask(ped)
 		DeleteObject(prop)
 	end
+	isInteracting = false
 end)
