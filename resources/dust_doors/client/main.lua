@@ -51,8 +51,9 @@ Citizen.CreateThread(function()
 			-- 		end
 			-- 	end
 			-- end
-		end
+			end
 		Citizen.Wait(10)
+		end
 	end
 end)
 
