@@ -466,6 +466,7 @@ AddEventHandler('redemrp_doorlocks:changedoor', function(doorID, state)
 	local x,y,z = table.unpack(GetEntityCoords(ped, true))
 	local prop = CreateObject(GetHashKey(prop_name), x, y, z + 0.2, true, true, true)
 	local boneIndex = GetEntityBoneIndexByName(ped, "SKEL_R_Finger12")
+	AttachEntityToEntity(prop, ped,boneIndex, 0.02, 0.0120, -0.00850, 0.024, -160.0, 200.0, true, true, false, true, 1, true)
 
 	if not IsEntityPlayingAnim(ped, "script_common@jail_cell@unlock@key", "action", 3) then
 		local waiting = 0
@@ -480,7 +481,6 @@ AddEventHandler('redemrp_doorlocks:changedoor', function(doorID, state)
 		TaskPlayAnim(ped, 'script_common@jail_cell@unlock@key', 'action', 8.0, -8.0, 2500, 31, 0, true, 0, false, 0, false)
 		RemoveAnimDict("script_common@jail_cell@unlock@key")
 			Wait(750)
-		AttachEntityToEntity(prop, ped,boneIndex, 0.02, 0.0120, -0.00850, 0.024, -160.0, 200.0, true, true, false, true, 1, true)
 			Wait(250)
 		TriggerServerEvent('redemrp_doorlocks:updateState', doorID, state, function(cb) end)
 			Wait(1500)
