@@ -339,7 +339,7 @@ end)
 Citizen.CreateThread(function()
 	SetupOpenPrompt()
 	while true do
-		Citizen.Wait(0)
+		Citizen.Wait(1)
 		local playerCoords, letSleep = GetEntityCoords(PlayerPedId()), true
 
 		for k,v in ipairs(Config.Doors) do
