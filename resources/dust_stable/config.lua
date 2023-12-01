@@ -1117,13 +1117,13 @@ Config.BuyHorses = {
         model = "A_C_donkey_01",
         name = "Âne",
         desc = "Même pas un cheval",
-        price = 3,
+        price = 2,
     },
     Mule= {
         model = "A_C_HorseMule_01",
         name = "Mule",
         desc = "Même pas un cheval",
-        price = 3,
+        price = 4,
     },
 }
 
