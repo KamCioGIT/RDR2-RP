@@ -1154,6 +1154,12 @@ Config.Cart = {
 		desc = "Une charrette pour les plus démunis",
         price = 15,
     },
+    cart04= {
+		model = "cart03",
+		name = "Petite charrette",
+		desc = "Une charrette pour les plus démunis",
+        price = 20,
+    },
 	cart08= {
 		model = "cart08",
 		name = "Petite charrette",
