@@ -73,8 +73,8 @@ Config.RiverChances = {
         chanceOfTwo = 20,
     },
     [-261541730] = { -- Whinyard Strait
-        chanceToGet = 60,
-        chanceOfTwo = 30,
+        chanceToGet = 40,
+        chanceOfTwo = 10,
     },
 
     
