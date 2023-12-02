@@ -46,15 +46,15 @@ Config.RiverChances = {
     
     [370072007] = { -- Dakota River
         chanceToGet = 40,
-        chanceOfTwo = 20,
+        chanceOfTwo = 15,
     }, 
     [-1410384421] = { -- Little Creek River
-        chanceToGet = 45,
-        chanceOfTwo = 15,
+        chanceToGet = 40,
+        chanceOfTwo = 10,
     },
     [-1245451421] = { -- Deadboot Creek
-        chanceToGet = 50,
-        chanceOfTwo = 20,
+        chanceToGet = 45,
+        chanceOfTwo = 15,
     },
     [469159176] = { -- Dewberry Creek
         chanceToGet = 20,
