@@ -157,5 +157,16 @@ RegisterServerEvent("usine:MaxRessourcesAmount", function(dataType)
 
 end)
 
+RegisterNetEvent("usine:buy", function(item, price)
+	local _source = tonumber(source)
+	local user = RedEM.GetPlayer(_source)
+	local ItemData = data.getItem(_source, item)
+	local money = user.money
+	local itemprice = price
+	if money >= itemprice then
+		user.RemoveMoney(itemprice)
+		ItemData.AddItem(1)
+	end
+end)
 
 
