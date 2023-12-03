@@ -3,6 +3,7 @@ local OpenPrompt
 local PromptGroup = GetRandomIntInRange(0, 0xffffff)
 local isInteracting = false
 
+
 function SetupOpenPrompt()
     Citizen.CreateThread(function()
         local str = 'Porte'

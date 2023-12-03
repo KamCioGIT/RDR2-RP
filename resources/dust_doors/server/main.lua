@@ -9,6 +9,15 @@ end)
 
 local DoorInfo	= {}
 
+AddEventHandler("redemrp:playerLoaded", function()
+	Wait(1000)
+	for k, v in pairs(DoorInfo) do
+		TriggerClientEvent('redemrp_doorlocks:setState', -1, v.doorID, v.state)
+	end
+end)
+
+
+
 RegisterServerEvent('redemrp_doorlocks:updatedoorsv')
 AddEventHandler('redemrp_doorlocks:updatedoorsv', function(doorID, state, cb)
 	local _source = source
@@ -34,7 +43,10 @@ AddEventHandler('redemrp_doorlocks:updateState', function(doorID, state, cb)
 		if not HaveKey(_source, Config.Doors[doorID]) then
 			return
 		end
-		DoorInfo[doorID] = {}
+		DoorInfo[doorID] = {
+			doorID = doorID,
+			state = state
+		}
 		TriggerClientEvent('redemrp_doorlocks:setState', -1, doorID, state)
 end)
 
