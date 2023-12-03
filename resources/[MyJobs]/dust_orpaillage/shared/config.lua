@@ -40,20 +40,20 @@ Config.RiverChances = {
     },
     
     [650214731] = { -- Beartoothbeck
-        chanceToGet = 40,
+        chanceToGet = 35,
         chanceOfTwo = 15,
     },
     
     [370072007] = { -- Dakota River
         chanceToGet = 30,
-        chanceOfTwo = 15,
+        chanceOfTwo = 10,
     }, 
     [-1410384421] = { -- Little Creek River
         chanceToGet = 20,
         chanceOfTwo = 10,
     },
     [-1245451421] = { -- Deadboot Creek
-        chanceToGet = 45,
+        chanceToGet = 40,
         chanceOfTwo = 15,
     },
     [469159176] = { -- Dewberry Creek
