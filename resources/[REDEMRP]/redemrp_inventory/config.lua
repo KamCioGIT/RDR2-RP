@@ -3269,8 +3269,8 @@ Config.Items = {
     type = "item_standard",
 },
 ["good_whisky"] = {
-    label = "Scarlett Whisky",
-    description = "Un bon Whisky",
+    label = "Whisky Prestige",
+    description = "Un whisky d'exception, haut de gamme",
     weight = 0.1,
     canBeDropped = true,
     canBeUsed = true,
@@ -3280,8 +3280,8 @@ Config.Items = {
     type = "item_standard",
 },
 ["dirty_whiskey"] = {
-    label = "Whisky",
-    description = "Un mauvais Whisky",
+    label = "Whisky Elegant",
+    description = "Un whisky d'entrée de gamme",
     weight = 0.1,
     canBeDropped = true,
     canBeUsed = true,
@@ -3336,8 +3336,8 @@ Config.Items = {
 },
 ---- saloon 
 ["gin"] = {
-    label = "Gin",
-    description = "",
+    label = "Sapphire Gin",
+    description = "Spécialement conçu pour la gent féminine",
     weight = 0.1,
     canBeDropped = true,
     canBeUsed = true,
