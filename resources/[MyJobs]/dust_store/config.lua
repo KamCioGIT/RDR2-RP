@@ -288,6 +288,24 @@ Config.CraftingsReceipe = {
         label = 'Carrot Cake',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_offal.png', text = "Bouteille de lait",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_carrots.png', text = "Carrotes sauvages",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
+    ['cerfbiere'] = {
+        type = 'epicerie',
+        Job = 'store_rhodes',
+        Itemtocraft = 4,
+        ItemReceipe1Name = 'biere',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'patate',
+        ItemReceipe2Amount = 1,
+        ItemReceipe3Name = 'venaison',
+        ItemReceipe3Amount = 3,
+        ItemReceipe4Name = 'charbon',
+        ItemReceipe4Amount = 1,
+        ItemToGive = 'cerfbiere',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Cerf à la bière',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/beer.png', text = "Bière",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_bread_chunk.png', text = "Patate",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_meat_mature_venison.png', text = "Venaison",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+    },
     ['soupechampignon'] = {
         type = 'epicerie',
         Itemtocraft = 4,

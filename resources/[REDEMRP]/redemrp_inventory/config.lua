@@ -4437,6 +4437,17 @@ Config.Items = {
     imgsrc = "items/cooked_corn.png",
     type = "item_standard",
 },
+["cerfbiere"] = {
+    label = "Cerf à la bière",
+    description = "Un peu de cerf, quelques patates et de la bière",
+    weight = 0.2,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/consumable_meal_camp_stew_med.png",
+    type = "item_standard",
+},
 }
 
 

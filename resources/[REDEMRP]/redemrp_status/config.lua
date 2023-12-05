@@ -412,6 +412,16 @@ Config.Items = {
             Stew()
         end
     },
+    ["cerfbiere"] = {
+        hunger = 40,
+        thirst = 20,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Stew()
+        end
+    },
     ["tourtegibier"] = {
         hunger = 80,
         thirst = 0,
