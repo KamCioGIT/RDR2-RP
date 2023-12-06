@@ -1069,8 +1069,8 @@ Config.Jobs = {
 Config.DistanceToInteract = 2.0
 
 Config.ExportPoint = {
-    ["Blackwater"]= vector3(-783.3221, -1234.487, 42.54176), -- bla
-    ["StDenis"]= vector3(2671.887, -1508.395, 44.96954) -- st denis 
+    ["blackwater"]= vector3(-783.3221, -1234.487, 42.54176), -- bla
+    ["stdenis"]= vector3(2671.887, -1508.395, 44.96954) -- st denis 
 }
 
 Config.ImportNPC = {
