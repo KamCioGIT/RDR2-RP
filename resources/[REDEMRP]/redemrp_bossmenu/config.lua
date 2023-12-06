@@ -1069,13 +1069,13 @@ Config.Jobs = {
 Config.DistanceToInteract = 2.0
 
 Config.ExportPoint = {
-    ["blackwater"]= vector3(-783.3221, -1234.487, 42.54176), -- bla
-    ["stdenis"]= vector3(2671.887, -1508.395, 44.96954) -- st denis 
+    ["Blackwater"]= vector3(-783.3221, -1234.487, 42.54176), -- bla
+    ["StDenis"]= vector3(2671.887, -1508.395, 44.96954) -- st denis 
 }
 
 Config.ImportNPC = {
-    ["blackwater"] = {heading = 305.5272 , coords = vector3(-828.5374, -1243.587, 42.55648)},
-    ["stdenis"] = {heading = 292.8161 , coords = vector3(2668.192, -1522.695, 44.96976)},
+    ["Blackwater"] = {heading = 305.5272 , coords = vector3(-828.5374, -1243.587, 42.55648)},
+    ["StDenis"] = {heading = 292.8161 , coords = vector3(2668.192, -1522.695, 44.96976)},
 }
 
 Config.ImportPoint = {
@@ -1084,13 +1084,13 @@ Config.ImportPoint = {
 }
 
 Config.ExportNPC = {
-    ["blackwater"] = {heading = 216.50 , coords = vector3(-783.7773, -1233.145, 42.53811)},
-    ["stdenis"] = {heading = 75.79538 , coords = vector3(2672.653, -1509.107, 44.96952)},
+    ["Blackwater"] = {heading = 216.50 , coords = vector3(-783.7773, -1233.145, 42.53811)},
+    ["StDenis"] = {heading = 75.79538 , coords = vector3(2672.653, -1509.107, 44.96952)},
 }
 
 
 Config.Export = {
-    ["blackwater"] = {
+    ["Blackwater"] = {
         ["gunpowder"] = {label= "Poudre à canon", price= 0.1}, 
         ["douille"] = {label= "Douilles", price= 0.18},
         ["ferpepite"] = {label= "Pépite de fer", price= 0.06},
@@ -1104,7 +1104,7 @@ Config.Export = {
         ["caisseviande"] = {label= "Caisse de viande", price= 1},
         ["caissepoisson"] = {label= "Caisse de poisson", price= 1},
     },
-    ["stdenis"] = {
+    ["StDenis"] = {
         ["farine"] = {label= "Farine", price= 0.2},
         ["bouteillelait"] = {label= "Bouteille de lait", price= 0.1},
         ["patate"] = {label= "Patate", price= 0.1},
