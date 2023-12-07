@@ -93,6 +93,14 @@ OpenCharacterMenu = function()
                     })
                     SetNuiFocus(true, true)
                 end
+            elseif perm == "anim" then
+                if #CharsList < 2 then
+                    MenuData.CloseAll()
+                    SendNUIMessage({
+                        new = true
+                    })
+                    SetNuiFocus(true, true)
+                end
             else
                 if #CharsList < 1 then
                     MenuData.CloseAll()
