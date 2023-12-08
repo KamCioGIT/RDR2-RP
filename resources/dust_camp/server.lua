@@ -89,6 +89,19 @@ RegisterServerEvent("camp:RequestCampMenu", function(menutype)
 					craftingtable[k] = v
 				end
 			end
+			if v.Itemtocraft == 4 then
+				local ItemData = data.getItem(_source, v.ItemReceipe1Name)
+				local ItemData2 = data.getItem(_source, v.ItemReceipe2Name)
+				local ItemData3 = data.getItem(_source, v.ItemReceipe3Name)
+				local ItemData4 = data.getItem(_source, v.ItemReceipe4Name)
+				local rItem1Amount = tonumber(ItemData.ItemAmount - v.ItemReceipe1Amount)
+				local rItem2Amount = tonumber(ItemData2.ItemAmount - v.ItemReceipe2Amount)
+				local rItem3Amount = tonumber(ItemData3.ItemAmount - v.ItemReceipe3Amount)
+				local rItem4Amount = tonumber(ItemData4.ItemAmount - v.ItemReceipe4Amount)
+				if rItem1Amount >= 0 and rItem2Amount >= 0 and rItem3Amount >= 0 and rItem4Amount >= 0 then
+					craftingtable[k] = v
+				end
+			end
 		end
 	end
 

@@ -438,6 +438,7 @@ RegisterServerEvent("dust_export:chekitem", function(type)
     local _source = tonumber(source)
     local selltable = {} 
     localisation = type
+    print (localisation)
 	for k, v in pairs(Config.Export[localisation]) do
         local ItemData = data.getItem(_source, k)
         local ItemAmount = tonumber(ItemData.ItemAmount)
