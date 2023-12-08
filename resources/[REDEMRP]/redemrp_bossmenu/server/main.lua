@@ -436,7 +436,8 @@ AddEventHandler(
 
 RegisterServerEvent("dust_export:chekitem", function(type)
     local _source = tonumber(source)
-    local selltable = {} 
+    local selltable = {}
+    print(type)
 	for k, v in pairs(Config.Export[type]) do
         local ItemData = data.getItem(_source, k)
         local ItemAmount = tonumber(ItemData.ItemAmount)
