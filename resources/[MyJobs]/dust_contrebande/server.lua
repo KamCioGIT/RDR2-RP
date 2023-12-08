@@ -244,6 +244,8 @@ RegisterServerEvent("pavot:checkstash", function(type)
 		stash = "pavot_bla"
 	elseif type == "stdenis" then
 		stash = "pavot_stdenis"
+	elseif type == "newaustin" then
+		stash = "contrebande_newaustin"
 	end
 	local ItemData = data.getItemStash(_source, stash, "grainepavot")
 	local ItemAmount = tonumber(ItemData.ItemAmount)
