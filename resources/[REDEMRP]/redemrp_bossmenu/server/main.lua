@@ -423,14 +423,6 @@ AddEventHandler('txAdmin:events:scheduledRestart', function(eventData)
     end
 end)
 
-AddEventHandler(
-    "onResourceStop",
-    function(resourceName)
-        if resourceName == GetCurrentResourceName() then
-			SaveResourceFile(GetCurrentResourceName(), "ledgers.json", json.encode(JobLedgers), -1)
-        end
-    end
-)
 
 
 
