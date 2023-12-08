@@ -294,7 +294,9 @@ Citizen.CreateThread(function()
             if #(playerPos - v.interact) < Config.DistanceToInteract and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                    TriggerServerEvent("pavot:checkstash", k)
+                    -- TriggerServerEvent("pavot:checkstash", v.stash)
+
+                    TriggerEvent("pavot:OpenImportMenu", v.stash)
                 end
             end
         end
@@ -331,8 +333,9 @@ RegisterNetEvent("pavot:OpenImportMenu", function(type)
         MenuData.CloseAll()
         local elements = {}
 
-
-        table.insert(elements, {label = "$"..Config.PavotPrice .."Graine de Pavot", value = "grainepavot", price = 0.4})
+        for k, v in pairs(Config.ContrebandePrice) do
+            table.insert(elements, {label = "$"..v.price .." "..v.label, value = k, price = v.price})
+        end
 
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
             title = "Marché",
@@ -343,6 +346,8 @@ RegisterNetEvent("pavot:OpenImportMenu", function(type)
 
         function(data, menu)
             menu.close()
+            TriggerServerEvent("pavot:checkstash", data.current.value, MenuData, type)
+
             TriggerEvent("pavot:SelectBuyingAmount", data.current.value, MenuData, type)
         end,
 

@@ -237,32 +237,18 @@ end)
 
 
 ---- get le nb de graine dans le stash
-RegisterServerEvent("pavot:checkstash", function(type)
+RegisterServerEvent("pavot:checkstash", function(item, menudata, stash)
 	local _source = source
-	local stash = nil
-	if type == "blackwater" then
-		stash = "pavot_bla"
-	elseif type == "stdenis" then
-		stash = "pavot_stdenis"
-	elseif type == "newaustin" then
-		stash = "contrebande_newaustin"
-	end
-	local ItemData = data.getItemStash(_source, stash, "grainepavot")
+	local ItemData = data.getItemStash(_source, stash, item)
 	local ItemAmount = tonumber(ItemData.ItemAmount)
 	print (ItemAmount)
 	TriggerClientEvent("pavot:client:SetMaxAmount", _source, ItemAmount)
 	Wait(500)
-	TriggerClientEvent("pavot:OpenImportMenu",  _source, type)
+	TriggerClientEvent("pavot:SelectBuyingAmount", item, menudata, stash)
 end)
 
 --- acheter
-RegisterServerEvent("pavot:buyItem", function(item, amount, type)
-	local stash = nil
-	if type == "blackwater" then
-		stash = "pavot_bla"
-	elseif type == "stdenis" then
-		stash = "pavot_stdenis"
-	end
+RegisterServerEvent("pavot:buyItem", function(item, amount, stash)
 	local currentRealTime = os.date("*t")
 
     -- Vérifier si l'heure réelle est entre 19h et 01h
