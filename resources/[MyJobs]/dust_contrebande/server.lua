@@ -250,13 +250,13 @@ RegisterServerEvent("pavot:checksellingstash", function(stash)
 	local _source = source
 	local sellingtable = {} 
 	for k, v in pairs (Config.ContrebandePrice) do
-		local ItemData = data.getItem(_source, k)
+		local ItemData = data.getItemStash(_source, stash, k)
 		local ItemAmount = tonumber(ItemData.ItemAmount)
 		if ItemAmount >= 0 then
 			sellingtable[k] = v
 		end
 	end
-	TriggerClientEvent("pavot:OpenImportMenu", sellingtable, stash)
+	TriggerClientEvent("pavot:OpenImportMenu", _source, sellingtable, stash)
 end)
 
 --- acheter
