@@ -626,7 +626,7 @@ Config.Items = {
         ClientAction = function()
             TriggerEvent("redemrp_status:getfx", "l_002dd49cyi", 120000)
             Cigarette()
-            BoostStamina(100)
+            BoostStamina(50)
         end
     },
     ["pipeopium"] = {
@@ -638,7 +638,7 @@ Config.Items = {
         ClientAction = function()
             TriggerEvent("redemrp_status:getfx", "l_002dd49cyi", 120000)
             Pipe()
-            BoostStamina(100)
+            BoostStamina(50)
         end
     },
     ["morphine"] = {
@@ -651,6 +651,20 @@ Config.Items = {
             TriggerEvent("redemrp_status:getfx", "PlayerSickDoctorsOpinion", 120000)
             Syringe()
             BoostStamina(100)
+            BoostHealth(15)
+        end
+    },
+    ["heroine"] = {
+        hunger = 0,
+        thirst = 100,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            TriggerEvent("redemrp_status:getfx", "PlayerHealthPoor", 120000)
+            Syringe()
+            BoostStamina(100)
+            BoostHealth(30)
         end
     },
     ---- bijouterie
