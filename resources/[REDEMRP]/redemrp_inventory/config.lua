@@ -370,7 +370,7 @@ Config.Items = {
     {
         label = "Machette",
         description = "Peut découper de large pièce de viande",
-        weight = 8,
+        weight = 3,
         canBeDropped = true,
         requireLvl = 1,
         weaponHash = GetHashKey("WEAPON_MELEE_MACHETE"),
@@ -381,7 +381,7 @@ Config.Items = {
     {
         label = "Horror Machete",
         description = "A horror machete",
-        weight = 1,
+        weight = 3,
         canBeDropped = true,
         requireLvl = 1,
         weaponHash = GetHashKey("WEAPON_MELEE_MACHETE_HORROR"),
@@ -392,7 +392,7 @@ Config.Items = {
     {
         label = "Collector Machete",
         description = "A collector machete",
-        weight = 1,
+        weight = 3,
         canBeDropped = true,
         requireLvl = 1,
         weaponHash = GetHashKey("WEAPON_MELEE_MACHETE_COLLECTOR"),
