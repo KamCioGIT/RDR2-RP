@@ -102,6 +102,31 @@ MedicineItems = {
         -- if you don't want to use scenario set it to nil
         scenario = nil,
     },
+    ['laudanum'] = {
+        syringe = false,
+        healProbability = {
+            ['dysentrie'] = 1.0,
+        },
+        -- milliseconds, time after the cure will stop working
+        -- (-1 for complete cure)
+        cureDuration = -1,
+        -- milliseconds, time it takes to apply medication (progressbar)
+        applyDuration = 2000,
+        -- health to add when used
+        healthAmount = 0,
+        -- inner core health added from 0 to 100
+        innerCoreHealth = 0,
+        language = {
+            applying = "Ingestion de l'antidote...",
+            applied = "Le médicament commence à faire effet, vous vous sentez mieux.",
+            --cureExpired = "" -- no need for that if cureDuration is -1
+        },
+        -- if you don't want to use animation set those to nil and set scenario instead
+        animationDict = "amb_rest_drunk@world_human_drinking@male_a@idle_a",
+        animation = "idle_a",
+        -- if you don't want to use scenario set it to nil
+        scenario = nil,
+    },
     ['antidysentrie'] = {
         syringe = false,
         healProbability = {
