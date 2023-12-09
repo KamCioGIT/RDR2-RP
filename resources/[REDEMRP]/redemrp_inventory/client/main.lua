@@ -1030,7 +1030,7 @@ RegisterNUICallback(
         TriggerEvent("redemrp_menu_base:getData", function(MenuData)
             MenuData.CloseAll()
             AddTextEntry("FMMC_KEY_TIP8", "Renommer")
-            DisplayOnscreenKeyboard(0, "FMMC_KEY_TIP8", "", "", "", "", "", 15) -- KTEXTTYPE_ALPHABET
+            DisplayOnscreenKeyboard(0, "FMMC_KEY_TIP8", "", "", "", "", "", 20) -- KTEXTTYPE_ALPHABET
             while (UpdateOnscreenKeyboard() == 0) do
                 DisableAllControlActions(0)
                 Citizen.Wait(0)
