@@ -441,6 +441,13 @@ function Stew()
     Citizen.InvokeNative(0xB35370D5353995CB, PlayerPedId(), -583731576, 1.0)
 end
 
+function Syringe()
+    TriggerEvent("redemrp_inventory:closeinv")
+    local ped = PlayerPedId()
+    Anim(ped,"mech_inventory@item@stimulants@inject@quick","quick_stimulant_inject_rhand",-1,25)
+end
+
+
 function Pipe(healing, lesshealing)
     pipeon = true
     PlaySoundFrontend("Core_Fill_Up", "Consumption_Sounds", true, 0)
