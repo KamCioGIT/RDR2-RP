@@ -1243,3 +1243,10 @@ RegisterCommand("fx", function(source, args, _)
     Wait(5000)
  	AnimpostfxStop(args[1])
 end)
+
+
+RegisterNetEvent("redemrp_status:getfx", function(fx, duration)
+    AnimpostfxPlay(fx)
+    Wait(duration)
+    AnimpostfxStop(fx)
+end)

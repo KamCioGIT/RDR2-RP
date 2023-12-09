@@ -624,6 +624,7 @@ Config.Items = {
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
         ClientAction = function()
+            TriggerClientEvent("redemrp_status:getfx", "PlayerHealthPoorMOB3", 12000)
             Cigarette()
             BoostStamina(100)
         end
@@ -635,6 +636,7 @@ Config.Items = {
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
         ClientAction = function()
+            TriggerClientEvent("redemrp_status:getfx", "PlayerHealthPoorMOB3", 12000)
             Pipe()
             BoostStamina(100)
         end
