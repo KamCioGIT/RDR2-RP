@@ -121,9 +121,7 @@ AddEventHandler(
                     end
                 end
             elseif _type == "rename" then
-                print("type check")
                 if Player then
-                    print("player check")
                     local player_inventory = Inventory[identifier .. "_" .. charid]
                     local item, id = getInventoryItemFromName(data.name, player_inventory, {})
                     if item then
@@ -137,6 +135,7 @@ AddEventHandler(
                         InventoryWeight[identifier .. "_" .. charid]
                         )
                     end
+                    return
                 end
             end
             if stashId then

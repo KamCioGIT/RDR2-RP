@@ -247,7 +247,7 @@ function createObjectBox(object) {
     // } 
     else {
         if (object.meta.rename != undefined) {
-            boxContent.setAttribute('onmouseover', "Over(`" + object.meta.rename + "`, `" + object.description + "`)    ");   
+            boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `" + object.meta.rename + "`)    ");   
         } else {
             boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `" + object.description + "`)    "); 
         }
