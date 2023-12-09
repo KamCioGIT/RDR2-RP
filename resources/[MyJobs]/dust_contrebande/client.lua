@@ -295,7 +295,7 @@ Citizen.CreateThread(function()
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     -- TriggerServerEvent("pavot:checkstash", v.stash)
-
+                    print 'hit'
                     TriggerEvent("pavot:OpenImportMenu", v.stash)
                 end
             end
