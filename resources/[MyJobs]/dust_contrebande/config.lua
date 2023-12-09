@@ -6,11 +6,11 @@ Config.WorkingTime = 3000
 Config.DistanceToInteract = 1.5
 
 Config.AtelierMoonshine = {
-    vector3(2951.448, 542.0927, 48.46579),
+    -- vector3(2951.448, 542.0927, 48.46579),
 }
 
 Config.AlambicMoonshine = {
-    [1] = {input = vector3(2949.503, 542.4907, 48.48363), output = vector3(2946.402, 542.6058, 48.44593), name = "test"},
+    -- [1] = {input = vector3(2949.503, 542.4907, 48.48363), output = vector3(2946.402, 542.6058, 48.44593), name = "test"},
 }
 
 Config.AtelierOpium = {
