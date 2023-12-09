@@ -82,6 +82,12 @@ $(function() {
                     }
                 }
             }
+            else if(key == "rename") {
+				var object = getObjectById(objectId);
+				$.post(`https://${GetParentResourceName()}/renameitem`, JSON.stringify({
+					data: object
+				}));
+			}
 		},
 		items: {
 			"use": {name: "Utiliser"},
@@ -89,6 +95,7 @@ $(function() {
 			"drop": {name: "Jeter"},
 			"give": {name: "Donner"},
             "transfer": {name: "Transférer"},
+            "rename": {name: "Renommer"},
 		}
 	});
 });
@@ -239,7 +246,12 @@ function createObjectBox(object) {
     //     }
     // } 
     else {
-        boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `" + object.description + "`)    ");
+        if (object.meta.rename != undefined) {
+            boxContent.setAttribute('onmouseover', "Over(`" + object.meta.rename + "`, `" + object.description + "`)    ");   
+        } else {
+            boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `" + object.description + "`)    "); 
+        }
+        
     }
     
 

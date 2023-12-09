@@ -612,6 +612,8 @@ RegisterNUICallback(
     end
 )
 
+
+
 local crafting = false
 
 RegisterNetEvent("redemrp_inventory:client:StartCraftingProgress", function(itemstoremove, outputItem, outputAmount)
@@ -1018,6 +1020,28 @@ RegisterNUICallback(
     "useitem",
     function(data)
         TriggerServerEvent("redemrp_inventory:use", data.data)
+    end
+)
+
+RegisterNUICallback(
+    "renameitem",
+    function(data)
+        TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+            MenuData.CloseAll()
+            AddTextEntry("FMMC_KEY_TIP8", "Renommer")
+            DisplayOnscreenKeyboard(0, "FMMC_KEY_TIP8", "", "", "", "", "", 10) -- KTEXTTYPE_ALPHABET
+            while (UpdateOnscreenKeyboard() == 0) do
+                DisableAllControlActions(0)
+                Citizen.Wait(0)
+            end
+            if (GetOnscreenKeyboardResult()) then
+                local name = GetOnscreenKeyboardResult()
+                TriggerServerEvent("redemrp_inventory:update", "rename", data.data, nil, nil, nil, nil, name)
+            else
+                menu.close()
+            end
+        end)
+        
     end
 )
 

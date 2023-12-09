@@ -79,7 +79,7 @@ AddEventHandler(
 RegisterServerEvent("redemrp_inventory:update")
 AddEventHandler(
     "redemrp_inventory:update",
-    function(_type, data, target, LockerID, stashId)
+    function(_type, data, target, LockerID, stashId, rename)
         local _source = source
         local _target = target
         if not data then
@@ -118,6 +118,22 @@ AddEventHandler(
                         if not addItem(data.name, data.amount, data.meta, identifier, charid, lvl) then
                             addItemStash(_source, data.name, data.amount, data.meta, stashId)
                         end
+                    end
+                end
+            elseif _type == "rename" then
+                if Player then
+                    local player_inventory = Inventory[identifier .. "_" .. charid]
+                    local item, id = getInventoryItemFromName(data.name, player_inventory, {})
+                    if item then
+                        local meta = item.getMeta()
+                        item.setMeta({rename = rename})
+                        TriggerClientEvent(
+                        "redemrp_inventory:SendItems",
+                        _source,
+                        PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+                        {},
+                        InventoryWeight[identifier .. "_" .. charid]
+                        )
                     end
                 end
             end
