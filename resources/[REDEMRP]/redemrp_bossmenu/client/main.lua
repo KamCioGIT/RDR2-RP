@@ -485,7 +485,7 @@ RegisterNetEvent("dust_export:getaccess", function()
     end)
 end)
 
-RegisterNetEvent("dust_export:OpenExportMenu", function(selltable)
+RegisterNetEvent("dust_export:OpenExportMenu", function(selltable, localisation)
     local Position = GetEntityCoords(PlayerPedId())
 
     Citizen.CreateThread(function()
@@ -521,7 +521,7 @@ RegisterNetEvent("dust_export:OpenExportMenu", function(selltable)
             MenuData.CloseAll()
             TriggerServerEvent("dust_export:MaxRessourcesAmount", data.current.value)
             Wait(150)
-            TriggerEvent("dust_export:SelectSellingAmount", data.current.value, MenuData, menu)
+            TriggerEvent("dust_export:SelectSellingAmount", data.current.value, MenuData, menu, localisation)
         end,
 
         function(data, menu)
@@ -533,7 +533,7 @@ end)
 
 
 RegisterNetEvent("dust_export:SelectSellingAmount")
-AddEventHandler("dust_export:SelectSellingAmount", function(dataType, menuData, menu)
+AddEventHandler("dust_export:SelectSellingAmount", function(dataType, menuData, menu, localisation)
     menuData.CloseAll()
     local Position = GetEntityCoords(PlayerPedId())
 
@@ -570,7 +570,7 @@ AddEventHandler("dust_export:SelectSellingAmount", function(dataType, menuData, 
 
     function(data, menu)
         if data.current.label == "Quantité" then
-            TriggerServerEvent("dust_export:SellItem", dataType, menu, data.current.value)
+            TriggerServerEvent("dust_export:SellItem", dataType, menu, data.current.value, localisation)
             menu.close()
             isInteracting = false
         end 

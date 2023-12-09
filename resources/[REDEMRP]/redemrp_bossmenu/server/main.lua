@@ -438,7 +438,7 @@ RegisterServerEvent("dust_export:chekitem", function(type)
         end
 	end
 
-	TriggerClientEvent("dust_export:OpenExportMenu", _source, selltable)
+	TriggerClientEvent("dust_export:OpenExportMenu", _source, selltable, type)
 end)
 
 RegisterServerEvent("dust_export:MaxRessourcesAmount", function(dataType)
@@ -453,7 +453,7 @@ RegisterServerEvent("dust_export:MaxRessourcesAmount", function(dataType)
 end)
 
 RegisterServerEvent('dust_export:SellItem')
-AddEventHandler('dust_export:SellItem', function(itemNameStr, menu, amount)
+AddEventHandler('dust_export:SellItem', function(itemNameStr, menu, amount, localisation)
 	local _source = tonumber(source)
     local user = RedEM.GetPlayer(_source)
     local ItemData = data.getItem(_source, itemNameStr)
