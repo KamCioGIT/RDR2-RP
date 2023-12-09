@@ -264,7 +264,7 @@ RegisterServerEvent("pavot:buyItem", function(item, amount, stash)
 	local currentRealTime = os.date("*t")
 
     -- Vérifier si l'heure réelle est entre 19h et 01h
-    if currentRealTime.hour >= 19 or currentRealTime.hour < 1 then
+    if currentRealTime.hour >= 12 or currentRealTime.hour < 1 then
 		local stashw = exports.redemrp_inventory.GetStashWeight(source, stash)
 		local _source = tonumber(source)
 		local user = RedEM.GetPlayer(_source)
