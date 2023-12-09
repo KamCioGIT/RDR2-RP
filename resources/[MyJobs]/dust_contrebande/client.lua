@@ -347,6 +347,7 @@ RegisterNetEvent("pavot:OpenImportMenu", function(type)
         function(data, menu)
             menu.close()
             TriggerServerEvent("pavot:checkstash", data.current.value, MenuData, type)
+            Wait(500)
 
             TriggerEvent("pavot:SelectBuyingAmount", data.current.value, MenuData, type)
         end,
