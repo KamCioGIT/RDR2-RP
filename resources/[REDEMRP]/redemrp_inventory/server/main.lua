@@ -126,7 +126,12 @@ AddEventHandler(
                     local item, id = getInventoryItemFromName(data.name, player_inventory, {})
                     if item then
                         local meta = item.getMeta()
-                        item.setMeta({rename = rename})
+                        if not meta.rename then
+                            meta.rename = rename
+                        else
+                            meta.rename = rename
+                        end
+                        item.setMeta(meta)
                         TriggerClientEvent(
                         "redemrp_inventory:SendItems",
                         _source,
@@ -2589,10 +2594,8 @@ AddEventHandler("redemrp_inventory:ChangeWaterAmmount", function(type, quality)
         if item then
             if type == "remplir" then
                 if quality == "croupie" then
-                    print'testest'
                     item.setMeta({water = 100, quality = "croupie"})
                 elseif quality == "potable" then
-                    print'pasprint'
                     item.setMeta({water = 100, quality = "potable"})
                 end
             end
