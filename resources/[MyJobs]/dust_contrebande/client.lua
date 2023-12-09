@@ -293,7 +293,7 @@ Citizen.CreateThread(function()
         for k, v in pairs(Config.PavotNPC) do
             if #(playerPos - v.interact) < Config.DistanceToInteract and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
-                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                if IsControlJustPressed(1, 0x760A9C6F) and not isInteracting then 
                     -- TriggerServerEvent("pavot:checkstash", v.stash)
                     print 'hit'
                     TriggerEvent("pavot:OpenImportMenu", v.stash)
