@@ -1398,11 +1398,11 @@ Config.Doors = {
         --SAINT DENIS
         {
             door = 1057071735,
-            CloseRotation = 25,
+            CloseRotation = -70.0,
             DoorCoord = vector3(2719.8837890625,-1281.5419921875,48.637580871582),
             OpenCoord  = vector3(2719.8837890625,-1281.5419921875,48.637580871582),
             door2 = 3283200993,
-            CloseRotation2 = 206,
+            CloseRotation2 = 120.0,
             DoorCoord2 = vector3(2720.8154296875,-1283.5399169922,48.637580871582),
             locked = true,
             breakable = false, 
@@ -1411,7 +1411,7 @@ Config.Doors = {
         },
         {
             door = 841127028,
-            CloseRotation = 24.5,
+            CloseRotation = 115.0,
             OpenCoord  = vector3(2710.5659179688,-1291.2041015625,48.632297515869),
             door2 = 0,
             CloseRotation2 = 0,
@@ -1736,8 +1736,19 @@ Config.Doors = {
         jobs = {"distillerie"},
  keys = false,
     },
-    
-    
+    ---- baraque contrebande new austin
+
+    {
+        door = 752062586,
+        CloseRotation = 20.0,
+        OpenCoord  = vector3(-2024.5306396484,-3035.4318847656,-10.636086463928),
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {"all"},
+        keys = 'clefserge',
+    },
     ---- appart chinois
     {
         door = 1180868565,
