@@ -648,7 +648,7 @@ Config.Items = {
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
         ClientAction = function()
-            TriggerEvent("redemrp_status:getfx", "PlayerSickDoctorsOpinion", 120000)
+            TriggerEvent("redemrp_status:getfx", "PlayerSickDoctorsOpinion", 300000)
             Syringe()
             BoostStamina(100)
             BoostHealth(15)
@@ -661,7 +661,7 @@ Config.Items = {
             TriggerClientEvent('redemrp_status:Action-' .. name, source)
         end,
         ClientAction = function()
-            TriggerEvent("redemrp_status:getfx", "PlayerHealthPoor", 120000)
+            TriggerEvent("redemrp_status:getfx", "PlayerHealthPoor", 300000)
             Syringe()
             BoostStamina(100)
             BoostHealth(30)

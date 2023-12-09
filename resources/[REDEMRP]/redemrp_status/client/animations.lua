@@ -445,6 +445,8 @@ function Syringe()
     TriggerEvent("redemrp_inventory:closeinv")
     local ped = PlayerPedId()
     Anim(ped,"mech_inventory@item@stimulants@inject@quick","quick_stimulant_inject_rhand",-1,25)
+    Wait(1000)
+    ClearPedTasks(ped)
 end
 
 
