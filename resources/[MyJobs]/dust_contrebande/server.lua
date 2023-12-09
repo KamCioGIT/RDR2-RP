@@ -252,7 +252,7 @@ RegisterServerEvent("pavot:checksellingstash", function(stash)
 	for k, v in pairs (Config.ContrebandePrice) do
 		local ItemData = data.getItemStash(_source, stash, k)
 		local ItemAmount = tonumber(ItemData.ItemAmount)
-		if ItemAmount >= 0 then
+		if ItemAmount >= 1 then
 			sellingtable[k] = v
 		end
 	end
