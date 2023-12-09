@@ -458,6 +458,7 @@ AddEventHandler('dust_export:SellItem', function(itemNameStr, menu, amount)
     local user = RedEM.GetPlayer(_source)
     local ItemData = data.getItem(_source, itemNameStr)
     local currentRealTime = os.date("*t")
+    print (Config.Export[localisation][itemNameStr].price)
 
     -- Vérifier si l'heure réelle est entre 19h et 01h
     if currentRealTime.hour >= 19 or currentRealTime.hour < 1 then

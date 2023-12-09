@@ -47,7 +47,7 @@ Config.permanentSnow = false
 -- Whether to add snow on the ground when:
 -- 	a) in the snowy area of the map
 -- 	b) in the northern part of the map with snowy weather
-Config.dynamicSnow = true
+Config.dynamicSnow = false
 
 -- Number of weather intervals to queue up
 Config.maxForecast = 23
