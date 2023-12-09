@@ -231,6 +231,8 @@ function createObjectBox(object) {
     } else if(object.name == "gourde") {
         if(object.meta.water != undefined && object.meta.water != null) {
             boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `Remplie à " + (object.meta.water).toFixed(0) + "% d'eau "  + object.meta.quality + "`)    ");
+        } else {
+            boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`,  `" + object.description + "`)    ");   
         }
     } else if(object.name == "canteen") {
         if(object.meta.water != undefined && object.meta.water != null) {
