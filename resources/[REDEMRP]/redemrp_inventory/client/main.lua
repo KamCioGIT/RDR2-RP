@@ -1037,8 +1037,7 @@ RegisterNUICallback(
             end
             if (GetOnscreenKeyboardResult()) then
                 local name = GetOnscreenKeyboardResult()
-                print (name)
-                TriggerServerEvent("redemrp_inventory:update", "rename", data.data, nil, nil, nil, nil, name)
+                TriggerServerEvent("redemrp_inventory:update", "rename", data.data, 0, nil, nil, name)
             else
                 menu.close()
             end
