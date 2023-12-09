@@ -294,9 +294,9 @@ Citizen.CreateThread(function()
             if #(playerPos - v.interact) < Config.DistanceToInteract and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(1, 0x760A9C6F) and not isInteracting then 
-                    -- TriggerServerEvent("pavot:checkstash", v.stash)
-                    print 'hit'
-                    TriggerEvent("pavot:OpenImportMenu", v.stash)
+                    TriggerServerEvent("pavot:checksellingstash", v.stash)
+                    -- print 'hit'
+                    -- TriggerEvent("pavot:OpenImportMenu", v.stash)
                 end
             end
         end
@@ -313,7 +313,7 @@ RegisterNetEvent("pavot:client:SetMaxAmount", function(value)
     maxAmountpavot = value
 end)
 
-RegisterNetEvent("pavot:OpenImportMenu", function(type)
+RegisterNetEvent("pavot:OpenImportMenu", function(sellingtable, type)
     local Position = GetEntityCoords(PlayerPedId())
 
     Citizen.CreateThread(function()
@@ -333,7 +333,7 @@ RegisterNetEvent("pavot:OpenImportMenu", function(type)
         MenuData.CloseAll()
         local elements = {}
 
-        for k, v in pairs(Config.ContrebandePrice) do
+        for k, v in pairs(sellingtable) do
             table.insert(elements, {label = "$"..v.price .." "..v.label, value = k, price = v.price})
         end
 
@@ -347,7 +347,7 @@ RegisterNetEvent("pavot:OpenImportMenu", function(type)
         function(data, menu)
             menu.close()
             TriggerServerEvent("pavot:checkstash", data.current.value, MenuData, type)
-            Wait(500)
+            Wait(200)
 
             TriggerEvent("pavot:SelectBuyingAmount", data.current.value, MenuData, type)
         end,
