@@ -3914,6 +3914,17 @@ Config.Items = {
     imgsrc = "items/clefpavotest.png",
     type = "item_standard",
 },
+["clefserge"] = {
+    label = "Clé",
+    description = "Une clé",
+    weight = 0.05,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/clefserge.png",
+    type = "item_standard",
+},
 ---- chinois
 ["troislotus"] = {
     label = "Mouchoir en soie",
