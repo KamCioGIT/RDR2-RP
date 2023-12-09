@@ -1026,16 +1026,18 @@ RegisterNUICallback(
 RegisterNUICallback(
     "renameitem",
     function(data)
+        TriggerEvent("redemrp_inventory:closeinv")
         TriggerEvent("redemrp_menu_base:getData", function(MenuData)
             MenuData.CloseAll()
             AddTextEntry("FMMC_KEY_TIP8", "Renommer")
-            DisplayOnscreenKeyboard(0, "FMMC_KEY_TIP8", "", "", "", "", "", 10) -- KTEXTTYPE_ALPHABET
+            DisplayOnscreenKeyboard(0, "FMMC_KEY_TIP8", "", "", "", "", "", 15) -- KTEXTTYPE_ALPHABET
             while (UpdateOnscreenKeyboard() == 0) do
                 DisableAllControlActions(0)
                 Citizen.Wait(0)
             end
             if (GetOnscreenKeyboardResult()) then
                 local name = GetOnscreenKeyboardResult()
+                print (name)
                 TriggerServerEvent("redemrp_inventory:update", "rename", data.data, nil, nil, nil, nil, name)
             else
                 menu.close()
@@ -1089,7 +1091,6 @@ end)
 
 RegisterNetEvent('redemrp_inventory:compweapon', function (WeaponHash, wepcomp, wepobj)
     local ped = PlayerPedId()
-    print 'tttt'
     local WeaponType = GetWeaponType(WeaponHash)
     print (WeaponType)
     for k, v in pairs(wepcomp["specific"]) do
