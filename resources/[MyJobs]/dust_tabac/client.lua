@@ -25,9 +25,8 @@ AddEventHandler("dust_job:tabac", function(job, grade)
             getjob = true
             getgrade = grade
             TriggerEvent("tabac:StartMission")
-            if tonumber(grade) >= 2 then
-                contremaitre()
-            end
+            -- if tonumber(grade) >= 2 then
+            -- end
         end
     end
 end)
@@ -276,23 +275,6 @@ RegisterNetEvent("tabac:StartMission",function()
     end)
 end)
 
-function contremaitre() --- RETRAIT
-    while true do
-        Wait(0)
-        local playerPos = GetEntityCoords(PlayerPedId())
-        for k, v in pairs(Config.Ret) do
-            if #(playerPos - v) < 6.0 then
-                Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-            end
-            if #(playerPos - v) < Config.DistanceToInteract then
-                TriggerEvent('dust_presskey', "Appuyez sur G")
-                if IsControlJustPressed(2, 0x760A9C6F) then 
-                    TriggerServerEvent('tabac:retStash')
-                end
-            else end
-        end
-end
-end
 
 
 AddEventHandler("onResourceStop", function(resourceName)
