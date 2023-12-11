@@ -111,3 +111,8 @@ Config.Buy = {
 Config.SellNPC = {
     ["Rhodes"] = {heading = 9.0 , coords = vector3(1128.219, -976.7922, 67.83706), interact = vector3(1127.59, -976.4761, 67.82214)},
 }
+
+Config.Blips = {
+    {name = "Champs de tabac", sprite = 2017085833, x = -290.33, y = 850.31, z = 120.1, color = 'BLIP_MODIFIER_MP_COLOR_14'},
+    {name = "Séchoir à tabac", sprite = 2017085833, x = -290.11, y = 835.31, z = 120.04, color = 'BLIP_MODIFIER_MP_COLOR_14'},
+}
