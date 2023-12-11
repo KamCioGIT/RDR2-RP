@@ -487,6 +487,7 @@ Config.Herbs = {
         randomized = false,--If you enable Randomized you get 1 from list
         items = {
             {"chanvre", 1, "Ženšen"},
+            {"fibrechanvre", 2, "Ženšen"}
         },
         animDict = "mech_pickup@plant@burdock",
         animPart = "base",

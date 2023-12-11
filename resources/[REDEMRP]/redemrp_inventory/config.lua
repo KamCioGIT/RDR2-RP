@@ -1832,7 +1832,7 @@ Config.Items = {
         type = "item_standard",
     },
     ["chanvre"] = {
-        label = "Chanvre Indien",
+        label = "Tête de Chanvre",
         description = "Une plante aux multiples vertues",
         weight = 0.05,
         canBeDropped = true,
@@ -1840,6 +1840,17 @@ Config.Items = {
         requireLvl = 0,
         limit = 2000,
         imgsrc = "items/weed_untrum.png",
+        type = "item_standard",
+    },
+    ["fibrechanvre"] = {
+        label = "Fibre de Chanvre",
+        description = "Une plante aux multiples vertues",
+        weight = 0.05,
+        canBeDropped = true,
+        canBeUsed = false,
+        requireLvl = 0,
+        limit = 2000,
+        imgsrc = "items/generic_horse_equip_tail.png",
         type = "item_standard",
     },
     ["carrotesauvages"] = {
