@@ -196,6 +196,7 @@ AddEventHandler('qbr-banking:initiateTransfer', function(data)
                 if _result[1] ~= nil then
                     _currentcash = _result[1].balance
                     targetcid = _result[1].citizenid
+                    print(accid)
                     RemoveFromBank(accid, tonumber(amount))
                     AddToBank(targetaccid, tonumber(amount))
                     local time = os.date("%Y-%m-%d")
@@ -286,7 +287,6 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             if result[1] ~= nil then
                 accid = result[1].accountid
                 bankbalance = result[1].balance
-                print(accid)
             end
             xPlayer.RemoveMoney(tonumber(amount))
             AddToBank(accid, tonumber(amount))
