@@ -198,3 +198,50 @@ AddEventHandler('tabac:SellItem', function(itemNameStr, menu, amount, localisati
 		TriggerEvent("redemrp_inventory:server:additemstash", itemNameStr, amount, {}, "npc_tabac")
 	end
 end)
+
+
+
+--- achat
+
+RegisterServerEvent("tabac:checkstash", function(item, menudata, stash)
+	local _source = source
+	local ItemData = data.getItemStash(_source, stash, item)
+	local ItemAmount = tonumber(ItemData.ItemAmount)
+	TriggerClientEvent("tabac:client:SetMaxAmount", _source, ItemAmount)
+	-- Wait(500)
+	-- TriggerClientEvent("tabac:SelectBuyingAmount", item, menudata, stash)
+end)
+
+RegisterServerEvent("tabac:checksellingstash", function(stash)
+	local _source = source
+	local sellingtable = {} 
+	for k, v in pairs (Config.ContrebandePrice) do
+		local ItemData = data.getItemStash(_source, stash, k)
+		local ItemAmount = tonumber(ItemData.ItemAmount)
+		if ItemAmount >= 1 then
+			sellingtable[k] = v
+		end
+	end
+	TriggerClientEvent("tabac:OpenBuyingMenu", _source, sellingtable, stash)
+end)
+
+--- acheter
+RegisterServerEvent("tabac:buyItem", function(item, amount, stash)
+	local currentRealTime = os.date("*t")
+
+    -- Vérifier si l'heure réelle est entre 19h et 01h
+	local stashw = exports.redemrp_inventory.GetStashWeight(source, stash)
+	local _source = tonumber(source)
+	local user = RedEM.GetPlayer(_source)
+	local ItemData = data.getItem(_source, item)
+	local weight = ItemData.ItemInfo.weight 
+	local money = user.money
+	local itemprice = Config.tabacPrice * amount
+	if stashw >= weight * amount then
+		if money >= itemprice then
+			user.RemoveMoney(itemprice)
+			ItemData.AddItem(amount)
+		end
+		TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
+	end
+end)

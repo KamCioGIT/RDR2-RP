@@ -261,14 +261,14 @@ RegisterNetEvent("tabac:StartMission",function()
             Wait(0)
             local playerPos = GetEntityCoords(PlayerPedId())
 
-                for k, v in ipairs(Config.ImportPoint) do
+                for k, v in ipairs(Config.BuyingPoint) do
                     if #(playerPos - v) < 10.0 then
                         Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                     end
                     if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
                         TriggerEvent('dust_presskey', "Appuyez sur G")
                         if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                            TriggerEvent("tabac:OpenImportMenu")
+                            TriggerServerEvent("tabac:checksellingstash", "npc_tabac")
                         end
                     end
                 end
@@ -449,4 +449,109 @@ end)
 
 RegisterNetEvent("tabac:client:SetMaxAmount", function(value)
     maxsellamount = value
+end)
+
+
+----- achat
+
+local maxAmounttabac = nil
+
+RegisterNetEvent("tabac:client:SetMaxAmount", function(value)
+    maxAmounttabac = value
+end)
+
+RegisterNetEvent("tabac:OpenBuyingMenu", function(sellingtable, type)
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        local elements = {}
+
+        for k, v in pairs(sellingtable) do
+            table.insert(elements, {label = "$"..v.price .." "..v.label, value = k, price = v.price})
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Marché",
+            subtext = "Acheter",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            menu.close()
+            TriggerServerEvent("tabac:checkstash", data.current.value, MenuData, type)
+            Wait(200)
+
+            TriggerEvent("tabac:SelectBuyingAmount", data.current.value, MenuData, type)
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)
+
+RegisterNetEvent("tabac:SelectBuyingAmount")
+AddEventHandler("tabac:SelectBuyingAmount", function(dataType, menuData, type)
+    menuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+
+    local elements = {
+        { label = "Quantité", 
+        value = 0, 
+        desc = "Acheter",
+        type = 'slider',
+        min = 0,
+        max = maxAmounttabac 
+        },
+    }
+
+    menuData.Open('default', GetCurrentResourceName(), 'buytabac', {
+        title = "Acheter",
+        subtext = "Choisir la quantité",
+        align = 'top-right',
+        elements = elements,
+    },
+
+    function(data, menu)
+        if data.current.label == "Quantité" then
+            TriggerServerEvent("tabac:buyItem", dataType, data.current.value, type)
+            menu.close()
+            isInteracting = false
+        end 
+    end,
+
+    function(data, menu)
+        menu.close()
+        isInteracting = false
+    end)
 end)

@@ -92,15 +92,20 @@ Config.ImportPoint = {
     [2]= vector3(-825.8802, -1241.919, 43.53639), -- bla
 }
 
+Config.BuyingPoint = {
+    [1]= vector3(1129.005, -973.5934, 67.80357),
+}
 
 Config.Import = {
     ["sucre"] = {label= "Sucre", price = 0.05},
-
 }
 
 Config.Sell = {
-    ["tabacsec"] = {label= "Tabac Séché", price = 0.50},
+    ["tabacsec"] = {label= "Tabac Séché", price = 0.1},
+}
 
+Config.Buy = {
+    ["tabacsec"] = {label= "Tabac Séché", price = 0.1},
 }
 
 Config.SellNPC = {
