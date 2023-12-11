@@ -4470,6 +4470,30 @@ Config.Items = {
     imgsrc = "items/consumable_meal_camp_stew_med.png",
     type = "item_standard",
 },
+
+----- TABAC
+["tabachumide"] = {
+    label = "Feuille de tabac humide",
+    description = "Du tabac fraîchement récolté",
+    weight = 0.5,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/herbs.png",
+    type = "item_standard",
+},
+["tabacsec"] = {
+    label = "Feuille de tabac seche",
+    description = "Du tabac bien sec",
+    weight = 0.25,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/szalwia.png",
+    type = "item_standard",
+},
 }
 
 
