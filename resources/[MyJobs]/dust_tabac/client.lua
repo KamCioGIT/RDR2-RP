@@ -98,7 +98,7 @@ AddEventHandler("tabac:CraftingAction", function()
         TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 25, 0, true)
     end
 
-    Wait(Config.WorkingTime)
+    Wait(Config.WorkingTime + 2000)
     ClearPedTasks(PlayerPedId())
     FreezeEntityPosition(playerPed, false)
     isInteracting = false
