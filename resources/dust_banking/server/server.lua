@@ -2,6 +2,7 @@ RedEM = exports["redem_roleplay"]:RedEM()
 
 RegisterServerEvent('banking:acctype', function(type)
     info = type
+    print(info)
 end)
 
 RegisterServerEvent("dust_banking:checkgrade", function()
@@ -285,6 +286,7 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             if result[1] ~= nil then
                 accid = result[1].accountid
                 bankbalance = result[1].balance
+                print(accid)
             end
             xPlayer.RemoveMoney(tonumber(amount))
             AddToBank(accid, tonumber(amount))
