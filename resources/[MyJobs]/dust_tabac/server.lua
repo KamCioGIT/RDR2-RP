@@ -215,7 +215,7 @@ end)
 RegisterServerEvent("tabac:checksellingstash", function(stash)
 	local _source = source
 	local sellingtable = {} 
-	for k, v in pairs (Config.ContrebandePrice) do
+	for k, v in pairs (Config.Buy) do
 		local ItemData = data.getItemStash(_source, stash, k)
 		local ItemAmount = tonumber(ItemData.ItemAmount)
 		if ItemAmount >= 1 then
