@@ -195,5 +195,6 @@ AddEventHandler('tabac:SellItem', function(itemNameStr, menu, amount, localisati
     local ItemData = data.getItem(_source, itemNameStr)
 	if ItemData.RemoveItem(amount) then
 		user.AddMoney(Config.Sell[itemNameStr].price * amount)
+		TriggerEvent("redemrp_inventory:server:additemstash", itemNameStr, amount, {}, "npc_tabac")
 	end
 end)
