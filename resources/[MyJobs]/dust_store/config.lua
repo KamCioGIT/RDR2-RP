@@ -22,7 +22,7 @@ Config.Jobs = {
     [4] = "store_bla",
 }
 
-Config.WorkingTime = 5000
+Config.WorkingTime = 1000
 Config.DistanceToInteract = 1.5
 
 Config.Atelier = {
