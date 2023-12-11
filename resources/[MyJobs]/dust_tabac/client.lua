@@ -97,11 +97,17 @@ AddEventHandler("tabac:CraftingAction", function()
     for k,v in pairs(Config.CraftAnim) do
         TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 25, 0, true)
     end
+    local timer = GetGameTimer() + Config.WorkingTime
+    isInteracting = true
 
-    Wait(Config.WorkingTime + 2000)
-    ClearPedTasks(PlayerPedId())
-    FreezeEntityPosition(playerPed, false)
-    isInteracting = false
+    Citizen.CreateThread(function()
+        while GetGameTimer() < timer do 
+            Wait(0)
+        end
+        ClearPedTasks(PlayerPedId())
+        FreezeEntityPosition(playerPed, false)
+        isInteracting = false
+    end)   
 end)
 
 RegisterNetEvent("tabac:SelectCraftingAmount")
