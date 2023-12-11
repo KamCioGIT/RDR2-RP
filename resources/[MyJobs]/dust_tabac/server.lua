@@ -159,20 +159,7 @@ end)
 
 
 
-RegisterServerEvent("tabac:depStash", function()
-    local _source = source
-	if RedEM.GetPlayer(source).job == "tabac" then
-        TriggerClientEvent("redemrp_inventory:OpenStash", _source, "dep_tabac", 3000.0)
-    end
-end)
 
-
-RegisterServerEvent("tabac:retStash", function()
-    local _source = source
-	if tonumber(RedEM.GetPlayer(_source).jobgrade) > 1 then
-        TriggerClientEvent("redemrp_inventory:OpenStash", _source, "ret_tabac", 6000.0)
-    end
-end)
 
 
 Citizen.CreateThread(function()

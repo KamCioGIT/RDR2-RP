@@ -208,7 +208,7 @@ end
                     if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
                         TriggerEvent('dust_presskey', "Appuyez sur G")
                         if IsControlJustPressed(2, 0x760A9C6F) then 
-                            TriggerServerEvent('tabac:depStash')
+                            TriggerEvent("redemrp_inventory:OpenStash", "dep_tabac", 3000.0)
                         end
                     else end
                 end
@@ -219,7 +219,7 @@ end
                     if #(playerPos - v) < Config.DistanceToInteract then
                         TriggerEvent('dust_presskey', "Appuyez sur G")
                         if IsControlJustPressed(2, 0x760A9C6F) then 
-                            TriggerServerEvent('tabac:retStash')
+                            TriggerEvent("redemrp_inventory:OpenStash", "ret_tabac", 3000.0)
                         end
                     else end
                 end
