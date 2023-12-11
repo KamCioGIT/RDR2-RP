@@ -629,6 +629,18 @@ Config.Items = {
             BoostStamina(50)
         end
     },
+    ["cigarettechanvre"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            TriggerEvent("redemrp_status:getfx", "l_002dd49cyi", 120000)
+            Cigarette()
+            BoostStamina(50)
+        end
+    },
     ["pipeopium"] = {
         hunger = 0,
         thirst = 0,

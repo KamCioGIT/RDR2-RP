@@ -470,6 +470,19 @@ Config.CraftingsReceipe = {
         label = "Cigarette d'opium",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/opium_smokable.png', text = "Résine de pavot",count = "x1"},{src = 'nui://redemrp_inventory/html/items/cigarette.png', text = "Cigarette",count = "x1"}}
     },
+    ['cigarettechanvre'] = {
+        type = 'cauldron',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'chanvre',
+        ItemReceipe1Amount = 4,
+        ItemReceipe2Name = 'cigarettes',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'cigarettechanvre',
+        Amount = 1,
+        WorkingTime = 5,
+        label = "Cigarette de chanvre",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/weed_untrum.png', text = "Tête de Chanvre",count = "x4"},{src = 'nui://redemrp_inventory/html/items/cigarette.png', text = "Cigarette",count = "x1"}}
+    },
     ['laitpavot'] = {
         type = 'cauldron',
         Itemtocraft = 2,

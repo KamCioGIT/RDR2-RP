@@ -3334,6 +3334,17 @@ Config.Items = {
     imgsrc = "items/cigarette.png",
     type = "item_standard",
 },
+["cigarettechanvre"] = {
+    label = "Cigarette de Chanvre",
+    description = "Une cigarette aux vertues apaisantes",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/cigarette.png",
+    type = "item_standard",
+},
 ["coffee"] = {
     label = "Café",
     description = "Un petit noir",
