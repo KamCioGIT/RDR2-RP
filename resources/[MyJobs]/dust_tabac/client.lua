@@ -224,7 +224,7 @@ end
                     else end
                 end
 
-                for k, v in ipairs(Config.SellNPC) do
+                for k, v in pairs(Config.SellNPC) do
                     if #(playerPos - v.interact) < 10.0 then
                         Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.interact, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                     end
