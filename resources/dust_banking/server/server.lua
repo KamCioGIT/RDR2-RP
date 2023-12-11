@@ -260,26 +260,28 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             if result[1] ~= nil then
                 accid = result[1].accountid
                 bankbalance = result[1].balance
-            end
-            xPlayer.RemoveMoney(tonumber(amount))
-            AddToBank(accid, tonumber(amount))
-            local time = os.date("%Y-%m-%d")
-            if bankbalance then
-                newbal = bankbalance + tonumber(amount)
+                xPlayer.RemoveMoney(tonumber(amount))
+                AddToBank(accid, tonumber(amount))
+                local time = os.date("%Y-%m-%d")
+                if bankbalance then
+                    newbal = bankbalance + tonumber(amount)
+                else
+                    newbal = tonumber(amount)
+                end
+                MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+                    xPlayer.citizenid,
+                    accid,
+                    tonumber(amount),
+                    0,
+                    newbal,
+                    time,
+                    'Dépot'
+                })
+                TriggerClientEvent('qbr-banking:openBankScreen', src, info)
+                TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez déposé $'..amount..' dans votre compte.')
             else
-                newbal = tonumber(amount)
+                TriggerClientEvent("redem_roleplay:NotifyLeft", src, "Banque", "Vous n'avez pas de compte.", "scoretimer_textures", "scoretimer_generic_cross", 4000)
             end
-            MySQL.insert.await('INSERT INTO bank_statements (citizenid, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
-                xPlayer.citizenid,
-                accid,
-                tonumber(amount),
-                0,
-                newbal,
-                time,
-                'Dépot'
-            })
-            TriggerClientEvent('qbr-banking:openBankScreen', src, info)
-            TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez déposé $'..amount..' dans votre compte.')
         end
     elseif info == "business" then
         if tonumber(amount) <= currentCash then
@@ -287,8 +289,7 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             if result[1] ~= nil then
                 accid = result[1].accountid
                 bankbalance = result[1].balance
-            end
-            xPlayer.RemoveMoney(tonumber(amount))
+                xPlayer.RemoveMoney(tonumber(amount))
             AddToBank(accid, tonumber(amount))
             local time = os.date("%Y-%m-%d")
             if bankbalance then
@@ -307,6 +308,9 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
             })
             TriggerClientEvent('qbr-banking:openBankScreen', src, info)
             TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez déposé $'..amount..' dans votre compte.')
+            else
+                TriggerClientEvent("redem_roleplay:NotifyLeft", src, "Banque", "Vous n'avez pas de compte.", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+            end
         end
     end
 end)
