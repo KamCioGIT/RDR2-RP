@@ -57,7 +57,7 @@ AddEventHandler('tabac:CraftItem', function(itemNameStr, menu, amount)
 				end
 			end
 		end)
-				TriggerClientEvent("tabac:CraftingAction", _source)
+		TriggerClientEvent("tabac:CraftingAction", _source)
 
 		Citizen.Wait(Config.WorkingTime)
 	end
