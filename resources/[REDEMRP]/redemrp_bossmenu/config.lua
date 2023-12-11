@@ -1024,6 +1024,7 @@ Config.Jobs = {
 
     ["herbo_est"] = {
         bigjob = "herbo",
+        blisprite = 	669307703,
         MenuLocations = vector3(1862.619, 584.5271, 112.9074),
         Name = "Relais de chasse Est",
         Grades = {
@@ -1066,6 +1067,7 @@ Config.Jobs = {
 -------- tabac
 ["tabac_rhodes"] = {
     bigjob = "tabac",
+    blisprite = 552659337,
     MenuLocations = vector3(1135.798, -983.2895, 68.40243),
     Name = "Champs de tabac",
     Grades = {

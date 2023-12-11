@@ -109,10 +109,10 @@ Config.Buy = {
 }
 
 Config.SellNPC = {
-    ["Rhodes"] = {heading = 9.0 , coords = vector3(1128.219, -976.7922, 67.83706), interact = vector3(1127.59, -976.4761, 67.82214)},
+    ["Rhodes"] = {heading = 340.0 , coords = vector3(1125.133, -967.6902, 68.15412), interact = vector3(1127.59, -976.4761, 67.82214)},
 }
 
 Config.Blips = {
-    {name = "Champs de tabac", sprite = 2017085833, x = 1136.0, y = -947.0, z = 68.0, color = 'BLIP_MODIFIER_MP_COLOR_14'},
-    {name = "Séchoir à tabac", sprite = 2017085833, x = -861.0, y = -743.0, z = 56.0, color = 'BLIP_MODIFIER_MP_COLOR_14'},
+    {name = "Champs de tabac", sprite = -675651933, x = 1136.0, y = -947.0, z = 68.0, color = 'BLIP_MODIFIER_MP_COLOR_14'},
+    {name = "Séchoir à tabac", sprite = -675651933, x = -861.0, y = -743.0, z = 56.0, color = 'BLIP_MODIFIER_MP_COLOR_14'},
 }
