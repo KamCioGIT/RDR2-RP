@@ -10,11 +10,10 @@ Config.DistanceToInteract = 2.0
 Config.Atelier = vector3(1132.733, -975.8073, 68.39375) -- Creer toutes les balles
 Config.Dep = {vector3(-860.3005, -742.7518, 55.94862)}
 Config.Ret = {vector3(-859.9161, -745.316, 55.97301)}
-Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
+Config.AnimDict = "amb_work@prop_human_seat_chair@mortar_pestle@mortar@female_a@base"
 Config.CraftAnim = {
-    "base_trans_base",
+    "base",
 }
-
 Config.GatherDict = 'mech_pickup@plant@milkweed'
 Config.GatherAnim = 'stn_pick'
 
@@ -23,38 +22,49 @@ Config.PointSprite = 2033377404
 
 
 Config.CraftingsReceipe = {
-    ['moutwhisky'] = {
+    ['tabacrouler'] = {
         type = 'tabac',
         Itemtocraft = 1,
-        ItemReceipe1Name = 'orge',
-        ItemReceipe1Amount = 4,
+        ItemReceipe1Name = 'tabacsec',
+        ItemReceipe1Amount = 1,
         ItemToGive = 'moutwhisky',
         Amount = 1,
         WorkingTime = 1,
-        label = "Moût",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wheatseed.png', text = "Orge",count = "x4"}}
+        label = "Tabac à rouler",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/szalwia.png', text = "Feuille de tabac sèche",count = "x1"}}
     },
-    ['moutwhiskybon'] = {
+    ['cigar'] = {
         type = 'tabac',
         Itemtocraft = 1,
-        ItemReceipe1Name = 'orge',
-        ItemReceipe1Amount = 8,
+        ItemReceipe1Name = 'tabacrouler',
+        ItemReceipe1Amount = 3,
         ItemToGive = 'moutwhiskybon',
         Amount = 1,
         WorkingTime = 1,
-        label = "Moût gustatif",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wheatseed.png', text = "Orge",count = "x8"}}
+        label = "Cigare",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/tabacarouler.png', text = "Tabac à rouler",count = "x3"}}
     },
-    ['moutgin'] = {
+    ['cigarettes'] = {
         type = 'tabac',
         Itemtocraft = 1,
-        ItemReceipe1Name = 'myrtille',
-        ItemReceipe1Amount = 3,
-        ItemToGive = 'moutgin',
+        ItemReceipe1Name = 'tabacrouler',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'cigarettes',
         Amount = 1,
         WorkingTime = 1,
-        label = "Moût de baie",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x3"}}
+        label = "Cigarette",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/tabacarouler.png', text = "Tabac à rouler",count = "x1"}}
+    },
+    ['tabacchiquer'] = {
+        type = 'tabac',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'tabacrouler',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'tabacchiquer',
+        Amount = 1,
+        WorkingTime = 1,
+        label = "Tabac à chiquer",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/tabacarouler.png', text = "Tabac à rouler",count = "x1"}}
     },
 }
 

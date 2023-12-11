@@ -3302,7 +3302,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["cigar"] = {
-    label = "Cigar",
+    label = "Cigare",
     description = "Il ne vient pas de guarma, mais il est bon",
     weight = 0.1,
     canBeDropped = true,
@@ -4484,7 +4484,7 @@ Config.Items = {
     type = "item_standard",
 },
 ["tabacsec"] = {
-    label = "Feuille de tabac seche",
+    label = "Feuille de tabac sèche",
     description = "Du tabac bien sec",
     weight = 0.25,
     canBeDropped = true,
@@ -4492,6 +4492,17 @@ Config.Items = {
     requireLvl = 0,
     limit = 2000,
     imgsrc = "items/szalwia.png",
+    type = "item_standard",
+},
+["tabacrouler"] = {
+    label = "Tabac à rouler",
+    description = "Du tabac à rouler",
+    weight = 0.25,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/tabacarouler.png",
     type = "item_standard",
 },
 }
