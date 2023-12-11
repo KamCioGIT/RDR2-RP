@@ -109,7 +109,7 @@ Config.Buy = {
 }
 
 Config.SellNPC = {
-    ["Rhodes"] = {heading = 340.0 , coords = vector3(1125.133, -967.6902, 68.15412), interact = vector3(1127.59, -976.4761, 67.82214)},
+    ["Rhodes"] = {heading = 340.0 , coords = vector3(1125.133, -967.6902, 68.15412), interact = vector3(1125.588, -966.9926, 68.12099)},
 }
 
 Config.Blips = {
