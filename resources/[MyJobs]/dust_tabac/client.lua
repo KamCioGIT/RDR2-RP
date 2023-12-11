@@ -22,8 +22,7 @@ AddEventHandler("dust_job:tabac", function(job, grade)
     for k, v in pairs(Config.Jobs) do
 
         if job == v then
-            getjob = true
-            getgrade = grade
+            print"getjob"
             TriggerEvent("tabac:StartMission")
             -- if tonumber(grade) >= 2 then
             -- end
