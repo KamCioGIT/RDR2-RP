@@ -113,6 +113,6 @@ Config.SellNPC = {
 }
 
 Config.Blips = {
-    {name = "Champs de tabac", sprite = 2017085833, x = -290.33, y = 850.31, z = 120.1, color = 'BLIP_MODIFIER_MP_COLOR_14'},
-    {name = "Séchoir à tabac", sprite = 2017085833, x = -290.11, y = 835.31, z = 120.04, color = 'BLIP_MODIFIER_MP_COLOR_14'},
+    {name = "Champs de tabac", sprite = 2017085833, x = 1136.0, y = -947.0, z = 68.0, color = 'BLIP_MODIFIER_MP_COLOR_14'},
+    {name = "Séchoir à tabac", sprite = 2017085833, x = -861.0, y = -743.0, z = 56.0, color = 'BLIP_MODIFIER_MP_COLOR_14'},
 }
