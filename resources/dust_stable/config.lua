@@ -135,6 +135,10 @@ Config.Stables = {
 		pos = vector3(1123.373, -978.0873, 68.1125),
 		name = 'tabacrhodes',
     },
+    ambarinoorlandboys = {
+		pos = vector3(-1648.549, 1219.449, 349.9523),
+		name = 'ambarinoorlandboys',
+    },
     --- boat
 
     lagrasboat = {
