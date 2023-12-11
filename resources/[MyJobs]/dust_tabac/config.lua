@@ -27,7 +27,7 @@ Config.CraftingsReceipe = {
         Itemtocraft = 1,
         ItemReceipe1Name = 'tabacsec',
         ItemReceipe1Amount = 1,
-        ItemToGive = 'moutwhisky',
+        ItemToGive = 'tabacrouler',
         Amount = 1,
         WorkingTime = 1,
         label = "Tabac à rouler",
@@ -38,7 +38,7 @@ Config.CraftingsReceipe = {
         Itemtocraft = 1,
         ItemReceipe1Name = 'tabacrouler',
         ItemReceipe1Amount = 3,
-        ItemToGive = 'moutwhiskybon',
+        ItemToGive = 'cigar',
         Amount = 1,
         WorkingTime = 1,
         label = "Cigare",
@@ -111,11 +111,11 @@ Config.Import = {
 }
 
 Config.Sell = {
-    ["tabacsec"] = {label= "Tabac Séché", price = 0.1},
+    ["tabacsec"] = {label= "Tabac Séché", price = 0.08},
 }
 
 Config.Buy = {
-    ["tabacsec"] = {label= "Tabac Séché", price = 0.1},
+    ["tabacsec"] = {label= "Tabac Séché", price = 0.08},
 }
 
 Config.SellNPC = {
