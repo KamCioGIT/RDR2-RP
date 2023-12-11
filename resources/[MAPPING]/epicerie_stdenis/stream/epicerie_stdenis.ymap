@@ -100,21 +100,6 @@
 		<Item type="CEntityDef">
 			<archetypeName>p_horsehitchnbd01x</archetypeName>
 			<flags value="1572897"/>
-			<position x="2822.747070" y="-1304.202271" z="45.782753"/>
-			<rotation w="0.395112" x="-0.000000" y="0.000000" z="0.918633"/>
-			<scaleXY value="1"/>
-			<scaleZ value="1"/>
-			<parentIndex value="-1"/>
-			<lodDist value="500"/>
-			<childLodDist value="500"/>
-			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
-			<numChildren value="0"/>
-			<ambientOcclusionMultiplier value="255"/>
-			<artificialAmbientOcclusion value="255"/>
-		</Item>
-		<Item type="CEntityDef">
-			<archetypeName>p_horsehitchnbd01x</archetypeName>
-			<flags value="1572897"/>
 			<position x="2809.165039" y="-1299.015259" z="45.735676"/>
 			<rotation w="0.920344" x="0.000000" y="-0.000000" z="-0.391110"/>
 			<scaleXY value="1"/>

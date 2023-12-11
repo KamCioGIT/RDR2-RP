@@ -4473,7 +4473,7 @@ Config.Items = {
 
 ----- TABAC
 ["tabachumide"] = {
-    label = "Feuille de tabac humide",
+    label = "Feuille de tabac",
     description = "Du tabac fraîchement récolté",
     weight = 0.5,
     canBeDropped = true,
