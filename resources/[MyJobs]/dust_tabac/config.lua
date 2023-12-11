@@ -8,8 +8,8 @@ Config.WorkingTime = 5000
 Config.DistanceToInteract = 2.0
 
 Config.Atelier = vector3(1132.733, -975.8073, 68.39375) -- Creer toutes les balles
-Config.Dep = {vector3(-860.3005, -742.7518, 55.94862)}
-Config.Ret = {vector3(-859.9161, -745.316, 55.97301)}
+Config.Dep = {vector3(-863.3729, -742.5676, 56.03781)}
+Config.Ret = {vector3(-860.5767, -741.85, 56.27768)}
 Config.AnimDict = "amb_work@prop_human_seat_chair@mortar_pestle@mortar@female_a@base"
 Config.CraftAnim = {
     "base",
