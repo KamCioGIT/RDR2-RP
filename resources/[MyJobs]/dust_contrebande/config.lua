@@ -304,5 +304,3 @@ Config.ContrebandePrice = {
     ["cigar"] = {label = "Test" , price = 0.4},
 
 }
-
-Config.PavotPrice = 0.4

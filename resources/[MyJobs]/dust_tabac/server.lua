@@ -236,7 +236,7 @@ RegisterServerEvent("tabac:buyItem", function(item, amount, stash)
 	local ItemData = data.getItem(_source, item)
 	local weight = ItemData.ItemInfo.weight 
 	local money = user.money
-	local itemprice = Config.tabacPrice * amount
+	local itemprice = Config.Buy[item].price * amount
 	if stashw >= weight * amount then
 		if money >= itemprice then
 			user.RemoveMoney(itemprice)
