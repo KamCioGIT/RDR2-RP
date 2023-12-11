@@ -1063,7 +1063,27 @@ Config.Jobs = {
     --         },
     --     }
     -- },
-
+-------- tabac
+["tabac_rhodes"] = {
+    bigjob = "tabac",
+    MenuLocations = vector3(1135.798, -983.2895, 68.40243),
+    Name = "Champs de tabac",
+    Grades = {
+        [1] = {
+            Name = "Assistant",
+            StorageAccess = true,
+        },
+        [2] = {
+            Name = "Second",
+            StorageAccess = true,
+        },
+        [3] = {
+            Name = "Patron",
+            Personnel = true,
+            StorageAccess = true,
+        },
+    }
+},
 }
 
 Config.DistanceToInteract = 2.0
