@@ -177,7 +177,7 @@ AddEventHandler('tabac:addtabac', function()
 	ItemData.AddItem(amount)
 end)
 
-RegisterServerEvent("tabac:MaxRessourcesAmount", function(dataType)
+RegisterServerEvent("tabac:MaxSellingAmount", function(dataType)
     local _source = tonumber(source)
     local ItemData = data.getItem(_source, dataType)
     local ItemAmount = tonumber(ItemData.ItemAmount)

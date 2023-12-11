@@ -384,7 +384,7 @@ RegisterNetEvent("tabac:OpenExportMenu", function(selltable, localisation)
 
         function(data, menu)
             MenuData.CloseAll()
-            TriggerServerEvent("tabac:MaxRessourcesAmount", data.current.value)
+            TriggerServerEvent("tabac:MaxSellingAmount", data.current.value)
             Wait(150)
             TriggerEvent("tabac:SelectSellingAmount", data.current.value, MenuData, menu, localisation)
         end,
