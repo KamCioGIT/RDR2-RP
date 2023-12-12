@@ -301,6 +301,8 @@ Config.PavotNPC = {
 
 Config.ContrebandePrice = {
     ["grainepavot"] = {label = "Graine de pavot" , price = 0.4},
-    ["cigar"] = {label = "Test" , price = 0.4},
-
+    ["cigar"] = {label = "Cigare" , price = 0.3},
+    ["cigarettes"] = {label = "Cigarettes" , price = 0.1},
+    ["sucre"] = {label = "Sucre" , price = 0.01},
+    ["ferpepite"] = {label = "Pépite de fer" , price = 0.07},
 }
