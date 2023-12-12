@@ -290,24 +290,24 @@ AddEventHandler('qbr-banking:doQuickDeposit', function(amount)
                 accid = result[1].accountid
                 bankbalance = result[1].balance
                 xPlayer.RemoveMoney(tonumber(amount))
-            AddToBank(accid, tonumber(amount))
-            local time = os.date("%Y-%m-%d")
-            if bankbalance then
-                newbal = bankbalance + tonumber(amount)
-            else
-                newbal = tonumber(amount)
-            end
-            MySQL.insert.await('INSERT INTO bank_statements (job, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
-                xPlayer.job,
-                accid,
-                tonumber(amount),
-                0,
-                newbal,
-                time,
-                'Dépot'
-            })
-            TriggerClientEvent('qbr-banking:openBankScreen', src, info)
-            TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez déposé $'..amount..' dans votre compte.')
+                AddToBank(accid, tonumber(amount))
+                local time = os.date("%Y-%m-%d")
+                if bankbalance then
+                    newbal = bankbalance + tonumber(amount)
+                else
+                    newbal = tonumber(amount)
+                end
+                MySQL.insert.await('INSERT INTO bank_statements (job, accountid, deposited, withdraw, balance, date, type) VALUES (?, ?, ?, ?, ?, ?, ?)', {
+                    xPlayer.job,
+                    accid,
+                    tonumber(amount),
+                    0,
+                    newbal,
+                    time,
+                    'Dépot'
+                })
+                TriggerClientEvent('qbr-banking:openBankScreen', src, info)
+                TriggerClientEvent('qbr-banking:successAlert', src, 'Vous avez déposé $'..amount..' dans votre compte.')
             else
                 TriggerClientEvent("redem_roleplay:NotifyLeft", src, "Banque", "Vous n'avez pas de compte.", "scoretimer_textures", "scoretimer_generic_cross", 4000)
             end
