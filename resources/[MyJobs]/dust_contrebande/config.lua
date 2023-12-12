@@ -303,6 +303,9 @@ Config.ContrebandePrice = {
     ["grainepavot"] = {label = "Graine de pavot" , price = 0.4},
     ["cigar"] = {label = "Cigare" , price = 0.3},
     ["cigarettes"] = {label = "Cigarettes" , price = 0.1},
-    ["sucre"] = {label = "Sucre" , price = 0.01},
+    ["sucre"] = {label = "Sucre" , price = 0.05},
     ["ferpepite"] = {label = "Pépite de fer" , price = 0.07},
+    ["rhum"] = {label = "Rhum" , price = 0.1},
+    ["tequila"] = {label = "Tequila" , price = 0.2},
+    ["mezcal"] = {label = "Mezcal" , price = 0.3},
 }
