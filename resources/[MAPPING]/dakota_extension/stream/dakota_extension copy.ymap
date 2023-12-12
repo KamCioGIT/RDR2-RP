@@ -2318,7 +2318,7 @@
 			<artificialAmbientOcclusion value="255"/>
 		</Item>
 		<Item type="CEntityDef">
-			<archetypeName>p_campfire03x</archetypeName>
+			<archetypeName>p_campfire05x</archetypeName>
 			<flags value="1572897"/>
 			<position x="-124.540543" y="1526.678101" z="115.839615"/>
 			<rotation w="0.931604" x="-0.050876" y="-0.032812" z="-0.358397"/>
@@ -2423,7 +2423,7 @@
 			<artificialAmbientOcclusion value="255"/>
 		</Item>
 		<Item type="CEntityDef">
-			<archetypeName>p_campfire02x</archetypeName>
+			<archetypeName>p_campfire05x</archetypeName>
 			<flags value="1572897"/>
 			<position x="-62.195015" y="1621.666870" z="125.361313"/>
 			<rotation w="0.032446" x="0.058149" y="-0.068554" z="0.995423"/>
@@ -2993,7 +2993,7 @@
 			<artificialAmbientOcclusion value="255"/>
 		</Item>
 		<Item type="CEntityDef">
-			<archetypeName>p_campfire04x</archetypeName>
+			<archetypeName>p_campfire05x</archetypeName>
 			<flags value="1572897"/>
 			<position x="-12.255803" y="1583.093384" z="112.165932"/>
 			<rotation w="0.997989" x="-0.058595" y="-0.019240" z="0.014669"/>
