@@ -500,11 +500,8 @@ Config.ImportPoint = {
 Config.Import = {
     ["sucre"] = {label= "Sucre", price = 0.03},
     ["sel"] = {label= "Sac de sel", price = 0.02},
-    ["cigarettes"] = {label= "Cigarette", price = 0.11},
-    ["cigar"] = {label= "Cigare", price = 0.2},
     ["coffee"] = {label= "Café", price = 0.15},
     ["lemonade"] = {label= "Limonade", price = 0.2},
-    ["tabacchiquer"] = {label= "Tabac à chiquer", price = 0.15},
     ["WEAPON_KIT_BINOCULARS"] = {label= "Jumelles", price = 10},
     ["WEAPON_MELEE_LANTERN"] = {label= "Lanterne", price = 2},
 }
