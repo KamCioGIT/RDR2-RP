@@ -241,7 +241,8 @@ RegisterServerEvent("tabac:buyItem", function(item, amount, stash)
 		if money >= itemprice then
 			user.RemoveMoney(itemprice)
 			ItemData.AddItem(amount)
+			TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
 		end
-		TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
+		
 	end
 end)
