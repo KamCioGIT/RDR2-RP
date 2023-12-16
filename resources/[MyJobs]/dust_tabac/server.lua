@@ -174,6 +174,7 @@ end)
 
 RegisterServerEvent('tabac:askpricetable')
 AddEventHandler('tabac:askpricetable', function() 
+	print("ezbzeb")
 	Wait(1000)
 	TriggerClientEvent("tabac:getpricetable", pricetable)
 end)
