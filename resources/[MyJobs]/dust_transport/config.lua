@@ -31,13 +31,14 @@ Config.PriceExport = {
         ["gin"] = {label= "Gin", price= 0.38},
         ["caisseviande"] = {label= "Caisse de viande", price= 1.13},
         ["caissepoisson"] = {label= "Caisse de poisson", price= 1.13},
+        ["cigar"] = {label= "Cigare", price= 0.30},
     },
 
     ["StDenis"] = {
         ["farine"] = {label= "Farine", price= 0.23},
-        ["bouteillelait"] = {label= "Bouteille de lait", price= 0.12},
-        ["patate"] = {label= "Patate", price= 0.12},
-        ["Corn"] = {label= "Maïs", price= 0.12},
+        ["bouteillelait"] = {label= "Bouteille de lait", price= 0.13},
+        ["patate"] = {label= "Patate", price= 0.13},
+        ["Corn"] = {label= "Maïs", price= 0.13},
         ["viandebovine"] = {label= "Viande Bovine", price= 0.35},
         ["lingotfer"] = {label= "Lingot de fer", price = 1.4},
         ["lingotor"] = {label= "Lingot d'or", price = 58},
