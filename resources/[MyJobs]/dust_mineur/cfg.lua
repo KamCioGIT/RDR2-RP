@@ -73,11 +73,11 @@ Config.Sell = {
 }
 
 Config.Buy = {
-    ["charbon"] = {label= "Charbon", price= 0.03},
-    ["ferpepite"] = {label= "Fer", price= 0.06},
-    ["cuivrepepite"] = {label= "Cuivre", price= 0.06}, 
-    ["zincpepite"] = {label= "Zinc", price= 0.08}, 
-    ["plombpepite"] = {label= "Plomb", price= 0.08}, 
+    ["charbon"] = {label= "Charbon", price= 0.04},
+    ["ferpepite"] = {label= "Fer", price= 0.09},
+    ["cuivrepepite"] = {label= "Cuivre", price= 0.10}, 
+    ["zincpepite"] = {label= "Zinc", price= 0.11}, 
+    ["plombpepite"] = {label= "Plomb", price= 0.11}, 
 }
 
 Config.SellNPC = {

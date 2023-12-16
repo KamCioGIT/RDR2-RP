@@ -103,7 +103,7 @@ Config.Sell = {
 }
 
 Config.Buy = {
-    ["tabacsec"] = {label= "Tabac Séché", price = 0.07},
+    ["tabacsec"] = {label= "Tabac Séché", price = 0.08},
 }
 
 Config.SellNPC = {
