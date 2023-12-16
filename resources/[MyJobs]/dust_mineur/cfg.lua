@@ -65,11 +65,11 @@ Config.Loottable = {
 }
 
 Config.Sell = {
-    ["charbonbrut"] = {label= "Charbon Brut", pricelow = 2, pricehigh = 3}, ---- EN CENTS
-    ["ferbrut"] = {label= "Fer Brut", pricelow = 4, pricehigh = 7}, ---- EN CENTS
-    ["cuivrebrut"] = {label= "Cuivre Brut", pricelow = 2, pricehigh = 4}, ---- EN CENTS
-    ["zincbrut"] = {label= "Zinc Brut", pricelow = 18, pricehigh = 21}, ---- EN CENTS
-    ["plombbrut"] = {label= "Plomb Brut", pricelow = 2, pricehigh = 4}, ---- EN CENTS
+    ["charbonbrut"] = {label= "Charbon Brut", pricelow = 1, pricehigh = 2}, ---- EN CENTS
+    ["ferbrut"] = {label= "Fer Brut", pricelow = 3, pricehigh = 6}, ---- EN CENTS
+    ["cuivrebrut"] = {label= "Cuivre Brut", pricelow = 1, pricehigh = 3}, ---- EN CENTS
+    ["zincbrut"] = {label= "Zinc Brut", pricelow = 15, pricehigh = 20}, ---- EN CENTS
+    ["plombbrut"] = {label= "Plomb Brut", pricelow = 1, pricehigh = 3}, ---- EN CENTS
 }
 
 Config.Buy = {
