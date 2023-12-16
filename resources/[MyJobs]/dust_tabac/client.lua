@@ -175,7 +175,7 @@ Citizen.CreateThread(function()
         local varString = CreateVarString(10, 'LITERAL_STRING', data.name);
         Citizen.InvokeNative(0x9CB1A1623062F402, blipId, varString)
     end
-
+    TriggerServerEvent("tabac:askpricetable")
 
     RequestModel(GetHashKey("crp_wheat_dry_aa_sim"))
     if HasModelLoaded(GetHashKey("crp_wheat_dry_aa_sim")) then
@@ -341,6 +341,10 @@ end
 
 
 -----  sell 
+local pricetable = {}
+RegisterNetEvent("tabac:getpricetable", function(table)
+    pricetable = table
+end)
 
 RegisterNetEvent("tabac:OpenExportMenu", function(selltable, localisation)
     local Position = GetEntityCoords(PlayerPedId())
@@ -364,7 +368,7 @@ RegisterNetEvent("tabac:OpenExportMenu", function(selltable, localisation)
 
 
         for k, v in pairs(Config.Sell) do
-            table.insert(elements, {label = v.label.." $"..v.price, value = k, price = v.price})
+            table.insert(elements, {label = v.label.." $"..pricetable[k], value = k, price = pricetable[k]})
         end
 
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {

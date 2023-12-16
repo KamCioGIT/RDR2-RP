@@ -172,6 +172,14 @@ Citizen.CreateThread(function()
 	end
 end)
 
+RegisterServerEvent('tabac:askpricetable')
+AddEventHandler('tabac:askpricetable', function() 
+	Wait(1000)
+	TriggerClientEvent("tabac:getpricetable", pricetable)
+end)
+
+
+
 RegisterServerEvent('tabac:addtabac')
 AddEventHandler('tabac:addtabac', function() 
 	local _source = source
