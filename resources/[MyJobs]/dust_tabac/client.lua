@@ -520,14 +520,14 @@ AddEventHandler("tabac:SelectBuyingAmount", function(dataType, menuData, type)
         end
     end)
 
-
     local elements = {
         { label = "Quantité", 
         value = 0, 
-        desc = "Acheter",
+        desc = "Disponible:"..maxAmounttabac,
         type = 'slider',
         min = 0,
-        max = maxAmounttabac 
+        max = maxAmounttabac,
+        hop= 10
         },
     }
 
