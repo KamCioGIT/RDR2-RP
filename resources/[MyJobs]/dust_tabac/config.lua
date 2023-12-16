@@ -99,7 +99,7 @@ Config.Import = {
 }
 
 Config.Sell = {
-    ["tabacsec"] = {label= "Tabac Séché", pricelow = 0.04, pricehigh = 0.08},
+    ["tabacsec"] = {label= "Tabac Séché", pricelow = 4, pricehigh = 8}, ---- EN CENTS
 }
 
 Config.Buy = {

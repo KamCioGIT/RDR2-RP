@@ -164,7 +164,7 @@ local pricetable = {}
 
 Citizen.CreateThread(function()
 	for item, v in pairs(Config.Sell) do
-		pricetable[item] = math.random(v.pricelow ,v.pricehigh)
+		pricetable[item] = math.random(v.pricelow ,v.pricehigh)/100
 	end
 	while true do
 		Citizen.Wait(2000)
