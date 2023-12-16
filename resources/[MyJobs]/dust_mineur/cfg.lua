@@ -67,11 +67,11 @@ Config.Sell = {
 }
 
 Config.Buy = {
-    ["charbon"] = {label= "Charbon", pricelow = 4, pricehigh = 8}, ---- EN CENTS
-    ["ferbrut"] = {label= "Fer Brut", pricelow = 4, pricehigh = 8}, ---- EN CENTS
-    ["cuivrebrut"] = {label= "Cuivre Brut", pricelow = 4, pricehigh = 8}, ---- EN CENTS
-    ["zincbrut"] = {label= "Zinc Brut", pricelow = 4, pricehigh = 8}, ---- EN CENTS
-    ["plombbrut"] = {label= "Plomb Brut", pricelow = 4, pricehigh = 8}, ---- EN CENTS
+    ["charbon"] = {label= "Charbon", price= 4},
+    ["pepitefer"] = {label= "Fer Brut", price= 4},
+    ["pepitecuivre"] = {label= "Cuivre Brut", price= 4}, 
+    ["pepitezinc"] = {label= "Zinc Brut", price= 4}, 
+    ["pepiteplomb"] = {label= "Plomb Brut", price= 4}, 
 }
 
 Config.SellNPC = {
