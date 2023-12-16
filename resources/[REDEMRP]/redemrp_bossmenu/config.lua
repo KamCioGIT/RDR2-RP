@@ -1125,6 +1125,7 @@ Config.Export = {
         ["gin"] = {label= "Gin", price= 0.38},
         ["caisseviande"] = {label= "Caisse de viande", price= 1},
         ["caissepoisson"] = {label= "Caisse de poisson", price= 1},
+        ["cigar"] = {label= "Cigare", price= 0.25},
     },
     ["StDenis"] = {
         ["farine"] = {label= "Farine", price= 0.2},

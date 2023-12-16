@@ -160,9 +160,12 @@ end)
 
 
 
-
+local pricetable = {}
 
 Citizen.CreateThread(function()
+	for item, v in pairs(Config.Sell) do
+		pricetable[item] = math.random(v.pricelow ,v.pricehigh)
+	end
 	while true do
 		Citizen.Wait(2000)
 		TriggerEvent("redemrp_inventory:server:removeitemstash", "tabachumide", 1, {},"dep_tabac","tabacsec", 1, {}, "ret_tabac")
@@ -194,7 +197,7 @@ AddEventHandler('tabac:SellItem', function(itemNameStr, menu, amount, localisati
     local user = RedEM.GetPlayer(_source)
     local ItemData = data.getItem(_source, itemNameStr)
 	if ItemData.RemoveItem(amount) then
-		user.AddMoney(Config.Sell[itemNameStr].price * amount)
+		user.AddMoney(pricetable[itemNameStr] * amount)
 		TriggerEvent("redemrp_inventory:server:additemstash", itemNameStr, amount, {}, "npc_tabac")
 	end
 end)
