@@ -176,7 +176,18 @@ function StartMining()
     started = false
     pressing = false
     FreezeEntityPosition(playerPed, true)
-    TaskStartScenarioInPlace(playerPed, GetHashKey(Config.MiningAnim), Config.WorkingTime, true, false, false, false)
+    if IsPedMale(playerPed) then
+        TaskStartScenarioInPlace(playerPed, GetHashKey(Config.MiningAnim), Config.WorkingTime, true, false, false, false)
+    else 
+        RequestAnimDict(Config.AnimDict)
+        while not HasAnimDictLoaded(Config.AnimDict) do
+            Citizen.Wait(50)
+        end
+    
+        for k,v in pairs(Config.CraftAnim) do
+            TaskPlayAnim(playerPed, Config.AnimDict, v, 4.0, 4.0, -1, 1, 0, true)
+        end
+    end
     local timer = GetGameTimer() + Config.WorkingTime
     isMining = true
     Citizen.CreateThread(function()

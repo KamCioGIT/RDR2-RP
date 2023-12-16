@@ -68,14 +68,14 @@ Config.Sell = {
 
 Config.Buy = {
     ["charbon"] = {label= "Charbon", price= 0.03},
-    ["ferpepite"] = {label= "Fer Brut", price= 0.06},
-    ["cuivrepepite"] = {label= "Cuivre Brut", price= 0.06}, 
-    ["zincpepite"] = {label= "Zinc Brut", price= 0.08}, 
-    ["plombpepite"] = {label= "Plomb Brut", price= 0.08}, 
+    ["ferpepite"] = {label= "Fer", price= 0.06},
+    ["cuivrepepite"] = {label= "Cuivre", price= 0.06}, 
+    ["zincpepite"] = {label= "Zinc", price= 0.08}, 
+    ["plombpepite"] = {label= "Plomb", price= 0.08}, 
 }
 
 Config.SellNPC = {
-    ["Rhodes"] = {heading = 52.0 , coords = vector3(2875.21, 1403.646, 67.82129), interact = vector3(2874.598, 1404.256, 67.82452)},
+    ["Annesburg"] = {heading = 52.0 , coords = vector3(2875.21, 1403.646, 67.82129), interact = vector3(2874.598, 1404.256, 67.82452)},
 }
 
 Config.Blips = {
