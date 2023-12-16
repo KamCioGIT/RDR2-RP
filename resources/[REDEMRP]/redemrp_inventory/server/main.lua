@@ -1448,7 +1448,7 @@ AddEventHandler("redemrp_inventory:server:additemstash",function(name, amount, m
         local item, id = getInventoryItemFromName(_name, stash, getMetaOutput(meta))
         local weight = GetStashWeight(stashId)
 
-        local weightLimit = StashMaxWeights[_source] or 60.0
+        local weightLimit = StashMaxWeights[_source] or 3000.0
         if itemData.type == "item_weapon" or itemData.type == "item_letter" then
             -- --("Boss stash weight: ".. weight .." vs ".. weightLimit)
             -- TriggerClientEvent("redemrp_inventory:client:WeightNotif", _source, "Storage Weight: ~n~"..string.format("%.2f", weight + (itemData.weight)).."kg / "..string.format("%.2f", weightLimit).."kg", 2000)
