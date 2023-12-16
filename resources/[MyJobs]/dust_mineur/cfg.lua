@@ -24,6 +24,11 @@ Config.MsgRetrieve = "Appuie sur Entrer" -- Message de traitement
 
 Config.MiningAnim = 'WORLD_HUMAN_PICKAXE_WALL'
 
+Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
+Config.CraftAnim = {
+    "base_trans_base",
+}
+
 Config.WorkingTime = 10000
 Config.WorkingTimeCoal = 5000
 Config.TimerMsg = " Currently working for :"
@@ -32,15 +37,16 @@ Config.ShowBlips = true
 
 Config.RessourcesPoints = 
 {
-    vector3(2754.291, 1358.377, 68.368),
-    vector3(2753.534, 1367.671, 67.804),
-    vector3(2758.344, 1371.043, 68.042),
-    vector3(2767.227, 1371.093, 67.987),
-    vector3(2767.958, 1382.240, 67.929)
-
-
-
-
+    vector3(2771.289, 1382.253, 66.87317),
+    vector3(2766.703, 1382.864, 66.92442),
+    vector3(2778.934, 1379.251, 67.35531),
+    vector3(2779.382, 1375.465, 67.49315),
+    vector3(2767.756, 1370.655, 67.09686),
+    vector3(2762.6, 1374.681, 67.64648),
+    vector3(2761.111, 1382.908, 66.77104),
+    vector3(2762.601, 1365.703, 66.89804),
+    vector3(2753.658, 1367.917, 66.80567),
+    vector3(2757.415, 1370.641, 67.05814),
 }
 
 Config.p1 = { x = 2754.291, y = 1358.377, z = 68.368 }
