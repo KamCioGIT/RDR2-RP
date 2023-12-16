@@ -413,7 +413,8 @@ AddEventHandler("mineur:SelectBuyingAmount", function(dataType, menuData, type)
         desc = "Acheter",
         type = 'slider',
         min = 0,
-        max = maxAmountmineur 
+        max = maxAmountmineur,
+        hop= 10
         },
     }
 

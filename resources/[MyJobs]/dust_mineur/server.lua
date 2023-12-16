@@ -248,9 +248,10 @@ RegisterServerEvent("mineur:buyItem", function(item, amount, stash)
 	local itemprice = Config.Buy[item].price * amount
 	if stashw >= weight * amount then
 		if money >= itemprice then
-			user.RemoveMoney(itemprice)
-			ItemData.AddItem(amount)
-			TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
+			if ItemData.AddItem(amount) then
+				user.RemoveMoney(itemprice)
+				TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
+			end
 		end
 		
 	end
