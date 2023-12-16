@@ -122,17 +122,17 @@ function contremaitre() --- RETRAIT
         if getjob then
             Wait(0)
             local playerPos = GetEntityCoords(PlayerPedId())
-            for k, v in ipairs(Config.MinerJobWithdrawalPos) do
-                if #(playerPos - v) < 6.0 then
-                    Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
-                end
-                if #(playerPos - v) < Config.DistanceToInteract then
-                    TriggerEvent('dust_presskey', "Appuyez sur G")
-                    if IsControlJustPressed(2, 0x760A9C6F) then 
-                        TriggerServerEvent('mineur:server:mineur:retStash')
-                    end
-                else end
-            end
+            -- for k, v in ipairs(Config.MinerJobWithdrawalPos) do
+            --     if #(playerPos - v) < 6.0 then
+            --         Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.x, v.y, v.z - 1.0, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            --     end
+            --     if #(playerPos - v) < Config.DistanceToInteract then
+            --         TriggerEvent('dust_presskey', "Appuyez sur G")
+            --         if IsControlJustPressed(2, 0x760A9C6F) then 
+            --             TriggerServerEvent('mineur:server:mineur:retStash')
+            --         end
+            --     else end
+            -- end
             for k, v in ipairs(Config.BuyingPoint) do
                 if #(playerPos - v) < 10.0 then
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
