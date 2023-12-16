@@ -81,3 +81,5 @@ Config.SellNPC = {
 Config.Blips = {
     {name = "Mine", sprite = 1125369187, x = 2764.15, y = 1371.744, z = 66.9192, color = 'BLIP_MODIFIER_MP_COLOR_16'},
 }
+
+Config.BuyingPoint = { vector3(2954.671, 1374.939, 51.32298)}
