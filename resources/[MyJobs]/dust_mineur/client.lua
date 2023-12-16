@@ -207,7 +207,6 @@ end
 
 function GivePlayerRessource()
     local rand = math.random(100)
-    print (rand)
     if rand <= 25 then
         Wait(200)
         TriggerServerEvent('mineur:additem', "charbonbrut", 3)
