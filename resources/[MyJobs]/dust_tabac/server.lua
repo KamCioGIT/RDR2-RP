@@ -174,8 +174,9 @@ end)
 
 RegisterServerEvent('tabac:askpricetable')
 AddEventHandler('tabac:askpricetable', function() 
+	local _source = source
 	Wait(1000)
-	TriggerClientEvent("tabac:getpricetable", source, pricetable)
+	TriggerClientEvent("tabac:getpricetable", _source, pricetable)
 end)
 
 
