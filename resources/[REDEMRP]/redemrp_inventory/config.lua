@@ -586,6 +586,16 @@ Config.Items = {
         imgsrc = "items/collector_fossil_pet_wood.png",
         type = "item_standard"
     },
+    ["charbonbrut"] = {
+        label = "Charbon Brut",
+        description = "Du charbon brut",
+        weight = 0.05,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/ore_meteorit.png",
+        type = "item_standard"
+    },
     ["charbon"] = {
         label = "Charbon",
         description = "La base de toute industrie",

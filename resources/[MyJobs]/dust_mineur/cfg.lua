@@ -50,7 +50,7 @@ Config.p4 = { x = 2767.227, y = 1371.093, z = 67.987 }
 Config.p5 = { x = 2767.958, y = 1382.240, z = 67.929 }
 
 Config.Loottable = {
-    ["charbon"] = {amount = 1, chance = 25},
+    ["charbonbrut"] = {amount = 1, chance = 25},
     ["ferbrut"] = {amount = 1, chance = 25},
     ["cuivrebrut"] = {amount = 1, chance = 20},
     ["zincbrut"] = {amount = 1, chance = 15},
@@ -59,7 +59,7 @@ Config.Loottable = {
 }
 
 Config.Sell = {
-    ["charbon"] = {label= "Charbon", pricelow = 2, pricehigh = 4}, ---- EN CENTS
+    ["charbonbrut"] = {label= "Charbon", pricelow = 2, pricehigh = 4}, ---- EN CENTS
     ["ferbrut"] = {label= "Fer Brut", pricelow = 4, pricehigh = 9}, ---- EN CENTS
     ["cuivrebrut"] = {label= "Cuivre Brut", pricelow = 5, pricehigh = 10}, ---- EN CENTS
     ["zincbrut"] = {label= "Zinc Brut", pricelow = 6, pricehigh = 11}, ---- EN CENTS
@@ -67,11 +67,11 @@ Config.Sell = {
 }
 
 Config.Buy = {
-    ["charbon"] = {label= "Charbon", price= 4},
-    ["pepitefer"] = {label= "Fer Brut", price= 4},
-    ["pepitecuivre"] = {label= "Cuivre Brut", price= 4}, 
-    ["pepitezinc"] = {label= "Zinc Brut", price= 4}, 
-    ["pepiteplomb"] = {label= "Plomb Brut", price= 4}, 
+    ["charbon"] = {label= "Charbon", price= 0.03},
+    ["ferpepite"] = {label= "Fer Brut", price= 0.06},
+    ["cuivrepepite"] = {label= "Cuivre Brut", price= 0.06}, 
+    ["zincpepite"] = {label= "Zinc Brut", price= 0.08}, 
+    ["plombpepite"] = {label= "Plomb Brut", price= 0.08}, 
 }
 
 Config.SellNPC = {
