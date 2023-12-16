@@ -57,3 +57,27 @@ Config.Loottable = {
     ["plombbrut"] = {amount = 1, chance = 15},
 
 }
+
+Config.Sell = {
+    ["charbon"] = {label= "Charbon", pricelow = 2, pricehigh = 4}, ---- EN CENTS
+    ["ferbrut"] = {label= "Fer Brut", pricelow = 4, pricehigh = 9}, ---- EN CENTS
+    ["cuivrebrut"] = {label= "Cuivre Brut", pricelow = 5, pricehigh = 10}, ---- EN CENTS
+    ["zincbrut"] = {label= "Zinc Brut", pricelow = 6, pricehigh = 11}, ---- EN CENTS
+    ["plombbrut"] = {label= "Plomb Brut", pricelow = 6, pricehigh = 11}, ---- EN CENTS
+}
+
+Config.Buy = {
+    ["charbon"] = {label= "Charbon", pricelow = 4, pricehigh = 8}, ---- EN CENTS
+    ["ferbrut"] = {label= "Fer Brut", pricelow = 4, pricehigh = 8}, ---- EN CENTS
+    ["cuivrebrut"] = {label= "Cuivre Brut", pricelow = 4, pricehigh = 8}, ---- EN CENTS
+    ["zincbrut"] = {label= "Zinc Brut", pricelow = 4, pricehigh = 8}, ---- EN CENTS
+    ["plombbrut"] = {label= "Plomb Brut", pricelow = 4, pricehigh = 8}, ---- EN CENTS
+}
+
+Config.SellNPC = {
+    ["Rhodes"] = {heading = 52.0 , coords = vector3(2875.21, 1403.646, 67.82129), interact = vector3(2874.598, 1404.256, 67.82452)},
+}
+
+Config.Blips = {
+    {name = "Mine", sprite = 1125369187, x = 2764.15, y = 1371.744, z = 66.9192, color = 'BLIP_MODIFIER_MP_COLOR_16'},
+}

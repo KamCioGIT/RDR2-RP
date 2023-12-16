@@ -344,7 +344,6 @@ end
 local pricetable = {}
 RegisterNetEvent("tabac:getpricetable", function(table)
     pricetable = table
-    print(pricetable["tabacsec"])
 end)
 
 RegisterNetEvent("tabac:OpenExportMenu", function(selltable, localisation)
