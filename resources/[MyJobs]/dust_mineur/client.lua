@@ -410,7 +410,7 @@ AddEventHandler("mineur:SelectBuyingAmount", function(dataType, menuData, type)
     local elements = {
         { label = "Quantité", 
         value = 0, 
-        desc = "Acheter",
+        desc = "Disponible:"..maxAmountmineur,
         type = 'slider',
         min = 0,
         max = maxAmountmineur,
