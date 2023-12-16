@@ -68,7 +68,7 @@ Citizen.CreateThread(function()
                     isInteracting = true
                     local menutype = "Ouvrir"
                     TriggerServerEvent("dust_stable:server:askhorse")
-                    Wait(200)
+                    Wait(600)
                     OpenStable(menutype, v.name)
                 end
             end
@@ -80,7 +80,7 @@ Citizen.CreateThread(function()
                     isInteracting = true
                     local menutype = "Chevaux"
                     TriggerServerEvent("dust_stable:server:askhorse")
-                    Wait(200)
+                    Wait(600)
                     OpenStable(menutype, nil)
                 end
             end
