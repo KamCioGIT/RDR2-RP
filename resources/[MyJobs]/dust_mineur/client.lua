@@ -13,7 +13,6 @@ AddEventHandler("dust_job:mineur", function(job, grade)
         if job == v then
             getjob = true
             getgrade = tonumber(grade)
-            startMission()
             if getgrade >= 2 then
                 contremaitre()
             end
@@ -150,14 +149,10 @@ function contremaitre() --- RETRAIT
 end
 
 
-local blip
 function GetRandomRessourcePoint()
-    if blip ~= nil then 
-        RemoveBlip(blip)
-    end
+
 
     ressourcePointIndexForMining = math.random(1, #Config.RessourcesPoints)
-    blip = Citizen.InvokeNative(0x554d9d53f696d002, Config.PointSprite, Config.RessourcesPoints[ressourcePointIndexForMining].x, Config.RessourcesPoints[ressourcePointIndexForMining].y, Config.RessourcesPoints[ressourcePointIndexForMining].z)
     Citizen.CreateThread(function()
         while true do
             Wait(50)
