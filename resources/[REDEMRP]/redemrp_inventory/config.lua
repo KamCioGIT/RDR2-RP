@@ -4533,7 +4533,7 @@ Config.Items = {
     canBeDropped = true,
     canBeUsed = false,
     requireLvl = 0,
-    limit = 2000,
+    limit = 1,
     imgsrc = "items/tabacarouler.png",
     type = "item_standard",
 },
