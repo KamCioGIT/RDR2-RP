@@ -335,7 +335,7 @@ function createObjectBox(object) {
 function cloneBox(id) {
     object = getObjectById(id);
 
-    if (object.amount <= 1 || object.box > 3 || object.type == "item_weapon") return;
+    if (object.amount <= 1 || object.box > 3 || object.type == "item_weapon" || object.type == "item_storage") return;
 
     neighbour = getObjectsByNameAndMeta(object.name, object.meta).find(obj => obj.box == object.box && obj.id != id);
     setObjectAmount(id, object.amount - 1, false);
