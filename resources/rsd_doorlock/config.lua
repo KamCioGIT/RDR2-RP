@@ -745,7 +745,7 @@ Config.Doors = {
             CloseRotation2 = 225.0,
             locked = true,
             breakable = false, 
-            jobs = {"saloon_bastille"},
+            jobs = {"saloon_stdenis"},
             keys =false,
         },
         {
@@ -756,7 +756,7 @@ Config.Doors = {
             CloseRotation2 = 180.0,
             locked = true,
             breakable = false, 
-            jobs = {"saloon_bastille"},
+            jobs = {"saloon_stdenis"},
             keys =false,
         },
         {
@@ -767,7 +767,7 @@ Config.Doors = {
             CloseRotation2 = 180.0,
             locked = true,
             breakable = false, 
-            jobs = {"saloon_bastille"},
+            jobs = {"saloon_stdenis"},
             keys =false,
         },
         {
@@ -778,7 +778,7 @@ Config.Doors = {
             CloseRotation2 = 180.0,
             locked = true,
             breakable = false, 
-            jobs = {"saloon_bastille"},
+            jobs = {"saloon_stdenis"},
             keys =false,
         },
         --SALOON FAUBOURG
