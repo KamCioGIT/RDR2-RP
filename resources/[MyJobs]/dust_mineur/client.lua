@@ -196,10 +196,10 @@ function StartMining()
         end
         ClearPedTasksImmediately(PlayerPedId())
 		FreezeEntityPosition(playerPed, false)
-        isMining = false
         GivePlayerRessource()
         DeleteEntity(temprock)
         GetRandomRessourcePoint()
+        isMining = false
     end)
 end
 
@@ -209,19 +209,19 @@ function GivePlayerRessource()
     local rand = math.random(100)
     if rand <= 25 then
         Wait(200)
-        TriggerServerEvent('mineur:additem', "charbonbrut", 3)
+        TriggerServerEvent('mineur:additem', "charbonbrut", 1)
     elseif rand > 25 and rand <= 50 then
         Wait(200)
-        TriggerServerEvent('mineur:additem', "ferbrut", 4)
+        TriggerServerEvent('mineur:additem', "ferbrut", 1)
     elseif rand > 50 and rand <= 70 then
         Wait(200)
-        TriggerServerEvent('mineur:additem', "cuivrebrut", 6)
+        TriggerServerEvent('mineur:additem', "cuivrebrut", 2)
     elseif rand > 70 and rand <= 85 then
         Wait(200)
-        TriggerServerEvent('mineur:additem', "zincbrut", 3)
+        TriggerServerEvent('mineur:additem', "zincbrut", 1)
     elseif rand > 85 and rand <= 100 then
         Wait(200)
-        TriggerServerEvent('mineur:additem', "plombbrut", 3)
+        TriggerServerEvent('mineur:additem', "plombbrut", 1)
     end
 end
 
