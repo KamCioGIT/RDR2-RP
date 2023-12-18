@@ -4522,9 +4522,9 @@ Config.Items = {
     canBeDropped = true,
     canBeUsed = false,
     requireLvl = 0,
-    -- limit = 2000,
+    limit = 2000,
     imgsrc = "items/szalwia.png",
-    type = "item_storage",
+    type = "item_standard",
 },
 ["tabacrouler"] = {
     label = "Tabac à rouler",
@@ -4533,9 +4533,9 @@ Config.Items = {
     canBeDropped = true,
     canBeUsed = false,
     requireLvl = 0,
-    limit = 1,
+    limit = 2000,
     imgsrc = "items/tabacarouler.png",
-    type = "item_storage",
+    type = "item_standard",
 },
 }
 
