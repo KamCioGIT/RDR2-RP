@@ -49,7 +49,7 @@ Citizen.CreateThread(function()
                 Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.input, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
             end
             if #(playerPos - v.input) < Config.DistanceToInteract and not isInteracting then
-                TriggerEvent('dust_presskey', "Appuyez sur G")
+                TriggerEvent('dust_presskey', "Appuyez sur G pour déposer")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     TriggerEvent("redemrp_inventory:OpenStash", "dep_moo_"..v.name, 3000.0)
                 end
@@ -58,7 +58,7 @@ Citizen.CreateThread(function()
                 Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.output, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
             end
             if #(playerPos - v.output) < Config.DistanceToInteract and not isInteracting then
-                TriggerEvent('dust_presskey', "Appuyez sur G")
+                TriggerEvent('dust_presskey', "Appuyez sur G pour récupérer")
                 if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                     TriggerEvent("redemrp_inventory:OpenStash", "ret_moo_"..v.name, 3000.0)
                 end
