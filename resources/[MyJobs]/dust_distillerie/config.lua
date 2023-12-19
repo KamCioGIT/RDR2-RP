@@ -123,11 +123,11 @@ Config.Import = {
 
 
 Config.Sell = {
-    ["tonneaumout"] = {label= "Préparation à base de céréales", pricelow = 55, pricehigh = 66}, ---- EN CENTS
+    ["tonneaumout"] = {label= "Préparation à base de céréales", pricelow = 50, pricehigh = 70}, ---- EN CENTS
 }
 
 Config.Buy = {
-    ["tonneaumout"] = {label= "Préparation à base de céréales", price= 0.03},
+    ["moutwhisky"] = {label= "Moût", price= 0.07},
 }
 
 Config.SellNPC = {
