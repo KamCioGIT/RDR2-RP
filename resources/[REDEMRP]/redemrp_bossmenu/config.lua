@@ -1086,6 +1086,31 @@ Config.Jobs = {
         },
     }
 },
+
+["fraudes"] = {
+    bigjob = "fraudes",
+    blisprite = 1420154945,
+    MenuLocations = vector3(-797.3085, -1186.909, 43.18827),
+    Name = "Bureau des Fraudes",
+    Grades = {
+        [1] = {
+            Name = "Assistant",
+            StorageAccess = true,
+            Pay = 1,
+        },
+        [2] = {
+            Name = "Second",
+            StorageAccess = true,
+            Pay = 1,
+        },
+        [3] = {
+            Name = "Patron",
+            Personnel = true,
+            StorageAccess = true,
+            Pay = 1,
+        },
+    }
+},
 }
 
 Config.DistanceToInteract = 2.0
