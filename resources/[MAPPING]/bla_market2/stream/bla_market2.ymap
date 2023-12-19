@@ -1598,21 +1598,6 @@
 			<artificialAmbientOcclusion value="255"/>
 		</Item>
 		<Item type="CEntityDef">
-			<archetypeName>p_woodspoon01x</archetypeName>
-			<flags value="1572897"/>
-			<position x="-841.054565" y="-1241.320679" z="43.376499"/>
-			<rotation w="0.160610" x="0.000362" y="0.000957" z="-0.987017"/>
-			<scaleXY value="1"/>
-			<scaleZ value="1"/>
-			<parentIndex value="-1"/>
-			<lodDist value="500"/>
-			<childLodDist value="500"/>
-			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
-			<numChildren value="0"/>
-			<ambientOcclusionMultiplier value="255"/>
-			<artificialAmbientOcclusion value="255"/>
-		</Item>
-		<Item type="CEntityDef">
 			<archetypeName>p_milkcan01x</archetypeName>
 			<flags value="1572897"/>
 			<position x="-825.410339" y="-1244.190308" z="42.533943"/>

@@ -1748,7 +1748,7 @@ Config.Doors = {
         locked = true,
         breakable = false, 
         jobs = {"distillerie"},
- keys = false,
+        keys = false,
     },
     {
         door = 3014302262,
@@ -1759,7 +1759,7 @@ Config.Doors = {
         locked = true,
         breakable = false, 
         jobs = {"distillerie"},
- keys = false,
+        keys = false,
     },
     ---- baraque contrebande new austin
 
