@@ -743,7 +743,7 @@ Config.Jobs = {
         bigjob = "doctor",
         Name = "Cabinet de Saint-Denis",
         MenuLocations = 
-        vector3(-789.6236, -1306.921, 42.79616)
+        vector3(-776.9487, -1316.209, 42.69102)
     ,
         Grades = {
             [1] = {

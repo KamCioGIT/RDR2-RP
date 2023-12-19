@@ -30,6 +30,29 @@ Citizen.CreateThread(function()
 	end
 end)
 
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "mout", 1, {}, "dep_moo_guilde","moonshine", 1, {}, "ret_moo_guilde")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "aromebayou", 1, {},"dep_moo_guilde","moonshinebayou", 1, {}, "ret_moo_guilde")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "arometrappeur", 1, {},"dep_moo_guilde","moonshinetrappeur", 1, {}, "ret_moo_guilde")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "aromecueilleur", 1, {},"dep_moo_guilde","moonshinecueilleur", 1, {}, "ret_moo_guilde")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "aromeforet", 1, {},"dep_moo_guilde","moonshineforet", 1, {}, "ret_moo_guilde")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "aromefongique", 1, {},"dep_moo_guilde","moonshinefongique", 1, {}, "ret_moo_guilde")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "aromecitadin", 1, {},"dep_moo_guilde","moonshinecitadin", 1, {}, "ret_moo_guilde")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "aromepeignecul", 1, {},"dep_moo_guilde","moonshinepeignecul", 1, {}, "ret_moo_guilde")
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstashbis", "sucre", 1, {}, "aromemexicain", 1, {},"dep_moo_guilde","moonshinemexicaine", 1, {}, "ret_moo_guilde")
+	end
+end)
+
 
 RegisterServerEvent("contrebande:RequestCampMenu", function(menutype)
     local _source = tonumber(source)

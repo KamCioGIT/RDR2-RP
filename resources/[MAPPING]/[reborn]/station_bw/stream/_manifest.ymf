@@ -17,7 +17,6 @@
     <itypName>station_col</itypName>
     <manifestFlags>INTERIOR_DATA</manifestFlags>
     <itypDepArray>
-      <Item>p_pot_flowerarng17x</Item>
       <Item>p_mp_map02x</Item>
       <Item>p_benchnbx03x</Item>
       <Item>p_suitcase02x</Item>
@@ -28,7 +27,6 @@
       <Item>p_filecabinet67x</Item>
       <Item>p_lamptelegraphpole01x</Item>
       <Item>p_paper01x</Item>
-      <Item>p_pot_flowerarng08x</Item>
       <Item>mp001_p_mp_map02x</Item>
       <Item>p_lamphanging12x</Item>
       <Item>mp008_p_mshn_painting16x</Item>
@@ -43,12 +41,10 @@
       <Item>p_suitcasecombo01x</Item>
       <Item>p_cigarettecheapused01x</Item>
       <Item>p_trashbin01x</Item>
-      <Item>p_pot_flowerarng19x</Item>
       <Item>p_newspaperset01x</Item>
       <Item>mp006_p_mshn_painting12x</Item>
       <Item>p_ashtray01x</Item>
       <Item>mp005_p_mp_map_firetower01x</Item>
-      <Item>p_pot_flowerarng18x</Item>
       <Item>p_newspaperbox_cs01x</Item>
       <Item>p_hatstand01xng</Item>
       <Item>p_clipboard02x</Item>
