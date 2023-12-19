@@ -319,7 +319,7 @@ Config.Jobs = {
     },
     ["forge"] = {
         bigjob = "forge",
-        Name = "McKinnon's Metalworks",
+        Name = "Higgins Blacksmith",
         blisprite = -758970771,
         MenuLocations = 
         vector3(-761.5948, -1278.557, 42.84648)

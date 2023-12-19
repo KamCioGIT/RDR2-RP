@@ -59,15 +59,15 @@ Config.CraftingsReceipe = {
 ['moutorge'] = {
     type = 'moonshine',
     Itemtocraft = 2,
-    ItemReceipe1Name = 'orge',
-    ItemReceipe1Amount = 5,
+    ItemReceipe1Name = 'moutwhisky',
+    ItemReceipe1Amount = 1,
     ItemReceipe2Name = 'graisse',
     ItemReceipe2Amount = 1,
     ItemToGive = 'mout',
     Amount = 1,
     WorkingTime = 5,
     label = 'Moût',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wheatseed.png', text = "Orge",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/moonshine_base.png', text = "Moùut Whisky",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de gras",count = "x1"}}
 },
 ['aromebayou'] = {
     type = 'moonshine',

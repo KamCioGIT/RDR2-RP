@@ -235,7 +235,7 @@ AddEventHandler('distillerie:SellItem', function(itemNameStr, menu, amount, loca
     local ItemData = data.getItem(_source, itemNameStr)
 	if ItemData.RemoveItem(amount) then
 		user.AddMoney(pricetable[itemNameStr] * amount)
-		TriggerEvent("redemrp_inventory:server:additemstash", itemNameStr, amount, {}, "dep_distillerie")
+		TriggerEvent("redemrp_inventory:server:additemstash", itemNameStr, amount, {}, "boss_distillerie")
 	end
 end)
 
