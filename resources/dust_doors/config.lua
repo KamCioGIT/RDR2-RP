@@ -1873,5 +1873,19 @@ Config.Doors = {
         jobs = {"all"},
         keys = "clefarkos",
     },
+    ---- alambic guilde
+    {
+        door = 3167931616,
+        CloseRotation = 95.0,
+        DoorCoord = vector3(198.80244445801,985.02728271484,189.22232055664),
+        OpenCoord = vector3(198.7753, 986.0213, 189.2273),
+        door2 = 160425541,
+        CloseRotation2 = -80.0,
+        DoorCoord2 = vector3(198.37966918945,987.38555908203,189.22232055664),
+        locked = true,
+        breakable = false, 
+        jobs = {"all"},
+        keys = "clefguilde",
+    },
 
 }
