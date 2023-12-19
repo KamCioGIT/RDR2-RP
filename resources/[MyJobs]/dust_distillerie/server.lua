@@ -204,7 +204,7 @@ Citizen.CreateThread(function()
 	end
 	while true do
 		Citizen.Wait(2000)
-		TriggerEvent("redemrp_inventory:server:removeitemstash", "tonneaumout", 1, {},"npc_distillerie","distilleriesec", 10, {}, "boss_distillerie")
+		TriggerEvent("redemrp_inventory:server:removeitemstash", "tonneaumout", 1, {},"npc_distillerie","moutwhisky", 10, {}, "boss_distillerie")
 	end
 end)
 
