@@ -1576,6 +1576,31 @@ Config.Doors = {
             jobs = {"forge"},
             keys =false,
         },
+
+        {
+            door = -1266590113,
+            CloseRotation = -90.0,
+            DoorCoord = vector3(-757.3799438476562, -1278.530029296875, 42.83653259277344),
+            OpenCoord  = vector3(-756.7836, -1277.565, 42.75676),
+            door2 = 3812268623,
+            CloseRotation2 = 90.0,
+            DoorCoord2 = vector3(-757.379944,-1276.510010,42.836533),
+            locked = true,
+            breakable = false, 
+            jobs = {"forge"},
+            keys =false,
+        },
+        {
+            door = 3323360201,
+            CloseRotation = -90.0,
+            OpenCoord  = vector3(-766.590027, -1274.501709, 42.610039),
+            door2 = 0,
+            CloseRotation2 = 0,
+            locked = true,
+            breakable = false, 
+            jobs = {"forge"},
+            keys =false,
+        },
     
     --------------------------------------------------------------------------------------
     
@@ -1822,6 +1847,53 @@ Config.Doors = {
         keys = false,
     },
 
+    ---- doctor bla
+    {
+        door = 1748668990,
+        CloseRotation = -90.0,
+        OpenCoord  = vector3(-785.839172,-1312.449951,42.660000),
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {"doctor_bla"},
+        keys = false,
+    },
+    {
+        door = -646026269,
+        CloseRotation = -90.0,
+        OpenCoord  = vector3(-775.832275,-1313.050049,42.720001),
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {"doctor_bla"},
+        keys = false,
+    },
+
+    --- fraudes
+    {
+        door = 54376651,
+        CloseRotation = 90.0,
+        OpenCoord  = vector3(-794.403748,-1199.900024,43.188251),
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {"fraudes"},
+        keys = false,
+    },
+    {
+        door = 497352166,
+        CloseRotation = 0.0,
+        OpenCoord  = vector3(-800.229980,-1193.609985,43.188251),
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {"doctor_bla"},
+        keys = false,
+    },
     ---- opium
 
     {

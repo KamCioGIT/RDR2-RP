@@ -87,7 +87,7 @@ Config.Stables = {
         showblip = true,
     },
 	Blackwater_sheriff = {
-		pos = vector3(-751.8447, -1275.339, 42.35336),
+		pos = vector3(-749.3494, -1273.322, 42.21373),
 		name = 'Blackwater_sheriff',
         showblip = true,
     },
