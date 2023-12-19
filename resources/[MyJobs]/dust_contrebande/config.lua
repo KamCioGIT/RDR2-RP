@@ -7,7 +7,7 @@ Config.DistanceToInteract = 1.3
 
 Config.AtelierMoonshine = {
     vector3(-628.4146, -68.25435, 81.90664), --- king
-    vector3(196.1929, 987.2563, 189.2255), -- guilde
+    vector3(196.1077, 987.0225, 189.2271), -- guilde
 }
 
 Config.AlambicMoonshine = {
