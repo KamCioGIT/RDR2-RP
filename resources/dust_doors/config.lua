@@ -1862,11 +1862,11 @@ Config.Doors = {
     ---- alambic arkos
     {
         door = 4291451064,
-        CloseRotation = 90.0,
+        CloseRotation = 185.0,
         DoorCoord = vector3(-627.5625,-54.382328033447,81.852699279785),
         OpenCoord = vector3(-629.018, -54.23365, 81.79862),
         door2 = 295238741,
-        CloseRotation2 = -90.0,
+        CloseRotation2 = -175.0,
         DoorCoord2 = vector3(-630.84625244141,-54.67068862915,81.847953796387),
         locked = true,
         breakable = false, 
