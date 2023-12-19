@@ -176,6 +176,11 @@ Config.Stables = {
 		name = 'fermeouestdakota',
         showblip = false,
     },
+    fermecumberland = {
+		pos = vector3(209.0462, 976.3204, 189.4968),
+		name = 'fermecumberland',
+        showblip = false,
+    },
     --- boat
 
     lagrasboat = {
