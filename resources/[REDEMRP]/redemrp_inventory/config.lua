@@ -4058,6 +4058,29 @@ Config.Items = {
     imgsrc = "items/wheatseed.png",
     type = "item_standard",
 },
+["tonneau"] = {
+    label = "Tonneau",
+    description = "Un boon tonneau",
+    weight = 2,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/moonshine_barrel.png",
+    type = "item_standard",
+},
+["tonneaumout"] = {
+    label = "Préparation à base de céréales",
+    description = "Une mixture servant à faire du moût",
+    weight = 10,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/generic_bundle_crafting_moonshine.png",
+    type = "item_standard",
+},
+
 
 
 ----- pêche ------ 

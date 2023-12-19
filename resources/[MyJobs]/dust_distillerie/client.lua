@@ -249,6 +249,18 @@ function contremaitre() --- RETRAIT
                 end
             else end
         end
+
+        for k, v in ipairs(Config.BuyingPoint) do
+            if #(playerPos - v) < 10.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                    TriggerServerEvent("distillerie:checksellingstash", "boss_distillerie")
+                end
+            end
+        end
 end
 end
 
@@ -303,3 +315,181 @@ function GetRandomRessourcePoint()
         end
     end)
 end
+
+
+--- free access
+
+Citizen.CreateThread(function()
+    for _, data in pairs(Config.Blips) do
+        local blipId = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, data.x, data.y, data.z)
+        SetBlipSprite(blipId, data.sprite, 1);
+        if data.color then
+            Citizen.InvokeNative(0x662D364ABF16DE2F, blipId, GetHashKey(data.color));
+        else 
+            Citizen.InvokeNative(0x662D364ABF16DE2F, blipId, GetHashKey(Config.colors.WHITE));
+        end
+        local varString = CreateVarString(10, 'LITERAL_STRING', data.name);
+        Citizen.InvokeNative(0x9CB1A1623062F402, blipId, varString)
+    end
+    TriggerServerEvent("distillerie:askpricetable")
+
+
+    for k,v in pairs(Config.SellNPC) do
+        local model = RequestModel(GetHashKey("mp_u_m_m_nat_farmer_03"))
+
+        while not HasModelLoaded(GetHashKey("mp_u_m_m_nat_farmer_03")) do
+            Wait(100)
+        end
+
+        local spawnCoords = v.coords
+        local ped = CreatePed(GetHashKey("mp_u_m_m_nat_farmer_03"), spawnCoords.x, spawnCoords.y, spawnCoords.z, v.heading, false, true, true, true)
+        Citizen.InvokeNative(0x283978A15512B2FE, ped, true)
+        SetEntityNoCollisionEntity(PlayerPedId(), ped, false)
+        SetEntityCanBeDamaged(ped, false)
+        SetEntityInvincible(ped, true)
+        Wait(2000)
+        FreezeEntityPosition(ped, true)
+        SetBlockingOfNonTemporaryEvents(ped, true)
+        SetModelAsNoLongerNeeded(GetHashKey("mp_u_m_m_nat_farmer_03"))
+    end
+    GetRandomRessourcePoint()
+    Citizen.CreateThread(function() --- MINERAI
+        while true do
+                Wait(0)
+                local playerPos = GetEntityCoords(PlayerPedId())
+                if #(playerPos - Config.RessourcesPoints[ressourcePointIndexForMining]) < Config.DistanceToInteract and not isMining then
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
+                    if IsControlJustPressed(0, 0x760A9C6F) and not isMining then 
+                        StartMining()
+                    end
+                else end
+                for k, v in pairs(Config.SellNPC) do
+                    if #(playerPos - v.interact) < 10.0 then
+                        Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v.interact, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                    end
+                    if #(playerPos - v.interact) < Config.DistanceToInteract and not isInteracting then
+                        TriggerEvent('dust_presskey', "Appuyez sur G")
+                        if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                            TriggerEvent("distillerie:OpenExportMenu")
+                        end
+                    end
+                end
+
+                if #(playerPos - Config.AtelierFree) < 10.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Atelier, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                end
+                if #(playerPos - Config.AtelierFree) < Config.DistanceToInteract and not isInteracting then
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        TriggerEvent("distillerie:OpenBossMenu", "distilleriefree")
+                    end
+                end
+        end
+    end)
+
+
+end)
+
+
+local maxAmountdistillerie = nil
+
+RegisterNetEvent("distillerie:client:SetMaxAmount", function(value)
+    maxAmountdistillerie = value
+end)
+
+RegisterNetEvent("distillerie:OpenBuyingMenu", function(sellingtable, type)
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        local elements = {}
+
+        for k, v in pairs(sellingtable) do
+            table.insert(elements, {label = "$"..v.price .." "..v.label, value = k, price = v.price})
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Marché",
+            subtext = "Acheter",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            menu.close()
+            TriggerServerEvent("distillerie:checkstash", data.current.value, MenuData, type)
+            Wait(200)
+
+            TriggerEvent("distillerie:SelectBuyingAmount", data.current.value, MenuData, type)
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)
+
+RegisterNetEvent("distillerie:SelectBuyingAmount")
+AddEventHandler("distillerie:SelectBuyingAmount", function(dataType, menuData, type)
+    menuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+
+    local elements = {
+        { label = "Quantité", 
+        value = 0, 
+        desc = "Disponible:"..maxAmountdistillerie,
+        type = 'slider',
+        min = 0,
+        max = maxAmountdistillerie,
+        hop= 10
+        },
+    }
+
+    menuData.Open('default', GetCurrentResourceName(), 'buydistillerie', {
+        title = "Acheter",
+        subtext = "Choisir la quantité",
+        align = 'top-right',
+        elements = elements,
+    },
+
+    function(data, menu)
+        if data.current.label == "Quantité" then
+            TriggerServerEvent("distillerie:buyItem", dataType, data.current.value, type)
+            menu.close()
+            isInteracting = false
+        end 
+    end,
+
+    function(data, menu)
+        menu.close()
+        isInteracting = false
+    end)
+end)

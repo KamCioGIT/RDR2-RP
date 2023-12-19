@@ -193,3 +193,97 @@ AddEventHandler('distillerie:addorge', function()
 	local amount = math.random(2)
 	ItemData.AddItem(amount)
 end)
+
+---- free access
+
+local pricetable = {}
+
+Citizen.CreateThread(function()
+	for item, v in pairs(Config.Sell) do
+		pricetable[item] = math.random(v.pricelow ,v.pricehigh)/100
+	end
+	while true do
+		Citizen.Wait(2000)
+		TriggerEvent("redemrp_inventory:server:removeitemstash", "tonneaumout", 1, {},"npc_distillerie","distilleriesec", 10, {}, "boss_distillerie")
+	end
+end)
+
+RegisterServerEvent('distillerie:askpricetable')
+AddEventHandler('distillerie:askpricetable', function() 
+	local _source = source
+	Wait(1000)
+	TriggerClientEvent("distillerie:getpricetable", _source, pricetable)
+end)
+
+
+
+RegisterServerEvent("distillerie:MaxSellingAmount", function(dataType)
+    local _source = tonumber(source)
+    local ItemData = data.getItem(_source, dataType)
+    local ItemAmount = tonumber(ItemData.ItemAmount)
+	if ItemAmount >= 1 then
+		TriggerClientEvent("distillerie:client:SetMaxAmount", _source, math.floor(ItemAmount))
+	else 
+		TriggerClientEvent("distillerie:client:SetMaxAmount", _source, 0)
+	end
+end)
+
+RegisterServerEvent('distillerie:SellItem')
+AddEventHandler('distillerie:SellItem', function(itemNameStr, menu, amount, localisation)
+	local _source = tonumber(source)
+    local user = RedEM.GetPlayer(_source)
+    local ItemData = data.getItem(_source, itemNameStr)
+	if ItemData.RemoveItem(amount) then
+		user.AddMoney(pricetable[itemNameStr] * amount)
+		TriggerEvent("redemrp_inventory:server:additemstash", itemNameStr, amount, {}, "dep_distillerie")
+	end
+end)
+
+
+
+--- achat
+
+RegisterServerEvent("distillerie:checkstash", function(item, menudata, stash)
+	local _source = source
+	local ItemData = data.getItemStash(_source, stash, item)
+	local ItemAmount = tonumber(ItemData.ItemAmount)
+	TriggerClientEvent("distillerie:client:SetMaxAmount", _source, ItemAmount)
+	-- Wait(500)
+	-- TriggerClientEvent("distillerie:SelectBuyingAmount", item, menudata, stash)
+end)
+
+RegisterServerEvent("distillerie:checksellingstash", function(stash)
+	local _source = source
+	local sellingtable = {} 
+	for k, v in pairs (Config.Buy) do
+		local ItemData = data.getItemStash(_source, stash, k)
+		local ItemAmount = tonumber(ItemData.ItemAmount)
+		if ItemAmount >= 1 then
+			sellingtable[k] = v
+		end
+	end
+	TriggerClientEvent("distillerie:OpenBuyingMenu", _source, sellingtable, stash)
+end)
+
+--- acheter
+RegisterServerEvent("distillerie:buyItem", function(item, amount, stash)
+	local currentRealTime = os.date("*t")
+
+    -- Vérifier si l'heure réelle est entre 19h et 01h
+	local stashw = exports.redemrp_inventory.GetStashWeight(source, stash)
+	local _source = tonumber(source)
+	local user = RedEM.GetPlayer(_source)
+	local ItemData = data.getItem(_source, item)
+	local weight = ItemData.ItemInfo.weight 
+	local money = user.money
+	local itemprice = Config.Buy[item].price * amount
+	if stashw >= weight * amount then
+		if money >= itemprice then
+			if ItemData.AddItem(amount) then
+				user.RemoveMoney(itemprice)
+				TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
+			end
+		end
+		
+	end
+end)

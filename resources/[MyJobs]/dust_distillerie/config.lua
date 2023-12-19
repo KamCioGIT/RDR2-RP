@@ -7,7 +7,8 @@ Config.Jobs = {
 Config.WorkingTime = 5000
 Config.DistanceToInteract = 2.0
 
-Config.Atelier = vector3(1461.654, -1591.384, 70.90051) -- Creer toutes les balles
+Config.Atelier = vector3(1459.212, -1577.677, 71.01608) -- Creer toutes les balles
+Config.AtelierFree = vector3(1461.639, -1591.756, 70.81068) -- Creer toutes les balles
 Config.Dep = {vector3(1471.082, -1582.883, 71.18633)}
 Config.Ret = {vector3(1466.216, -1581.007, 70.91117)}
 Config.AnimDict = "amb_work@world_human_hammer@table@male_a@trans"
@@ -56,6 +57,31 @@ Config.CraftingsReceipe = {
         label = "Moût de baie",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x3"}}
     },
+
+    ['tonneaumout'] = {
+        type = 'distilleriefree',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'orge',
+        ItemReceipe1Amount = 40,
+        ItemReceipe2Name = 'tonneau',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'tonneaumout',
+        Amount = 1,
+        WorkingTime = 1,
+        label = "Préparation à base de céréales",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wheatseed.png', text = "Orge",count = "x40"}, {src = 'nui://redemrp_inventory/html/items/moonshine_barrel.png', text = "Tonneau",count = "x1"}}
+    },
+    ['tonneau'] = {
+        type = 'distilleriefree',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'bois',
+        ItemReceipe1Amount = 7,
+        ItemToGive = 'tonneau',
+        Amount = 1,
+        WorkingTime = 1,
+        label = "Tonneau",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/wood.png', text = "Bois",count = "x7"}}
+    },
 }
 
 Config.RessourcesPoints = 
@@ -94,3 +120,23 @@ Config.Import = {
     ["sucre"] = {label= "Sucre", price = 0.05},
 
 }
+
+
+Config.Sell = {
+    ["tonneaumout"] = {label= "Charbon Brut", pricelow = 1, pricehigh = 2}, ---- EN CENTS
+}
+
+Config.Buy = {
+    ["tonneaumout"] = {label= "Charbon", price= 0.03},
+}
+
+Config.SellNPC = {
+    ["Rhodes"] = {heading = 227.0 , coords = vector3(1457.226, -1585.349, 70.84256), interact = vector3(1457.794, -1585.972, 70.84254)},
+}
+
+Config.Blips = {
+    {name = "Champs d'orge", sprite = 1961764827, x = 1446.225, y = -1640.192, z = 65.90211, color = 'BLIP_MODIFIER_HOSTILITY_COLOR_2'},
+    {name = "Atelier Distillerie", sprite = 1961764827, x = 1461.334, y = -1591.338, z = 70.88576, color = 'BLIP_MODIFIER_HOSTILITY_COLOR_2'},
+}
+
+Config.BuyingPoint = { vector3(1459.384, -1583.644, 70.84251)}
