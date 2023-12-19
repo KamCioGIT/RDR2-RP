@@ -3,7 +3,7 @@ Config = {}
 
 Config.WorkingTime = 3000
 
-Config.DistanceToInteract = 1.3
+Config.DistanceToInteract = 1.1
 
 Config.AtelierMoonshine = {
     vector3(-628.4146, -68.25435, 81.90664), --- king
