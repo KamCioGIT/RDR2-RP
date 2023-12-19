@@ -493,3 +493,112 @@ AddEventHandler("distillerie:SelectBuyingAmount", function(dataType, menuData, t
         isInteracting = false
     end)
 end)
+
+
+-----  sell 
+local pricetable = {}
+RegisterNetEvent("distillerie:getpricetable", function(table)
+    pricetable = table
+end)
+
+RegisterNetEvent("distillerie:OpenExportMenu", function(selltable, localisation)
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        local elements = {}
+
+
+        for k, v in pairs(Config.Sell) do
+            table.insert(elements, {label = v.label.." $"..pricetable[k], value = k, price = pricetable[k]})
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Exportateur",
+            subtext = "Vendre",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            MenuData.CloseAll()
+            TriggerServerEvent("distillerie:MaxSellingAmount", data.current.value)
+            Wait(150)
+            TriggerEvent("distillerie:SelectSellingAmount", data.current.value, MenuData, menu, localisation)
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)
+
+
+RegisterNetEvent("distillerie:SelectSellingAmount")
+AddEventHandler("distillerie:SelectSellingAmount", function(dataType, menuData, menu, localisation)
+    menuData.CloseAll()
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+
+    local elements = {
+        { label = "Quantité", 
+        value = maxsellamount, 
+        desc = "Vendre",
+        type = 'slider',
+        min = 0,
+        max = maxsellamount 
+        },
+    }
+
+    menuData.Open('default', GetCurrentResourceName(), 'craft', {
+        title = "Exportateur",
+        subtext = "Choisir la quantité",
+        align = 'top-right',
+        elements = elements,
+    },
+
+    function(data, menu)
+        if data.current.label == "Quantité" then
+            TriggerServerEvent("distillerie:SellItem", dataType, menu, data.current.value, localisation)
+            menu.close()
+            isInteracting = false
+        end 
+    end,
+
+    function(data, menu)
+        menu.close()
+        isInteracting = false
+    end)
+end)
+
+RegisterNetEvent("distillerie:client:SetMaxAmount", function(value)
+    maxsellamount = value
+end)
+
