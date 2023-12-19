@@ -14,130 +14,167 @@ Config.Stables = {
     lagras = {
 		pos = vector3(2059.702, -574.6406, 40.62636),
 		name = 'lagras',
+        showblip = true,
     },
     distillerie = {
 		pos = vector3(1419.654, -1586.466, 68.34435),
 		name = 'distillerie',
+        showblip = true,
     },
     transpertouest = {
 		pos = vector3(-1815.575, -598.6345, 154.7045),
 		name = 'transpertouest',
+        showblip = true,
     },
     transpertest = {
 		pos = vector3(2642.672, -1472.253, 46.10427),
 		name = 'transpertest',
+        showblip = true,
     },
 	buyhorse = {
 		pos = vector3(2511.494, -1431.057, 46.26681),
 		name = 'buyhorse',
+        showblip = true,
     },
     buybla = {
 		pos = vector3(-951.3615, -1340.261, 50.63528),
 		name = 'buybla',
+        showblip = true,
     },
 	Strawberry = {
 		pos = vector3(-1781.097, -439.7949, 155.1324),
 		name = 'Strawberry',
+        showblip = true,
     },
 	Wapiti = {
 		pos = vector3(486.6815, 2217.716, 247.2323),
 		name = 'Wapiti',
+        showblip = true,
     },
 	DakotaCamp = {
 		pos = vector3(-115.0529, 1486.4540, 112.7034),
 		name = 'DakotaCamp',
+        showblip = true,
     },
 	Amabarino = {
 		pos = vector3(-1336.1310, 2397.8857, 307.0894),
 		name = 'Amabarino',
+        showblip = true,
     },
 	Flatneck = {
 		pos = vector3(-381.2650, -349.7352, 86.8605),
 		name = 'Flatneck',
+        showblip = true,
     },
 	Valentine = {
 		pos = vector3(-365.1976, 776.2587, 116.2820),
 		name = 'Valentine',
+        showblip = true,
     },
 	Emerald = {
 		pos = vector3(1383.8695, 326.0576, 87.8322),
 		name = 'Emerald',
+        showblip = true,
     },
 	Rhodes_sheriff = {
 		pos = vector3(1369.5880, -1298.0417, 76.7351),
 		name = 'Rhodes_sheriff',
+        showblip = true,
     },
 	Rhodes_poste = {
 		pos = vector3(1257.0261, -1315.4788, 76.2924),
 		name = 'Rhodes_poste',
+        showblip = true,
     },
 	Blackwater_sheriff = {
 		pos = vector3(-751.8447, -1275.339, 42.35336),
 		name = 'Blackwater_sheriff',
+        showblip = true,
     },
 	Strawberry_sheriff = {
 		pos = vector3(-1799.4211, -351.5683, 164.0752),
 		name = 'Strawberry_sheriff',
+        showblip = true,
     },
 	Manzanita = {
 		pos = vector3(-1970.1453, -1655.9006, 117.1564),
 		name = 'Manzanita',
+        showblip = true,
     },
 	Littlecreek = {
 		pos = vector3(-2211.897, 722.8704, 121.7071),
 		name = 'Littlecreek',
+        showblip = true,
     },
 	Fort_Wallace = {
 		pos = vector3(348.8842, 1507.8472, 180.6682),
 		name = 'Fort_Wallace',
+        showblip = true,
     },
 	Annesburg = {
 		pos = vector3(2912.6509, 1244.7437, 44.7109),
 		name = 'Annesburg',
+        showblip = true,
     },
 	VanHorn = {
 		pos = vector3(2935.8020, 573.9051, 44.6474),
 		name = 'VanHorn',
+        showblip = true,
     },
 	Fermejohn = {
 		pos = vector3(-1655.8254, -1381.1234, 83.9948),
 		name = 'Fermejohn',
+        showblip = true,
     },
 	Stdenis_Marshall = {
 		pos = vector3(2489.8730, -1322.0959, 48.8657) ,
 		name = 'Stdenis_Marshall',
+        showblip = true,
     },
 	Stdenis_eglise = {
 		pos = vector3(2725.697, -1253.654, 48.87997),
 		name = 'Stdenis_eglise',
+        showblip = true,
     },
 	Stdenis_roturier = {
 		pos = vector3(2698.904, -982.3295, 42.73772),
 		name = 'Stdenis_roturier',
+        showblip = true,
     },
 	Stdenis_start = {
 		pos = vector3(2470.057, -1331.795, 46.65237),
 		name = 'Stdenis_start',
+        showblip = true,
     },
 	Startbla = {
 		pos = vector3(-885.1912, -1362.12, 43.49583),
 		name = 'Startbla',
+        showblip = true,
     },
     thieves = {
 		pos = vector3(-1430.681, -2327.218, 42.14704),
 		name = 'thieves',
+        showblip = true,
     },
     shadybell = {
 		pos = vector3(1879.344, -1878.298, 41.80941),
 		name = 'shadybell',
+        showblip = true,
     },
     tabac = {
 		pos = vector3(1123.373, -978.0873, 68.1125),
 		name = 'tabacrhodes',
+        showblip = true,
     },
     ambarinoorlandboys = {
 		pos = vector3(-1648.549, 1219.449, 349.9523),
 		name = 'ambarinoorlandboys',
+        showblip = true,
+    },
+    fermeouestdakota = {
+		pos = vector3(-612.4683, -48.28658, 83.60834),
+		name = 'fermeouestdakota',
+        showblip = false,
     },
     --- boat
 
@@ -145,72 +182,86 @@ Config.Stables = {
         type = "boat",
 		pos = vector3(2141.561, -652.7663, 41.30879),
 		name = 'lagrasboat',
+        showblip = true,
     },
     lagrasboat2 = {
         type = "boat",
 		pos = vector3(2096.809, -639.1716, 39.26431),
 		name = 'lagrasboat',
+        showblip = true,
     },
     lagrasboat3 = {
         type = "boat",
 		pos = vector3(2903.771, -247.7384, 40.97009),
 		name = 'lagrasboat',
+        showblip = true,
     },
     stdenisboat = {
         type = "boat",
 		pos =  vector3(2822.63, -1451.004, 39.88385),
 		name = 'stdenisboat',
+        showblip = true,
     },
     blaboat = {
         type = "boat",
 		pos =  vector3(-680.6436, -1245.555, 42.19117),
 		name = 'blaboat',
+        showblip = true,
     },
     vanhornboat = {
         type = "boat",
 		pos =  vector3(3010.031, 477.2984, 41.14287),
 		name = 'blaboat',
+        showblip = true,
     },
     anesboat = {
         type = "boat",
 		pos =  vector3(3015.86, 1332.302, 41.73211),
 		name = 'anesboat',
+        showblip = true,
     },
     rhodesboat = {
         type = "boat",
 		pos =   vector3(616.7775, -1260.163, 40.14383),
 		name = 'rhodesboat',
+        showblip = true,
     },
 
     indienboat = {
         type = "boat",
 		pos =   vector3(478.7158, 1734.724, 127.0352),
 		name = 'indienboat',
+        showblip = true,
     },
     indienboat2 = {
         type = "boat",
 		pos =   vector3(-61.0369, 1560.699, 110.8642),
 		name = 'indienboat',
+        showblip = true,
     },
     indienboat3 = {
         type = "boat",
 		pos =  vector3(-1021.232, 443.9864, 53.44182),
 		name = 'indienboat',
+        showblip = true,
     },
     indienboat4 = {
         type = "boat",
 		pos =  vector3(-1125.48, 311.9244, 40.0304),
 		name = 'indienboat',
+        showblip = true,
     },
     indienboat5 = {
         type = "boat",
 		pos = vector3(-729.4803, -556.4434, 39.55353),
 		name = 'indienboat',
+        showblip = true,
     },
     thievesboat = {
         type = "boat",
 		pos = vector3(-1358.728, -2327.362, 41.81691),
 		name = 'thievesboat',
+        showblip = true,
     },
    
 
