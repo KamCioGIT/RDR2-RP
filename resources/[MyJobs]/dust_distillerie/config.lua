@@ -127,7 +127,7 @@ Config.Sell = {
 }
 
 Config.Buy = {
-    ["tonneaumout"] = {label= "Charbon", price= 0.03},
+    ["tonneaumout"] = {label= "Préparation à base de céréales", price= 0.03},
 }
 
 Config.SellNPC = {
@@ -135,8 +135,8 @@ Config.SellNPC = {
 }
 
 Config.Blips = {
-    {name = "Champs d'orge", sprite = 1961764827, x = 1446.225, y = -1640.192, z = 65.90211, color = 'BLIP_MODIFIER_HOSTILITY_COLOR_2'},
-    {name = "Atelier Distillerie", sprite = 1961764827, x = 1461.334, y = -1591.338, z = 70.88576, color = 'BLIP_MODIFIER_HOSTILITY_COLOR_2'},
+    {name = "Champs d'orge", sprite = 1391579593, x = 1446.225, y = -1640.192, z = 65.90211, color = 'BLIP_MODIFIER_HOSTILITY_COLOR_2'},
+    {name = "Atelier Distillerie", sprite = 1391579593, x = 1461.334, y = -1591.338, z = 70.88576, color = 'BLIP_MODIFIER_HOSTILITY_COLOR_2'},
 }
 
 Config.BuyingPoint = { vector3(1459.384, -1583.644, 70.84251)}

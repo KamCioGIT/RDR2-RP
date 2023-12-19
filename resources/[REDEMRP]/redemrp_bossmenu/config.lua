@@ -908,7 +908,7 @@ Config.Jobs = {
     ["distillerie"] = {
         bigjob = "distillerie",
         Name = "Sutherland Distillery",
-        blisprite = 553094466,
+        blisprite = 1961764827,
         MenuLocations = 
             vector3(1453.753, -1574.935, 71.02811)
         ,
