@@ -708,7 +708,7 @@ RemoveImap(739412171)  -- Two Boards in front of city hall (Goes with Town Hall 
 RemoveImap(-5339556)  --Bank Under Construction
 RemoveImap(1173561253) -- Tents Beside City Hall Near Trech
 RequestImap(1470738186) -- Adds Pre-Construcion Ground (Ground does not mesh well with contrustion IPLs)
-RequestImap(-1632348233) -- Adds Trees and Grass (DO NOT USE WITH CONSTRUCTION IPL, WILL MERGE VISUALS)
+RemoveImap(-1632348233) -- Adds Trees and Grass (DO NOT USE WITH CONSTRUCTION IPL, WILL MERGE VISUALS)
 ------------------------------------- #### END OF BLACKWATER TOWN HALL ####
 
 ------------------------------------- First Camp - Winter Area -1346 2407 311

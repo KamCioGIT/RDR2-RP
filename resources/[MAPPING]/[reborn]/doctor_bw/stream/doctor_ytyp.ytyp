@@ -987,21 +987,6 @@
                 <artificialAmbientOcclusion value="255"/>
         </Item>
         <Item type="CEntityDef">
-                <archetypeName>p_chaircomfy03x</archetypeName>
-                <flags value="1572897"/>
-        <position x="-4.121866" y="-0.512673" z="-5.23848"/>
-                <rotation w="0.946792" x="0" y="0" z="0.321844"/>
-                <scaleXY value="1"/>
-                <scaleZ value="1"/>
-                <parentIndex value="-1"/>
-                <lodDist value="500"/>
-                <childLodDist value="500"/>
-                <lodLevel>LODTYPES_DEPTH_HD</lodLevel>
-                <numChildren value="0"/>
-                <ambientOcclusionMultiplier value="255"/>
-                <artificialAmbientOcclusion value="255"/>
-        </Item>
-        <Item type="CEntityDef">
                 <archetypeName>p_scalecandy01x</archetypeName>
                 <flags value="1572897"/>
         <position x="-0.607157" y="1.561301" z="2.231186"/>
@@ -1036,21 +1021,6 @@
                 <flags value="1572897"/>
         <position x="5.087545" y="1.355979" z="-0.44981"/>
                 <rotation w="0.856902" x="0" y="0" z="0.515479"/>
-                <scaleXY value="1"/>
-                <scaleZ value="1"/>
-                <parentIndex value="-1"/>
-                <lodDist value="500"/>
-                <childLodDist value="500"/>
-                <lodLevel>LODTYPES_DEPTH_HD</lodLevel>
-                <numChildren value="0"/>
-                <ambientOcclusionMultiplier value="255"/>
-                <artificialAmbientOcclusion value="255"/>
-        </Item>
-        <Item type="CEntityDef">
-                <archetypeName>p_chaircomfy03x</archetypeName>
-                <flags value="1572897"/>
-        <position x="-3.33732" y="-0.259866" z="-5.23848"/>
-                <rotation w="0.780149" x="0" y="0" z="-0.625594"/>
                 <scaleXY value="1"/>
                 <scaleZ value="1"/>
                 <parentIndex value="-1"/>
@@ -1726,21 +1696,6 @@
                 <flags value="353894400"/>
         <position x="-0.034464" y="-3.539651" z="2.277092"/>
                 <rotation w="0.707107" x="0" y="0" z="0.707107"/>
-                <scaleXY value="1"/>
-                <scaleZ value="1"/>
-                <parentIndex value="-1"/>
-                <lodDist value="500"/>
-                <childLodDist value="500"/>
-                <lodLevel>LODTYPES_DEPTH_HD</lodLevel>
-                <numChildren value="0"/>
-                <ambientOcclusionMultiplier value="255"/>
-                <artificialAmbientOcclusion value="255"/>
-        </Item>
-        <Item type="CEntityDef">
-                <archetypeName>p_chaircomfy03x</archetypeName>
-                <flags value="1572897"/>
-        <position x="-0.771097" y="-1.721047" z="-5.22932"/>
-                <rotation w="0.540615" x="0" y="0" z="0.84127"/>
                 <scaleXY value="1"/>
                 <scaleZ value="1"/>
                 <parentIndex value="-1"/>
@@ -2431,21 +2386,6 @@
                 <flags value="1572897"/>
         <position x="-1.719095" y="-0.714822" z="-0.468445"/>
                 <rotation w="0.697181" x="0" y="0" z="-0.716895"/>
-                <scaleXY value="1"/>
-                <scaleZ value="1"/>
-                <parentIndex value="-1"/>
-                <lodDist value="500"/>
-                <childLodDist value="500"/>
-                <lodLevel>LODTYPES_DEPTH_HD</lodLevel>
-                <numChildren value="0"/>
-                <ambientOcclusionMultiplier value="255"/>
-                <artificialAmbientOcclusion value="255"/>
-        </Item>
-        <Item type="CEntityDef">
-                <archetypeName>p_chaircomfy03x</archetypeName>
-                <flags value="1572897"/>
-        <position x="-3.951212" y="0.265525" z="-5.23848"/>
-                <rotation w="0.177528" x="0" y="0" z="0.984116"/>
                 <scaleXY value="1"/>
                 <scaleZ value="1"/>
                 <parentIndex value="-1"/>

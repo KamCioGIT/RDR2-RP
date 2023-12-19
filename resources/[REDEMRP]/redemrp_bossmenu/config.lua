@@ -322,7 +322,7 @@ Config.Jobs = {
         Name = "McKinnon's Metalworks",
         blisprite = -758970771,
         MenuLocations = 
-            vector3(-873.6105, -1286.807, 43.1016)
+        vector3(-761.5948, -1278.557, 42.84648)
         ,
         Grades = {
             [1] = {
@@ -931,10 +931,10 @@ Config.Jobs = {
 
     ["transport_ouest"] = {
         bigjob = "transport",
-        Name = "WTS Transport",
+        Name = "Express Company",
         blisprite = -1747775003,
         MenuLocations = 
-            vector3(-1816.753, -567.2182, 155.9842)
+        vector3(-850.5225, -1229.372, 43.73104)
         ,
         Grades = {
             [1] = {

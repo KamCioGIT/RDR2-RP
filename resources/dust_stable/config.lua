@@ -27,7 +27,7 @@ Config.Stables = {
         showblip = true,
     },
     transpertest = {
-		pos = vector3(2642.672, -1472.253, 46.10427),
+		pos = vector3(-848.6053, -1188.382, 42.52955),
 		name = 'transpertest',
         showblip = true,
     },
