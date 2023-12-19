@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CMapData>
+  <name>doctor_ymap</name>
+  <parent/>
+  <flags value="0"/>
+  <contentFlags value="73"/>
+	<streamingExtentsMin x="-993.1773" y="-1522.58276" z="-157.389954"/>
+	<streamingExtentsMax x="-573.215637" y="-1104.67236" z="251.182159"/>
+	<entitiesExtentsMin x="-793.1773" y="-1322.58276" z="42.61004"/>
+	<entitiesExtentsMax x="-773.215637" y="-1304.67249" z="51.1821671"/>
+  <entities>
+    <Item type="CMloInstanceDef">
+      <archetypeName>szpital_col</archetypeName>
+      <flags value="1572864"/>
+      <position x="-783.8785" y="-1313.5801" z="47.885292" />
+      <rotation x="0" y="0" z="0" w="1" />
+      <scaleXY value="1.00000000"/>
+      <scaleZ value="1.00000000"/>
+      <parentIndex value="-1"/>
+      <lodDist value="200.00000000"/>
+      <childLodDist value="0.00000000"/>
+      <lodLevel>LODTYPES_DEPTH_ORPHANHD</lodLevel>
+      <numChildren value="0"/>
+      <priorityLevel>PRI_REQUIRED</priorityLevel>
+      <extensions/>
+      <redm_loves_you_2158e9a42f04a7dc value="255"/>
+      <redm_loves_you_7dd29b0dd179bea5 value="255"/>
+      <tintValue value="0"/>
+      <groupId>0xA00FBCC5</groupId>
+      <floorId value="0"/>
+      <defaultEntitySets/>
+      <numExitPortals value="26"/>
+      <MLOInstflags value="0"/>
+      <redm_loves_you_cf303652f51cff2d value="0.00000000"/>
+    </Item>
+  </entities>
+  <containerLods/>
+  <boxOccluders/>
+  <occludeModels/>
+  <physicsDictionaries>
+    <Item>szpital_col</Item>
+  </physicsDictionaries>
+  <instancedData>
+    <ImapLink/>
+    <PropInstanceList/>
+    <GrassInstanceList/>
+  </instancedData>
+  <timeCycleModifiers itemType="CTimeCycleModifier">
+    <Item>
+     <name>qtas</name>
+  <minExtents  x="-793.1773" y="-1322.58276" z="42.61004" />
+     <maxExtents x="-773.215637" y="-1304.67249" z="51.1821671" /> 
+     <percentage value="100" />
+     <range value="20" />
+     <startHour value="0" />
+     <endHour value="23" />
+     <transform>
+      1 0 0 0
+      0 1 0 0
+      0 0 1 0
+      0 0 0 0
+     </transform>
+    </Item>
+   </timeCycleModifiers>
+  <carGenerators/>
+  <LODLightsSOA>
+    <direction/>
+    <falloff/>
+    <falloffExponent/>
+    <timeAndStateFlags/>
+    <hash/>
+    <coneInnerAngle/>
+    <coneOuterAngleOrCapExt/>
+    <coronaIntensity/>
+  </LODLightsSOA>
+  <DistantLODLightsSOA>
+    <position/>
+    <RGBI/>
+    <numStreetLights value="0"/>
+    <category value="0"/>
+  </DistantLODLightsSOA>
+  <block>
+    <version value="0"/>
+    <flags value="0"/>
+    <name>doctor_ymap</name>
+    <exportedBy/>
+    <owner/>
+    <time/>
+  </block>
+</CMapData>

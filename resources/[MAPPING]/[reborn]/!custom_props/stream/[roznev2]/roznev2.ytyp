@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMapTypes>
+  <extensions />
+  <archetypes>
+   
+            <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+   <bbMin x="-1.1156818" y="-0.73954487" z="-0.11751342" />
+      <bbMax x="1.6855885" y="0.73555326" z="2.3033845" />
+      <bsCentre x="0.28495336" y="-0.001995802" z="1.0929356" />
+      <bsRadius value="1.9927227" />
+      <hdTextureDist value="60.0"/>
+      <name>bwniedzwiedz</name>
+      <textureDictionary>bwniedzwiedz</textureDictionary>
+      <physicsDictionary>bwniedzwiedz</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>bwniedzwiedz</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+  </archetypes>
+  <name>roznev2</name>
+  <dependencies />
+  <compositeEntityTypes itemType="CCompositeEntityType" />
+</CMapTypes>

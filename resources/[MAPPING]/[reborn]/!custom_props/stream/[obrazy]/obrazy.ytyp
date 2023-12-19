@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMapTypes>
+  <extensions />
+  <archetypes>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.3447266" y="-0.02832031" z="-0.007324219" />
+      <bbMax x="0.3447266" y="0.02587891" z="0.8950195" />
+      <bsCentre x="0.0" y="-0.0012207003" z="0.44384763" />
+      <bsRadius value="0.56844246" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz_bw1</name>
+      <textureDictionary>obrazy</textureDictionary>
+      <physicsDictionary>obraz_bw1</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz_bw1</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.3447266" y="-0.02832031" z="-0.007324219" />
+      <bbMax x="0.3447266" y="0.02587891" z="0.8950195" />
+      <bsCentre x="0.0" y="-0.0012207003" z="0.44384763" />
+      <bsRadius value="0.56844246" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz_bw2</name>
+      <textureDictionary>obrazy</textureDictionary>
+      <physicsDictionary>obraz_bw2</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz_bw2</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.3544922" y="-0.01708984" z="0.0" />
+      <bbMax x="0.3540039" y="0.02050781" z="0.5048828" />
+      <bsCentre x="-0.00024414062" y="0.0017089853" z="0.2524414" />
+      <bsRadius value="0.43539837" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz_bw3</name>
+      <textureDictionary>obrazy</textureDictionary>
+      <physicsDictionary>obraz_bw3</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz_bw3</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.1401367" y="-0.01220703" z="0.0" />
+      <bbMax x="0.1401367" y="0.01464844" z="0.3286133" />
+      <bsCentre x="0.0" y="0.001220705" z="0.16430666" />
+      <bsRadius value="0.21636839" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz_bw4</name>
+      <textureDictionary>obrazy</textureDictionary>
+      <physicsDictionary>obraz_bw4</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz_bw4</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.1401367" y="-0.01220703" z="0.0" />
+      <bbMax x="0.1401367" y="0.01464844" z="0.3286133" />
+      <bsCentre x="0.0" y="0.001220705" z="0.16430666" />
+      <bsRadius value="0.21636839" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz_bw5</name>
+      <textureDictionary>obrazy</textureDictionary>
+      <physicsDictionary>obraz_bw5</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz_bw5</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.62684774" y="0.2597656" z="-0.47558588" />
+      <bbMax x="0.58750725" y="0.331543" z="0.5664063" />
+      <bsCentre x="-0.019670248" y="0.2956543" z="0.045410216" />
+      <bsRadius value="0.8008679" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz_bw6</name>
+      <textureDictionary>obrazy</textureDictionary>
+      <physicsDictionary>obraz_bw6</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz_bw6</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.39774096" y="-0.14942619" z="-0.1936382" />
+      <bbMax x="0.47526282" y="0.1396003" z="0.55684996" />
+      <bsCentre x="0.03876093" y="-0.0049129426" z="0.18160588" />
+      <bsRadius value="0.5934864" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz_bw7</name>
+      <textureDictionary>obrazy</textureDictionary>
+      <physicsDictionary>obraz_bw7</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz_bw7</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.7280273" y="-0.03955078" z="0.0" />
+      <bbMax x="0.7275391" y="0.03955078" z="1.073242" />
+      <bsCentre x="-0.00024408102" y="0.0" z="0.536621" />
+      <bsRadius value="0.9050938" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz_bw_titanic</name>
+      <textureDictionary>obrazy</textureDictionary>
+      <physicsDictionary>obraz_bw_titanic</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz_bw_titanic</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.7280273" y="-0.03955078" z="0.0" />
+      <bbMax x="0.7275391" y="0.03955078" z="1.073242" />
+      <bsCentre x="-0.00024408102" y="0.0" z="0.536621" />
+      <bsRadius value="0.9050938" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz_bw_lusitania</name>
+      <textureDictionary>obrazy</textureDictionary>
+      <physicsDictionary>obraz_bw_lusitania</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz_bw_lusitania</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.7280273" y="-0.03955078" z="0.0" />
+      <bbMax x="0.7275391" y="0.03955078" z="1.073242" />
+      <bsCentre x="-0.00024408102" y="0.0" z="0.536621" />
+      <bsRadius value="0.9050938" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz_bw_dom</name>
+      <textureDictionary>obrazy</textureDictionary>
+      <physicsDictionary>obraz_bw_dom</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz_bw_dom</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+  </archetypes>
+  <name>obrazy</name>
+  <dependencies />
+  <compositeEntityTypes itemType="CCompositeEntityType" />
+</CMapTypes>

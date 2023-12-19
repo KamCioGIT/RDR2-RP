@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMapTypes>
+  <extensions />
+  <archetypes>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.3828125" y="-0.3027344" z="-0.4770508" />
+      <bbMax x="0.3828125" y="0.3134766" z="0.4770508" />
+      <bsCentre x="0.0" y="0.0053710938" z="0.0" />
+      <bsRadius value="0.68487364" />
+      <hdTextureDist value="60.0"/>
+      <name>mieso_bw1</name>
+      <textureDictionary>rozne</textureDictionary>
+      <physicsDictionary>mieso_bw1</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>mieso_bw1</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-3.490234" y="-0.8359375" z="-0.1425781" />
+      <bbMax x="0.5766602" y="0.9521484" z="2.616211" />
+      <bsCentre x="-1.4567869" y="0.05810544" z="1.2368164" />
+      <bsRadius value="2.6147559" />
+      <hdTextureDist value="60.0"/>
+      <name>mieso_bw2</name>
+      <textureDictionary>rozne</textureDictionary>
+      <physicsDictionary>mieso_bw2</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>mieso_bw2</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+
+  
+  </archetypes>
+  <name>rozne</name>
+  <dependencies />
+  <compositeEntityTypes itemType="CCompositeEntityType" />
+</CMapTypes>

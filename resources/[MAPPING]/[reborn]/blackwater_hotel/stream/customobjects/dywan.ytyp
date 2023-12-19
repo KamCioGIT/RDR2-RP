@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMapTypes>
+  <extensions />
+  <archetypes>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-2.567871" y="-1.687988" z="-0.006347656" />
+      <bbMax x="2.567871" y="1.687988" z="0.006347656" />
+      <bsCentre x="0.0" y="0.0" z="0.0" />
+      <bsRadius value="3.0729961" />
+      <hdTextureDist value="60.0"/>
+      <name>dywan2</name>
+      <textureDictionary>tekstury</textureDictionary>
+      <physicsDictionary>dywan2</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>dywan2</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+        <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-1.4134606" y="-1.9778323" z="-0.009706439" />
+      <bbMax x="1.4180824" y="1.8957028" z="0.0020123108" />
+      <bsCentre x="0.002310872" y="-0.04106474" z="-0.0038470645" />
+      <bsRadius value="2.3990648" />
+      <hdTextureDist value="60.0"/>
+      <name>dywan</name>
+      <textureDictionary>tekstury</textureDictionary>
+      <physicsDictionary>dywan</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>dywan</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+        <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-2.165527" y="-1.25244" z="-2.026855" />
+      <bbMax x="2.177246" y="1.2119135" z="1.0925565" />
+      <bsCentre x="0.005859494" y="-0.020263255" z="-0.46714926" />
+      <bsRadius value="2.9437835" />
+      <hdTextureDist value="60.0"/>
+      <name>recepcja</name>
+      <textureDictionary>tekstury</textureDictionary>
+      <physicsDictionary>recepcja</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>recepcja</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+        <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.26079646" y="-0.056278214" z="-0.18131727" />
+      <bbMax x="0.23383246" y="0.051143654" z="0.26692504" />
+      <bsCentre x="-0.013481997" y="-0.00256728" z="0.042803884" />
+      <bsRadius value="0.33805266" />
+      <hdTextureDist value="60.0"/>
+      <name>gazeta</name>
+      <textureDictionary>tekstury</textureDictionary>
+      <physicsDictionary>gazeta</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>gazeta</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+            <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-1.269043" y="2.720215" z="-0.8510742" />
+      <bbMax x="1.000488" y="3.157715" z="0.7587891" />
+      <bsCentre x="-0.13427746" y="2.938965" z="-0.04614255" />
+      <bsRadius value="1.4083534" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz</name>
+      <textureDictionary>tekstury</textureDictionary>
+      <physicsDictionary>obraz</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+            <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="0.855957" y="-0.09033203" z="-2.462224" />
+      <bbMax x="2.915527" y="1.729492" z="-2.394043" />
+      <bsCentre x="1.8857421" y="0.81957996" z="-2.4281335" />
+      <bsRadius value="1.3746123" />
+      <hdTextureDist value="60.0"/>
+      <name>wycieraczka</name>
+      <textureDictionary>tekstury</textureDictionary>
+      <physicsDictionary>wycieraczka</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>wycieraczka</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+
+                <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="1.595703" y="-1.510254" z="-0.4365234" />
+      <bbMax x="1.768066" y="-0.652832" z="0.3139648" />
+      <bsCentre x="1.6818845" y="-1.081543" z="-0.061279297" />
+      <bsRadius value="0.57621914" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz2</name>
+      <textureDictionary>tekstury</textureDictionary>
+      <physicsDictionary>obraz2</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz2</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+                <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-6.399414" y="0.2597656" z="-0.4755859" />
+      <bbMax x="-5.185059" y="0.331543" z="0.5664063" />
+      <bsCentre x="-5.7922363" y="0.2956543" z="0.0454102" />
+      <bsRadius value="0.80086774" />
+      <hdTextureDist value="60.0"/>
+      <name>obraz3</name>
+      <textureDictionary>tekstury</textureDictionary>
+      <physicsDictionary>obraz3</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>obraz3</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.5859375" y="-0.2036133" z="0.0" />
+      <bbMax x="0.5859375" y="0.203125" z="1.071777" />
+      <bsCentre x="0.0" y="-0.00024414808" z="0.5358885" />
+      <bsRadius value="0.8196696" />
+      <hdTextureDist value="60.0"/>
+      <name>oslonapiecablackwater</name>
+      <textureDictionary>tekstury</textureDictionary>
+      <physicsDictionary>oslonapiecablackwater</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>oslonapiecablackwater</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+  </archetypes>
+  <name>dywan</name>
+  <dependencies />
+  <compositeEntityTypes itemType="CCompositeEntityType" />
+</CMapTypes>

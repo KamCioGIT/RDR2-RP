@@ -1,0 +1,31 @@
+fx_version "adamant"
+game "rdr3"
+
+this_is_a_map "yes"
+
+
+rdr3_warning "I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships."
+
+
+client_scripts {
+  'client_court.obfuscated.lua',
+  'outside_court.lua',
+}
+
+
+name "Court House BW"
+author "Nello"
+
+files {'qtas.xml'}
+
+  data_file "TIMECYCLEMOD_FILE" "qtas.xml"
+
+
+
+escrow_ignore {'stream/*', }
+
+lua54 "yes"
+
+
+
+dependency '/assetpacks'

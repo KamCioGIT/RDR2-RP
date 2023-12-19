@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMapTypes>
+  <extensions />
+  <archetypes>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="300"/>
+      <flags value="0" />
+      <loadFlags value="0" />
+      <specialAttribute value="0" />
+      <bbMin x="0.65527344" y="-70.34851" z="-3.4351966" />
+      <bbMax x="64.68408" y="-0.22509742" z="4.435977" />
+      <bsCentre x="32.669678" y="-35.286804" z="0.5003902" />
+      <bsRadius value="47.641727" />
+      <hdTextureDist value="60.0"/>
+      <name>lada001</name>
+      <textureDictionary>texturkiowo</textureDictionary>
+      <physicsDictionary>lada001</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada001</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+      </Item>
+  <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="300"/>
+      <flags value="32" />
+      <loadFlags value="32" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.7077009" y="-0.77234364" z="-0.25803876" />
+      <bbMax x="0.49087727" y="0.42556518" z="3.6476498" />
+      <bsCentre x="-0.10841182" y="-0.17338923" z="1.6948055" />
+      <bsRadius value="2.1287308" />
+      <hdTextureDist value="60.0"/>
+      <name>lada002</name>
+      <textureDictionary>texturkiowo</textureDictionary>
+      <physicsDictionary>lada002</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada002</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+      </Item>
+  <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="300"/>
+      <flags value="32" />
+      <loadFlags value="32" />
+      <specialAttribute value="0" />
+       <bbMin x="-16.934006" y="-21.144945" z="-4.5630813" />
+      <bbMax x="2.9380646" y="23.15779" z="10.525358" />
+      <bsCentre x="-6.9979706" y="1.006422" z="2.9811385" />
+      <bsRadius value="25.422886" />
+      <hdTextureDist value="60.0"/>
+      <name>lada003</name>
+      <textureDictionary>texturkiowo</textureDictionary>
+      <physicsDictionary>lada003</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada003</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+      </Item>
+      <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="300"/>
+      <flags value="32" />
+      <loadFlags value="32" />
+      <specialAttribute value="0" />
+       <bbMin x="-16.934006" y="-21.144945" z="-4.5630813" />
+      <bbMax x="2.9380646" y="23.15779" z="10.525358" />
+      <bsCentre x="-6.9979706" y="1.006422" z="2.9811385" />
+      <bsRadius value="25.422886" />
+      <hdTextureDist value="60.0"/>
+      <name>lada004</name>
+      <textureDictionary>texturkiowo</textureDictionary>
+      <physicsDictionary>lada004</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada004</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+      </Item>
+      <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="300"/>
+      <flags value="32" />
+      <loadFlags value="32" />
+      <specialAttribute value="0" />
+       <bbMin x="-16.934006" y="-21.144945" z="-4.5630813" />
+      <bbMax x="2.9380646" y="23.15779" z="10.525358" />
+      <bsCentre x="-6.9979706" y="1.006422" z="2.9811385" />
+      <bsRadius value="25.422886" />
+      <hdTextureDist value="60.0"/>
+      <name>lada005</name>
+      <textureDictionary>texturkiowo</textureDictionary>
+      <physicsDictionary>lada005</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada005</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+      </Item>
+      <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="300"/>
+      <flags value="32" />
+      <loadFlags value="32" />
+      <specialAttribute value="0" />
+       <bbMin x="-16.934006" y="-21.144945" z="-4.5630813" />
+      <bbMax x="2.9380646" y="23.15779" z="10.525358" />
+      <bsCentre x="-6.9979706" y="1.006422" z="2.9811385" />
+      <bsRadius value="25.422886" />
+      <hdTextureDist value="60.0"/>
+      <name>lada006</name>
+      <textureDictionary>texturkiowo</textureDictionary>
+      <physicsDictionary>lada006</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada006</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+      </Item>
+      <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="300"/>
+      <flags value="32" />
+      <loadFlags value="32" />
+      <specialAttribute value="0" />
+       <bbMin x="-16.934006" y="-21.144945" z="-4.5630813" />
+      <bbMax x="2.9380646" y="23.15779" z="10.525358" />
+      <bsCentre x="-6.9979706" y="1.006422" z="2.9811385" />
+      <bsRadius value="25.422886" />
+      <hdTextureDist value="60.0"/>
+      <name>lada007</name>
+      <textureDictionary>texturkiowo</textureDictionary>
+      <physicsDictionary>lada007</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada007</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+      </Item>
+      <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="300"/>
+      <flags value="32" />
+      <loadFlags value="32" />
+      <specialAttribute value="0" />
+       <bbMin x="-16.934006" y="-21.144945" z="-4.5630813" />
+      <bbMax x="2.9380646" y="23.15779" z="10.525358" />
+      <bsCentre x="-6.9979706" y="1.006422" z="2.9811385" />
+      <bsRadius value="25.422886" />
+      <hdTextureDist value="60.0"/>
+      <name>lada008</name>
+      <textureDictionary>texturkiowo</textureDictionary>
+      <physicsDictionary>lada008</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada008</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+      </Item>
+      <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="300"/>
+      <flags value="32" />
+      <loadFlags value="32" />
+      <specialAttribute value="0" />
+       <bbMin x="-16.934006" y="-21.144945" z="-4.5630813" />
+      <bbMax x="2.9380646" y="23.15779" z="10.525358" />
+      <bsCentre x="-6.9979706" y="1.006422" z="2.9811385" />
+      <bsRadius value="25.422886" />
+      <hdTextureDist value="60.0"/>
+      <name>lada009</name>
+      <textureDictionary>texturkiowo</textureDictionary>
+      <physicsDictionary>lada009</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada009</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+      </Item>
+  </archetypes>
+  <name>ladyv2</name>
+  <dependencies />
+  <compositeEntityTypes itemType="CCompositeEntityType" />
+</CMapTypes>

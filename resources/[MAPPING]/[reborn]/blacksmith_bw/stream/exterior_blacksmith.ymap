@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<CMapData>
+	<flags value="2"/>
+	<contentFlags value="65"/>
+	<streamingExtentsMin x="-1157.030029" y="-1677.532837" z="-352.906078"/>
+	<streamingExtentsMax x="-356.967773" y="-877.530029" z="447.096668"/>
+	<entitiesExtentsMin x="-757.030029" y="-1277.532837" z="47.093922"/>
+	<entitiesExtentsMax x="-756.967773" y="-1277.530029" z="47.096668"/>
+	<entities>
+		<Item type="CEntityDef">
+			<archetypeName>p_electricfielddetector01x</archetypeName>
+			<flags value="1572897"/>
+			<position x="-757.030029" y="-1277.530029" z="47.093922"/>
+			<rotation w="-0.477714" x="-0.477714" y="0.521334" z="-0.521334"/>
+			<scaleXY value="1"/>
+			<scaleZ value="1"/>
+			<parentIndex value="-1"/>
+			<lodDist value="500"/>
+			<childLodDist value="500"/>
+			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
+			<numChildren value="0"/>
+			<ambientOcclusionMultiplier value="255"/>
+			<artificialAmbientOcclusion value="255"/>
+		</Item>
+		<Item type="CEntityDef">
+			<archetypeName>s_agu_pipetestweel01x</archetypeName>
+			<flags value="1572897"/>
+			<position x="-756.967773" y="-1277.532837" z="47.096668"/>
+			<rotation w="0.000000" x="-0.000000" y="0.000000" z="1.000000"/>
+			<scaleXY value="1"/>
+			<scaleZ value="1"/>
+			<parentIndex value="-1"/>
+			<lodDist value="500"/>
+			<childLodDist value="500"/>
+			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
+			<numChildren value="0"/>
+			<ambientOcclusionMultiplier value="255"/>
+			<artificialAmbientOcclusion value="255"/>
+		</Item>
+	</entities>
+</CMapData>

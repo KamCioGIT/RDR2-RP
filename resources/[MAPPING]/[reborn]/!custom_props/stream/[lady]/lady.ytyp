@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMapTypes>
+  <extensions />
+  <archetypes>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="0.40405184" y="-0.5067591" z="-0.77823573" />
+      <bbMax x="1.5192869" y="2.0000765" z="0.26766306" />
+      <bsCentre x="0.9616693" y="0.7466587" z="-0.25528634" />
+      <bsRadius value="1.4681518" />
+      <hdTextureDist value="60.0"/>
+      <name>lada_bw1</name>
+      <textureDictionary>lady</textureDictionary>
+      <physicsDictionary>lada_bw1</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada_bw1</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-0.9848633" y="-0.9956055" z="-0.5083008" />
+      <bbMax x="0.9848633" y="0.9956055" z="0.5083008" />
+      <bsCentre x="0.0" y="0.0" z="0.0" />
+      <bsRadius value="1.4898174" />
+      <hdTextureDist value="60.0"/>
+      <name>lada_bw2</name>
+      <textureDictionary>lady</textureDictionary>
+      <physicsDictionary>lada_bw2</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada_bw2</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-1.594727" y="-0.8632813" z="-0.5395508" />
+      <bbMax x="1.594727" y="0.8632813" z="0.4941406" />
+      <bsCentre x="0.0" y="0.0" z="-0.022705093" />
+      <bsRadius value="1.8856136" />
+      <hdTextureDist value="60.0"/>
+      <name>lada_bw3</name>
+      <textureDictionary>lady</textureDictionary>
+      <physicsDictionary>lada_bw3</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada_bw3</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-1.439453" y="-1.967773" z="-0.5415039" />
+      <bbMax x="1.439453" y="1.967773" z="0.5356445" />
+      <bsCentre x="0.0" y="0.0" z="-0.0029297173" />
+      <bsRadius value="2.4968414" />
+      <hdTextureDist value="60.0"/>
+      <name>lada_bw4</name>
+      <textureDictionary>lady</textureDictionary>
+      <physicsDictionary>lada_bw4</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada_bw4</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+    <Item type="CBaseArchetypeDef">
+      <guid value="0"/>
+      <lodDist value="50.00000000"/>
+      <flags value="537001984" />
+      <loadFlags value="537001984" />
+      <specialAttribute value="0" />
+      <bbMin x="-2.196289" y="-0.4165039" z="-0.001464844" />
+      <bbMax x="2.213379" y="0.4394531" z="1.044922" />
+      <bsCentre x="0.008544922" y="0.0114745945" z="0.5217286" />
+      <bsRadius value="2.3061202" />
+      <hdTextureDist value="60.0"/>
+      <name>lada_bw5</name>
+      <textureDictionary>lady</textureDictionary>
+      <physicsDictionary>lada_bw5</physicsDictionary>
+      <clipDictionary />
+      <drawableDictionary />
+      <assetType>ASSET_TYPE_DRAWABLE</assetType>
+      <assetName>lada_bw5</assetName>
+      <extensions />
+      <redm_loves_you_a68fd88a5afa0b22 />
+    </Item>
+  </archetypes>
+  <name>lady</name>
+  <dependencies />
+  <compositeEntityTypes itemType="CCompositeEntityType" />
+</CMapTypes>
