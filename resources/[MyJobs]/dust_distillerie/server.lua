@@ -202,10 +202,6 @@ Citizen.CreateThread(function()
 	for item, v in pairs(Config.Sell) do
 		pricetable[item] = math.random(v.pricelow ,v.pricehigh)/100
 	end
-	while true do
-		Citizen.Wait(2000)
-		TriggerEvent("redemrp_inventory:server:removeitemstash", "tonneaumout", 1, {},"npc_distillerie","moutwhisky", 10, {}, "boss_distillerie")
-	end
 end)
 
 RegisterServerEvent('distillerie:askpricetable')
@@ -235,7 +231,11 @@ AddEventHandler('distillerie:SellItem', function(itemNameStr, menu, amount, loca
     local ItemData = data.getItem(_source, itemNameStr)
 	if ItemData.RemoveItem(amount) then
 		user.AddMoney(pricetable[itemNameStr] * amount)
-		TriggerEvent("redemrp_inventory:server:additemstash", itemNameStr, amount, {}, "boss_distillerie")
+		if itemNameStr == "tonneaumout" then
+			TriggerEvent("redemrp_inventory:server:additemstash", "moutwhisky", amount*10, {}, "boss_distillerie")
+		else
+			TriggerEvent("redemrp_inventory:server:additemstash", itemNameStr, amount, {}, "boss_distillerie")
+		end
 	end
 end)
 
