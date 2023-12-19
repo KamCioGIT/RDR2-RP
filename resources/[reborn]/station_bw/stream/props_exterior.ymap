@@ -83,6 +83,21 @@
 			<artificialAmbientOcclusion value="255"/>
 		</Item>
 		<Item type="CEntityDef">
+			<archetypeName>p_group_trainparts02</archetypeName>
+			<flags value="1572897"/>
+			<position x="-857.229187" y="-1222.267822" z="42.441761"/>
+			<rotation w="0.708937" x="-0.000000" y="0.000000" z="0.705272"/>
+			<scaleXY value="1"/>
+			<scaleZ value="1"/>
+			<parentIndex value="-1"/>
+			<lodDist value="500"/>
+			<childLodDist value="500"/>
+			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
+			<numChildren value="0"/>
+			<ambientOcclusionMultiplier value="255"/>
+			<artificialAmbientOcclusion value="255"/>
+		</Item>
+		<Item type="CEntityDef">
 			<archetypeName>p_newspaper01x001</archetypeName>
 			<flags value="1572897"/>
 			<position x="-847.095520" y="-1218.414185" z="44.160000"/>
@@ -117,6 +132,21 @@
 			<flags value="1572897"/>
 			<position x="-846.869263" y="-1219.111938" z="43.704132"/>
 			<rotation w="0.707107" x="-0.000000" y="0.000000" z="0.707107"/>
+			<scaleXY value="1"/>
+			<scaleZ value="1"/>
+			<parentIndex value="-1"/>
+			<lodDist value="500"/>
+			<childLodDist value="500"/>
+			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
+			<numChildren value="0"/>
+			<ambientOcclusionMultiplier value="255"/>
+			<artificialAmbientOcclusion value="255"/>
+		</Item>
+		<Item type="CEntityDef">
+			<archetypeName>p_railroadlever01x</archetypeName>
+			<flags value="1572897"/>
+			<position x="-860.108643" y="-1209.256104" z="42.241474"/>
+			<rotation w="0.005096" x="0.000000" y="-0.000000" z="-0.999987"/>
 			<scaleXY value="1"/>
 			<scaleZ value="1"/>
 			<parentIndex value="-1"/>
@@ -458,6 +488,21 @@
 			<artificialAmbientOcclusion value="255"/>
 		</Item>
 		<Item type="CEntityDef">
+			<archetypeName>p_cs_railroadtrack02x</archetypeName>
+			<flags value="1572897"/>
+			<position x="-858.426270" y="-1206.731567" z="42.526936"/>
+			<rotation w="0.005659" x="0.000000" y="-0.000000" z="-0.999984"/>
+			<scaleXY value="1"/>
+			<scaleZ value="1"/>
+			<parentIndex value="-1"/>
+			<lodDist value="500"/>
+			<childLodDist value="500"/>
+			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
+			<numChildren value="0"/>
+			<ambientOcclusionMultiplier value="255"/>
+			<artificialAmbientOcclusion value="255"/>
+		</Item>
+		<Item type="CEntityDef">
 			<archetypeName>p_lampexterior01x</archetypeName>
 			<flags value="1572897"/>
 			<position x="-846.539978" y="-1204.079956" z="46.300800"/>
@@ -507,6 +552,36 @@
 			<flags value="1572897"/>
 			<position x="-851.692810" y="-1200.324219" z="43.704525"/>
 			<rotation w="0.755011" x="0.000000" y="-0.000000" z="-0.655712"/>
+			<scaleXY value="1"/>
+			<scaleZ value="1"/>
+			<parentIndex value="-1"/>
+			<lodDist value="500"/>
+			<childLodDist value="500"/>
+			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
+			<numChildren value="0"/>
+			<ambientOcclusionMultiplier value="255"/>
+			<artificialAmbientOcclusion value="255"/>
+		</Item>
+		<Item type="CEntityDef">
+			<archetypeName>p_cs_railroadtrack01x</archetypeName>
+			<flags value="1572897"/>
+			<position x="-858.473511" y="-1201.489990" z="42.511436"/>
+			<rotation w="0.001414" x="-0.000000" y="0.000000" z="0.999999"/>
+			<scaleXY value="1"/>
+			<scaleZ value="1"/>
+			<parentIndex value="-1"/>
+			<lodDist value="500"/>
+			<childLodDist value="500"/>
+			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
+			<numChildren value="0"/>
+			<ambientOcclusionMultiplier value="255"/>
+			<artificialAmbientOcclusion value="255"/>
+		</Item>
+		<Item type="CEntityDef">
+			<archetypeName>mp001_p_railroadtiepile01x</archetypeName>
+			<flags value="1572897"/>
+			<position x="-857.873596" y="-1220.294678" z="42.289104"/>
+			<rotation w="0.760159" x="-0.000000" y="0.000000" z="0.649737"/>
 			<scaleXY value="1"/>
 			<scaleZ value="1"/>
 			<parentIndex value="-1"/>
@@ -758,6 +833,21 @@
 			<artificialAmbientOcclusion value="255"/>
 		</Item>
 		<Item type="CEntityDef">
+			<archetypeName>p_group_trainparts02</archetypeName>
+			<flags value="1572897"/>
+			<position x="-858.403992" y="-1222.682861" z="42.482338"/>
+			<rotation w="0.509775" x="-0.000000" y="0.000000" z="0.860308"/>
+			<scaleXY value="1"/>
+			<scaleZ value="1"/>
+			<parentIndex value="-1"/>
+			<lodDist value="500"/>
+			<childLodDist value="500"/>
+			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
+			<numChildren value="0"/>
+			<ambientOcclusionMultiplier value="255"/>
+			<artificialAmbientOcclusion value="255"/>
+		</Item>
+		<Item type="CEntityDef">
 			<archetypeName>p_newspapergroup02x</archetypeName>
 			<flags value="1572897"/>
 			<position x="-838.888123" y="-1238.255493" z="43.691555"/>
@@ -792,6 +882,21 @@
 			<flags value="1572897"/>
 			<position x="-849.300049" y="-1219.952271" z="43.694832"/>
 			<rotation w="0.000291" x="-0.000000" y="0.000000" z="1.000000"/>
+			<scaleXY value="1"/>
+			<scaleZ value="1"/>
+			<parentIndex value="-1"/>
+			<lodDist value="500"/>
+			<childLodDist value="500"/>
+			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
+			<numChildren value="0"/>
+			<ambientOcclusionMultiplier value="255"/>
+			<artificialAmbientOcclusion value="255"/>
+		</Item>
+		<Item type="CEntityDef">
+			<archetypeName>p_cs_railroadtrack01x</archetypeName>
+			<flags value="1572897"/>
+			<position x="-858.559998" y="-1196.280029" z="42.500000"/>
+			<rotation w="0.001414" x="-0.000000" y="0.000000" z="0.999999"/>
 			<scaleXY value="1"/>
 			<scaleZ value="1"/>
 			<parentIndex value="-1"/>
@@ -852,6 +957,21 @@
 			<flags value="1572897"/>
 			<position x="-856.511902" y="-1215.291016" z="42.198086"/>
 			<rotation w="0.705020" x="0.000000" y="-0.000000" z="-0.709188"/>
+			<scaleXY value="1"/>
+			<scaleZ value="1"/>
+			<parentIndex value="-1"/>
+			<lodDist value="500"/>
+			<childLodDist value="500"/>
+			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
+			<numChildren value="0"/>
+			<ambientOcclusionMultiplier value="255"/>
+			<artificialAmbientOcclusion value="255"/>
+		</Item>
+		<Item type="CEntityDef">
+			<archetypeName>p_railroadtrackpile01x</archetypeName>
+			<flags value="1572897"/>
+			<position x="-858.221680" y="-1211.952881" z="42.165321"/>
+			<rotation w="0.278001" x="0.000000" y="-0.000000" z="-0.960581"/>
 			<scaleXY value="1"/>
 			<scaleZ value="1"/>
 			<parentIndex value="-1"/>
@@ -1043,6 +1163,21 @@
 			<artificialAmbientOcclusion value="255"/>
 		</Item>
 		<Item type="CEntityDef">
+			<archetypeName>mp001_p_railroadtiepile01x</archetypeName>
+			<flags value="1572897"/>
+			<position x="-857.665771" y="-1217.794922" z="42.240040"/>
+			<rotation w="0.438026" x="-0.000000" y="0.000000" z="0.898963"/>
+			<scaleXY value="1"/>
+			<scaleZ value="1"/>
+			<parentIndex value="-1"/>
+			<lodDist value="500"/>
+			<childLodDist value="500"/>
+			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
+			<numChildren value="0"/>
+			<ambientOcclusionMultiplier value="255"/>
+			<artificialAmbientOcclusion value="255"/>
+		</Item>
+		<Item type="CEntityDef">
 			<archetypeName>p_bench15x</archetypeName>
 			<flags value="1572897"/>
 			<position x="-846.920166" y="-1212.174316" z="43.704132"/>
@@ -1107,6 +1242,21 @@
 			<flags value="1572897"/>
 			<position x="-845.974792" y="-1205.288818" z="43.704132"/>
 			<rotation w="0.706986" x="0.000000" y="-0.000000" z="-0.707228"/>
+			<scaleXY value="1"/>
+			<scaleZ value="1"/>
+			<parentIndex value="-1"/>
+			<lodDist value="500"/>
+			<childLodDist value="500"/>
+			<lodLevel>LODTYPES_DEPTH_HD</lodLevel>
+			<numChildren value="0"/>
+			<ambientOcclusionMultiplier value="255"/>
+			<artificialAmbientOcclusion value="255"/>
+		</Item>
+		<Item type="CEntityDef">
+			<archetypeName>p_group_trainparts02</archetypeName>
+			<flags value="1572897"/>
+			<position x="-856.298035" y="-1222.176636" z="42.438423"/>
+			<rotation w="0.708937" x="-0.000000" y="0.000000" z="0.705272"/>
 			<scaleXY value="1"/>
 			<scaleZ value="1"/>
 			<parentIndex value="-1"/>
