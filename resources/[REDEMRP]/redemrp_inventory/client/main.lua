@@ -689,8 +689,8 @@ RegisterNUICallback(
 RegisterNUICallback(
     "giveitem",
     function(data)
-        NPlayerSelector:onPlayerSelected(function (data)
-            TriggerServerEvent("redemrp_inventory:giveItem", data.data, data.id)   
+        NPlayerSelector:onPlayerSelected(function (player)
+            TriggerServerEvent("redemrp_inventory:giveItem", data.data, player.id)   
             NPlayerSelector:deactivate()
             RequestAnimDict("script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place")
             while not HasAnimDictLoaded("script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place") do
