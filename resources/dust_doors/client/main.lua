@@ -415,6 +415,7 @@ Citizen.CreateThread(function()
 								CoolDown = 1000
 								isInteracting = true
 								local state = not v.locked
+								print"get"
 								TriggerServerEvent("redemrp_doorlocks:updatedoorsv", k, state)
 							end
 
