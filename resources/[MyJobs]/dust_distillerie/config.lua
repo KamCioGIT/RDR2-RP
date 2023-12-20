@@ -67,7 +67,7 @@ Config.CraftingsReceipe = {
         ItemToGive = 'moutwhisky',
         Amount = 1,
         WorkingTime = 1,
-        label = "Moût",
+        label = "Alternatif - Moût",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_oat_cakes.png', text = "Mixture à base de céréales",count = "x1"}}
     },
     ['moutwhiskybon2'] = {
@@ -78,7 +78,7 @@ Config.CraftingsReceipe = {
         ItemToGive = 'moutwhiskybon',
         Amount = 1,
         WorkingTime = 1,
-        label = "Moût gustatif",
+        label = "Alternatif - Moût gustatif",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_oat_cakes.png', text = "Mixture à base de céréales",count = "x2"}}
     },
 
