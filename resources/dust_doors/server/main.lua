@@ -45,7 +45,6 @@ AddEventHandler('redemrp_doorlocks:updateState', function(doorID, state, cb)
 			doorID = doorID,
 			state = state
 		}
-		print"skuu"
 		TriggerClientEvent('redemrp_doorlocks:setState', -1, doorID, state)
 end)
 
