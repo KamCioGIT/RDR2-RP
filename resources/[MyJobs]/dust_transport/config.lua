@@ -27,7 +27,7 @@ Config.PriceExport = {
         ["plombpepite"] = {label= "Pépite de plomb", price= 0.05},
         ["zincpepite"] = {label= "Pépite de zinc", price= 0.13},
         ["good_whisky"] = {label= "Whisky", price= 0.38},
-        ["dirty_whiskey"] = {label= "Mauvais Whisky", price= 0.22},
+        ["dirty_whiskey"] = {label= "Mauvais Whisky", price= 0.26},
         ["gin"] = {label= "Gin", price= 0.38},
         ["caisseviande"] = {label= "Caisse de viande", price= 1.13},
         ["caissepoisson"] = {label= "Caisse de poisson", price= 1.13},
