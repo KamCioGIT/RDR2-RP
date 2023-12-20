@@ -411,18 +411,17 @@ Citizen.CreateThread(function()
 						if v.locked then
 							local label  = CreateVarString(10, 'LITERAL_STRING', "Fermée")
 							PromptSetActiveGroupThisFrame(PromptGroup, label)
-							if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 and not isInteracting then
+							if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 then
 								CoolDown = 1000
 								isInteracting = true
 								local state = not v.locked
-								print"get"
 								TriggerServerEvent("redemrp_doorlocks:updatedoorsv", k, state)
 							end
 
 						else
 							local label  = CreateVarString(10, 'LITERAL_STRING', "Ouverte")
 							PromptSetActiveGroupThisFrame(PromptGroup, label)
-							if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 and not isInteracting then
+							if PromptHasHoldModeCompleted(OpenPrompt) and CoolDown < 1 then
 								CoolDown = 1000
 								isInteracting = true
 								local state = not v.locked
@@ -430,7 +429,7 @@ Citizen.CreateThread(function()
 							end
 						end
 					else
-						if IsControlJustPressed(0,Config.KeyPress) and CoolDown < 1 and not isInteracting then
+						if IsControlJustPressed(0,Config.KeyPress) and CoolDown < 1 then
 							CoolDown = 1000
 							isInteracting = true
 							local state = not v.locked
