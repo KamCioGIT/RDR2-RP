@@ -4080,6 +4080,17 @@ Config.Items = {
     imgsrc = "items/generic_bundle_crafting_moonshine.png",
     type = "item_standard",
 },
+["mixturedistillerie"] = {
+    label = "Mixture à base de céréales",
+    description = "Une mixture servant à faire du moût",
+    weight = 0.8,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/consumable_oat_cakes.png",
+    type = "item_standard",
+},
 
 
 

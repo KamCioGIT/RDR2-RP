@@ -232,7 +232,7 @@ AddEventHandler('distillerie:SellItem', function(itemNameStr, menu, amount, loca
 	if ItemData.RemoveItem(amount) then
 		user.AddMoney(pricetable[itemNameStr] * amount)
 		if itemNameStr == "tonneaumout" then
-			TriggerEvent("redemrp_inventory:server:additemstash", "moutwhisky", amount*10, {}, "boss_distillerie")
+			TriggerEvent("redemrp_inventory:server:additemstash", "mixturedistillerie", amount*10, {}, "boss_distillerie")
 		else
 			TriggerEvent("redemrp_inventory:server:additemstash", itemNameStr, amount, {}, "boss_distillerie")
 		end

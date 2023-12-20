@@ -57,6 +57,30 @@ Config.CraftingsReceipe = {
         label = "Moût de baie",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_red_raspberry.png', text = "Myrtille",count = "x3"}}
     },
+    -----
+
+    ['moutwhisky2'] = {
+        type = 'distillerie',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'mixturedistillerie',
+        ItemReceipe1Amount = 1,
+        ItemToGive = 'moutwhisky',
+        Amount = 1,
+        WorkingTime = 1,
+        label = "Moût",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_oat_cakes.png', text = "Mixture à base de céréales",count = "x1"}}
+    },
+    ['moutwhiskybon2'] = {
+        type = 'distillerie',
+        Itemtocraft = 1,
+        ItemReceipe1Name = 'mixturedistillerie',
+        ItemReceipe1Amount = 2,
+        ItemToGive = 'moutwhiskybon',
+        Amount = 1,
+        WorkingTime = 1,
+        label = "Moût gustatif",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_oat_cakes.png', text = "Mixture à base de céréales",count = "x2"}}
+    },
 
     ['tonneaumout'] = {
         type = 'distilleriefree',
@@ -115,19 +139,16 @@ Config.ImportPoint = {
     [2]= vector3(-825.8802, -1241.919, 43.53639), -- bla
 }
 
-
 Config.Import = {
     ["sucre"] = {label= "Sucre", price = 0.05},
-
 }
-
 
 Config.Sell = {
     ["tonneaumout"] = {label= "Préparation à base de céréales", pricelow = 50, pricehigh = 70}, ---- EN CENTS
 }
 
 Config.Buy = {
-    ["moutwhisky"] = {label= "Moût", price= 0.07},
+    ["mixturedistillerie"] = {label= "Mixture à base de céréales", price= 0.07},
 }
 
 Config.SellNPC = {
