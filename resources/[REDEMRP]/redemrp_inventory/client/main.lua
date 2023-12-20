@@ -1,5 +1,10 @@
 RedEM = exports["redem_roleplay"]:RedEM()
 
+local NPlayerSelector = nil
+TriggerEvent('mega_nplayerselector:load', function (data)
+    NPlayerSelector = data
+end)
+
 local isInventoryOpen = false
 local isOtherOpen = false
 local InventoryItems = {}
@@ -684,9 +689,9 @@ RegisterNUICallback(
 RegisterNUICallback(
     "giveitem",
     function(data)
-        local closestPlayer, closestDistance = GetClosestPlayer()
-        if closestPlayer ~= -1 and closestDistance <= 1.5 then
-            --print(json.encode(data))
+        NPlayerSelector:onPlayerSelected(function (data)
+            TriggerServerEvent("redemrp_inventory:giveItem", data.data, data.id)   
+            NPlayerSelector:deactivate()
             RequestAnimDict("script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place")
             while not HasAnimDictLoaded("script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place") do
                 Citizen.Wait(100)
@@ -694,8 +699,9 @@ RegisterNUICallback(
             TaskPlayAnim(PlayerPedId(), "script_common@mth_generic_enters@give_item_satchel@lhand@generic@in_place", "enter_rf", 1.0, 1.0, -1, 25, 0, true, 0, false, 0, false)  
             Wait(2500)
             ClearPedTasks(PlayerPedId())
-            TriggerServerEvent("redemrp_inventory:giveItem", data.data, GetPlayerServerId(closestPlayer))
-        end
+        end)
+        NPlayerSelector:setRange(2)
+        NPlayerSelector:activate()
     end
 )
 
