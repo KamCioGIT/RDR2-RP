@@ -149,6 +149,7 @@ Config.Sell = {
 
 Config.Buy = {
     ["mixturedistillerie"] = {label= "Mixture à base de céréales", price= 0.07},
+    ["moutwhisky"] = {label= "Moût", price= 0.07},
 }
 
 Config.SellNPC = {
