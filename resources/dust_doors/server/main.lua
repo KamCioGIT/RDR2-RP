@@ -22,9 +22,7 @@ RegisterServerEvent('redemrp_doorlocks:updatedoorsv')
 AddEventHandler('redemrp_doorlocks:updatedoorsv', function(doorID, state, cb)
 	local _source = source
     local user = RedEM.GetPlayer(_source)     
-        if not IsAuthorized(user.getJob(), Config.Doors[doorID]) then
-            return
-        else 
+        if IsAuthorized(user.getJob(), Config.Doors[doorID]) then
             TriggerClientEvent('redemrp_doorlocks:changedoor', _source, doorID, state)
         end
 end)
