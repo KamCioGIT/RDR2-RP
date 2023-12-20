@@ -3012,7 +3012,7 @@
         <Item type="CEntityDef">
                 <archetypeName>s_warship01x</archetypeName>
                 <flags value="1572897"/>
-        <position x="0.006704" y="-3.918236" z="-3.47121"/>
+        <position x="0.006704" y="-3.918236" z="-30.47121"/>
                 <rotation w="0.623089" x="0" y="0" z="0.782151"/>
                 <scaleXY value="1"/>
                 <scaleZ value="1"/>
