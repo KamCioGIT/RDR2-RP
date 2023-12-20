@@ -51,6 +51,7 @@ AddEventHandler('redemrp_doorlocks:updateState', function(doorID, state, cb)
 end)
 
 function IsAuthorized(jobName, doorID)
+	print(jobName)
 	for _,job in pairs(doorID.jobs) do
 		if job == "all" then
 			return true
