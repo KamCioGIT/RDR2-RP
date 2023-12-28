@@ -479,6 +479,7 @@ end)
 processingdepop = false
 RegisterServerEvent('dust_stable:server:depophorseauto', function(horseid)
 	if not processingdepop then
+		print "get"
 		processingdepop = true
 		for k, v in pairs(spawnedhorses) do
 			if v.id == horseid then
