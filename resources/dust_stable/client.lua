@@ -520,7 +520,7 @@ function spawnhorse(model, name, horseid, stashid, health, stamina)
 
     TriggerServerEvent("dust_stable:server:horseout", horseid)
     SetEntityAsMissionEntity(horse, true, true)
-    table.insert(spawnedhorses, horse)
+    table.insert(spawnedhorses, {entity = horse, id = horseid})
     initializing = false
 end
 
@@ -572,7 +572,7 @@ function spawncart(model, name, horseid, stashid)
 
     TriggerServerEvent("dust_stable:server:horseout", horseid)
 
-    table.insert(spawnedhorses, cart)
+    table.insert(spawnedhorses, {entity = cart, id = horseid})
     initializing = false
     print 'spawned'
 end
@@ -839,13 +839,13 @@ Citizen.CreateThread(function()
         Wait(0)
         if IsControlJustReleased(0, 0x24978A28) then
             for k, v in pairs(spawnedhorses) do
-                if GetScriptTaskStatus(v, 0x4924437D, 0) ~= 0 then
+                if GetScriptTaskStatus(v.entity, 0x4924437D, 0) ~= 0 then
                     local pcoords = GetEntityCoords(PlayerPedId())
-                    local hcoords = GetEntityCoords(v)
+                    local hcoords = GetEntityCoords(v.entity)
                     local caldist = Vdist(pcoords.x, pcoords.y, pcoords.z, hcoords.x, hcoords.y, hcoords.z)
                     if caldist < 200 then
-                        if Citizen.InvokeNative(0xAAB0FE202E9FC9F0, v, -1) then
-                            TaskGoToEntity(v, PlayerPedId(), -1, 7.2, 2.0, 0, 0)
+                        if Citizen.InvokeNative(0xAAB0FE202E9FC9F0, v.entity, -1) then
+                            TaskGoToEntity(v.entity, PlayerPedId(), -1, 7.2, 2.0, 0, 0)
                         end
                     end
                 end
@@ -859,10 +859,9 @@ Citizen.CreateThread(function()
     while true do
         Wait(1000)
             for k, v in pairs(spawnedhorses) do
-                print (Entity(v).state.horseid)
-                if DoesEntityExist(v) == false then
-                    print(Entity(v).state.horseid)
-                    TriggerServerEvent('dust_stable:server:depophorse', Entity(v).state.horseid)
+                if DoesEntityExist(v.entity) == false then
+                    print (v.id)
+                    TriggerServerEvent('dust_stable:server:depophorse', v.id)
                 end
             end
     end
