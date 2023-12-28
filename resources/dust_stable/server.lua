@@ -472,7 +472,7 @@ end)
 --- depop auto
 Citizen.CreateThread(function()
     while true do
-        Wait(60000)
+        Wait(10000)
 		for k, v in pairs(spawnedhorses) do
 			TriggerClientEvent("dust_stable:client:depopauto", -1, v.entity)
 		end
