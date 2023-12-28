@@ -45,12 +45,12 @@ Citizen.CreateThread(function()
                 local blips = N_0x554d9d53f696d002(1664425300, v.pos)
                 SetBlipSprite(blips, 62421675, 1)
                 SetBlipScale(blips, 1.0)
-                Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Ponton à bateaux")
+                Citizen.InvokeNative(0x9CB1A1623062F402, blips, v.name)
             else
                 local blips = N_0x554d9d53f696d002(1664425300, v.pos)
                 SetBlipSprite(blips, -1350763423, 1)
                 SetBlipScale(blips, 1.0)
-                Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Écurie")
+                Citizen.InvokeNative(0x9CB1A1623062F402, blips, v.name)
             end
         end
     end
@@ -71,7 +71,7 @@ Citizen.CreateThread(function()
                     local menutype = "Ouvrir"
                     TriggerServerEvent("dust_stable:server:askhorse")
                     Wait(600)
-                    OpenStable(menutype, v.name)
+                    OpenStable(menutype, k)
                 end
             end
         end
@@ -110,7 +110,7 @@ Citizen.CreateThread(function()
                     local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, horse, 0)
                     local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, horse, 1)
                     local type = "horse"
-                    TriggerServerEvent("dust_stable:server:stockhorse", v.name, horseid, valueHealth, valueStamina, type)
+                    TriggerServerEvent("dust_stable:server:stockhorse", k, horseid, valueHealth, valueStamina, type)
                 end
             end
             if #(playerpos - v.pos ) < 4.5 and IsPedInAnyVehicle(PlayerPedId(), 0) then
@@ -120,7 +120,7 @@ Citizen.CreateThread(function()
                     local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
                     local cartid = Entity(cart).state.horseid
                     local type = "cart"
-                    TriggerServerEvent("dust_stable:server:stockhorse", v.name, cartid, valueHealth, valueStamina, type)
+                    TriggerServerEvent("dust_stable:server:stockhorse", k, cartid, valueHealth, valueStamina, type)
                 end
             end
             if #(playerpos - v.pos ) < 4.5 and IsPedInAnyVehicle(PlayerPedId(), 0) then
@@ -130,7 +130,7 @@ Citizen.CreateThread(function()
                     local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
                     local cartid = Entity(cart).state.horseid
                     local type = "boat"
-                    TriggerServerEvent("dust_stable:server:stockhorse", v.name, cartid, valueHealth, valueStamina, type)
+                    TriggerServerEvent("dust_stable:server:stockhorse", k, cartid, valueHealth, valueStamina, type)
                 end
             end
         end
@@ -176,7 +176,7 @@ function OpenStable(menutype, stable)
                         table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
                     end
                 else
-                    table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
+                    table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id.." à "..Config.Stables[v.stable].name})
                 end
             end
         end
