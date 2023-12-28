@@ -844,8 +844,7 @@ Citizen.CreateThread(function()
                     local hcoords = GetEntityCoords(v)
                     local caldist = Vdist(pcoords.x, pcoords.y, pcoords.z, hcoords.x, hcoords.y, hcoords.z)
                     if caldist < 200 then
-                        print (Citizen.InvokeNative(0xAAB0FE202E9FC9F0,v, 0), Citizen.InvokeNative(0xAAB0FE202E9FC9F0,v, -1), Citizen.InvokeNative(0xAAB0FE202E9FC9F0,v, 1))
-                        if Citizen.InvokeNative(0xAAB0FE202E9FC9F0, v, 0) then
+                        if Citizen.InvokeNative(0xAAB0FE202E9FC9F0, v, -1) then
                             TaskGoToEntity(v, PlayerPedId(), -1, 7.2, 2.0, 0, 0)
                         end
                     end
