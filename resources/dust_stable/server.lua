@@ -478,6 +478,7 @@ end)
 
 processingdepop = {}
 RegisterServerEvent('dust_stable:server:depophorseauto', function(entity)
+	print (processingdepop[entity])
 	if processingdepop[entity] ~= true then
 		print "get"
 		print (entity)
