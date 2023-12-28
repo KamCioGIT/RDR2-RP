@@ -855,21 +855,21 @@ Citizen.CreateThread(function()
 end)
 
 ---- depop auto
-Citizen.CreateThread(function()
-    while true do
-        Wait(1000)
-            for k, v in pairs(spawnedhorses) do
-                if DoesEntityExist(v.entity) == false then
-                    spawnedhorses[k] = nil
-                    TriggerServerEvent('dust_stable:server:depophorseauto', v.id)
-                end
-            end
-    end
-end)
+-- Citizen.CreateThread(function()
+--     while true do
+--         Wait(1000)
+--             for k, v in pairs(spawnedhorses) do
+--                 if DoesEntityExist(v.entity) == false then
+--                     spawnedhorses[k] = nil
+--                     TriggerServerEvent('dust_stable:server:depophorseauto', v.entity)
+--                 end
+--             end
+--     end
+-- end)
 
 RegisterNetEvent("dust_stable:client:depopauto", function(ent)
     if DoesEntityExist(ent) == false then
-        TriggerServerEvent('dust_stable:server:depophorseauto', v.id)
+        TriggerServerEvent('dust_stable:server:depophorseauto', ent)
     end
 end)
 

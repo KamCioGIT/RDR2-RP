@@ -477,12 +477,13 @@ RegisterServerEvent('dust_stable:server:depophorse', function(horseid)
 end)
 
 processingdepop = false
-RegisterServerEvent('dust_stable:server:depophorseauto', function(horseid)
+RegisterServerEvent('dust_stable:server:depophorseauto', function(entity)
 	if not processingdepop then
 		print "get"
 		processingdepop = true
 		for k, v in pairs(spawnedhorses) do
-			if v.id == horseid then
+			if v.entity == entity then
+			 	horseid = v.id
 				spawnedhorses[k] = nil
 			end
 		end
