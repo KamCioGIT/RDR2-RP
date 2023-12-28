@@ -472,7 +472,7 @@ end)
 --- depop auto
 Citizen.CreateThread(function()
     while true do
-        Wait(10000)
+        Wait(60000)
 		for k, v in pairs(spawnedhorses) do
 			TriggerClientEvent("dust_stable:client:depopauto", -1, v.entity)
 		end
@@ -481,10 +481,8 @@ end)
 
 processingdepop = {}
 RegisterServerEvent('dust_stable:server:depophorseauto', function(entity)
-	print (processingdepop[entity])
 	if processingdepop[entity] == nil then
 		processingdepop[entity] = true
-		print "get"
 		for k, v in pairs(spawnedhorses) do
 			if v.entity == entity then
 			 	horseid = v.id
