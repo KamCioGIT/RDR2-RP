@@ -854,12 +854,16 @@ Citizen.CreateThread(function()
     end
 end)
 
----- depop
+---- depop auto
 Citizen.CreateThread(function()
     while true do
         Wait(1000)
             for k, v in pairs(spawnedhorses) do
-                print(DoesEntityExist(v))
+                print (Entity(v).state.horseid)
+                if DoesEntityExist(v) == false then
+                    print(Entity(v).state.horseid)
+                    TriggerServerEvent('dust_stable:server:depophorse', Entity(v).state.horseid)
+                end
             end
     end
 end)
