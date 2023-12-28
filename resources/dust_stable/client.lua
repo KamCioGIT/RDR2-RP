@@ -861,14 +861,16 @@ Citizen.CreateThread(function()
             for k, v in pairs(spawnedhorses) do
                 if DoesEntityExist(v.entity) == false then
                     spawnedhorses[k] = nil
-                    TriggerServerEvent('dust_stable:server:depophorse', v.id)
+                    TriggerServerEvent('dust_stable:server:depophorseauto', v.id)
                 end
             end
     end
 end)
 
 RegisterNetEvent("dust_stable:client:depopauto", function(ent)
-    print (DoesEntityExist(ent))
+    if DoesEntityExist(ent) == false then
+        TriggerServerEvent('dust_stable:server:depophorseauto', v.id)
+    end
 end)
 
 ---- RESET CHEVAUX AU RESTART ----

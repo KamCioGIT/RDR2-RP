@@ -305,12 +305,9 @@ end)
 --- depop auto
 Citizen.CreateThread(function()
     while true do
-        Wait(1000)
+        Wait(2000)
 		for k, v in pairs(spawnedhorses) do
 			TriggerClientEvent("dust_stable:client:depopauto", -1, v.entity)
-			-- if DoesEntityExist(v.entity) == false then
-			-- 	spawnedhorses[k] = nil
-			-- end
 		end
     end
 end)
@@ -392,7 +389,6 @@ RegisterServerEvent("RegisterUsableItem:transferhorse")
 AddEventHandler("RegisterUsableItem:transferhorse", function(source, _data)
 	local _source = source
     local horseid = _data.meta.horseid
-	print (horseid)
 	local user = RedEM.GetPlayer(_source)
 	local identifier = user.identifier
 	local charid = user.charid
@@ -457,6 +453,11 @@ end)
 RegisterServerEvent('dust_stable:server:depophorse', function(horseid)
 	local Player = RedEM.GetPlayer(source)
     if Player.group == "admin" or Player.group == "superadmin" or Player.group == "mod" or Player.group == "support" then
+		for k, v in pairs(spawnedhorses) do
+			if v.id == horseid then
+				spawnedhorses[k] = nil
+			end
+		end
 		MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;',
 		{
 			horseid = horseid
@@ -473,6 +474,29 @@ RegisterServerEvent('dust_stable:server:depophorse', function(horseid)
 			end
 		end)
 	end        
+end)
+
+RegisterServerEvent('dust_stable:server:depophorseauto', function(horseid)
+	for k, v in pairs(spawnedhorses) do
+		if v.id == horseid then
+			spawnedhorses[k] = nil
+		end
+	end
+	MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;',
+	{
+		horseid = horseid
+	}, function(result)
+		if #result ~= 0 then
+			for i = 1, #result do
+				MySQL.update('UPDATE stable SET `selected`=@selected WHERE `horseid`=@horseid;',
+					{
+						selected = 0,
+						horseid = horseid
+					}, function(rowsChanged)
+				end)  
+			end
+		end
+	end)      
 end)
 
 
