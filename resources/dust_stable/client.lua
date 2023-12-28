@@ -854,6 +854,16 @@ Citizen.CreateThread(function()
     end
 end)
 
+---- depop
+Citizen.CreateThread(function()
+    while true do
+        Wait(1000)
+            for k, v in pairs(spawnedhorses) do
+                print(DoesEntityExist, v)
+            end
+    end
+end)
+
 
 ---- RESET CHEVAUX AU RESTART ----
 AddEventHandler("onResourceStop", function(resourceName)
