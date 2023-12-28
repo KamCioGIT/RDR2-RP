@@ -159,7 +159,7 @@ Config.Stables = {
     ["shadybell"] = {
 		pos = vector3(1879.344, -1878.298, 41.80941),
 		name = 'Shady Bell',
-        showblip = true,
+        showblip = false,
     },
     ["tabac"] = {
 		pos = vector3(1123.373, -978.0873, 68.1125),
