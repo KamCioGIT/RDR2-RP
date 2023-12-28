@@ -290,15 +290,31 @@ end)
 	
 
 ------ CHEVAL SORTI ----
+spawnedhorses = {}
 RegisterServerEvent("dust_stable:server:horseout")
-AddEventHandler("dust_stable:server:horseout", function (horseid)
+AddEventHandler("dust_stable:server:horseout", function (horseid, entity)
 	MySQL.update('UPDATE stable SET `selected`=@selected  WHERE `horseid`=@horseid;',
 		{
 			horseid = horseid,
 			selected = 1
 		}, function(rowsChanged)
+			table.insert(spawnedhorses, {entity = entity, id = horseid})
 	end)          
 end)
+
+--- depop auto
+Citizen.CreateThread(function()
+    while true do
+        Wait(1000)
+		for k, v in pairs(spawnedhorses) do
+			if DoesEntityExist(v.entity) == false then
+				spawnedhorses[k] = nil
+				TriggerEvent('dust_stable:server:depophorse', v.id)
+			end
+		end
+    end
+end)
+
 
 ---- RANGER LE CHEVAL ----
 

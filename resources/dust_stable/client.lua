@@ -518,7 +518,7 @@ function spawnhorse(model, name, horseid, stashid, health, stamina)
         Citizen.InvokeNative(0xC6258F41D86676E0, horse, 1, selectedmeta.stamina)
     end
 
-    TriggerServerEvent("dust_stable:server:horseout", horseid)
+    TriggerServerEvent("dust_stable:server:horseout", horseid, horse)
     SetEntityAsMissionEntity(horse, true, true)
     table.insert(spawnedhorses, {entity = horse, id = horseid})
     initializing = false
@@ -570,7 +570,7 @@ function spawncart(model, name, horseid, stashid)
         end
     end
 
-    TriggerServerEvent("dust_stable:server:horseout", horseid)
+    TriggerServerEvent("dust_stable:server:horseout", horseid, cart)
 
     table.insert(spawnedhorses, {entity = cart, id = horseid})
     initializing = false
@@ -860,7 +860,6 @@ Citizen.CreateThread(function()
         Wait(1000)
             for k, v in pairs(spawnedhorses) do
                 if DoesEntityExist(v.entity) == false then
-                    print (v.id)
                     spawnedhorses[k] = nil
                     TriggerServerEvent('dust_stable:server:depophorse', v.id)
                 end
@@ -1359,9 +1358,9 @@ function spawnboat(model, name, horseid, stashid)
         end
     end
 
-    TriggerServerEvent("dust_stable:server:horseout", horseid)
+    TriggerServerEvent("dust_stable:server:horseout", horseid, cart)
 
-    table.insert(spawnedhorses, cart)
+    table.insert(spawnedhorses, {entity = cart, id = horseid})
     initializing = false
     print 'spawned'
 end
