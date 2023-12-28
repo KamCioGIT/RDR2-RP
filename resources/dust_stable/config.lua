@@ -13,32 +13,32 @@ Config.Stables = {
 
     ["lagras"] = {
 		pos = vector3(2059.702, -574.6406, 40.62636),
-		name = 'lagras',
+		name = 'Lagras',
         showblip = true,
     },
     ["distillerie"] = {
 		pos = vector3(1419.654, -1586.466, 68.34435),
-		name = 'distillerie',
+		name = 'Distillerie Rhodes',
+        showblip = true,
+    },
+    ["fermestraw"] = {
+		pos = vector3(-1815.575, -598.6345, 154.7045),
+		name = 'Ferme Strawberry',
         showblip = true,
     },
     ["transpertouest"] = {
-		pos = vector3(-1815.575, -598.6345, 154.7045),
-		name = 'transpertouest',
-        showblip = true,
-    },
-    ["transpertest"] = {
 		pos = vector3(-848.6053, -1188.382, 42.52955),
-		name = 'transpertest',
+		name = 'Compagnie de transport Ouest',
         showblip = true,
     },
 	["buyhorse"] = {
 		pos = vector3(2511.494, -1431.057, 46.26681),
-		name = 'buyhorse',
+		name = 'Palefrenier Saint-Denis',
         showblip = true,
     },
     ["buybla"] = {
 		pos = vector3(-951.3615, -1340.261, 50.63528),
-		name = 'buybla',
+		name = 'Palefrenier Blackwater',
         showblip = true,
     },
 	["Strawberry"] = {
@@ -53,7 +53,7 @@ Config.Stables = {
     },
 	["DakotaCamp"] = {
 		pos = vector3(-115.0529, 1486.4540, 112.7034),
-		name = 'DakotaCamp',
+		name = 'Dakota',
         showblip = true,
     },
 	["Amabarino"] = {
@@ -63,7 +63,7 @@ Config.Stables = {
     },
 	["Flatneck"] = {
 		pos = vector3(-381.2650, -349.7352, 86.8605),
-		name = 'Flatneck',
+		name = 'Flatneck Station',
         showblip = true,
     },
 	["Valentine"] = {
@@ -73,27 +73,27 @@ Config.Stables = {
     },
 	["Emerald"] = {
 		pos = vector3(1383.8695, 326.0576, 87.8322),
-		name = 'Emerald',
+		name = 'Emerald Ranch',
         showblip = true,
     },
 	["Rhodes_sheriff"] = {
 		pos = vector3(1369.5880, -1298.0417, 76.7351),
-		name = 'Rhodes_sheriff',
+		name = 'Shériff de Rhodes',
         showblip = true,
     },
 	["Rhodes_poste"] = {
 		pos = vector3(1257.0261, -1315.4788, 76.2924),
-		name = 'Rhodes_poste',
+		name = 'Poste de Rhodes',
         showblip = true,
     },
 	["Blackwater_sheriff"] = {
 		pos = vector3(-749.3494, -1273.322, 42.21373),
-		name = 'Blackwater_sheriff',
+		name = 'Shériff de Blackwater',
         showblip = true,
     },
 	["Strawberry_sheriff"] = {
 		pos = vector3(-1799.4211, -351.5683, 164.0752),
-		name = 'Strawberry_sheriff',
+		name = 'Shériff de Strawberry',
         showblip = true,
     },
 	["Manzanita"] = {
@@ -108,7 +108,7 @@ Config.Stables = {
     },
 	["Fort_Wallace"] = {
 		pos = vector3(348.8842, 1507.8472, 180.6682),
-		name = 'Fort_Wallace',
+		name = 'Fort Wallace',
         showblip = true,
     },
 	["Annesburg"] = {
@@ -123,53 +123,53 @@ Config.Stables = {
     },
 	["Fermejohn"] = {
 		pos = vector3(-1655.8254, -1381.1234, 83.9948),
-		name = 'Fermejohn',
+		name = 'Ferme Blackwater',
         showblip = true,
     },
 	["Stdenis_Marshall"] = {
 		pos = vector3(2489.8730, -1322.0959, 48.8657) ,
-		name = 'Stdenis_Marshall',
+		name = 'Marshall Saint-Denis',
         showblip = true,
     },
 	["Stdenis_eglise"] = {
 		pos = vector3(2725.697, -1253.654, 48.87997),
-		name = 'Stdenis_eglise',
+		name = 'Église Saint-Denis',
         showblip = true,
     },
 	["Stdenis_roturier"] = {
 		pos = vector3(2698.904, -982.3295, 42.73772),
-		name = 'Stdenis_roturier',
+		name = 'Roturiers Saint-Denis',
         showblip = true,
     },
 	["Stdenis_start"] = {
 		pos = vector3(2470.057, -1331.795, 46.65237),
-		name = 'Stdenis_start',
+		name = 'Achat chevaux Saint-Denis',
         showblip = true,
     },
 	["Startbla"] = {
 		pos = vector3(-885.1912, -1362.12, 43.49583),
-		name = 'Startbla',
+		name = 'Achat chevaux BlackWater',
         showblip = true,
     },
     ["thieves"] = {
 		pos = vector3(-1430.681, -2327.218, 42.14704),
-		name = 'thieves',
+		name = 'Tieves Landing',
         showblip = true,
     },
     ["shadybell"] = {
 		pos = vector3(1879.344, -1878.298, 41.80941),
-		name = 'shadybell',
+		name = 'Shady Bell',
         showblip = true,
     },
     ["tabac"] = {
 		pos = vector3(1123.373, -978.0873, 68.1125),
-		name = 'tabacrhodes',
+		name = 'Tabac Rhodes',
         showblip = true,
     },
     ["ambarinoorlandboys"] = {
 		pos = vector3(-1648.549, 1219.449, 349.9523),
 		name = 'ambarinoorlandboys',
-        showblip = true,
+        showblip = false,
     },
     ["fermeouestdakota"] = {
 		pos = vector3(-612.4683, -48.28658, 83.60834),
@@ -186,86 +186,86 @@ Config.Stables = {
     ["lagrasboat"] = {
         type = "boat",
 		pos = vector3(2141.561, -652.7663, 41.30879),
-		name = 'lagrasboat',
+		name = 'Ponton à bateaux Lagras',
         showblip = true,
     },
     ["lagrasboat2"] = {
         type = "boat",
 		pos = vector3(2096.809, -639.1716, 39.26431),
-		name = 'lagrasboat',
+		name = 'Ponton à bateaux Lagras',
         showblip = true,
     },
     ["lagrasboat3"] = {
         type = "boat",
 		pos = vector3(2903.771, -247.7384, 40.97009),
-		name = 'lagrasboat',
+		name = 'Ponton à bateaux Lagras',
         showblip = true,
     },
     ["stdenisboat"] = {
         type = "boat",
 		pos =  vector3(2822.63, -1451.004, 39.88385),
-		name = 'stdenisboat',
+		name = 'Ponton à bateaux Saint-Denis',
         showblip = true,
     },
     ["blaboat"] = {
         type = "boat",
 		pos =  vector3(-680.6436, -1245.555, 42.19117),
-		name = 'blaboat',
+		name = 'Ponton à bateaux Blackwater',
         showblip = true,
     },
     ["vanhornboat"] = {
         type = "boat",
 		pos =  vector3(3010.031, 477.2984, 41.14287),
-		name = 'blaboat',
+		name = 'Ponton à bateaux Van Horn',
         showblip = true,
     },
     ["anesboat"] = {
         type = "boat",
 		pos =  vector3(3015.86, 1332.302, 41.73211),
-		name = 'anesboat',
+		name = 'Ponton à bateaux Annesburg',
         showblip = true,
     },
     ["rhodesboat"] = {
         type = "boat",
 		pos =   vector3(616.7775, -1260.163, 40.14383),
-		name = 'rhodesboat',
+		name = 'Ponton à bateaux Rhodes',
         showblip = true,
     },
 
     ["indienboat"] = {
         type = "boat",
 		pos =   vector3(478.7158, 1734.724, 127.0352),
-		name = 'indienboat',
+		name = 'Ponton à bateaux Dakota River',
         showblip = true,
     },
     ["indienboat2"] = {
         type = "boat",
 		pos =   vector3(-61.0369, 1560.699, 110.8642),
-		name = 'indienboat',
+		name = 'Ponton à bateaux Dakota River',
         showblip = true,
     },
     ["indienboat3"] = {
         type = "boat",
 		pos =  vector3(-1021.232, 443.9864, 53.44182),
-		name = 'indienboat',
+		name = 'Ponton à bateaux Dakota River',
         showblip = true,
     },
     ["indienboat4"] = {
         type = "boat",
 		pos =  vector3(-1125.48, 311.9244, 40.0304),
-		name = 'indienboat',
+		name = 'Ponton à bateaux Dakota River',
         showblip = true,
     },
     ["indienboat5"] = {
         type = "boat",
 		pos = vector3(-729.4803, -556.4434, 39.55353),
-		name = 'indienboat',
+		name = 'Ponton à bateaux Dakota River',
         showblip = true,
     },
     ["thievesboat"] = {
         type = "boat",
 		pos = vector3(-1358.728, -2327.362, 41.81691),
-		name = 'thievesboat',
+		name = 'Ponton à bateaux Thieves Landing',
         showblip = true,
     },
    

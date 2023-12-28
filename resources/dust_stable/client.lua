@@ -251,8 +251,6 @@ function OpenStable(menutype, stable)
                     MenuData.CloseAll()
                     local elements = {}
                     for k, v in pairs(horselist) do
-                        print (v.stable)
-                        print (Config.Stables[v.stable])
                         table.insert(elements, {label = v.name, value = v.id, desc = "ID:  " ..v.id.." à "..Config.Stables[v.stable].name})
                     end
                     MenuData.Open('default', GetCurrentResourceName(), 'sell', {
