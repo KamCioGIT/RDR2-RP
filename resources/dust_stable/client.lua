@@ -182,6 +182,7 @@ function OpenStable(menutype, stable)
         end
         if _menutype == 'Chevaux' then 
             table.insert(elements, {label = "Certificat de vente", value = 'sell', desc = "Utile pour donner son bien à une personne"})
+            table.insert(elements, {label = "Où est mon bien ?", value = 'position', desc = "Utile pour se rappeler où sont vos chevaux"})
             table.insert(elements, {label = "Renommer", value = 'rename', desc = "Changer le nom de votre bien"})
             if playerjob ~= "unemployed"  then
                 table.insert(elements, {label = "Accès Entreprise", value = 'job', desc = "Gérer l'accès au bien pour votre entreprise"})
@@ -242,6 +243,24 @@ function OpenStable(menutype, stable)
                             end
                             isInteracting = false
                         end
+                    end)
+                end)
+            end
+            if data.current.value == "position" then
+                TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+                    MenuData.CloseAll()
+                    local elements = {}
+                    for k, v in pairs(horselist) do
+                        table.insert(elements, {label = v.name, value = v.id, desc = "ID:  " ..v.id.." à "..Config.Stables[v.stable].name})
+                    end
+                    MenuData.Open('default', GetCurrentResourceName(), 'sell', {
+                        title = "Vos biens",
+                        subtext = "Mais où est:",
+                        align = 'top-right',
+                        elements = elements,
+                    },
+                    function(data, menu)
+                        MenuData.CloseAll()
                     end)
                 end)
             end
