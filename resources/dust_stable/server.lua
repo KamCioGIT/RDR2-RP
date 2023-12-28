@@ -307,10 +307,10 @@ Citizen.CreateThread(function()
     while true do
         Wait(1000)
 		for k, v in pairs(spawnedhorses) do
-			if DoesEntityExist(v.entity) == false then
-				spawnedhorses[k] = nil
-				TriggerEvent('dust_stable:server:depophorse', v.id)
-			end
+			print (DoesEntityExist(v.entity))
+			-- if DoesEntityExist(v.entity) == false then
+			-- 	spawnedhorses[k] = nil
+			-- end
 		end
     end
 end)
