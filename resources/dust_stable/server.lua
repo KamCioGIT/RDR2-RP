@@ -476,27 +476,32 @@ RegisterServerEvent('dust_stable:server:depophorse', function(horseid)
 	end        
 end)
 
+processingdepop = false
 RegisterServerEvent('dust_stable:server:depophorseauto', function(horseid)
-	for k, v in pairs(spawnedhorses) do
-		if v.id == horseid then
-			spawnedhorses[k] = nil
-		end
-	end
-	MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;',
-	{
-		horseid = horseid
-	}, function(result)
-		if #result ~= 0 then
-			for i = 1, #result do
-				MySQL.update('UPDATE stable SET `selected`=@selected WHERE `horseid`=@horseid;',
-					{
-						selected = 0,
-						horseid = horseid
-					}, function(rowsChanged)
-				end)  
+	if not processingdepop then
+		processingdepop = true
+		for k, v in pairs(spawnedhorses) do
+			if v.id == horseid then
+				spawnedhorses[k] = nil
 			end
 		end
-	end)      
+		MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;',
+		{
+			horseid = horseid
+		}, function(result)
+			if #result ~= 0 then
+				for i = 1, #result do
+					MySQL.update('UPDATE stable SET `selected`=@selected WHERE `horseid`=@horseid;',
+						{
+							selected = 0,
+							horseid = horseid
+						}, function(rowsChanged)
+					end)  
+				end
+			end
+		end)   
+		processingdepop = false   
+	end
 end)
 
 
