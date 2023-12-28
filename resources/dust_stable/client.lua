@@ -861,6 +861,7 @@ Citizen.CreateThread(function()
             for k, v in pairs(spawnedhorses) do
                 if DoesEntityExist(v.entity) == false then
                     print (v.id)
+                    spawnedhorses[k] = nil
                     TriggerServerEvent('dust_stable:server:depophorse', v.id)
                 end
             end
