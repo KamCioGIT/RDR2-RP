@@ -480,6 +480,7 @@ processingdepop = false
 RegisterServerEvent('dust_stable:server:depophorseauto', function(entity)
 	if not processingdepop then
 		print "get"
+		print (entity)
 		processingdepop = true
 		for k, v in pairs(spawnedhorses) do
 			if v.entity == entity then
@@ -487,6 +488,7 @@ RegisterServerEvent('dust_stable:server:depophorseauto', function(entity)
 				spawnedhorses[k] = nil
 			end
 		end
+		print (horseid)
 		MySQL.query('SELECT * FROM stable WHERE `horseid`=@horseid;',
 		{
 			horseid = horseid
