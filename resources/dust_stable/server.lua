@@ -302,15 +302,7 @@ AddEventHandler("dust_stable:server:horseout", function (horseid, entity)
 	end)          
 end)
 
---- depop auto
-Citizen.CreateThread(function()
-    while true do
-        Wait(2000)
-		for k, v in pairs(spawnedhorses) do
-			TriggerClientEvent("dust_stable:client:depopauto", -1, v.entity)
-		end
-    end
-end)
+
 
 
 ---- RANGER LE CHEVAL ----
@@ -474,6 +466,17 @@ RegisterServerEvent('dust_stable:server:depophorse', function(horseid)
 			end
 		end)
 	end        
+end)
+
+
+--- depop auto
+Citizen.CreateThread(function()
+    while true do
+        Wait(2000)
+		for k, v in pairs(spawnedhorses) do
+			TriggerClientEvent("dust_stable:client:depopauto", -1, v.entity)
+		end
+    end
 end)
 
 processingdepop = {}
