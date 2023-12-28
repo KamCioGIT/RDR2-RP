@@ -307,7 +307,7 @@ Citizen.CreateThread(function()
     while true do
         Wait(1000)
 		for k, v in pairs(spawnedhorses) do
-			print (DoesEntityExist(v.entity))
+			TriggerClientEvent("dust_stable:client:depopauto", -1, v.id)
 			-- if DoesEntityExist(v.entity) == false then
 			-- 	spawnedhorses[k] = nil
 			-- end

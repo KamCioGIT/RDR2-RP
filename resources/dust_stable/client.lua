@@ -867,6 +867,9 @@ Citizen.CreateThread(function()
     end
 end)
 
+RegisterNetEvent("dust_stable:client:depopauto", function(ent)
+    print (DoesEntityExist(ent))
+end)
 
 ---- RESET CHEVAUX AU RESTART ----
 AddEventHandler("onResourceStop", function(resourceName)
