@@ -479,7 +479,7 @@ end)
 processingdepop = {}
 RegisterServerEvent('dust_stable:server:depophorseauto', function(entity)
 	print (processingdepop[entity])
-	if not processingdepop[entity] then
+	if processingdepop[entity] == nil then
 		print "get"
 		print (entity)
 		processingdepop[entity] = true
@@ -505,7 +505,7 @@ RegisterServerEvent('dust_stable:server:depophorseauto', function(entity)
 				end
 			end
 		end)   
-		processingdepop[entity] = false   
+		processingdepop[entity] = nil
 	end
 end)
 
