@@ -1148,8 +1148,8 @@ Config.Export = {
         ["good_whisky"] = {label= "Whisky", price= 0.33},
         ["dirty_whiskey"] = {label= "Mauvais Whisky", price= 0.23},
         ["gin"] = {label= "Gin", price= 0.38},
-        ["caisseviande"] = {label= "Caisse de viande", price= 1},
-        ["caissepoisson"] = {label= "Caisse de poisson", price= 1},
+        ["caisseviande"] = {label= "Caisse de viande", price= 1.3},
+        ["caissepoisson"] = {label= "Caisse de poisson", price= 1.3},
         ["cigar"] = {label= "Cigare", price= 0.25},
     },
     ["StDenis"] = {
@@ -1161,8 +1161,8 @@ Config.Export = {
         ["lingotfer"] = {label= "Lingot de fer", price = 1.1},
         ["lingotor"] = {label= "Lingot d'or", price = 43},
         ["WEAPON_LASSO"] = {label= "Lasso", price = 6.7},
-        ["caisseviande"] = {label= "Caisse de viande", price= 1},
-        ["caissepoisson"] = {label= "Caisse de poisson", price= 1},
+        ["caisseviande"] = {label= "Caisse de viande", price= 1.3},
+        ["caissepoisson"] = {label= "Caisse de poisson", price= 1.3},
     },
 }
 

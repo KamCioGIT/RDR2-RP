@@ -29,8 +29,8 @@ Config.PriceExport = {
         ["good_whisky"] = {label= "Whisky", price= 0.38},
         ["dirty_whiskey"] = {label= "Mauvais Whisky", price= 0.26},
         ["gin"] = {label= "Gin", price= 0.38},
-        ["caisseviande"] = {label= "Caisse de viande", price= 1.13},
-        ["caissepoisson"] = {label= "Caisse de poisson", price= 1.13},
+        ["caisseviande"] = {label= "Caisse de viande", price= 1.4},
+        ["caissepoisson"] = {label= "Caisse de poisson", price= 1.4},
         ["cigar"] = {label= "Cigare", price= 0.30},
     },
 
@@ -42,7 +42,7 @@ Config.PriceExport = {
         ["viandebovine"] = {label= "Viande Bovine", price= 0.35},
         ["lingotfer"] = {label= "Lingot de fer", price = 1.4},
         ["lingotor"] = {label= "Lingot d'or", price = 58},
-        ["caisseviande"] = {label= "Caisse de viande", price= 1.13},
-        ["caissepoisson"] = {label= "Caisse de poisson", price= 1.13},
+        ["caisseviande"] = {label= "Caisse de viande", price= 1.4},
+        ["caissepoisson"] = {label= "Caisse de poisson", price= 1.4},
     },
 }
