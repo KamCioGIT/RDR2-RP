@@ -169,8 +169,8 @@ function SouffreRecolt(item, amount)
                 end
                 ClearPedTasks(playerPed)
                 FreezeEntityPosition(playerPed, false)
-                isInteracting = false
                 TriggerServerEvent('dust_radial:AddItem', item, amount)
+                isInteracting = false
             else break end
         end
     end)
