@@ -667,9 +667,19 @@ Config.Items = {
         type = "item_standard"
     },
     ["douille"] = {
-        label = "Douille",
-        description = "La base de toute industrie",
-        weight = 0.2,
+        label = "Douilles",
+        description = "Une boite de 10 douilles",
+        weight = 0.5,
+        canBeDropped = true,
+        canBeUsed = false,
+        limit = 2000,
+        imgsrc = "items/ammobox.png",
+        type = "item_standard"
+    },
+    ["amorce"] = {
+        label = "Amorce",
+        description = "Une boite de 10 amorces",
+        weight = 0.5,
         canBeDropped = true,
         canBeUsed = false,
         limit = 2000,

@@ -38,6 +38,14 @@ RegisterNetEvent("dust_usine:StartMission", function()
             SetBlipScale(blips, 1.0)
             Citizen.InvokeNative(0x9CB1A1623062F402, blips, "Fournisseur")
         end
+        local blipsouffre = N_0x554d9d53f696d002(1664425300, Config.RessourcesPointPos)
+        SetBlipSprite(blipsouffre, -1138864184, 1)
+        SetBlipScale(blipsouffre, 1.0)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blipsouffre, "Souffre")
+        local blipsouffre = N_0x554d9d53f696d002(1664425300, Config.AmorcePointPos)
+        SetBlipSprite(blipsouffre, -1138864184, 1)
+        SetBlipScale(blipsouffre, 1.0)
+        Citizen.InvokeNative(0x9CB1A1623062F402, blipsouffre, "Amorce")
         while true do
             if getjob then
                 Wait(2)
@@ -49,7 +57,18 @@ RegisterNetEvent("dust_usine:StartMission", function()
                     TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
                         isInteracting = true
-                        SouffreRecolt()
+                        SouffreRecolt("souffre", 1)
+                    end
+                end
+
+                if #(playerPos - Config.AmorcePointPos) < 6.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.AmorcePointPos.x, Config.AmorcePointPos.y, Config.AmorcePointPos.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                end
+                if #(playerPos - Config.AmorcePointPos) < Config.DistanceToInteract and not isInteracting then
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        isInteracting = true
+                        SouffreRecolt("amorce", 1)
                     end
                 end
                                 
@@ -113,7 +132,7 @@ RegisterNetEvent("dust_usine:StartMission", function()
     end)
 end)
 
-function SouffreRecolt()
+function SouffreRecolt(item, amount)
     Citizen.CreateThread(function()
         local playerPed = PlayerPedId()
         local Position = GetEntityCoords(playerPed)
@@ -140,7 +159,7 @@ function SouffreRecolt()
                 ClearPedTasks(playerPed)
                 FreezeEntityPosition(playerPed, false)
                 isInteracting = false
-                TriggerServerEvent('dust_radial:AddItem', "souffre", 1)
+                TriggerServerEvent('dust_radial:AddItem', item, amount)
             else break end
         end
     end)

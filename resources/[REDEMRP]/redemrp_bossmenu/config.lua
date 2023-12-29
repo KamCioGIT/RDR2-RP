@@ -1139,7 +1139,7 @@ Config.ExportNPC = {
 Config.Export = {
     ["Blackwater"] = {
         ["gunpowder"] = {label= "Poudre à canon", price= 0.1}, 
-        ["douille"] = {label= "Douilles", price= 0.18},
+        ["douille"] = {label= "Douilles", price= 0.15},
         ["ferpepite"] = {label= "Pépite de fer", price= 0.06},
         ["charbon"] = {label= "Charbon", price= 0.03},
         ["cuivrepepite"] = {label= "Pépite de cuivre", price= 0.04},

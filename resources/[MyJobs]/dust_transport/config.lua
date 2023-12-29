@@ -20,7 +20,7 @@ Config.ExportStDenis = vector3(2768.169, -1435.951, 44.99099)
 Config.PriceExport = {
     ["Blackwater"] = {
         ["gunpowder"] = {label= "Poudre à canon", price= 0.12}, 
-        ["douille"] = {label= "Douilles", price= 0.21},
+        ["douille"] = {label= "Douilles", price= 0.18},
         ["ferpepite"] = {label= "Pépite de fer", price= 0.07},
         ["charbon"] = {label= "Charbon", price= 0.04},
         ["cuivrepepite"] = {label= "Pépite de cuivre", price= 0.05},
