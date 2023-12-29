@@ -10,6 +10,7 @@ Config.MsgOpenMenu = "Appuie sur Entrer" -- Message de traitement
 
 Config.RessourcesPointPos = vector3(-786.7319, -1225.145, 42.39426) -- Récolte Souffre
 Config.AmorcePointPos = vector3(-1756.78, -388.1603, 155.3386)
+Config.Stockage = vector3(2348.275, -1490.347, 45.92614)
 Config.WorkingTime = 3000
 Config.DistanceToInteract = 1.5
 

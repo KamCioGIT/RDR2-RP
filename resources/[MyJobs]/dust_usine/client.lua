@@ -50,6 +50,18 @@ RegisterNetEvent("dust_usine:StartMission", function()
             if getjob then
                 Wait(2)
                 local playerPos = GetEntityCoords(PlayerPedId())
+
+                if #(playerPos - Config.Stockage) < 6.0 then
+                    Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.Stockage.x, Config.Stockage.y, Config.Stockage.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+                end
+                if #(playerPos - Config.Stockage) < Config.DistanceToInteract and not isInteracting then
+                    TriggerEvent('dust_presskey', "Appuyez sur G")
+                    if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
+                        isInteracting = true
+                        TriggerEvent("redemrp_inventory:OpenStash", "stockage_usine", 2000.0)
+                    end
+                end
+
                 if #(playerPos - Config.RessourcesPointPos) < 6.0 then
                     Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, Config.RessourcesPointPos.x, Config.RessourcesPointPos.y, Config.RessourcesPointPos.z - 1.0, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
                 end

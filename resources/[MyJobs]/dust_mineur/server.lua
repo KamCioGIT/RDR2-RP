@@ -51,7 +51,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(2000)
 		TriggerEvent("redemrp_inventory:server:removeitemstash", "zincbrut", 1, {}, "dep_mineur","zincpepite", 3, {}, "ret_mineur")
 		Citizen.Wait(2000)
-		TriggerEvent("redemrp_inventory:server:removeitemstash", "charbonbrut", 1, {}, "dep_mineur","charbon", 3, {}, "ret_mineur")
+		TriggerEvent("redemrp_inventory:server:removeitemstash", "charbonbrut", 1, {}, "dep_mineur","charbon", 4, {}, "ret_mineur")
 	end
 end)
 
