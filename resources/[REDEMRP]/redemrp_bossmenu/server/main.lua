@@ -460,7 +460,7 @@ AddEventHandler('dust_export:SellItem', function(itemNameStr, menu, amount, loca
     local currentRealTime = os.date("*t")
 
     -- Vérifier si l'heure réelle est entre 19h et 01h
-    if currentRealTime.hour >= 19 or currentRealTime.hour < 1 then
+    if currentRealTime.hour >= 21 or currentRealTime.hour < 1 then
         if ItemData.RemoveItem(amount) then
             user.AddMoney(Config.Export[localisation][itemNameStr].price * amount)
         end
