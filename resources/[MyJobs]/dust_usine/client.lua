@@ -57,7 +57,6 @@ RegisterNetEvent("dust_usine:StartMission", function()
                 if #(playerPos - Config.Stockage) < Config.DistanceToInteract and not isInteracting then
                     TriggerEvent('dust_presskey', "Appuyez sur G")
                     if IsControlJustPressed(2, 0x760A9C6F) and not isInteracting then 
-                        isInteracting = true
                         TriggerEvent("redemrp_inventory:OpenStash", "stockage_usine", 2000.0)
                     end
                 end
