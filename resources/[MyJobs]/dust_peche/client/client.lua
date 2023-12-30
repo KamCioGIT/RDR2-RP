@@ -119,7 +119,7 @@ Citizen.CreateThread(function()
                         end
                         if fishing_lure_cooldown <= GetGameTimer() then
                             local dist = #(hookPosition - fishPosition)
-                            if dist <= 1.6 then
+                            if dist <= 3.0 then
                                 fishHandle = f
                             else
                                 if isFishInterested(GetEntityModel(f)) then
