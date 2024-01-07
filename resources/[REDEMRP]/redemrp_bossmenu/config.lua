@@ -981,7 +981,7 @@ Config.Jobs = {
 
     ["chasse_est"] = {
         bigjob = "chasse",
-        MenuLocations = vector3(1421.647, 383.2451, 89.3308),
+        MenuLocations = vector3(2817.19, -1323.963, 45.59243),
         Name = "Relais de chasse Est",
         Grades = {
             [1] = {
