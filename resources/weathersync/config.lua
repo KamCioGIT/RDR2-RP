@@ -42,7 +42,7 @@ Config.weatherInterval = DHMSToTime(0, 1, 0, 0)
 Config.weatherIsFrozen = false
 
 -- Whether to permanently add snow on the ground, or only during snowy weather
-Config.permanentSnow = true
+Config.permanentSnow = false
 
 -- Whether to add snow on the ground when:
 -- 	a) in the snowy area of the map

@@ -969,7 +969,7 @@ Config.CraftingsReceipe = {
     Amount = 1,
     WorkingTime = 1,
     label = 'Boite de douilles',
-    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/silverore.png', text = "Pépite de plomb",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Amorces",count = "x1"}}
+    descriptionimages = {{src = 'nui://redemrp_inventory/html/items/silverore.png', text = "Pépite de plomb",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/upgrade_pouch_ammo.png', text = "Amorces",count = "x1"}}
 },
 ['ammo_revolver'] = {
     type = 'usineassemblage',

@@ -981,7 +981,7 @@ Config.Jobs = {
 
     ["chasse_est"] = {
         bigjob = "chasse",
-        MenuLocations = vector3(3006.009, 564.6503, 43.45327),
+        MenuLocations = vector3(1421.647, 383.2451, 89.3308),
         Name = "Relais de chasse Est",
         Grades = {
             [1] = {
@@ -1138,7 +1138,7 @@ Config.ExportNPC = {
 
 Config.Export = {
     ["Blackwater"] = {
-        ["gunpowder"] = {label= "Poudre à canon", price= 0.1}, 
+        ["gunpowder"] = {label= "Poudre à canon", price= 0.13}, 
         ["douille"] = {label= "Douilles", price= 0.15},
         ["ferpepite"] = {label= "Pépite de fer", price= 0.06},
         ["charbon"] = {label= "Charbon", price= 0.03},
