@@ -9,7 +9,7 @@ Config.WorkingTime = 5000
 Config.DistanceToInteract = 2.0
 
 Config.Atelier = {
-    vector3(1419.641, 384.082, 89.33078), --- est
+    vector3(2817.703, -1330.177, 45.51147), --- est
     vector3(-1976.708, -1651.05, 116.1088), --- ouest
 }
 
