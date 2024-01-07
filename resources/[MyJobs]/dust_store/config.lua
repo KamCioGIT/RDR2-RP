@@ -251,7 +251,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = 'Gâteau',
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_offal.png', text = "Bouteille de lait",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/yeast.png', text = "Sucre",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_offal.png', text = "Bouteille de lait",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/yeast.png', text = "Sucre",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
     ['tartemyrtille'] = {
         type = 'epicerie',
