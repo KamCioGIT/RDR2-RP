@@ -4,6 +4,6 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 
 dependency 'objectloader'
 
-file 'alambic2.xml'
+file 'yves_int.xml'
 
-objectloader_map 'alambic2.xml'
+objectloader_map 'yves_int.xml'
