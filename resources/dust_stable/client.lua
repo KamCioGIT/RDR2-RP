@@ -71,7 +71,7 @@ Citizen.CreateThread(function()
                     local menutype = "Ouvrir"
                     TriggerServerEvent("dust_stable:server:askhorse")
                     Wait(600)
-                    OpenStable(menutype, k)
+                    OpenStable(menutype, v.garage)
                 end
             end
         end
@@ -110,7 +110,7 @@ Citizen.CreateThread(function()
                     local valueHealth = Citizen.InvokeNative(0x36731AC041289BB1, horse, 0)
                     local valueStamina = Citizen.InvokeNative(0x36731AC041289BB1, horse, 1)
                     local type = "horse"
-                    TriggerServerEvent("dust_stable:server:stockhorse", k, horseid, valueHealth, valueStamina, type)
+                    TriggerServerEvent("dust_stable:server:stockhorse", v.garage, horseid, valueHealth, valueStamina, type)
                 end
             end
             if #(playerpos - v.pos ) < 4.5 and IsPedInAnyVehicle(PlayerPedId(), 0) then
@@ -120,7 +120,7 @@ Citizen.CreateThread(function()
                     local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
                     local cartid = Entity(cart).state.horseid
                     local type = "cart"
-                    TriggerServerEvent("dust_stable:server:stockhorse", k, cartid, valueHealth, valueStamina, type)
+                    TriggerServerEvent("dust_stable:server:stockhorse", v.garage, cartid, valueHealth, valueStamina, type)
                 end
             end
             if #(playerpos - v.pos ) < 4.5 and IsPedInAnyVehicle(PlayerPedId(), 0) then
@@ -130,7 +130,7 @@ Citizen.CreateThread(function()
                     local cart = GetVehiclePedIsIn(PlayerPedId(), 0)
                     local cartid = Entity(cart).state.horseid
                     local type = "boat"
-                    TriggerServerEvent("dust_stable:server:stockhorse", k, cartid, valueHealth, valueStamina, type)
+                    TriggerServerEvent("dust_stable:server:stockhorse", v.garage, cartid, valueHealth, valueStamina, type)
                 end
             end
         end
