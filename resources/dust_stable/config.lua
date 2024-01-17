@@ -189,13 +189,13 @@ Config.Stables = {
 		name = 'Ponton à bateaux Lagras',
         showblip = true,
     },
-    ["lagrasboat2"] = {
+    ["lagrasboat"] = {
         type = "boat",
 		pos = vector3(2096.809, -639.1716, 39.26431),
 		name = 'Ponton à bateaux Lagras',
         showblip = true,
     },
-    ["lagrasboat3"] = {
+    ["lagrasboat"] = {
         type = "boat",
 		pos = vector3(2903.771, -247.7384, 40.97009),
 		name = 'Ponton à bateaux Lagras',
@@ -238,25 +238,25 @@ Config.Stables = {
 		name = 'Ponton à bateaux Dakota River',
         showblip = true,
     },
-    ["indienboat2"] = {
+    ["indienboat"] = {
         type = "boat",
 		pos =   vector3(-61.0369, 1560.699, 110.8642),
 		name = 'Ponton à bateaux Dakota River',
         showblip = true,
     },
-    ["indienboat3"] = {
+    ["indienboat"] = {
         type = "boat",
 		pos =  vector3(-1021.232, 443.9864, 53.44182),
 		name = 'Ponton à bateaux Dakota River',
         showblip = true,
     },
-    ["indienboat4"] = {
+    ["indienboat"] = {
         type = "boat",
 		pos =  vector3(-1125.48, 311.9244, 40.0304),
 		name = 'Ponton à bateaux Dakota River',
         showblip = true,
     },
-    ["indienboat5"] = {
+    ["indienboat"] = {
         type = "boat",
 		pos = vector3(-729.4803, -556.4434, 39.55353),
 		name = 'Ponton à bateaux Dakota River',
