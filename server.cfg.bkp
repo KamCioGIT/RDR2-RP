@@ -61,7 +61,7 @@ ensure rsd_lockpick
 ensure dust_stable
 ensure dust_coords
 ensure dust_ipl
-ensure rsd_doorlock
+ensure dust_doors
 ensure dust_chasse
 ensure dust_orpaillage
 ensure dust_contrat
