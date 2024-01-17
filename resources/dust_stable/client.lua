@@ -567,6 +567,12 @@ function spawncart(model, name, horseid, stashid)
 
     SetPedPromptName(cart, name)
     Entity(cart).state:set('horseid', horseid, true)
+    Entity(cart).state:set('stashid', stashid, true)
+    for k, v in pairs(Config.StashWeight) do
+        if k == model then
+            Entity(cart).state:set('stashweight', v, true)
+        end
+    end
     Wait(500)
     for k, v in pairs(Config.CartCustom) do
         if k == "tints" then
@@ -582,12 +588,7 @@ function spawncart(model, name, horseid, stashid)
             Citizen.InvokeNative(0xF89D82A0582E46ED, cart, tonumber(CompCache['liveries'].hash))
         end 
     end
-    Entity(cart).state:set('stashid', stashid, true)
-    for k, v in pairs(Config.StashWeight) do
-        if k == model then
-            Entity(cart).state:set('stashweight', v, true)
-        end
-    end
+
 
     TriggerServerEvent("dust_stable:server:horseout", horseid, cart)
 

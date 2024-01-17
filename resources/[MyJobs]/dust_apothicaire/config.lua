@@ -29,7 +29,7 @@ Config.WorkingTime = 1000
 Config.Atelier = {
     vector3(2721.123, -1226.798, 49.36772), -- stdenis
     vector3(2629.656, -1354.371, 48.04771), -- apo st denis
-    vector3(-782.6106, -1306.656, 42.79617), --- bla
+    vector3(-778.9196, -1313.733, 42.65548), --- bla
     vector3(-155.4652, 1491.255, 115.1591), ---- indien
     vector3(-1803.261, -432.619, 157.8291) --- straw
 }

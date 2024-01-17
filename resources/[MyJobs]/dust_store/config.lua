@@ -253,6 +253,19 @@ Config.CraftingsReceipe = {
         label = 'Gâteau',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_offal.png', text = "Bouteille de lait",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/flour.png', text = "Farine",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/yeast.png', text = "Sucre",count = "x3"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
     },
+    ['thementhe'] = {
+        type = 'epicerie',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'menthesauvage',
+        ItemReceipe1Amount = 2,
+        ItemReceipe2Name = 'charbon',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'thementhe',
+        Amount = 1,
+        WorkingTime = 5,
+        label = 'Thé à la menthe',
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe Sauvage",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+    },
     ['tartemyrtille'] = {
         type = 'epicerie',
         Itemtocraft = 4,

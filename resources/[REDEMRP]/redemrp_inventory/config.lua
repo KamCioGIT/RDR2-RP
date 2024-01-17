@@ -2983,6 +2983,17 @@ Config.Items = {
     imgsrc = "items/cakeslice.png",
     type = "item_standard",
 },
+["thementhe"] = {
+    label = "Thé à la menthe",
+    description = "Un bon thé bien chaud",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/herbal_tea.png",
+    type = "item_standard",
+},
 ["tartemyrtille"] = {
     label = "Tarte au myrtille",
     description = "Délicieux",

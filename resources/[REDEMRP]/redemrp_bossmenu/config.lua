@@ -87,6 +87,29 @@ Config.Jobs = {
             },
         }
     },
+    ["armurier_blackwater"] = {
+        bigjob = "armurier",
+        Name = "Armurerie de Blackwater",
+        blisprite = -145868367,
+        MenuLocations = 
+            vector3(-785.752, -1306.83, 42.76912)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
     ["marechal_bla"] = {
         bigjob = "marechal",
         Name = "Écurie de Blackwater",
@@ -322,7 +345,7 @@ Config.Jobs = {
         Name = "Higgins Blacksmith",
         blisprite = -758970771,
         MenuLocations = 
-        vector3(-761.5948, -1278.557, 42.84648)
+        vector3(-759.7381, -1279.826, 42.84819)
         ,
         Grades = {
             [1] = {
@@ -1150,7 +1173,7 @@ Config.Export = {
         ["gin"] = {label= "Gin", price= 0.38},
         ["caisseviande"] = {label= "Caisse de viande", price= 1.3},
         ["caissepoisson"] = {label= "Caisse de poisson", price= 1.3},
-        ["cigar"] = {label= "Cigare", price= 0.25},
+        ["cigar"] = {label= "Cigare", price= 0.27},
     },
     ["StDenis"] = {
         ["farine"] = {label= "Farine", price= 0.2},

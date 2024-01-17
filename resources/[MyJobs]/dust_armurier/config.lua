@@ -3,11 +3,13 @@ Config = {}
 Config.Jobs = {
     [1] = "armurier_rhodes",
     [2] = "armurier_strawberry",
+    [2] = "armurier_blackwater",
 }
 
 Config.Atelier = {
     [1] = vector3(1327.263, -1321.737, 77.88863), -- Rhodes
-    [2] = vector3(-1846.091, -419.7523, 162.4211) --- straw
+    [2] = vector3(-1846.091, -419.7523, 162.4211), --- straw
+    [3] = vector3(-786.9658, -1304.764, 42.76914), --- bla
 
 }
 
@@ -23,6 +25,7 @@ Config.CraftAnim = {
 Config.CraftArme = {
     [1] = vector3(1328.833, -1323.346, 76.88589), --- rhodes
     [2] = vector3(-1841.593, -414.5283, 161.2887),  --- straw
+    [3] = vector3(-782.3824, -1303.022, 42.76913),  --- bla
 }
 
 Config.CraftingsReceipe = {
@@ -39,7 +42,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 10,
         label = "Kit d'entretien",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de Gras",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de Gras",count = "x1"}}
     },
     ['WEAPON_REVOLVER_CATTLEMAN'] = {
         type = 'armurerie',

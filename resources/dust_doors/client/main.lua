@@ -485,7 +485,10 @@ AddEventHandler('redemrp_doorlocks:changedoor', function(doorID, state)
 		TriggerServerEvent('redemrp_doorlocks:updateState', doorID, state, function(cb) end)
 			Wait(1500)
 		ClearPedSecondaryTask(ped)
+		SetEntityAsMissionEntity(prop)
 		DeleteObject(prop)
 	end
+	SetEntityAsMissionEntity(prop)
+	DeleteObject(prop)
 	isInteracting = false
 end)
