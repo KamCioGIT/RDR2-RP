@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CPackFileMetaData>
+  <MapDataGroups/>
+  <HDTxdBindingArray/>
+  <imapDependencies/>
+  <imapDependencies_2>
+   <Item>
+      <imapName>fishsklep_ymap</imapName>
+      <manifestFlags>INTERIOR_DATA</manifestFlags>
+      <itypDepArray>
+        <Item>fishsklep_ytyp</Item>
+      </itypDepArray>
+    </Item>
+  </imapDependencies_2>
+  <itypDependencies_2>
+    <Item>
+    <itypName>fishsklepkol</itypName>
+    <manifestFlags>INTERIOR_DATA</manifestFlags>
+    <itypDepArray>
+      <Item>p_door_bla_jail_r_01x</Item>
+<Item>p_door_bla_jail_l_01x</Item>
+<Item>p_door_val_bank02</Item>
+<Item>p_group_n_grocery_crate05x</Item>
+<Item>p_crayfish01x</Item>
+<Item>p_spool01x</Item>
+<Item>p_oar02x</Item>
+<Item>p_package06x</Item>
+<Item>p_sconcelight01x</Item>
+<Item>p_sto_merchbox01x</Item>
+<Item>p_fishbasin01x</Item>
+<Item>p_lgfwaterspinner01x</Item>
+<Item>p_lantern04x</Item>
+<Item>p_meatcuttingboard01x</Item>
+<Item>p_grp_w_tra_crate08x</Item>
+<Item>s_crickettin01group</Item>
+<Item>p_bespoketable01x</Item>
+<Item>p_oar01x</Item>
+<Item>p_hook02x</Item>
+<Item>p_tablecoffee05x</Item>
+<Item>p_fishingpole01x</Item>
+<Item>p_knifeblock03x</Item>
+<Item>p_crategroup02x</Item>
+<Item>p_ropewall_cs02x</Item>
+<Item>p_ambropepile01x</Item>
+<Item>lada_bw2</Item>
+<Item>p_cs_trout03x</Item>
+<Item>p_horse_cratestack01x</Item>
+<Item>p_anchor01x</Item>
+<Item>p_minnow01x</Item>
+<Item>p_fish01x</Item>
+<Item>p_bucketfish01x</Item>
+<Item>p_newspaper01x</Item>
+<Item>p_ropecoil01x</Item>
+<Item>s_ropehogtielegsmedium01x_a</Item>
+<Item>p_wormcangroup</Item>
+<Item>p_lantern05xhang</Item>
+<Item>p_finishedragonflylegendary01x</Item>
+<Item>dywan_bw7</Item>
+<Item>p_int_fishing01</Item>
+<Item>p_bell04x</Item>
+<Item>p_cs_rope05x</Item>
+<Item>p_fishupgradebobber01x</Item>
+<Item>p_finishdcrawdlegendary01x</Item>
+<Item>p_shelf09x</Item>
+<Item>p_lampstanding03x</Item>
+<Item>p_finishdcrawd01x_hf</Item>
+<Item>p_group_n_grocery_crate23x</Item>
+<Item>p_netfish01x</Item>
+<Item>p_cs_ropehandssplit</Item>
+<Item>p_grp_box04x_car_sd</Item>
+<Item>p_cs_chain01x</Item>
+<Item>p_riflerack01x</Item>
+<Item>p_finishedragonfly01x_hf</Item>
+<Item>p_bottlebeer03x</Item>
+<Item>p_cupboard06x</Item>
+<Item>p_cs_valjailblind_01</Item>
+<Item>p_sto_goods37x</Item>
+<Item>p_register03x</Item>
+<Item>mp006_p_mshn_painting02x</Item>
+<Item>p_cs_hookpulley01x</Item>
+<Item>p_rackropechains01x</Item>
+<Item>p_cratechicken01x</Item>
+<Item>p_baitcrawfish01x</Item>
+<Item>p_package09</Item>
+<Item>p_cs_fusespool01x</Item>
+<Item>p_cs_basfishonthewal01x</Item>
+<Item>p_woodcarve01x</Item>
+<Item>p_group_fishstall01</Item>
+<Item>p_fishinglure01x</Item>
+<Item>dywan_bw8</Item>
+<Item>p_mission_crategatling01x</Item>
+    </itypDepArray>
+  </Item>
+  </itypDependencies_2>
+  <Interiors>
+    <Item>
+      <Name>fishsklepkol</Name>
+      <Bounds>
+        <Item>fishsklepkol</Item>
+      </Bounds>
+    </Item>
+  </Interiors>
+  <redm_loves_you_7cc2afb2d40476ed/>
+  <redm_loves_you_c1fa8cdfbc6c9972/>
+  <txdRelationships/>
+  <redm_loves_you_faf7283fa0923550/>
+  <redm_loves_you_5179f30cceb03389/>
+</CPackFileMetaData>

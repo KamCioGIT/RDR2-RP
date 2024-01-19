@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CPackFileMetaData>
+  <MapDataGroups/>
+  <HDTxdBindingArray/>
+  <imapDependencies/>
+  <imapDependencies_2>
+   <Item>
+      <imapName>hotelbar_ymap</imapName>
+      <manifestFlags>INTERIOR_DATA</manifestFlags>
+      <itypDepArray>
+        <Item>hotelbar_ytyp</Item>
+      </itypDepArray>
+    </Item>
+  </imapDependencies_2>
+  <itypDependencies_2>
+    <Item>
+    <itypName>hotelbarkol</itypName>
+    <manifestFlags>INTERIOR_DATA</manifestFlags>
+    <itypDepArray>
+      <Item>p_depositbag01x</Item>
+<Item>p_settee02bx</Item>
+<Item>p_plantpotnbx06x</Item>
+<Item>p_barstool01x</Item>
+<Item>s_beermugglass01x</Item>
+<Item>p_table39x</Item>
+<Item>p_cs_shotglass02x</Item>
+<Item>p_bath02x</Item>
+<Item>p_chandelier30x</Item>
+<Item>p_candlestick03x</Item>
+<Item>bwobraznr2</Item>
+<Item>p_sal_glasset02x</Item>
+<Item>p_curtainslace02b</Item>
+<Item>p_pot_flowerarng09bx</Item>
+<Item>p_candlegroup04x</Item>
+<Item>p_bathbrush01x</Item>
+<Item>s_sdn_menuclipboard01</Item>
+<Item>p_huntingbag01x</Item>
+<Item>p_bottlebeer01a_3</Item>
+<Item>p_piano02x</Item>
+<Item>p_windsorchair03x</Item>
+<Item>p_lampkerosene07x</Item>
+<Item>p_curtainslace02x_static</Item>
+<Item>p_doll02x</Item>
+<Item>p_table45x</Item>
+<Item>p_boxgroup03x</Item>
+<Item>p_cs_purse01x</Item>
+<Item>p_sto_jarcoffee01x</Item>
+<Item>dywan_bw7</Item>
+<Item>p_package11x</Item>
+<Item>p_bottlenavyrum01x</Item>
+<Item>p_candleboxnbx01x</Item>
+<Item>p_plant_int_03b</Item>
+<Item>p_benchpiano02x</Item>
+<Item>p_pot_flowerarng01x</Item>
+<Item>p_dislantern01x</Item>
+<Item>p_bottlecrate03x</Item>
+<Item>p_moneybag01x</Item>
+<Item>mp006_p_mshn_painting05x</Item>
+<Item>p_group_bottlewine05x_sd</Item>
+<Item>p_taxidermydeer01x</Item>
+<Item>p_settee03bx</Item>
+<Item>p_crateset06x</Item>
+<Item>p_tableconsole03bx</Item>
+<Item>p_cs_wanted_bounty_2fold</Item>
+<Item>p_boxgroup01x</Item>
+<Item>p_debrispile08x</Item>
+<Item>p_couch06x</Item>
+<Item>p_washstand03x</Item>
+<Item>p_yodellingyeoman01x</Item>
+<Item>p_endtable01x</Item>
+<Item>p_broom09x</Item>
+<Item>s_cs_bookhardpaper01x</Item>
+<Item>p_lampstanding03x</Item>
+<Item>p_litternbx03x</Item>
+<Item>p_grp_new_sal02_props19x</Item>
+<Item>p_bed21x</Item>
+<Item>p_cs_supplies01x</Item>
+<Item>p_crategroup03x</Item>
+<Item>p_doc_coatstandrack01x</Item>
+<Item>p_trolleygroup02ax</Item>
+<Item>p_ambclothdrape01x_static</Item>
+<Item>s_oatcakes01xgroup</Item>
+<Item>p_jugwicker01x</Item>
+<Item>p_lampwall02x</Item>
+<Item>p_nbmbookshelves01x</Item>
+<Item>p_cs_frame07ax</Item>
+<Item>p_grp_new_sal02_props20x</Item>
+<Item>p_bathsponge01x</Item>
+<Item>dywan_bw4</Item>
+<Item>p_moonshinebtl01x</Item>
+<Item>p_pot_plant_08a</Item>
+<Item>p_crategroup02x</Item>
+<Item>p_hanginglightnbx01x</Item>
+<Item>lada_bw5</Item>
+<Item>p_cs_valjailblind_01</Item>
+<Item>obraz_bw_titanic</Item>
+<Item>mp006_p_mshn_painting06x</Item>
+<Item>p_cs_envelope01x</Item>
+<Item>p_plantpotnbx07x</Item>
+<Item>p_bottlecrate02x_dirty</Item>
+<Item>p_plantpotnbx05x</Item>
+<Item>p_boxsmlhealth01x</Item>
+<Item>p_candle02x</Item>
+<Item>p_cannonwheel01x</Item>
+<Item>s_trapdoorphoto</Item>
+<Item>p_bottlecrate05x</Item>
+<Item>p_debrispile03x</Item>
+<Item>p_vanslidingdoor01x</Item>
+<Item>lada006</Item>
+<Item>p_lacepillow02x</Item>
+<Item>p_lantern04x</Item>
+<Item>p_dividernbx01x</Item>
+<Item>p_pot_flowerarng02x</Item>
+<Item>bwobraznr4</Item>
+<Item>p_bottle010x</Item>
+<Item>p_sign01x</Item>
+<Item>mp006_p_mshn_painting15x</Item>
+<Item>p_candlegroup05x</Item>
+<Item>mp006_p_mshn_painting10x</Item>
+<Item>p_cs_frame01ax</Item>
+<Item>p_blouseground01x</Item>
+<Item>p_chandelier15x</Item>
+<Item>p_litternbx01x</Item>
+<Item>obraz_bw_dom</Item>
+<Item>p_grp_new_sal02_props05x</Item>
+<Item>mp008_p_mshn_painting17x</Item>
+<Item>mp006_p_mshn_painting07x</Item>
+<Item>p_ambpack02x</Item>
+<Item>p_ambfloorrug04x</Item>
+<Item>p_door_sha_man_a</Item>
+<Item>p_door_sha_man_l</Item>
+<Item>p_door54x</Item>
+<Item>p_door32x</Item>
+    </itypDepArray>
+  </Item>
+  </itypDependencies_2>
+  <Interiors>
+    <Item>
+      <Name>hotelbarkol</Name>
+      <Bounds>
+        <Item>hotelbarkol</Item>
+      </Bounds>
+    </Item>
+  </Interiors>
+  <redm_loves_you_7cc2afb2d40476ed/>
+  <redm_loves_you_c1fa8cdfbc6c9972/>
+  <txdRelationships/>
+  <redm_loves_you_faf7283fa0923550/>
+  <redm_loves_you_5179f30cceb03389/>
+</CPackFileMetaData>

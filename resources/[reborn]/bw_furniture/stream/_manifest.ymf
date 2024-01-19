@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CPackFileMetaData>
+  <MapDataGroups/>
+  <HDTxdBindingArray/>
+  <imapDependencies/>
+  <imapDependencies_2>
+   <Item>
+      <imapName>meblowybw_ymap</imapName>
+      <manifestFlags>INTERIOR_DATA</manifestFlags>
+      <itypDepArray>
+        <Item>meblowybw_ytyp</Item>
+      </itypDepArray>
+    </Item>
+  </imapDependencies_2>
+  <itypDependencies_2>
+    <Item>
+    <itypName>meblowybwkol</itypName>
+    <manifestFlags>INTERIOR_DATA</manifestFlags>
+    <itypDepArray>
+      <Item>p_shelfmail01x</Item>
+<Item>p_crate26x</Item>
+<Item>p_plate04x</Item>
+<Item>p_hanginglightnbx01x</Item>
+<Item>p_grp_a_tstation_crate05x</Item>
+<Item>p_sidetable02x</Item>
+<Item>p_chair18x</Item>
+<Item>p_decanter01x</Item>
+<Item>p_cupboard02x</Item>
+<Item>p_ambpack01x</Item>
+<Item>p_plant04x</Item>
+<Item>p_bottlemedicine25x</Item>
+<Item>p_coinstack01</Item>
+<Item>p_hook02x_small</Item>
+<Item>p_boiler01x</Item>
+<Item>p_lampstanding03x</Item>
+<Item>p_shelf02x</Item>
+<Item>s_whiskeyempty01x</Item>
+<Item>p_dresser11x</Item>
+<Item>p_chandelier15x</Item>
+<Item>p_tabledining05x</Item>
+<Item>p_table51x</Item>
+<Item>p_cs_letter01a_x_01</Item>
+<Item>p_group_barrelcor01</Item>
+<Item>p_lamphangnbx01x</Item>
+<Item>p_candlestand</Item>
+<Item>p_curtainslace02b</Item>
+<Item>p_group_dishes01x_sd</Item>
+<Item>p_vanslidingdoor01x</Item>
+<Item>p_typewriterset01x</Item>
+<Item>p_candyjarmarsh01x</Item>
+<Item>p_cs_noose01x_norope</Item>
+<Item>p_cratetools01x</Item>
+<Item>p_tablechop01x</Item>
+<Item>p_bread_08_ab_slice_a</Item>
+<Item>s_pic_hoseaandwife</Item>
+<Item>p_shelfwall02x</Item>
+<Item>p_pot_flowerarng08x</Item>
+<Item>p_desk04x</Item>
+<Item>p_armoiroffice66x</Item>
+<Item>p_lampwall04x</Item>
+<Item>p_sconcelight01x</Item>
+<Item>p_ropenail01x</Item>
+<Item>p_filecabinet69x</Item>
+<Item>p_gen_boots01</Item>
+<Item>p_lampwall02x</Item>
+<Item>p_trashbin01x</Item>
+<Item>p_crateset02x</Item>
+<Item>p_storageboxnbx01x</Item>
+<Item>p_crate26x_c</Item>
+<Item>p_coverpronghorn01x</Item>
+<Item>p_hatstand01x</Item>
+<Item>p_cs_nooseshort01x</Item>
+<Item>p_lampkerosene01x</Item>
+<Item>p_cs_cuttingboard01x</Item>
+<Item>p_toolbox01x</Item>
+<Item>p_crategroup02x</Item>
+<Item>p_loveseat01x</Item>
+<Item>p_register01x</Item>
+<Item>p_cigarbox03x</Item>
+<Item>p_glass003x</Item>
+<Item>p_sidetable07x</Item>
+<Item>p_group_n_grocery_crate08x</Item>
+<Item>p_grp_jug02x_sal_sd</Item>
+<Item>s_veh_lantern02_lf</Item>
+<Item>lada006</Item>
+<Item>dywan_bw1</Item>
+<Item>p_chair37x</Item>
+<Item>p_tablebooth01x</Item>
+<Item>p_group_gamble_jar01x</Item>
+<Item>p_sal_glasset02x</Item>
+<Item>p_hookpulley02x</Item>
+<Item>p_cs_bookhardcv01x</Item>
+<Item>p_grp_w_tra_crate09x</Item>
+<Item>p_jar03x</Item>
+<Item>p_windsorchair02x</Item>
+<Item>p_woodpile01x</Item>
+<Item>p_crategroup08x</Item>
+<Item>p_package_vg</Item>
+<Item>p_settee03bx</Item>
+<Item>p_bearskin01x</Item>
+<Item>p_foldedbillsmedium01x</Item>
+<Item>p_sofa01x</Item>
+<Item>p_paper03x</Item>
+<Item>mp008_p_mshn_painting16x</Item>
+<Item>p_cs_whiskeygls01x</Item>
+<Item>p_crategroup07x</Item>
+<Item>p_plant05x</Item>
+<Item>p_chaircomfy02</Item>
+<Item>p_group_n_grocery_crate15x</Item>
+<Item>p_dislantern01x</Item>
+<Item>p_buffet01x</Item>
+<Item>p_chaircomfy23x</Item>
+<Item>p_coalbag02x</Item>
+<Item>p_bal_whiskeycrate01</Item>
+<Item>p_cs_envelope02x</Item>
+<Item>p_chaircomfy06x</Item>
+<Item>p_shoe_female_01x</Item>
+<Item>mp008_p_mshn_painting17x</Item>
+<Item>s_cratejunk01x</Item>
+<Item>p_armoir02x_loot</Item>
+<Item>mp006_p_mshn_painting04x</Item>
+<Item>p_chairrocking06x</Item>
+<Item>p_grainbag01x</Item>
+<Item>p_group_n_grocery_crate23x</Item>
+<Item>p_toolpegboard01x</Item>
+<Item>p_cornercabinet01x</Item>
+<Item>p_chaircomfy14x</Item>
+<Item>p_cabinetdoctor01x</Item>
+<Item>lada007</Item>
+<Item>p_shelf10x</Item>
+<Item>p_coalscuttle01x</Item>
+<Item>p_candelabra02x</Item>
+<Item>p_commode01x</Item>
+<Item>p_grp_box03x_car_sd</Item>
+<Item>p_grp_w_tra_ropewall01x</Item>
+<Item>p_sto_cleanprod02x</Item>
+<Item>p_candlegroup04x</Item>
+<Item>p_settee02x</Item>
+<Item>s_pictureframe14x</Item>
+<Item>s_abe_grandmapic02x</Item>
+<Item>p_lampstanding05x</Item>
+<Item>p_pot_flowerarng23x</Item>
+<Item>p_tiptray01x</Item>
+<Item>p_desk17x</Item>
+<Item>p_kerosenecan02x</Item>
+<Item>s_hangingropes01x</Item>
+<Item>p_cheeseblock_c</Item>
+<Item>p_candyjarchoc01x</Item>
+<Item>p_bed20x</Item>
+<Item>p_plantpotwallnbx02x</Item>
+<Item>p_pot_plant_05a</Item>
+<Item>p_basketrope01x</Item>
+<Item>p_armoir03x</Item>
+<Item>p_cs_rope05x</Item>
+<Item>p_crate05x_group_01</Item>
+<Item>p_shelfwall05x</Item>
+<Item>p_threecardmonte01x</Item>
+<Item>p_sink02x</Item>
+<Item>p_settee02bx</Item>
+<Item>p_stamp01x</Item>
+<Item>p_desk01x</Item>
+<Item>p_kindlingpile01x</Item>
+<Item>p_hatchet01x</Item>
+<Item>p_stove04x</Item>
+<Item>p_table53x</Item>
+<Item>p_pot_flowerarng02x</Item>
+<Item>p_bowlstack01x</Item>
+<Item>p_nbmclock01x</Item>
+<Item>p_armoir05x_loot</Item>
+<Item>p_doornbd31x</Item>
+<Item>p_door51x</Item>
+<Item>p_door58x</Item>
+<Item>p_doorrhogensto01x</Item>
+    </itypDepArray>
+  </Item>
+  </itypDependencies_2>
+  <Interiors>
+    <Item>
+      <Name>meblowybwkol</Name>
+      <Bounds>
+        <Item>meblowybwkol</Item>
+      </Bounds>
+    </Item>
+  </Interiors>
+  <redm_loves_you_7cc2afb2d40476ed/>
+  <redm_loves_you_c1fa8cdfbc6c9972/>
+  <txdRelationships/>
+  <redm_loves_you_faf7283fa0923550/>
+  <redm_loves_you_5179f30cceb03389/>
+</CPackFileMetaData>

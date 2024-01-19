@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CPackFileMetaData>
+  <MapDataGroups/>
+  <HDTxdBindingArray/>
+  <imapDependencies/>
+  <imapDependencies_2>
+   <Item>
+      <imapName>dwasklepiki_ymap</imapName>
+      <manifestFlags>INTERIOR_DATA</manifestFlags>
+      <itypDepArray>
+        <Item>dwasklepiki_ytyp</Item>
+      </itypDepArray>
+    </Item>
+  </imapDependencies_2>
+  <itypDependencies_2>
+    <Item>
+    <itypName>dwasklepikikol</itypName>
+    <manifestFlags>INTERIOR_DATA</manifestFlags>
+    <itypDepArray>
+      <Item>p_clamphand01x</Item>
+<Item>p_cupboard04x</Item>
+<Item>p_blackwater_josiah_01x</Item>
+<Item>p_candle02x</Item>
+<Item>p_sculpturedeer01x</Item>
+<Item>p_cratebrand01x</Item>
+<Item>p_boxlrgcotton01x</Item>
+<Item>p_tacksingle01x</Item>
+<Item>p_bottlecrate05x</Item>
+<Item>p_ambpack02x</Item>
+<Item>mp006_p_mshn_painting05x</Item>
+<Item>p_tablechop02x</Item>
+<Item>p_kerosenecan02x</Item>
+<Item>p_lantern04xlowfuel</Item>
+<Item>p_register01x</Item>
+<Item>lada_bw3</Item>
+<Item>s_lootableammocase</Item>
+<Item>p_lantern08x</Item>
+<Item>p_sign_miners02x</Item>
+<Item>p_lampstanding03x</Item>
+<Item>p_lantern04x</Item>
+<Item>p_valbankclock01x</Item>
+<Item>p_chair07x</Item>
+<Item>p_woodbench02x</Item>
+<Item>p_dressinglcmtool01x</Item>
+<Item>p_lantern05x</Item>
+<Item>p_lanternhang01x</Item>
+<Item>p_lantern09x</Item>
+<Item>p_curtainslace02x_static</Item>
+<Item>p_lampkerosene01x</Item>
+<Item>p_safe_ser</Item>
+<Item>p_dowhseint_curt01a</Item>
+<Item>p_cs_stolen04x</Item>
+<Item>mp006_p_mshn_painting15x</Item>
+<Item>p_books03x</Item>
+<Item>mp008_p_mshn_painting16x</Item>
+<Item>p_oildrum01x</Item>
+<Item>p_dowhseint_curt01b</Item>
+<Item>p_whittlingwood01x</Item>
+<Item>p_broom01x</Item>
+<Item>p_candlepuddle05x</Item>
+<Item>p_dislantern01x</Item>
+<Item>p_trashbin01x</Item>
+<Item>p_cs_wagonwheel01x</Item>
+<Item>p_lampwall01x</Item>
+<Item>mp006_p_mshn_painting01x</Item>
+<Item>mp006_p_mshn_painting14x</Item>
+<Item>p_coinstack01</Item>
+<Item>p_hammer01x</Item>
+<Item>s_im_woodenbox01x</Item>
+<Item>p_cs_dirtybag01x</Item>
+<Item>p_pot_plant_05b</Item>
+<Item>p_kerosenetablelamp01x</Item>
+<Item>p_grp_w_tra_crate09x</Item>
+<Item>p_crucifix03x</Item>
+<Item>p_lantern07x</Item>
+<Item>s_desk01x</Item>
+<Item>s_re_chocolate01x</Item>
+<Item>dywan_bw2</Item>
+<Item>p_woodcarve01x</Item>
+<Item>p_journal_open01x</Item>
+<Item>mp006_p_mshn_painting07x</Item>
+<Item>p_woodbin01x</Item>
+<Item>p_cs_grindingwheelx</Item>
+<Item>p_cratetools01x</Item>
+<Item>p_debrispilestd08x</Item>
+<Item>p_newspaperstandbl_12x</Item>
+<Item>p_trainstationsign01x</Item>
+<Item>p_grp_box03x_car_sd</Item>
+<Item>p_gloves01x</Item>
+<Item>p_clamp03x</Item>
+<Item>p_debris07x</Item>
+<Item>p_tiptray01x</Item>
+<Item>p_hatstand01x</Item>
+<Item>p_camp_cup_01x</Item>
+<Item>p_medwheelchair01x</Item>
+<Item>p_doc_papercert01x</Item>
+<Item>p_books66x</Item>
+<Item>p_doc_stack03x</Item>
+<Item>p_candleboxnbx01x</Item>
+<Item>p_teacup02x</Item>
+<Item>p_doc_botset11x</Item>
+<Item>p_ambropedraped01x_static</Item>
+<Item>p_cs_prostheticleg_01bx</Item>
+<Item>p_mp_cover_ss_lag</Item>
+<Item>mp006_p_mshn_painting13x</Item>
+<Item>p_apothecary01x</Item>
+<Item>p_pot_flowerarng07x</Item>
+<Item>p_washbasndoctor01x</Item>
+<Item>p_drmedcabinet01x</Item>
+<Item>p_medlight02x</Item>
+<Item>p_cards_cs01x</Item>
+<Item>p_chairdesk01x</Item>
+<Item>p_petridish01x</Item>
+<Item>p_drsupplycart01x</Item>
+<Item>p_bookcase04x</Item>
+<Item>p_vanslidingdoor01x</Item>
+<Item>p_doc_botset16x</Item>
+<Item>p_sawbucktable01x</Item>
+<Item>p_desk08x</Item>
+<Item>p_microscope01x</Item>
+<Item>p_lamphangnbx01x</Item>
+<Item>p_cs_valjailblind_02</Item>
+<Item>p_surgicalsaw01x</Item>
+<Item>p_displaycasenbx02x</Item>
+<Item>p_syringe01x</Item>
+<Item>p_mortar_01</Item>
+<Item>p_hallbench01x</Item>
+<Item>p_cupboardcorner01x</Item>
+<Item>p_cs_bandage01x</Item>
+<Item>lada_bw1</Item>
+<Item>p_coffer01x</Item>
+<Item>p_stool03x</Item>
+<Item>p_scalecandy01x</Item>
+<Item>s_lootablemiscchest_c</Item>
+<Item>p_cupboard02x</Item>
+<Item>p_doc_botset04x</Item>
+<Item>s_medicinebox01x</Item>
+<Item>p_boxmedsuitcase01x</Item>
+<Item>p_newspaperlivestock01x</Item>
+<Item>obraz_bw6</Item>
+<Item>dywan_bw7</Item>
+<Item>dywan_bw1</Item>
+<Item>s_pictureframe11x</Item>
+<Item>p_register03x</Item>
+<Item>p_drmedscale03x</Item>
+<Item>mp006_p_mshn_painting10x</Item>
+<Item>p_lampstanding05x</Item>
+<Item>p_candlegroup02x</Item>
+<Item>p_examtbledoctor01x</Item>
+<Item>p_newspaperroll01x</Item>
+<Item>s_pic_arthursmom01x</Item>
+<Item>p_medsyringe01x</Item>
+<Item>p_doc_stack01x</Item>
+<Item>p_bandage02x</Item>
+<Item>p_doc_botset17x</Item>
+<Item>p_doc_botset18x</Item>
+<Item>p_doc_botset07x</Item>
+<Item>p_telegramcombo01x</Item>
+<Item>p_grp_w_tra_tentrolled01x</Item>
+<Item>p_static_cratesack01</Item>
+<Item>p_hanginglightnbx01x</Item>
+<Item>p_cabinet07x</Item>
+<Item>p_pitcher03bx</Item>
+<Item>p_ledgerset01x</Item>
+<Item>p_doc_botset12x</Item>
+<Item>p_doc_botset08x</Item>
+<Item>s_doctortable01x</Item>
+<Item>s_healthpack01x</Item>
+<Item>p_nbmclock01x</Item>
+<Item>p_medicalchart01x</Item>
+<Item>p_cs_valjailblind_01</Item>
+<Item>p_cs_crate03x_fixed</Item>
+<Item>p_doctorsbookpile01x</Item>
+<Item>p_cs_frame09x</Item>
+<Item>s_pic_mary01x</Item>
+<Item>p_doc_botset13x</Item>
+<Item>p_adl_drwsng01x</Item>
+<Item>p_glass05x</Item>
+<Item>p_doc_botset15x</Item>
+<Item>p_bed21x</Item>
+<Item>p_loveseat01x</Item>
+<Item>p_doornbd39x_static</Item>
+<Item>p_door02x_v2</Item>
+<Item>p_door_val_genstore</Item>
+<Item>p_doorrhogensto01x</Item>
+<Item>p_door62x</Item>
+<Item>p_door51x</Item>
+    </itypDepArray>
+  </Item>
+  </itypDependencies_2>
+  <Interiors>
+    <Item>
+      <Name>dwasklepikikol</Name>
+      <Bounds>
+        <Item>dwasklepikikol</Item>
+      </Bounds>
+    </Item>
+  </Interiors>
+  <redm_loves_you_7cc2afb2d40476ed/>
+  <redm_loves_you_c1fa8cdfbc6c9972/>
+  <txdRelationships/>
+  <redm_loves_you_faf7283fa0923550/>
+  <redm_loves_you_5179f30cceb03389/>
+</CPackFileMetaData>

@@ -1,0 +1,22 @@
+fx_version "adamant"
+game "rdr3"
+
+this_is_a_map "yes"
+
+
+rdr3_warning "I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships."
+
+escrow_ignore {'stream/*', }
+lua54 "yes"
+
+client_scripts {
+    'client_furniture.obfuscated.lua',
+  }
+
+  files {'qtas.xml'}
+
+  data_file "TIMECYCLEMOD_FILE" "qtas.xml"
+
+name "Blackwater Furniture Store"
+author "kajoj"
+dependency '/assetpacks'

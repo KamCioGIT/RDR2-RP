@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CPackFileMetaData>
+  <MapDataGroups/>
+  <HDTxdBindingArray/>
+  <imapDependencies/>
+  <imapDependencies_2>
+   <Item>
+      <imapName>restar_ymap</imapName>
+      <manifestFlags>INTERIOR_DATA</manifestFlags>
+      <itypDepArray>
+        <Item>restar_ytyp</Item>
+      </itypDepArray>
+    </Item>
+  </imapDependencies_2>
+  <itypDependencies_2>
+    <Item>
+    <itypName>restarkol</itypName>
+    <manifestFlags>INTERIOR_DATA</manifestFlags>
+    <itypDepArray>
+<Item>p_bookset04x</Item>
+<Item>p_watch01x</Item>
+<Item>p_books66x</Item>
+<Item>s_rc_emerald01x</Item>
+<Item>p_doctorsbookpile01x</Item>
+<Item>p_valjailblind_02</Item>
+<Item>p_pot_plant_05a</Item>
+<Item>p_lampkerosene03x</Item>
+<Item>mp005_p_mp_predhunt_skull08x</Item>
+<Item>p_cs_frame09ax</Item>
+<Item>s_abaloneshellfragment01x</Item>
+<Item>p_camerabox02x</Item>
+<Item>s_footlockermud02x</Item>
+<Item>p_plantpothangnbx01x</Item>
+<Item>p_group_bottlewine05x_sd</Item>
+<Item>p_lampstanding03x</Item>
+<Item>p_paper01x</Item>
+<Item>p_tailorgroup01</Item>
+<Item>s_fortuneteller01x</Item>
+<Item>p_newspaperstack03x</Item>
+<Item>p_bw_desk01x</Item>
+<Item>p_cs_flyinggoggle01x</Item>
+<Item>p_lampwall04x</Item>
+<Item>s_jewlerybox_sm_plain01x</Item>
+<Item>p_tableannsaloon01x</Item>
+<Item>p_mask04x</Item>
+<Item>s_vault_sml_l_val01x_high</Item>
+<Item>p_candlegroup02x</Item>
+<Item>p_shelf06x</Item>
+<Item>p_camerabox01x</Item>
+<Item>p_bench03x</Item>
+<Item>s_inv_ring03x</Item>
+<Item>p_register03x</Item>
+<Item>p_paperstack01x</Item>
+<Item>p_spoon01x</Item>
+<Item>p_clocktable02x</Item>
+<Item>p_wallamp09x</Item>
+<Item>p_maskolmec01x</Item>
+<Item>p_antlers01x</Item>
+<Item>p_pot_flowerarng05x</Item>
+<Item>p_books03x</Item>
+<Item>p_candlegroup07x</Item>
+<Item>p_mask03x</Item>
+<Item>p_pot_flowerarng06x</Item>
+<Item>s_mayantrinket01x</Item>
+<Item>p_bottlecrate01x</Item>
+<Item>p_tuxyoungaligator01x</Item>
+<Item>p_urn02x</Item>
+<Item>p_deskstand01x</Item>
+<Item>p_cabinet09x</Item>
+<Item>p_corpsenecklace01x</Item>
+<Item>p_letterbundlecombo01x</Item>
+<Item>p_clocktable03x</Item>
+<Item>p_maskcombined01x</Item>
+<Item>s_cs_sd_newspaper05x</Item>
+<Item>p_sign03x</Item>
+<Item>p_sto_cigarstand01x</Item>
+<Item>p_clock06x</Item>
+<Item>s_dis_flourite01x</Item>
+<Item>p_flamboyanthat_01x</Item>
+<Item>s_re_silver_relicguama01x</Item>
+<Item>p_papergroup04x</Item>
+<Item>s_re_relicguama02x</Item>
+<Item>p_headbust03x</Item>
+<Item>p_spittoon01x</Item>
+<Item>p_door10x</Item>
+<Item>s_bobcatclaw01x</Item>
+<Item>p_clocktable07x</Item>
+<Item>p_magiclantern01x</Item>
+<Item>p_sign01x</Item>
+<Item>p_inv_treasuregoldcross01x</Item>
+<Item>p_cigarettebox01groupx</Item>
+<Item>p_displaytux01x</Item>
+<Item>p_guncase04x</Item>
+<Item>p_headbust02x</Item>
+<Item>p_val_trnstn_curtain01b</Item>
+<Item>p_candle02x</Item>
+<Item>p_chairdining01x</Item>
+<Item>p_itable03x</Item>
+<Item>s_champbottle01x</Item>
+<Item>p_chandelier15x</Item>
+<Item>p_napkins01x</Item>
+<Item>p_fork_knife01x</Item>
+<Item>p_glasstallbeer01x</Item>
+<Item>p_pigroast</Item>
+<Item>s_champglass01x</Item>
+<Item>p_table52x</Item>
+<Item>p_bottlesherry01x</Item>
+<Item>p_oyster_plate</Item>
+<Item>p_shelf10x</Item>
+<Item>p_teatray01</Item>
+<Item>p_sal_glasset01x</Item>
+<Item>p_bottle008x</Item>
+<Item>p_glass04x</Item>
+<Item>p_fork01x</Item>
+<Item>s_champagne_gold</Item>
+<Item>p_re_checkpoint02x_food</Item>
+<Item>p_cs_platestew01x</Item>
+<Item>p_tray02x</Item>
+<Item>p_val_trnstn_curtain01a</Item>
+<Item>p_candlegroup04x</Item>
+<Item>p_teasugar</Item>
+<Item>p_group_glass01x_sd</Item>
+<Item>p_saladplate01x</Item>
+<Item>p_painting_newgala_sml01x</Item>
+<Item>p_teacup</Item>
+<Item>s_wineglass01x_red</Item>
+<Item>p_plantpotnbx08x</Item>
+<Item>p_bottlecrate03x</Item>
+<Item>p_spoon02x</Item>
+<Item>p_lampwall02x</Item>
+<Item>p_group_plate10x_sd</Item>
+<Item>p_cs_pot01x</Item>
+<Item>p_platterfruit02x</Item>
+<Item>p_food02ax</Item>
+<Item>p_cs_frame01ax</Item>
+<Item>p_int_food05</Item>
+<Item>p_plates_dishes_01x</Item>
+<Item>p_stewspoon01x</Item>
+<Item>p_food01ax</Item>
+<Item>p_crab_plate_eaten</Item>
+<Item>p_cs_policejacket01x</Item>
+<Item>p_group_gamble_bottlewine03x</Item>
+<Item>p_crab_plate_03</Item>
+<Item>s_foodmenuclipboard03x</Item>
+<Item>p_bottlewine02x</Item>
+<Item>p_hutchwhite01x</Item>
+<Item>p_divider05x</Item>
+<Item>p_fireguard02x</Item>
+<Item>p_teapot02</Item>
+<Item>p_fireplacelogs02x</Item>
+<Item>p_ser_grand_curtain01a</Item>
+<Item>p_cs_platestew03x_emty</Item>
+<Item>p_bottle005x</Item>
+<Item>p_bottlewine03x</Item>
+<Item>p_soupbowl01x</Item>
+<Item>p_salami_a_meat_b</Item>
+<Item>p_bottle009x</Item>
+<Item>p_bowlstack01x</Item>
+<Item>p_pot05x</Item>
+<Item>p_cs_hordervetray01x</Item>
+<Item>p_brickplug01x</Item>
+<Item>p_group_gamble_bottlewine02x</Item>
+<Item>kill</Item>
+<Item>p_group_cup01_sd</Item>
+<Item>p_plate12x</Item>
+<Item>p_candlestand</Item>
+<Item>p_group_plate04x_sd</Item>
+<Item>p_drysink01x</Item>
+<Item>p_grp_bottle03x_sal_sd</Item>
+<Item>p_bottle003x</Item>
+<Item>p_sal_glasset04x</Item>
+<Item>p_chandelier12x</Item>
+<Item>p_basketpotato01x</Item>
+<Item>p_bottlewine01x</Item>
+<Item>p_saloonpropgroup04x</Item>
+<Item>p_cs_pot02x</Item>
+<Item>p_bread_13_ab_s</Item>
+<Item>p_nbmpiano01x</Item>
+<Item>p_cs_platestew02x_noanim</Item>
+<Item>p_group_man01x_smltable</Item>
+<Item>p_ser_grand_curtain01b</Item>
+<Item>p_teatraycombo01x</Item>
+<Item>p_stove04x</Item>
+<Item>p_potsm01a</Item>
+<Item>p_cs_frame08ax</Item>
+<Item>p_cs_frame07x</Item>
+<Item>p_servingdish01x</Item>
+<Item>p_group_man01x_tableround</Item>
+<Item>p_bal_beermug01x</Item>
+<Item>p_doc_coatstandrack01x</Item>
+<Item>p_cs_frame02ax</Item>
+<Item>p_woodplank01x</Item>
+<Item>p_bottlebeer02x</Item>
+<Item>p_pianochair01x</Item>
+<Item>s_beermugglass01x</Item>
+<Item>p_plate10x</Item>
+<Item>p_nbmclock01x</Item>
+<Item>p_int_windowdisplay01</Item>
+<Item>p_grp_w_tra_cup01x</Item>
+<Item>p_int_candy01</Item>
+<Item>p_group_n_grocery_sdish02x</Item>
+<Item>p_filletknife01x</Item>
+<Item>p_tiptray01x</Item>
+<Item>p_int_food06</Item>
+<Item>p_cuttingboard01x</Item>
+<Item>p_doornbd40b_x</Item>
+<Item>p_door01x</Item>
+<Item>p_doornbd40a_x</Item>
+      
+    </itypDepArray>
+  </Item>
+  </itypDependencies_2>
+  <Interiors>
+    <Item>
+      <Name>restarkol</Name>
+      <Bounds>
+        <Item>restarkol</Item>
+      </Bounds>
+    </Item>
+  </Interiors>
+  <redm_loves_you_7cc2afb2d40476ed/>
+  <redm_loves_you_c1fa8cdfbc6c9972/>
+  <txdRelationships/>
+  <redm_loves_you_faf7283fa0923550/>
+  <redm_loves_you_5179f30cceb03389/>
+</CPackFileMetaData>

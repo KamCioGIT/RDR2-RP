@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CPackFileMetaData>
+  <MapDataGroups/>
+  <HDTxdBindingArray/>
+  <imapDependencies/>
+  <imapDependencies_2>
+   <Item>
+      <imapName>casinobw_ymap</imapName>
+      <manifestFlags>INTERIOR_DATA</manifestFlags>
+      <itypDepArray>
+        <Item>casinobw_ytyp</Item>
+      </itypDepArray>
+    </Item>
+  </imapDependencies_2>
+  <itypDependencies_2>
+    <Item>
+    <itypName>casinobwkol</itypName>
+    <manifestFlags>INTERIOR_DATA</manifestFlags>
+    <itypDepArray>
+    <Item>p_chair13x</Item>
+<Item>prop_chip_blue_x5</Item>
+<Item>p_barstool01x</Item>
+<Item>p_chandelier15x</Item>
+<Item>p_crd_chips999x</Item>
+<Item>s_drinkshootmg01x</Item>
+<Item>p_glass_cs06x</Item>
+<Item>p_crd_chips949x</Item>
+<Item>p_cigarettebox01group3x</Item>
+<Item>p_cs_frame09ax</Item>
+<Item>p_mr_bear01x</Item>
+<Item>mp006_p_mshn_painting14x</Item>
+<Item>p_curtainslace02b</Item>
+<Item>p_tableconsole03bx</Item>
+<Item>p_lamp35x</Item>
+<Item>p_group_n_grocery_bcrate02x</Item>
+<Item>p_paintings01x</Item>
+<Item>p_bottlecognac01x</Item>
+<Item>p_cs_rope01x</Item>
+<Item>p_new_man_gala_cur06a</Item>
+<Item>p_cs_whiskeygls01x</Item>
+<Item>p_pot_flowerarng06x</Item>
+<Item>p_sheetmusic01x</Item>
+<Item>p_crd_10_s01x_std_labastille</Item>
+<Item>p_foldedbillssmall01bx</Item>
+<Item>p_craftedtable01x</Item>
+<Item>p_cigarettebox01groupx</Item>
+<Item>p_brassbox01x</Item>
+<Item>s_inv_gin01x</Item>
+<Item>p_cigar01x</Item>
+<Item>p_chair30x</Item>
+<Item>p_glass05x</Item>
+<Item>p_fitcherbrothe01x</Item>
+<Item>p_directdamnation01x</Item>
+<Item>s_inv_whiskey01x</Item>
+<Item>p_pot_flowerarng05x</Item>
+<Item>p_tiptray01x</Item>
+<Item>s_inv_rum01x</Item>
+<Item>mp006_p_mshn_painting13x</Item>
+<Item>p_table53x</Item>
+<Item>p_bottlesherry01x</Item>
+<Item>p_cardssplit01x_gk</Item>
+<Item>p_crd_chips944x</Item>
+<Item>p_crategroup08x</Item>
+<Item>p_sal_botset03x</Item>
+<Item>p_lamp08x</Item>
+<Item>p_lampwall13x</Item>
+<Item>p_blackjacktable02x</Item>
+<Item>mp006_p_mshn_painting04x</Item>
+<Item>p_cs_book05x</Item>
+<Item>p_pot_flowerarng16x</Item>
+<Item>p_painting02x</Item>
+<Item>p_grp_new_sal02_props19x</Item>
+<Item>p_group_n_grocery_crate22x</Item>
+<Item>p_sal_glasset01x</Item>
+<Item>mp008_p_mshn_painting17x</Item>
+<Item>p_tobaccotin01x</Item>
+<Item>mp006_p_mshn_painting07x</Item>
+<Item>p_cardssplit01x_bla</Item>
+<Item>p_bottlebrandy01x</Item>
+<Item>prop_chip_red_x5</Item>
+<Item>p_lampwall04x</Item>
+<Item>p_tablegiltwood01x</Item>
+<Item>p_pokerchipante01x</Item>
+<Item>p_bottle011x</Item>
+<Item>p_cs_contrabass01x</Item>
+<Item>p_lamp09x</Item>
+<Item>p_cigarette_cs01x</Item>
+<Item>p_blackjackcaddy01x</Item>
+<Item>p_couch01x</Item>
+<Item>p_cs_watergls01x</Item>
+<Item>s_bla_menuclipboard01</Item>
+<Item>p_crategroup07x</Item>
+<Item>p_teacup02x</Item>
+<Item>s_champholder01x</Item>
+<Item>p_cs_frame02x</Item>
+<Item>p_grp_new_sal02_props12x</Item>
+<Item>p_pokertable01x</Item>
+<Item>p_new_man_gala_cur06b</Item>
+<Item>p_int_gen_tobacco03</Item>
+<Item>p_glass03x</Item>
+<Item>p_crd_chips400x</Item>
+<Item>p_crd_chips499x</Item>
+<Item>p_foldedbillsmedium01bx</Item>
+<Item>p_cs_newspaper_01x</Item>
+<Item>prop_chip_green_x5</Item>
+<Item>p_gindressing</Item>
+<Item>p_cs_frame04ax</Item>
+<Item>p_glassbrandy01x</Item>
+<Item>p_musicstand01x</Item>
+<Item>p_crd_chips440x</Item>
+<Item>p_cs_frame08ax</Item>
+<Item>s_re_chocolate01x</Item>
+<Item>s_champagne_gold</Item>
+<Item>p_couch10x</Item>
+<Item>p_cigarettecheapused01x</Item>
+<Item>p_doorscanwood02_static</Item>
+<Item>p_door15x_static</Item>  
+    </itypDepArray>
+  </Item>
+  </itypDependencies_2>
+  <Interiors>
+    <Item>
+      <Name>casinobwkol</Name>
+      <Bounds>
+        <Item>casinobwkol</Item>
+      </Bounds>
+    </Item>
+  </Interiors>
+  <redm_loves_you_7cc2afb2d40476ed/>
+  <redm_loves_you_c1fa8cdfbc6c9972/>
+  <txdRelationships/>
+  <redm_loves_you_faf7283fa0923550/>
+  <redm_loves_you_5179f30cceb03389/>
+</CPackFileMetaData>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CPackFileMetaData>
+  <MapDataGroups/>
+  <HDTxdBindingArray/>
+  <imapDependencies/>
+  <imapDependencies_2>
+   <Item>
+      <imapName>sklepikiwood_ymap</imapName>
+      <manifestFlags>INTERIOR_DATA</manifestFlags>
+      <itypDepArray>
+        <Item>sklepikiwood_ytyp</Item>
+      </itypDepArray>
+    </Item>
+  </imapDependencies_2>
+  <itypDependencies_2>
+    <Item>
+    <itypName>sklepikiwoodkol</itypName>
+    <manifestFlags>INTERIOR_DATA</manifestFlags>
+    <itypDepArray>
+      <Item>p_lamp03x</Item>
+<Item>p_sconcelight01x</Item>
+<Item>p_lily_lucife01x</Item>
+<Item>p_sto_barrelsalt01x</Item>
+<Item>p_sto_goods16x</Item>
+<Item>p_mp_cover_hl_sb</Item>
+<Item>p_shelflrg01x</Item>
+<Item>p_rockbag01x_close</Item>
+<Item>p_group_n_grocery_cgrinder02x</Item>
+<Item>p_signtorn02x</Item>
+<Item>p_cs_sugarbag01x</Item>
+<Item>p_int_houseware03</Item>
+<Item>val_bank_clock</Item>
+<Item>p_blanketbox01x</Item>
+<Item>p_farmersdaughter01x</Item>
+<Item>p_coinstack02</Item>
+<Item>p_mp_cover_s_ado</Item>
+<Item>p_sto_merchbox01x</Item>
+<Item>p_feedbag01x</Item>
+<Item>p_packfowgroup01x</Item>
+<Item>p_sto_goods35x</Item>
+<Item>p_barrelsaltlid01x</Item>
+<Item>p_cs_flourbag01x</Item>
+<Item>p_package09</Item>
+<Item>p_re_beartrapgroup02x</Item>
+<Item>p_paperrollcutter01x</Item>
+<Item>p_sign02x</Item>
+<Item>p_pot_plant_05a</Item>
+<Item>p_moneybag01x</Item>
+<Item>p_grainbag01x</Item>
+<Item>p_mp_cover_sh_cr</Item>
+<Item>p_int_hunting01_carn02</Item>
+<Item>p_saltshaker01x</Item>
+<Item>p_woodbench02x</Item>
+<Item>s_saddiessupply01x</Item>
+<Item>p_group_crate06</Item>
+<Item>p_ambclothdrape01x_static</Item>
+<Item>p_coinstack01</Item>
+<Item>p_grp_box04x_car_sd</Item>
+<Item>p_int_hunting01_carn</Item>
+<Item>p_sto_sugar01x</Item>
+<Item>p_grp_w_tra_crate09x</Item>
+<Item>p_barrel02x_group_02</Item>
+<Item>p_group_n_grocery_crate21x</Item>
+<Item>p_cratetable01x</Item>
+<Item>p_barrelsalt01x</Item>
+<Item>p_wallropeinteract01x</Item>
+<Item>p_tiptray01x</Item>
+<Item>p_sidetable07x</Item>
+<Item>p_door02x_v2</Item>
+<Item>p_door02x</Item>
+<Item>p_door51x</Item>
+<Item>p_door52x</Item>
+<Item>p_candleboxnbx01x</Item>
+<Item>dywan_bw1</Item>
+<Item>p_mp_cover_sh_tt</Item>
+<Item>p_register08x</Item>
+<Item>p_chalksign02x</Item>
+<Item>p_mp_covercomb_hm_lak</Item>
+<Item>s_crateseat03x_lidanim</Item>
+<Item>dywan_bw2</Item>
+<Item>p_grp_box03x_car_sd</Item>
+<Item>p_coatrack01x</Item>
+<Item>s_pic_gunslingerslim01x</Item>
+<Item>p_chair04x</Item>
+<Item>p_axe02x</Item>
+<Item>p_food02x_eaten</Item>
+<Item>p_lamphanging04x</Item>
+<Item>p_dollynbx01x</Item>
+<Item>p_cs_wanted_dead01x</Item>
+<Item>p_coffer01x</Item>
+<Item>p_woodpile06x</Item>
+<Item>p_benchwork01x</Item>
+<Item>p_barrel_ladle01x</Item>
+<Item>p_cs_mattress01x</Item>
+<Item>dywan_bw3</Item>
+<Item>mp008_p_mshn_painting16x</Item>
+<Item>s_inv_cigcard_grl_12x</Item>
+<Item>p_toolbox01x</Item>
+<Item>lada_bw4</Item>
+<Item>p_signtorn03x</Item>
+<Item>p_lantern04x</Item>
+<Item>s_crateseat03x</Item>
+<Item>p_jacket03x</Item>
+<Item>mp006_p_mshn_painting03x</Item>
+<Item>p_lamphangnbx01x</Item>
+<Item>p_saviorssavages01x</Item>
+<Item>s_pictureframe13x</Item>
+<Item>p_bottlebeer04x</Item>
+<Item>p_crateset15x</Item>
+<Item>p_cs_kindling01x</Item>
+<Item>p_cornercabinet01x</Item>
+<Item>p_badger02x</Item>
+<Item>p_bed01x</Item>
+<Item>p_axe01x</Item>
+<Item>mp006_p_mshn_painting09x</Item>
+<Item>s_inv_gin_used01x</Item>
+<Item>p_crategroup07x</Item>
+<Item>p_candlegroup02x</Item>
+<Item>p_sawhand01x</Item>
+<Item>p_bible01x</Item>
+<Item>p_footlocker07x_loot</Item>
+<Item>s_pic_hoseaandwife</Item>
+<Item>p_whittlingwood01x</Item>
+<Item>p_candlestick03x</Item>
+<Item>p_crateset02x</Item>
+<Item>p_banana_day_04x</Item>
+<Item>p_cs_pillow01x</Item>
+<Item>p_group_newspaperstack</Item>
+<Item>p_pot_flowerarngdead02</Item>
+<Item>p_candyjar07x</Item>
+<Item>p_crate16x</Item>
+<Item>p_bootsmarston01x</Item>
+<Item>p_plant04x</Item>
+<Item>p_rack01x</Item>
+<Item>p_stove04x</Item>
+<Item>p_static_cratecover10</Item>
+<Item>s_whittlingwolf01e</Item>
+<Item>p_plantpotnbx07x</Item>
+<Item>p_packagerig01x</Item>
+<Item>p_picturemirror02x</Item>
+<Item>p_dresser08x</Item>
+<Item>p_mp_covercomb_hm_cr</Item>
+    </itypDepArray>
+  </Item>
+  </itypDependencies_2>
+  <Interiors>
+    <Item>
+      <Name>sklepikiwoodkol</Name>
+      <Bounds>
+        <Item>sklepikiwoodkol</Item>
+      </Bounds>
+    </Item>
+  </Interiors>
+  <redm_loves_you_7cc2afb2d40476ed/>
+  <redm_loves_you_c1fa8cdfbc6c9972/>
+  <txdRelationships/>
+  <redm_loves_you_faf7283fa0923550/>
+  <redm_loves_you_5179f30cceb03389/>
+</CPackFileMetaData>
