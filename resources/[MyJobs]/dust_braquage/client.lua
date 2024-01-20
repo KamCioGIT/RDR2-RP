@@ -104,7 +104,7 @@ Citizen.CreateThread(function()
 
 RegisterCommand("dynamite", function(source, args, raw)
     -- BlowDynamite()
-    AddExplosion(-816.1816, -1277.426, 42.63773, tonumber(args[1]), 5000.0 ,true , false , 27)
+    AddExplosion(-816.1816, -1277.426, 42.63773, tonumber(args[1]), 2000.0 ,true , false , 27)
 end)
 
 function BlowDynamite()
