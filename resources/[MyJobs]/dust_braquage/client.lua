@@ -122,13 +122,10 @@ function BlowDynamite()
 	ClearPedTasks(playerPed)
 	DetachEntity(itemDynamiteprop)
 	FreezeEntityPosition(playerPed, false)
-	Citizen.Wait(500)
-	
-	
 
 	Citizen.Wait(25000)
 			
-	AddExplosion(1290.0882568359, -1312.4019775391, 76.039939880371, 25 , 5000.0 ,true , false , 27)
+	AddExplosion(x, y, z, 25 , 5000.0 ,true , false , 27)
 	Blowedynamite = true
 	local playerPed2 = PlayerPedId()
     local coords = GetEntityCoords(playerPed2)        
