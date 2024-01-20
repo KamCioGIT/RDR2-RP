@@ -33,6 +33,18 @@ AddEventHandler('sellnpc:addAlert', function (coords)
     RemoveBlip(radius)
 end)
 
+RegisterNetEvent('braquage:addAlert')
+AddEventHandler('braquage:addAlert', function (coords)
+    local blip = Citizen.InvokeNative(0x554D9D53F696D002, 1664425300, coords.x, coords.y, coords.z)
+    local radius = Citizen.InvokeNative(0x45F13B7E0A15C880, Config.radiusStyle, coords.x, coords.y, coords.z, Config.blipRadius)
+    Citizen.InvokeNative(0x9CB1A1623062F402, blip, "Braquage de banque")
+    SetBlipSprite(blip, Config.alertBlipSprite, true)
+    SetBlipScale(blip, 0.2)
+    Citizen.Wait(600*1000)
+    RemoveBlip(blip)
+    RemoveBlip(radius)
+end)
+
 
 
 Citizen.CreateThread(function()

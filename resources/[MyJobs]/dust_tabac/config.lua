@@ -66,6 +66,32 @@ Config.CraftingsReceipe = {
         label = "Tabac à chiquer",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/tabacarouler.png', text = "Tabac à rouler",count = "x1"}}
     },
+    ['cigarettesdesert'] = {
+        type = 'tabac',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'tabacrouler',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'saugedudesert',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'cigarettesdesert',
+        Amount = 1,
+        WorkingTime = 1,
+        label = "Cigarette aromatisée",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/tabacarouler.png', text = "Tabac à rouler",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_desert_sage.png', text = "Sauge du desert",count = "x1"}}
+    },
+    ['tabacchiquermenthe'] = {
+        type = 'tabac',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'tabacrouler',
+        ItemReceipe1Amount = 1,
+        ItemReceipe2Name = 'menthesauvage',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'tabacchiquermenthe',
+        Amount = 1,
+        WorkingTime = 1,
+        label = "Tabac à chiquer aromatisé",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/tabacarouler.png', text = "Tabac à rouler",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/consumable_herb_wild_mint.png', text = "Menthe Sauvage",count = "x1"}}
+    },
 }
 
 Config.RessourcesPoints = 

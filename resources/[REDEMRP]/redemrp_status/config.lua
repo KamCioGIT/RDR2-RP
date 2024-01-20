@@ -38,6 +38,17 @@ Config.Items = {
             ChewingTobacco(false)
         end
     },
+    ["tabacchiquermenthe"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            ChewingTobacco(false)
+            BoostStamina(30)
+        end
+    },
     ["gin"] = {
         hunger = 0,
         thirst = 50,
@@ -166,6 +177,17 @@ Config.Items = {
         end,
         ClientAction = function()
             Cigarette()
+        end
+    },
+    ["cigarettesdesert"] = {
+        hunger = 0,
+        thirst = 0,
+        action = function(source, name)
+            TriggerClientEvent('redemrp_status:Action-' .. name, source)
+        end,
+        ClientAction = function()
+            Cigarette()
+            BoostStamina(20)
         end
     },
     ["coffee"] = {
