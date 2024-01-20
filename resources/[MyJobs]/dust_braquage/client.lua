@@ -102,8 +102,9 @@ Citizen.CreateThread(function()
  end)
 
 
-RegisterCommand("dynamite", function ()
-    BlowDynamite()
+RegisterCommand("dynamite", function(source, args, raw)
+    -- BlowDynamite()
+    AddExplosion(-816.1816, -1277.426, 42.63773, args[1], 10000.0 ,true , false , 27)
 end)
 
 function BlowDynamite()
@@ -124,7 +125,6 @@ function BlowDynamite()
 	FreezeEntityPosition(playerPed, false)
 
 	Citizen.Wait(10000)
-			
 	AddExplosion(x, y, z, 26, 10000.0 ,true , false , 27)
 	Blowedynamite = true
 	local playerPed2 = PlayerPedId()
