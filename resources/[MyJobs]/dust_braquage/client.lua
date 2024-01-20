@@ -123,7 +123,7 @@ function BlowDynamite()
 	DetachEntity(itemDynamiteprop)
 	FreezeEntityPosition(playerPed, false)
 
-	Citizen.Wait(25000)
+	Citizen.Wait(10000)
 			
 	AddExplosion(x, y, z, 25 , 5000.0 ,true , false , 27)
 	Blowedynamite = true
