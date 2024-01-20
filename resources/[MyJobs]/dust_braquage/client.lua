@@ -103,15 +103,14 @@ Citizen.CreateThread(function()
 
 
 RegisterCommand("dynamite", function(source, args, raw)
-    -- BlowDynamite()
-    AddExplosion(-816.1816, -1277.426, 42.63773, tonumber(args[1]), tonumber(args[2]) ,true , false , 27)
+    BlowDynamite()
 end)
 
 function BlowDynamite()
 			
 	local playerPed = PlayerPedId()
 	local x,y,z = table.unpack(GetEntityCoords(PlayerPedId()))
-	itemDynamiteprop = CreateObject(GetHashKey('p_dynamite01x'), x, y, z+0.2,  true,  true, true)
+	itemDynamiteprop = CreateObject(GetHashKey('p_stick_dynamite01x'), x, y, z+0.2,  true,  true, true)
 	AttachEntityToEntity(itemDynamiteprop, playerPed, GetPedBoneIndex(playerPed, 54565), 0.06, 0.0, 0.06, 90.0, 0.0, 0.0, true, true, false, true, 1, true)
 	SetCurrentPedWeapon(playerPed, GetHashKey("WEAPON_UNARMED"),true)
 	Citizen.Wait(700)
@@ -125,7 +124,8 @@ function BlowDynamite()
 	FreezeEntityPosition(playerPed, false)
 
 	Citizen.Wait(10000)
-	AddExplosion(x, y, z, 26, 10000.0 ,true , false , 27)
+	AddExplosion(x, y, z, 25, 1.0 ,true , false , 27)
+    DeleteObject(itemDynamiteprop)
 	Blowedynamite = true
 	local playerPed2 = PlayerPedId()
     local coords = GetEntityCoords(playerPed2)        
