@@ -6,12 +6,12 @@ Config.WorkingTime = 3000
 Config.DistanceToInteract = 1.1
 
 Config.AtelierMoonshine = {
-    vector3(-628.4146, -68.25435, 81.90664), --- king
+    vector3(2369.281, -859.7531, 42.06215), --- lachance
     vector3(196.1077, 987.0225, 189.2271), -- guilde
 }
 
 Config.AlambicMoonshine = {
-    [1] = {input = vector3(2369.991, -859.4161, 42.0398), output = vector3(2372.015, -860.1348, 42.0222), name = "king"},
+    [1] = {input = vector3(2369.991, -859.4161, 42.0398), output = vector3(2372.015, -860.1348, 42.0222), name = "king"}, --- lachance
     [2] = {input = vector3(197.9031, 984.4139, 189.2446), output = vector3(196.5248, 984.0315, 189.2431), name = "guilde"}, --- guilde
 }
 
