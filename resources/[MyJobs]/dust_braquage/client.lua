@@ -15,7 +15,7 @@ Citizen.CreateThread(function()
 	Citizen.Wait(0)
 
 		local playerPed = PlayerPedId()
-		print (IsPedWeaponReadyToShoot(playerPed))
+		print (GetCurrentPedWeaponEntityIndex(playerPed, 0))
 		local playerPos = GetEntityCoords(PlayerPedId())
 		local coords = GetEntityCoords(playerPed)
 		local zone = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
