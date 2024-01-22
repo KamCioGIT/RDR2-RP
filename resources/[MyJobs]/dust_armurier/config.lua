@@ -3,14 +3,15 @@ Config = {}
 Config.Jobs = {
     [1] = "armurier_rhodes",
     [2] = "armurier_strawberry",
-    [2] = "armurier_blackwater",
+    [3] = "armurier_blackwater",
+    [4] = "armurier_stdenis",
 }
 
 Config.Atelier = {
     [1] = vector3(1327.263, -1321.737, 77.88863), -- Rhodes
     [2] = vector3(-1846.091, -419.7523, 162.4211), --- straw
     [3] = vector3(-786.9658, -1304.764, 42.76914), --- bla
-
+    [4] = vector3(2710.257, -1286.905, 48.63039), --- stdenis
 }
 
 Config.WorkingTime = 5000
@@ -26,6 +27,7 @@ Config.CraftArme = {
     [1] = vector3(1328.833, -1323.346, 76.88589), --- rhodes
     [2] = vector3(-1841.593, -414.5283, 161.2887),  --- straw
     [3] = vector3(-782.3824, -1303.022, 42.76913),  --- bla
+    [4] = vector3(2709.116, -1284.572, 48.64508), --- stdenis
 }
 
 Config.CraftingsReceipe = {

@@ -110,6 +110,29 @@ Config.Jobs = {
             },
         }
     },
+    ["armurier_stdenis"] = {
+        bigjob = "armurier",
+        Name = "Armurerie de Saint-Denis",
+        blisprite = -145868367,
+        MenuLocations = 
+            vector3(2717.668, -1287.779, 48.63041)
+        ,
+        Grades = {
+            [1] = {
+                Name = "Assistant",
+                StorageAccess = true,
+            },
+            [2] = {
+                Name = "Second",
+                StorageAccess = true,
+            },
+            [3] = {
+                Name = "Patron",
+                Personnel = true,
+                StorageAccess = true,
+            },
+        }
+    },
     ["marechal_bla"] = {
         bigjob = "marechal",
         Name = "Écurie de Blackwater",
