@@ -9,6 +9,43 @@ local maksettu = false
 local Blowedynamite = false
 local missionCompleted = false
 
+---- OUVERTURE PORTE ------
+Citizen.CreateThread(function() 
+    while true do
+	Citizen.Wait(0)
+
+		local playerPed = PlayerPedId()
+		print (IsPedWeaponReadyToShoot(playerPed))
+		local playerPos = GetEntityCoords(PlayerPedId())
+		local coords = GetEntityCoords(playerPed)
+		local zone = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
+
+		--- if le joueur a une arme en main 
+		for k, v in pairs(Config.Doors) do
+			if #(playerPos - v.pos) < 2.0 then
+				if gun == true then 
+					TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
+					if IsControlJustReleased(0, 0x760A9C6F) then
+						TriggerServerEvent('redemrp_doorlocks:updateState', k, state)
+						TriggerServerEvent("braquage:AlertSheriff", coords, zone) 
+					end
+				elseif gun == false then
+					TriggerEvent('dust_presskey', "Appuyez sur G pour poser la dynamite")
+					if IsControlJustReleased(0, 0x760A9C6F) then
+						BlowDynamite()
+						TriggerServerEvent('redemrp_doorlocks:updateState', k, state)
+						TriggerServerEvent("braquage:AlertSheriff", coords, zone) 
+					end
+				end
+			end
+		end
+	end
+end)
+
+
+
+
+
 
 --Robbery startpoint
 Citizen.CreateThread(function() 
