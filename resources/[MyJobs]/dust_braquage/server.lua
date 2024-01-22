@@ -13,14 +13,15 @@ Locations = {
 
 RegisterNetEvent("dust_braquage:askdynamite", function(doorid)
     local _source = source
-    local ItemData = data.getItem(_source, "dynamite")
-    local count = ItemData.ItemAmount 
-    local need = Config.Doors[doorid].dynamite
-    
-    if count >= need then      
-        ItemData.RemoveItem(need)
-        TriggerClientEvent('dust_braquage:poserdynamite', _source)
-    end
+    -- local ItemData = data.getItem(_source, "dynamite")
+    -- local count = ItemData.ItemAmount 
+    -- local need = Config.Doors[doorid].dynamite
+
+    -- if count >= need then      
+    --     ItemData.RemoveItem(need)
+    --     TriggerClientEvent('dust_braquage:poserdynamite', _source, doorid)
+    -- end
+    TriggerClientEvent('dust_braquage:poserdynamite', _source, doorid)
 end)
 
 
