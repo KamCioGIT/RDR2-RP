@@ -24,6 +24,7 @@ Citizen.CreateThread(function()
 		--- if le joueur a une arme en main 
 		for k, v in pairs(Config.Doors) do
 			if #(playerPos - v.pos) < 2.0 then
+				print "get"
 				if gun == true then
 					TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
 					if IsControlJustReleased(0, 0x760A9C6F) and WeapType == "SHOTGUN" and WeapType == "LONGARM" and WeapType == "SHORTARM" then
