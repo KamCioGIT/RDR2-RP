@@ -15,7 +15,9 @@ Citizen.CreateThread(function()
 	Citizen.Wait(0)
 
 		local playerPed = PlayerPedId()
-		print (GetCurrentPedWeaponEntityIndex(playerPed, 0))
+		local _, wepHash = GetCurrentPedWeapon(playerPed, true, 0, true)
+		local WeapType = GetWeaponType(wepHash)
+		print (WeapType)
 		local playerPos = GetEntityCoords(PlayerPedId())
 		local coords = GetEntityCoords(playerPed)
 		local zone = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
@@ -23,9 +25,9 @@ Citizen.CreateThread(function()
 		--- if le joueur a une arme en main 
 		for k, v in pairs(Config.Doors) do
 			if #(playerPos - v.pos) < 2.0 then
-				if gun == true then 
+				if gun == true then
 					TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
-					if IsControlJustReleased(0, 0x760A9C6F) then
+					if IsControlJustReleased(0, 0x760A9C6F) and WeapType == "SHOTGUN" and WeapType == "LONGARM" and WeapType == "SHORTARM" then
 						TriggerServerEvent('redemrp_doorlocks:updateState', k, state)
 						TriggerServerEvent("braquage:AlertSheriff", coords, zone) 
 					end
