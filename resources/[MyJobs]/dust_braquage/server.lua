@@ -11,6 +11,19 @@ Locations = {
 }
 
 
+RegisterNetEvent("dust_braquage:askdynamite", function(doorid)
+    local _source = source
+    local ItemData = data.getItem(_source, "dynamite")
+    local count = ItemData.ItemAmount 
+    local need = Config.Doors[doorid].dynamite
+    
+    if count >= need then      
+        ItemData.RemoveItem(need)
+        TriggerClientEvent('dust_braquage:poserdynamite', _source)
+    end
+end)
+
+
 RegisterNetEvent("mushy_robbery:startrobbery")
 AddEventHandler("mushy_robbery:startrobbery", function(robtime)
     local _source = source

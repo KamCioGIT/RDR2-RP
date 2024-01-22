@@ -34,15 +34,23 @@ Citizen.CreateThread(function()
 				elseif gun == false then
 					TriggerEvent('dust_presskey', "Appuyez sur G pour poser la dynamite")
 					if IsControlJustReleased(0, 0x760A9C6F) then
-						BlowDynamite()
-						TriggerServerEvent('redemrp_doorlocks:updateState', k, state)
-						TriggerServerEvent("braquage:AlertSheriff", coords, zone) 
+						TriggerServerEvent("dust_braquage:askdynamite", k)
 					end
 				end
 			end
 		end
 	end
 end)
+
+RegisterNetEvent("dust_braquage:poserdynamite", function(doorid)
+	local playerPed = PlayerPedId()
+	local playerPos = GetEntityCoords(PlayerPedId())
+	local coords = GetEntityCoords(playerPed)
+	local zone = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
+	BlowDynamite(doorid)
+	TriggerServerEvent("braquage:AlertSheriff", coords, zone) 
+end)
+
 
 function GetWeaponType(hash)
 	if Citizen.InvokeNative(0x959383DCD42040DA, hash)  or Citizen.InvokeNative(0x792E3EF76C911959, hash)   then
@@ -158,7 +166,7 @@ RegisterCommand("dynamite", function(source, args, raw)
     BlowDynamite()
 end)
 
-function BlowDynamite()
+function BlowDynamite(doorid)
 			
 	local playerPed = PlayerPedId()
 	local x,y,z = table.unpack(GetEntityCoords(PlayerPedId()))
@@ -178,6 +186,7 @@ function BlowDynamite()
 	Citizen.Wait(10000)
 	AddExplosion(x, y, z, 25, 1.0 ,true , false , 27)
     DeleteObject(itemDynamiteprop)
+	TriggerServerEvent('redemrp_doorlocks:updateState', doorid, false)
 	Blowedynamite = true
 	local playerPed2 = PlayerPedId()
     local coords = GetEntityCoords(playerPed2)        
