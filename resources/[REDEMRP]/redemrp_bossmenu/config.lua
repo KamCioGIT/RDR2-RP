@@ -1249,4 +1249,4 @@ Config.ImportBijoux = {
     ["fan"] = {label= "Éventail", price = 10},
 }
 
-Config.Bijoutier = {"bijouterie"}
+Config.Bijoutier = {'bijouterie_stdenis','bijouterie_bla'}
