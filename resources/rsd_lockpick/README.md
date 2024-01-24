@@ -25,7 +25,14 @@
 ```lua
 --If you need to set a lockpick in other scripts
 local stand = 1 --// Set 0 to stand, 1 to crouch
-exports.rsd_lockpick:StartLockPick(stand) --return "result lockpicking"
+local result = exports.rsd_lockpick:StartLockPick(stand) --return "result lockpicking"
+if result then 
+    --LOCKPICK IS A SUCCESS
+    --Put your actions here (like open a door or uncuff a player)
+else
+    --LOCKPICKING FAILS
+    --Put your actions here (like remove the object for lockpicking)
+end
 ```
 
 ### 📈 INFO.
