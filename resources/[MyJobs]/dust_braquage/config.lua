@@ -10,7 +10,7 @@ Config.Doors = {
     [1] = {gun = false, dynamite = 1, pos = vector3(1282.487, -1308.55, 76.03965), started = false}, ---- rhodes
     [5] = {gun = false, dynamite = 5, pos = vector3(2644.074, -1299.911, 51.24611), started = false}, ---- st denis
 -------
-    [2] = {gun = true, dynamite = 0, pos = vector3(1285.981, -1302.982, 76.04307), started = false, npc = nil, npcmodel = "mp_u_m_m_bankprisoner_01", npcheading = 315.5272, npccoords = vector3(1291.142, -1303.214, 76.04111)}, ---- RHODES
+    [2] = {gun = true, dynamite = 0, pos = vector3(1295.688, -1304.729, 76.04355), started = false, npc = nil, npcmodel = "mp_u_m_m_bankprisoner_01", npcheading = 315.5272, npccoords = vector3(1291.142, -1303.214, 76.04111)}, ---- RHODES
     [3] = {gun = true, dynamite = 0, pos = vector3(-816.1816, -1277.426, 42.63772), started = false, npc = nil, npcmodel = "s_m_m_bankclerk_01", npcheading = 176.5272, npccoords = vector3(-813.2552, -1275.379, 42.6377)}, ---- bw
 }
 Config.HandsUpAnim = {

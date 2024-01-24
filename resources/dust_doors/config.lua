@@ -265,11 +265,11 @@ Config.Doors = {
         jobs = {""},
         keys =false,
     },
-
-    {
-        door = 2058564250,  ----- banque rhodes grille 2 
-        CloseRotation = -40.0,
-        OpenCoord  = vector3(1285.63, -1303.4, 77.04),
+    
+    { 
+        door = 1634148892,  ----- banque rhodes grille 2 
+        CloseRotation = -220.0,
+        OpenCoord  = vector3(1295.734130859375, -1305.474853515625, 76.03300476074219),
         door2 = 0,
         CloseRotation2 = 0,
         locked = true,
@@ -277,7 +277,6 @@ Config.Doors = {
         jobs = {""},
         keys =false,
     },
-
 
     { 
         door = 2117902999, ----- banque bw grille 3 
@@ -602,10 +601,10 @@ Config.Doors = {
             keys =false,
         },
 
-        { 
-            door = 1634148892,
-            CloseRotation = -220.0,
-            OpenCoord  = vector3(1295.49, -1305.03, 77.04),
+        {
+            door = 2058564250, 
+            CloseRotation = -40.0,
+            OpenCoord  = vector3(1285.63, -1303.4, 77.04),
             door2 = 0,
             CloseRotation2 = 0,
             locked = true,
@@ -613,6 +612,7 @@ Config.Doors = {
             jobs = {""},
             keys =false,
         },
+
 
         {
             door = 3142122679,
