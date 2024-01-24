@@ -25,12 +25,10 @@ Citizen.CreateThread(function()
 		for k, v in pairs(Config.Doors) do
 			if #(playerPos - v.pos) < 2.0 then
 				if v.gun == true then
-					TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
 					if WeapType == "SHOTGUN" or WeapType == "LONGARM" or WeapType == "SHORTARM" then
+						TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
 						if IsControlJustPressed(2, 0x760A9C6F) then
-							print "touche"
-							TriggerServerEvent('redemrp_doorlocks:braquageopen', k, false)
-							TriggerServerEvent("braquage:AlertSheriff", coords, zone) 
+							TriggerServerEvent("dust_braquage:askgrille", k)
 						end
 					end
 				end
@@ -44,6 +42,17 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
+
+RegisterNetEvent("dust_braquage:ouvrirgrille", function(doorid)
+	local playerPed = PlayerPedId()
+	local playerPos = GetEntityCoords(PlayerPedId())
+	local coords = GetEntityCoords(playerPed)
+	local zone = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
+	TriggerServerEvent('redemrp_doorlocks:braquageopen', k, false)
+	TriggerServerEvent("braquage:AlertSheriff", coords, zone) 
+	HandsUpAnim(Config.Doors[door].npc)
+end)
+
 
 RegisterNetEvent("dust_braquage:poserdynamite", function(doorid)
 	local playerPed = PlayerPedId()
@@ -71,103 +80,41 @@ end
 
 
 
-
-
---Robbery startpoint
--- Citizen.CreateThread(function() 
---     while true do
--- 	Citizen.Wait(0)
--- 		local playerPed = PlayerPedId()
--- 		local coords = GetEntityCoords(playerPed)
---         local zone = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
--- 		local betweencoords = GetDistanceBetweenCoords(coords,1290.0882568359, -1312.4019775391, 76.039939880371, true)
--- 		if betweencoords < 2.0 and isRobbing == true then
---                 TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
--- 				if IsControlJustReleased(0, 0x760A9C6F) then
---                 isRobbing = false   
--- 				TriggerServerEvent("mushy_robbery:startrobbery", function()          
--- 				Wait(Config.Policealert)
--- 				TriggerServerEvent("braquage:AlertSheriff", coords, zone) 
--- 				end)
--- 			end
--- 		end
--- 	end
--- end)
-
-
-RegisterNetEvent('mushy_robbery:startAnimation2')
-AddEventHandler('mushy_robbery:startAnimation2', function()	
-	local _source = source
-	local playerPed = PlayerPedId()
-	local coords = GetEntityCoords(playerPed)
-    Wait(1000)
-	BlowDynamite()
-    TriggerServerEvent("mushy_robbery:loot")
-    Blowedynamite = true                            
-	Citizen.Wait(6000)
-	ClearPedTasksImmediately(PlayerPedId())
-	ClearPedSecondaryTask(PlayerPedId())               
-end)
-
-RegisterNetEvent('mushy_robbery:loot2')
-AddEventHandler('mushy_robbery:loot2', function()	
-	while true do
-		Citizen.Wait(0)
-        local _source = source    
-		local playerPed = PlayerPedId()
-		local coords = GetEntityCoords(playerPed)
-		local betweencoords = GetDistanceBetweenCoords(coords,1290.0882568359, -1312.4019775391, 76.039939880371, true)
-		if betweencoords < 2.0 and Blowedynamite == true then
-            TriggerEvent('dust_presskey', "Appuyez sur G pour prendre")
-			if IsControlJustReleased(0, 0xC7B5340A) then
-              TaskStartScenarioInPlace(playerPed, GetHashKey('WORLD_HUMAN_CROUCH_INSPECT'), 6000, true, false, false, false)
-	          exports['progressBars']:startUI(Config.LockpickTime, "Getting The Loot...")     
-              Blowedynamite = false 
-              isRobbing = false
-              speaked = false
-              started = false
-              maksettu = false     
-			  Citizen.Wait(6000)
-	          ClearPedTasksImmediately(PlayerPedId())
-	          ClearPedSecondaryTask(PlayerPedId())
-	          TriggerServerEvent("mushy_robbery:payout", function()
-              end)            
+Citizen.CreateThread(function()
+	for k,v in pairs(Config.Doors) do
+		if v.npccoords ~= nil then
+			local model = RequestModel(GetHashKey(v.npcmodel))
+			while not HasModelLoaded(GetHashKey(v.npcmodel)) do
+				Wait(100)
+				print'ttt'
 			end
+
+			local spawnCoords = v.npccoords
+			local ped = CreatePed(GetHashKey(v.npcmodel), spawnCoords.x, spawnCoords.y, spawnCoords.z, v.npcheading, false, true, true, true)
+			Citizen.InvokeNative(0x283978A15512B2FE, ped, true)
+			SetEntityNoCollisionEntity(PlayerPedId(), ped, false)
+			SetEntityCanBeDamaged(ped, false)
+			SetEntityInvincible(ped, true)
+			Wait(2000)
+			FreezeEntityPosition(ped, true)
+			SetBlockingOfNonTemporaryEvents(ped, true)
+			SetModelAsNoLongerNeeded(GetHashKey(v.npcmodel))
+			Config.Doors[k].npc = ped
 		end
 	end
-end)              
-            
-
-
-Citizen.CreateThread(function()
-    while not HasModelLoaded( GetHashKey("CS_johnmarston") ) do
-        Wait(500)
-        RequestModel( GetHashKey("CS_johnmarston") )
-    end
-    local npc = CreatePed(GetHashKey("CS_johnmarston"), -404.98327636719, 663.14361572266, 114.55465698242, false, false, 0, 0)
-    while not DoesEntityExist(npc) do
-        Wait(300)
-    end
-    Citizen.InvokeNative(0x283978A15512B2FE, npc, true)
-    FreezeEntityPosition(npc, true)
-    SetEntityInvincible(npc, true)
-    TaskStandStill(npc, -1)
-    SetEntityCanBeDamagedByRelationshipGroup(npc, false, `PLAYER`)
-    SetEntityAsMissionEntity(npc, true, true)
-    SetModelAsNoLongerNeeded(GetHashKey("CS_johnmarston"))
 end)
 
+function HandsUpAnim(ped)
+    key = math.random(1, #Config.HandsUpAnim)
+    RequestAnimDict(Config.HandsUpAnim[key].dict)
+    while not HasAnimDictLoaded(Config.HandsUpAnim[key].dict) do
+        Citizen.Wait(0)
+    end
+    TaskPlayAnim(ped, Config.HandsUpAnim[key].dict, Config.HandsUpAnim[key].anim, 1.0, -1.0, -1, 25, 0, true, 0, false, 0, false)
+	Citizen.Wait(180*1000)
+	ClearPedTasks(ped)
+end
 
-Citizen.CreateThread(function()
-   local blip = N_0x554d9d53f696d002(1664425300,-404.98327636719, 663.14361572266, 114.55465698242)
-    SetBlipSprite(blip, 90287351, 1)
-         Citizen.InvokeNative(0x9CB1A1623062F402, blip, "Start Bank Heist") 
- end)
-
-
-RegisterCommand("dynamite", function(source, args, raw)
-    BlowDynamite()
-end)
 
 function BlowDynamite(doorid)
 			

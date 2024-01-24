@@ -281,7 +281,7 @@ Config.Doors = {
 
     { 
         door = 2117902999, ----- banque bw grille 3 
-        CloseRotation = -220.0,
+        CloseRotation = 0.0,
         OpenCoord  = vector3(-816.4401, -1276.531, 42.63773),
         door2 = 0,
         CloseRotation2 = 0,
