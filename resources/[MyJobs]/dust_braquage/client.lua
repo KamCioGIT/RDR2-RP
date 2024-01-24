@@ -43,7 +43,7 @@ Citizen.CreateThread(function()
 	end
 end)
 
-RegisterNetEvent("dust_braquage:ouvrirgrille", function(doorid)
+RegisterNetEvent("dust_braquage:ouvrirgrille", function(door)
 	local playerPed = PlayerPedId()
 	local playerPos = GetEntityCoords(PlayerPedId())
 	local coords = GetEntityCoords(playerPed)

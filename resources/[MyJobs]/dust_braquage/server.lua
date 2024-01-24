@@ -5,7 +5,6 @@ TriggerEvent("redemrp_inventory:getData",function(call)
     data = call
 end)
 
-local 
 
 RegisterNetEvent("dust_braquage:askdynamite", function(doorid)
     local _source = source
@@ -14,7 +13,7 @@ RegisterNetEvent("dust_braquage:askdynamite", function(doorid)
         local count = ItemData.ItemAmount 
         local need = Config.Doors[doorid].dynamite
 
-        if count >= need then      
+        if count >= need then
             Config.Doors[doorid].started = true
             ItemData.RemoveItem(need)
             TriggerClientEvent('dust_braquage:poserdynamite', _source, doorid)
@@ -24,9 +23,9 @@ end)
 
 RegisterNetEvent("dust_braquage:askgrille", function(doorid)
     local _source = source
-    if Config.Doors[doorid].started ~= true then   
+    if Config.Doors[doorid].started ~= true then
         Config.Doors[doorid].started = true
-        TriggerClientEvent('dust_braquage:poserdynamite', _source, doorid)
+        TriggerClientEvent('dust_braquage:ouvrirgrille', _source, doorid)
     end
 end)
 
