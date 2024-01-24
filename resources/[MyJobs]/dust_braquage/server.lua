@@ -29,5 +29,26 @@ RegisterNetEvent("dust_braquage:askgrille", function(doorid)
     end
 end)
 
+RegisterNetEvent("dust_braquage:asklockpick", function(vault)
+    local _source = source
+    if Config.Doors[doorid].opened ~= true then
+        local ItemData = data.getItem(_source, "lockpick")
+        local count = ItemData.ItemAmount 
+        local need = Config.Doors[doorid].dynamite
+
+        if count >= 1 then
+            ItemData.RemoveItem(need)
+            TriggerClientEvent('dust_braquage:dolockpick', _source, vault, false)
+        end
+    else
+        TriggerClientEvent('dust_braquage:dolockpick', _source, vault, true)
+    end
+end)
+
+RegisterNetEvent("dust_braquage:isopen", function(vault)
+    Config.Doors[doorid].opened == true
+end)
+
+
 ---- remplir les vault s'ils sont vide
 

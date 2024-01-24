@@ -146,6 +146,7 @@ end
 
 ---- Ouvrir les vault avec le minijeu
 ---- récompense en dollars une seule fois
+---- mini jeu une seule fois
 
 
 Citizen.CreateThread(function() 
@@ -161,14 +162,31 @@ Citizen.CreateThread(function()
 
 		--- if le joueur a une arme en main 
 		for k, v in pairs(Config.Vault) do
-			if #(playerPos - v.pos) < 2.0 then
-				local result = exports.rsd_lockpick:StartLockPick(1) --return "result lockpicking"
-				if result then 
-					print 'yes'
-				else
-					print 'no'
+			if #(playerPos - v.pos) < 3.0 then
+				Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.pos, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+			end
+			if #(playerPos - v.pos) < 1.2 then
+				TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
+				if IsControlJustPressed(2, 0x760A9C6F) then
+					TriggerServerEvent("dust_braquage:asklockpick", k)
 				end
+				
 			end
 		end
+	end
+end)
+
+RegisterNetEvent("dust_braquage:dolockpick", function(vault, open)
+	if open == false then
+		local result = exports.rsd_lockpick:StartLockPick(1) --return "result lockpicking"
+		if result then 
+			--  récompeense dollar
+			---- ouvrir vault
+			TriggerServerEvent("dust_braquage:isopen", k)
+		else
+			print 'no'
+		end
+	elseif open == true then
+		--- ouvrir le vault
 	end
 end)

@@ -3455,18 +3455,7 @@ Config.Items = {
     type = "item_standard",
 },
 
---- portes
-["lockpick"] = {
-    label = "Crochet",
-    description = "",
-    weight = 0.2,
-    canBeDropped = true,
-    canBeUsed = true,
-    requireLvl = 0,
-    limit = 2000,
-    imgsrc = "items/kit_lightning_conductor.png",
-    type = "item_standard",
-},
+
 
 -------- illégal -------
 ["moonshine"] = {
@@ -4634,6 +4623,31 @@ Config.Items = {
     requireLvl = 0,
     limit = 2000,
     imgsrc = "items/tabacarouler.png",
+    type = "item_standard",
+},
+
+
+---- braquages
+["lockpick"] = {
+    label = "Crochet",
+    description = "Mieux vaut être habile de ses doigts",
+    weight = 0.1,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/provision_hrlm_hairpin_ivory.png",
+    type = "item_standard",
+},
+["dynamite"] = {
+    label = "Dynamite",
+    description = "On allume et on garde ses distances",
+    weight = 0.4,
+    canBeDropped = true,
+    canBeUsed = false,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/weapon_volatile_dynamite.png",
     type = "item_standard",
 },
 }
