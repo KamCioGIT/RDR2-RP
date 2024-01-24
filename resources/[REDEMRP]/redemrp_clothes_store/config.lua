@@ -51,21 +51,21 @@ Config.Medic = { 'doctor', 'doctor_stdenis', 'doctor_bla', 'doctor_DM', 'doctor_
 Config.Bijoutier = {'bijouterie_stdenis','bijouterie_bla'}
 Config.BaguesD = {
 	[1] = vector3(2583.126, -1008.285, 44.24374), -- SAINT DENIS
-	[2] = vector3(-763.977, -1301.356, 42.80562), -- BLACKWATER
+	[2] = vector3(-763.977, -1301.356, 43.80562), -- BLACKWATER
 }
 Config.BaguesG = {
 	[1] = vector3(2584.049, -1009.915, 44.25625), -- SAINT DENIS
-	[2] = vector3(-761.3547, -1300.683, 42.80562), -- BLACKWATER
+	[2] = vector3(-761.3547, -1300.683, 43.80562), -- BLACKWATER
 }
 
 Config.AccBottes = {
 	[1] = vector3(2588.614, -1012.273, 44.2585), -- SAINT DENIS
-	[2] = vector3(-758.7531, -1301.583, 42.80563), -- BLACKWATER
+	[2] = vector3(-758.7531, -1301.583, 43.80563), -- BLACKWATER
 }
 
 Config.Bracelets = {
 	[1] = vector3(2587.852, -1007.784, 44.23995), -- SAINT DENIS
-	[2] = vector3(-759.1838, -1298.094, 42.80563), -- BLACKWATER
+	[2] = vector3(-759.1838, -1298.094, 43.80563), -- BLACKWATER
 }
 
 
