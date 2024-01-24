@@ -142,3 +142,7 @@ function BlowDynamite(doorid)
     local coords = GetEntityCoords(playerPed2)        
 	
 end
+
+
+---- Ouvrir les vault avec le minijeu
+---- récompense en dollars une seule fois

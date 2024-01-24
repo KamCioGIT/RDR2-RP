@@ -29,3 +29,5 @@ RegisterNetEvent("dust_braquage:askgrille", function(doorid)
     end
 end)
 
+---- remplir les vault s'ils sont vide
+
