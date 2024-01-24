@@ -146,3 +146,29 @@ end
 
 ---- Ouvrir les vault avec le minijeu
 ---- récompense en dollars une seule fois
+
+
+Citizen.CreateThread(function() 
+    while true do
+	Citizen.Wait(0)
+
+		local playerPed = PlayerPedId()
+		local _, wepHash = GetCurrentPedWeapon(playerPed, true, 0, true)
+		local WeapType = GetWeaponType(wepHash)
+		local playerPos = GetEntityCoords(PlayerPedId())
+		local coords = GetEntityCoords(playerPed)
+		local zone = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
+
+		--- if le joueur a une arme en main 
+		for k, v in pairs(Config.Vault) do
+			if #(playerPos - v.pos) < 2.0 then
+				local result = exports.rsd_lockpick:StartLockPick(1) --return "result lockpicking"
+				if result then 
+					print 'yes'
+				else
+					print 'no'
+				end
+			end
+		end
+	end
+end)
