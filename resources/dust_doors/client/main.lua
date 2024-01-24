@@ -306,6 +306,7 @@ end
 
 RegisterNetEvent('redemrp_doorlocks:setState')
 AddEventHandler('redemrp_doorlocks:setState', function(doorID, state)
+	print(doorID, state)
 	Config.Doors[doorID].locked = state
 end)
 

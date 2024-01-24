@@ -24,18 +24,21 @@ Citizen.CreateThread(function()
 		--- if le joueur a une arme en main 
 		for k, v in pairs(Config.Doors) do
 			if #(playerPos - v.pos) < 2.0 then
-				print "get"
-				if gun == true then
+				if v.gun == true then
 					TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
-					if IsControlJustReleased(0, 0x760A9C6F) and WeapType == "SHOTGUN" and WeapType == "LONGARM" and WeapType == "SHORTARM" then
-						TriggerServerEvent('redemrp_doorlocks:updateState', k, state)
-						TriggerServerEvent("braquage:AlertSheriff", coords, zone) 
+					if WeapType == "SHOTGUN" or WeapType == "LONGARM" or WeapType == "SHORTARM" then
+						if IsControlJustPressed(2, 0x760A9C6F) then
+							print "touche"
+							TriggerServerEvent('redemrp_doorlocks:braquageopen', k, false)
+							TriggerServerEvent("braquage:AlertSheriff", coords, zone) 
+						end
 					end
-				elseif gun == false then
+				end
+				if v.gun == false then
 					TriggerEvent('dust_presskey', "Appuyez sur G pour poser la dynamite")
-					if IsControlJustReleased(0, 0x760A9C6F) then
-						TriggerServerEvent("dust_braquage:askdynamite", k)
-					end
+					if IsControlJustReleased(0, 0x760A9C6F) then 
+                        TriggerServerEvent("dust_braquage:askdynamite", k)
+                    end
 				end
 			end
 		end
@@ -71,25 +74,25 @@ end
 
 
 --Robbery startpoint
-Citizen.CreateThread(function() 
-    while true do
-	Citizen.Wait(0)
-		local playerPed = PlayerPedId()
-		local coords = GetEntityCoords(playerPed)
-        local zone = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
-		local betweencoords = GetDistanceBetweenCoords(coords,1290.0882568359, -1312.4019775391, 76.039939880371, true)
-		if betweencoords < 2.0 and isRobbing == true then
-                TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
-				if IsControlJustReleased(0, 0x760A9C6F) then
-                isRobbing = false   
-				TriggerServerEvent("mushy_robbery:startrobbery", function()          
-				Wait(Config.Policealert)
-				TriggerServerEvent("braquage:AlertSheriff", coords, zone) 
-				end)
-			end
-		end
-	end
-end)
+-- Citizen.CreateThread(function() 
+--     while true do
+-- 	Citizen.Wait(0)
+-- 		local playerPed = PlayerPedId()
+-- 		local coords = GetEntityCoords(playerPed)
+--         local zone = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
+-- 		local betweencoords = GetDistanceBetweenCoords(coords,1290.0882568359, -1312.4019775391, 76.039939880371, true)
+-- 		if betweencoords < 2.0 and isRobbing == true then
+--                 TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
+-- 				if IsControlJustReleased(0, 0x760A9C6F) then
+--                 isRobbing = false   
+-- 				TriggerServerEvent("mushy_robbery:startrobbery", function()          
+-- 				Wait(Config.Policealert)
+-- 				TriggerServerEvent("braquage:AlertSheriff", coords, zone) 
+-- 				end)
+-- 			end
+-- 		end
+-- 	end
+-- end)
 
 
 RegisterNetEvent('mushy_robbery:startAnimation2')
@@ -186,7 +189,7 @@ function BlowDynamite(doorid)
 	Citizen.Wait(10000)
 	AddExplosion(x, y, z, 25, 1.0 ,true , false , 27)
     DeleteObject(itemDynamiteprop)
-	TriggerServerEvent('redemrp_doorlocks:updateState', doorid, false)
+	TriggerServerEvent('redemrp_doorlocks:braquageopen', doorid, false)
 	Blowedynamite = true
 	local playerPed2 = PlayerPedId()
     local coords = GetEntityCoords(playerPed2)        

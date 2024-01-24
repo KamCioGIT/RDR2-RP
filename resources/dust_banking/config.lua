@@ -6,7 +6,7 @@ Config.BankLocations = {
     {name = 'Banque de Saint-Denis',    bankType = "BANKS2",    coords = vector3(2644.579, -1292.313, 52.24956),    showblip = true},
     -- {name = 'Valentine Savings Bank',   bankType = "BANKS3",    coords = vector3(-308.4189, 775.8842, 118.7017),    showblip = true},
     {name = 'Banque de BlackWater',      bankType = "BANKS4",    coords = vector3(-813.1633, -1277.486, 43.63771),   showblip = true},
-	{name = "Banque d'Armadillo",      bankType = "BANKS5",    coords = vector3(-3665.306, -2626.248, -13.59207),   showblip = true},
+	-- {name = "Banque d'Armadillo",      bankType = "BANKS5",    coords = vector3(-3665.306, -2626.248, -13.59207),   showblip = true},
 
 	
 }
@@ -41,9 +41,9 @@ Config.BankDoors = { --Doors that will always be open unless robbery has started
 	
 	-- West Elizabeth Co-Operative Bank Blackwater
 	531022111, -- main door
-	2117902999, -- inner door
+	-- 2117902999, -- inner door
 	2817192481, -- manager door
-	1462330364, -- vault door
+	-- 1462330364, -- vault door
 	
 	-- Bank of Armadillo
 	3101287960, -- main door

@@ -168,18 +168,10 @@ RegisterServerEvent("sellnpc:AlertSheriff", function(coords, zone)
 end)
 
 RegisterServerEvent("braquage:AlertSheriff", function(coords, zone)
-    local xOffset = math.random(1, 40.0)
-    local yOffset = math.random(1, 40.0)
-    local zOffset = math.random(1, 40.0)
-    local newcoords = {
-        x = coords.x + xOffset,
-        y = coords.y + yOffset,
-        z = coords.z + zOffset
-    }
     for sheriff, job in pairs(Duty) do
         if Config.ZoneVente[zone] == job then
-            TriggerClientEvent('sellnpc:addAlert', sheriff, newcoords)
-            TriggerClientEvent("redem_roleplay:NotifyLeft", src, "Braquage", "Un braquage de banque est en cours.", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+            TriggerClientEvent('braquage:addAlert', sheriff, coords)
+            TriggerClientEvent("redem_roleplay:NotifyLeft", sheriff, "Braquage", "Un braquage de banque est en cours.", "scoretimer_textures", "scoretimer_generic_cross", 4000)
         end
     end
 end)
