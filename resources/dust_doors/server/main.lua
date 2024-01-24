@@ -27,11 +27,27 @@ AddEventHandler('redemrp_doorlocks:updatedoorsv', function(doorID, state, cb)
         end
 end)
 
+RegisterServerEvent('redemrp_doorlocks:braquageopen')
+AddEventHandler('redemrp_doorlocks:braquageopen', function(doorID, state)
+	local _source = source
+    local user = RedEM.GetPlayer(_source)
+	print (doorID)
+		if type(doorID) ~= 'number' then
+			return
+		end
+		DoorInfo[doorID] = {
+			doorID = doorID,
+			state = state
+		}
+		TriggerClientEvent('redemrp_doorlocks:setState', -1, doorID, state)
+end)
+
 
 RegisterServerEvent('redemrp_doorlocks:updateState')
 AddEventHandler('redemrp_doorlocks:updateState', function(doorID, state, cb)
     local _source = source
     local user = RedEM.GetPlayer(_source)    
+	print(doorID, state)
 		if type(doorID) ~= 'number' then
 			return
 		end

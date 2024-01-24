@@ -1,6 +1,6 @@
 Config = {}
 
-Config.UsePrompt = true
+Config.UsePrompt = false
 
 Config.KeyPress = 0xD8F73058
 
@@ -251,6 +251,70 @@ Config.DoorList = {
 }
 
 Config.Doors = {
+    
+    ---- NE RIEN RAJOUTER EN PREMIER ---- 
+    
+    {
+        door = 3483244267, ----- banque rhodes dynamite 1
+        CloseRotation = -130.0,
+        OpenCoord  = vector3(1283.08, -1308.89, 77.04),
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {""},
+        keys =false,
+    },
+
+    {
+        door = 2058564250,  ----- banque rhodes grille 2 
+        CloseRotation = -40.0,
+        OpenCoord  = vector3(1285.63, -1303.4, 77.04),
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {""},
+        keys =false,
+    },
+
+
+    { 
+        door = 2117902999, ----- banque bw grille 3 
+        CloseRotation = -220.0,
+        OpenCoord  = vector3(-816.4401, -1276.531, 42.63773),
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {"sheriff_rhodes"},
+        keys =false,
+    },
+    
+    
+    {
+        door = 1462330364, ----- banque bw grille 4
+        CloseRotation = 90.0,
+        OpenCoord  = vector3(-817.47, -1273.84, 43.65), 
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {"sheriff_rhodes"},
+        keys =false,
+    },
+
+    {
+        door = 1751238140, ---- banque saint denis 5
+        CloseRotation = -200.0,
+        OpenCoord  = vector3(2643.84, -1300.6, 52.25),
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {""},
+        keys =false,
+    },
     --SHERIFF--
         --VALENTINE--
         {
@@ -537,18 +601,8 @@ Config.Doors = {
             jobs = {""},
             keys =false,
         },
-        {
-            door = 2058564250,
-            CloseRotation = -40.0,
-            OpenCoord  = vector3(1285.63, -1303.4, 77.04),
-            door2 = 0,
-            CloseRotation2 = 0,
-            locked = true,
-            breakable = false, 
-            jobs = {""},
-            keys =false,
-        },
-        {
+
+        { 
             door = 1634148892,
             CloseRotation = -220.0,
             OpenCoord  = vector3(1295.49, -1305.03, 77.04),
@@ -559,6 +613,7 @@ Config.Doors = {
             jobs = {""},
             keys =false,
         },
+
         {
             door = 3142122679,
             CloseRotation = -40.0,
@@ -581,17 +636,7 @@ Config.Doors = {
             jobs = {""},
             keys =false,
         },
-        {
-            door = 3483244267,
-            CloseRotation = -130.0,
-            OpenCoord  = vector3(1283.08, -1308.89, 77.04),
-            door2 = 0,
-            CloseRotation2 = 0,
-            locked = true,
-            breakable = false, 
-            jobs = {""},
-            keys =false,
-        },
+
     
         --ST DENIS
         {
@@ -603,17 +648,6 @@ Config.Doors = {
             DoorCoord2 = vector3(2648.98046875,-1300.0491943359,51.245391845703),
             CloseRotation2 = -155.0,
             locked = false,
-            breakable = false, 
-            jobs = {""},
-            keys =false,
-        },
-        {
-            door = 1751238140,
-            CloseRotation = -200.0,
-            OpenCoord  = vector3(2643.84, -1300.6, 52.25),
-            door2 = 0,
-            CloseRotation2 = 0,
-            locked = true,
             breakable = false, 
             jobs = {""},
             keys =false,
@@ -631,28 +665,7 @@ Config.Doors = {
             jobs = {""},
             keys =false,
         },
-        {
-            door = 2117902999,
-            CloseRotation = 0.0,
-            OpenCoord  = vector3(-816.18, -1276.68, 43.64),
-            door2 = 0,
-            CloseRotation2 = 0,
-            locked = true,
-            breakable = false, 
-            jobs = {""},
-            keys =false,
-        },
-        {
-            door = 1462330364,
-            CloseRotation = 90.0,
-            OpenCoord  = vector3(-817.47, -1273.84, 43.65),
-            door2 = 0,
-            CloseRotation2 = 0,
-            locked = true,
-            breakable = false, 
-            jobs = {""},
-            keys =false,
-        },
+
     
         --VALENTINE
         {

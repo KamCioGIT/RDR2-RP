@@ -6,12 +6,12 @@ Config.Policealert = 5000 -- in ms
 Config.Cooldown = 120000 -- Cooldown beetwen the robberys
 
 Config.Doors = {
-    [1462330364] = {gun = false, dynamite = 1, pos = vector3(-817.0316, -1273.834, 42.64748)},
-    [3483244267] = {gun = false, dynamite = 1, pos = vector3(1282.487, -1308.55, 76.03965)},
-    [1751238140] = {gun = false, dynamite = 5, pos = vector3(2644.074, -1299.911, 51.24611)},
+    [4] = {gun = false, dynamite = 1, pos = vector3(-817.0316, -1273.834, 42.64748)}, ---- bw
+    [1] = {gun = false, dynamite = 1, pos = vector3(1282.487, -1308.55, 76.03965)}, ---- rhodes
+    [5] = {gun = false, dynamite = 5, pos = vector3(2644.074, -1299.911, 51.24611)}, ---- st denis
 -------
-    [1634148892] = {gun = true, dynamite = 0, pos = vector3(1295.683, -1304.859, 76.04356)},
-    [2117902999] = {gun = true, dynamite = 0, pos = vector3(-816.1816, -1277.426, 42.63772)},
+    [2] = {gun = true, dynamite = 0, pos = vector3(1285.981, -1302.982, 76.04307)}, ---- RHODES
+    [3] = {gun = true, dynamite = 0, pos = vector3(-816.1816, -1277.426, 42.63772)}, ---- bw
 }
 
 Config.Vault = {
