@@ -152,7 +152,7 @@ RegisterNetEvent("radial:OpenClothesMenu", function()
   
         local elements = {}
         for k, v in pairs(Config.ClothesMenu) do
-          table.insert(elements, {label = v.label, value = k, desc = v.desc})
+          table.insert(elements, {label = v.label, value = v.value, desc = v.desc})
         end
   
         MenuData.Open('default', GetCurrentResourceName(), 'craft', {
@@ -163,12 +163,7 @@ RegisterNetEvent("radial:OpenClothesMenu", function()
         },
   
         function(data, menu)
-            if data.current.value == "dust:bandana" then
-                TriggerEvent("dust:bandana")
-            end
-            if data.current.value == "dust:sleeves" then
-                TriggerEvent("dust:sleeves")
-            end 
+            TriggerEvent(data.current.value)
         end,
   
         function(data, menu)
