@@ -100,7 +100,7 @@ function GetNearestTableFromPosition(radius)
     local position
 
     for _, model in pairs(Config.Tablemodels) do
-        local entity = GetClosestObjectOfType(playerPosition, radius, GetHashKey(model), 0, 0, 0)
+        local entity = GetClosestObjectOfType(playerPosition, radius, GetHashKey(model), false, false, false)
         if DoesEntityExist(entity) then
             position = GetEntityCoords(entity)
             break
@@ -110,8 +110,7 @@ function GetNearestTableFromPosition(radius)
     return position
 end
 
-RegisterNetEvent('dust_play')
-AddEventHandler('dust_play', function(now)
+RegisterClientEvent('dust:playknife', function(now)
 
     local isTableNearPlayer = GetNearestTableFromPosition(Config.RadiusInteraction) ~= nil
 
