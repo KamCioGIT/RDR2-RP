@@ -2357,3 +2357,17 @@ RegisterNetEvent('dust:sleeves', function(source, args, rawCommand)
 		sleeves = false
 	end
 end)
+
+RegisterNetEvent('dust:boots', function(source, args, rawCommand)
+    local hash = GetClothesCurrentComponentHash("boots")
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x777EC6EF) then
+        play_anim('mech_loco_m@character@arthur@fidgets@insects@crouch@unarmed@idle', 'idle', 1000, 1)
+        Citizen.Wait(1000)
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0x777EC6EF, 0)
+    else
+        play_anim('mech_loco_m@character@arthur@fidgets@insects@crouch@unarmed@idle', 'idle', 1000, 1)
+        Citizen.Wait(1000)
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), hash, true, true, false);
+    end
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
+end)
