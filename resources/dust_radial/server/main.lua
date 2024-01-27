@@ -184,7 +184,7 @@ RegisterServerEvent("sellnpc:checkitem", function ()
     -- Vérifier si l'heure réelle est entre 19h et 01h
     if currentRealTime.hour >= 21 or currentRealTime.hour < 1 then
 		local itemstosell = {}
-		for k, v in pairs(Config.Price[GetHashKey("Strawberry")]) do
+		for k, v in pairs(Config.Price[1]) do
 			local ItemData = data.getItem(_source, k)
 			local amount = tonumber(ItemData.ItemAmount)
 			if amount >= 1 then
