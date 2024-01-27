@@ -15,6 +15,14 @@ function reversedipairs(t)
     return reversedipairsiter, t, #t + 1
 end
 
+function play_anim(dict, name, time, flag)
+    RequestAnimDict(dict)
+    while not HasAnimDictLoaded(dict) do
+        Citizen.Wait(100)
+    end
+    TaskPlayAnim(PlayerPedId(), dict, name, 1.0, 1.0, time, flag, 0, true, 0, false, 0, false)  
+end
+
 function pairsByKeys (t, f)
     local a = {}
     for n in pairs(t) do
