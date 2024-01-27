@@ -166,11 +166,19 @@ Citizen.CreateThread(function()
 				Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.pos, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
 			end
 			if #(playerPos - v.pos) < 1.2 then
-				TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
-				if IsControlJustPressed(2, 0x760A9C6F) then
-					TriggerServerEvent("dust_braquage:asklockpick", k)
+				if v.difficulty == "simple" then
+					TriggerEvent('dust_presskey', "Appuyez sur G pour crocheter")
+					if IsControlJustPressed(2, 0x760A9C6F) then
+						TriggerServerEvent("dust_braquage:asklockpick", k)
+					end
 				end
-				
+				if v.difficulty == "hard" then
+					TriggerEvent('dust_presskey', "Appuyez sur G pour forcer le coffre")
+					if IsControlJustPressed(2, 0x760A9C6F) then
+						--- minijeu
+					end
+				end
+
 			end
 		end
 	end
@@ -182,7 +190,7 @@ RegisterNetEvent("dust_braquage:dolockpick", function(vault, open)
 		if result then 
 			--  récompeense dollar
 			---- ouvrir vault
-			TriggerServerEvent("dust_braquage:isopen", k)
+			TriggerServerEvent("dust_braquage:isopen", vault)
 		else
 			print 'no'
 		end

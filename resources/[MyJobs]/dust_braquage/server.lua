@@ -31,13 +31,12 @@ end)
 
 RegisterNetEvent("dust_braquage:asklockpick", function(vault)
     local _source = source
-    if Config.Doors[doorid].opened ~= true then
+    if Config.Vault[vault].opened ~= true then
         local ItemData = data.getItem(_source, "lockpick")
         local count = ItemData.ItemAmount 
-        local need = Config.Doors[doorid].dynamite
 
         if count >= 1 then
-            ItemData.RemoveItem(need)
+            ItemData.RemoveItem(1)
             TriggerClientEvent('dust_braquage:dolockpick', _source, vault, false)
         end
     else
@@ -46,7 +45,7 @@ RegisterNetEvent("dust_braquage:asklockpick", function(vault)
 end)
 
 RegisterNetEvent("dust_braquage:isopen", function(vault)
-    Config.Doors[doorid].opened == true
+    Config.Vault[vault].opened = true
 end)
 
 
