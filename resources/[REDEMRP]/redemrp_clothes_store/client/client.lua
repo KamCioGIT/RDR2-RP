@@ -825,7 +825,6 @@ end)
 
 function GetClothesCurrentComponentHash(name)
     if ClothesCache[name] == nil then
-        print'ah bon'
         return 0
     end
     local texture = ClothesCache[name].texture
@@ -2325,9 +2324,10 @@ end)
 
 local bandana = false
 RegisterNetEvent('dust:bandana', function(source, args, rawCommand)
+    TriggerServerEvent("rdr_clothes_store:retrieveOutfitsclothes")
     cache_comps = json.decode(comps)
-    print (GetClothesCurrentComponentHash("neckties"))
-    if not bandana then 
+    print (ClothesCache)
+    if not bandana then
         Citizen.InvokeNative(0xAE72E7DF013AAA61, PlayerPedId(), ClothesCache["NeckWear"], GetHashKey("BANDANA_ON_RIGHT_HAND"), 1, 0, -1082130432)
         Wait(700)
         Citizen.InvokeNative(0x66B957AAC2EAAEAB, PlayerPedId(), ClothesCache["NeckWear"], -1829635046, 0, true, 1)
