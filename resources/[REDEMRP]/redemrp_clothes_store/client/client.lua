@@ -2304,16 +2304,17 @@ end)
 local bandana = false
 RegisterNetEvent('dust:bandana', function(source, args, rawCommand)
     cache_comps = json.decode(comps)
+    print (GetClothesCurrentComponentHash("neckties"))
     if not bandana then 
-        Citizen.InvokeNative(0xAE72E7DF013AAA61, PlayerPedId(), clothes_list["female"]["neckties"][ClothesCache["neckties"].model][ClothesCache["neckties"].texture].hash, GetHashKey("BANDANA_ON_RIGHT_HAND"), 1, 0, -1082130432)
+        Citizen.InvokeNative(0xAE72E7DF013AAA61, PlayerPedId(), ClothesCache["NeckWear"], GetHashKey("BANDANA_ON_RIGHT_HAND"), 1, 0, -1082130432)
         Wait(700)
-        Citizen.InvokeNative(0x66B957AAC2EAAEAB, PlayerPedId(),clothes_list["female"]["neckties"][ClothesCache["neckties"].model][ClothesCache["neckties"].texture].hash, -1829635046, 0, true, 1)
+        Citizen.InvokeNative(0x66B957AAC2EAAEAB, PlayerPedId(), ClothesCache["NeckWear"], -1829635046, 0, true, 1)
         Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, false)
         bandana = true
     else
-        Citizen.InvokeNative(0xAE72E7DF013AAA61, PlayerPedId(), clothes_list["female"]["neckties"][ClothesCache["neckties"].model][ClothesCache["neckties"].texture].hash, GetHashKey("BANDANA_OFF_RIGHT_HAND"), 1, 0, -1082130432)
+        Citizen.InvokeNative(0xAE72E7DF013AAA61, PlayerPedId(), ClothesCache["NeckWear"], GetHashKey("BANDANA_OFF_RIGHT_HAND"), 1, 0, -1082130432)
         Wait(700)
-        Citizen.InvokeNative(0x66B957AAC2EAAEAB, PlayerPedId(), clothes_list["female"]["neckties"][ClothesCache["neckties"].model][ClothesCache["neckties"].texture].hash, GetHashKey("base"), 0, true, 1)
+        Citizen.InvokeNative(0x66B957AAC2EAAEAB, PlayerPedId(), ClothesCache["NeckWear"], GetHashKey("base"), 0, true, 1)
         Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, false)
         bandana = false
     end
