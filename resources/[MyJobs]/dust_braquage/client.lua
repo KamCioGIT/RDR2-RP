@@ -22,7 +22,7 @@ Citizen.CreateThread(function()
 		local zone = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
 
 		for k, v in pairs(Config.Doors) do
-			if #(playerPos - v.pos) < 2.0 then
+			if #(playerPos - v.pos) < 1.2 then
 				if v.gun == true then
 					if WeapType == "SHOTGUN" or WeapType == "LONGARM" or WeapType == "SHORTARM" then
 						TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
