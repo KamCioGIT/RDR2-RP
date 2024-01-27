@@ -34,7 +34,7 @@ Config.ClothesMenu = {
     -- [12] = {label ="Holsters", value ="holsters", desc="holsters"},
     -- [13] = {label ="Ceinture", value ="ceinture", desc="ceinture"},
 
-    -- [14] = {label ="Bottes", value ="bottes", desc="bottes"},
+    [14] = {label ="Bottes", value ="dust:boots", desc="bottes"},
     -- [15] = {label ="Accessoires", value ="accessoires", desc="accessoires"},
 }
 
