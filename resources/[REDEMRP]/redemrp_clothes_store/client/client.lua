@@ -823,6 +823,27 @@ exports('GetClothesCurrentComponentHash', function(name)
     return hash
 end)
 
+function GetClothesCurrentComponentHash(name)
+    if ClothesCache[name] == nil then
+        return 0
+    end
+    local texture = ClothesCache[name].texture
+    local model = ClothesCache[name].model
+    if model == 0 or texture == 0 then
+        return 0
+    end
+    local hash
+    if IsPedMale(PlayerPedId()) then
+        if clothes_list["male"][name] ~= nil then
+            hash = clothes_list["male"][name][model][texture].hash
+        end
+    else
+        if clothes_list["female"][name] ~= nil then
+            hash = clothes_list["female"][name][model][texture].hash
+        end
+    end
+    return hash
+end
 
 
 RegisterNetEvent("redemrp_inventory:removeclothes", function()
