@@ -26,7 +26,7 @@ Config.Chance_5 = 1
 Config.Chance_6 = 1
 Config.Chance_7 = 1
 
-Config.RadiusInteraction = 1.0
+Config.RadiusInteraction = 2.0
 Config.Tablemodels = {
     "p_table06x",
 }
