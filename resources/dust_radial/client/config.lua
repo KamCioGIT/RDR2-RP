@@ -21,10 +21,9 @@ Config.CraftAnim = {
 Config.ClothesMenu = {
     -- [1] = {label ="Echarpes", value ="echarpes", desc="echarpes"},
     [2] = {label ="Bandana", value ="dust:bandana", desc="bandana"},
-    [3] = {label ="Chemises", value ="dust:sleeves", desc="chemises"},
-    -- [4] = {label ="Bretelles", value ="bretelles", desc="bretelles"},
+    [3] = {label ="Manches", value ="dust:sleeves", desc="chemises"},
     -- [5] = {label ="Gilets", value ="gilets", desc="gilets"},
-    -- [6] = {label ="Manteaux", value ="manteaux", desc="manteaux"},
+    [6] = {label ="Manteau", value ="dust:coats", desc="manteaux"},
     -- [7] = {label ="Ponchos", value ="ponchos", desc="ponchos"},
     -- [8] = {label ="Gants", value ="gants", desc="gants"},
     -- [9] = {label ="Holsters", value ="holsters", desc="holsters"},

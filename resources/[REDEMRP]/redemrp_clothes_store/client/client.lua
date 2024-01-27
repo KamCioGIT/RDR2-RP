@@ -2399,3 +2399,17 @@ RegisterNetEvent('dust:pants', function(source, args, rawCommand)
     end
     Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
 end)
+
+RegisterNetEvent('dust:coats', function(source, args, rawCommand)
+    play_anim('mech_loco_m@character@arthur@fancy@unarmed@idle@_variations', 'idle_b', 5000, 25)
+        Citizen.Wait(4500)
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0xE06D30CE) then
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0xE06D30CE, 0)
+    elseif Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x662AC34) then
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0x662AC34, 0)
+    else
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("coats"), true, true, false);
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("coats_closed"), true, true, false);
+    end
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
+end)
