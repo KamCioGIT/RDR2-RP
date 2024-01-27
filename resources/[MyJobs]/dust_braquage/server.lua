@@ -29,25 +29,50 @@ RegisterNetEvent("dust_braquage:askgrille", function(doorid)
     end
 end)
 
-RegisterNetEvent("dust_braquage:asklockpick", function(vault)
+RegisterNetEvent("dust_braquage:asklockpick", function(vault, difficulty)
     local _source = source
-    if Config.Vault[vault].opened ~= true then
-        local ItemData = data.getItem(_source, "lockpick")
-        local count = ItemData.ItemAmount 
+    if difficulty == "simple" then
+        if Config.Vault[vault].opened ~= true then
+            local ItemData = data.getItem(_source, "lockpick")
+            local count = ItemData.ItemAmount 
 
-        if count >= 1 then
-            ItemData.RemoveItem(1)
-            TriggerClientEvent('dust_braquage:dolockpick', _source, vault, false)
+            if count >= 1 then
+                ItemData.RemoveItem(1)
+                TriggerClientEvent('dust_braquage:dolockpick', _source, vault, difficulty, false)
+            end
+        else
+            TriggerClientEvent('dust_braquage:dolockpick', _source, vault, difficulty, true)
         end
-    else
-        TriggerClientEvent('dust_braquage:dolockpick', _source, vault, true)
+    elseif difficulty == "hard" then
+        if Config.Vault[vault].opened ~= true then
+            TriggerClientEvent('dust_braquage:dolockpick', _source, vault, difficulty, false)
+        else
+            TriggerClientEvent('dust_braquage:dolockpick', _source, vault, difficulty, true)
+        end
     end
 end)
 
 RegisterNetEvent("dust_braquage:isopen", function(vault)
+    local _source = source
+    local user = RedEM.GetPlayer(_source)
+    local reward = math.random(Config.Vault[vault].cashmin, Config.Vault[vault].cashmax)
+    user.AddMoney(reward)
     Config.Vault[vault].opened = true
 end)
 
 
----- remplir les vault s'ils sont vide
+---- roll du loot à chaque reboot
 
+Citizen.CreateThread(function()
+    for k, v in pairs(Config.Vault) do 
+        TriggerEvent("redemrp_inventory:server:wipestash", "braquage_"..k)
+        Wait(500)
+        for item, properties in pairs(v.items) do
+            local chance = math.random(100)
+            if chance <= properties.chance then
+                TriggerEvent("redemrp_inventory:server:additemstash", item, poperties.amount, {}, "braquage_"..k)
+            end
+            Wait(100)
+        end
+    end
+end)
