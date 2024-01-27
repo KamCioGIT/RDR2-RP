@@ -2323,7 +2323,7 @@ end
 end)
 
 local bandana = false
-RegisterNetEvent('dust:bandana', function(source, args, rawCommand)
+RegisterNetEvent('dust:bandana', function()
     cache_comps = json.decode(comps)
     local hash = GetClothesCurrentComponentHash("neckwear")
     print (hash)
@@ -2343,7 +2343,7 @@ RegisterNetEvent('dust:bandana', function(source, args, rawCommand)
 end)
 
 local sleeves = false
-RegisterNetEvent('dust:sleeves', function(source, args, rawCommand)
+RegisterNetEvent('dust:sleeves', function()
     local hash = GetClothesCurrentComponentHash("shirts_full")
     play_anim('mech_loco_m@character@arthur@fidgets@item_selection@gloves', 'gloves_b', 2000, 25)
     Citizen.Wait(2000)
@@ -2358,7 +2358,7 @@ RegisterNetEvent('dust:sleeves', function(source, args, rawCommand)
 	end
 end)
 
-RegisterNetEvent('dust:boots', function(source, args, rawCommand)
+RegisterNetEvent('dust:boots', function()
     local hash = GetClothesCurrentComponentHash("boots")
     if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x777EC6EF) then
         play_anim('mech_loco_m@character@arthur@fidgets@insects@crouch@unarmed@idle', 'idle', 1000, 1)
@@ -2372,7 +2372,7 @@ RegisterNetEvent('dust:boots', function(source, args, rawCommand)
     Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
 end)
 
-RegisterNetEvent('dust:pants', function(source, args, rawCommand)
+RegisterNetEvent('dust:pants', function()
     if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x1D4C528A) then
         play_anim('script_re@burning_bodies', 'push_two_bodies_undertaker', 3000, 25)
         Citizen.Wait(1000)
@@ -2400,7 +2400,7 @@ RegisterNetEvent('dust:pants', function(source, args, rawCommand)
     Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
 end)
 
-RegisterNetEvent('dust:coats', function(source, args, rawCommand)
+RegisterNetEvent('dust:coats', function()
     play_anim('mech_loco_m@character@arthur@fancy@unarmed@idle@_variations', 'idle_b', 5000, 25)
         Citizen.Wait(4500)
     if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0xE06D30CE) then
@@ -2414,7 +2414,7 @@ RegisterNetEvent('dust:coats', function(source, args, rawCommand)
     Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
 end)
 
-RegisterNetEvent('dust:shirt', function(source, args, rawCommand)
+RegisterNetEvent('dust:shirt', function()
     if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x2026C46D) then
         play_anim('mech_loco_m@character@arthur@fancy@unarmed@idle@_variations', 'idle_b', 3000, 25)
         Citizen.Wait(3000)
@@ -2428,7 +2428,7 @@ RegisterNetEvent('dust:shirt', function(source, args, rawCommand)
     Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
 end)
 
-RegisterNetEvent('dust:neck', function(source, args, rawCommand)
+RegisterNetEvent('dust:neck', function()
     if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x5FC29285) then
         play_anim('mech_inventory@clothing@bandana', 'neck_2_satchel', 3500, 25)
         Citizen.Wait(1500)
@@ -2450,7 +2450,7 @@ RegisterNetEvent('dust:neck', function(source, args, rawCommand)
     Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
 end)
 
-RegisterNetEvent('dust:poncho', function(source, args, rawCommand)
+RegisterNetEvent('dust:poncho', function()
     if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x3C1A74CD) then
         play_anim('script_proc@loansharking@undertaker@female_mourner', 'idle_01', 1000, 25)
         Citizen.Wait(1000)
@@ -2464,6 +2464,80 @@ RegisterNetEvent('dust:poncho', function(source, args, rawCommand)
         Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0xAF14310B, 0)
     else
         Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("ponchos"), true, true, false);
+    end
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
+end)
+
+RegisterNetEvent('dust:veste', function()
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x485EE834) then
+        play_anim('mech_loco_m@character@arthur@fancy@unarmed@idle@_variations', 'idle_b', 5000, 25)
+        Citizen.Wait(4500)
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0x485EE834, 0)
+    else
+        play_anim('mech_loco_m@character@arthur@fancy@unarmed@idle@_variations', 'idle_b', 5000, 25)
+        Citizen.Wait(4500)
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("vests"), true, true, false);
+    end
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
+end)
+
+RegisterNetEvent('dust:gloves', function()
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0xEABE0032) then
+        play_anim('mech_loco_m@character@arthur@fidgets@item_selection@gloves', 'gloves_b', 2000, 25)
+        Citizen.Wait(2000)
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0xEABE0032, 0)
+    else
+        play_anim('mech_loco_m@character@arthur@fidgets@item_selection@gloves', 'gloves_b', 2000, 25)
+        Citizen.Wait(2000)
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("gloves"), true, true, false);
+    end
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
+end)
+
+RegisterNetEvent('dust:holsters', function()
+    play_anim('cnv_camp@rcdew@cnv@ccchr1', 'john_action_a', 1000, 25)
+    Citizen.Wait(1000)
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x9B2C8B89) then
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0x9B2C8B89, 0)
+    else
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("gunbelts"), true, true, false);
+    end
+
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0xB6B6122D) then
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0xB6B6122D, 0)
+    else
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("holsters_right"), true, true, false);
+    end
+
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0xA6D134C6) then
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0xA6D134C6, 0)
+    else
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("belts"), true, true, false);
+    end
+
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0xFAE9107F) then
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0xFAE9107F, 0)
+    else
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("belt_buckles"), true, true, false);
+    end
+
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
+end)
+
+RegisterNetEvent('dust:accesories', function()
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x83887E88) then
+        play_anim('script_proc@loansharking@undertaker@female_mourner', 'idle_01', 1000, 25)
+        Citizen.Wait(1000)
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0x83887E88, 0)
+    else
+        play_anim('script_proc@loansharking@undertaker@female_mourner', 'idle_01', 1000, 25)
+        Citizen.Wait(1000)
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("loadouts"), true, true, false);
+    end
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x79D7DF96) then
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0x79D7DF96, 0)
+    else
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("accessories"), true, true, false);
     end
     Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
 end)

@@ -23,19 +23,16 @@ Config.ClothesMenu = {
     [2] = {label ="Bandana", value ="dust:bandana", desc="Monter/Descendre son bandana"},
     [4] = {label ="Cou", value ="dust:neck", desc="Enlever/Mettre sa cravate"},
     [3] = {label ="Manches", value ="dust:sleeves", desc="Retrousser ses manches"},
-    -- [5] = {label ="Gilets", value ="gilets", desc="gilets"},
+    [5] = {label ="Gilets", value ="dust:veste", desc="Enlever/Mettre son gilet"},
     [6] = {label ="Manteau", value ="dust:coats", desc="Enlever/Mettre son manteau"},
     [7] = {label ="Poncho", value ="dust:poncho", desc="Enlever/Mettre son poncho"},
-    -- [8] = {label ="Gants", value ="gants", desc="gants"},
-    -- [9] = {label ="Holsters", value ="holsters", desc="holsters"},
-    -- [10] = {label ="Ceinture", value ="ceinture", desc="ceinture"},
+    [8] = {label ="Gants", value ="dust:gloves", desc="Enlever/Mettre ses gants"},
+    [9] = {label ="Holsters", value ="dust:holsters", desc="Enlever/Mettre son holster"},
 
     [11] = {label ="Pantalons", value ="dust:pants", desc="Enlever/Mettre son pantalon"},
-    -- [12] = {label ="Holsters", value ="holsters", desc="holsters"},
-    -- [13] = {label ="Ceinture", value ="ceinture", desc="ceinture"},
 
     [14] = {label ="Bottes", value ="dust:boots", desc="Enlever/Mettre ses bottes"},
-    -- [15] = {label ="Accessoires", value ="accessoires", desc="accessoires"},
+    [15] = {label ="Accessoires", value ="dust:accesories", desc="Enlever/Mettre ses accessoires"},
 }
 
 Config.CraftingsReceipe = {
