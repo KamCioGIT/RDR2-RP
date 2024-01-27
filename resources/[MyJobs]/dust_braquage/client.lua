@@ -169,13 +169,13 @@ Citizen.CreateThread(function()
 				if v.difficulty == "simple" then
 					TriggerEvent('dust_presskey', "Appuyez sur G pour crocheter")
 					if IsControlJustPressed(2, 0x760A9C6F) then
-						TriggerServerEvent("dust_braquage:asklockpick", k)
+						TriggerServerEvent("dust_braquage:asklockpick", k, v.difficulty)
 					end
 				end
 				if v.difficulty == "hard" then
 					TriggerEvent('dust_presskey', "Appuyez sur G pour forcer le coffre")
 					if IsControlJustPressed(2, 0x760A9C6F) then
-						--- minijeu
+						TriggerServerEvent("dust_braquage:asklockpick", k, v.difficulty)
 					end
 				end
 
@@ -184,17 +184,30 @@ Citizen.CreateThread(function()
 	end
 end)
 
-RegisterNetEvent("dust_braquage:dolockpick", function(vault, open)
-	if open == false then
-		local result = exports.rsd_lockpick:StartLockPick(1) --return "result lockpicking"
-		if result then 
-			--  récompeense dollar
-			---- ouvrir vault
-			TriggerServerEvent("dust_braquage:isopen", vault)
-		else
-			print 'no'
+RegisterNetEvent("dust_braquage:dolockpick", function(vault, dif, open)
+	if dif == "simple" then
+		if open == false then
+			local result = exports.rsd_lockpick:StartLockPick(1) --return "result lockpicking"
+			if result then 
+				TriggerEvent("redemrp_inventory:OpenStash", "braquage_"..vault, 40.0)
+				TriggerServerEvent("dust_braquage:isopen", vault)
+			else
+				print 'no'
+			end
+		elseif open == true then
+			TriggerEvent("redemrp_inventory:OpenStash", "braquage_"..vault, 40.0)
 		end
-	elseif open == true then
-		--- ouvrir le vault
+	elseif dif == "hard" then
+		if open == false then
+			local result = exports.gtp_safecracking:StartSafeCrackingMiniGame(1)
+			if result then 
+				TriggerEvent("redemrp_inventory:OpenStash", "braquage_"..vault, 40.0)
+				TriggerServerEvent("dust_braquage:isopen", vault)
+			else
+				print 'no'
+			end
+		elseif open == true then
+			TriggerEvent("redemrp_inventory:OpenStash", "braquage_"..vault, 40.0)
+		end
 	end
 end)
