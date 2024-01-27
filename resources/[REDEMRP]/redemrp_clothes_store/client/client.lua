@@ -825,6 +825,7 @@ end)
 
 function GetClothesCurrentComponentHash(name)
     if ClothesCache[name] == nil then
+        print'ah bon'
         return 0
     end
     local texture = ClothesCache[name].texture
