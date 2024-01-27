@@ -117,6 +117,7 @@ AddEventHandler('dust_play', function(now)
 
     if isTableNearPlayer then
     if now == 1 then
+        print 'get'
         if not IsInPlayKnife then
             _, wepHash = GetCurrentPedWeapon(PlayerPedId(), true, 0, true)
             if GetHashKey('GROUP_MELEE') == GetWeapontypeGroup(wepHash) then
