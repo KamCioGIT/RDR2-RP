@@ -163,7 +163,7 @@ RegisterNetEvent("radial:OpenClothesMenu", function()
         },
   
         function(data, menu)
-            TriggerEvent(data.current.value)
+            TriggerEvent(tostring(data.current.value))
         end,
   
         function(data, menu)
