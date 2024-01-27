@@ -2343,7 +2343,7 @@ RegisterNetEvent('dust:bandana', function(source, args, rawCommand)
 end)
 
 local sleeves = false
-RegisterCommand('dust:sleeves', function(source, args, rawCommand)
+RegisterNetEvent('dust:sleeves', function(source, args, rawCommand)
     local hash = GetClothesCurrentComponentHash("shirts_full")
     play_anim('mech_loco_m@character@arthur@fidgets@item_selection@gloves', 'gloves_b', 2000, 25)
     Citizen.Wait(2000)
