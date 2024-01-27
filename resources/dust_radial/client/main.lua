@@ -163,9 +163,7 @@ RegisterNetEvent("radial:OpenClothesMenu", function()
         },
   
         function(data, menu)
-            MenuData.CloseAll()
-        print'zebi'
-            TriggerEvent("dust:bandana")
+            TriggerEvent(data.current.value)
         end,
   
         function(data, menu)

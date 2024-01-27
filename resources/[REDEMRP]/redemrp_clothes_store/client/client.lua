@@ -2341,3 +2341,19 @@ RegisterNetEvent('dust:bandana', function(source, args, rawCommand)
         bandana = false
     end
 end)
+
+local sleeves = false
+RegisterCommand('dust:sleeves', function(source, args, rawCommand)
+    local hash = GetClothesCurrentComponentHash("shirt")
+    play_anim('mech_loco_m@character@arthur@fidgets@item_selection@gloves', 'gloves_b', 2000, 25)
+    Citizen.Wait(2000)
+	if not sleeves then 
+		Citizen.InvokeNative(0x66B957AAC2EAAEAB, PlayerPedId(), Clothe_Table["shirt"], GetHashKey("Closed_Collar_Rolled_Sleeve"), 0, true, 1)
+		Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, false)
+		sleeves = true
+	else
+		Citizen.InvokeNative(0x66B957AAC2EAAEAB, PlayerPedId(), Clothe_Table["shirt"], GetHashKey("base"), 0, true, 1)
+		Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, false)
+		sleeves = false
+	end
+end)
