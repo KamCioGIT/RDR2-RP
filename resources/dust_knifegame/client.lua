@@ -110,6 +110,12 @@ function GetNearestTableFromPosition(radius)
     return position
 end
 
+
+RegisterCommand(Config.Knife_Play, function(args)
+	TriggerEvent('dust:playknife',1)
+end)
+
+
 RegisterNetEvent('dust:playknife', function(now)
 
     local isTableNearPlayer = GetNearestTableFromPosition(Config.RadiusInteraction) ~= nil
