@@ -136,7 +136,7 @@ lib.addRadialItem({
   {
     id = 'clothes',
     label = "Vêtements",
-    icon = 'clothes',
+    icon = 'person',
     onSelect = function()
       TriggerEvent("radial:OpenClothesMenu")
     end
