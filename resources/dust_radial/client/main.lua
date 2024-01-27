@@ -164,6 +164,7 @@ RegisterNetEvent("radial:OpenClothesMenu", function()
   
         function(data, menu)
             MenuData.CloseAll()
+        print'zebi'
             TriggerEvent("dust:"..data.current.value)
         end,
   
