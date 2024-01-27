@@ -2324,7 +2324,6 @@ end)
 
 local bandana = false
 RegisterNetEvent('dust:bandana', function(source, args, rawCommand)
-    TriggerServerEvent("rdr_clothes_store:retrieveOutfitsclothes")
     cache_comps = json.decode(comps)
     print (ClothesCache["neckties"])
     if not bandana then
