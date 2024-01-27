@@ -2413,3 +2413,39 @@ RegisterNetEvent('dust:coats', function(source, args, rawCommand)
     end
     Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
 end)
+
+RegisterNetEvent('dust:shirt', function(source, args, rawCommand)
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x2026C46D) then
+        play_anim('mech_loco_m@character@arthur@fancy@unarmed@idle@_variations', 'idle_b', 3000, 25)
+        Citizen.Wait(3000)
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0x2026C46D, 0)
+    else
+        play_anim('mech_loco_m@character@arthur@fancy@unarmed@idle@_variations', 'idle_b', 3000, 25)
+        Citizen.Wait(3000)
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("shirts_full"), true, true, false);
+
+    end
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
+end)
+
+RegisterNetEvent('dust:neck', function(source, args, rawCommand)
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x5FC29285) then
+        play_anim('mech_inventory@clothing@bandana', 'neck_2_satchel', 3500, 25)
+        Citizen.Wait(1500)
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0x5FC29285, 0)
+    else
+        play_anim('mech_inventory@clothing@bandana', 'satchel_2_neck', 4000, 25)
+        Citizen.Wait(2000)
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("neckwear"), true, true, false);
+    end
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x7A96FACA) then
+        play_anim('mech_loco_m@character@arthur@fancy@unarmed@idle@_variations', 'idle_a', 3000, 25)
+        Citizen.Wait(3000)
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0x7A96FACA, 0)
+    else
+        play_anim('mech_loco_m@character@arthur@fancy@unarmed@idle@_variations', 'idle_a', 3000, 25)
+        Citizen.Wait(3000)
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("neckties"), true, true, false);
+    end
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
+end)

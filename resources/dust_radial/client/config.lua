@@ -19,21 +19,22 @@ Config.CraftAnim = {
 }
 
 Config.ClothesMenu = {
-    -- [1] = {label ="Echarpes", value ="echarpes", desc="echarpes"},
-    [2] = {label ="Bandana", value ="dust:bandana", desc="bandana"},
-    [3] = {label ="Manches", value ="dust:sleeves", desc="chemises"},
+    [1] = {label ="Chemise", value ="dust:shirt", desc="Enlever sa chemise"},
+    [2] = {label ="Bandana", value ="dust:bandana", desc="Monter/Descendre son bandana"},
+    [4] = {label ="Cou", value ="dust:neck", desc="Enlever/Mettre sa cravate"},
+    [3] = {label ="Manches", value ="dust:sleeves", desc="Retrousser ses manches"},
     -- [5] = {label ="Gilets", value ="gilets", desc="gilets"},
-    [6] = {label ="Manteau", value ="dust:coats", desc="manteaux"},
+    [6] = {label ="Manteau", value ="dust:coats", desc="Enlever/Mettre son manteau"},
     -- [7] = {label ="Ponchos", value ="ponchos", desc="ponchos"},
     -- [8] = {label ="Gants", value ="gants", desc="gants"},
     -- [9] = {label ="Holsters", value ="holsters", desc="holsters"},
     -- [10] = {label ="Ceinture", value ="ceinture", desc="ceinture"},
 
-    [11] = {label ="Pantalons", value ="dust:pants", desc="pantalons"},
+    [11] = {label ="Pantalons", value ="dust:pants", desc="Enlever/Mettre son pantalon"},
     -- [12] = {label ="Holsters", value ="holsters", desc="holsters"},
     -- [13] = {label ="Ceinture", value ="ceinture", desc="ceinture"},
 
-    [14] = {label ="Bottes", value ="dust:boots", desc="bottes"},
+    [14] = {label ="Bottes", value ="dust:boots", desc="Enlever/Mettre ses bottes"},
     -- [15] = {label ="Accessoires", value ="accessoires", desc="accessoires"},
 }
 
