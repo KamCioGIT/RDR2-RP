@@ -25,7 +25,7 @@ Config.ClothesMenu = {
     [3] = {label ="Manches", value ="dust:sleeves", desc="Retrousser ses manches"},
     -- [5] = {label ="Gilets", value ="gilets", desc="gilets"},
     [6] = {label ="Manteau", value ="dust:coats", desc="Enlever/Mettre son manteau"},
-    -- [7] = {label ="Ponchos", value ="ponchos", desc="ponchos"},
+    [7] = {label ="Poncho", value ="dust:poncho", desc="Enlever/Mettre son poncho"},
     -- [8] = {label ="Gants", value ="gants", desc="gants"},
     -- [9] = {label ="Holsters", value ="holsters", desc="holsters"},
     -- [10] = {label ="Ceinture", value ="ceinture", desc="ceinture"},
