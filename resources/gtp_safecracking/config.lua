@@ -1,4 +1,4 @@
 Config = {};
 
-Config.ConfirmPrompt = "Confirmer"
+Config.ConfirmPrompt = "Valider"
 Config.RotatePrompt = "Tourner"
