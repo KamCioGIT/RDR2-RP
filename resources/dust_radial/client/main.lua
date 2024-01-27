@@ -163,7 +163,12 @@ RegisterNetEvent("radial:OpenClothesMenu", function()
         },
   
         function(data, menu)
-            TriggerEvent(tostring(data.current.value))
+            if data.current.value == "dust:bandana" then
+                TriggerEvent("dust:bandana")
+            end
+            if data.current.value == "dust:sleeves" then
+                TriggerEvent("dust:sleeves")
+            end 
         end,
   
         function(data, menu)
