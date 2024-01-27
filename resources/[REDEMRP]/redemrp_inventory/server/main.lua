@@ -1210,6 +1210,11 @@ function removeItemStash(source, name, amount, meta, stashId)
     return output
 end
 
+RegisterServerEvent("redemrp_inventory:server:wipestash")
+AddEventHandler("redemrp_inventory:server:wipestash", function(stashId)
+    Stash[stashId] = nil
+end)
+
 RegisterServerEvent("redemrp_inventory:server:removefromstash")
 AddEventHandler("redemrp_inventory:server:removefromstash", function(name, amount, meta, stashId)
     local _name = name
