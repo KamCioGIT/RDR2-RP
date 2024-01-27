@@ -164,7 +164,7 @@ RegisterNetEvent("radial:OpenClothesMenu", function()
   
         function(data, menu)
             MenuData.CloseAll()
-            ExecuteCommand(data.current.value)
+            TriggerEvent("dust:"..data.current.value)
         end,
   
         function(data, menu)
