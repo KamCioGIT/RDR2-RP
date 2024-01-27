@@ -126,14 +126,6 @@ lib.addRadialItem({
     end
   },
   {
-    id = 'craft',
-    label = "Fabriquer",
-    icon = 'hammer',
-    onSelect = function()
-      TriggerEvent("radial:OpenBossMenu")
-    end
-  },
-  {
     id = 'sell',
     label = "Vendre",
     icon = 'handshake',
@@ -141,7 +133,47 @@ lib.addRadialItem({
       TriggerEvent("sellnpc:SellNPC")
     end
   },
+  {
+    id = 'clothes',
+    label = "Vêtements",
+    icon = 'clothes',
+    onSelect = function()
+      TriggerEvent("radial:OpenClothesMenu")
+    end
+  },
 })
+
+--- clothes
+
+RegisterNetEvent("radial:OpenClothesMenu", function()
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+  
+        local elements = {}
+        for k, v in pairs(Config.ClothesMenu) do
+          table.insert(elements, {label = v.label, value = k, desc = v.desc})
+        end
+  
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Vêtements",
+            subtext = "Gestion",
+            align = 'top-right',
+            elements = elements,
+        },
+  
+        function(data, menu)
+            MenuData.CloseAll()
+            ExecuteCommand(data.current.value)
+        end,
+  
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+  end)
+
 
 
 --- menu craft 
@@ -594,3 +626,4 @@ RegisterNetEvent("sellnpc:activatecd",function(ent)
     end
     cooldown[ent] = false
 end)
+

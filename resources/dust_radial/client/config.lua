@@ -18,6 +18,26 @@ Config.CraftAnim = {
     "loop",
 }
 
+Config.ClothesMenu = {
+    -- [1] = {label ="Echarpes", value ="echarpes", desc="echarpes"},
+    [2] = {label ="Bandana", value ="bandana", desc="bandana"},
+    -- [3] = {label ="Chemises", value ="chemises", desc="chemises"},
+    -- [4] = {label ="Bretelles", value ="bretelles", desc="bretelles"},
+    -- [5] = {label ="Gilets", value ="gilets", desc="gilets"},
+    -- [6] = {label ="Manteaux", value ="manteaux", desc="manteaux"},
+    -- [7] = {label ="Ponchos", value ="ponchos", desc="ponchos"},
+    -- [8] = {label ="Gants", value ="gants", desc="gants"},
+    -- [9] = {label ="Holsters", value ="holsters", desc="holsters"},
+    -- [10] = {label ="Ceinture", value ="ceinture", desc="ceinture"},
+
+    -- [11] = {label ="Pantalons", value ="pantalon", desc="pantalons"},
+    -- [12] = {label ="Holsters", value ="holsters", desc="holsters"},
+    -- [13] = {label ="Ceinture", value ="ceinture", desc="ceinture"},
+
+    -- [14] = {label ="Bottes", value ="bottes", desc="bottes"},
+    -- [15] = {label ="Accessoires", value ="accessoires", desc="accessoires"},
+}
+
 Config.CraftingsReceipe = {
     ['bow'] = {
         Itemtocraft = 2,
