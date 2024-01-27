@@ -1212,7 +1212,7 @@ end
 
 RegisterServerEvent("redemrp_inventory:server:wipestash")
 AddEventHandler("redemrp_inventory:server:wipestash", function(stashId)
-    Stash[stashId] = nil
+    Stash[stashId] = {}
 end)
 
 RegisterServerEvent("redemrp_inventory:server:removefromstash")

@@ -70,7 +70,7 @@ Citizen.CreateThread(function()
         for item, properties in pairs(v.items) do
             local chance = math.random(100)
             if chance <= properties.chance then
-                TriggerEvent("redemrp_inventory:server:additemstash", item, poperties.amount, {}, "braquage_"..k)
+                TriggerEvent("redemrp_inventory:server:additemstash", item, properties.amount, {}, "braquage_"..k)
             end
             Wait(100)
         end

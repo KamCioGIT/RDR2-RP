@@ -21,7 +21,6 @@ Citizen.CreateThread(function()
 		local coords = GetEntityCoords(playerPed)
 		local zone = Citizen.InvokeNative(0x43AD8FC02B429D33, GetEntityCoords(PlayerPedId()), 1)
 
-		--- if le joueur a une arme en main 
 		for k, v in pairs(Config.Doors) do
 			if #(playerPos - v.pos) < 2.0 then
 				if v.gun == true then
@@ -144,10 +143,6 @@ function BlowDynamite(doorid)
 end
 
 
----- Ouvrir les vault avec le minijeu
----- récompense en dollars une seule fois
----- mini jeu une seule fois
-
 
 Citizen.CreateThread(function() 
     while true do
@@ -163,7 +158,7 @@ Citizen.CreateThread(function()
 		--- if le joueur a une arme en main 
 		for k, v in pairs(Config.Vault) do
 			if #(playerPos - v.pos) < 3.0 then
-				Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.pos, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+				Citizen.InvokeNative(0x2A32FAA57B937173, 0x94FDAE17, v.pos, 0, 0, 0, 0, 0, 0, 0.7, 0.7, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
 			end
 			if #(playerPos - v.pos) < 1.2 then
 				if v.difficulty == "simple" then
@@ -184,6 +179,8 @@ Citizen.CreateThread(function()
 	end
 end)
 
+
+
 RegisterNetEvent("dust_braquage:dolockpick", function(vault, dif, open)
 	if dif == "simple" then
 		if open == false then
@@ -199,7 +196,7 @@ RegisterNetEvent("dust_braquage:dolockpick", function(vault, dif, open)
 		end
 	elseif dif == "hard" then
 		if open == false then
-			local result = exports.gtp_safecracking:StartSafeCrackingMiniGame(1)
+			local result = exports.gtp_safecracking:StartSafeCrackingMiniGame(6)
 			if result then 
 				TriggerEvent("redemrp_inventory:OpenStash", "braquage_"..vault, 40.0)
 				TriggerServerEvent("dust_braquage:isopen", vault)

@@ -4629,7 +4629,7 @@ Config.Items = {
 
 ---- braquages
 ["lockpick"] = {
-    label = "Crochet",
+    label = "Crochet de fortune",
     description = "Mieux vaut être habile de ses doigts",
     weight = 0.1,
     canBeDropped = true,
