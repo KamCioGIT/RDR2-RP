@@ -2326,7 +2326,7 @@ local bandana = false
 RegisterNetEvent('dust:bandana', function(source, args, rawCommand)
     TriggerServerEvent("rdr_clothes_store:retrieveOutfitsclothes")
     cache_comps = json.decode(comps)
-    print (ClothesCache)
+    print (ClothesCache["neckties"])
     if not bandana then
         Citizen.InvokeNative(0xAE72E7DF013AAA61, PlayerPedId(), ClothesCache["NeckWear"], GetHashKey("BANDANA_ON_RIGHT_HAND"), 1, 0, -1082130432)
         Wait(700)
