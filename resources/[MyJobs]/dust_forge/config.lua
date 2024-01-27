@@ -338,4 +338,17 @@ Config.CraftingsReceipe = {
         label = 'Poële',
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Pépite de fer",count = "x100"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x50"}}
     },
+    ['lockpick'] = {
+        type = 'forgeenclume',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'ferpepite',
+        ItemReceipe1Amount = 5,
+        ItemReceipe2Name = 'charbon',
+        ItemReceipe2Amount = 1,
+        ItemToGive = 'lockpick',
+        Amount = 5,
+        WorkingTime = 10,
+        label = "Crochet",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cannabis.png', text = "Pépite de fer",count = "x5"}, {src = 'nui://redemrp_inventory/html/items/rock.png', text = "Charbon",count = "x1"}}
+    },
 }

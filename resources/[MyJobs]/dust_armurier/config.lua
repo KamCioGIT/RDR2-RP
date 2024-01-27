@@ -46,6 +46,19 @@ Config.CraftingsReceipe = {
         label = "Kit d'entretien",
         descriptionimages = {{src = 'nui://redemrp_inventory/html/items/provision_goldbar_small.png', text = "Lingot de fer",count = "x2"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x1"}, {src = 'nui://redemrp_inventory/html/items/generic_animal_fat.png', text = "Morceau de Gras",count = "x1"}}
     },
+    ['dynamite'] = {
+        type = 'armurerie',
+        Itemtocraft = 2,
+        ItemReceipe1Name = 'gunpowder',
+        ItemReceipe1Amount = 120,
+        ItemReceipe2Name = 'cuir',
+        ItemReceipe2Amount = 10,
+        ItemToGive = 'Dynamite',
+        Amount = 1,
+        WorkingTime = 10,
+        label = "Dynamite",
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/cocaine.png', text = "Poudre à canon",count = "x120"}, {src = 'nui://redemrp_inventory/html/items/provision_armadillo_skin.png', text = "Cuir",count = "x10"}}
+    },
     ['WEAPON_REVOLVER_CATTLEMAN'] = {
         type = 'armurerie',
         Itemtocraft = 4,

@@ -8,24 +8,37 @@ end)
 
 RegisterNetEvent("dust_braquage:askdynamite", function(doorid)
     local _source = source
-    if Config.Doors[doorid].started ~= true then
-        local ItemData = data.getItem(_source, "dynamite")
-        local count = ItemData.ItemAmount 
-        local need = Config.Doors[doorid].dynamite
+    local currentRealTime = os.date("*t")
 
-        if count >= need then
-            Config.Doors[doorid].started = true
-            ItemData.RemoveItem(need)
-            TriggerClientEvent('dust_braquage:poserdynamite', _source, doorid)
+    if currentRealTime.hour >= 21 or currentRealTime.hour < 23 then
+        if Config.Doors[doorid].started ~= true then
+            local ItemData = data.getItem(_source, "dynamite")
+            local count = ItemData.ItemAmount 
+            local need = Config.Doors[doorid].dynamite
+
+            if count >= need then
+                Config.Doors[doorid].started = true
+                ItemData.RemoveItem(need)
+                TriggerClientEvent('dust_braquage:poserdynamite', _source, doorid)
+            else
+                TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Dynamite", "Il vous faut "..need.." dynamite(s)", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+            end
         end
-    end
+    else
+        TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Braquage", "Les coffres sont vides, mieux vaut venir plus tard.", "scoretimer_textures", "scoretimer_generic_cross", 4000)
 end)
 
 RegisterNetEvent("dust_braquage:askgrille", function(doorid)
     local _source = source
-    if Config.Doors[doorid].started ~= true then
-        Config.Doors[doorid].started = true
-        TriggerClientEvent('dust_braquage:ouvrirgrille', _source, doorid)
+    local currentRealTime = os.date("*t")
+
+    if currentRealTime.hour >= 21 or currentRealTime.hour < 23 then
+        if Config.Doors[doorid].started ~= true then
+            Config.Doors[doorid].started = true
+            TriggerClientEvent('dust_braquage:ouvrirgrille', _source, doorid)
+        end
+    else
+        TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Braquage", "Les coffres sont vides, mieux vaut venir plus tard.", "scoretimer_textures", "scoretimer_generic_cross", 4000)
     end
 end)
 
