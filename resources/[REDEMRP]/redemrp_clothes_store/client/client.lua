@@ -2371,3 +2371,25 @@ RegisterNetEvent('dust:boots', function(source, args, rawCommand)
     end
     Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
 end)
+
+RegisterNetEvent('dust:pants', function(source, args, rawCommand)
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x1D4C528A) then
+        play_anim('script_re@burning_bodies', 'push_two_bodies_undertaker', 3000, 25)
+        Citizen.Wait(1000)
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0x1D4C528A, 0)
+    else
+        play_anim('script_re@burning_bodies', 'push_two_bodies_undertaker', 3000, 25)
+        Citizen.Wait(3000)
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("pants"), true, true, false);
+    end
+    if Citizen.InvokeNative(0xFB4891BD7578CDC1, PlayerPedId(), 0x3107499B) then
+        play_anim('script_re@burning_bodies', 'push_two_bodies_undertaker', 3000, 25)
+        Citizen.Wait(3000)
+        Citizen.InvokeNative(0xD710A5007C2AC539, PlayerPedId(), 0x3107499B, 0)
+    else
+        play_anim('script_re@burning_bodies', 'push_two_bodies_undertaker', 3000, 25)
+        Citizen.Wait(3000)
+        Citizen.InvokeNative(0xD3A7B003ED343FD9, PlayerPedId(), GetClothesCurrentComponentHash("chaps"), true, true, false);
+    end
+    Citizen.InvokeNative(0xCC8CA3E88256E58F, PlayerPedId(), 0, 1, 1, 1, 0)
+end)
