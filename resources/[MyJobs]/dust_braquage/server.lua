@@ -21,11 +21,12 @@ RegisterNetEvent("dust_braquage:askdynamite", function(doorid)
                 ItemData.RemoveItem(need)
                 TriggerClientEvent('dust_braquage:poserdynamite', _source, doorid)
             else
-                TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Dynamite", "Il vous faut "..need.." dynamite(s)", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+                TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Braquage", "Il vous faut "..need.." dynamite(s)", "scoretimer_textures", "scoretimer_generic_cross", 4000)
             end
         end
     else
         TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Braquage", "Les coffres sont vides, mieux vaut venir plus tard.", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+    end 
 end)
 
 RegisterNetEvent("dust_braquage:askgrille", function(doorid)
