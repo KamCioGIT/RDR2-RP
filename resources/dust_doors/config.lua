@@ -1970,15 +1970,24 @@ Config.Doors = {
         keys = "clefpavotest",
     },
 
-    ---- alambic arkos
+    ---- alambic lachance
     {
-        door = 4291451064,
-        CloseRotation = 185.0,
-        DoorCoord = vector3(-627.5625,-54.382328033447,81.852699279785),
-        OpenCoord = vector3(-629.018, -54.23365, 81.79862),
-        door2 = 295238741,
-        CloseRotation2 = -175.0,
-        DoorCoord2 = vector3(-630.84625244141,-54.67068862915,81.847953796387),
+        door = 862008394,
+        CloseRotation = 20.0,
+        OpenCoord  = vector3(2370.8708496094,-864.43804931641,42.040088653564),
+        door2 = 0,
+        CloseRotation2 = 0,
+        locked = true,
+        breakable = false, 
+        jobs = {"all"},
+        keys = "clefarkos",
+    },
+    {
+        door = 3945582303,
+        CloseRotation = -160.0,
+        OpenCoord  = vector3(2370.9301757813,-857.48553466797,42.043087005615),
+        door2 = 0,
+        CloseRotation2 = 0,
         locked = true,
         breakable = false, 
         jobs = {"all"},
