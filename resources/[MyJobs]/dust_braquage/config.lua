@@ -40,7 +40,7 @@ Config.Vault = {
             ["lingotor"] = {amount = 1, chance = 25},
             ["lingotfer"] = {amount = 2, chance = 50},
         }}, -- rhodes simple
-        {difficulty = "simple", pos = vector3(1290.261, -1306.055, 76.0416), cashmax = 50, cashmin = 20, items = {
+        {difficulty = "simple", pos = vector3(1291.027, -1306.732, 76.04198), cashmax = 50, cashmin = 20, items = {
             ["lingotor"] = {amount = 1, chance = 25},
             ["lingotfer"] = {amount = 2, chance = 50},
         }}, -- rhodes simple
@@ -51,12 +51,12 @@ Config.Vault = {
         {difficulty = "simple", pos = vector3(1282.415, -1311.285, 76.03952), cashmax = 50, cashmin = 20, items = {
             ["lingotor"] = {amount = 1, chance = 25},
             ["lingotfer"] = {amount = 2, chance = 50},
-        }}, -- rhodes simple
+        }}, -- rhodes simple dynamite
         {difficulty = "simple", pos = vector3(1282.824, -1312.411, 76.03952), cashmax = 50, cashmin = 20, items = {
             ["lingotor"] = {amount = 1, chance = 25},
             ["lingotfer"] = {amount = 2, chance = 50},
-        }}, -- rhodes simple
-
+        }}, -- rhodes simple dynamite
+    
 
         {difficulty = "hard", pos = vector3(1287.978, -1313.313, 76.03976), cashmax = 50, cashmin = 20, items = {
             ["lingotor"] = {amount = 1, chance = 25},
