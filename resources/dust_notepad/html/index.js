@@ -66,16 +66,30 @@ function change_me(k) {
 }
 function save() {
     if (number === -1) {
-        var value = document.getElementById("notepad_text").value
-        $.post('http://dust_notepad/save_new', JSON.stringify({ value:value}));
+        var value = document.getElementById("notepad_text").value;
+        var maxval = -1;
+    
+        for (var key in table) {
+            var numericKey = parseInt(key, 10);
+    
+            if (!isNaN(numericKey) && numericKey > maxval) {
+                maxval = numericKey;
+            }
+        }
+
+        // Ajouter 1 à la valeur maximale pour éviter 0
+        maxval = maxval + 1;
+    
+        $.post('http://dust_notepad/save_new', JSON.stringify({ page: maxval, value: value }));    
     } else if (number !== -1) {
         var value = document.getElementById("notepad_text").value
-        $.post('http://dust_notepad/save', JSON.stringify({ name: Number(table[number].id), value:value}));
+        $.post('http://dust_notepad/save', JSON.stringify({ page: Number(table[number].id), value: value }));
     }
 }
+
 function delet() {
     if (number !== -1) {
-        $.post('http://dust_notepad/delete', JSON.stringify({ name: Number(table[number].id)}));
+        $.post('http://dust_notepad/delete', JSON.stringify({ page: Number(table[number].id)}));
     }
 }
 function send() {

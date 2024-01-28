@@ -2693,16 +2693,13 @@ end)
 
 ---- notepad
 
-RegisterServerEvent("redemrp_inventory:createnotepad", function(source)
+RegisterServerEvent("redemrp_inventory:createnotepad", function(source, generetedUid)
     local _source = source
     local Player = RedEM.GetPlayer(_source)
     local identifier = Player.GetIdentifier()
     local charid = Player.GetActiveCharacter()
     local itemData = Config.Items["notepad"]
     local _meta = meta or {}
-    local numBase0 = math.random(100, 999)
-    local numBase1 = math.random(0, 9999)
-    local generetedUid = string.format("%03d%04d", numBase0, numBase1)
     _meta.bookid = generetedUid
     local item, id = getInventoryItemFromName("notepad", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
     if item then
@@ -2717,8 +2714,11 @@ RegisterServerEvent("redemrp_inventory:createnotepad", function(source)
         {},
         InventoryWeight[identifier .. "_" .. charid]
         )
-        MySQL.update("INSERT INTO notepad ( `bookid`) VALUES ( @bookid)", {['bookid'] = generetedUid})
-    end
+        local save = "Voici votre première page, vous pouvez écrire ce qu'il vous plaît sur ce carnet. D'ailleurs n'hésitez pas à me gommer, je ne le prendrais pas mal ! PS: Ne validez qu'une page à la fois, pour éviter toute confusion."
+        local page = 0
+        MySQL.execute("INSERT INTO notepad (`bookid`, `notepad`, `page`) VALUES (@bookid, @notepad, @page)", {notepad = save, bookid = generetedUid, page = tonumber(page)},
+        function (result)
+        end)    end
 end)
 
 RegisterServerEvent("redemrp_inventory:checkpoison")

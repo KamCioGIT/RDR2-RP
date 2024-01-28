@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Milonga&display=swap%27');
+
+
 @font-face {
     font-family: 'crock';
     src: url('crock.ttf');
@@ -9,7 +12,7 @@
 }
 
 * {
-    font-family: 'crock';
+    font-family: 'Milonga', cursive !important;
     box-sizing: inherit;
     touch-action: manipulation;
 }
@@ -57,7 +60,7 @@ table {
     transform: translate(-50%, -50%);
     width: 740px;
     height: 800px;
-    background-image: url('images/background.png');
+    background-image: url('images/background2.png');
     background-size: 100% 100%;
 }
 #back_img {
@@ -338,16 +341,19 @@ input {
     background-repeat: no-repeat;
 }
 #textButton1 {
+    font-family: 'Milonga', cursive !important;
     position: absolute;
     top: 8px;
     left :5px;
 }
 #textButton2 {
+    font-family: 'Milonga', cursive !important;
     position: absolute;
     top: 8px;
     left :30px;
 }
 #textButton3 {
+    font-family: 'Milonga', cursive !important;
     position: absolute;
     top: 8px;
     left :30px;
@@ -355,8 +361,7 @@ input {
 
 #notepad_text {
     overflow-y: scroll;
-    font-style: italic;
-    font-family: 'crock2';
+    font-family: 'Milonga', cursive !important;
     position: absolute;
     color: rgb(59, 83, 95);
     font-size: 23px;
