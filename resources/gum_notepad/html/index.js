@@ -7,7 +7,7 @@ $(document).keydown(function(e) {
         case close:
             number = -1
             document.getElementById("notepad_text").value = ""
-            $.post('http://gum_notepad/exit')
+            $.post('http://dust_notepad/exit')
         break;
     }
 });
@@ -67,20 +67,20 @@ function change_me(k) {
 function save() {
     if (number === -1) {
         var value = document.getElementById("notepad_text").value
-        $.post('http://gum_notepad/save_new', JSON.stringify({ value:value}));
+        $.post('http://dust_notepad/save_new', JSON.stringify({ value:value}));
     } else if (number !== -1) {
         var value = document.getElementById("notepad_text").value
-        $.post('http://gum_notepad/save', JSON.stringify({ name: Number(table[number].id), value:value}));
+        $.post('http://dust_notepad/save', JSON.stringify({ name: Number(table[number].id), value:value}));
     }
 }
 function delet() {
     if (number !== -1) {
-        $.post('http://gum_notepad/delete', JSON.stringify({ name: Number(table[number].id)}));
+        $.post('http://dust_notepad/delete', JSON.stringify({ name: Number(table[number].id)}));
     }
 }
 function send() {
     if (number !== -1) {
         var value = document.getElementById("notepad_text").value
-        $.post('http://gum_notepad/send', JSON.stringify({ value:value}));
+        $.post('http://dust_notepad/send', JSON.stringify({ value:value}));
     }
 }

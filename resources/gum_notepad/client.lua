@@ -3,14 +3,14 @@ local mymessage = {}
 RegisterNetEvent("dust_notepad:get_notepad")
 AddEventHandler("dust_notepad:get_notepad", function(tbl)
 	mymessage = tbl
+	SendNUIMessage({
+        type = "notepad",
+		status = true,
+		table = mymessage,
+    })
+    SetNuiFocus(true, true)
 end)
 
-RegisterNetEvent("dust:SelectedCharacter")
-AddEventHandler("dust:SelectedCharacter", function(charid)
-	Citizen.CreateThread(function()
-		TriggerServerEvent("dust_notepad:get_notepad")
-	end)
-end)
 
 RegisterNUICallback('exit', function(data, cb)
 	SendNUIMessage({

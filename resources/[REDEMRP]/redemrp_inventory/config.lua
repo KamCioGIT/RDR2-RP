@@ -4826,6 +4826,20 @@ Config.Items = {
     imgsrc = "items/jewel_ruby1.png",
     type = "item_standard",
 },
+
+
+---- notepad
+["notepad"] = {
+    label = "Carnet",
+    description = "Pour les mémoires fatiguées",
+    weight = 0.5,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/notebook.png",
+    type = "item_standard",
+},
 }
 
 

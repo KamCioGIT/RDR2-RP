@@ -2705,17 +2705,19 @@ RegisterServerEvent("redemrp_inventory:createnotepad", function(source)
     local generetedUid = string.format("%03d%04d", numBase0, numBase1)
     _meta.bookid = generetedUid
     local item, id = getInventoryItemFromName("notepad", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
-    if not item then
-        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("notepad", 1, _meta))
-        InventoryWeight[identifier .. "_" .. charid] =
-        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+    if item then
+        local meta = item.getMeta()
+        if not meta["notepad"] then
+            item.setMeta(_meta)
+        end
         TriggerClientEvent(
-            "redemrp_inventory:SendItems",
-            _source,
-            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
-            {},
-            InventoryWeight[identifier .. "_" .. charid]
+        "redemrp_inventory:SendItems",
+        _source,
+        PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+        {},
+        InventoryWeight[identifier .. "_" .. charid]
         )
+        MySQL.update("INSERT INTO notepad ( `bookid`) VALUES ( @bookid)", {['bookid'] = generetedUid})
     end
 end)
 
