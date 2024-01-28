@@ -77,6 +77,10 @@ function routeTime()
 	end)  
 end
 
+RegisterCommand("testtrain", function()
+    TriggerServerEvent("gum_station:train_start", 1)
+end)
+
 RegisterNetEvent("gum_station:train_start")
 AddEventHandler("gum_station:train_start", function(state)
     trainStart(tonumber(state))
