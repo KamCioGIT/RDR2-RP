@@ -114669,14 +114669,14 @@ clothes_list = {
 					['ped_type'] = 'male'
 				}
 			},
-			[38] = {
-				[1] = {
-					['category_hash'] = 539411565,
-					['category_hash_dec_signed'] = 539411565,
-					['category_hashname'] = 'shirts_full',
-					['hashname'] = '',
-					['is_multiplayer'] = false,
-					['ped_type'] = 'male',
+			[38] = { ---- modèle
+				[1] = { ---- couleur
+					['category_hash'] = 539411565, ---- c/c de la catégorie
+					['category_hash_dec_signed'] = 539411565,---- c/c de la catégorie
+					['category_hashname'] = 'shirts_full',---- c/c de la catégorie
+					['hashname'] = '', --- tjrs vide
+					['is_multiplayer'] = false, ---- tjrs false
+					['ped_type'] = 'male', ----- gaffe à mettre le bon sex
 					['drawable'] = `pjfxhyma_0xcd093323`,
 					['albedo'] = `hayjjvfa_0x7bba9ac8`,
 					['normal'] = `xgstiyfb_0xe300323e`,
