@@ -54,7 +54,7 @@ AddEventHandler('dust_newspaper:new', function(link, amt, title)
     MySQL.execute("INSERT INTO newspaper (`newsid`, `link`) VALUES (@newsid, @link)", {link = link, newsid = newsid},
     function (result)
     end)
-	local amount = amt
+	local amount = tonumber(amt)
 	while amount > 0 do
 		if amount > 0 then
 			TriggerEvent("redemrp_inventory:createnewspaper", _source, newsid, link, title)
