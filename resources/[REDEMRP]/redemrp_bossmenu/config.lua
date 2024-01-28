@@ -808,7 +808,7 @@ Config.Jobs = {
         }
     },
     ["presse"] = {
-        bigjob = "presse",
+        bigjob = "newspaper",
         Name = "Presse",
         blisprite = 587827268,
         MenuLocations = 

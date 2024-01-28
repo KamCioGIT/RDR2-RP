@@ -2717,6 +2717,32 @@ RegisterServerEvent("redemrp_inventory:createnewspaper", function(source, newsid
     end
 end)
 
+---- tract
+
+RegisterServerEvent("redemrp_inventory:createtract", function(source, newsid, link, title)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local itemData = Config.Items["tract"]
+    local _meta = meta or {}
+    _meta.newsid = newsid
+    _meta.titre = title
+    local item, id = getInventoryItemFromName("tract", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("tract", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)
+
 
 ---- notepad
 
