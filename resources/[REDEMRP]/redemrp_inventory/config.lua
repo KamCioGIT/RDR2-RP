@@ -408,6 +408,15 @@ Config.Items = {
         imgsrc = "items/weapon_fishingrod.png",
         type = "item_weapon"
     },
+    ["WEAPON_KIT_CAMERA"] = {
+        label = "Appareil photo",
+        description = "Une merveille de technologie",
+        weight = 1.0,
+        canBeDropped = true,
+        weaponHash = GetHashKey("WEAPON_KIT_CAMERA"),
+        imgsrc = "items/weapon_kit_camera_advanced.png",
+        type = "item_weapon"
+    },
     ["WEAPON_MELEE_KNIFE"] = {
         label = "Couteau de chasse",
         description = "Utile pour dépecer vos proies",
