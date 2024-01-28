@@ -64,3 +64,12 @@ Config.Point = {
         [5] = {14, "Saint Denis", 2734.59, -1453.44, 47.08},
     }
 }
+
+
+---- table d'items aléatoire pour les gares
+
+
+----- table de revente à st denis
+
+
+----- table des besoins dans les gares avec prix aléatoires

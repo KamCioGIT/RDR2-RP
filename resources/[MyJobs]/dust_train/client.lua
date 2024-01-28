@@ -1,3 +1,8 @@
+----- menu achat dans les gares
+
+---- menu vente dans les gares
+
+
 local blockMe = false
 local speedCheck = 0.0
 local blockSpeedForXxSecond = false
@@ -560,3 +565,4 @@ function buttonPrompt()
         PromptRegisterEnd(OpenTrainMenu)
 	end)
 end
+

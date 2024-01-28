@@ -1,3 +1,12 @@
+
+---- vider des stashes au reboot et les remplir en aléatoire
+
+----- définir les prix aléatoires au reboot
+
+---- envoie des prix au client
+
+
+
 local gumCore = {}
 TriggerEvent("getCore",function(core)
 	gumCore = core
