@@ -215,6 +215,8 @@ function createObjectBox(object) {
         }
     } else if(object.name == "newspaper") {
         boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `" + object.meta.titre + "`)    ");
+    } else if(object.name == "tract") {
+        boxContent.setAttribute('onmouseover', "Over(`" + object.label + "`, `" + object.meta.titre + "`)    ");
     } else if(object.name == "télégramme") {
         var isoDate = new Date(object.meta.data.sentTime).toISOString().split('T')[0];
         isoDatestr = isoDate.replace("2023","1885");

@@ -12,13 +12,13 @@ Config.Newspapers2 = {  ----- nomitem = "lien"
 }
 
 Config.Tract = {
-    vector3(2608.415, -1358.112, 55.4479),
+    [1] = vector3(2608.415, -1358.112, 55.4479),
     
 
 }
 
 Config.Journal = {
-    vector3(2613.713, -1354.634, 55.4479),
+    [1] = vector3(2613.713, -1354.634, 55.4479),
     
 
 }

@@ -4843,24 +4843,24 @@ Config.Items = {
 ---- journal
 ["newspaper"] = {
     label = "Journal",
-    description = "Pour les mémoires fatiguées",
-    weight = 0.5,
+    description = "Les nouvelles du jour",
+    weight = 0.2,
     canBeDropped = true,
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/newspaper.png",
+    imgsrc = "items/document_newspaper.png",
     type = "item_standard",
 },
-["ValEat"] = {
-    label = "Carnet",
-    description = "Pour les mémoires fatiguées",
-    weight = 0.5,
+["tract"] = {
+    label = "Impression",
+    description = "Utile pour faire passer des messages",
+    weight = 0.1,
     canBeDropped = true,
     canBeUsed = true,
     requireLvl = 0,
     limit = 2000,
-    imgsrc = "items/generic_newsclipping.png",
+    imgsrc = "items/document_moonshine_recipes.png",
     type = "item_standard",
 },
 }

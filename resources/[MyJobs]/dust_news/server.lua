@@ -1,4 +1,4 @@
-
+RedEM = exports["redem_roleplay"]:RedEM()
 local data = {}
 TriggerEvent("redemrp_inventory:getData",function(call)
 	data = call
@@ -30,6 +30,19 @@ AddEventHandler("RegisterUsableItem:newspaper", function(source, _data)
 		end
 	end)
 end)
+RegisterServerEvent("RegisterUsableItem:tract")
+AddEventHandler("RegisterUsableItem:tract", function(source, _data)
+	local _source = source
+	local data = _data
+    newsid = data.meta.newsid
+	print (newsid)
+	MySQL.query('SELECT * FROM newspaper WHERE newsid=@newsid' , {['newsid']=newsid}, function(result)
+		if result ~= nil then
+			local link = result[1].link
+			TriggerClientEvent("dust_newspaper:get_newspaper", _source, link)
+		end
+	end)
+end)
 
 
 RegisterServerEvent('dust_newspaper:new')
@@ -38,7 +51,7 @@ AddEventHandler('dust_newspaper:new', function(type, link, amt, title)
 	local User = RedEM.GetPlayer(_source)
 	if type == "journal" then
 		local currentMoney = User.money
-		local removeMoney = amount * Config.PriceJournal
+		local removeMoney = amt * Config.PriceJournal
 		if currentMoney >= removeMoney then
 			local numBase0 = math.random(100, 999)
 			local numBase1 = math.random(0, 9999)
@@ -59,7 +72,7 @@ AddEventHandler('dust_newspaper:new', function(type, link, amt, title)
 
 	if type == "impression" then
 		local currentMoney = User.money
-		local removeMoney = amount * Config.PriceTract
+		local removeMoney = amt * Config.PriceTract
 		if currentMoney >= removeMoney then
 			local numBase0 = math.random(100, 999)
 			local numBase1 = math.random(0, 9999)
