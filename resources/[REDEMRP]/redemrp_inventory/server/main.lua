@@ -2693,7 +2693,7 @@ end)
 
 ---- newspaper
 
-RegisterServerEvent("redemrp_inventory:createnewspaper", function(source, newsid, link, amount, title)
+RegisterServerEvent("redemrp_inventory:createnewspaper", function(source, newsid, link, title)
     local _source = source
     local Player = RedEM.GetPlayer(_source)
     local identifier = Player.GetIdentifier()
@@ -2704,7 +2704,7 @@ RegisterServerEvent("redemrp_inventory:createnewspaper", function(source, newsid
     _meta.titre = title
     local item, id = getInventoryItemFromName("newspaper", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
     if not item then
-        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("newspaper", tonumber(amount), _meta))
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("newspaper", 1, _meta))
         InventoryWeight[identifier .. "_" .. charid] =
         InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
         TriggerClientEvent(
