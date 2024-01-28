@@ -4840,6 +4840,29 @@ Config.Items = {
     imgsrc = "items/notebook.png",
     type = "item_standard",
 },
+---- journal
+["newspapers_1"] = {
+    label = "Carnet",
+    description = "Pour les mémoires fatiguées",
+    weight = 0.5,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/newspaper.png",
+    type = "item_standard",
+},
+["ValEat"] = {
+    label = "Carnet",
+    description = "Pour les mémoires fatiguées",
+    weight = 0.5,
+    canBeDropped = true,
+    canBeUsed = true,
+    requireLvl = 0,
+    limit = 2000,
+    imgsrc = "items/generic_newsclipping.png",
+    type = "item_standard",
+},
 }
 
 
