@@ -8,7 +8,6 @@ TriggerEvent("redemrp_inventory:getData",function(call)
         data = call
 end)
 
-gum = exports.gum_core:gumAPI()
 
 
 local station_table = {}
