@@ -1,0 +1,373 @@
+@font-face {
+    font-family: 'crock';
+    src: url('crock.ttf');
+}
+
+@font-face {
+    font-family: 'crock2';
+    src: url('koala.ttf');
+}
+
+* {
+    font-family: 'crock';
+    box-sizing: inherit;
+    touch-action: manipulation;
+}
+
+body {
+    background: none !important;
+}
+div {
+    padding-left: 5%;
+    height: 78%;
+}
+table {
+    width: 100%;
+  }
+
+::-webkit-scrollbar {
+    width: 6px;
+  }
+::-webkit-scrollbar-track {
+    background: rgb(73, 73, 73); 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #b3b3b3; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    border-radius: 10px;
+    background: rgb(39, 39, 39); 
+  }
+
+.align-left {
+    text-align: left;
+    left: -15px;
+}
+
+#container {
+    -webkit-user-drag: element;
+    display: block;
+    padding: 25px;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 740px;
+    height: 800px;
+    background-image: url('images/background.png');
+    background-size: 100% 100%;
+}
+#back_img {
+    color: rgb(233, 233, 233);
+    font-size: 25px;
+    background-image: url('images/background_text.png');
+    background-size: 100% 100%;
+    left: 515px;
+    top: 353px;
+    width: 199px;
+    height: 248px;
+    background-color: transparent;
+    background-repeat: no-repeat;    
+    border: none;
+    overflow: hidden;
+    outline: none;
+}
+
+#container_wanted {
+    display: none;
+    padding: 25px;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 740px;
+    height: 800px;
+    background-image: url('images/background.png');
+    background-size: 100% 100%;
+}
+
+#container_info_table {
+    overflow-y: scroll;
+    display: grid;
+    height: 790px;
+    grid-template-columns: auto auto auto;
+}
+#wanted_person {
+    position: relative;
+    color: rgb(233, 233, 233);
+    font-size: 25px;
+    background-image: url('images/background_text.png');
+    background-size: 100% 100%;
+    left: -7px;
+    top: 3px;
+    width: 190px;
+    height: 240px;
+    background-color: transparent;
+    background-repeat: no-repeat;    
+    border: none;
+    overflow: hidden;
+    outline: none;
+}
+
+#wanted_npc {
+    position: relative;
+    color: rgb(233, 233, 233);
+    font-size: 25px;
+    background-image: url('images/background_text.png');
+    background-size: 100% 100%;
+    left: -7px;
+    top: 3px;
+    width: 190px;
+    height: 240px;
+    background-color: transparent;
+    background-repeat: no-repeat;    
+    border: none;
+    overflow: hidden;
+    outline: none;
+}
+
+#wanted_npc:hover {
+    border: 1px solid transparent;
+    border-color: rgb(143, 135, 135);
+}
+
+#wanted_text {
+    position: relative;
+    color: rgb(233, 233, 233);
+    font-size: 20px;
+    right:20px;
+    top: 190px;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    text-align: center;
+}
+
+input {
+    position: relative;
+    color: rgb(233, 233, 233);
+    border: none;
+    overflow: hidden;
+    outline: none;
+    text-align: center;
+    font-size: 25px;
+    background-image: url('images/sbutton.png');
+    background-size: 100% 100%;
+    left: 400px;
+    top: 45px;
+    width: 250px;
+    height: 40px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+#delete_button {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    border: none;
+    overflow: hidden;
+    outline: none;
+    font-size: 12px;
+    background-image: url('images/save.png');
+    background-size: 100% 100%;
+    padding-right: 30px;
+    left: 100px;
+    bottom: 50px;
+    width: 40px;
+    height: 30px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+#delete_button:hover {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    border: none;
+    overflow: hidden;
+    outline: none;
+    font-size: 12px;
+    background-image: url('images/a_save.png');
+    background-size: 100% 100%;
+    padding-right: 30px;
+    left: 100px;
+    bottom: 50px;
+    width: 40px;
+    height: 30px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+#send_button {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    border: none;
+    overflow: hidden;
+    outline: none;
+    font-size: 12px;
+    padding-right: 30px;
+    background-image: url('images/save.png');
+    background-size: 100% 100%;
+    left: 320px;
+    bottom: 50px;
+    width: 40px;
+    height: 30px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+#send_button:hover {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    border: none;
+    overflow: hidden;
+    outline: none;
+    font-size: 12px;
+    padding-right: 30px;
+    background-image: url('images/a_save.png');
+    background-size: 100% 100%;
+    left: 320px;
+    bottom: 50px;
+    width: 40px;
+    height: 30px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+#save_button {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    border: none;
+    overflow: hidden;
+    outline: none;
+    font-size: 12px;
+    padding-right: 30px;
+    background-image: url('images/save.png');
+    background-size: 100% 100%;
+    left: 560px;
+    bottom: 50px;
+    width: 40px;
+    height: 30px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+#save_button:hover {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    border: none;
+    overflow: hidden;
+    outline: none;
+    font-size: 12px;
+    padding-right: 30px;
+    background-image: url('images/a_save.png');
+    background-size: 100% 100%;
+    left: 560px;
+    bottom: 50px;
+    width: 40px;
+    height: 30px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+#left_button {
+    position: absolute;
+    color: rgb(233, 233, 233);
+    border: none;
+    overflow: hidden;
+    outline: none;
+    text-align: center;
+    font-size: 25px;
+    background-image: url('images/l_arrow.png');
+    background-size: 100% 100%;
+    left: 15px;
+    bottom: 400px;
+    width: 10px;
+    height: 150px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+#left_button:hover {
+    position: absolute;
+    color: rgb(233, 233, 233);
+    border: none;
+    overflow: hidden;
+    outline: none;
+    text-align: center;
+    font-size: 25px;
+    background-image: url('images/al_arrow.png');
+    background-size: 100% 100%;
+    left: 15px;
+    bottom: 400px;
+    width: 10px;
+    height: 150px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+#right_button {
+    position: absolute;
+    color: rgb(233, 233, 233);
+    border: none;
+    overflow: hidden;
+    outline: none;
+    text-align: center;
+    font-size: 25px;
+    background-image: url('images/r_arrow.png');
+    background-size: 100% 100%;
+    left: 720px;
+    bottom: 400px;
+    width: 10px;
+    height: 150px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+#right_button:hover {
+    position: absolute;
+    color: rgb(233, 233, 233);
+    border: none;
+    overflow: hidden;
+    outline: none;
+    text-align: center;
+    font-size: 25px;
+    background-image: url('images/ar_arrow.png');
+    background-size: 100% 100%;
+    left: 720px;
+    bottom: 400px;
+    width: 10px;
+    height: 150px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+#textButton1 {
+    position: absolute;
+    top: 8px;
+    left :5px;
+}
+#textButton2 {
+    position: absolute;
+    top: 8px;
+    left :30px;
+}
+#textButton3 {
+    position: absolute;
+    top: 8px;
+    left :30px;
+}
+
+#notepad_text {
+    overflow-y: scroll;
+    font-style: italic;
+    font-family: 'crock2';
+    position: absolute;
+    color: rgb(59, 83, 95);
+    font-size: 23px;
+    background-size: 100% 100%;
+    left: 80px;
+    top: 73px;
+    width: 618px;
+    height: 670px;
+    background-color: transparent; 
+    background-repeat: no-repeat;    
+    border: none;
+    outline: none;
+    resize: none;
+}

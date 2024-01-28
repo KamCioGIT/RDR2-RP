@@ -2672,7 +2672,7 @@ RegisterServerEvent("redemrp_inventory:createtelegram", function(source, telegra
     local Player = RedEM.GetPlayer(_source)
     local identifier = Player.GetIdentifier()
     local charid = Player.GetActiveCharacter()
-    local itemData = Config.Items["transferhorse"]
+    local itemData = Config.Items["télégramme"]
     local _meta = meta or {}
     _meta.data = telegram
     local item, id = getInventoryItemFromName("télégramme", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
@@ -2690,6 +2690,34 @@ RegisterServerEvent("redemrp_inventory:createtelegram", function(source, telegra
     end
 end)
 
+
+---- notepad
+
+RegisterServerEvent("redemrp_inventory:createnotepad", function(source)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local itemData = Config.Items["notepad"]
+    local _meta = meta or {}
+    local numBase0 = math.random(100, 999)
+    local numBase1 = math.random(0, 9999)
+    local generetedUid = string.format("%03d%04d", numBase0, numBase1)
+    _meta.bookid = generetedUid
+    local item, id = getInventoryItemFromName("notepad", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("notepad", 1, _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)
 
 RegisterServerEvent("redemrp_inventory:checkpoison")
 AddEventHandler("redemrp_inventory:checkpoison", function(src, joueur, name)
