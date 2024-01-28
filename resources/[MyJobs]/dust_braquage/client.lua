@@ -85,7 +85,6 @@ Citizen.CreateThread(function()
 			local model = RequestModel(GetHashKey(v.npcmodel))
 			while not HasModelLoaded(GetHashKey(v.npcmodel)) do
 				Wait(100)
-				print'ttt'
 			end
 
 			local spawnCoords = v.npccoords

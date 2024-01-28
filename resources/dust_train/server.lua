@@ -3,7 +3,11 @@ TriggerEvent("getCore",function(core)
 	gumCore = core
 end)
 	
-Inventory = exports.gum_inventory:gum_inventoryApi()
+data = {}
+TriggerEvent("redemrp_inventory:getData",function(call)
+        data = call
+end)
+
 gum = exports.gum_core:gumAPI()
 
 
