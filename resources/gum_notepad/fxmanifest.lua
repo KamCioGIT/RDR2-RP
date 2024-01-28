@@ -28,8 +28,3 @@ files {
     'html/kaola.ttf',
     'html/images/*.png',
 }
-escrow_ignore {
-  'config.lua', 
-  'client.lua', 
-  'html/*',
-}
