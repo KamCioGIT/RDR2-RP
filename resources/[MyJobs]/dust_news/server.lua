@@ -51,9 +51,14 @@ AddEventHandler('dust_newspaper:new', function(link, amt, title)
 	local numBase0 = math.random(100, 999)
 	local numBase1 = math.random(0, 9999)
 	newsid = string.format("%03d%04d", numBase0, numBase1)
-	print(tonumber(amt))
-	TriggerEvent("redemrp_inventory:createnewspaper", _source, newsid, link, amt, title)
     MySQL.execute("INSERT INTO newspaper (`newsid`, `link`) VALUES (@newsid, @link)", {link = link, newsid = newsid},
     function (result)
     end)
+	local amount = amt
+	while amount > 0 do
+		if amount > 0 then
+			TriggerEvent("redemrp_inventory:createnewspaper", _source, newsid, link, title)
+			amount = amount - 1
+		end
+	end
 end)
