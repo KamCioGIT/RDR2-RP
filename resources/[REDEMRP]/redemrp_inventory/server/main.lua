@@ -2691,6 +2691,33 @@ RegisterServerEvent("redemrp_inventory:createtelegram", function(source, telegra
 end)
 
 
+---- newspaper
+
+RegisterServerEvent("redemrp_inventory:createnewspaper", function(source, newsid, link, amount, title)
+    local _source = source
+    local Player = RedEM.GetPlayer(_source)
+    local identifier = Player.GetIdentifier()
+    local charid = Player.GetActiveCharacter()
+    local itemData = Config.Items["newspaper"]
+    local _meta = meta or {}
+    _meta.newsid = newsid
+    _meta.titre = title
+    local item, id = getInventoryItemFromName("newspaper", Inventory[identifier .. "_" .. charid], getMetaOutput(meta))
+    if not item then
+        table.insert(Inventory[identifier .. "_" .. charid], CreateItem("newspaper", tonumber(amount), _meta))
+        InventoryWeight[identifier .. "_" .. charid] =
+        InventoryWeight[identifier .. "_" .. charid] + (itemData.weight)
+        TriggerClientEvent(
+            "redemrp_inventory:SendItems",
+            _source,
+            PrepareToOutput(Inventory[identifier .. "_" .. charid]),
+            {},
+            InventoryWeight[identifier .. "_" .. charid]
+        )
+    end
+end)
+
+
 ---- notepad
 
 RegisterServerEvent("redemrp_inventory:createnotepad", function(source, generetedUid)
@@ -2720,6 +2747,7 @@ RegisterServerEvent("redemrp_inventory:createnotepad", function(source, generete
         function (result)
         end)    end
 end)
+
 
 RegisterServerEvent("redemrp_inventory:checkpoison")
 AddEventHandler("redemrp_inventory:checkpoison", function(src, joueur, name)

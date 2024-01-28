@@ -517,4 +517,5 @@ Config.Import = {
     ["lemonade"] = {label= "Limonade", price = 0.2},
     ["WEAPON_KIT_BINOCULARS"] = {label= "Jumelles", price = 10},
     ["WEAPON_MELEE_LANTERN"] = {label= "Lanterne", price = 2},
+    ["notepad"] = {label= "Carnet de note", price = 1},
 }

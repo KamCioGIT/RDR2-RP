@@ -83,13 +83,13 @@ function save() {
         $.post('http://dust_notepad/save_new', JSON.stringify({ page: maxval, value: value }));    
     } else if (number !== -1) {
         var value = document.getElementById("notepad_text").value
-        $.post('http://dust_notepad/save', JSON.stringify({ page: Number(table[number].id), value: value }));
+        $.post('http://dust_notepad/save', JSON.stringify({ page: Number(table[number].page), value: value }));
     }
 }
 
 function delet() {
     if (number !== -1) {
-        $.post('http://dust_notepad/delete', JSON.stringify({ page: Number(table[number].id)}));
+        $.post('http://dust_notepad/delete', JSON.stringify({ page: Number(table[number].page)}));
     }
 }
 function send() {

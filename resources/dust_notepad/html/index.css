@@ -271,6 +271,13 @@ input {
     background-repeat: no-repeat;
 }
 
+
+
+#left_button, #left_button * {
+    margin: 0;
+    padding: 0;
+}
+
 #left_button {
     position: absolute;
     color: rgb(233, 233, 233);
@@ -280,32 +287,26 @@ input {
     text-align: center;
     font-size: 25px;
     background-image: url('images/l_arrow.png');
-    background-size: 100% 100%;
+    background-size: cover; /* Utilisation de 'cover' pour couvrir complètement sans déformation */
     left: 15px;
     bottom: 400px;
-    width: 10px;
-    height: 150px;
+    width: 64px; /* Largeur de l'image en pixels */
+    height: 64px; /* Hauteur de l'image en pixels */
     background-color: transparent;
     background-repeat: no-repeat;
+    transition: transform 0.3s ease; /* Ajout d'une transition pour une animation fluide */
 }
 
 #left_button:hover {
-    position: absolute;
-    color: rgb(233, 233, 233);
-    border: none;
-    overflow: hidden;
-    outline: none;
-    text-align: center;
-    font-size: 25px;
-    background-image: url('images/al_arrow.png');
-    background-size: 100% 100%;
-    left: 15px;
-    bottom: 400px;
-    width: 10px;
-    height: 150px;
-    background-color: transparent;
-    background-repeat: no-repeat;
+    transform: scale(1.2); /* Agrandir l'image de 20% lors du survol */
 }
+
+#right_button, #right_button * {
+    margin: 0;
+    padding: 0;
+}
+
+
 #right_button {
     position: absolute;
     color: rgb(233, 233, 233);
@@ -315,31 +316,20 @@ input {
     text-align: center;
     font-size: 25px;
     background-image: url('images/r_arrow.png');
-    background-size: 100% 100%;
+    background-size: cover; /* Utilisation de 'cover' pour couvrir complètement sans déformation */
     left: 720px;
     bottom: 400px;
-    width: 10px;
-    height: 150px;
+    width: 64px; /* Largeur de l'image en pixels */
+    height: 64px; /* Hauteur de l'image en pixels */
     background-color: transparent;
     background-repeat: no-repeat;
+    transition: transform 0.3s ease; /* Ajout d'une transition pour une animation fluide */
 }
+
 #right_button:hover {
-    position: absolute;
-    color: rgb(233, 233, 233);
-    border: none;
-    overflow: hidden;
-    outline: none;
-    text-align: center;
-    font-size: 25px;
-    background-image: url('images/ar_arrow.png');
-    background-size: 100% 100%;
-    left: 720px;
-    bottom: 400px;
-    width: 10px;
-    height: 150px;
-    background-color: transparent;
-    background-repeat: no-repeat;
+    transform: scale(1.2); /* Agrandir l'image de 20% lors du survol */
 }
+
 #textButton1 {
     font-family: 'Milonga', cursive !important;
     position: absolute;
@@ -363,7 +353,7 @@ input {
     overflow-y: scroll;
     font-family: 'Milonga', cursive !important;
     position: absolute;
-    color: rgb(59, 83, 95);
+    color: rgb(23, 23, 24);
     font-size: 23px;
     background-size: 100% 100%;
     left: 80px;

@@ -1,6 +1,6 @@
 Config = {}
 Config.UseRedEM = false
-Config.Usegum = true
+Config.Usedust = true
 
 Config.ImageUi = false--Name images from folder
 Config.Newspapers = { ----- nomitem = "img.png"
@@ -16,4 +16,10 @@ Config.Newspapers2 = {
     newspapers_3 = "https://cdn.discordapp.com/attachments/973268054614093874/1004075425015791666/the_weekly_courierausgabe02.08-003.jpg",
     newspapers_4 = "https://cdn.discordapp.com/attachments/973268054614093874/1004075443261026344/the_weekly_courierausgabe02.08-004.jpg",
     ValEat = "https://cdn.discordapp.com/attachments/1029744850440036403/1059527792020172810/Jidelak.jpg"
+}
+
+Config.Imprimerie = {
+    vector3(2608.415, -1358.112, 55.4479),
+    
+
 }

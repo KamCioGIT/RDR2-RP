@@ -40,8 +40,10 @@ end)
 RegisterServerEvent('dust_notepad:save')
 AddEventHandler('dust_notepad:save', function(page, save)
 	local _source = source
-	MySQL.update('UPDATE notepad SET `notepad`=@notepad WHERE `bookid`=@bookid AND `page`=@page',{notepad = save,bookid = bookid, page = tonumber(page)},
+	print(page, save, bookid)
+	MySQL.update('UPDATE notepad SET `notepad`=@notepad WHERE `bookid`=@bookid AND `page`=@page',{notepad = save, bookid = bookid,page = tonumber(page)},
 	function (result)
+		-- TriggerClientEvent("dust_notify:notify", _source, "Blok", "Uložil jsi blok", "note", 2000)
 	end)
 end)
 
@@ -49,7 +51,8 @@ end)
 RegisterServerEvent('dust_notepad:delete')
 AddEventHandler('dust_notepad:delete', function(page)
     local _source = source
-    MySQL.execute("DELETE FROM notepad WHERE `id` = @page AND `bookid` = @bookid", {bookid = bookid, page = tonumber(page)}, function()
+    MySQL.execute("DELETE FROM notepad WHERE `page` = @page AND `bookid` = @bookid", {bookid = bookid, page = tonumber(page)}, function()
+
     end)
 end)
 

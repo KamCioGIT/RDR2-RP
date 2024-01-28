@@ -4841,8 +4841,8 @@ Config.Items = {
     type = "item_standard",
 },
 ---- journal
-["newspapers_1"] = {
-    label = "Carnet",
+["newspaper"] = {
+    label = "Journal",
     description = "Pour les mémoires fatiguées",
     weight = 0.5,
     canBeDropped = true,

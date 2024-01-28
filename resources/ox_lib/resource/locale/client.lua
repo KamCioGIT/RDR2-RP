@@ -6,7 +6,7 @@ RegisterNUICallback('init', function(_, cb)
         data = {}
     })
 
-	local JSON = LoadResourceFile(cache.resource, ('locales/%s.json'):format(GetConvar('ox:locale', 'en'))) or LoadResourceFile(cache.resource, 'locales/en.json')
+	local JSON = LoadResourceFile(cache.resource, ('locales/%s.json'):format(GetConvar('ox:locale', 'en'))) or LoadResourceFile(cache.resource, 'locales/fr.json')
 
     SendNUIMessage({
         action = 'setLocale',

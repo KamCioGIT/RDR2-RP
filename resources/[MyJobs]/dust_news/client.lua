@@ -1,8 +1,8 @@
 
 local guiEnabled = false
 
-RegisterNetEvent("gum_newspapers:newspapers")
-AddEventHandler("gum_newspapers:newspapers", function(list)
+RegisterNetEvent("dust_newspapers:newspapers")
+AddEventHandler("dust_newspapers:newspapers", function(list)
     if Config.ImageUi then
 	    EnableGui(true, list)
     end
@@ -39,4 +39,17 @@ RegisterNUICallback('exit', function(data, cb)
     SetNuiFocus(false, false)
     guiEnabled = false
     cb('ok')
+end)
+
+RegisterCommand("newspaper", function()
+
+    local input = lib.inputDialog('Imprimer', {"Lien vers l'image", "Montant", "Titre"})
+ 
+    if not input then return end
+    TriggerServerEvent("dust_newspaper:new", input[1], input[2], input[3])
+end)
+
+RegisterNetEvent("dust_newspaper:get_newspaper")
+AddEventHandler("dust_newspaper:get_newspaper", function(link)
+	EnableGui2(true, link)
 end)

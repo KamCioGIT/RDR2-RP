@@ -2,16 +2,17 @@ $(document).keydown(function(e){
 	var close = 27, close2 = 8;
 	switch (e.keyCode) {
 		case close:
-			$.post('http://gum_new_newspapers/exit')
+			$.post('http://dust_news/exit')
             document.getElementById("ListButton").innerHTML = ""
 		break;
 
 		case close2:
             document.getElementById("ListButton").innerHTML = ""
-            $.post('http://gum_new_newspapers/exit')
+            $.post('http://dust_news/exit')
 		break;
 	}
 });
+
 
 
 $(function () {
@@ -59,7 +60,7 @@ $(function () {
     })
 
     $("#close").click(function () {
-        $.post('http://gum_new_newspapers/exit', JSON.stringify({}));
+        $.post('http://dust_news/exit', JSON.stringify({}));
         return
     })
 })

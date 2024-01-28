@@ -1,9 +1,9 @@
 {
-  "language": "English",
+  "language": "Français",
   "ui": {
-    "cancel": "Cancel",
-    "close": "Close",
-    "confirm": "Confirm",
-    "more": "More..."
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "more": "Plus..."
   }
 }
