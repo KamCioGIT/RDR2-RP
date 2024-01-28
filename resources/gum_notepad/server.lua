@@ -4,8 +4,6 @@ TriggerEvent("getCore",function(core)
 	gumCore = core
 end)
 
-Inventory = exports.gum_inventory:gum_inventoryApi()
-gum = exports.gum_core:gumAPI()
 
 RegisterServerEvent('gum_notepad:get_notepad')
 AddEventHandler('gum_notepad:get_notepad', function()

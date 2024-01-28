@@ -147,7 +147,7 @@ end
 
 
 function SpawnTrain()
-    local trainHash = 1365127661
+    local trainHash = 0xAE47CA77
     local trainWagons = N_0x635423d55ca84fc8(trainHash)
     for wagonIndex = 0, trainWagons - 1 do
         trainWagonModel = N_0x8df5f6a19f99f0d5(trainHash, wagonIndex)
