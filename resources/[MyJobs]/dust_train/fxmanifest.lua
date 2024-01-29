@@ -9,12 +9,3 @@ client_scripts {
 }
 
 server_script 'server.lua'
-ui_page 'html/index.html'
-
-files {
-    'html/index.js',
-    'html/index.css',
-    'html/index.html',
-    'html/crock.ttf',
-    'html/images/*.png',
-}

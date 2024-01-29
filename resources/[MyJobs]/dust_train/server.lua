@@ -1,93 +1,124 @@
+---- vendre 
 
----- vider des stashes au reboot et les remplir en aléatoire
+local localisation = nil
+RegisterServerEvent("dust_train:sell:chekitem", function(type)
+    local _source = tonumber(source)
+    local selltable = {} 
+	localisation = type
+	for k, v in pairs(Config.Gare[localisation].itemneeded) do
+        local ItemData = data.getItem(_source, k)
+        local ItemAmount = tonumber(ItemData.ItemAmount)
+        if ItemAmount >= 1 then
+            selltable[k] = v
+        end
+	end
 
------ définir les prix aléatoires au reboot
+	TriggerClientEvent("dust_train:sell:OpenExportMenu", _source, selltable)
+end)
+
+RegisterServerEvent("dust_train:sell:MaxRessourcesAmount", function(dataType)
+    local _source = tonumber(source)
+    local ItemData = data.getItem(_source, dataType)
+    local ItemAmount = tonumber(ItemData.ItemAmount)
+	if ItemAmount >= 1 then
+		TriggerClientEvent("dust_train:sell:client:SetMaxAmount", _source, math.floor(ItemAmount))
+	else 
+		TriggerClientEvent("dust_train:sell:client:SetMaxAmount", _source, 0)
+	end
+end)
+
+RegisterServerEvent('dust_train:sell:SellItem')
+AddEventHandler('dust_train:sell:SellItem', function(itemNameStr, menu, amount)
+	local _source = tonumber(source)
+    local user = RedEM.GetPlayer(_source)
+    local ItemData = data.getItem(_source, itemNameStr)
+    local currentRealTime = os.date("*t")
+
+    -- Vérifier si l'heure réelle est entre 19h et 01h
+    if currentRealTime.hour >= 21 or currentRealTime.hour < 1 then
+        if ItemData.RemoveItem(amount) then
+            user.AddMoney(Config.Gare[localisation].need[itemNameStr].price * amount)
+        end
+    else
+        TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Exportateur", "Personne n'a l'air intéressé à cette heure...", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+    end
+end)
 
 ---- envoie des prix au client
-
-
-
-local gumCore = {}
-TriggerEvent("getCore",function(core)
-	gumCore = core
-end)
-	
-data = {}
-TriggerEvent("redemrp_inventory:getData",function(call)
-        data = call
-end)
-
-
-
-local station_table = {}
-local trainId = {}
-local stationTrain = {}
-RegisterServerEvent('gum_train:set_station')
-AddEventHandler('gum_train:set_station', function(table, route)
+RegisterServerEvent("dust_train:checksellingstash", function(gare)
 	local _source = source
-	print("CREATE : ", route, table)
-	station_table[tonumber(route)] = table
+	local sellingtable = {}
+	local stash = "gare_"..gare
+	for k, v in pairs (Config.Gare[gare].sell) do
+		local ItemData = data.getItemStash(_source, stash, k)
+		local ItemAmount = tonumber(ItemData.ItemAmount)
+		if ItemAmount >= 1 then
+			sellingtable[k] = v
+		end
+	end
+	TriggerClientEvent("dust_train:OpenImportMenu", _source, sellingtable, stash)
 end)
 
-RegisterServerEvent('gum_train:check')
-AddEventHandler('gum_train:check', function()
+RegisterServerEvent("dust_train:checkstash", function(item, menudata, stash)
 	local _source = source
-	TriggerClientEvent('gum_train:send_route', tonumber(_source), station_table)
+	local ItemData = data.getItemStash(_source, stash, item)
+	local ItemAmount = tonumber(ItemData.ItemAmount)
+	TriggerClientEvent("dust_train:SetMaxAmount", _source, ItemAmount)
 end)
 
-RegisterServerEvent("gum_station:train_start")
-AddEventHandler("gum_station:train_start", function(route, train)
-	local _source = source
-	if station_table[route] == nil then
-		stationTrain[_source] = route 
-		TriggerClientEvent("gum_station:train_start", _source, route, price)
+RegisterServerEvent("dust_train:buyItem", function(item, amount, stash)
+	local currentRealTime = os.date("*t")
+
+    -- Vérifier si l'heure réelle est entre 19h et 01h
+    if currentRealTime.hour >= 21 or currentRealTime.hour < 23 then
+		local stashw = exports.redemrp_inventory.GetStashWeight(source, stash)
+		local _source = tonumber(source)
+		local user = RedEM.GetPlayer(_source)
+		local ItemData = data.getItem(_source, item)
+		local weight = ItemData.ItemInfo.weight 
+		local money = user.money
+		local itemprice = Config.Gare[gare].sell[item].price * amount
+		if stashw >= weight * amount then
+			if money >= itemprice then
+				user.RemoveMoney(itemprice)
+				ItemData.AddItem(amount)
+			end
+			TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
+		end
 	end
 end)
 
-RegisterServerEvent("gum_station:train_clean")
-AddEventHandler("gum_station:train_clean", function(route)
-	local _source = source
-	stationTrain[_source] = nil 
-	station_table[route] = nil
-end)
+---- roll du loot et need à chaque reboot
+Citizen.CreateThread(function()
+    for k, v in pairs(Config.Gare) do 
+        TriggerEvent("redemrp_inventory:server:wipestash", "gare_"..k)
+        Wait(500)
+        for item, properties in pairs(v.sell) do
+            local chance = math.random(100)
+            if chance <= properties.chance then
+				local amount = math.random(properties.amountmin, properties.amountmax)
+                TriggerEvent("redemrp_inventory:server:additemstash", item, amount, {}, "gare_"..k)
+				local price = math.random(properties.pricemin, properties.pricemax)
+				properties.price = price
+            end
+            Wait(100)
+        end
 
+		-- Obtenez toutes les clés de la table need
+		local keys = {}
+		for key, _ in pairs(v.need) do
+			table.insert(keys, key)
+		end
 
-RegisterServerEvent('gum_train:openMenu')
-AddEventHandler('gum_train:openMenu', function()
-	local _source = source
-	local User = gumCore.getUser(_source)
-	local Character = User.getUsedCharacter
-	local job = Character.job
-	if job == "TrainDriver" then
-		TriggerClientEvent("gum_train:openMenu", _source)
-	else
-		TriggerClientEvent("gum_notify:notify", _source, "Vlaky", "Správu vlaků může otevřít pouze strojvedoucí.", "train", 3000)
-	end
-end)
+		-- Choisissez une clé aléatoire parmi les clés
+		local randomKeyIndex = math.random(#keys)
+		local randomKey = keys[randomKeyIndex]
 
-RegisterServerEvent('gum_train:give_money')
-AddEventHandler('gum_train:give_money', function(money)
-	local _source = source
-	local User = gumCore.getUser(source)
-	local Character = User.getUsedCharacter
-    Character.addCurrency(tonumber(_source), 0, tonumber(money))
-	TriggerClientEvent("gum_notify:notify", _source, "Vlaky", "Za tuhle zastávku jsi dostal : "..money.."$", "train", 3000)
-end)
+		-- Utilisez la clé aléatoire pour accéder aux propriétés
+		local item = v.need[randomKey]
 
-RegisterServerEvent('gum_train:giveBackTrain')
-AddEventHandler('gum_train:giveBackTrain', function(state)
-	local _source = source
-	TriggerClientEvent('gum_train:giveBackTrain', -1, state)
-end)
-RegisterServerEvent('gum_station:train_id')
-AddEventHandler('gum_station:train_id', function(entity)
-	trainId[source] = entity
-end)
-
-AddEventHandler('playerDropped', function (reason)
-	if trainId[source] ~= nil then
-		DeleteEntity(NetworkGetEntityFromNetworkId(trainId[source]))
-		trainId[source] = nil
-		station_table[stationTrain[source]] = nil
-	end
+		-- Choisissez un prix aléatoire entre pricemin et pricemax
+		local randomPrice = math.random(item.pricemin, item.pricemax)
+		Config.Gare[k].itemneeded = {item = item, price = randomPrice, label=item.label}
+    end
 end)
