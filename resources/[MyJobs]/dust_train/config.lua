@@ -3,8 +3,6 @@ Config.DistanceToInteract = 2.0
 ---- Consulter les besoins et prix des gares
 Config.Tableau ={
     ["stdenis"] = vector3(2741.429, -1463.604, 45.61837),
-    
-
 }
 
 --- GARES

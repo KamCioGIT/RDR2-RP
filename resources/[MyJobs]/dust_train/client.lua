@@ -54,9 +54,9 @@ RegisterNetEvent("dust_train:sell:OpenNeedMenu", function(needtable)
             end
         end
 
-        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
-            title = "Exportateur",
-            subtext = "Vendre",
+        MenuData.Open('default', GetCurrentResourceName(), 'need', {
+            title = "Besoins",
+            subtext = "Besoins de chaque station",
             align = 'top-right',
             elements = elements,
         },
