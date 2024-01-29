@@ -1,3 +1,6 @@
+---- SPAWN DU TRAIN ET GESTION DU STASH
+
+------- DROP DES BIJOUX A LA BANQUE DE ST DENIS
 
 
 --------------------------------------------
@@ -128,8 +131,6 @@ Citizen.CreateThread(function()
 end)
 
 ----- menu achat dans les gares
-
-
 
 local maxAmountsell = nil
 
