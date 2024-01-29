@@ -34,9 +34,9 @@ end)
 Citizen.CreateThread(function()
     Wait(1000)
     for k,v in pairs(Config.Gare) do
-        local npcmodel = Requestnpcmodel(GetHashKey(v.npcmodel))
+        local npcmodel = RequestModel(GetHashKey(v.npcmodel))
     
-        while not HasnpcmodelLoaded(GetHashKey(v.npcmodel)) do
+        while not HasModelLoaded(GetHashKey(v.npcmodel)) do
             Wait(100)
         end
     
@@ -49,7 +49,7 @@ Citizen.CreateThread(function()
         Wait(2000)
         FreezeEntityPosition(ped, true)
         SetBlockingOfNonTemporaryEvents(ped, true)
-        SetnpcmodelAsNoLongerNeeded(GetHashKey(v.npcmodel))
+        SetModelAsNoLongerNeeded(GetHashKey(v.npcmodel))
     end
 end)
 
