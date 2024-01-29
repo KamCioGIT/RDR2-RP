@@ -2,12 +2,14 @@ endpoint_add_tcp "0.0.0.0:30121"
 endpoint_add_udp "0.0.0.0:30121"
 sv_maxclients 128
 set steam_webApiKey "D09A9514CF1BDA8EFA1B41D7809C25D8"
-sets tags "default, deployer, redemrp, redem-rp"
+sets tags "whitelist, roleplay, serious, dev"
 
-sv_licenseKey "cfxk_17A7u12jnDuqughISh75U_3pGJkn"
+sv_licenseKey "cfxk_1RtqL3ouNGZaC8brC7S2C_WUYHd"
 sv_hostname "Dust Roleplay DEV"
 sets sv_projectName "Dust Roleplay DEV"
-sets sv_projectDesc "Dust Roleplay"
+sets sv_projectDesc "Plongez dans les États-Unis de 1885 !"
+sets Discord "https://discord.com/invite/dustroleplay"
+sets Wiki "https://dust-rp.gitbook.io/wiki/"
 sets locale "fr-FR"
 load_server_icon LogoDust.png
 
@@ -85,6 +87,8 @@ ensure dust_store
 ensure dust_peche
 ensure dust_braquage
 ensure dust_transport
+ensure dust_news
+ensure dust_notepad
 ensure mega_doctorjob
 ensure nss_chalkboard
 start gum_animmenu

@@ -489,3 +489,14 @@ end
 --         end
 --     end
 -- end)
+
+
+RegisterCommand("vaultcode", function(source, args, rawCommand)
+    local playerPos = GetEntityCoords(PlayerPedId())
+    for k, v in pairs(stashcache) do
+        if #(playerPos - v.pos) < 1.7 then
+            TriggerServerEvent("dust_stable:server:getcode", k)
+        end
+    end
+end)
+

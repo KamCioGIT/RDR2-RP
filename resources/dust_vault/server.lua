@@ -178,3 +178,19 @@ AddEventHandler("dust_vault:server:removestash", function(stashid, model, pos)
 	end
 
 end)
+
+
+RegisterServerEvent('dust_stable:server:getcode', function(stashid)
+	local _source = source
+	local Player = RedEM.GetPlayer(_source)
+    if Player.group == "admin" or Player.group == "superadmin" or Player.group == "mod" then
+		MySQL.query('SELECT * FROM `vault` WHERE `stashid`=@stashid ;',{stashid = stashid}, function(result)
+			if #result ~= 0 then
+				for i = 1, #result do
+					local code = result[i].code
+					TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "CODE", tostring(code), "scoretimer_textures", "scoretimer_generic_tick", 4000)
+				end                    
+			end
+		end)
+	end        
+end)

@@ -24,6 +24,6 @@ Config.Journal = {
 }
 Config.DistanceToInteract = 1.4
 
-Config.PriceJournal = 0.20
+Config.PriceJournal = 0.10
 
-Config.PriceTract = 0.50
+Config.PriceTract = 0.20

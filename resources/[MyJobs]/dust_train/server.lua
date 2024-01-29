@@ -1,4 +1,25 @@
+RedEM = exports["redem_roleplay"]:RedEM()
+
+data = {}
+TriggerEvent("redemrp_inventory:getData",function(call)
+    data = call
+end)
+
 ---- vendre 
+
+
+
+
+RegisterServerEvent("dust_train:askitemneed", function()
+    local _source = tonumber(source)
+    local needtable = {} 
+	for k, v in pairs(Config.Gare) do
+		for item, properties in pairs(v.itemneeded) do
+			needtable[k] = {[item] = properties}
+        end
+	end
+	TriggerClientEvent("dust_train:sell:OpenNeedMenu", _source, needtable)
+end)
 
 local localisation = nil
 RegisterServerEvent("dust_train:sell:chekitem", function(type)
@@ -6,6 +27,7 @@ RegisterServerEvent("dust_train:sell:chekitem", function(type)
     local selltable = {} 
 	localisation = type
 	for k, v in pairs(Config.Gare[localisation].itemneeded) do
+		print (k, v)
         local ItemData = data.getItem(_source, k)
         local ItemAmount = tonumber(ItemData.ItemAmount)
         if ItemAmount >= 1 then
@@ -56,22 +78,22 @@ RegisterServerEvent("dust_train:checksellingstash", function(gare)
 			sellingtable[k] = v
 		end
 	end
-	TriggerClientEvent("dust_train:OpenImportMenu", _source, sellingtable, stash)
+	TriggerClientEvent("dust_train:OpenImportMenu", _source, sellingtable, gare)
 end)
 
-RegisterServerEvent("dust_train:checkstash", function(item, menudata, stash)
+RegisterServerEvent("dust_train:checkstash", function(item, menudata, gare)
 	local _source = source
-	local ItemData = data.getItemStash(_source, stash, item)
+	local ItemData = data.getItemStash(_source, "gare_"..gare, item)
 	local ItemAmount = tonumber(ItemData.ItemAmount)
 	TriggerClientEvent("dust_train:SetMaxAmount", _source, ItemAmount)
 end)
 
-RegisterServerEvent("dust_train:buyItem", function(item, amount, stash)
+RegisterServerEvent("dust_train:buyItem", function(item, amount, gare)
 	local currentRealTime = os.date("*t")
 
     -- Vérifier si l'heure réelle est entre 19h et 01h
     if currentRealTime.hour >= 21 or currentRealTime.hour < 23 then
-		local stashw = exports.redemrp_inventory.GetStashWeight(source, stash)
+		local stashw = exports.redemrp_inventory.GetStashWeight(source, "gare_"..gare)
 		local _source = tonumber(source)
 		local user = RedEM.GetPlayer(_source)
 		local ItemData = data.getItem(_source, item)
@@ -83,7 +105,7 @@ RegisterServerEvent("dust_train:buyItem", function(item, amount, stash)
 				user.RemoveMoney(itemprice)
 				ItemData.AddItem(amount)
 			end
-			TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, stash)
+			TriggerEvent("redemrp_inventory:server:removefromstash", item, amount, {}, "gare_"..gare)
 		end
 	end
 end)
@@ -119,6 +141,6 @@ Citizen.CreateThread(function()
 
 		-- Choisissez un prix aléatoire entre pricemin et pricemax
 		local randomPrice = math.random(item.pricemin, item.pricemax)
-		Config.Gare[k].itemneeded = {item = item, price = randomPrice, label=item.label}
+		Config.Gare[k].itemneeded = {[randomKey] = {price = randomPrice, label=item.label}}
     end
 end)

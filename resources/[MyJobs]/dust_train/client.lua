@@ -1,3 +1,77 @@
+
+
+--------------------------------------------
+----------MENU ACHAT ET VENTE --------------
+-------------------------------------------
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(2)
+        local playerPos = GetEntityCoords(PlayerPedId())
+
+        for k, v in pairs(Config.Tableau) do
+            if #(playerPos - v) < 10.0 then
+                Citizen.InvokeNative(0x2A32FAA57B937173,-1795314153, v, 0, 0, 0, 0, 0, 0, Config.DistanceToInteract, Config.DistanceToInteract, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0) --DrawMarker
+            end
+            if #(playerPos - v) < Config.DistanceToInteract and not isInteracting then
+                TriggerEvent('dust_presskey', "Appuyez sur G")
+                if IsControlJustPressed(1, 0x760A9C6F) and not isInteracting then 
+                    TriggerServerEvent("dust_train:askitemneed")
+                end
+            end
+        end
+    end
+end)
+
+
+RegisterNetEvent("dust_train:sell:OpenNeedMenu", function(needtable)
+    local Position = GetEntityCoords(PlayerPedId())
+
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        local elements = {}
+
+
+        for k, v in pairs(needtable) do
+            for item, properties in pairs(v) do
+                table.insert(elements, {label = k, value = k, desc = properties.label.." à "..properties.price.."$"})
+            end
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'craft', {
+            title = "Exportateur",
+            subtext = "Vendre",
+            align = 'top-right',
+            elements = elements,
+        },
+
+        function(data, menu)
+            MenuData.CloseAll()
+            isInteracting = false
+        end,
+
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end)
+
+
+
 Citizen.CreateThread(function()
     while true do
         Wait(2)
@@ -10,7 +84,7 @@ Citizen.CreateThread(function()
             if #(playerPos - v.npccoords) < Config.DistanceToInteract and not isInteracting then
                 TriggerEvent('dust_presskey', "Appuyez sur G")
                 if IsControlJustPressed(1, 0x760A9C6F) and not isInteracting then 
-                    TriggerServerEvent("dust_train:checksellingstash", "gare_"..k)
+                    TriggerServerEvent("dust_train:checksellingstash", k)
                 end
             end
             if #(playerPos - v.droppoint) < 10.0 then

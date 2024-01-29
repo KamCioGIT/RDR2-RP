@@ -481,7 +481,7 @@ Config.CraftingsReceipe = {
         Amount = 1,
         WorkingTime = 5,
         label = "Cigarette de chanvre",
-        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/weed_untrum.png', text = "Tête de Chanvre",count = "x4"},{src = 'nui://redemrp_inventory/html/items/cigarette.png', text = "Cigarette",count = "x1"}}
+        descriptionimages = {{src = 'nui://redemrp_inventory/html/items/weed_untrum.png', text = "Tête de Chanvre",count = "x2"},{src = 'nui://redemrp_inventory/html/items/cigarette.png', text = "Cigarette",count = "x1"}}
     },
     ['laitpavot'] = {
         type = 'cauldron',
