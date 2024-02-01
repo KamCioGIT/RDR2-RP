@@ -81,12 +81,12 @@ Config.Vault = {
 
 -------- BLACKWATER ----------------
         {difficulty = "simple", pos = vector3(-813.7041, -1273.123, 42.63772), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["epinglecheveux"] = {amount = 2, chance = 35},
+            ["boucleceinture"] = {amount = 1, chance = 60},
         }}, -- bw simple
         {difficulty = "simple", pos = vector3(-811.8837, -1273.173, 42.63772), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["alliance"] = {amount = 1, chance = 35},
+            [""] = {amount = 2, chance = 50},
         }}, -- bw simple
         {difficulty = "simple", pos = vector3(-809.7764, -1273.391, 42.63772), cashmax = 50, cashmin = 20, items = {
             ["lingotor"] = {amount = 1, chance = 25},
@@ -106,42 +106,42 @@ Config.Vault = {
         }}, -- bw simple
 
         {difficulty = "hard", pos = vector3(-821.0154, -1274.952, 42.64577), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["obligations"] = {amount = 3, chance = 15},
+            ["bagueor"] = {amount = 2, chance = 50},
         }}, -- bw hard
         {difficulty = "hard", pos = vector3(-821.0328, -1273.42, 42.64167), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["sacbijoux"] = {amount = 1, chance = 20},
+            ["diamant"] = {amount = 2, chance = 40},
         }}, -- bw hard
         {difficulty = "hard", pos = vector3(-820.0203, -1273.432, 42.65204), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["watch1"] = {amount = 1, chance = 25},
+            ["rivierediamants"] = {amount = 1, chance = 40},
         }}, -- bw hard
         {difficulty = "hard", pos = vector3(-818.5985, -1273.44, 42.66227), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["lingotor"] = {amount = 1, chance = 20},
+            ["baguediamant"] = {amount = 2, chance = 45},
         }}, -- bw hard
 
 
 --------- ST DENIS ----------
         {difficulty = "simple", pos = vector3(2640.915, -1301.931, 51.24611), cashmax = 50, cashmin = 20, items = {
             ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["watch7"] = {amount = 2, chance = 65},
         }}, -- ST DENIS hard
         {difficulty = "simple", pos = vector3(2642.037, -1304.28, 51.24611), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["boitebijoux"] = {amount = 2, chance = 50},
+            ["watch1"] = {amount = 3, chance = 20},
         }}, -- ST DENIS hard
         {difficulty = "simple", pos = vector3(2643.008, -1306.359, 51.24611), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["rivierediamants"] = {amount = 2, chance = 60},
+            ["bagueor"] = {amount = 2, chance = 85},
         }}, -- ST DENIS hard
         {difficulty = "simple", pos = vector3(2645.373, -1306.043, 51.24611), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["sacbijoux"] = {amount = 1, chance = 40},
+            ["baguediamant"] = {amount = 2, chance = 30},
         }}, -- ST DENIS hard
         {difficulty = "simple", pos = vector3(2644.774, -1304.288, 51.24611), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["diamant"] = {amount = 2, chance = 30},
+            ["obligations"] = {amount = 2, chance = 50},
         }}, -- ST DENIS hard
 }
