@@ -21,62 +21,62 @@ Config.HandsUpAnim = {
 Config.Vault = {
 ------ RHODES ----------
         {difficulty = "simple", pos = vector3(1291.873, -1309.8, 76.04002), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["bouclesoreilles"] = {amount = 2, chance = 40},
+            ["pierreprecieuse"] = {amount = 1, chance = 60},
         }}, -- rhodes simple
         {difficulty = "simple", pos = vector3(1290.022, -1312.351, 76.03999), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["brocheruby"] = {amount = 1, chance = 25},
+            ["alliance"] = {amount = 2, chance = 35},
         }}, -- rhodes simple
         {difficulty = "simple", pos = vector3(1288.659, -1311.141, 76.03963), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["epinglecheveux"] = {amount = 2, chance = 45},
+            ["peigneivoire"] = {amount = 1, chance = 50},
         }}, -- rhodes simple
         {difficulty = "simple", pos = vector3(1290.25, -1306.203, 76.0417), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["collierperles"] = {amount = 1, chance = 75},
+            ["dentor"] = {amount = 3, chance = 35},
         }}, -- rhodes simple
         {difficulty = "simple", pos = vector3(1288.809, -1303.837, 76.04027), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["watch3"] = {amount = 2, chance = 35},
+            ["pierreprecieuse"] = {amount = 1, chance = 15},
         }}, -- rhodes simple
         {difficulty = "simple", pos = vector3(1291.027, -1306.732, 76.04198), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["bouclesoreilles"] = {amount = 1, chance = 25},
+            ["alliance"] = {amount = 2, chance = 45},
         }}, -- rhodes simple
         {difficulty = "simple", pos = vector3(1287.84, -1309.209, 76.0681), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["bagueor"] = {amount = 2, chance = 35},
+            ["pierreprecieuse"] = {amount = 1, chance = 15},
         }}, -- rhodes simple
         {difficulty = "simple", pos = vector3(1282.415, -1311.285, 76.03952), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["collierperles"] = {amount = 2, chance = 20},
+            ["watch3"] = {amount = 1, chance = 55},
         }}, -- rhodes simple dynamite
         {difficulty = "simple", pos = vector3(1282.824, -1312.411, 76.03952), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["epinglecheveux"] = {amount = 2, chance = 40},
+            ["brocheruby"] = {amount = 1, chance = 35},
         }}, -- rhodes simple dynamite
     
 
         {difficulty = "hard", pos = vector3(1287.978, -1313.313, 76.03976), cashmax = 50, cashmin = 20, items = {
             ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 100},
+            ["watch1"] = {amount = 1, chance = 50},
         }}, -- rhodes hard
         {difficulty = "hard", pos = vector3(1288.527, -1313.928, 76.03976), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 100},
+            ["watch1"] = {amount = 1, chance = 30},
+            ["sacbijoux"] = {amount = 1, chance = 15},
         }}, -- rhodes hard
         {difficulty = "hard", pos = vector3(1287.671, -1314.883, 76.03976), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 100},
+            ["diamant"] = {amount = 2, chance = 75},
+            ["obligations"] = {amount = 2, chance = 20},
         }}, -- rhodes hard
         {difficulty = "hard", pos = vector3(1286.957, -1315.78, 76.03976), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 100},
+            ["rivierediamants"] = {amount = 1, chance = 35},
+            ["watch7"] = {amount = 2, chance = 95},
         }}, -- rhodes hard
         {difficulty = "hard", pos = vector3(1286.318, -1315.335, 76.03976), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 100},
+            ["boitebijoux"] = {amount = 1, chance = 25},
+            ["bagueor"] = {amount = 2, chance = 100},
         }}, -- rhodes hard
 
 -------- BLACKWATER ----------------
@@ -86,23 +86,23 @@ Config.Vault = {
         }}, -- bw simple
         {difficulty = "simple", pos = vector3(-811.8837, -1273.173, 42.63772), cashmax = 50, cashmin = 20, items = {
             ["alliance"] = {amount = 1, chance = 35},
-            [""] = {amount = 2, chance = 50},
+            ["bouclesoreilles"] = {amount = 2, chance = 50},
         }}, -- bw simple
         {difficulty = "simple", pos = vector3(-809.7764, -1273.391, 42.63772), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["dentor"] = {amount = 1, chance = 85},
+            ["peigneivoire"] = {amount = 2, chance = 50},
         }}, -- bw simple
         {difficulty = "simple", pos = vector3(-810.8128, -1275.448, 42.63773), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["pierreprecieuse"] = {amount = 1, chance = 25},
+            ["brocheruby"] = {amount = 2, chance = 35},
         }}, -- bw simple
         {difficulty = "simple", pos = vector3(-815.4904, -1273.273, 42.63773), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["collierperles"] = {amount = 2, chance = 45},
+            ["watch3"] = {amount = 1, chance = 70},
         }}, -- bw simple
         {difficulty = "simple", pos = vector3(-814.0225, -1275.481, 42.63772), cashmax = 50, cashmin = 20, items = {
-            ["lingotor"] = {amount = 1, chance = 25},
-            ["lingotfer"] = {amount = 2, chance = 50},
+            ["alliance"] = {amount = 2, chance = 25},
+            ["bagueor"] = {amount = 1, chance = 40},
         }}, -- bw simple
 
         {difficulty = "hard", pos = vector3(-821.0154, -1274.952, 42.64577), cashmax = 50, cashmin = 20, items = {
