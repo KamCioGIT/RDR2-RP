@@ -396,19 +396,15 @@ Citizen.CreateThread(function()
     while true do
         Wait(0)
         if PlayerJob and PlayerJobgrade then
+            -- for k
+
             if Config.Jobs[PlayerJob] then
                 local PlayerPos = GetEntityCoords(PlayerPedId())
                 FoundSomething = false
                 local showPrompt = true
-                -- if Config.Jobs[PlayerJob].ShowPrompt then
-                --     if Config.Jobs[PlayerJob].ShowPrompt == false then
-                --         showPrompt = false
-                --     end
-                -- end
-                -- if showPrompt then
                 if Config.Jobs[PlayerJob].MenuLocations then
                     if #(PlayerPos - Config.Jobs[PlayerJob].MenuLocations) < 6.0 then
-                        Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, Config.Jobs[PlayerJob].MenuLocations, 0, 0, 0, 0, 0, 0, 1.0, 1.0, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)--DrawMarker
+                        Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, Config.Jobs[PlayerJob].MenuLocations, 0, 0, 0, 0, 0, 0, 1.2, 1.2, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)--DrawMarker
                     end
                     if #(PlayerPos - Config.Jobs[PlayerJob].MenuLocations) < 1.2 then
                         TriggerEvent('dust_presskey', "Appuyez sur G")

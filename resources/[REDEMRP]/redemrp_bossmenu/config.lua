@@ -26,7 +26,7 @@ Config.Jobs = {
             vector3(2138.28, -639.9623, 41.64072)
         ,
         lockpick = 
-        vector3(2138.28, -639.9623, 41.64072)
+            vector3(2137.179, -640.3953, 41.62214)
         ,
         Grades = {
             [1] = {
@@ -210,7 +210,7 @@ Config.Jobs = {
         Name = "Jameson and Co.",
         blisprite = 1220803671,
         MenuLocations = 
-            vector3(2957.164, 1377.683, 55.3044)
+        vector3(2923.643, 1377.33, 55.24054)
         ,
         Grades = {
             [1] = {
