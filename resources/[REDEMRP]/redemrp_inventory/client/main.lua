@@ -255,6 +255,15 @@ AddEventHandler(
         else
             if not WeaponsWithoutAmmo[UsedWeapons[tonumber(hash)].name] then
                 UsedWeapons[tonumber(hash)].Ammo = GetAmmoInPedWeapon(PlayerPedId(), tonumber(hash))
+                if Citizen.InvokeNative(0x30E7C16B12DA8211, tonumber(hash)) then
+                    UsedWeapons[tonumber(hash)] = {
+                        WeaponHash = tonumber(hash),
+                        WeaponType = nil,
+                        Ammo = tonumber(ammoAmount),
+                        name = name,
+                        meta = meta,
+                    }
+                  end
             end
             -- TriggerServerEvent("redemrp_inventory:ChangeAmmoAmount", {UsedWeapons[tonumber(hash)]})
             UsedWeapons[tonumber(hash)] = nil
