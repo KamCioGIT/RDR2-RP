@@ -25,6 +25,9 @@ Config.Jobs = {
         MenuLocations = 
             vector3(2138.28, -639.9623, 41.64072)
         ,
+        lockpick = 
+        vector3(2138.28, -639.9623, 41.64072)
+        ,
         Grades = {
             [1] = {
                 Name = "Assistant",
