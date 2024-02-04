@@ -155,22 +155,22 @@ Config.Vault = {
             ["peigneivoire"] = {amount = 1, chance = 50},
         }},
         ----- poste strawberry
-        {difficulty = "simple", pos = vector3(-1761.182, -382.8658, 156.7415), cashmax = 15, cashmin = 5, items = {
+        {difficulty = "simple", pos = vector3(-1761.182, -382.8658, 156.7415), cashmax = 20, cashmin = 5, items = {
             ["collierperles"] = {amount = 1, chance = 75},
             ["dentor"] = {amount = 3, chance = 35},
         }},
         ----- poste rhodes
-        {difficulty = "simple", pos = vector3(1229.783, -1297.321, 75.90556), cashmax = 20, cashmin =10, items = {
+        {difficulty = "simple", pos = vector3(1229.783, -1297.321, 75.90556), cashmax = 15, cashmin =5, items = {
             ["collierperles"] = {amount = 1, chance = 75},
             ["dentor"] = {amount = 3, chance = 35},
         }},
         ----- poste rhodes
-        {difficulty = "simple", pos = vector3(1227.403, -1297.888, 75.90291), cashmax = 25, cashmin = 10, items = {
+        {difficulty = "simple", pos = vector3(1227.403, -1297.888, 75.90291), cashmax = 15, cashmin = 5, items = {
             ["epinglecheveux"] = {amount = 2, chance = 45},
             ["peigneivoire"] = {amount = 1, chance = 50},
         }},
         ----- poste saint denis
-        {difficulty = "simple", pos = vector3(2749.128, -1395.896, 45.18307), cashmax = 30, cashmin = 15, items = {
+        {difficulty = "simple", pos = vector3(2749.128, -1395.896, 45.18307), cashmax = 25, cashmin = 15, items = {
             ["bouclesoreilles"] = {amount = 2, chance = 40},
             ["pierreprecieuse"] = {amount = 1, chance = 60},
         }},

@@ -476,3 +476,26 @@ AddEventHandler('dust_export:SellItem', function(itemNameStr, menu, amount, loca
         TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Exportateur", "Personne n'a l'air intéressé à cette heure...", "scoretimer_textures", "scoretimer_generic_cross", 4000)
     end
 end)
+
+
+RegisterNetEvent("redemrp_bossmenu:asklockpick", function(job)
+    local _source = source
+    if Config.Jobs[job].opened ~= true then
+        local ItemData = data.getItem(_source, "lockpick")
+        local count = ItemData.ItemAmount 
+
+        if count >= 1 then
+            ItemData.RemoveItem(1)
+            TriggerClientEvent('redemrp_bossmenu:dolockpick', _source, job, false)
+        end
+    else
+        TriggerClientEvent('redemrp_bossmenu:dolockpick', _source, job, true)
+    end
+end)
+
+RegisterNetEvent("redemrp_bossmenu:isopen", function(vault)
+    local _source = source
+    Config.Jobs[vault].opened = true
+    Wait(600*1000)
+    Config.Jobs[vault].opened = false
+end)

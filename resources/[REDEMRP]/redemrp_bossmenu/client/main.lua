@@ -396,13 +396,10 @@ Citizen.CreateThread(function()
     while true do
         Wait(0)
         if PlayerJob and PlayerJobgrade then
-            -- for k
-
-            if Config.Jobs[PlayerJob] then
-                local PlayerPos = GetEntityCoords(PlayerPedId())
-                FoundSomething = false
-                local showPrompt = true
-                if Config.Jobs[PlayerJob].MenuLocations then
+            local PlayerPos = GetEntityCoords(PlayerPedId())
+            FoundSomething = false
+            for job, v in pairs(Config.Jobs) do
+                if job == PlayerJob then
                     if #(PlayerPos - Config.Jobs[PlayerJob].MenuLocations) < 6.0 then
                         Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, Config.Jobs[PlayerJob].MenuLocations, 0, 0, 0, 0, 0, 0, 1.2, 1.2, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)--DrawMarker
                     end
@@ -413,7 +410,20 @@ Citizen.CreateThread(function()
                             TriggerServerEvent("redemrp_bossmenu:server:RequestBossMenu")
                         end
                     end
+                else
+                    if v.MenuLocations then
+                        if #(PlayerPos - v.MenuLocations) < 6.0 then
+                            Citizen.InvokeNative(0x2A32FAA57B937173, -1795314153, v.MenuLocations, 0, 0, 0, 0, 0, 0, 1.2, 1.2, 0.1, 128, 64, 0, 64, 0, 0, 2, 0, 0, 0, 0)--DrawMarker
+                        end
+                        if #(PlayerPos - v.MenuLocations) < 1.2 then
+                            TriggerEvent('dust_presskey', "Appuyez sur G pour crocheter")
+                            if IsControlJustReleased(0, 0x760A9C6F) and not isInteracting then
+                                TriggerServerEvent("redemrp_bossmenu:asklockpick", job)
+                            end
+                        end
+                    end
                 end
+            end
                 -- end
                 if not FoundSomething then
 					NearAnything = false
@@ -424,8 +434,22 @@ Citizen.CreateThread(function()
 						BossMenuPromptShown = false
 					end
 				end
-            end
         end
+    end
+end)
+
+
+RegisterNetEvent("redemrp_bossmenu:dolockpick", function(job, open)
+    if open == false then
+        local result = exports.rsd_lockpick:StartLockPick(0) --return "result lockpicking"
+        if result then 
+            TriggerEvent("redemrp_inventory:OpenStash", "bossstash_"..job, 100.0)
+            TriggerServerEvent("redemrp_bossmenu:isopen", job)
+        else
+            print 'no'
+        end
+    elseif open == true then
+        TriggerEvent("redemrp_inventory:OpenStash", "bossstash_"..job, 100.0)
     end
 end)
 
