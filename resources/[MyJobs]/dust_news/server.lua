@@ -45,6 +45,8 @@ AddEventHandler("RegisterUsableItem:tract", function(source, _data)
 end)
 
 
+
+
 RegisterServerEvent('dust_newspaper:new')
 AddEventHandler('dust_newspaper:new', function(type, link, amt, title)
 	local _source = source

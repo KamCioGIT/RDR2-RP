@@ -480,16 +480,22 @@ end)
 
 RegisterNetEvent("redemrp_bossmenu:asklockpick", function(job)
     local _source = source
-    if Config.Jobs[job].opened ~= true then
-        local ItemData = data.getItem(_source, "lockpick")
-        local count = ItemData.ItemAmount 
+    local currentRealTime = os.date("*t")
 
-        if count >= 1 then
-            ItemData.RemoveItem(1)
-            TriggerClientEvent('redemrp_bossmenu:dolockpick', _source, job, false)
+    if currentRealTime.hour >= 21 or currentRealTime.hour < 23 then
+        if Config.Jobs[job].opened ~= true then
+            local ItemData = data.getItem(_source, "lockpick")
+            local count = ItemData.ItemAmount 
+
+            if count >= 1 then
+                ItemData.RemoveItem(1)
+                TriggerClientEvent('redemrp_bossmenu:dolockpick', _source, job, false)
+            end
+        else
+            TriggerClientEvent('redemrp_bossmenu:dolockpick', _source, job, true)
         end
     else
-        TriggerClientEvent('redemrp_bossmenu:dolockpick', _source, job, true)
+        TriggerClientEvent("redem_roleplay:NotifyLeft", _source, "Coffre", "Mieux vaut faire ça un peu plus tard...", "scoretimer_textures", "scoretimer_generic_cross", 4000)
     end
 end)
 

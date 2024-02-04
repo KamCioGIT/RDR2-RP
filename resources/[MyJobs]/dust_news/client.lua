@@ -1,5 +1,6 @@
 
 local guiEnabled = false
+local propAnim = nil
 
 RegisterNetEvent("dust_newspapers:newspapers")
 AddEventHandler("dust_newspapers:newspapers", function(list)
@@ -39,6 +40,9 @@ RegisterNUICallback('exit', function(data, cb)
     SetNuiFocus(false, false)
     guiEnabled = false
     cb('ok')
+    ClearPedTasks(PlayerPedId())
+    DeleteEntity(propAnim)
+    propanim = nil
 end)
 
 RegisterCommand("newspaper", function()
@@ -52,6 +56,9 @@ end)
 RegisterNetEvent("dust_newspaper:get_newspaper")
 AddEventHandler("dust_newspaper:get_newspaper", function(link)
 	EnableGui2(true, link)
+    TriggerEvent("redemrp_inventory:closeinv")
+    Wait(500)
+    playAnimationProp("amb_rest_lean@world_human_lean@barrel@read_newspaper@male_a@base", "base", -1, 25, {"p_newspaper01x", "SKEL_L_Finger00", 0.07, -0.02, 0.17, 86.0, -164.0, 5.0})
 end)
 
 RegisterNetEvent("dust_job:newspaper")
@@ -122,3 +129,34 @@ AddEventHandler("dust_newspaper:imprimerie", function(type)
         TriggerServerEvent("dust_newspaper:new", "impression", input[1], input[2], input[3])
     end
 end)
+
+
+function playAnimationProp(dict, name, time, flag, setup)
+    if dict ~= "" then
+        playAnimation(dict, name, time, flag)
+    end
+    Citizen.Wait(900)
+    local pos = GetEntityCoords(PlayerPedId())
+    if propAnim == nil then
+        while not HasModelLoaded(GetHashKey(setup[1])) do
+            Wait(0)
+            ModelRequest( GetHashKey(setup[1]) )
+        end
+        propAnim = CreateObject(setup[1], pos.x, pos.y, pos.z, true, true, false)
+        AttachEntityToEntity(propAnim, PlayerPedId(), GetEntityBoneIndexByName(PlayerPedId(), setup[2]), setup[3], setup[4], setup[5], setup[6], setup[7], setup[8], false, false, true, false, 0, true, false, false)
+        SetEntityCollision(propAnim, false, true)
+    end
+end
+
+function playAnimation(dict, name, time, flag)
+    RequestAnimDict(dict)
+    while not HasAnimDictLoaded(dict) do
+        Citizen.Wait(0)
+    end
+    TaskPlayAnim(PlayerPedId(), dict, name, 1.0, -1.0, time, flag, 0, true, 0, false, 0, false)
+end
+function ModelRequest(model)
+    Citizen.CreateThread(function()
+        RequestModel(model)
+    end)
+end
