@@ -7,8 +7,83 @@ end)
 
 ---- vendre 
 
+--- spawn
+RegisterNetEvent("dust_train:server:asktrain")
+AddEventHandler(
+    "dust_train:server:asktrain",
+    function()
+        local _source = source     
+		local user = RedEM.GetPlayer(_source)
+		local identifier = user.identifier
+		local charid = user.charid
+		local job = user.job
+		local jobgrade = tonumber(user.jobgrade)
+		local gang = user.gang
+		local ganggrade = tonumber(user.ganggrade)
+		if jobgrade > 2 then
+			jobgrade = 2
+		elseif ganggrade > 2 then
+			ganggrade = 2
+		end
+		MySQL.query('SELECT * FROM train WHERE (`selected`=@selected AND `identifier`=@identifier AND `charid`=@charid) OR (`selected`=@selected AND `job`=@job AND `jobgrade`=@jobgrade) OR (`selected`=@selected AND `gang`=@gang AND `ganggrade`=@ganggrade) OR (`selected`=@selected AND `gang`=@gang) OR (`selected`=@selected AND `job`=@job);',
+		{
+			identifier = identifier,
+			charid = charid,
+			stable = stable,
+			job = job,
+			jobgrade = jobgrade,
+			gang = gang,
+			ganggrade = ganggrade,
+			selected = 0
 
+		}, function(result)
+			if #result ~= 0 then
+				for i = 1, #result do
+					if result[i].selected == 0 then 
+						local trainid = result[i].trainid
+						local name = result[i].name
+						local model = result[i].model
+						local stable = result[i].stable
+						local race = result[i].race
+						local stashid = result[i].stashid
+						local type = result[i].type
+						TriggerClientEvent("dust_train:server:gettrain", _source, trainid, name, model, stable, race, stashid, type)
+					end
+				end                    
+			end
+		end)
+end)
 
+RegisterServerEvent("dust_train:server:askcomponents")
+AddEventHandler("dust_train:server:askcomponents", function(trainid)
+	local _source = source
+	local user = RedEM.GetPlayer(_source)
+	local identifier = user.identifier
+	local charid = user.charid
+	MySQL.query('SELECT * FROM train WHERE `trainid`=@trainid;', {trainid = trainid}, function(result)
+		if #result ~= 0 then
+			for i = 1, #result do
+				if result[i].selected == 0 then 
+					_components = json.decode(result[1].components)
+					meta = json.decode(result[1].meta)
+					TriggerClientEvent("dust_train:server:getcomponents", _source, _components, meta)
+				end
+			end                    
+		end
+	end)
+end)
+	
+spawnedtrains = {}
+RegisterServerEvent("dust_train:server:trainout")
+AddEventHandler("dust_train:server:trainout", function (trainid, entity)
+	MySQL.update('UPDATE train SET `selected`=@selected  WHERE `trainid`=@trainid;',
+		{
+			trainid = trainid,
+			selected = 1
+		}, function(rowsChanged)
+			table.insert(spawnedtrains, {entity = entity, id = trainid})
+	end)          
+end)
 
 RegisterServerEvent("dust_train:askitemneed", function()
     local _source = tonumber(source)

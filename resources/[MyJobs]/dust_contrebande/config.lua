@@ -17,8 +17,6 @@ Config.AlambicMoonshine = {
 
 Config.AtelierOpium = {
     vector3(-1055.804, -2505.994, 74.5), --- test
-    vector3(-1676.222, -340.8342, 169.7878) ---- warder
-
 }
 
 

@@ -24,12 +24,14 @@ Citizen.CreateThread(function()
 		for k, v in pairs(Config.Doors) do
 			if #(playerPos - v.pos) < 1.2 then
 				if v.gun == true then
-					if WeapType == "SHOTGUN" or WeapType == "LONGARM" or WeapType == "SHORTARM" then
 						TriggerEvent('dust_presskey', "Appuyez sur G pour braquer")
 						if IsControlJustPressed(2, 0x760A9C6F) then
-							TriggerServerEvent("dust_braquage:askgrille", k)
+							if WeapType == "SHOTGUN" or WeapType == "LONGARM" or WeapType == "SHORTARM" then
+								TriggerServerEvent("dust_braquage:askgrille", k)
+							else
+								TriggerEvent("redem_roleplay:NotifyLeft", "Braquage", "Sortez une arme !", "scoretimer_textures", "scoretimer_generic_cross", 4000)
+							end
 						end
-					end
 				end
 				if v.gun == false then
 					TriggerEvent('dust_presskey', "Appuyez sur G pour poser la dynamite")

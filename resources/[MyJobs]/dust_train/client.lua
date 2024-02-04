@@ -1,5 +1,137 @@
 ---- SPAWN DU TRAIN ET GESTION DU STASH
 
+Citizen.CreateThread(function()
+    for k, v in pairs(Config.trains) do
+                local blips = N_0x554d9d53f696d002(1664425300, v.pos)
+                SetBlipSprite(blips, -1350763423, 1)
+                SetBlipScale(blips, 1.0)
+                Citizen.InvokeNative(0x9CB1A1623062F402, blips, v.name)
+    end
+    while true do
+        Wait(0)
+        local playerpos = GetEntityCoords(PlayerPedId())
+        for k, v in pairs(Config.trains) do
+            if #(playerpos - v.pos ) < 4.5 and not IsPedOnMount(PlayerPedId()) and not isInteracting then
+                TriggerEvent('dust_presskey', "Appuyez sur Entrée")
+                if IsControlJustReleased(0, 0xC7B5340A) then
+                    isInteracting = true
+                    local menutype = "Ouvrir"
+                    TriggerServerEvent("dust_train:server:asktrain")
+                    Wait(600)
+                    OpenGarage(menutype, v.garage)
+                end
+            end
+        end
+    end
+end)
+
+function OpenGarage(menutype, stable)
+    local _menutype = menutype
+    local playerPed = PlayerPedId()
+    local Position = GetEntityCoords(playerPed)
+    Citizen.CreateThread(function()
+        while true do
+            Wait(100)
+            if #(Position - GetEntityCoords(PlayerPedId())) > 2.5 then
+                TriggerEvent("redemrp_menu_base:getData", function(call)
+                    call.CloseAll()
+                    isInteracting = false
+                end)
+                return
+            end
+        end
+    end)
+    TriggerEvent("redemrp_menu_base:getData", function(MenuData)
+        MenuData.CloseAll()
+        local elements = {}
+
+        if _menutype == 'Ouvrir' then
+            for k, v in pairs(trainlist) do
+                if stable then
+                    if tostring(v.stable) == tostring(stable) then
+                        table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id})
+                    end
+                else
+                    table.insert(elements, {label = v.name, value = v.id, desc = "Race:  "..v.lib.."   ID:  " ..v.id.." à "..Config.trains[v.stable].name})
+                end
+            end
+        end
+
+        MenuData.Open('default', GetCurrentResourceName(), 'écurie', {
+            title = "Écurie",
+            subtext = "Vos biens",
+            align = 'top-right',
+            elements = elements,
+        },
+        
+        function(data, menu)
+            MenuData.CloseAll()
+            if _menutype == 'Ouvrir' then
+                if data.current.value then
+                    TriggerServerEvent("dust_train:server:askcomponents", data.current.value)
+                    Wait(700)
+                    for k, v in pairs(trainlist) do
+                        if v.id == data.current.value then
+                            SpawnTrain(v.race, v.name, v.id, v.stashid)
+                        end
+                        Wait(100)
+                        trainlist[k] = nil
+                        isInteracting = false
+                    end
+                end
+            end
+        end,
+        function(data, menu)
+            menu.close()
+            isInteracting = false
+        end)
+    end)
+end
+
+local spawnedtrains = {}
+RegisterNetEvent("dust_train:server:getcomponents")
+AddEventHandler("dust_train:server:getcomponents", function(components, _meta)
+    CompCache = components
+    selectedmeta = _meta
+end)
+
+local trainlist = {}
+RegisterNetEvent("dust_train:server:gettrain")
+AddEventHandler("dust_train:server:gettrain", function(trainid, nom, model, pos, _race, idstash, _type)
+    trainlist = {}
+    Wait(50)
+    table.insert(trainlist, {id = trainid, name = nom, race = model, stable = pos, lib = _race, stashid = idstash, type = _type})
+end)
+
+
+RegisterCommand('testtrain', function(source, args)
+SpawnTrain(args[1])
+end)
+
+function SpawnTrain(race, name, id, stashid)
+    local trainHash = tonumber(race)
+    local trainWagons = N_0x635423d55ca84fc8(trainHash)
+    for wagonIndex = 0, trainWagons - 1 do
+        trainWagonModel = N_0x8df5f6a19f99f0d5(trainHash, wagonIndex)
+        while not HasModelLoaded(trainWagonModel) do
+            Citizen.InvokeNative(0xFA28FE3A6246FC30, trainWagonModel, 1)
+            Citizen.Wait(100)
+        end
+    end
+    local coords = GetEntityCoords(PlayerPedId())
+    train = N_0xc239dbd9a57d2a71(trainHash, coords, 1, 0, 1, 1)
+    TaskWarpPedIntoVehicle(PlayerPedId(), train, -1)
+    SetEntityAsMissionEntity(train, true, true)
+    SetTrainSpeed(train, 0.0)
+    NetworkRegisterEntityAsNetworked(train)
+
+    Entity(train).state:set('trainid', trainid, true)
+    Entity(train).state:set('stashid', stashid, true)
+    TriggerServerEvent("dust_train:server:trainout", trainid, cart)
+
+    table.insert(spawnedtrains, {entity = cart, id = trainid})
+end
+
 ------- DROP DES BIJOUX A LA BANQUE DE ST DENIS
 
 

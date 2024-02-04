@@ -12,6 +12,10 @@ Config.Doors = {
 -------
     [2] = {gun = true, dynamite = 0, pos = vector3(1295.688, -1304.729, 76.04355), started = false, npc = nil, npcmodel = "mp_u_m_m_bankprisoner_01", npcheading = 315.5272, npccoords = vector3(1291.142, -1303.214, 76.04111)}, ---- RHODES
     [3] = {gun = true, dynamite = 0, pos = vector3(-816.1816, -1277.426, 42.63772), started = false, npc = nil, npcmodel = "s_m_m_bankclerk_01", npcheading = 176.5272, npccoords = vector3(-813.2552, -1275.379, 42.6377)}, ---- bw
+    [6] = {gun = true, dynamite = 0, pos = vector3(-877.6141, -1327.109, 42.96725), started = false, npc = nil, npcmodel = "mp_u_m_m_lom_train_clerk_01", npcheading = 177.5272, npccoords = vector3(-874.9944, -1327.21, 42.96835)}, ---- bw poste
+    [7] = {gun = true, dynamite = 0, pos = vector3(-1763.22, -382.1005, 156.7385), started = false, npc = nil, npcmodel = "mp_u_m_m_lom_train_conductor_01", npcheading = 45.5272, npccoords = vector3(-1763.813, -385.1159, 156.7399)}, ---- straw poste
+    [8] = {gun = true, dynamite = 0, pos = vector3(1228.886, -1294.315, 75.90707), started = false, npc = nil, npcmodel = "u_m_o_rigtrainstationworker_01", npcheading = 43.5272, npccoords = vector3(1226.642, -1295.094, 75.90526)}, ---- rhodes poste
+    [9] = {gun = true, dynamite = 0, pos = vector3(2745.823, -1398.605, 45.1831), started = false, npc = nil, npcmodel = "u_m_m_tumtrainstationworker_01", npcheading = 202.5272, npccoords = vector3(2748.89, -1398.156, 45.18308)}, ---- stdenis poste
 }
 Config.HandsUpAnim = {
     [1] = 	{dict= "ai_temp@base", anim = "handsup_base"},
@@ -144,4 +148,30 @@ Config.Vault = {
             ["diamant"] = {amount = 2, chance = 30},
             ["obligations"] = {amount = 2, chance = 50},
         }}, -- ST DENIS hard
+
+        ----- poste blackwater
+        {difficulty = "simple", pos = vector3(-873.8395, -1326.745, 42.9581), cashmax = 25, cashmin = 10, items = {
+            ["epinglecheveux"] = {amount = 2, chance = 45},
+            ["peigneivoire"] = {amount = 1, chance = 50},
+        }},
+        ----- poste strawberry
+        {difficulty = "simple", pos = vector3(-1761.182, -382.8658, 156.7415), cashmax = 15, cashmin = 5, items = {
+            ["collierperles"] = {amount = 1, chance = 75},
+            ["dentor"] = {amount = 3, chance = 35},
+        }},
+        ----- poste rhodes
+        {difficulty = "simple", pos = vector3(1229.783, -1297.321, 75.90556), cashmax = 20, cashmin =10, items = {
+            ["collierperles"] = {amount = 1, chance = 75},
+            ["dentor"] = {amount = 3, chance = 35},
+        }},
+        ----- poste rhodes
+        {difficulty = "simple", pos = vector3(1227.403, -1297.888, 75.90291), cashmax = 25, cashmin = 10, items = {
+            ["epinglecheveux"] = {amount = 2, chance = 45},
+            ["peigneivoire"] = {amount = 1, chance = 50},
+        }},
+        ----- poste saint denis
+        {difficulty = "simple", pos = vector3(2749.128, -1395.896, 45.18307), cashmax = 30, cashmin = 15, items = {
+            ["bouclesoreilles"] = {amount = 2, chance = 40},
+            ["pierreprecieuse"] = {amount = 1, chance = 60},
+        }},
 }
