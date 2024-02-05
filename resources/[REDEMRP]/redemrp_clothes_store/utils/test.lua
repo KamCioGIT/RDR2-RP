@@ -93762,6 +93762,22 @@ clothes_list = {
 				}
 			},
 			[128] = {
+				['category_hash'] = 2569388135,
+				['category_hash_dec_signed'] = -1725579161,
+				['category_hashname'] = 'hats',
+				['hashname'] = '3278504748',
+				['is_multiplayer'] = false,
+				['ped_type'] = 'male',
+				['drawable'] = `hat_mr1_066`,
+				['albedo'] = `nehfmoga_0x2f712077`,
+				['normal'] = `qfflzpfa_0x4ce7ef0d`,
+				['material'] = `lxzfwpjb_0xe8da9bd8`,
+				['palette'] = `yadlkkza_0xfb71527b`,
+				['tint0'] = 23,
+				['tint1'] = 3,
+				['tint2'] = 26
+				},
+			[129] = {
 				[1] = {
 					['category_hash'] = 2569388135,
 					['category_hash_dec_signed'] = -1725579161,
