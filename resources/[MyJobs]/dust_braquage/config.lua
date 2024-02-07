@@ -24,27 +24,27 @@ Config.HandsUpAnim = {
 
 Config.Vault = {
 ------ RHODES ----------
-        {difficulty = "simple", pos = vector3(1291.873, -1309.8, 76.04002), cashmax = 50, cashmin = 20, items = {
+        {difficulty = "simple", pos = vector3(1291.873, -1309.8, 76.04002), cashmax = 20, cashmin = 13, items = {
             ["bouclesoreilles"] = {amount = 2, chance = 40},
             ["pierreprecieuse"] = {amount = 1, chance = 60},
         }}, -- rhodes simple
-        {difficulty = "simple", pos = vector3(1290.022, -1312.351, 76.03999), cashmax = 50, cashmin = 20, items = {
+        {difficulty = "simple", pos = vector3(1290.022, -1312.351, 76.03999), cashmax = 20, cashmin = 13, items = {
             ["brocheruby"] = {amount = 1, chance = 25},
             ["alliance"] = {amount = 2, chance = 35},
         }}, -- rhodes simple
-        {difficulty = "simple", pos = vector3(1288.659, -1311.141, 76.03963), cashmax = 50, cashmin = 20, items = {
+        {difficulty = "simple", pos = vector3(1288.659, -1311.141, 76.03963), cashmax = 20, cashmin = 13, items = {
             ["epinglecheveux"] = {amount = 2, chance = 45},
             ["peigneivoire"] = {amount = 1, chance = 50},
         }}, -- rhodes simple
-        {difficulty = "simple", pos = vector3(1290.25, -1306.203, 76.0417), cashmax = 50, cashmin = 20, items = {
+        {difficulty = "simple", pos = vector3(1290.25, -1306.203, 76.0417), cashmax = 20, cashmin = 13, items = {
             ["collierperles"] = {amount = 1, chance = 75},
             ["dentor"] = {amount = 3, chance = 35},
         }}, -- rhodes simple
-        {difficulty = "simple", pos = vector3(1288.809, -1303.837, 76.04027), cashmax = 50, cashmin = 20, items = {
+        {difficulty = "simple", pos = vector3(1288.809, -1303.837, 76.04027), cashmax = 20, cashmin = 13, items = {
             ["watch3"] = {amount = 2, chance = 35},
             ["pierreprecieuse"] = {amount = 1, chance = 15},
         }}, -- rhodes simple
-        {difficulty = "simple", pos = vector3(1291.027, -1306.732, 76.04198), cashmax = 50, cashmin = 20, items = {
+        {difficulty = "simple", pos = vector3(1291.027, -1306.732, 76.04198), cashmax = 20, cashmin = 13, items = {
             ["bouclesoreilles"] = {amount = 1, chance = 25},
             ["alliance"] = {amount = 2, chance = 45},
         }}, -- rhodes simple
